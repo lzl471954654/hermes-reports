@@ -10,35 +10,43 @@ body { background:#0d1b2a; color:#e0e0e0; font-family: -apple-system, system-ui,
 h1 { color:#4fc3f7; font-size:1.4em; margin-bottom:4px; }
 .date { color:#888; font-size:0.85em; margin-bottom:24px; }
 h2 { color:#4fc3f7; font-size:1.1em; margin:28px 0 12px; padding-bottom:6px; border-bottom:1px solid #1a3a5c; }
+h3 { color:#29b6f6; font-size:1em; margin:16px 0 6px; }
 .section { background:#112240; border-radius:10px; padding:16px 20px; margin-bottom:16px; }
+.advice { background:#1a3040; border-left:3px solid #4fc3f7; padding:8px 12px; margin:10px 0; border-radius:0 6px 6px 0; font-size:0.9em; }
+.warn { background:#3a2020; border-left:3px solid #ef5350; padding:8px 12px; margin:10px 0; border-radius:0 6px 6px 0; font-size:0.9em; }
 ul { padding-left:18px; }
 li { margin:4px 0; }
-.tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.8em; font-weight:600; }
+.tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.8em; font-weight:600; margin-right:4px; }
 .tag-ok { background:#1b5e20; color:#66bb6a; }
 .tag-warn { background:#5e3d00; color:#ffb74d; }
 .tag-bad { background:#5e1b1b; color:#ef5350; }
 .highlight { color:#4fc3f7; font-weight:600; }
 .footer { color:#555; font-size:0.78em; margin-top:32px; padding-top:16px; border-top:1px solid #1a3a5c; text-align:center; }
-table { width:100%; border-collapse:collapse; margin:8px 0; }
-td,th { padding:6px 10px; text-align:left; border-bottom:1px solid #1a3a5c; font-size:0.9em; }
-th { color:#888; font-weight:normal; }
 .summary-row { display:flex; gap:12px; flex-wrap:wrap; }
-.summary-card { flex:1; min-width:180px; background:#0a1628; border-radius:8px; padding:12px; text-align:center; }
-.summary-card .num { font-size:2em; font-weight:700; }
+.summary-card { flex:1; min-width:140px; background:#0a1628; border-radius:8px; padding:12px; text-align:center; }
+.summary-card .num { font-size:1.8em; font-weight:700; }
 .summary-card .label { color:#888; font-size:0.8em; }
+table { width:100%; border-collapse:collapse; margin:8px 0; font-size:0.9em; }
+td,th { padding:6px 10px; text-align:left; border-bottom:1px solid #1a3a5c; }
+th { color:#888; font-weight:normal; }
+.eval { margin:8px 0; }
+.no-data { color:#666; font-style:italic; }
+.mute { color:#888; font-size:0.85em; }
+strong { color:#fff; }
 </style>
 </head>
 <body>
 
-<h1>🏋️ #fitness 每日总结</h1>
-<div class="date">2026-06-29（周一）· 生成于 22:00</div>
+<h1>🏋️ 健身&饮食总结报告</h1>
+<div class="date">2026-06-29（周一）· 生成于 23:00 CST</div>
 
+<!-- 概览 -->
 <div class="section">
   <h2>📊 今日概览</h2>
   <div class="summary-row">
     <div class="summary-card">
-      <div class="num">3</div>
-      <div class="label">打卡人数</div>
+      <div class="num" style="color:#66bb6a;">3</div>
+      <div class="label">完成记录</div>
     </div>
     <div class="summary-card">
       <div class="num">2</div>
@@ -46,81 +54,141 @@ th { color:#888; font-weight:normal; }
     </div>
     <div class="summary-card">
       <div class="num" style="color:#ffb74d;">1,169</div>
-      <div class="label">最高运动消耗 kcal</div>
+      <div class="label">最高消耗 kcal</div>
     </div>
     <div class="summary-card">
-      <div class="num">1</div>
-      <div class="label" style="color:#ef5350;">热量缺口过大 🔴</div>
+      <div class="num" style="color:#ef5350;">1</div>
+      <div class="label">缺口过大 🔴</div>
     </div>
+  </div>
+  <p style="margin-top:12px;">今天 3 位成员均有饮食记录，2 位完成训练。智林一天两练训练量冠绝全群，但热量缺口严重超标需要关注。Monkiki 训练+饮食记录最完整。Ckddd 休息日无训练，火锅炉打卡幸福值拉满 😂</p>
+</div>
+
+<!-- 智林 -->
+<div class="section">
+  <h2>🏆 智林</h2>
+
+  <h3>🍽️ 饮食</h3>
+  <ul>
+    <li><strong>午餐</strong>：少油麻辣香锅（鸡胸~175g + 白鱼片~175g + 8种蔬菜~400g + 米饭~200g）— ~735 kcal · 蛋白质 ~79g</li>
+    <li><strong>晚餐</strong>：同款麻辣香锅 — ~775 kcal · 蛋白质 ~78g</li>
+    <li><strong>睡前</strong>：牛奶 250ml — +150 kcal · 蛋白质 +8g</li>
+  </ul>
+  <p><strong>全日摄入：~1,660 kcal · 蛋白质 ~165g</strong></p>
+
+  <h3>🏋️ 运动</h3>
+  <ul>
+    <li>12:16–13:13 <strong>背训</strong> 57min · 573 kcal · avg 心率 120</li>
+    <li>18:18–18:46 <strong>背+卷腹</strong> 28min · 209 kcal</li>
+    <li>18:46–19:18 <strong>室内单车</strong> 32min · 387 kcal</li>
+  </ul>
+  <p><strong>🔥 全日消耗 1,169 kcal · 一天两练+有氧</strong></p>
+
+  <h3>⚖️ 身体状态</h3>
+  <p>身高 185cm · 体重 93.5kg · BMI ~27.3 · BMR ~2,300 kcal/天</p>
+
+  <div class="warn">
+    <strong>⚠️ 热量缺口 1,809 kcal</strong> — TDEE ~3,469 vs 摄入 1,660。减脂期建议缺口 500–800 kcal/天，今天严重超标。蛋白质 165g 虽能保住大部分肌肉，但长期大缺口会导致代谢下降和肌肉流失。
+  </div>
+
+  <div class="advice">
+    <strong>💡 明日建议</strong><br>
+    1. 明天必须加碳水——至少多吃 300g 米饭或两个馒头，把摄入拉到 2,000 kcal 以上<br>
+    2. 一天两练的频率不建议连续，明天休息或只做轻有氧
   </div>
 </div>
 
-<!-- ====== 智林 ====== -->
-<div class="section">
-  <h2>🏆 智林 <span class="tag tag-warn">今日 MVP 训练量</span></h2>
-
-  <h3>🏋️ 训练</h3>
-  <ul>
-    <li>12:16–13:13 背训 57min · <span class="highlight">573 kcal</span> · avg 心率 120</li>
-    <li>18:18–18:46 背+卷腹 28min · 209 kcal</li>
-    <li>18:46–19:18 室内单车 32min · 387 kcal</li>
-  </ul>
-  <p><strong>🔥 全日总消耗：1,169 kcal</strong>（一天两练+有氧，教科书级）</p>
-
-  <h3>🍽️ 饮食</h3>
-  <ul>
-    <li>午餐：麻辣香锅（鸡胸+鱼片+8种蔬菜+米饭）~735 kcal · 蛋白质 79g</li>
-    <li>晚餐：麻辣香锅同款 ~775 kcal · 蛋白质 78g</li>
-    <li>睡前：牛奶 250ml +150 kcal · 蛋白质 8g</li>
-  </ul>
-
-  <p><strong>净摄入 ≈ 491 kcal · 蛋白质 165g</strong></p>
-  <p><span class="tag tag-bad">🔴 缺口 1,809 kcal</span> — TDEE 3,469 vs 摄入 1,660，减脂期也严重超标。明天必须补碳水。</p>
-</div>
-
-<!-- ====== Monkiki ====== -->
+<!-- Monkiki -->
 <div class="section">
   <h2>🥗 Monkiki</h2>
 
-  <h3>🏋️ 训练</h3>
-  <ul>
-    <li>15:00–16:38 背训 1h3min · <span class="highlight">362 kcal</span> · avg 心率 111</li>
-    <li>16:08–16:38 椭圆仪 30min · 心率 145 (Z2 23min)</li>
-    <li>辅助引体60kg×4组 / 划船25kg / 高位下拉30kg / 直臂下压15kg / V把下拉17.5kg</li>
-  </ul>
-
   <h3>🍽️ 饮食</h3>
   <ul>
-    <li>午餐：无底料火锅（蔬菜为主+2片吐司+小番茄25颗+拿铁）~650 kcal · 蛋白质 15g</li>
-    <li>晚餐：空气炸锅辣子鸡（鸡胸160g+西兰花甜椒花生）~400 kcal · 蛋白质 40g</li>
-    <li>加餐：法式硬欧包整只 + 提拉米苏1/4块 ~1,170 kcal</li>
+    <li><strong>午餐</strong>：无底料火锅（蔬菜为主+2片吐司+小番茄25颗+拿铁300ml）— ~650 kcal · 蛋白质 ~15g <span class="mute">估算</span></li>
+    <li><strong>晚餐</strong>：空气炸锅辣子鸡（鸡胸160g+西兰花甜椒胡萝卜花生）— ~400 kcal · 蛋白质 ~40g</li>
+    <li><strong>加餐</strong>：法式硬欧包整只 + 提拉米苏1/4块 — ~1,170 kcal</li>
   </ul>
+  <p><strong>全日摄入：~2,220 kcal · 蛋白质 ~87g</strong></p>
 
-  <p><strong>全日：2,220 kcal · 蛋白质 87g · 净摄入 ~1,720 kcal</strong></p>
-  <p><span class="tag tag-ok">✅ 训练日热量合理</span> 提拉米苏只吃1/4块，自制力好评 👏</p>
+  <h3>🏋️ 运动</h3>
+  <ul>
+    <li>15:00–16:38 <strong>背训</strong> 1h3min · 362 kcal</li>
+    <li>辅助引体60kg×4 / 划船25kg×4 / 高位下拉30kg×4 / 直臂下压15kg×4 / V把下拉17.5kg×4</li>
+    <li>16:08–16:38 <strong>椭圆仪有氧</strong> 30min · avg 心率 145</li>
+  </ul>
+  <p><strong>总消耗 ~500 kcal · 训练日净摄入 ~1,720 kcal</strong></p>
+
+  <h3>⚖️ 身体状态</h3>
+  <p class="no-data">未记录</p>
+
+  <div class="eval">
+    <span class="tag tag-ok">✅ 训练日热量合理</span> 
+    背训动作选择全面（宽度+厚度+后链），椭圆仪有氧节奏刚好。提拉米苏只吃1/4块的克制力值得表扬 👏
+  </div>
+
+  <div class="advice">
+    <strong>💡 明日建议</strong><br>
+    1. 午餐蛋白质偏低（仅15g），可加鸡胸或豆腐补到30g+<br>
+    2. 下次记录一下身体状态（疲劳/酸痛/睡眠），方便跟踪恢复
+  </div>
 </div>
 
-<!-- ====== Ckddd ====== -->
+<!-- Ckddd -->
 <div class="section">
   <h2>🍲 Ckddd</h2>
 
-  <h3>🏋️ 训练</h3>
-  <p style="color:#888;">今日无训练记录</p>
-
   <h3>🍽️ 饮食</h3>
   <ul>
-    <li>早餐：南瓜咸蛋黄菠萝包 + 冰美式 + 蛋白粉20g ~505 kcal</li>
-    <li>下午茶：瑞幸柠檬茶（无糖）~15 kcal</li>
-    <li>晚餐：锦城印象麻辣鸳鸯火锅（肥牛+蘸料）~1,000 kcal</li>
+    <li><strong>早餐</strong>：南瓜咸蛋黄菠萝包 + 冰美式 + 蛋白粉20g — ~505 kcal · 蛋白质 ~18g</li>
+    <li><strong>下午茶</strong>：瑞幸柠檬茶（无糖）— ~15 kcal</li>
+    <li><strong>晚餐</strong>：锦城印象麻辣鸳鸯火锅（肥牛+蘸料）— ~1,000 kcal <span class="mute">估算</span></li>
   </ul>
+  <p><strong>全日摄入：~1,520 kcal</strong></p>
 
-  <p><strong>全日：~1,520 kcal</strong></p>
-  <p><span class="tag tag-ok">✅ 热量适中</span> 锦城印象三料火锅 👍 休息日吃火锅无可厚非</p>
+  <h3>🏋️ 运动</h3>
+  <p class="no-data">今日暂无有效记录</p>
+
+  <h3>⚖️ 身体状态</h3>
+  <p>体脂 14.6% · 肌肉 53.4kg · 体重 66.6kg（最近体测 2/25）</p>
+
+  <div class="eval">
+    <span class="tag tag-ok">✅ 休息日热量适中</span> 
+    锦城印象黑珍珠+必吃榜+米其林三料火锅，幸福值拉满 😂 休息日吃好喝好没毛病。
+  </div>
+
+  <div class="advice">
+    <strong>💡 明日建议</strong><br>
+    1. 休息日结束，明天可以恢复训练了——哪怕轻量也行<br>
+    2. 早餐蛋白质偏低，蛋白粉可以加到 30g
+  </div>
+</div>
+
+<!-- 群内提醒 -->
+<div class="section">
+  <h2>📢 群内提醒</h2>
+  <ul>
+    <li>💧 记得补水——夏季训练出汗多，每天至少 2.5L</li>
+    <li>🥩 减脂期优先保蛋白质，碳水可以少吃但不要断</li>
+    <li>😴 训练后恢复和睡眠比多练一组更重要</li>
+    <li>📝 热量估算不需要完美，但尽量持续记录才看得出趋势</li>
+    <li>🔔 明天继续打卡饮食和运动，Ckddd 别忘了动起来 💪</li>
+  </ul>
+</div>
+
+<!-- 数据完整度 -->
+<div class="section">
+  <h2>📋 数据完整度</h2>
+  <ul>
+    <li><strong>本地 md 文件：</strong>✅ 成功 — 读取了 lzl.md、monkiki.md、ckddd.md</li>
+    <li><strong>群聊记录：</strong>⚠️ 本次为手动预览，未实时读取今日群聊</li>
+    <li><strong>冲突记录：</strong>无</li>
+    <li><strong>估算数据：</strong>有 — 火锅、麻辣香锅等外出就餐热量为估算</li>
+  </ul>
 </div>
 
 <div class="footer">
-  ⚠️ 以上数据来自 #fitness 频道记录，仅供参考。热量为 AI 估算值，存在误差。<br>
-  生成时间：2026-06-29 22:00 CST
+  ⚠️ 以上数据来自 #fitness 频道记录和本地 md 文件，仅供参考。热量为 AI 估算值，存在误差。不构成医学或营养建议。<br>
+  生成时间：2026-06-29 23:00 CST
 </div>
 
 </body>
