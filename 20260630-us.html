@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026年6月30日 周二</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --purple: #a371f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px; max-width: 900px; margin: 0 auto;
+  }
+  .header {
+    text-align: center; padding: 30px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px;
+  }
+  .header h1 { font-size: 1.6em; color: #fff; margin-bottom: 6px; }
+  .header .date { color: var(--text-dim); font-size: 0.9em; }
+  .header .subtitle { color: var(--blue); font-size: 0.85em; margin-top: 2px; }
+  
+  .section {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px;
+  }
+  .section h2 { 
+    font-size: 1.1em; margin-bottom: 14px; color: #fff;
+    padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  }
+  .section h2 .icon { margin-right: 6px; }
+  
+  table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+  th { text-align: left; color: var(--text-dim); font-weight: 500; padding: 6px 10px; border-bottom: 1px solid var(--border); font-size: 0.82em; }
+  td { padding: 7px 10px; border-bottom: 1px solid rgba(48,54,61,0.5); }
+  tr:last-child td { border-bottom: none; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .price { font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; }
+  .name { color: var(--text); }
+  .ticker { color: var(--text-dim); font-size: 0.85em; margin-left: 4px; }
+  
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75em; font-weight: 600;
+  }
+  .badge-up { background: rgba(63,185,80,0.15); color: var(--green); }
+  .badge-down { background: rgba(248,81,73,0.15); color: var(--red); }
+  .badge-neutral { background: rgba(210,153,29,0.15); color: var(--orange); }
+  
+  .news-item {
+    padding: 8px 0; border-bottom: 1px solid rgba(48,54,61,0.4);
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-item .tag {
+    display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 0.72em; 
+    font-weight: 600; margin-right: 8px; vertical-align: 2px;
+  }
+  .tag-macro { background: rgba(88,166,255,0.15); color: var(--blue); }
+  .tag-tech { background: rgba(163,113,247,0.15); color: var(--purple); }
+  .tag-semicon { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-ai { background: rgba(210,153,29,0.15); color: var(--orange); }
+  
+  .mapping-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 0.88em;
+  }
+  .map-card {
+    background: rgba(22,27,34,0.6); border: 1px solid var(--border); border-radius: 8px; padding: 14px;
+  }
+  .map-card h3 { font-size: 0.9em; color: var(--blue); margin-bottom: 6px; }
+  .map-card .stocks { color: var(--text-dim); }
+  .map-card .stocks span { color: #fff; font-weight: 500; }
+  
+  .footer {
+    text-align: center; color: var(--text-dim); font-size: 0.78em; padding: 20px 0; margin-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .highlight-box {
+    background: rgba(88,166,255,0.06); border-left: 3px solid var(--blue);
+    padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-size: 0.88em;
+  }
+  .highlight-box strong { color: #fff; }
+  
+  .summary-strip {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 12px;
+  }
+  .summary-item {
+    flex: 1; min-width: 140px; background: rgba(22,27,34,0.8); border-radius: 8px; 
+    padding: 12px 14px; text-align: center; border: 1px solid var(--border);
+  }
+  .summary-item .label { font-size: 0.75em; color: var(--text-dim); }
+  .summary-item .value { font-size: 1.2em; font-weight: 700; color: #fff; }
+  .summary-item .change { font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 AI产业链美股收盘与A股映射早报</h1>
+  <div class="date">2026年6月30日 周二 · 覆盖6月29日（周一）美股交易</div>
+  <div class="subtitle">美股强势反弹 · 科技股领涨 · Dow首破52,000</div>
+</div>
+
+<!-- ====== 大盘概览 ====== -->
+<div class="section">
+  <h2>📊 美股三大指数</h2>
+  <div class="summary-strip">
+    <div class="summary-item">
+      <div class="label">道琼斯 Dow</div>
+      <div class="value">52,182.74</div>
+      <div class="change up">▲ +0.59% (+306.63)</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">标普500 S&P 500</div>
+      <div class="value">7,440.43</div>
+      <div class="change up">▲ +1.18%</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">纳斯达克 Nasdaq</div>
+      <div class="value">—</div>
+      <div class="change up">▲ +2.07%</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">费城半导体 SOX</div>
+      <div class="value">~13,681</div>
+      <div class="change up">▲ ~+3.62%</div>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <strong>🔔 关键信号：</strong>道指历史上首次收于52,000点上方，创纪录收盘。纳指和标普500终结连续5个交易日下跌，科技股全面反弹。上周（6/23-26）标普累跌2%、纳指累跌4.6%，周一为超跌修复行情。中东局势缓和预期 + 逢低买盘共同推动反弹。
+  </div>
+</div>
+
+<!-- ====== AI芯片与半导体产业链 ====== -->
+<div class="section">
+  <h2>🔬 AI芯片 &amp; 半导体产业链</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>股票</th>
+        <th>代码</th>
+        <th>收盘价</th>
+        <th>涨跌幅</th>
+        <th>说明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">英伟达 NVIDIA</td>
+        <td class="ticker">NVDA</td>
+        <td class="price">~$195.00</td>
+        <td class="up">+1.27%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">上周跌8.6%，周一温和反弹；机构资金持续流出，2026年YTD几乎零涨幅</td>
+      </tr>
+      <tr>
+        <td class="name">博通 Broadcom</td>
+        <td class="ticker">AVGO</td>
+        <td class="price">$372.45</td>
+        <td class="up">+2.04%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">盘中区间 $360.46–$375.21；较6/2历史高点$495已回调25%，市场等待AI ASIC订单催化</td>
+      </tr>
+      <tr>
+        <td class="name">AMD</td>
+        <td class="ticker">AMD</td>
+        <td class="price">~$530</td>
+        <td class="up">~+1.5%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">随板块反弹，MI400路线图关注度高</td>
+      </tr>
+      <tr>
+        <td class="name">美光 Micron</td>
+        <td class="ticker">MU</td>
+        <td class="price">$1,145.28</td>
+        <td class="up">+1.14%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">较6/25历史高点$1,213.56回落5.6%；HBM3E/HBM4产能已被预订至2026年底</td>
+      </tr>
+      <tr>
+        <td class="name">Marvell</td>
+        <td class="ticker">MRVL</td>
+        <td class="price">~$275</td>
+        <td class="up">+3.18%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">2026年已暴涨213%，大幅跑赢标普500；CXL产品转型受分析师力挺</td>
+      </tr>
+      <tr>
+        <td class="name">台积电 TSMC</td>
+        <td class="ticker">TSM</td>
+        <td class="price">~$445</td>
+        <td class="up">~+3.0%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">跟随SOX反弹；先进制程（3nm/2nm）AI芯片需求旺盛</td>
+      </tr>
+      <tr>
+        <td class="name">阿斯麦 ASML</td>
+        <td class="ticker">ASML</td>
+        <td class="price">$1,883.11</td>
+        <td class="up">+4.93%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">强烈反弹，较6/26低点$1,794.62涨近5%；距6/18历史高点$1,929.68仅差2.4%</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="highlight-box" style="margin-top: 16px;">
+    <strong>📈 板块总结：</strong>SOX指数反弹约3.6%，为6月初崩盘（单日-10.4%）以来最强单日涨幅。MRVL以213%的YTD涨幅成为2026年AI芯片的绝对明星。NVDA仍是最大悬念——机构资金净流出居芯片股之首，市场高度关注即将到来的财报能否扭转颓势。
+  </div>
+</div>
+
+<!-- ====== 科技七巨头 ====== -->
+<div class="section">
+  <h2>⭐ 科技七巨头 Mag 7</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>股票</th>
+        <th>代码</th>
+        <th>日内区间</th>
+        <th>涨跌幅</th>
+        <th>看点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">Alphabet</td>
+        <td class="ticker">GOOGL</td>
+        <td class="price">$339.42–$354.35</td>
+        <td class="up">+4.82%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">Mag7最强；Google Cloud收入同比增32%，AI搜索货币化进展超预期</td>
+      </tr>
+      <tr>
+        <td class="name">微软 Microsoft</td>
+        <td class="ticker">MSFT</td>
+        <td class="price">$366.02–$380.50</td>
+        <td class="up">~+3%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">Azure AI收入持续高增；Copilot企业版渗透加速</td>
+      </tr>
+      <tr>
+        <td class="name">亚马逊 Amazon</td>
+        <td class="ticker">AMZN</td>
+        <td class="price">$232.11–$252.53</td>
+        <td class="up">~+3%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">AWS AI业务+广告双轮驱动；盘中振幅超8%</td>
+      </tr>
+      <tr>
+        <td class="name">Meta</td>
+        <td class="ticker">META</td>
+        <td class="price">—</td>
+        <td class="up">~+2%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">上周五收$550.25；Llama 4开源生态+AI广告推荐引擎持续变现</td>
+      </tr>
+      <tr>
+        <td class="name">苹果 Apple</td>
+        <td class="ticker">AAPL</td>
+        <td class="price">—</td>
+        <td class="up">~+1%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">上周五收$283.78；寻求中国芯片交易以降AI内存成本</td>
+      </tr>
+      <tr>
+        <td class="name">特斯拉 Tesla</td>
+        <td class="ticker">TSLA</td>
+        <td class="price">$382.26–$383.10</td>
+        <td class="up">~+1%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">极窄区间交易；FSD v13推送+Robotaxi路线图待更新</td>
+      </tr>
+      <tr>
+        <td class="name">NVIDIA</td>
+        <td class="ticker">NVDA</td>
+        <td class="price">见上方</td>
+        <td class="up">+1.27%</td>
+        <td style="color:var(--text-dim);font-size:0.82em;">—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ====== 重大新闻 ====== -->
+<div class="section">
+  <h2>📰 关键动态</h2>
+  
+  <div class="news-item">
+    <span class="tag tag-macro">宏观</span>
+    <strong>中东局势现缓和曙光</strong>——美国和伊朗谈判取得进展的希望推高风险偏好，油价回落，科技股获喘息窗口。
+  </div>
+  
+  <div class="news-item">
+    <span class="tag tag-tech">传媒</span>
+    <strong>Comcast宣布分拆NBCUniversal与Sky</strong>——CMCSA股价大涨。传统媒体与有线业务拆分，追随行业趋势（此前已分拆MSNBC/CNBC为Versant公司）。
+  </div>
+  
+  <div class="news-item">
+    <span class="tag tag-ai">AI产业</span>
+    <strong>OpenAI秘密提交IPO申请</strong>——继Anthropic（6/1提交S-1，估值$9650亿）之后，ChatGPT母公司也迈向公开市场。AI"正主"IPO可能分流现有AI代持股票（NVDA/AVGO等）资金。
+  </div>
+  
+  <div class="news-item">
+    <span class="tag tag-ai">AI产业</span>
+    <strong>AI用户从"Token攀比"转向效率优先</strong>——CNBC报道，企业AI支出心态转变，从无限烧钱→关注ROI。OpenAI和Anthropic的指数增长面临减速风险。
+  </div>
+  
+  <div class="news-item">
+    <span class="tag tag-semicon">半导体</span>
+    <strong>高盛AI数据中心建设篮子YTD涨近60%</strong>——涵盖数据中心基建、电力、冷却等环节。AI capex超级周期仍在持续。
+  </div>
+  
+  <div class="news-item">
+    <span class="tag tag-macro">本周关注</span>
+    <strong>周四6月非农就业报告 + 周二Nike财报</strong>——就业数据将直接影响美联储利率预期。MU/NVDA财报季也将陆续到来。
+  </div>
+</div>
+
+<!-- ====== 盘后动态 ====== -->
+<div class="section">
+  <h2>🌙 盘后动态（6/29 盘后）</h2>
+  <p style="color: var(--text-dim); font-size: 0.88em;">
+    周一盘后交易相对平静。主要AI芯片股盘后波动均在±0.5%以内，市场等待周二开盘后的方向选择。NVDA盘后微幅走低（约-0.2%），AVGO/MU持平。
+  </p>
+  <p style="color: var(--text-dim); font-size: 0.82em; margin-top: 6px;">
+    本周风险事件密集：周四非农数据、MU/NVDA财报季前的仓位调整、以及中东谈判进展都可能引发日内波动。建议关注VIX走势。
+  </p>
+</div>
+
+<!-- ====== A股映射 ====== -->
+<div class="section">
+  <h2>🇨🇳 A股映射参考</h2>
+  
+  <div class="mapping-grid">
+    <div class="map-card">
+      <h3>🔌 光模块 / CPO</h3>
+      <div class="stocks">
+        <strong>"易中天"组合：</strong><br>
+        <span>新易盛</span> · <span>中际旭创</span> · <span>天孚通信</span><br>
+        <span style="color:var(--text-dim);">+ 源杰科技、光迅科技、联特科技</span>
+      </div>
+      <div style="margin-top:8px;font-size:0.78em;color:var(--text-dim);">
+        映射逻辑：ASML大涨 +4.9%、SOX反弹3.6%，光模块作为AI算力硬件核心环节直接受益。1.6T光模块2026年预计出货2000万只，市场规模突破$146亿。黄仁勋确认Spectrum-X硅光CPO交换机下半年批量交付。
+      </div>
+    </div>
+    
+    <div class="map-card">
+      <h3>🧠 AI芯片 / 算力</h3>
+      <div class="stocks">
+        <strong>"纪连海"组合：</strong><br>
+        <span>寒武纪</span> · <span>工业富联</span> · <span>海光信息</span><br>
+        <span style="color:var(--text-dim);">+ 景嘉微、龙芯中科</span>
+      </div>
+      <div style="margin-top:8px;font-size:0.78em;color:var(--text-dim);">
+        映射逻辑：NVDA企稳反弹+MRVL暴涨213%表明AI芯片需求依然强劲。国产替代逻辑叠加，海光DCU、寒武纪思元系列国产AI芯片有望受益于算力自主可控。
+      </div>
+    </div>
+    
+    <div class="map-card">
+      <h3>🖥️ AI服务器</h3>
+      <div class="stocks">
+        <span>浪潮信息</span> · <span>中科曙光</span> · <span>紫光股份</span><br>
+        <span style="color:var(--text-dim);">+ 拓维信息、神州数码</span>
+      </div>
+      <div style="margin-top:8px;font-size:0.78em;color:var(--text-dim);">
+        映射逻辑：高盛AI数据中心篮子YTD涨60%，全球AI capex超级周期持续。国内加速服务器市场2025H1已达$160亿，同比翻倍。IDC预计2029年将超过$1400亿。
+      </div>
+    </div>
+    
+    <div class="map-card">
+      <h3>💾 存储 / HBM</h3>
+      <div class="stocks">
+        <span>兆易创新</span> · <span>北京君正</span> · <span>澜起科技</span><br>
+        <span style="color:var(--text-dim);">+ 江波龙、佰维存储</span>
+      </div>
+      <div style="margin-top:8px;font-size:0.78em;color:var(--text-dim);">
+        映射逻辑：MU（美光）HBM产能已预订至2026年底，HBM3E/HBM4供不应求。存储芯片涨价周期叠加AI需求，国内存储产业链有望受益于涨价传导。
+      </div>
+    </div>
+    
+    <div class="map-card">
+      <h3>🔧 半导体设备/材料</h3>
+      <div class="stocks">
+        <span>北方华创</span> · <span>中微公司</span> · <span>盛美上海</span><br>
+        <span style="color:var(--text-dim);">+ 拓荆科技、华海清科</span>
+      </div>
+      <div style="margin-top:8px;font-size:0.78em;color:var(--text-dim);">
+        映射逻辑：ASML大涨近5%，全球半导体设备需求旺盛。国内晶圆厂扩产+国产替代持续，设备龙头订单饱满。
+      </div>
+    </div>
+    
+    <div class="map-card">
+      <h3>⚡ AI电力/散热</h3>
+      <div class="stocks">
+        <span>英维克</span> · <span>高澜股份</span> · <span>科华数据</span><br>
+        <span style="color:var(--text-dim);">+ 申菱环境、佳力图</span>
+      </div>
+      <div style="margin-top:8px;font-size:0.78em;color:var(--text-dim);">
+        映射逻辑：AI数据中心功耗激增，液冷/散热为确定性配套需求。CPO硅光方案对散热也提出新要求。
+      </div>
+    </div>
+  </div>
+  
+  <div class="highlight-box" style="margin-top: 16px;">
+    <strong>📌 A股策略提示：</strong>隔夜美股AI全线反弹，SOX涨3.6%、ASML涨近5%、GOOGL涨4.8%，情绪面利好A股AI/半导体板块今日开盘。重点关注光模块（"易中天"）、AI芯片（"纪连海"）两大核心方向。但需注意：① 反弹性质为超跌修复，非趋势反转信号；② 周四美国非农数据前市场可能趋于谨慎；③ OpenAI/Anthropic上市进程可能分流AI板块资金。
+  </div>
+</div>
+
+<!-- ====== 风险提示 ====== -->
+<div class="section">
+  <h2>⚠️ 本周风险日历</h2>
+  <table>
+    <thead><tr><th>日期</th><th>事件</th><th>影响等级</th></tr></thead>
+    <tbody>
+      <tr><td>周二 6/30</td><td>Nike (NKE) 财报盘后</td><td>⭐⭐</td></tr>
+      <tr><td>周四 7/2</td><td>美国6月非农就业报告</td><td>⭐⭐⭐</td></tr>
+      <tr><td>本周待定</td><td>MU/NVDA 财报季临近</td><td>⭐⭐⭐</td></tr>
+      <tr><td>本周待定</td><td>美伊核谈判进展</td><td>⭐⭐</td></tr>
+      <tr><td>7/4 周五</td><td>美国独立日假期（提前休市）</td><td>⭐⭐</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <p>📅 报告生成时间：2026年6月30日 · 数据来源：CNBC / Investopedia / Yahoo Finance / MacroTrends / Robinhood</p>
+  <p>⚠️ 免责声明：本报告仅供信息参考，不构成投资建议。部分价格为基于涨跌幅的估算值。投资有风险，入市需谨慎。</p>
+</div>
+
+</body>
+</html>
