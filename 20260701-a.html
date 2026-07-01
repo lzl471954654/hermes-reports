@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026.07.01</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --yellow: #d2991d;
+    --purple: #a371f7;
+    --accent: #58a6ff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  h1 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .subtitle {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.9em;
+    margin-bottom: 32px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .index-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .index-card .name { font-size: 0.85em; color: var(--text-dim); margin-bottom: 4px; }
+  .index-card .value { font-size: 1.5em; font-weight: 700; }
+  .index-card .change { font-size: 0.95em; margin-top: 4px; }
+  .up { color: var(--red); }
+  .down { color: var(--green); }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .card h3 {
+    font-size: 1.1em;
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+    margin-bottom: 14px;
+  }
+  .card h3.warn { border-left-color: var(--yellow); }
+  .card h3.good { border-left-color: var(--green); }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.78em;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .tag-red { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-blue { background: rgba(88,166,255,0.15); color: var(--blue); }
+  .tag-yellow { background: rgba(210,153,29,0.15); color: var(--yellow); }
+  .sector-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+  }
+  .sector-row:last-child { border-bottom: none; }
+  .sector-name { font-weight: 600; }
+  .sector-status { font-size: 0.9em; }
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0;
+  }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 4px; color: var(--text-dim); font-size: 0.92em; }
+  .highlight { color: var(--accent); font-weight: 600; }
+  .footer {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.78em;
+    margin-top: 32px;
+  }
+  .conclusion-box {
+    background: linear-gradient(135deg, rgba(88,166,255,0.08), rgba(163,113,247,0.08));
+    border: 1px solid rgba(88,166,255,0.25);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+  .conclusion-box p { font-size: 0.95em; margin-bottom: 4px; }
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(48,54,61,0.3);
+    font-size: 0.92em;
+  }
+  .data-row:last-child { border-bottom: none; }
+  .data-val { font-weight: 600; }
+  @media (max-width: 640px) {
+    .grid-3 { grid-template-columns: 1fr; }
+    body { padding: 16px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>📊 A股盘后总结 · AI产业链深度版</h1>
+<div class="subtitle">2026年7月1日（周三）收盘 | 上半年收官后首个交易日</div>
+
+<!-- ========== 市场概览 ========== -->
+<div class="card">
+  <h3>🏛️ 大盘概览</h3>
+  <div class="grid-3">
+    <div class="index-card">
+      <div class="name">上证指数</div>
+      <div class="value up">+0.44%</div>
+      <div class="change" style="color:var(--red)">放量收涨</div>
+    </div>
+    <div class="index-card">
+      <div class="name">深证成指</div>
+      <div class="value" style="color:var(--text)">跟随上涨</div>
+      <div class="change" style="color:var(--text-dim)">沪强深弱</div>
+    </div>
+    <div class="index-card">
+      <div class="name">创业板指</div>
+      <div class="value" style="color:var(--text)">震荡整理</div>
+      <div class="change" style="color:var(--text-dim)">权重分化</div>
+    </div>
+  </div>
+  <div class="data-row"><span>上涨 / 下跌</span><span class="data-val" style="color:var(--red)">超 4300 家 / 约 1000 家</span></div>
+  <div class="data-row"><span>涨停 / 跌停</span><span class="data-val" style="color:var(--red)">逾 200 家 / 少数</span></div>
+  <div class="data-row"><span>市场情绪</span><span class="data-val" style="color:var(--red)">普涨偏暖 🔥</span></div>
+  <div class="data-row"><span>资金风格</span><span class="data-val" style="color:var(--yellow)">高低切换 · 轮动加速</span></div>
+</div>
+
+<!-- ========== 核心结论 ========== -->
+<div class="conclusion-box">
+  <p>🔑 <strong>核心信号：</strong>上半年收官后首个交易日，A股放量普涨（4300+上涨、200+涨停），但领涨主角并非AI——而是<strong>养殖、大金融、创新药</strong>等前期滞涨板块。<span class="highlight">AI算力硬件（光纤/CPO/PCB）集体回调，半导体午后走低——这是典型的获利了结 + 高低切换。</span></p>
+  <p>⚠️ <strong>AI产业链判断：</strong>回调非逻辑破坏，更像是"涨多了歇一歇"。上半年存储概念涨318%、费城半导体指数涨101%，资金有强烈的兑现需求。关键看<strong>中报业绩能否支撑当前估值</strong>——这是7月的核心矛盾。</p>
+</div>
+
+<!-- ========== 领涨板块 ========== -->
+<div class="card">
+  <h3 class="good">🔥 今日领涨方向（资金流入）</h3>
+  <div class="sector-row">
+    <span class="sector-name">🐷 养殖板块</span>
+    <span class="sector-status"><span class="tag tag-red">爆发</span>新希望/傲农/湘佳/益生涨停</span>
+  </div>
+  <div class="sector-row">
+    <span class="sector-name">🏦 大金融</span>
+    <span class="sector-status"><span class="tag tag-red">领涨</span>华安/天风/国盛证券涨停</span>
+  </div>
+  <div class="sector-row">
+    <span class="sector-name">💊 创新药</span>
+    <span class="sector-status"><span class="tag tag-red">持续走强</span>汇宇/宣泰医药 20cm 涨停</span>
+  </div>
+</div>
+
+<!-- ========== AI产业链全景 ========== -->
+<div class="card">
+  <h3 class="warn">🤖 AI产业链 · 八大方向全景</h3>
+
+  <div class="sector-row">
+    <span class="sector-name">🔌 光通信 / CPO</span>
+    <span class="sector-status"><span class="tag tag-green">回调</span>跌幅居前，快克智能跌停</span>
+  </div>
+  <div class="sector-row">
+    <span class="sector-name">💾 存储 / HBM</span>
+    <span class="sector-status"><span class="tag tag-yellow">震荡</span>跟随半导体板块调整</span>
+  </div>
+  <div class="sector-row">
+    <span class="sector-name">⚙️ 半导体设备</span>
+    <span class="sector-status"><span class="tag tag-green">午后走低</span>有研新材跌停</span>
+  </div>
+  <div class="sector-row">
+    <span class="sector-name">📟 PCB / CCL</span>
+    <span class="sector-status"><span class="tag tag-green">跌幅居前</span>算力硬件集体回吐</span>
+  </div>
+  <div class="sector-row">
+    <span class="sector-name">🧱 MLCC</span>
+    <span class="sector-status"><span class="tag tag-yellow">被动跟随</span>涨价催化未独立走强</span>
+  </div>
+  <div class="sector-row">
+    <span class="sector-name">📦 先进封装</span>
+    <span class="sector-status"><span class="tag tag-yellow">跟随回调</span>长电/通富微电休整</span>
+  </div>
+  <div class="sector-row">
+    <span class="sector-name">🧪 上游材料</span>
+    <span class="sector-status"><span class="tag tag-yellow">分化</span>部分标的跟随半导体走弱</span>
+  </div>
+  <div class="sector-row">
+    <span class="sector-name">❄️ AI服务器 / 液冷</span>
+    <span class="sector-status"><span class="tag tag-yellow">承压</span>算力硬件整体退潮拖累</span>
+  </div>
+</div>
+
+<!-- ========== 上半年回顾 ========== -->
+<div class="card">
+  <h3>📈 2026上半年 · AI产业链成绩单</h3>
+  <div class="data-row"><span>上证指数</span><span class="data-val" style="color:var(--red)">+3.16%</span></div>
+  <div class="data-row"><span>深证成指</span><span class="data-val" style="color:var(--red)">+19.82%</span></div>
+  <div class="data-row"><span>创业板指</span><span class="data-val" style="color:var(--red)">+35%+ 创历史新高</span></div>
+  <div class="data-row"><span>科创50</span><span class="data-val" style="color:var(--red)">创历史新高</span></div>
+  <div class="divider"></div>
+  <div class="data-row"><span>🇺🇸 费城半导体指数 (SOX)</span><span class="data-val" style="color:var(--red)">+101.14%</span></div>
+  <div class="data-row"><span>💾 存储概念（A股）</span><span class="data-val" style="color:var(--red)">+318.49% 🏆</span></div>
+  <div class="data-row"><span>🖥️ 计算机硬件</span><span class="data-val" style="color:var(--red)">+165%</span></div>
+  <div class="data-row"><span>🔧 半导体设备与材料</span><span class="data-val" style="color:var(--red)">+129%</span></div>
+</div>
+
+<!-- ========== 策略观点 ========== -->
+<div class="card">
+  <h3>🎯 策略观察</h3>
+  <ul>
+    <li><strong>资金高低切换明显：</strong>从H1爆炒的AI硬件（CPO/PCB/光纤/存储）流向相对滞涨的养殖、金融、医药。这不是行情终结，而是节奏转换。</li>
+    <li><strong>中报季是关键试金石：</strong>7月中报密集披露期，AI硬件方向能否用业绩证明当前估值？光模块、存储、设备龙头的中报指引将直接决定下一波行情高度。</li>
+    <li><strong>CPO回调的辩证看待：</strong>快克智能跌停是危险信号，但龙头（中际旭创、天孚通信、新易盛）的订单和业绩确定性仍在。短期调整可能提供更好的介入窗口。</li>
+    <li><strong>MLCC仍需等待：</strong>村田涨价催化虽在，但A股MLCC板块今日未能独立走强。需观察涨价传导到国内厂商的实际业绩弹性。</li>
+    <li><strong>半导体设备中线逻辑未变：</strong>长鑫/长江存储IPO、国产替代、AI算力扩产三重驱动仍在。今日调整更多是前期大涨后的技术性回调。</li>
+  </ul>
+</div>
+
+<div class="footer">
+  Hermes Agent · A股盘后总结 · 2026.07.01 收盘<br>
+  ⚠️ 仅供分析参考，不构成投资建议
+</div>
+
+</body>
+</html>
