@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-07-01</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --red: #f85149;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --orange: #d2991d;
+    --cyan: #39d2c0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    max-width: 960px; margin: 0 auto; padding: 24px 16px;
+  }
+  .header {
+    text-align: center; padding: 32px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px;
+  }
+  .header h1 { font-size: 1.8em; color: #fff; margin-bottom: 4px; }
+  .header .date { color: var(--text-dim); font-size: 0.95em; }
+  .holiday-banner {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 1px solid var(--purple); border-radius: 10px;
+    padding: 16px 20px; margin-bottom: 24px; text-align: center;
+  }
+  .holiday-banner .icon { font-size: 2em; }
+  .holiday-banner .msg { color: var(--purple); font-weight: 600; font-size: 1.1em; margin-top: 4px; }
+  .holiday-banner .sub { color: var(--text-dim); font-size: 0.9em; }
+
+  .section { margin-bottom: 28px; }
+  .section h2 {
+    font-size: 1.2em; color: var(--blue); border-left: 3px solid var(--blue);
+    padding-left: 10px; margin-bottom: 12px;
+  }
+  .section h3 { font-size: 1em; color: var(--orange); margin-bottom: 8px; }
+
+  .index-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;
+  }
+  .index-card {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px;
+  }
+  .index-card .name { color: var(--text-dim); font-size: 0.85em; }
+  .index-card .val { font-size: 1.5em; font-weight: 700; margin: 4px 0; }
+  .index-card .chg { font-size: 0.95em; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+
+  table {
+    width: 100%; border-collapse: collapse; font-size: 0.92em;
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden;
+  }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { background: #1c2128; color: var(--text-dim); font-weight: 600; font-size: 0.85em; text-transform: uppercase; }
+  tr:last-child td { border-bottom: none; }
+  .code { color: var(--text-dim); font-size: 0.85em; }
+
+  .tag {
+    display: inline-block; font-size: 0.75em; padding: 2px 8px; border-radius: 4px;
+    margin-right: 4px; font-weight: 600;
+  }
+  .tag-semi { background: rgba(88,166,255,.15); color: var(--blue); }
+  .tag-optic { background: rgba(57,210,192,.15); color: var(--cyan); }
+  .tag-compute { background: rgba(188,140,255,.15); color: var(--purple); }
+  .tag-app { background: rgba(210,153,29,.15); color: var(--orange); }
+  .tag-platform { background: rgba(63,185,80,.15); color: var(--green); }
+
+  .highlight-box {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 18px; margin-bottom: 12px;
+  }
+  .highlight-box p { margin-bottom: 6px; }
+  .highlight-box .label { color: var(--text-dim); font-size: 0.85em; }
+
+  .h1-badge {
+    background: linear-gradient(135deg, rgba(210,153,29,.2), rgba(248,81,73,.2));
+    border: 1px solid var(--orange); border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;
+  }
+  .h1-badge .title { color: var(--orange); font-weight: 700; font-size: 1em; }
+  .h1-badge ul { margin: 6px 0 0 18px; font-size: 0.9em; }
+
+  .footer {
+    text-align: center; padding: 24px 0; border-top: 1px solid var(--border); margin-top: 32px;
+    color: var(--text-dim); font-size: 0.8em;
+  }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+  .note { font-size: 0.85em; color: var(--text-dim); font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>港股收盘总结 · AI产业链深度版</h1>
+  <div class="date">2026年7月1日（周三）</div>
+</div>
+
+<div class="holiday-banner">
+  <div class="icon">🇭🇰 🏖️</div>
+  <div class="msg">今日休市 — 香港特别行政区成立纪念日</div>
+  <div class="sub">HKEX Closed · HKSAR Establishment Day</div>
+  <div class="sub" style="margin-top:6px">以下数据基于上一个交易日（6月30日·半年度收官）和上半年回顾</div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section">
+  <h2>📊 指数速览（6月30日收盘）</h2>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">恒生指数 HSI</div>
+      <div class="val">22,881.02</div>
+      <div class="chg down">日涨跌 -0.63% (−145.66)</div>
+      <div class="chg down" style="font-size:0.85em">H1累计 -10.73%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">恒生科技指数</div>
+      <div class="val">4,472.23</div>
+      <div class="chg up">日涨跌 +1.80%</div>
+      <div class="chg down" style="font-size:0.85em">H1累计 -18.92%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">国企指数 HSCEI</div>
+      <div class="val">7,558.30</div>
+      <div class="chg down">日涨跌 -0.62%</div>
+      <div class="chg down" style="font-size:0.85em">H1累计 -15.21%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">市场成交额</div>
+      <div class="val">HK$3,080亿</div>
+      <div class="chg" style="color: var(--text-dim);">较前日缩量</div>
+      <div class="chg up" style="font-size:0.85em">南向净流入 +58.95亿</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section">
+  <h2>🔬 AI产业链 · 核心板块分化</h2>
+
+  <h3>🟢 强势板块</h3>
+  <table>
+    <tr><th>板块</th><th>代表个股</th><th>6/30涨跌</th><th>H1 表现</th><th>催化逻辑</th></tr>
+    <tr>
+      <td><span class="tag tag-semi">半导体制造</span></td>
+      <td>中芯国际 <span class="code">00981</span><br>华虹半导体 <span class="code">01347</span></td>
+      <td class="up">+5.4%<br>+5.4%</td>
+      <td class="up">+170%+ YTD</td>
+      <td>韩国AI产业千亿美元投资计划；华为「韬定律」国产替代预期；南向资金持续加仓</td>
+    </tr>
+    <tr>
+      <td><span class="tag tag-semi">半导体设备</span></td>
+      <td>ASMPT <span class="code">00522</span></td>
+      <td class="up">+10.1%</td>
+      <td class="up">强势</td>
+      <td>三星/SK海力士大规模投资，设备厂商率先受益</td>
+    </tr>
+    <tr>
+      <td><span class="tag tag-optic">光通信</span></td>
+      <td>海光芯正 <span class="code">01191</span><br>长飞光纤 <span class="code">06869</span><br>曦智科技 <span class="code">01879</span></td>
+      <td class="up">+16.24%<br>+6.68%<br>+6.65%</td>
+      <td class="up">景气上行</td>
+      <td>中国移动G.654光缆集采单价同比涨64.71%；AI数据中心光互联需求爆发</td>
+    </tr>
+    <tr>
+      <td><span class="tag tag-compute">算力/AI芯片</span></td>
+      <td>地平线机器人 <span class="code">09660</span><br>兆易创新 <span class="code">03986</span><br>澜起科技</td>
+      <td class="up">+14.7% (6/29)<br>+14.6% (6/29)<br>新高</td>
+      <td class="up">+667% YTD<br>+300%+</td>
+      <td>智驾芯片「双强」格局确立；存储涨价周期；AI推理芯片需求暴增</td>
+    </tr>
+    <tr>
+      <td><span class="tag tag-app">AI应用/机器人</span></td>
+      <td>埃斯顿 <br>小鹏汽车 <span class="code">09868</span></td>
+      <td class="up">+9.9%<br>+6.9%</td>
+      <td class="up">稳健</td>
+      <td>小鹏发布X-Mind车载AI框架；人形机器人产业链催化</td>
+    </tr>
+  </table>
+
+  <h3 style="margin-top:20px">🔴 承压板块</h3>
+  <table>
+    <tr><th>板块</th><th>代表个股</th><th>H1表现</th><th>压力来源</th></tr>
+    <tr>
+      <td><span class="tag tag-platform">互联网平台</span></td>
+      <td>腾讯 <span class="code">00700</span><br>美团 <span class="code">03690</span><br>阿里巴巴 <span class="code">09988</span></td>
+      <td class="down">-19.2% Q1<br>-19.7% Q1<br>-16.7% Q1</td>
+      <td>消费复苏不及预期；AI投入期压缩利润率；恒科权重拖累</td>
+    </tr>
+    <tr>
+      <td><span class="tag tag-app">医药生物</span></td>
+      <td>药明生物等</td>
+      <td class="down">H1跌超10%</td>
+      <td>板块轮动；资金切换至AI硬件</td>
+    </tr>
+    <tr>
+      <td><span class="tag tag-app">消费/汽车</span></td>
+      <td>食品饮料、传统车企</td>
+      <td class="down">H1跌超10%</td>
+      <td>通缩预期、消费降级</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ============================================================ -->
+<div class="section">
+  <h2>📈 H1 上半年 · AI 产业链回顾</h2>
+
+  <div class="h1-badge">
+    <div class="title">🏆 H1 港股 AI 赢家榜</div>
+    <ul>
+      <li><strong>智谱 AI (02513)</strong>：年内涨幅一度 <span class="up">+2,200%</span>，市值突破5,000亿港元，超越京东、快手跻身 TMT 第一梯队</li>
+      <li><strong>兆易创新 (03986)</strong>：H1 累计 <span class="up">+667%</span>，存储+MCU 双轮驱动，AI 服务器存储需求井喷</li>
+      <li><strong>MiniMax</strong>：H1 录得 <span class="up">~400%</span> 升幅，大模型商业化加速</li>
+      <li><strong>澜起科技</strong>：2月上市以来累计 <span class="up">+300%</span>，DDR5 接口芯片龙头</li>
+      <li><strong>华虹半导体 (01347)</strong>：H1 <span class="up">+170%</span>，成熟制程满产、涨价周期</li>
+      <li><strong>联想集团 (00992)</strong>：H1 <span class="up">+170%</span>，恒指成分股涨幅第一，AI PC 战略</li>
+    </ul>
+  </div>
+
+  <div class="highlight-box">
+    <p><span class="label">📌 浦银国际首席策略师 赖烨烨：</span></p>
+    <p>"上半年港股呈现显著的结构性行情，AI 是核心驱动力。问题在于互联网、消费和创新药在恒指中权重过高，而动能最强的 AI 硬件链权重偏低，导致指数整体表现疲弱。"</p>
+  </div>
+
+  <div class="highlight-box">
+    <p><span class="label">📌 资金流向特征：</span></p>
+    <p>南向资金从互联网/消费明确向 AI 硬件、芯片赛道切换。建滔集团、建滔积层板、中芯国际、华虹宏力位居净买入前列；联想集团、阿里巴巴、美团、小米遭净卖出。</p>
+    <p style="margin-top:8px"><span class="label">板块涨幅（H1）：</span>电子 <span class="up">+40%</span> | 公用事业 +10%+ | 通信 +10%+ | 医药生物 <span class="down">-10%+</span> | 消费 <span class="down">-10%+</span></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section">
+  <h2>🔮 展望 · AI 产业链下半年</h2>
+  <div class="highlight-box">
+    <p><strong>银河证券</strong>：科技创新将是港股投资主线。AI 行情从纯硬件向算力租赁、云服务、半导体、人形机器人、MaaS 服务全产业链扩散，港股结构劣势有望转化为相对优势。</p>
+  </div>
+  <div class="highlight-box" style="margin-top:8px">
+    <p><strong>中信建投</strong>：「互联网与 AI 平台仍是第一主线」。算力基建与 AI 应用培育的政策基调延续偏暖。</p>
+  </div>
+  <div class="highlight-box" style="margin-top:8px">
+    <p><strong>关键关注：</strong></p>
+    <ul style="margin-left:18px; font-size:0.9em">
+      <li>昆仑芯（百度旗下 AI 芯片）赴港 IPO 进展</li>
+      <li>韩国半导体投资计划的外溢效应（设备/材料）</li>
+      <li>G.654 光纤集采落地 → 光通信业绩兑现</li>
+      <li>DeepSeek 等国产大模型商业化进程</li>
+      <li>智驾芯片竞争格局演变</li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+
+<div class="section">
+  <h2>📋 免责声明</h2>
+  <p class="note">本报告仅为市场信息整理与客观分析，不构成任何投资建议。股市有风险，投资需谨慎。数据来源：港交所、财联社、21世纪经济报道、FX168等公开信息，截至2026年6月30日收盘。</p>
+</div>
+
+<div class="footer">
+  Generated by Hermes Agent &nbsp;|&nbsp; 2026-07-01 &nbsp;|&nbsp; 港股AI产业链深度版
+</div>
+
+</body>
+</html>
