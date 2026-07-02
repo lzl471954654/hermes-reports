@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-07-02 健身&饮食日报</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: #0d1b2a; color: #e0e6ed; line-height: 1.6; padding: 16px; max-width: 720px; margin: 0 auto;
+  }
+  h1 { font-size: 1.5rem; color: #4fc3f7; margin-bottom: 4px; }
+  .date { font-size: 0.85rem; color: #7a8ba0; margin-bottom: 24px; }
+  .overview {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 28px;
+  }
+  .card {
+    background: #132238; border-radius: 12px; padding: 16px; border-left: 3px solid #4fc3f7;
+  }
+  .card.warn { border-left-color: #ff8a65; }
+  .card .label { font-size: 0.75rem; color: #7a8ba0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .card .value { font-size: 1.4rem; font-weight: 700; color: #4fc3f7; }
+  .card.warn .value { color: #ff8a65; }
+  .card .sub { font-size: 0.78rem; color: #5a7a9a; margin-top: 2px; }
+  .section { margin-bottom: 28px; }
+  .section h2 {
+    font-size: 1.15rem; color: #4fc3f7; border-bottom: 1px solid #1a3350; padding-bottom: 6px; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .member { background: #132238; border-radius: 12px; padding: 18px; margin-bottom: 16px; }
+  .member h3 { font-size: 1.05rem; color: #e0e6ed; margin-bottom: 10px; }
+  .tag {
+    display: inline-block; font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle;
+  }
+  .tag.train { background: #1a3a20; color: #81c784; }
+  .tag.diet { background: #3a2a1a; color: #ffb74d; }
+  .tag.warn { background: #3a1a1a; color: #ef9a9a; }
+  .tag.none { background: #1a1a2a; color: #7a8ba0; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; font-size: 0.88rem; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #1a3350; }
+  th { color: #7a8ba0; font-weight: 600; font-size: 0.78rem; }
+  td { color: #c8d6e5; }
+  .highlight { color: #4fc3f7; font-weight: 600; }
+  .red { color: #ff8a65; }
+  .green { color: #81c784; }
+  .comment {
+    background: #0f1f30; border-radius: 8px; padding: 12px 14px; margin: 12px 0;
+    font-size: 0.85rem; color: #a0b8d0; border-left: 3px solid #4fc3f7;
+  }
+  .reminder {
+    background: #1a2533; border-radius: 10px; padding: 14px 18px; margin: 16px 0;
+    font-size: 0.85rem; border: 1px solid #2a4058;
+  }
+  .reminder strong { color: #4fc3f7; }
+  .completeness { font-size: 0.8rem; color: #5a7a9a; margin-top: 32px; padding-top: 16px; border-top: 1px solid #1a3350; }
+  .badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+  hr { border: none; border-top: 1px solid #1a3350; margin: 10px 0; }
+  @media (max-width: 480px) {
+    body { padding: 10px; }
+    .overview { grid-template-columns: 1fr 1fr; }
+    .member { padding: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🏋️ 健身&饮食日报</h1>
+<div class="date">2026 年 7 月 2 日 · 周四</div>
+
+<!-- ====== 概览卡片 ====== -->
+<div class="overview">
+  <div class="card">
+    <div class="label">📋 打卡人数</div>
+    <div class="value">2</div>
+    <div class="sub">/ 3 名成员</div>
+  </div>
+  <div class="card">
+    <div class="label">🏃 训练人数</div>
+    <div class="value">2</div>
+    <div class="sub">monkiki · ckddd</div>
+  </div>
+  <div class="card">
+    <div class="label">🔥 最高消耗</div>
+    <div class="value">536</div>
+    <div class="sub">kcal · monkiki</div>
+  </div>
+  <div class="card warn">
+    <div class="label">⚠️ 缺口警告</div>
+    <div class="value">1</div>
+    <div class="sub">monkiki 严重偏低</div>
+  </div>
+</div>
+
+<!-- ====== Monkiki ====== -->
+<div class="section">
+  <h2>🧑 monkiki <span class="tag train">训练</span><span class="tag diet">饮食</span></h2>
+  <div class="member">
+
+    <h3>🏋️ 训练</h3>
+    <table>
+      <tr><th>项目</th><th>时长</th><th>消耗</th><th>平均心率</th><th>地点</th></tr>
+      <tr>
+        <td>🔙 力量训练 · 背</td>
+        <td>1h 9min</td>
+        <td class="highlight">367 kcal</td>
+        <td>99 bpm (77–129)</td>
+        <td>西安</td>
+      </tr>
+      <tr>
+        <td>🚶 爬坡有氧</td>
+        <td>21min</td>
+        <td class="highlight">169 kcal</td>
+        <td>144 bpm (max 157)</td>
+        <td>西安</td>
+      </tr>
+      <tr style="border-top: 1.5px solid #4fc3f7;">
+        <td><strong>合计</strong></td>
+        <td><strong>1h 30min</strong></td>
+        <td class="highlight"><strong>536 kcal</strong></td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+    </table>
+
+    <div class="comment">
+      💬 背训 69 分钟拉满，心率 99 bpm 比上次练背（111）低——组间歇压得稳但刺激偏保守，下次试减辅助重量或加一组。爬坡没满 30 但 21 分钟全程燃脂区（心率 144），第二段还加速了，后半段没划水 👏
+    </div>
+
+    <h3>🍽️ 饮食</h3>
+    <table>
+      <tr><th>餐次</th><th>内容</th><th>热量</th><th>蛋白质</th><th>碳水</th><th>脂肪</th></tr>
+      <tr>
+        <td>🍳 早午饭</td>
+        <td>酸辣白菜 · 番茄炒蛋 · 芹菜肥牛 · 辣椒牛肉 · 杂粮馍 · 薄饼披萨</td>
+        <td>~665 kcal</td>
+        <td>~40g</td>
+        <td>~61g</td>
+        <td>~30g</td>
+      </tr>
+      <tr>
+        <td colspan="6" style="color: #ff8a65; text-align: center;">⚠️ 晚饭：未记录</td>
+      </tr>
+    </table>
+
+    <div class="comment">
+      💬 自己下厨四菜上桌，牛肉+肥牛+鸡蛋三线蛋白并行 👨‍🍳 碳水搭配杂粮馍+薄饼也不会血糖过山车。<br>
+      <span class="red">⚠️ 但问题来了——练完背+爬坡后净摄入仅 <strong>~129 kcal</strong>。晚饭必须吃够：蛋白往 50g+ 砸，碳水也放开，肌肉等着补糖原。</span>
+    </div>
+
+    <h3>📊 今日估算</h3>
+    <table>
+      <tr><th></th><th>热量</th><th>蛋白质</th></tr>
+      <tr><td>摄入 (已知)</td><td class="red">~665 kcal</td><td class="red">~40g</td></tr>
+      <tr><td>训练消耗</td><td class="green">−536 kcal</td><td>—</td></tr>
+      <tr style="border-top: 1.5px solid #ff8a65;">
+        <td><strong>当前净摄入</strong></td>
+        <td class="red"><strong>~129 kcal</strong></td>
+        <td class="red"><strong>—</strong></td>
+      </tr>
+    </table>
+
+    <div class="badge-row">
+      <span class="tag warn">⚠️ 热量严重不足</span>
+      <span class="tag warn">⚠️ 蛋白质严重不足</span>
+    </div>
+
+    <h3>💡 明日建议</h3>
+    <div class="comment">
+      🥩 今晚先补一顿扎实的（蛋白 50g+），明天早餐别跳过。<br>
+      🏋️ 明天如果训练，正餐热量往上靠 2,000+，练后蛋白优先。<br>
+      🥗 今天蔬菜量 OK，继续保持。
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== Ckddd ====== -->
+<div class="section">
+  <h2>🧑 ckddd <span class="tag train">训练</span><span class="tag diet">饮食</span></h2>
+  <div class="member">
+
+    <h3>🏋️ 训练</h3>
+    <table>
+      <tr><th>项目</th><th>时长</th><th>平均心率</th><th>峰值心率</th></tr>
+      <tr>
+        <td>🦵 力量训练 · 腿</td>
+        <td>~50min (20:32–21:22)</td>
+        <td>126 bpm</td>
+        <td>154 bpm</td>
+      </tr>
+    </table>
+
+    <div class="comment">
+      💬 腿训心率 90% 在有氧基础区——组间休息拉得比较长。峰值 154 也没冲破区间 3，下次可以考虑缩短组间休息或上大重量深蹲把心率推上去。
+    </div>
+
+    <h3>🍽️ 饮食</h3>
+    <table>
+      <tr><th>餐次</th><th>内容</th><th>热量</th><th>蛋白质</th><th>碳水</th></tr>
+      <tr>
+        <td>🥟 第一顿</td>
+        <td>牛腩包子 ×2 + 冰美式</td>
+        <td>~510 kcal</td>
+        <td>~28g</td>
+        <td>~55g</td>
+      </tr>
+      <tr>
+        <td>🍖 第二顿</td>
+        <td>卤水猪脚拼盘饭 (猪脚+五花肉+鸡肉+卤蛋+豆腐+包菜丝)</td>
+        <td>~1,200 kcal</td>
+        <td>~60g</td>
+        <td>~95g</td>
+      </tr>
+      <tr>
+        <td>🥛 练后补剂</td>
+        <td>Hilmar 9410 乳清分离蛋白 20g</td>
+        <td>~80 kcal</td>
+        <td>~18g</td>
+        <td>~1g</td>
+      </tr>
+      <tr style="border-top: 1.5px solid #4fc3f7;">
+        <td><strong>合计 (估算)</strong></td>
+        <td></td>
+        <td class="highlight"><strong>~1,790 kcal</strong></td>
+        <td class="highlight"><strong>~106g</strong></td>
+        <td class="highlight"><strong>~151g</strong></td>
+      </tr>
+    </table>
+
+    <div class="comment">
+      💬 全天 ~1,790 kcal + 蛋白 ~106g（1.66g/kg，64kg 体重），增肌向来看蛋白量够用。猪脚拼盘饭蛋白质拉满（鸡肉+猪脚+五花肉+卤蛋+豆腐），碳水 151g 打好底。练后乳清蛋白精准补刀 👌<br>
+      ⚠️ 缺卡路里消耗数据（无 Apple Watch 记录），无法算净摄入。建议下次开一下训练记录。
+    </div>
+
+    <h3>💡 明日建议</h3>
+    <div class="comment">
+      🥬 今天蔬菜只有拼盘饭里的包菜丝，明天补个拌菜或沙拉。<br>
+      📊 训练时开 Apple Watch 记录，好算热量平衡。<br>
+      🦵 腿训后注意拉伸，明天别酸到走不了路 😂
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== 智林 ====== -->
+<div class="section">
+  <h2>🧑 lzl（智林）<span class="tag none">无记录</span></h2>
+  <div class="member">
+    <p style="color: #7a8ba0; font-size: 0.9rem;">📭 今日暂无有效记录</p>
+    <p style="color: #5a7a9a; font-size: 0.8rem; margin-top: 6px;">
+      上次记录：7/1 深蹲+硬拉+单车（消耗 1,145 kcal），饮食 ~1,723 kcal，净摄入 ~578 kcal<br>
+      7 月连续 6 天（6/26–7/1）高强度训练，今天可能是休息日。明天见 💪
+    </p>
+  </div>
+</div>
+
+<!-- ====== 群内提醒 ====== -->
+<div class="section">
+  <h2>📢 群内提醒</h2>
+  <div class="reminder">
+    <strong>⚠️ monkiki：</strong>训练后净摄入仅 ~129 kcal，身体处于零燃料状态。请务必吃晚饭——蛋白 50g+ 碳水放开，别让 536 kcal 的消耗白费。<br><br>
+    <strong>📊 ckddd：</strong>腿训 50min 到位，记得开 Apple Watch 记录卡路里。明天补点蔬菜 🥬<br><br>
+    <strong>🫡 lzl：</strong>连续训练 6 天后今天休息日，这个节奏很合理，明天回归！
+  </div>
+</div>
+
+<!-- ====== 数据完整度 ====== -->
+<div class="completeness">
+  <strong>📋 数据完整度</strong><br>
+  ✅ monkiki：本地 md 文件有训练+饮食记录（晚饭待补）<br>
+  ✅ ckddd：本地 md 文件有训练+饮食记录（缺卡路里消耗）<br>
+  ❌ lzl：今日无记录（可能休息日）<br>
+  ⚠️ Discord #fitness 频道聊天记录：session_search 工具不可用，未检索群聊补充数据。如群内有新增信息，请在本地 md 中补录。<br>
+  数据来源：本地 md 文件 (lzl.md, monkiki.md, ckddd.md) · 生成时间：2026-07-02 23:00
+</div>
+
+</body>
+</html>
