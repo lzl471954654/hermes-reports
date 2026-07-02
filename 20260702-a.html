@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大A盘后总结 · AI产业链深度版 | 2026.07.02</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text2: #8b949e;
+    --red: #f85149;
+    --green: #3fb950;
+    --amber: #d2991d;
+    --accent: #58a6ff;
+    --purple: #bc8cff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.6em; margin-bottom: 4px; color: #fff; }
+  .subtitle { color: var(--text2); font-size: 0.85em; margin-bottom: 24px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 { font-size: 1.1em; margin-bottom: 12px; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .idx-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+  .idx-box .name { font-size: 0.8em; color: var(--text2); }
+  .idx-box .val { font-size: 1.3em; font-weight: 700; margin: 4px 0; }
+  .idx-box .chg { font-size: 0.9em; font-weight: 600; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .info-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(48,54,61,0.5); }
+  .info-row:last-child { border: none; }
+  .sector-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .sector-table th { text-align: left; color: var(--text2); font-weight: 500; font-size: 0.8em; padding: 8px 6px; border-bottom: 1px solid var(--border); }
+  .sector-table td { padding: 8px 6px; border-bottom: 1px solid rgba(48,54,61,0.4); font-size: 0.9em; }
+  .sector-table tr:last-child td { border: none; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; margin-right: 4px; }
+  .tag-red { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-amber { background: rgba(210,153,29,0.15); color: var(--amber); }
+  ul { padding-left: 20px; }
+  li { margin: 4px 0; font-size: 0.9em; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+  .footer { color: var(--text2); font-size: 0.75em; text-align: center; margin-top: 24px; }
+  strong { color: #fff; }
+</style>
+</head>
+<body>
+
+<h1>📊 A股盘后总结 · AI产业链深度版</h1>
+<div class="subtitle">2026年7月2日（周四）· 数据来源：Wind/同花顺/财联社 · 仅供参考</div>
+
+<!-- 大盘概览 -->
+<div class="card">
+  <h2>🏛️ 大盘概览</h2>
+  <div class="grid3">
+    <div class="idx-box">
+      <div class="name">上证指数</div>
+      <div class="val">≈4056</div>
+      <div class="chg down">-1.37%</div>
+    </div>
+    <div class="idx-box">
+      <div class="name">深证成指</div>
+      <div class="val">≈15609</div>
+      <div class="chg down">-3.17%</div>
+    </div>
+    <div class="idx-box">
+      <div class="name">创业板指</div>
+      <div class="val">≈4097</div>
+      <div class="chg down">-3.84%</div>
+    </div>
+  </div>
+  <div style="margin-top:12px; display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+    <div class="idx-box">
+      <div class="name">科创50</div>
+      <div class="chg down">-1.68%</div>
+      <div style="font-size:0.75em;color:var(--text2);">午后从-4.61%大幅收窄</div>
+    </div>
+    <div class="idx-box">
+      <div class="name">北证50</div>
+      <div class="chg up">+0.77%</div>
+      <div style="font-size:0.75em;color:var(--text2);">逆市收红</div>
+    </div>
+  </div>
+  <div style="margin-top:14px;">
+    <div class="info-row"><span>成交额</span><span><strong>3.47万亿</strong>（环比缩量约2168亿）</span></div>
+    <div class="info-row"><span>涨跌比</span><span>超2600只个股下跌</span></div>
+    <div class="info-row"><span>涨跌停</span><span>涨停86只 / 跌停5只（午间数据）</span></div>
+  </div>
+</div>
+
+<!-- AI产业链八大赛道 -->
+<div class="card">
+  <h2>🔗 AI产业链八大赛道 · 今日表现</h2>
+  <table class="sector-table">
+    <tr><th>赛道</th><th>今日方向</th><th>强度</th><th>核心逻辑 / 备注</th></tr>
+    <tr>
+      <td><strong>1. 光通信/CPO</strong></td>
+      <td><span class="tag tag-red">重挫</span></td>
+      <td>★★★</td>
+      <td>隔夜康宁-13%情绪传导；上半年CPO涨幅超500%后获利盘涌出。午后科创50反弹带动部分光模块回拉</td>
+    </tr>
+    <tr>
+      <td><strong>2. 存储/HBM</strong></td>
+      <td><span class="tag tag-red">大跌</span></td>
+      <td>★★★</td>
+      <td>美光/闪迪隔夜-10%+直接冲击；玻璃基板&存储芯片为午盘跌幅前三。中期HBM产能售罄至2027，基本面未变</td>
+    </tr>
+    <tr>
+      <td><strong>3. 半导体设备</strong></td>
+      <td><span class="tag tag-red">分化偏弱</span></td>
+      <td>★★☆</td>
+      <td>光刻机板块跌幅居前；但国产替代长逻辑未破，部分设备股午后跌幅收窄</td>
+    </tr>
+    <tr>
+      <td><strong>4. PCB/CCL</strong></td>
+      <td><span class="tag tag-red">承压</span></td>
+      <td>★★☆</td>
+      <td>跟随AI硬件整体回调；M8 PCB长期需求逻辑不变（2026年市场空间500-600亿）</td>
+    </tr>
+    <tr>
+      <td><strong>5. MLCC</strong></td>
+      <td><span class="tag tag-red">表现较差</span></td>
+      <td>★★☆</td>
+      <td>早盘元器件板块领跌；但7月前后第二轮集中调价窗口临近，中期量价齐升逻辑完好</td>
+    </tr>
+    <tr>
+      <td><strong>6. 先进封装</strong></td>
+      <td><span class="tag tag-red">承压</span></td>
+      <td>★★☆</td>
+      <td>玻璃基板板块跌幅居前（上半年涨幅超200%后回调）；CoWoS/玻璃基板长期趋势未变</td>
+    </tr>
+    <tr>
+      <td><strong>7. 上游材料</strong></td>
+      <td><span class="tag tag-amber">分化</span></td>
+      <td>★☆☆</td>
+      <td>贵金属（黄金）逆势走强，招金/赤峰涨停；电子特气/光刻胶等跟随科技走弱</td>
+    </tr>
+    <tr>
+      <td><strong>8. AI服务器/液冷</strong></td>
+      <td><span class="tag tag-red">跟跌</span></td>
+      <td>★☆☆</td>
+      <td>Rubin量产预期仍在，短期受情绪拖累；中长期液冷渗透加速趋势确定</td>
+    </tr>
+  </table>
+</div>
+
+<!-- 今日异动与焦点 -->
+<div class="card">
+  <h2>⚡ 今日焦点</h2>
+  <ul>
+    <li><strong>🔴 导火索：隔夜美股AI半导体雪崩。</strong>费城半导体指数 -6%+，美光/闪迪 -10%+，康宁 -13%。Meta出售额外算力引发"AI算力过剩"担忧，叠加美光Q3超预期后获利了结，AI叙事出现阶段性裂痕。</li>
+    <li><strong>🟡 早盘恐慌低开：</strong>沪指低开1.42%、深成指低开2.41%、创业板低开2.94%。科技股集中抛售，玻璃基板/光刻机/存储芯片三大赛道跌幅居前。</li>
+    <li><strong>🟢 午后科创50触底反弹：</strong>科创50从半日-4.61%收窄至-1.68%，权重银行股降温后资金回流科技，显示下方承接力。</li>
+    <li><strong>🟡 人形机器人逆市爆发：</strong>电机板块涨幅居前，机器人概念为今日少数活跃方向。</li>
+    <li><strong>🟢 避险资金涌入黄金：</strong>现货黄金突破4058美元/盎司，招金黄金、赤峰黄金涨停。黄金+银行成为今日防御主线。</li>
+    <li><strong>📌 中报预增线活跃：</strong>2026中报预增板块早盘涨幅居首，益生股份预增超40倍涨停，业绩线在震荡市中凸显防御价值。</li>
+  </ul>
+</div>
+
+<!-- 核心逻辑 -->
+<div class="card">
+  <h2>🧠 核心研判</h2>
+  <ul>
+    <li><strong>短期：</strong>AI产业链在经历上半年500%+级别涨幅后，进入高波动消化期。隔夜美股暴跌是外部催化，但核心矛盾是获利盘拥挤 + 估值透支。CPO/光模块/存储等赛道短期面临筹码出清压力。</li>
+    <li><strong>中期：</strong>AI算力硬件基本面未变——美光HBM产能已售罄至2027年，1.6T光模块Q3起量，英伟达Rubin架构全面导入液冷。本轮调整更像是「牛市中的暴力洗盘」而非趋势反转。</li>
+    <li><strong>关注节点：</strong>① 7月美光财报（存储需求验证）；② 光模块龙头中报（1.6T上量节奏）；③ MLCC第二轮调价窗口（7月前后）；④ 美国6月非农（影响降息预期）。</li>
+    <li><strong>风格切换信号：</strong>今日医药/银行/黄金走强 vs 科技暴跌，需警惕Q3风格是否从「极致科技成长」向「价值防御」再平衡。公募基金上半年科技单边超配后调仓压力不容忽视。</li>
+  </ul>
+</div>
+
+<!-- 关键数据 -->
+<div class="card">
+  <h2>📈 隔夜关键数据（7月1日美股收盘）</h2>
+  <div class="info-row"><span>道琼斯</span><span class="down">-0.02%</span></div>
+  <div class="info-row"><span>纳斯达克</span><span class="down">-0.66%</span></div>
+  <div class="info-row"><span>标普500</span><span class="down">-0.21%</span></div>
+  <div class="info-row"><span>费城半导体</span><span class="down"><strong>-6%+</strong></span></div>
+  <div class="info-row"><span>美光科技</span><span class="down"><strong>-10%+</strong></span></div>
+  <div class="info-row"><span>康宁（光通信）</span><span class="down"><strong>-13%+</strong></span></div>
+  <div class="info-row"><span>Meta</span><span class="up">+8%</span></div>
+  <div class="info-row"><span>中概金龙指数</span><span class="up">+2.93%</span></div>
+</div>
+
+<hr class="divider">
+<div class="footer">
+  ⚠️ 免责声明：本报告基于公开数据整理，不构成投资建议。市场有风险，投资需谨慎。<br>
+  报告生成时间：2026-07-02 · Hermes Agent 自动生成
+</div>
+
+</body>
+</html>
