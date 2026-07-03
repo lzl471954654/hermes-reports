@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股早盘收盘总结 · AI产业链 · 2026-07-03 上午</title>
+<style>
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --card: #212433;
+  --text: #e4e6eb;
+  --text2: #9ca3af;
+  --green: #22c55e;
+  --red: #ef4444;
+  --gold: #f59e0b;
+  --blue: #3b82f6;
+  --accent: #8b5cf6;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height:1.6; }
+.container { max-width:1100px; margin:0 auto; padding:20px; }
+h1 { font-size:1.6rem; text-align:center; padding:24px 0 8px; background:linear-gradient(135deg, var(--blue), var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.subtitle { text-align:center; color:var(--text2); font-size:0.85rem; margin-bottom:20px; }
+.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:24px; }
+.idx-card { background:var(--card); border-radius:10px; padding:14px 16px; text-align:center; border:1px solid #2a2d3a; }
+.idx-name { font-size:0.75rem; color:var(--text2); margin-bottom:4px; }
+.idx-price { font-size:1.4rem; font-weight:700; }
+.idx-change { font-size:0.9rem; margin-top:2px; }
+.up { color:var(--green); }
+.down { color:var(--red); }
+
+.section { background:var(--surface); border-radius:12px; padding:20px 22px; margin-bottom:16px; border:1px solid #2a2d3a; }
+.section h2 { font-size:1.1rem; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #2a2d3a; display:flex; align-items:center; gap:8px; }
+.pill { font-size:0.7rem; padding:2px 8px; border-radius:10px; font-weight:500; }
+.pill-up { background:#064e3b; color:#22c55e; }
+.pill-down { background:#450a0a; color:#ef4444; }
+.pill-mix { background:#1e293b; color:#94a3b8; }
+.pill-hot { background:#4c1d95; color:#a78bfa; }
+
+.stock-row { display:flex; align-items:center; padding:6px 0; border-bottom:1px solid #1e2130; flex-wrap:wrap; gap:8px; }
+.stock-row:last-child { border-bottom:none; }
+.stock-code { font-size:0.7rem; color:var(--text2); min-width:85px; }
+.stock-name { flex:1; min-width:100px; font-size:0.92rem; }
+.stock-price { font-weight:600; min-width:70px; text-align:right; font-size:0.92rem; }
+.stock-chg { min-width:65px; text-align:right; font-weight:600; font-size:0.88rem; }
+.tag { font-size:0.65rem; padding:1px 6px; border-radius:6px; white-space:nowrap; }
+.tag-zdt { background:#7f1d1d; color:#fca5a5; }
+.tag-zting { background:#064e3b; color:#86efac; }
+.tag-hot { background:#4c1d95; color:#c4b5fd; }
+
+.insight-box { background:var(--card); border-radius:8px; padding:14px 18px; margin:8px 0; border-left:3px solid var(--accent); font-size:0.9rem; color:var(--text2); }
+.insight-box strong { color:var(--text); }
+
+.prediction { background:linear-gradient(135deg, #1e1b4b, #0f172a); border:1px solid #3b2f8a; }
+.prediction h2 { color:#a78bfa; border-color:#3b2f8a; }
+.pred-block { margin-bottom:14px; }
+.pred-block h3 { font-size:0.95rem; color:var(--gold); margin-bottom:6px; }
+.pred-block p, .pred-block li { font-size:0.88rem; color:var(--text2); margin:3px 0; }
+.pred-block ul { margin-left:18px; }
+
+.summary-strip { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px; }
+.summary-item { background:var(--card); border-radius:8px; padding:10px 14px; font-size:0.82rem; border:1px solid #2a2d3a; }
+.summary-item strong { color:var(--gold); }
+
+.disclaimer { text-align:center; color:#6b7280; font-size:0.72rem; padding:20px; border-top:1px solid #2a2d3a; margin-top:16px; }
+
+.cxm-section { border-color:#f59e0b; }
+.cxm-section h2 { color:#f59e0b; }
+
+@media (max-width:768px) {
+  .grid-4 { grid-template-columns:repeat(2,1fr); }
+  .stock-code { min-width:70px; font-size:0.65rem; }
+  .stock-name { min-width:80px; font-size:0.82rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>A股早盘收盘总结 · AI产业链深度版</h1>
+<div class="subtitle">📅 2026年7月3日（周五）上午 ｜ 数据来源：Yahoo Finance v8 实时行情</div>
+
+<!-- 指数概览 -->
+<div class="grid-4">
+  <div class="idx-card">
+    <div class="idx-name">上证指数</div>
+    <div class="idx-price">4056.78</div>
+    <div class="idx-change down">-1.35%</div>
+  </div>
+  <div class="idx-card">
+    <div class="idx-name">深证成指</div>
+    <div class="idx-price">15714.23</div>
+    <div class="idx-change down">-2.51%</div>
+  </div>
+  <div class="idx-card">
+    <div class="idx-name">创业板指</div>
+    <div class="idx-price">4080.57</div>
+    <div class="idx-change up">+1.58%</div>
+  </div>
+  <div class="idx-card">
+    <div class="idx-name">科创50</div>
+    <div class="idx-price">2008.07</div>
+    <div class="idx-change up">+1.05%</div>
+  </div>
+</div>
+
+<!-- 早盘核心信号 -->
+<div class="summary-strip">
+  <div class="summary-item">📊 <strong>风格切换</strong>：权重砸盘 vs 科技成长走强，黄白线剧烈分化</div>
+  <div class="summary-item">🤖 <strong>机器人爆发</strong>：绿的谐波+15.7%，板块3只涨停</div>
+  <div class="summary-item">⚡ <strong>PCB集体涨停</strong>：深南电路+10%封板，AI算力硬件最强主线</div>
+  <div class="summary-item">🔻 <strong>半导体材料重挫</strong>：南大光电-7.67%，大基金减持冲击蔓延</div>
+</div>
+
+<!-- ============ 1. 光模块/CPO ============ -->
+<div class="section">
+<h2>🔷 1. 光模块/CPO <span class="pill pill-up">偏强</span></h2>
+<div class="stock-row"><span class="stock-code">300502</span><span class="stock-name">新易盛</span><span class="stock-price">537.13</span><span class="stock-chg up">+5.53%</span><span class="tag tag-hot">领涨</span></div>
+<div class="stock-row"><span class="stock-code">002281</span><span class="stock-name">光迅科技</span><span class="stock-price">224.50</span><span class="stock-chg up">+2.89%</span></div>
+<div class="stock-row"><span class="stock-code">300394</span><span class="stock-name">天孚通信</span><span class="stock-price">256.87</span><span class="stock-chg up">+2.43%</span></div>
+<div class="stock-row"><span class="stock-code">300308</span><span class="stock-name">中际旭创</span><span class="stock-price">1157.97</span><span class="stock-chg up">+1.31%</span></div>
+<div class="stock-row"><span class="stock-code">603083</span><span class="stock-name">剑桥科技</span><span class="stock-price">214.93</span><span class="stock-chg down">-1.60%</span></div>
+<div class="insight-box">📌 新易盛领涨光模块，CPO产业化2026商业化元年预期持续催化。华工科技Q1海外出口+74.6%，光模块订单排至2027年，行业景气度未见拐点。</div>
+</div>
+
+<!-- ============ 2. 光通信 ============ -->
+<div class="section">
+<h2>🔷 2. 光通信 <span class="pill pill-mix">分化</span></h2>
+<div class="stock-row"><span class="stock-code">601869</span><span class="stock-name">长飞光纤</span><span class="stock-price">480.00</span><span class="stock-chg up">+3.37%</span></div>
+<div class="stock-row"><span class="stock-code">000070</span><span class="stock-name">特发信息</span><span class="stock-price">18.47</span><span class="stock-chg up">+3.18%</span></div>
+<div class="stock-row"><span class="stock-code">600498</span><span class="stock-name">烽火通信</span><span class="stock-price">63.45</span><span class="stock-chg down">-0.42%</span></div>
+<div class="stock-row"><span class="stock-code">600487</span><span class="stock-name">亨通光电</span><span class="stock-price">93.40</span><span class="stock-chg down">-0.47%</span></div>
+<div class="stock-row"><span class="stock-code">600522</span><span class="stock-name">中天科技</span><span class="stock-price">51.58</span><span class="stock-chg" style="color:#9ca3af">0.00%</span></div>
+</div>
+
+<!-- ============ 3. 高速互联 ============ -->
+<div class="section">
+<h2>🔷 3. 高速互联 <span class="pill pill-hot">🔥 最强方向</span></h2>
+<div class="stock-row"><span class="stock-code">002916</span><span class="stock-name">深南电路</span><span class="stock-price">465.41</span><span class="stock-chg up">+10.00%</span><span class="tag tag-zting">涨停</span></div>
+<div class="stock-row"><span class="stock-code">603228</span><span class="stock-name">景旺电子</span><span class="stock-price">72.32</span><span class="stock-chg up">+9.29%</span><span class="tag tag-hot">逼近涨停</span></div>
+<div class="stock-row"><span class="stock-code">002475</span><span class="stock-name">立讯精密</span><span class="stock-price">65.23</span><span class="stock-chg up">+7.11%</span></div>
+<div class="stock-row"><span class="stock-code">002463</span><span class="stock-name">沪电股份</span><span class="stock-price">138.02</span><span class="stock-chg up">+5.75%</span></div>
+<div class="stock-row"><span class="stock-code">002938</span><span class="stock-name">鹏鼎控股</span><span class="stock-price">96.95</span><span class="stock-chg up">+4.79%</span></div>
+<div class="insight-box">📌 今日最强Alpha方向。深南电路封死涨停，景旺电子+9.29%，立讯精密+7.11%大阳线。Google 2026年资本开支指引1750-1850亿美元（接近市场预期2倍），AI PCB量价齐升逻辑持续兑现。</div>
+</div>
+
+<!-- ============ 4. 先进光电集成 ============ -->
+<div class="section">
+<h2>🔷 4. 先进光电集成 <span class="pill pill-up">温和走强</span></h2>
+<div class="stock-row"><span class="stock-code">688498</span><span class="stock-name">源杰科技</span><span class="stock-price">1706.01</span><span class="stock-chg up">+4.09%</span></div>
+<div class="stock-row"><span class="stock-code">688313</span><span class="stock-name">仕佳光子</span><span class="stock-price">163.82</span><span class="stock-chg up">+1.81%</span></div>
+<div class="stock-row"><span class="stock-code">000988</span><span class="stock-name">华工科技</span><span class="stock-price">157.96</span><span class="stock-chg up">+1.13%</span></div>
+<div class="stock-row"><span class="stock-code">688195</span><span class="stock-name">联特科技</span><span class="stock-price">168.54</span><span class="stock-chg down">-1.08%</span></div>
+</div>
+
+<!-- ============ 5. 算力/AI服务器 ============ -->
+<div class="section">
+<h2>🔷 5. 算力/AI服务器 <span class="pill pill-up">强势</span></h2>
+<div class="stock-row"><span class="stock-code">000977</span><span class="stock-name">浪潮信息</span><span class="stock-price">67.60</span><span class="stock-chg up">+5.97%</span></div>
+<div class="stock-row"><span class="stock-code">000938</span><span class="stock-name">紫光股份</span><span class="stock-price">30.63</span><span class="stock-chg up">+5.51%</span></div>
+<div class="stock-row"><span class="stock-code">601138</span><span class="stock-name">工业富联</span><span class="stock-price">65.61</span><span class="stock-chg up">+2.48%</span></div>
+<div class="stock-row"><span class="stock-code">603019</span><span class="stock-name">中科曙光</span><span class="stock-price">95.45</span><span class="stock-chg up">+0.94%</span></div>
+<div class="stock-row"><span class="stock-code">002261</span><span class="stock-name">拓维信息</span><span class="stock-price">28.97</span><span class="stock-chg down">-3.08%</span></div>
+</div>
+
+<!-- ============ 6. 封装基板和PCB ============ -->
+<div class="section">
+<h2>🔷 6. 封装基板和PCB <span class="pill pill-hot">🔥 涨停潮</span></h2>
+<div class="stock-row"><span class="stock-code">600183</span><span class="stock-name">生益科技</span><span class="stock-price">163.95</span><span class="stock-chg up">+7.90%</span></div>
+<div class="stock-row"><span class="stock-code">002436</span><span class="stock-name">兴森科技</span><span class="stock-price">47.30</span><span class="stock-chg up">+4.16%</span></div>
+<div class="stock-row"><span class="stock-code">300476</span><span class="stock-name">胜宏科技</span><span class="stock-price">312.68</span><span class="stock-chg up">+2.15%</span></div>
+<div class="insight-box">📌 与高速互联板块共振，生益科技+7.9%加入涨停梯队。AI服务器PCB升级（层数/孔径）推动价值量大幅提升，国金证券研报指出"量价齐升"逻辑持续强化。</div>
+</div>
+
+<!-- ============ 7. 半导体晶圆制造 ============ -->
+<div class="section">
+<h2>🔷 7. 半导体晶圆制造 <span class="pill pill-mix">分化</span></h2>
+<div class="stock-row"><span class="stock-code">688347</span><span class="stock-name">华虹公司</span><span class="stock-price">293.38</span><span class="stock-chg up">+3.12%</span></div>
+<div class="stock-row"><span class="stock-code">688981</span><span class="stock-name">中芯国际</span><span class="stock-price">143.65</span><span class="stock-chg down">-0.31%</span></div>
+<div class="stock-row"><span class="stock-code">600703</span><span class="stock-name">三安光电</span><span class="stock-price">18.70</span><span class="stock-chg down">-1.79%</span></div>
+<div class="stock-row"><span class="stock-code">600460</span><span class="stock-name">士兰微</span><span class="stock-price">49.04</span><span class="stock-chg down">-2.89%</span></div>
+</div>
+
+<!-- ============ 8. 半导体上游设备 ============ -->
+<div class="section">
+<h2>🔷 8. 半导体上游设备 <span class="pill pill-mix">承压</span></h2>
+<div class="stock-row"><span class="stock-code">688012</span><span class="stock-name">中微公司</span><span class="stock-price">415.14</span><span class="stock-chg up">+1.53%</span></div>
+<div class="stock-row"><span class="stock-code">002371</span><span class="stock-name">北方华创</span><span class="stock-price">827.00</span><span class="stock-chg down">-1.67%</span></div>
+<div class="stock-row"><span class="stock-code">688082</span><span class="stock-name">盛美上海</span><span class="stock-price">366.97</span><span class="stock-chg down">-0.82%</span></div>
+<div class="stock-row"><span class="stock-code">688037</span><span class="stock-name">芯源微</span><span class="stock-price">357.58</span><span class="stock-chg down">-0.67%</span></div>
+<div class="stock-row"><span class="stock-code">688120</span><span class="stock-name">华海清科</span><span class="stock-price">269.66</span><span class="stock-chg down">-4.04%</span></div>
+<div class="insight-box">📌 大基金减持中微公司拟套现超60亿的消息持续发酵。但北方华创/中微作为长鑫核心供应商，中长期国产替代逻辑未变。</div>
+</div>
+
+<!-- ============ 9. 半导体上游原材料 ============ -->
+<div class="section">
+<h2>🔷 9. 半导体上游原材料 <span class="pill pill-down">⚠️ 全线重挫</span></h2>
+<div class="stock-row"><span class="stock-code">300346</span><span class="stock-name">南大光电</span><span class="stock-price">81.96</span><span class="stock-chg down">-7.67%</span><span class="tag tag-hot">领跌</span></div>
+<div class="stock-row"><span class="stock-code">300637</span><span class="stock-name">清溢光电</span><span class="stock-price">10.02</span><span class="stock-chg down">-6.36%</span></div>
+<div class="stock-row"><span class="stock-code">603650</span><span class="stock-name">彤程新材</span><span class="stock-price">92.02</span><span class="stock-chg down">-5.82%</span></div>
+<div class="stock-row"><span class="stock-code">002409</span><span class="stock-name">雅克科技</span><span class="stock-price">202.50</span><span class="stock-chg down">-4.70%</span></div>
+<div class="stock-row"><span class="stock-code">688126</span><span class="stock-name">沪硅产业</span><span class="stock-price">35.90</span><span class="stock-chg down">-4.14%</span></div>
+<div class="stock-row"><span class="stock-code">688019</span><span class="stock-name">安集科技</span><span class="stock-price">291.09</span><span class="stock-chg down">-3.42%</span></div>
+<div class="stock-row"><span class="stock-code">300666</span><span class="stock-name">江丰电子</span><span class="stock-price">336.59</span><span class="stock-chg down">-1.72%</span></div>
+<div class="insight-box">⚠️ <strong>今日最惨板块！</strong>昨日超60家半导体公司集体提示风险 + 大基金进入常态化退出周期，产业资本高位套现。5-6月半导体产业股东合计减持超67亿，散户接盘压力骤增。电子特气、光刻胶等高估值品种首当其冲。</div>
+</div>
+
+<!-- ============ 10. 先进封装 ============ -->
+<div class="section">
+<h2>🔷 10. 先进封装 <span class="pill pill-down">偏弱</span></h2>
+<div class="stock-row"><span class="stock-code">603005</span><span class="stock-name">晶方科技</span><span class="stock-price">44.70</span><span class="stock-chg down">-5.68%</span></div>
+<div class="stock-row"><span class="stock-code">688362</span><span class="stock-name">甬矽电子</span><span class="stock-price">89.25</span><span class="stock-chg down">-4.02%</span></div>
+<div class="stock-row"><span class="stock-code">600584</span><span class="stock-name">长电科技</span><span class="stock-price">92.70</span><span class="stock-chg down">-3.42%</span></div>
+<div class="stock-row"><span class="stock-code">002156</span><span class="stock-name">通富微电</span><span class="stock-price">66.35</span><span class="stock-chg down">-1.51%</span></div>
+<div class="stock-row"><span class="stock-code">002185</span><span class="stock-name">华天科技</span><span class="stock-price">20.05</span><span class="stock-chg down">-1.09%</span></div>
+</div>
+
+<!-- ============ 11. 存储/HBM ============ -->
+<div class="section">
+<h2>🔷 11. 存储/HBM <span class="pill pill-mix">分化</span></h2>
+<div class="stock-row"><span class="stock-code">301308</span><span class="stock-name">江波龙</span><span class="stock-price">620.00</span><span class="stock-chg up">+3.47%</span></div>
+<div class="stock-row"><span class="stock-code">688525</span><span class="stock-name">佰维存储</span><span class="stock-price">430.40</span><span class="stock-chg up">+2.77%</span></div>
+<div class="stock-row"><span class="stock-code">300042</span><span class="stock-name">朗科科技</span><span class="stock-price">67.70</span><span class="stock-chg up">+0.43%</span></div>
+<div class="stock-row"><span class="stock-code">603986</span><span class="stock-name">兆易创新</span><span class="stock-price">691.78</span><span class="stock-chg down">-0.44%</span></div>
+<div class="stock-row"><span class="stock-code">002049</span><span class="stock-name">紫光国微</span><span class="stock-price">82.99</span><span class="stock-chg down">-0.67%</span></div>
+<div class="insight-box">📌 模组端江波龙/佰维存储偏强，设计端兆易/紫光微跌。长鑫DDR5通过Intel/AMD认证、获腾讯200亿大单，存储国产替代逻辑持续强化。</div>
+</div>
+
+<!-- ============ 12. MLCC/被动元件 ============ -->
+<div class="section">
+<h2>🔷 12. MLCC/被动元件 <span class="pill pill-mix">分化</span></h2>
+<div class="stock-row"><span class="stock-code">300408</span><span class="stock-name">三环集团</span><span class="stock-price">151.83</span><span class="stock-chg up">+2.45%</span></div>
+<div class="stock-row"><span class="stock-code">002138</span><span class="stock-name">顺络电子</span><span class="stock-price">67.26</span><span class="stock-chg down">-0.39%</span></div>
+<div class="stock-row"><span class="stock-code">000636</span><span class="stock-name">风华高科</span><span class="stock-price">66.01</span><span class="stock-chg down">-1.42%</span></div>
+<div class="stock-row"><span class="stock-code">300319</span><span class="stock-name">麦捷科技</span><span class="stock-price">27.47</span><span class="stock-chg down">-2.76%</span></div>
+<div class="stock-row"><span class="stock-code">002859</span><span class="stock-name">洁美科技</span><span class="stock-price">94.88</span><span class="stock-chg down">-4.07%</span></div>
+</div>
+
+<!-- ============ 13. AI应用/Agent ============ -->
+<div class="section">
+<h2>🔷 13. AI应用/Agent <span class="pill pill-down">整体疲弱</span></h2>
+<div class="stock-row"><span class="stock-code">300418</span><span class="stock-name">昆仑万维</span><span class="stock-price">42.82</span><span class="stock-chg down">-5.99%</span><span class="tag tag-hot">重挫</span></div>
+<div class="stock-row"><span class="stock-code">300229</span><span class="stock-name">拓尔思</span><span class="stock-price">13.57</span><span class="stock-chg down">-1.67%</span></div>
+<div class="stock-row"><span class="stock-code">688111</span><span class="stock-name">金山办公</span><span class="stock-price">211.91</span><span class="stock-chg down">-1.62%</span></div>
+<div class="stock-row"><span class="stock-code">002230</span><span class="stock-name">科大讯飞</span><span class="stock-price">40.63</span><span class="stock-chg down">-1.10%</span></div>
+<div class="stock-row"><span class="stock-code">300033</span><span class="stock-name">同花顺</span><span class="stock-price">248.49</span><span class="stock-chg up">+0.34%</span></div>
+<div class="insight-box">📌 AI应用端与算力硬件形成鲜明"跷跷板"——资金集中进攻硬件，应用端失血。昆仑万维-5.99%领跌，后续关注午间是否有智谱/百度等大模型催化消息扭转局面。</div>
+</div>
+
+<!-- ============ 14. 机器人 ============ -->
+<div class="section">
+<h2>🔷 14. 机器人 <span class="pill pill-hot">🚀 全线爆发</span></h2>
+<div class="stock-row"><span class="stock-code">688017</span><span class="stock-name">绿的谐波</span><span class="stock-price">477.91</span><span class="stock-chg up">+15.70%</span><span class="tag tag-hot">暴涨</span></div>
+<div class="stock-row"><span class="stock-code">300607</span><span class="stock-name">拓斯达</span><span class="stock-price">51.73</span><span class="stock-chg up">+10.91%</span><span class="tag tag-zting">涨停</span></div>
+<div class="stock-row"><span class="stock-code">002747</span><span class="stock-name">埃斯顿</span><span class="stock-price">44.77</span><span class="stock-chg up">+10.00%</span><span class="tag tag-zting">涨停</span></div>
+<div class="stock-row"><span class="stock-code">300124</span><span class="stock-name">汇川技术</span><span class="stock-price">72.29</span><span class="stock-chg up">+5.69%</span></div>
+<div class="stock-row"><span class="stock-code">688320</span><span class="stock-name">禾川科技</span><span class="stock-price">43.09</span><span class="stock-chg up">+4.31%</span></div>
+<div class="insight-box">🚀 <strong>今日最强板块！</strong>绿的谐波+15.7%接近涨停，埃斯顿/拓斯达双双封板。Optimus机器人或于7月下旬-8月在弗里蒙特投产消息持续发酵，减速器/伺服/控制器全链共振。</div>
+</div>
+
+<!-- ============ 15. 长鑫存储上游 ============ -->
+<div class="section cxm-section">
+<h2>🏭 15. 长鑫存储上游产业链（重点专项）<span class="pill pill-down">集体回调</span></h2>
+<div class="stock-row"><span class="stock-code">000021</span><span class="stock-name">深科技</span><span class="stock-price">53.02</span><span class="stock-chg down">-5.37%</span></div>
+<div class="stock-row"><span class="stock-code">300346</span><span class="stock-name">南大光电</span><span class="stock-price">81.96</span><span class="stock-chg down">-7.67%</span></div>
+<div class="stock-row"><span class="stock-code">603650</span><span class="stock-name">彤程新材</span><span class="stock-price">92.02</span><span class="stock-chg down">-5.82%</span></div>
+<div class="stock-row"><span class="stock-code">002409</span><span class="stock-name">雅克科技</span><span class="stock-price">202.50</span><span class="stock-chg down">-4.70%</span></div>
+<div class="stock-row"><span class="stock-code">002371</span><span class="stock-name">北方华创</span><span class="stock-price">827.00</span><span class="stock-chg down">-1.67%</span></div>
+<div class="stock-row"><span class="stock-code">600584</span><span class="stock-name">长电科技</span><span class="stock-price">92.70</span><span class="stock-chg down">-3.42%</span></div>
+<div class="insight-box">
+<strong>🏭 专项分析：</strong><br>
+• 今日长鑫上游全线收跌，核心原因是昨日（7月2日）超60家半导体公司集体发布风险提示公告，叠加国家大基金进入常态化退出周期——5-6月半导体板块成为A股减持主力，仅6月就有佰维存储、芯原股份等7家公司股东套现67.4亿元。<br>
+• <strong>中长期基本面依然坚实：</strong>长鑫DDR5通过Intel/AMD双平台认证，获腾讯200亿大单；计划2026年底12英寸月产能达15万片，90%切换至DDR5/LPDDR5X；12nm新工艺DDR5目标速率突破10000Mbps。<br>
+• <strong>新增关注标的：</strong>精智达（688627）——存储器测试设备核心供应商，已获长鑫订单；中科飞测——量检测设备已通过长鑫验证。<br>
+• <strong>策略判断：</strong>短期情绪杀跌，不改长鑫产业链国产替代长逻辑。设备端（北方华创、中微公司）和材料端（雅克科技、南大光电）回调后性价比提升，关注下午是否有资金回补。
+</div>
+</div>
+
+<!-- ============ 下午预判 ============ -->
+<div class="section prediction">
+<h2>🔮 下午走势预判</h2>
+
+<div class="pred-block">
+<h3>📊 1. 大盘方向预判</h3>
+<p><strong>预判：震荡分化延续，科技成长强于权重（概率 65%）</strong></p>
+<p>上证/深成指早盘受权重拖累走弱，但创业板+1.58%、科创50+1.05%逆势走强，黄白线剧烈分化。早盘成交量适中，未出现恐慌性抛售。下午大概率维持"指数平淡、个股精彩"格局：上证在4020-4080区间窄幅震荡，创业板在4050-4120区间偏强运行。</p>
+<p>反转信号（概率 15%）：若午间无利空且半导体材料板块止跌回稳，可能带动上证翻红。持续杀跌（概率 20%）：若半导体减持恐慌扩散至设备端，可能引发连锁抛售。</p>
+</div>
+
+<div class="pred-block">
+<h3>🧠 2. AI产业链午后展望</h3>
+<ul>
+<li><strong>最强方向持续性：</strong>机器人板块今天情绪极度亢奋（绿的谐波+15.7%、2只涨停），下午大概率冲高回落或炸板——短期涨幅过大，不建议追高。</li>
+<li><strong>PCB/高速互联：</strong>深南电路封板较为坚实，景旺电子、生益科技跟风力度强，下午有望维持高位震荡，但进一步拉升空间有限。</li>
+<li><strong>潜在轮动方向：</strong>AI应用端早盘严重失血（昆仑万维-5.99%），若午后硬件端出现获利了结，资金可能切换至应用端做超跌反弹，重点关注金山办公、科大讯飞。</li>
+<li><strong>光模块：</strong>新易盛+5.53%领涨但量能一般，中际旭创仅+1.31%，下午可能维持温和走势，难有爆发。</li>
+<li><strong>午间关注：</strong>是否有智谱/百度/字节等大模型更新消息、海外AI芯片动态、政策面信号。</li>
+</ul>
+</div>
+
+<div class="pred-block">
+<h3>📍 3. 关键点位</h3>
+<ul>
+<li><strong>上证指数：</strong>支撑 4020（早盘低点附近），阻力 4080/4112（昨日收盘）。跌破4020则可能加速下探4000整数关口；突破4080则有望反弹收窄跌幅。</li>
+<li><strong>创业板指：</strong>支撑 4040，阻力 4120。若站稳4080，下午大概率收在+1.5%以上。</li>
+<li><strong>科创50：</strong>支撑 1987（昨日收盘），阻力 2030。站上2030则确认科技股午后加速行情。</li>
+</ul>
+</div>
+
+<div class="pred-block">
+<h3>⚠️ 4. 风险提示</h3>
+<ul>
+<li><strong>半导体减持恐慌：</strong>大基金减持中微公司超60亿+多家公司集中提示风险，这是结构性的板块利空。若下午蔓延至设备端（北方华创、拓荆科技），可能引发整个半导体链二次探底。</li>
+<li><strong>机器人过热风险：</strong>绿的谐波+15.7%接近20cm涨停，换手率需关注——若下午炸板回落，可能带崩整个成长股情绪。</li>
+<li><strong>量价背离：</strong>上证缩量下跌 vs 创业板放量上涨，说明资金在结构性迁移而非增量入场，整体市场仍是存量博弈。</li>
+<li><strong>周末效应：</strong>周五下午通常有避险减仓倾向，注意尾盘半小时的波动。</li>
+</ul>
+</div>
+
+<div class="pred-block">
+<h3>💡 5. 午后策略方向</h3>
+<p><strong>（声明：以下仅为市场观察与分析，不构成任何投资建议。投资有风险，入市需谨慎。）</strong></p>
+<ul>
+<li><strong>持币观望优于追高：</strong>机器人/PCB短期涨幅已大，下午追高风险收益比不佳。等待回调后再考虑介入。</li>
+<li><strong>关注超跌机会：</strong>半导体材料（南大光电-7.67%、彤程新材-5.82%）若下午继续杀跌，可关注尾盘是否有资金抄底——长鑫产业链中长期逻辑未破，恐慌性抛售往往孕育机会。</li>
+<li><strong>AI应用端潜伏：</strong>昆仑万维-5.99%、金山办公-1.62%，若下午硬件端获利回吐，应用端可能迎来资金回补。</li>
+<li><strong>仓位管理：</strong>周五下午建议控制仓位，周末不确定性较高（海外AI动态、政策面变化），留足周一应对空间。</li>
+</ul>
+</div>
+</div>
+
+<div class="disclaimer">
+⚠️ 免责声明：本报告仅供信息参考，不构成任何投资建议。所有数据来源于公开市场信息，可能存在延迟。股市有风险，投资需谨慎。<br>
+Generated by Hermes Agent · 2026-07-03 11:35 CST · Data: Yahoo Finance v8 API
+</div>
+
+</div>
+</body>
+</html>
