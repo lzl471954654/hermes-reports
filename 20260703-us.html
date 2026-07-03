@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026年7月3日</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card-bg: #1a1d28;
+    --border: #2a2d3a;
+    --text: #e1e4e8;
+    --text-secondary: #8b949e;
+    --red: #f85149;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --purple: #a371f7;
+    --teal: #39d353;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .header .date { font-size: 13px; color: var(--text-secondary); }
+  .header .tagline { font-size: 12px; color: var(--orange); margin-top: 4px; font-weight: 500; }
+
+  .section { margin-bottom: 28px; }
+  .section-title {
+    font-size: 16px; font-weight: 700; color: var(--blue); margin-bottom: 14px;
+    padding-bottom: 6px; border-bottom: 2px solid var(--border);
+  }
+  .section-title .icon { margin-right: 6px; }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+
+  /* Indices row */
+  .indices-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  @media (max-width: 600px) { .indices-grid { grid-template-columns: repeat(2, 1fr); } }
+  .index-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+  .index-card .name { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+  .index-card .value { font-size: 18px; font-weight: 700; color: var(--text); }
+  .index-card .change { font-size: 13px; font-weight: 600; margin-top: 2px; }
+  .index-card .label { font-size: 10px; color: var(--text-secondary); margin-top: 2px; }
+
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .flat { color: var(--text-secondary); }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; padding: 8px 10px; font-size: 11px; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); }
+  td { padding: 9px 10px; border-bottom: 1px solid rgba(42,45,58,0.6); }
+  tr:last-child td { border-bottom: none; }
+  .ticker { font-weight: 700; color: var(--text); }
+  .name-col { color: var(--text-secondary); font-size: 12px; }
+  .price { font-weight: 600; }
+
+  .driver-box {
+    background: linear-gradient(135deg, rgba(163,113,247,0.1), rgba(88,166,255,0.08));
+    border: 1px solid rgba(163,113,247,0.3);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .driver-box .driver-title { font-size: 14px; font-weight: 700; color: var(--purple); margin-bottom: 8px; }
+  .driver-box .driver-text { font-size: 13px; color: var(--text); line-height: 1.7; }
+  .driver-box .driver-meta { font-size: 11px; color: var(--text-secondary); margin-top: 8px; }
+
+  .mapping-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 600px) { .mapping-grid { grid-template-columns: 1fr; } }
+  .mapping-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .mapping-item .signal { font-size: 11px; font-weight: 700; margin-bottom: 4px; }
+  .mapping-item .signal.bearish { color: var(--red); }
+  .mapping-item .signal.bullish { color: var(--green); }
+  .mapping-item .signal.mixed { color: var(--orange); }
+  .mapping-item .theme { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .mapping-item .stocks { font-size: 12px; color: var(--text-secondary); }
+
+  .footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+  .footer a { color: var(--blue); text-decoration: none; }
+  .highlight { color: var(--orange); font-weight: 600; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .tag-record { background: rgba(210,153,29,0.15); color: var(--orange); }
+  .tag-alert { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-hot { background: rgba(57,211,83,0.12); color: var(--teal); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 美股 AI 产业链收盘 & A股映射早报</h1>
+  <div class="date">2026年7月3日（周五）| 覆盖7月2日（周四）美股收盘</div>
+  <div class="tagline">⚠️ Meta 云业务"卖铲人"逻辑松动 · 半导体两日重挫 · 道指再创历史新高</div>
+</div>
+
+<!-- ====== 美股大盘 ====== -->
+<div class="section">
+  <div class="section-title"><span class="icon">📊</span>美股大盘</div>
+
+  <div class="indices-grid">
+    <div class="index-card">
+      <div class="name">道琼斯工业</div>
+      <div class="value">52,844</div>
+      <div class="change up">+1.03%</div>
+      <div class="label">+539点 · 历史新高 <span class="tag tag-record">RECORD</span></div>
+    </div>
+    <div class="index-card">
+      <div class="name">标普500</div>
+      <div class="value">7,467</div>
+      <div class="change down">-0.21%</div>
+      <div class="label">近乎持平</div>
+    </div>
+    <div class="index-card">
+      <div class="name">纳斯达克综指</div>
+      <div class="value">25,809</div>
+      <div class="change down">-0.89%</div>
+      <div class="label">科技股承压</div>
+    </div>
+    <div class="index-card">
+      <div class="name">费城半导体 SOX</div>
+      <div class="value">13,385</div>
+      <div class="change down">-~5.0%</div>
+      <div class="label">连续两日重挫 <span class="tag tag-alert">SELL-OFF</span></div>
+    </div>
+  </div>
+
+  <div class="driver-box">
+    <div class="driver-title">🔑 核心驱动</div>
+    <div class="driver-text">
+      <strong>① Meta 算力叙事裂痕：</strong>Meta 计划构建云计算业务并对外出售 AI 算力，市场解读为「算力不再稀缺」，直接动摇了 AI 硬件"卖铲人"的高估值逻辑。存储芯片（MU、SNDK）首当其冲，两日累计跌幅超 15%。<br><br>
+      <strong>② 就业数据偏软：</strong>6月 ADP 与非农双双不及预期，市场押注美联储加息节奏放缓，传统板块获资金青睐，推动道指创历史新高。<br><br>
+      <strong>③ 节前调仓：</strong>7月4日独立日假期前，资金从高估值科技股向防御性/传统板块轮动明显。
+    </div>
+    <div class="driver-meta">📌 本周三大指数均累计上涨约2%，但板块分化极为剧烈——传统 vs AI 硬件走向截然相反。</div>
+  </div>
+</div>
+
+<!-- ====== AI产业链核心标的 ====== -->
+<div class="section">
+  <div class="section-title"><span class="icon">🔬</span>AI 产业链核心标的</div>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>代码</th><th>公司</th><th>收盘价</th><th>涨跌幅</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ticker">NVDA</td>
+          <td class="name-col">英伟达</td>
+          <td class="price">$197.58</td>
+          <td class="down">-0.74%</td>
+        </tr>
+        <tr>
+          <td class="ticker">AVGO</td>
+          <td class="name-col">博通</td>
+          <td class="price">$360.45</td>
+          <td class="down">-~5%</td>
+        </tr>
+        <tr>
+          <td class="ticker">AMD</td>
+          <td class="name-col">AMD</td>
+          <td class="price" style="color:var(--text-secondary)">—</td>
+          <td class="down">约 -6.8%</td>
+        </tr>
+        <tr>
+          <td class="ticker">TSM</td>
+          <td class="name-col">台积电</td>
+          <td class="price">$434.55</td>
+          <td class="down">-2.18%</td>
+        </tr>
+        <tr>
+          <td class="ticker">MU</td>
+          <td class="name-col">美光科技</td>
+          <td class="price">~$960</td>
+          <td class="down">-6.9% <span class="tag tag-alert">两日-17%</span></td>
+        </tr>
+        <tr>
+          <td class="ticker">SNDK</td>
+          <td class="name-col">闪迪</td>
+          <td class="price" style="color:var(--text-secondary)">—</td>
+          <td class="down">约 -10%+</td>
+        </tr>
+        <tr>
+          <td class="ticker">MRVL</td>
+          <td class="name-col">Marvell</td>
+          <td class="price" style="color:var(--text-secondary)">—</td>
+          <td class="down">-7%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ====== 科技七巨头 ====== -->
+<div class="section">
+  <div class="section-title"><span class="icon">🏢</span>科技七巨头 (Mag 7)</div>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>代码</th><th>公司</th><th>涨跌幅</th><th>备注</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ticker">AAPL</td>
+          <td class="name-col">苹果</td>
+          <td class="up">+4.80%</td>
+          <td class="name-col">领涨道指，资金避险流入</td>
+        </tr>
+        <tr>
+          <td class="ticker">MSFT</td>
+          <td class="name-col">微软</td>
+          <td class="up">+0.71%</td>
+          <td class="name-col">云计算+AI 应用端相对抗跌</td>
+        </tr>
+        <tr>
+          <td class="ticker">AMZN</td>
+          <td class="name-col">亚马逊</td>
+          <td class="up">+0.22%</td>
+          <td class="name-col">AWS 云业务逻辑未受冲击</td>
+        </tr>
+        <tr>
+          <td class="ticker">TSLA</td>
+          <td class="name-col">特斯拉</td>
+          <td class="up">+0.54%</td>
+          <td class="name-col">小幅收涨</td>
+        </tr>
+        <tr>
+          <td class="ticker">META</td>
+          <td class="name-col">Meta</td>
+          <td class="flat">±0.23%</td>
+          <td class="name-col">前日 +8.81%，今日横盘消化 <span class="tag tag-hot">焦点</span></td>
+        </tr>
+        <tr>
+          <td class="ticker">GOOGL</td>
+          <td class="name-col">谷歌</td>
+          <td class="down">-0.79%</td>
+          <td class="name-col">AI 搜索竞争压力</td>
+        </tr>
+        <tr>
+          <td class="ticker">NVDA</td>
+          <td class="name-col">英伟达</td>
+          <td class="down">-0.74%</td>
+          <td class="name-col">盘后 $197.10</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ====== 盘后动态 ====== -->
+<div class="section">
+  <div class="section-title"><span class="icon">🌙</span>盘后动态</div>
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>代码</th><th>盘后价</th><th>变动</th><th>关注点</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ticker">NVDA</td>
+          <td class="price">$197.10</td>
+          <td class="down">-$0.48 (-0.24%)</td>
+          <td class="name-col">震荡区间 $193.86-$200.06</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:10px 14px; background:rgba(248,81,73,0.06); border-radius:6px; font-size:13px;">
+      ⚠️ <strong>关注7月3日（周五）半日市：</strong>独立日假期前最后一个交易日，市场将于美东时间下午1点提前收盘。半导体板块是否出现超跌反弹是核心看点。
+    </div>
+  </div>
+</div>
+
+<!-- ====== A股映射 ====== -->
+<div class="section">
+  <div class="section-title"><span class="icon">🇨🇳</span>A股映射（7月3日早盘参考）</div>
+
+  <div class="mapping-grid">
+    <div class="mapping-item">
+      <div class="signal bearish">🔴 偏空</div>
+      <div class="theme">存储芯片 / HBM</div>
+      <div class="stocks">兆易创新(603986) · 北京君正(300223) · 澜起科技(688008) · 江波龙(301308)<br>
+      <span style="font-size:11px; color:var(--text-secondary);">→ MU 两日暴跌17%，存储板块情绪面冲击最大</span></div>
+    </div>
+    <div class="mapping-item">
+      <div class="signal bearish">🔴 偏空</div>
+      <div class="theme">光模块 / 光通信</div>
+      <div class="stocks">中际旭创(300308) · 新易盛(300502) · 天孚通信(300394) · 源杰科技(688498)<br>
+      <span style="font-size:11px; color:var(--text-secondary);">→ AI 算力叙事松动，光模块高估值面临压力测试</span></div>
+    </div>
+    <div class="mapping-item">
+      <div class="signal bearish">🔴 偏空</div>
+      <div class="theme">AI 算力 / GPU 国产替代</div>
+      <div class="stocks">寒武纪(688256) · 海光信息(688041) · 景嘉微(300474)<br>
+      <span style="font-size:11px; color:var(--text-secondary);">→ NVDA/AMD 回调，国产GPU情绪面承压</span></div>
+    </div>
+    <div class="mapping-item">
+      <div class="signal bearish">🔴 偏空</div>
+      <div class="theme">PCB / 服务器</div>
+      <div class="stocks">沪电股份(002463) · 深南电路(002916) · 工业富联(601138) · 浪潮信息(000977)<br>
+      <span style="font-size:11px; color:var(--text-secondary);">→ AI 硬件链集体回调，但实际订单逻辑未破坏</span></div>
+    </div>
+    <div class="mapping-item">
+      <div class="signal bullish">🟢 偏多</div>
+      <div class="theme">苹果产业链 / 果链</div>
+      <div class="stocks">立讯精密(002475) · 歌尔股份(002241) · 蓝思科技(300433)<br>
+      <span style="font-size:11px; color:var(--text-secondary);">→ AAPL +4.80% 领涨，果链或获情绪面支撑</span></div>
+    </div>
+    <div class="mapping-item">
+      <div class="signal mixed">🟡 分化</div>
+      <div class="theme">半导体设备 / 材料</div>
+      <div class="stocks">北方华创(002371) · 中微公司(688012) · 拓荆科技(688072)<br>
+      <span style="font-size:11px; color:var(--text-secondary);">→ 自主可控逻辑独立于海外，但板块情绪受拖累</span></div>
+    </div>
+  </div>
+
+  <div class="driver-box" style="margin-top:14px;">
+    <div class="driver-title">📝 映射逻辑解析</div>
+    <div class="driver-text">
+      <strong>核心矛盾：</strong>Meta"卖算力"等于向市场宣告 AI 算力供给正在从稀缺走向充裕。这直接挑战了过去两年支撑 AI 硬件股高估值的核心叙事——"算力永远不够"。存储芯片（MU/SNDK）跌幅最大，因其年内涨幅最猛、估值泡沫最明显。<br><br>
+      <strong>但不宜过度悲观：</strong>① 多家机构（中信证券等）认为此次下跌系"错杀"，AI 资本开支趋势未逆转；② 光模块/PCB 等环节实际订单仍在增长；③ 苹果强势为果链提供独立逻辑线；④ A股半导体板块7月2日已先行反应（电子ETF跌4.26%），今日或有技术性修复。<br><br>
+      <strong>关键观察：</strong>7月3日美股半日市中半导体板块是否企稳，将决定下周 A 股 AI 链的修复力度。
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>数据来源：Investopedia · TradingEconomics · Yahoo Finance · TradingKey · 东方财富 · 新浪财经</p>
+  <p>报告生成时间：2026-07-03 08:00 CST | 仅供参考，不构成投资建议</p>
+</div>
+
+</body>
+</html>
