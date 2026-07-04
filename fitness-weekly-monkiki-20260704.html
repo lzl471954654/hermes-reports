@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏋️ 健身&饮食周报 · Monkiki · 2026.06.29–07.04</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: #0d1b2a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 24px 0 16px;
+    border-bottom: 1px solid rgba(79, 195, 247, 0.2);
+    margin-bottom: 20px;
+  }
+  .header h1 { font-size: 1.5rem; color: #4fc3f7; font-weight: 700; }
+  .header .date { font-size: 0.85rem; color: #78909c; margin-top: 4px; }
+  .header .motto { font-size: 0.9rem; color: #81c784; margin-top: 8px; font-style: italic; }
+
+  .overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: rgba(79, 195, 247, 0.06);
+    border: 1px solid rgba(79, 195, 247, 0.12);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+  .card .label { font-size: 0.78rem; color: #78909c; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card .value { font-size: 1.4rem; font-weight: 700; color: #4fc3f7; }
+  .card .sub { font-size: 0.75rem; color: #607d8b; margin-top: 2px; }
+  .card.good { border-color: rgba(129, 199, 132, 0.3); background: rgba(129, 199, 132, 0.06); }
+  .card.good .value { color: #81c784; }
+  .card.warn { border-color: rgba(255, 167, 38, 0.3); background: rgba(255, 167, 38, 0.06); }
+  .card.warn .value { color: #ffa726; }
+
+  .member-section {
+    margin-bottom: 28px;
+    background: rgba(79, 195, 247, 0.03);
+    border: 1px solid rgba(79, 195, 247, 0.08);
+    border-radius: 12px;
+    padding: 18px 16px;
+  }
+  .member-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #4fc3f7;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .member-name .tag {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: rgba(79, 195, 247, 0.15);
+    color: #4fc3f7;
+    font-weight: 500;
+  }
+  .member-name .tag.green { background: rgba(129, 199, 132, 0.15); color: #81c784; }
+
+  .data-row {
+    display: flex; flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+  .data-row .item { color: #b0bec5; }
+  .data-row .item strong { color: #e0e0e0; }
+
+  .sub-section {
+    margin: 12px 0;
+    padding: 12px;
+    background: rgba(79, 195, 247, 0.04);
+    border-radius: 8px;
+    border-left: 3px solid #4fc3f7;
+  }
+  .sub-section h4 {
+    font-size: 0.85rem;
+    color: #4fc3f7;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .sub-section .item { font-size: 0.82rem; color: #b0bec5; margin: 2px 0; }
+  .sub-section .item b { color: #e0e0e0; }
+
+  .chart-bar {
+    display: flex; align-items: center; gap: 8px; margin: 4px 0; font-size: 0.78rem;
+  }
+  .chart-bar .day { width: 36px; color: #78909c; text-align: right; flex-shrink: 0; }
+  .chart-bar .bar {
+    height: 18px; border-radius: 4px; min-width: 4px;
+    transition: width 0.3s;
+  }
+  .chart-bar .val { color: #b0bec5; font-size: 0.75rem; white-space: nowrap; }
+  .bar-kcal { background: linear-gradient(90deg, #4fc3f7, #29b6f6); }
+  .bar-protein { background: linear-gradient(90deg, #81c784, #66bb6a); }
+  .bar-net { background: linear-gradient(90deg, #ffa726, #ff9800); }
+
+  .comment {
+    margin: 12px 0;
+    padding: 12px 14px;
+    background: rgba(79, 195, 247, 0.05);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #b0bec5;
+    border: 1px dashed rgba(79, 195, 247, 0.15);
+  }
+  .comment strong { color: #4fc3f7; }
+
+  .insight {
+    margin: 10px 0; padding: 10px 14px;
+    background: rgba(129, 199, 132, 0.06);
+    border-radius: 8px; font-size: 0.84rem;
+    border-left: 3px solid #81c784;
+    color: #a5d6a7;
+  }
+  .warn-box {
+    margin: 10px 0; padding: 10px 14px;
+    background: rgba(255, 167, 38, 0.06);
+    border-radius: 8px; font-size: 0.84rem;
+    border-left: 3px solid #ffa726;
+    color: #ffcc80;
+  }
+
+  .divider { height: 1px; background: rgba(79, 195, 247, 0.1); margin: 16px 0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.78rem; margin: 8px 0; }
+  th { text-align: left; color: #78909c; font-weight: 500; padding: 4px 8px; border-bottom: 1px solid rgba(79,195,247,0.1); }
+  td { padding: 4px 8px; color: #b0bec5; border-bottom: 1px solid rgba(79,195,247,0.05); }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.hi { color: #81c784; font-weight: 600; }
+  td.lo { color: #ffa726; }
+  td.mo { color: #4fc3f7; font-weight: 600; }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .mini-stat {
+    text-align: center;
+    padding: 10px 6px;
+    background: rgba(79,195,247,0.04);
+    border-radius: 8px;
+  }
+  .mini-stat .num { font-size: 1.1rem; font-weight: 700; color: #4fc3f7; }
+  .mini-stat .label { font-size: 0.7rem; color: #78909c; margin-top: 2px; }
+
+  .integrity {
+    margin: 16px 0; padding: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px; font-size: 0.8rem; color: #607d8b;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer {
+    text-align: center; font-size: 0.75rem; color: #455a64;
+    margin-top: 24px; padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏋️ 健身 & 饮食周报</h1>
+  <div class="date">2026 年 6 月 29 日 — 7 月 4 日 · 共 6 天</div>
+  <div class="motto">⚡ 高能量人群 — Monkiki</div>
+</div>
+
+<!-- ========== OVERVIEW ========== -->
+<div class="overview">
+  <div class="card good">
+    <div class="label">🏋️ 训练天数</div>
+    <div class="value">5 / 6</div>
+    <div class="sub">背·胸·腿·背·手臂+肩 — 全覆盖</div>
+  </div>
+  <div class="card">
+    <div class="label">🛌 休息天数</div>
+    <div class="value">1</div>
+    <div class="sub">周五（7/3）纯休息</div>
+  </div>
+  <div class="card">
+    <div class="label">🔥 周训练总消耗</div>
+    <div class="value">~2,578</div>
+    <div class="sub">kcal · 力量 ~1,631 + 有氧 ~947</div>
+  </div>
+  <div class="card warn">
+    <div class="label">📊 日均净摄入</div>
+    <div class="value">~1,850</div>
+    <div class="sub">kcal · 范围 866–3,067</div>
+  </div>
+</div>
+
+<!-- ========== Monkiki ========== -->
+<div class="member-section">
+  <div class="member-name">
+    👩 Monkiki
+    <span class="tag green">⚡ 高能量人群</span>
+  </div>
+
+  <div class="data-row">
+    <span class="item">⚖️ 体重 <strong>~70kg</strong></span>
+    <span class="item">🎯 目标 <strong>65–67.5kg</strong></span>
+    <span class="item">📐 BMI <strong>24.2</strong></span>
+    <span class="item">📍 <strong>西安</strong></span>
+    <span class="item">⏱ 周训练时长 <strong>~7h45min</strong></span>
+  </div>
+
+  <!-- --- WEEKLY STATS --- -->
+  <div class="summary-grid">
+    <div class="mini-stat">
+      <div class="num">~2,336</div>
+      <div class="label">日均摄入 kcal</div>
+    </div>
+    <div class="mini-stat">
+      <div class="num">~124g</div>
+      <div class="label">日均蛋白质</div>
+    </div>
+    <div class="mini-stat">
+      <div class="num">~1.77</div>
+      <div class="label">蛋白 g/kg</div>
+    </div>
+    <div class="mini-stat">
+      <div class="num">~430</div>
+      <div class="label">日均训练消耗 kcal</div>
+    </div>
+    <div class="mini-stat">
+      <div class="num">~1,850</div>
+      <div class="label">日均净摄入 kcal</div>
+    </div>
+    <div class="mini-stat">
+      <div class="num">~172g</div>
+      <div class="label">日均碳水</div>
+    </div>
+  </div>
+
+  <!-- --- DAILY BREAKDOWN --- -->
+  <div class="sub-section">
+    <h4>📅 每日数据总览</h4>
+    <table>
+      <tr>
+        <th>日期</th><th>训练</th><th>消耗</th><th>摄入</th><th>净摄入</th><th>蛋白质</th><th>评价</th>
+      </tr>
+      <tr>
+        <td>6/29 周一</td>
+        <td>背 63min + 椭圆仪 30min</td>
+        <td class="num">~612</td>
+        <td class="num">2,220</td>
+        <td class="num">1,608</td>
+        <td class="num">87g</td>
+        <td class="mo">✅ 均衡</td>
+      </tr>
+      <tr>
+        <td>6/30 周二</td>
+        <td>胸 53min + 爬坡 30min</td>
+        <td class="num">548</td>
+        <td class="num hi">4,065</td>
+        <td class="num lo">3,517</td>
+        <td class="num hi">170g</td>
+        <td>🍸 cheat day</td>
+      </tr>
+      <tr>
+        <td>7/1 周三</td>
+        <td>腿 57min + 爬坡 30min</td>
+        <td class="num">587</td>
+        <td class="num lo">1,453</td>
+        <td class="num lo">866</td>
+        <td class="num lo">81g</td>
+        <td class="lo">🔴 严重偏低</td>
+      </tr>
+      <tr>
+        <td>7/2 周四</td>
+        <td>背 69min + 爬坡 21min</td>
+        <td class="num">536</td>
+        <td class="num">2,450</td>
+        <td class="num">1,914</td>
+        <td class="num hi">166g</td>
+        <td class="mo">✅ 优秀</td>
+      </tr>
+      <tr>
+        <td>7/3 周五</td>
+        <td>🛌 休息</td>
+        <td class="num">0</td>
+        <td class="num lo">2,647</td>
+        <td class="num lo">2,647</td>
+        <td class="num">146g</td>
+        <td>⚠️ 休息日偏高</td>
+      </tr>
+      <tr>
+        <td>7/4 周六</td>
+        <td>手臂+肩 52min</td>
+        <td class="num">295</td>
+        <td class="num lo">1,180</td>
+        <td class="num lo">885</td>
+        <td class="num">92g</td>
+        <td class="lo">⚠️ 偏低</td>
+      </tr>
+      <tr style="border-top:2px solid rgba(79,195,247,0.15); font-weight:600;">
+        <td><b>周合计</b></td>
+        <td><b>5 练 1 休</b></td>
+        <td class="num" style="color:#4fc3f7;"><b>~2,578</b></td>
+        <td class="num" style="color:#4fc3f7;"><b>~14,015</b></td>
+        <td class="num" style="color:#4fc3f7;"><b>~11,437</b></td>
+        <td class="num" style="color:#4fc3f7;"><b>~742g</b></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- --- CALORIE CHART --- -->
+  <div class="sub-section">
+    <h4>📊 每日摄入 & 净摄入趋势</h4>
+    <div style="margin: 8px 0; font-size: 0.75rem; color: #78909c;">▬ 摄入 &nbsp;&nbsp; ▬ 净摄入（摄入 − 训练消耗）</div>
+    <div class="chart-bar"><span class="day">周一</span><span class="bar bar-kcal" style="width:155px;"></span><span class="val">2,220 kcal</span></div>
+    <div class="chart-bar"><span class="day"></span><span class="bar bar-net" style="width:112px;"></span><span class="val">→ 1,608 net</span></div>
+    <div class="chart-bar"><span class="day">周二</span><span class="bar bar-kcal" style="width:282px;"></span><span class="val">4,065 kcal 🔥</span></div>
+    <div class="chart-bar"><span class="day"></span><span class="bar bar-net" style="width:245px;"></span><span class="val">→ 3,517 net</span></div>
+    <div class="chart-bar"><span class="day">周三</span><span class="bar bar-kcal" style="width:101px;"></span><span class="val">1,453 kcal</span></div>
+    <div class="chart-bar"><span class="day"></span><span class="bar bar-net" style="width:60px;"></span><span class="val">→ 866 net 🔴</span></div>
+    <div class="chart-bar"><span class="day">周四</span><span class="bar bar-kcal" style="width:170px;"></span><span class="val">2,450 kcal</span></div>
+    <div class="chart-bar"><span class="day"></span><span class="bar bar-net" style="width:133px;"></span><span class="val">→ 1,914 net ✅</span></div>
+    <div class="chart-bar"><span class="day">周五</span><span class="bar bar-kcal" style="width:184px;"></span><span class="val">2,647 kcal</span></div>
+    <div class="chart-bar"><span class="day"></span><span class="bar bar-net" style="width:184px;"></span><span class="val">→ 2,647 net (休息)</span></div>
+    <div class="chart-bar"><span class="day">周六</span><span class="bar bar-kcal" style="width:82px;"></span><span class="val">1,180 kcal</span></div>
+    <div class="chart-bar"><span class="day"></span><span class="bar bar-net" style="width:61px;"></span><span class="val">→ 885 net ⚠️</span></div>
+  </div>
+
+  <!-- --- TRAINING ANALYSIS --- -->
+  <div class="sub-section">
+    <h4>🏋️ 训练分析</h4>
+    <table>
+      <tr><th>部位</th><th>日期</th><th>力量时长</th><th>力量消耗</th><th>有氧</th><th>有氧消耗</th></tr>
+      <tr><td>背</td><td>6/29</td><td class="num">63min</td><td class="num">362 kcal</td><td>椭圆仪 30min</td><td class="num">~250 kcal</td></tr>
+      <tr><td>胸</td><td>6/30</td><td class="num">53min</td><td class="num">298 kcal</td><td>爬坡 30min</td><td class="num">250 kcal</td></tr>
+      <tr><td>腿</td><td>7/1</td><td class="num">57min</td><td class="num">309 kcal</td><td>爬坡 15坡/4.0速 30min</td><td class="num">278 kcal</td></tr>
+      <tr><td>背</td><td>7/2</td><td class="num mo">69min</td><td class="num mo">367 kcal</td><td>爬坡 21min（未满30）</td><td class="num">169 kcal</td></tr>
+      <tr><td>手臂+肩</td><td>7/4</td><td class="num">52min</td><td class="num">295 kcal</td><td>—</td><td class="num">—</td></tr>
+      <tr style="border-top:2px solid rgba(79,195,247,0.15);"><td><b>合计</b></td><td><b>5 次力量</b></td><td class="num"><b>~4h54min</b></td><td class="num"><b>~1,631 kcal</b></td><td><b>4 次有氧</b></td><td class="num"><b>~947 kcal</b></td></tr>
+    </table>
+
+    <div class="item" style="margin-top:8px;">🔁 <b>分化覆盖：</b>背 ×2 · 胸 ×1 · 腿 ×1 · 手臂+肩 ×1 — 上下肢均衡，背训频率高 ✅</div>
+    <div class="item">🚶 <b>有氧习惯：</b>4 次有氧（3 爬坡 + 1 椭圆仪），训练日基本跟有氧，习惯扎实</div>
+    <div class="item">❤️ <b>有氧心率质量：</b>爬坡平均 144–153 bpm，稳定在燃脂区；椭圆仪 145 bpm 同样高效</div>
+    <div class="item">⏱ <b>心率恢复：</b>有氧后心率恢复极快（1min ↓28 bpm）✅ 心肺底子硬；力量后恢复偏慢（2min ↓9 bpm）→ 建议组间歇后加点冷身走动</div>
+  </div>
+
+  <!-- --- DIET ANALYSIS --- -->
+  <div class="sub-section">
+    <h4>🍽️ 饮食分析</h4>
+
+    <div class="item"><b>🥩 蛋白质：</b>日均 124g（1.77g/kg），达标但不稳定——周二 170g / 周四 166g 很优秀，周三 81g / 周六 92g 拉胯。练腿日和手臂日反而蛋白最低，不太合理。</div>
+    <div class="item"><b>🍞 碳水：</b>日均 172g，波动巨大——周三仅 144g 但练腿，周六仅 107g 训练日明显不够。碳水是训练燃料，练大肌群日低于 150g 是自锯腿。</div>
+    <div class="item"><b>🔥 热量波动：</b>1,180–4,065 kcal，标准差极大。周二川菜+魏斯理深夜局直接爆到 4,065，周三反手掉到 1,453——典型的「补偿性节食」模式。这比稳定偏高更不利于代谢。</div>
+    <div class="item"><b>🍳 烹饪习惯：</b>自己下厨比例高（5/6 天有自制餐），空气炸锅/水煮/凉拌/涮煮为主——控油意识和技术都在线 👨‍🍳</div>
+    <div class="item"><b>🥬 蔬菜：</b>时好时坏。自制餐蔬菜充足，外食（川菜局、火锅、臊子面）蔬菜靠零星点缀。周四融合菜加了个空心菜是个好信号。</div>
+  </div>
+
+  <!-- --- PATTERN INSIGHT --- -->
+  <div class="insight">
+    <strong>📈 周趋势发现：</strong>你的「爆-收-爆-收」模式很明显——周二暴食 4,065 → 周三只吃 1,453（差额 2,600+ kcal），周四又回到 2,450 → 周五休息日 2,647 偏高 → 周六只吃 1,180。身体不是余额宝，今天多存明天少取不管用——代谢适应需要稳定节奏。建议把日均 2,300 的目标拆成均匀 5-6 天执行，不要让单日波动超过 ±800 kcal。
+  </div>
+
+  <div class="warn-box">
+    <strong>⚠️ 最需要关注的：</strong>练腿日（7/1 Wed）净摄入仅 866 kcal —— 57 分钟腿训 + 30 分钟 15 坡度爬坡，总消耗 587 kcal，只吃了 1,453。腿是最大肌群，训练后 24-48 小时是肌肉合成黄金窗口，这个热量和蛋白（81g）完全对不起那组深蹲。下次练腿日正餐请大胆吃到 2,500+，碳水 200g+ 🦵🍚
+  </div>
+
+  <!-- --- HIGHLIGHTS --- -->
+  <div class="sub-section">
+    <h4>🌟 本周亮点</h4>
+    <div class="item">🏆 <b>6/29 背训：</b>5 个动作覆盖宽度+厚度+后链，动作选择教科书级别。辅助引体 60kg 下次降 5-10kg 增加刺激。</div>
+    <div class="item">🏆 <b>7/2 背训：</b>69 分钟拉满，消耗 367 kcal 本周最高单次力量消耗。晚餐融合菜蛋白 126g 一顿到位，碳水/脂肪主动控量（面包只 1 片、意面只 ⅓）。</div>
+    <div class="item">🏆 <b>7/4 凉拌三蛋白：</b>牛肉+虾滑+鸡蛋水煮凉拌，60g 蛋白、22g 脂肪——做法干净到可以当模板。这个晚餐思路复制到训练日午餐就是完美配置。</div>
+    <div class="item">🏆 <b>训练纪律：</b>6 天 5 练，风雨无阻。力量+有氧连做（4 次）已经成了肌肉记忆，不谈效率先谈完成度——这已经是高阶习惯。</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- --- WEEKLY VERDICT --- -->
+  <div class="comment">
+    <strong>💬 周度总评：</strong><br><br>
+    训练端无可挑剔——5 练全覆盖，背 ×2 + 胸 + 腿 + 手臂+肩，分化合理，每次力量后跟有氧的习惯已经刻进 DNA。7h45min 的总训练时长和 ~2,578 kcal 的总消耗，放在任何一个业余健身人群里都是头部水平。你说自己「高能量人群」——数据完全支持这个定位 ⚡<br><br>
+    饮食端是本周的短板。不是吃得不好（自己做菜水准在线），而是<strong>节奏不稳定</strong>。周二到周三的 2,600 kcal 落差，周五休息日反而比训练日吃得多（2,647 vs 1,180），这些波动积累起来会让身体搞不清楚到底在增肌还是减脂。代谢不是开关，需要给身体稳定的信号。<br><br>
+    具体来说：<strong>练腿日和练背日</strong>这两个大肌群训练日，反而出现了本周最低的两个净摄入（866 和 885 kcal）——这就是高消耗低补给，长期下去皮质醇会上去、恢复会变慢、训练质量会掉。<br><br>
+    <strong>一句话总结：训练已经是高手水平，饮食需要从「凭感觉吃」升级到「按训练量分配」。</strong>
+  </div>
+
+  <div class="insight">
+    🌅 <b>下周建议（3 个优先级）：</b><br>
+    ❶ <b>练腿/练背日热量保底 2,200 kcal，蛋白 130g+。</b> 这两个大肌群日是你本周最大的热量赤字来源，优先堵上。<br>
+    ❷ <b>控制单日波动在 ±800 kcal 以内。</b> 周二 4,065 → 周三 1,453 这种过山车别再出现。如果某天吃多了，第二天正常吃别节食补偿。<br>
+    ❸ <b>每周至少 2 天蔬菜拉满。</b>自制餐多扔点西兰花/菠菜/生菜进去，外食尽量加个凉拌菜——你现在蛋白和碳水都不缺，缺的是微量元素。
+  </div>
+
+  <!-- --- SNEAK PEEK --- -->
+  <div class="sub-section">
+    <h4>🔮 如果保持这个训练量……</h4>
+    <div class="item">📐 周训练消耗 ~2,500 kcal ≈ 日均 ~360 kcal 额外支出</div>
+    <div class="item">🎯 维持热量（TDEE）≈ BMR × 1.55 ≈ 2,500–2,700 kcal/天</div>
+    <div class="item">📉 减脂建议：日均摄入 1,900–2,100 kcal，蛋白 120g+，周缺口 ~2,800–4,200 kcal ≈ 0.4–0.6 kg/周</div>
+    <div class="item">⚠️ 你现在日均净摄入仅 ~1,850 kcal——缺口已经偏大。训练量不降的前提下，<strong>应该加量而不是减量</strong></div>
+  </div>
+</div>
+
+<!-- ========== DATA INTEGRITY ========== -->
+<div class="integrity">
+  📊 <b>数据完整度：</b>高 — 6/6 天均有结构化记录<br>
+  📁 数据来源：<code>fitness_logs/monkiki.md</code> 本地归档 · 训练数据来自 Apple Watch 截图 · 饮食为图像识别 + 用户口头补充<br>
+  ⚠️ 所有热量为估算值 · 训练组数/重量细节缺失（仅总览截图）· 无体重更新（参考值 ~70kg）
+</div>
+
+<div class="footer">
+  Generated by Fitness Weekly Agent · 2026-07-04<br>
+  数据仅供参考，不构成医学或营养建议<br>
+  仿日报格式 · Monkiki 专版
+</div>
+
+</body>
+</html>
