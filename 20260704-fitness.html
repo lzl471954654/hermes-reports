@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏋️ 健身&饮食日报 — 2026-07-04 周六</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: #0d1b2a;
+  color: #e0e6ed;
+  line-height: 1.6;
+  padding: 16px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.header {
+  text-align: center;
+  padding: 24px 0 16px;
+  border-bottom: 1px solid #1e3a5f;
+  margin-bottom: 20px;
+}
+.header h1 { font-size: 1.4em; color: #4fc3f7; margin-bottom: 4px; }
+.header .date { font-size: 0.9em; color: #7b8ca3; }
+.header .subtitle { font-size: 0.8em; color: #546e7a; margin-top: 2px; }
+
+.cards { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+.card {
+  flex: 1; min-width: 120px;
+  background: #0f2439; border-radius: 10px;
+  padding: 14px 12px; text-align: center;
+  border: 1px solid #1e3a5f;
+}
+.card .num { font-size: 1.6em; font-weight: 700; color: #4fc3f7; }
+.card .label { font-size: 0.72em; color: #7b8ca3; margin-top: 2px; }
+.card .sub { font-size: 0.7em; color: #546e7a; margin-top: 2px; }
+.card.warn { border-color: #ff8a65; }
+.card.warn .num { color: #ff8a65; }
+
+.section-title {
+  font-size: 1.05em; color: #4fc3f7;
+  margin: 24px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #1e3a5f;
+}
+.member-card {
+  background: #0f2439; border-radius: 10px;
+  padding: 16px; margin-bottom: 14px;
+  border: 1px solid #1e3a5f;
+}
+.member-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.member-name { font-weight: 700; font-size: 1.05em; color: #e0e6ed; }
+.member-tag {
+  font-size: 0.68em; padding: 2px 8px; border-radius: 10px;
+  background: #1e3a5f; color: #7b8ca3;
+}
+.member-tag.trained { background: #1b5e20; color: #81c784; }
+.member-tag.rest { background: #37474f; color: #90a4ae; }
+.member-tag.nodata { background: #3e2723; color: #a1887f; }
+
+.sub-section { margin-bottom: 10px; }
+.sub-label { font-size: 0.75em; color: #546e7a; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+.sub-content { font-size: 0.9em; color: #b0bec5; }
+
+.macro-bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; margin: 6px 0 4px; background: #0a1929; }
+.macro-bar .p { background: #4fc3f7; }
+.macro-bar .c { background: #ffcc80; }
+.macro-bar .f { background: #ef9a9a; }
+.macro-legend { font-size: 0.7em; color: #607d8b; display: flex; gap: 10px; }
+.macro-legend span { display: flex; align-items: center; gap: 3px; }
+.macro-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+.verdict {
+  font-size: 0.85em; color: #b0bec5; background: #0a1929;
+  border-left: 3px solid #4fc3f7; padding: 8px 12px; margin: 10px 0; border-radius: 0 6px 6px 0;
+}
+.verdict.warn { border-left-color: #ff8a65; }
+.verdict.good { border-left-color: #81c784; }
+
+.tomorrow { font-size: 0.82em; color: #78909c; margin-top: 6px; font-style: italic; }
+
+.reminder-box {
+  background: #0f2439; border: 1px solid #1e3a5f; border-radius: 10px;
+  padding: 14px 16px; margin: 20px 0;
+  font-size: 0.85em; color: #90a4ae;
+}
+.reminder-box strong { color: #4fc3f7; }
+
+.footer {
+  text-align: center; font-size: 0.68em; color: #455a64;
+  margin-top: 24px; padding-top: 14px;
+  border-top: 1px solid #1e3a5f;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: 0.82em; margin: 6px 0; }
+table th { text-align: left; color: #607d8b; font-weight: 500; padding: 3px 6px 3px 0; font-size: 0.75em; }
+table td { padding: 3px 6px 3px 0; border-bottom: 1px solid #0f1a2a; color: #b0bec5; }
+table td:last-child, table th:last-child { text-align: right; }
+
+hr { border: none; border-top: 1px solid #1e3a5f; margin: 8px 0; }
+
+.emoji { font-size: 1.1em; }
+.note { font-size: 0.75em; color: #607d8b; }
+.warning { color: #ff8a65; font-weight: 600; }
+.highlight { color: #4fc3f7; font-weight: 600; }
+.estimate { color: #78909c; font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏋️ 健身 & 饮食日报</h1>
+  <div class="date">2026 年 7 月 4 日 · 周六</div>
+  <div class="subtitle">#fitness 频道 · 每日自动生成</div>
+</div>
+
+<!-- 概览卡片 -->
+<div class="cards">
+  <div class="card">
+    <div class="num">2</div>
+    <div class="label">📋 有效记录</div>
+  </div>
+  <div class="card">
+    <div class="num">1</div>
+    <div class="label">🏋️ 完成训练</div>
+    <div class="sub">monkiki</div>
+  </div>
+  <div class="card">
+    <div class="num">295</div>
+    <div class="label">🔥 最高消耗 kcal</div>
+    <div class="sub">monkiki 手臂+肩</div>
+  </div>
+  <div class="card warn">
+    <div class="num">1</div>
+    <div class="label">⚠️ 热量缺口警告</div>
+    <div class="sub">monkiki 摄入偏低</div>
+  </div>
+</div>
+
+<!-- ========== MONKIKI ========== -->
+<div class="section-title">👤 Monkiki</div>
+<div class="member-card">
+  <div class="member-header">
+    <span class="member-name">Monkiki</span>
+    <span class="member-tag trained">🏋️ 训练日</span>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">🏋️ 训练</div>
+    <div class="sub-content">
+      手臂 + 肩 · 52 分 38 秒 · 动态 218 kcal / 总消耗 <span class="highlight">295 kcal</span><br>
+      avg HR 108 bpm（区间 83–140）· 地点 西安<br>
+      <span class="note">组间歇节奏稳，峰值 140 对应推举类动作爆发。</span>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">🍲 饮食</div>
+    <div class="sub-content">
+      <strong>午餐</strong> 泡菜肥牛锅 + 米饭（~620 kcal · P32 · C75 · F22）<br>
+      <strong>晚餐</strong> 凉拌牛肉 + 生菜 + 虾滑 + 鸡蛋×2 + 杂粮馍（~560 kcal · P60 · C32 · F22）
+    </div>
+  </div>
+
+  <hr>
+  <table>
+    <tr><th></th><th>摄入</th><th>评价</th></tr>
+    <tr><td>🔥 热量</td><td>1,180 kcal</td><td class="warning">⚠️ 偏少</td></tr>
+    <tr><td>🥩 蛋白质</td><td>92g (1.3g/kg)</td><td>✅ 够用</td></tr>
+    <tr><td>🍞 碳水</td><td>107g</td><td>训练日偏低</td></tr>
+    <tr><td>🛢️ 脂肪</td><td>44g</td><td>干净 ✅</td></tr>
+    <tr><td>⚖️ 净摄入</td><td colspan="2">~885 kcal（1,180 − 295）</td></tr>
+  </table>
+
+  <div class="macro-bar">
+    <div class="p" style="width:38%"></div>
+    <div class="c" style="width:44%"></div>
+    <div class="f" style="width:18%"></div>
+  </div>
+  <div class="macro-legend">
+    <span><span class="macro-dot" style="background:#4fc3f7"></span> P 38%</span>
+    <span><span class="macro-dot" style="background:#ffcc80"></span> C 44%</span>
+    <span><span class="macro-dot" style="background:#ef9a9a"></span> F 18%</span>
+  </div>
+
+  <div class="verdict good">
+    💬 <strong>点评：</strong>晚餐凉拌三蛋白（牛肉+虾滑+鸡蛋）精瘦到几乎零废热，60g 蛋白一顿到位 👏 午餐泡菜肥牛锅碳水撑着训练没问题。全天蛋白 92g 对手臂+肩这种中小肌群完全够用。净摄入 885 偏少——要是睡前不饿就这样，饿了搞杯蛋白粉或酸奶垫一下。
+  </div>
+  <div class="tomorrow">
+    📌 明日建议：下次练大肌群（腿/背/胸）正餐该放开吃，别让肌肉饿着。今天凉拌做法可以复用到更多日子，低油高蛋白。
+  </div>
+</div>
+
+<!-- ========== CKDDD ========== -->
+<div class="section-title">👤 Ckddd</div>
+<div class="member-card">
+  <div class="member-header">
+    <span class="member-name">Ckddd</span>
+    <span class="member-tag rest">🛌 休息日</span>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">🏋️ 训练</div>
+    <div class="sub-content">今日暂无训练记录</div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">🍲 饮食</div>
+    <div class="sub-content">
+      <strong>第一顿</strong> 双蛋肠粉（~320 kcal · C40 · P16 · F12）<br>
+      <strong>第二顿</strong> 卤肉饭套餐：卤五花肉~6-8块 + 卤蛋×2 + 白米饭 + 豆干 + 烫青菜 + 腌萝卜丝（<span class="estimate">估算</span> ~950 kcal · C90 · P45 · F48）
+    </div>
+  </div>
+
+  <hr>
+  <table>
+    <tr><th></th><th>当前合计</th><th>评价</th></tr>
+    <tr><td>🔥 热量</td><td>~1,270 kcal</td><td>两餐，待补充</td></tr>
+    <tr><td>🥩 蛋白质</td><td>61g (0.95g/kg)</td><td>⚠️ 还低着</td></tr>
+    <tr><td>🍞 碳水</td><td>130g</td><td>—</td></tr>
+    <tr><td>🛢️ 脂肪</td><td>60g</td><td>—</td></tr>
+  </table>
+
+  <div class="verdict warn">
+    💬 <strong>点评：</strong>卤肉饭套餐扎实——五花肉脂肪偏高但卤蛋×2 把蛋白撑到 45g，烫青菜和腌萝卜丝至少让盘子里有绿的。两餐下来 1,270 kcal 对 64kg 增肌选手来说只能算半场——晚上还差一顿。蛋白 61g 暂时不及格（增肌建议 1.6g/kg ≈ 102g），待补充。
+  </div>
+  <div class="tomorrow">
+    📌 明日建议：注意「当前合计」意味着数据还不完整——今晚如果还有进食，后续可以补录。增肌期蛋白优先鸡胸/鸡蛋/乳清粉，碳水不要怕吃。
+  </div>
+</div>
+
+<!-- ========== 智林 ========== -->
+<div class="section-title">👤 智林</div>
+<div class="member-card">
+  <div class="member-header">
+    <span class="member-name">智林</span>
+    <span class="member-tag nodata">📭 今日暂无记录</span>
+  </div>
+  <div class="sub-content note">
+    185cm / 93.5kg · 减脂目标中 · 基线 BMR ~2,300 kcal<br>
+    最近记录 7/3：中午力量训练 477 kcal + 麻辣香锅午餐 + KFC KPRO 晚餐，净摄入 ~1,663 kcal。<br>
+    今天周六可能是休息日，或者还在路上。数据更新后会自动纳入下次结算 🫡
+  </div>
+</div>
+
+<!-- ========== 群内提醒 ========== -->
+<div class="reminder-box">
+  <strong>📢 群内提醒</strong><br><br>
+  • <strong>monkiki</strong>：净摄入 885 kcal 偏少，训练日别让身体空转。睡前饿了搞点蛋白或酸奶 🥛<br>
+  • <strong>ckddd</strong>：当前只有两餐记录，蛋白 61g 离增肌目标还差一截，晚上补一顿 🍗<br>
+  • <strong>智林</strong>：今天没动静——如果休息的话好好恢复，昨天 KPRO 的钠记得多喝水排掉<br>
+  • 💡 夏天天热胃口差是正常的，但训练日蛋白不要妥协。凉拌、白煮、蛋白粉都是低热高蛋白的好选择。
+</div>
+
+<!-- ========== 数据完整度 ========== -->
+<div class="footer">
+  📊 数据完整度<br>
+  数据源：本地 md 日志（lzl.md · monkiki.md · ckddd.md）<br>
+  <span class="note">⚠️ Discord 群聊记录本次未接入，如有群内补充信息请告知 Agent 更新</span><br>
+  生成时间：2026-07-04 23:00（预定）<br>
+  <span class="estimate">所有热量/蛋白质均为估算值，实际以专业设备测量为准</span>
+</div>
+
+</body>
+</html>
