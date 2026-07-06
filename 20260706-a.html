@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 A股盘后总结 · AI产业链深度版 | 2026-07-06</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --muted: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --orange: #d2991d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    padding: 24px 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header h1 { font-size: 1.6rem; margin-bottom: 8px; }
+  .header .date { color: var(--muted); font-size: 0.9rem; }
+  .index-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 640px) { .index-row { grid-template-columns: repeat(2, 1fr); } }
+  .index-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .index-card .name { font-size: 0.8rem; color: var(--muted); margin-bottom: 4px; }
+  .index-card .value { font-size: 1.3rem; font-weight: 700; }
+  .index-card .change { font-size: 0.85rem; margin-top: 2px; }
+  .up { color: var(--red); }
+  .down { color: var(--green); }
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section h2 .icon { font-size: 1.2rem; }
+  .stock-table { width: 100%; border-collapse: collapse; }
+  .stock-table th, .stock-table td {
+    padding: 8px 10px;
+    text-align: right;
+    font-size: 0.88rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .stock-table th { color: var(--muted); font-weight: 500; text-align: left; }
+  .stock-table th:first-child, .stock-table td:first-child { text-align: left; width: 160px; }
+  .stock-table tr:last-child td { border-bottom: none; }
+  .stock-table .code { color: var(--muted); font-size: 0.75rem; margin-left: 4px; }
+  .divider {
+    display: inline-block;
+    width: 1px; height: 14px; background: var(--border);
+    margin: 0 10px; vertical-align: middle;
+  }
+  .summary-box {
+    background: linear-gradient(135deg, #1a1f2e 0%, #162032 100%);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .summary-box h3 { font-size: 0.95rem; color: var(--blue); margin-bottom: 10px; }
+  .summary-box ul { padding-left: 18px; color: var(--text); font-size: 0.88rem; }
+  .summary-box li { margin-bottom: 6px; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    margin-right: 6px;
+  }
+  .tag-hot { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-cool { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-info { background: rgba(88,166,255,0.12); color: var(--blue); }
+  .highlight { color: var(--orange); font-weight: 600; }
+  .footer {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--muted);
+    font-size: 0.78rem;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+  .footer a { color: var(--blue); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 A股盘后总结 · AI产业链深度版</h1>
+  <div class="date">2026年7月6日（星期一）· 交易新规实施首日</div>
+</div>
+
+<!-- 大盘指数 -->
+<div class="index-row">
+  <div class="index-card">
+    <div class="name">上证指数</div>
+    <div class="value">4059.19</div>
+    <div class="change up">+0.38%</div>
+  </div>
+  <div class="index-card">
+    <div class="name">深证成指</div>
+    <div class="value">15677.93</div>
+    <div class="change up">+0.52%</div>
+  </div>
+  <div class="index-card">
+    <div class="name">创业板指</div>
+    <div class="value">4050.88</div>
+    <div class="change up">+0.77%</div>
+  </div>
+  <div class="index-card">
+    <div class="name">科创50</div>
+    <div class="value">2015.18</div>
+    <div class="change up">+2.00%</div>
+  </div>
+</div>
+
+<!-- 核心摘要 -->
+<div class="summary-box">
+  <h3>🔑 今日核心信号</h3>
+  <ul>
+    <li><strong>新规首日，科创板V形领涨：</strong>科创50早盘一度跌超3%，午后强势反转收涨<span class="highlight">+2.00%</span>。半导体设备与AI芯片龙头（中芯国际+2.62%、中微公司+1.53%、盛美上海+2.63%）引领反弹。</li>
+    <li><strong>光通信"易中天"分化走弱：</strong>天孚通信-5.24%领跌、新易盛-3.63%、中际旭创-1.53%，CPO板块连续第四个交易日承压，高位筹码松动明显。</li>
+    <li><strong>PCB/MLCC延续杀跌：</strong>胜宏科技-4.97%、沪电股份-4.82%、深南电路-3.14%、韦尔股份-5.19%，前期涨幅过大的PCB与MLCC方向资金持续流出。</li>
+    <li><strong>液冷逆势走强：</strong>英维克+3.68%，Rubin平台全面液冷量产预期持续发酵。</li>
+    <li><strong>宏观面：</strong>央行今日10000亿买断式逆回购操作（净投放2000亿）；ST/*ST涨跌幅由5%调整为10%正式生效。</li>
+  </ul>
+</div>
+
+<!-- 光通信 / CPO -->
+<div class="section">
+  <h2><span class="icon">🔦</span> 光通信 / CPO</h2>
+  <table class="stock-table">
+    <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>今开</th><th>最高</th><th>最低</th></tr></thead>
+    <tbody>
+      <tr><td>中际旭创<span class="code">300308</span></td><td>1,098.92</td><td class="down">-1.53%</td><td>1,136.54</td><td>1,141.00</td><td>1,060.34</td></tr>
+      <tr><td>天孚通信<span class="code">300394</span></td><td>237.00</td><td class="down">-5.24%</td><td>250.58</td><td>253.99</td><td>231.45</td></tr>
+      <tr><td>新易盛<span class="code">300502</span></td><td>506.89</td><td class="down">-3.63%</td><td>526.00</td><td>530.00</td><td>502.00</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 半导体设备 -->
+<div class="section">
+  <h2><span class="icon">⚙️</span> 半导体设备</h2>
+  <table class="stock-table">
+    <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>今开</th><th>最高</th><th>最低</th></tr></thead>
+    <tbody>
+      <tr><td>北方华创<span class="code">002371</span></td><td>803.60</td><td class="down">-1.52%</td><td>832.31</td><td>834.80</td><td>767.97</td></tr>
+      <tr><td>中微公司<span class="code">688012</span></td><td>420.00</td><td class="up">+1.53%</td><td>424.96</td><td>427.77</td><td>392.45</td></tr>
+      <tr><td>盛美上海<span class="code">688082</span></td><td>373.00</td><td class="up">+2.63%</td><td>369.69</td><td>379.92</td><td>350.00</td></tr>
+      <tr><td>长川科技<span class="code">300604</span></td><td>304.00</td><td class="up">+0.43%</td><td>307.46</td><td>313.50</td><td>289.99</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 存储 / HBM -->
+<div class="section">
+  <h2><span class="icon">💾</span> 存储 / HBM</h2>
+  <table class="stock-table">
+    <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>今开</th><th>最高</th><th>最低</th></tr></thead>
+    <tbody>
+      <tr><td>兆易创新<span class="code">603986</span></td><td>654.29</td><td class="down">-3.47%</td><td>690.00</td><td>694.99</td><td>630.00</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PCB / CCL -->
+<div class="section">
+  <h2><span class="icon">🖥️</span> PCB / CCL</h2>
+  <table class="stock-table">
+    <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>今开</th><th>最高</th><th>最低</th></tr></thead>
+    <tbody>
+      <tr><td>沪电股份<span class="code">002463</span></td><td>128.83</td><td class="down">-4.82%</td><td>136.00</td><td>137.90</td><td>123.00</td></tr>
+      <tr><td>胜宏科技<span class="code">300476</span></td><td>292.77</td><td class="down">-4.97%</td><td>305.51</td><td>307.00</td><td>285.00</td></tr>
+      <tr><td>深南电路<span class="code">002916</span></td><td>440.20</td><td class="down">-3.14%</td><td>450.00</td><td>455.98</td><td>426.88</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- AI芯片 / 先进封装 / 液冷 -->
+<div class="section">
+  <h2><span class="icon">🧊</span> AI芯片 / 先进封装 / 液冷</h2>
+  <table class="stock-table">
+    <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>今开</th><th>最高</th><th>最低</th></tr></thead>
+    <tbody>
+      <tr><td>寒武纪<span class="code">688256</span></td><td>1,369.75</td><td class="up">+1.24%</td><td>1,383.00</td><td>1,389.86</td><td>1,291.00</td></tr>
+      <tr><td>中芯国际<span class="code">688981</span></td><td>143.99</td><td class="up">+2.62%</td><td>143.40</td><td>147.86</td><td>135.26</td></tr>
+      <tr><td>英维克<span class="code">002837</span></td><td>74.06</td><td class="up">+3.68%</td><td>71.01</td><td>76.99</td><td>71.00</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- MLCC / 上游材料 -->
+<div class="section">
+  <h2><span class="icon">🔬</span> MLCC / 上游材料</h2>
+  <table class="stock-table">
+    <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>今开</th><th>最高</th><th>最低</th></tr></thead>
+    <tbody>
+      <tr><td>韦尔股份<span class="code">603501</span></td><td>96.99</td><td class="down">-5.19%</td><td>103.21</td><td>103.70</td><td>96.88</td></tr>
+      <tr><td>京东方A<span class="code">000725</span></td><td>7.76</td><td class="down">-7.40%</td><td>8.21</td><td>8.52</td><td>7.74</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 方向概览 -->
+<div class="section">
+  <h2><span class="icon">🧭</span> AI产业链方向概览 <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">（综合情绪 & 资金流向判断）</span></h2>
+  <table class="stock-table">
+    <thead><tr><th>方向</th><th>今日表现</th><th>短期信号</th><th>核心驱动</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>光通信/CPO</td>
+        <td class="down">⚡ 偏弱</td>
+        <td><span class="tag tag-cool">高位消化</span></td>
+        <td>CPO落地节奏分歧叠加高位获利了结，连续四日回调</td>
+      </tr>
+      <tr>
+        <td>半导体设备</td>
+        <td class="up">🔄 分化</td>
+        <td><span class="tag tag-info">V形修复</span></td>
+        <td>早盘恐慌杀跌后强势拉回，中微/盛美领涨</td>
+      </tr>
+      <tr>
+        <td>存储/HBM</td>
+        <td class="down">📉 偏弱</td>
+        <td><span class="tag tag-cool">持续回调</span></td>
+        <td>海外存储龙头高位震荡传导情绪，兆易创新-3.47%</td>
+      </tr>
+      <tr>
+        <td>PCB/CCL</td>
+        <td class="down">📉 领跌</td>
+        <td><span class="tag tag-cool">资金流出</span></td>
+        <td>前期涨幅过大，胜宏/沪电-5%级别调整</td>
+      </tr>
+      <tr>
+        <td>MLCC/先进封装</td>
+        <td class="down">📉 偏弱</td>
+        <td><span class="tag tag-cool">跟跌</span></td>
+        <td>高位获利盘消化中，韦尔-5.19%</td>
+      </tr>
+      <tr>
+        <td>AI服务器/液冷</td>
+        <td class="up">🔥 逆势</td>
+        <td><span class="tag tag-hot">独立走强</span></td>
+        <td>Rubin平台液冷量产预期催化，英维克+3.68%</td>
+      </tr>
+      <tr>
+        <td>上游材料</td>
+        <td class="down">📉 走弱</td>
+        <td><span class="tag tag-cool">高位股退潮</span></td>
+        <td>京东方-7.40%领跌面板链</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <p>🤖 Hermes Agent 自动生成 · 数据源：新浪财经实时行情 · 仅供参考，不构成投资建议</p>
+  <p>生成时间：2026-07-06 收盘后 | <a href="https://github.com/nousresearch/hermes-agent">Hermes Agent</a></p>
+</div>
+
+</body>
+</html>
