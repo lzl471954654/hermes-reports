@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏋️ 健身&饮食日报 — 2026-07-06</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1b2a;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  h1 { color: #4fc3f7; font-size: 1.4em; margin-bottom: 16px; text-align: center; }
+  h2 { color: #4fc3f7; font-size: 1.15em; margin: 20px 0 10px; border-bottom: 1px solid #1e3a5f; padding-bottom: 4px; }
+  .card {
+    background: #152238;
+    border-radius: 12px;
+    padding: 14px;
+    margin: 10px 0;
+    border: 1px solid #1e3a5f;
+  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin: 8px 0; }
+  .stat {
+    background: #1a2d4a;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+  }
+  .stat .value { font-size: 1.6em; font-weight: 700; color: #4fc3f7; }
+  .stat .label { font-size: 0.75em; color: #8899aa; margin-top: 2px; }
+  .member-section { margin: 16px 0; }
+  .member-header {
+    display: flex; align-items: center;
+    font-size: 1.05em; font-weight: 700; color: #4fc3f7;
+    margin-bottom: 6px;
+  }
+  .member-header .emoji { font-size: 1.3em; margin-right: 6px; }
+  .no-data {
+    color: #6b7d8e;
+    font-style: italic;
+    padding: 10px;
+    background: #1a2d4a;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+  .tag-train { background: #1a3a2a; color: #4caf50; }
+  .tag-rest { background: #263850; color: #4fc3f7; }
+  .tag-warn { background: #4a2511; color: #ff9800; }
+  .tag-good { background: #1a3a2a; color: #81c784; }
+  .note {
+    background: #1a2d4a;
+    border-left: 3px solid #4fc3f7;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 14px 0;
+    font-size: 0.9em;
+    color: #b0c4de;
+  }
+  .subsection { margin: 10px 0; }
+  .subsection-title { color: #8899aa; font-size: 0.85em; font-weight: 600; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .data-row { display: flex; justify-content: space-between; padding: 3px 0; font-size: 0.88em; border-bottom: 1px solid #1a2d4a; }
+  .data-row .key { color: #8899aa; }
+  .data-row .val { color: #e0e0e0; font-weight: 500; }
+  .eval-box {
+    background: #1a2d4a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 0.85em;
+    color: #b0c4de;
+  }
+  .eval-box strong { color: #4fc3f7; }
+  .footer {
+    margin-top: 24px;
+    padding: 12px;
+    background: #152238;
+    border-radius: 8px;
+    font-size: 0.8em;
+    color: #6b7d8e;
+    text-align: center;
+    border: 1px solid #1e3a5f;
+  }
+  .footer .dot { color: #4fc3f7; }
+  .divider { border: none; border-top: 1px solid #1e3a5f; margin: 16px 0; }
+  table.nutri { width: 100%; border-collapse: collapse; font-size: 0.85em; margin: 8px 0; }
+  table.nutri th { color: #8899aa; text-align: left; padding: 4px 6px; border-bottom: 1px solid #1e3a5f; }
+  table.nutri td { padding: 4px 6px; border-bottom: 1px solid #1a2d4a; }
+  table.nutri td:last-child, table.nutri th:last-child { text-align: right; }
+</style>
+</head>
+<body>
+
+<h1>📋 健身&饮食日报</h1>
+<p style="text-align:center;color:#6b7d8e;font-size:0.9em;margin-bottom:16px;">
+  📅 2026 年 7 月 6 日 · 周一
+</p>
+
+<!-- 概览卡片 -->
+<h2>📊 今日概览</h2>
+<div class="grid">
+  <div class="stat">
+    <div class="value">2/3</div>
+    <div class="label">打卡人数</div>
+  </div>
+  <div class="stat">
+    <div class="value">1</div>
+    <div class="label">训练人数</div>
+  </div>
+  <div class="stat">
+    <div class="value">607 kcal</div>
+    <div class="label">最高消耗 (智林)</div>
+  </div>
+  <div class="stat">
+    <div class="value">⚠️ 1</div>
+    <div class="label">缺口警告</div>
+  </div>
+</div>
+
+<p style="color:#8899aa; font-size:0.85em; margin-top:8px;">
+  🏋️ 周一训练日 —— 智林完成背训，Monkiki 休整日饮食有记录，Ckddd 今日暂无数据。
+</p>
+
+<hr class="divider">
+
+<!-- 智林 -->
+<div class="member-section">
+  <div class="member-header"><span class="emoji">🔵</span> 智林 (lzl) &nbsp;<span class="tag tag-train">训练日</span></div>
+
+  <div class="card">
+    <div class="subsection">
+      <div class="subsection-title">🏋️ 训练</div>
+      <div class="data-row"><span class="key">项目</span><span class="val">背训（传统力量训练）</span></div>
+      <div class="data-row"><span class="key">时间</span><span class="val">12:13–13:19（66 分钟）</span></div>
+      <div class="data-row"><span class="key">消耗</span><span class="val">607 总千卡（476 动态千卡）</span></div>
+      <div class="data-row"><span class="key">心率</span><span class="val">avg 116 · max 151 · min 77</span></div>
+      <div class="data-row"><span class="key">强度</span><span class="val">适中（5 级）</span></div>
+      <div class="data-row"><span class="key">地点</span><span class="val">杭州·阿里西溪园区 A 区</span></div>
+    </div>
+
+    <div class="subsection" style="margin-top:12px;">
+      <div class="subsection-title">🥘 饮食</div>
+      <div class="data-row"><span class="key">🥘 午餐</span><span class="val">麻辣香锅（鸡胸肉+白鱼片 ~400g + 蔬菜 ~400g + 米饭 ~150-200g）</span></div>
+    </div>
+
+    <table class="nutri">
+      <tr><th>营养素（午餐估算）</th><th>数值</th></tr>
+      <tr><td>🔥 热量</td><td>~960 kcal</td></tr>
+      <tr><td>🥩 蛋白质</td><td>~95g</td></tr>
+      <tr><td>🍞 碳水</td><td>~73g</td></tr>
+      <tr><td>🧈 脂肪</td><td>~14g</td></tr>
+    </table>
+
+    <div class="eval-box">
+      <strong>📊 背训对比：</strong> vs 6/29 背训（57min/avg120/max149/458kcal）→ 今天 66min/avg116/max151/476kcal。时长 +9min，动态消耗持平，心率略降但训练容量更大 👌<br><br>
+      <strong>⚠️ 注意：</strong> 目前仅有午餐记录。背训消耗 607 kcal、午餐摄入 ~960 kcal，当前净摄入仅 ~353 kcal。如果晚餐还没记录，今天大概率又要出现大缺口——训练日记得吃够碳水+蛋白质，别让肌肉饿着 🍗
+    </div>
+  </div>
+</div>
+
+<!-- Monkiki -->
+<div class="member-section">
+  <div class="member-header"><span class="emoji">🟢</span> Monkiki &nbsp;<span class="tag tag-rest">休息日</span></div>
+
+  <div class="card">
+    <div class="subsection">
+      <div class="subsection-title">🥘 饮食</div>
+      <div class="data-row"><span class="key">🍳 早餐</span><span class="val">香辣鸡腿堡</span></div>
+      <div class="data-row"><span class="key">🥗 午餐</span><span class="val">新奥尔良烤鸡腿堡</span></div>
+      <div class="data-row"><span class="key">🍑🍅 水果</span><span class="val">桃子 ×1 + 绿小番茄若干</span></div>
+      <div class="data-row"><span class="key">🍲 晚餐</span><span class="val">重庆鸳鸯火锅（牛肉牛杂毛肚鸭肠虾滑丸子）</span></div>
+    </div>
+
+    <table class="nutri">
+      <tr><th>全天营养（估算）</th><th>数值</th><th>评价</th></tr>
+      <tr><td>🔥 热量</td><td>2,415 kcal</td><td><span class="tag tag-warn">偏高</span></td></tr>
+      <tr><td>🥩 蛋白质</td><td>160g (2.3g/kg)</td><td><span class="tag tag-good">拉满</span></td></tr>
+      <tr><td>🍞 碳水</td><td>125g</td><td>正常</td></tr>
+      <tr><td>🧈 脂肪</td><td>135g</td><td><span class="tag tag-warn">偏高</span></td></tr>
+    </table>
+
+    <div class="eval-box">
+      <strong>💬 灰灰点评：</strong> 早餐辣堡+午餐烤堡这个组合其实不差——烤堡比辣堡少了 50 kcal + 8g 脂肪，挑的时候过了脑子的 👏 水果也把微营养素补上了。<br><br>
+      大头是晚上的火锅——牛肉、毛肚、鸭肠、虾滑丸子，蛋白硬生生吃到 160g（2.3g/kg），就算练腿日也够了…但休息日 2,415 kcal 偏高，脂肪 135g 主要来自蘸料+红油锅底吸附（两项加起来 ~450 kcal）。好消息是你吃的几乎全是蛋白质（牛+牛杂+肚+肠+丸），碳水才 125g，不是纯脏热量路线。<br><br>
+      <strong>🔮 明日建议：</strong> 训练日把多出来的 400-500 kcal 烧掉，一顿火锅不至于推翻一周努力 💪
+    </div>
+  </div>
+</div>
+
+<!-- Ckddd -->
+<div class="member-section">
+  <div class="member-header"><span class="emoji">🟠</span> Ckddd</div>
+  <div class="no-data">今日暂无有效记录</div>
+  <p style="font-size:0.8em;color:#6b7d8e;margin-top:4px;padding-left:4px;">
+    最后记录：7/4 饮食 (双蛋肠粉 + 卤肉饭 + 西北油泼面) · 合计 ~2,200 kcal
+  </p>
+</div>
+
+<hr class="divider">
+
+<!-- 群内提醒 -->
+<h2>📢 群内提醒</h2>
+<div class="note">
+  🍲 <strong>火锅季来了：</strong> 本次 Monkiki 的火锅数据再次暴露一个真相——蘸料+锅底油脂吸附两项能占整餐热量的 30%+（~450 kcal）。下次火锅试试香油碟改醋碟、或者多走清汤格，蛋白质吃爽了油脂也能控住。<br><br>
+  📝 <strong>Ckddd 连续两天无记录：</strong> 7/5-7/6 都没有提交训练或饮食数据。增肌期每天的热量&蛋白追踪很重要，哪怕只是发一句「今天吃了啥」也比空白好 👀<br><br>
+  ⚠️ <strong>智林训练日热量预警：</strong> 目前只记录了午餐 ~960 kcal，背训消耗 607 kcal。如果晚餐不吃够，缺口会很大。训练日不是减脂日——身体需要燃料修复肌肉。
+</div>
+
+<!-- 数据完整度 -->
+<h2>📡 数据完整度</h2>
+<div class="card" style="font-size:0.85em;">
+  <table style="width:100%;border-collapse:collapse;">
+    <tr style="color:#8899aa;">
+      <td style="padding:4px 0;">📁 本地 md 文件</td>
+      <td style="text-align:right;color:#4fc3f7;">✅ 读取成功</td>
+    </tr>
+    <tr style="color:#8899aa;">
+      <td style="padding:4px 0;">💬 Discord #fitness</td>
+      <td style="text-align:right;color:#ff9800;">⚠️ 无法访问</td>
+    </tr>
+    <tr style="color:#8899aa;">
+      <td style="padding:4px 0;">📋 今日有效记录</td>
+      <td style="text-align:right;color:#e0e0e0;">2 人（智林训练+午餐 / Monkiki 全天饮食）</td>
+    </tr>
+    <tr style="color:#8899aa;">
+      <td style="padding:4px 0;">📋 待补充</td>
+      <td style="text-align:right;color:#ff9800;">智林晚餐 · Ckddd 全天</td>
+    </tr>
+  </table>
+  <p style="margin-top:10px;color:#6b7d8e;font-size:0.8em;">
+    ℹ️ Discord #fitness 频道搜索工具在当前环境中不可用，本日报仅基于本地 md 文件生成。如群聊中有今天的新记录，欢迎自行补充到 md 文件中。
+  </p>
+</div>
+
+<div class="footer">
+  <span class="dot">●</span> 灰灰自动生成 · 2026-07-06 23:00 · 仅基于本地文件
+</div>
+
+</body>
+</html>
