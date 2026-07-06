@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 — 2026.07.06</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --gold: #d2991d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  h2 {
+    font-size: 1.2em;
+    margin: 24px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    color: var(--blue);
+  }
+  .subtitle { color: #8b949e; font-size: 0.9em; margin-bottom: 24px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .indices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .idx-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .idx-name { font-size: 0.8em; color: #8b949e; margin-bottom: 4px; }
+  .idx-value { font-size: 1.5em; font-weight: 700; }
+  .idx-change { font-size: 0.95em; margin-top: 4px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+  th {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 2px solid var(--border);
+    color: #8b949e;
+    font-weight: 600;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:hover { background: rgba(88, 166, 255, 0.04); }
+  .highlight { color: var(--gold); font-weight: 600; }
+  .tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    background: rgba(88, 166, 255, 0.12);
+    color: var(--blue);
+    margin-right: 4px;
+  }
+  .tag-red {
+    background: rgba(248, 81, 73, 0.12);
+    color: var(--red);
+  }
+  .flow-bar {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .flow-item {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    text-align: center;
+  }
+  .news-item {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9em;
+  }
+  .news-item:last-child { border: none; }
+  .footnote { color: #8b949e; font-size: 0.8em; margin-top: 32px; text-align: center; }
+  .alert-box {
+    background: rgba(248, 81, 73, 0.08);
+    border: 1px solid rgba(248, 81, 73, 0.3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .alert-box .title { color: var(--red); font-weight: 700; font-size: 0.95em; }
+  .alert-box ul { margin: 6px 0 0 18px; font-size: 0.88em; }
+  @media (max-width: 600px) {
+    .indices { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>港股收盘总结 · AI产业链深度版</h1>
+<div class="subtitle">📅 2026年7月6日（周一）｜恒指收涨0.98%，科指收涨0.79% — 科网反弹 vs 硬件重挫，板块极端分化</div>
+
+<!-- ===== 指数概览 ===== -->
+<h2>📊 核心指数</h2>
+<div class="indices">
+  <div class="idx-card">
+    <div class="idx-name">恒生指数 HSI</div>
+    <div class="idx-value up">23,579</div>
+    <div class="idx-change up">+228.55 (+0.98%)</div>
+  </div>
+  <div class="idx-card">
+    <div class="idx-name">恒生科技指数</div>
+    <div class="idx-value up">4,535</div>
+    <div class="idx-change up">+35.69 (+0.79%)</div>
+  </div>
+  <div class="idx-card">
+    <div class="idx-name">国企指数 HSCEI</div>
+    <div class="idx-value up">7,800</div>
+    <div class="idx-change up">+100.35 (+1.30%)</div>
+  </div>
+</div>
+
+<!-- ===== 大盘速览 ===== -->
+<h2>🔍 大盘速览</h2>
+<div class="card">
+  <table>
+    <tr><td style="width:140px;color:#8b949e">日内走势</td><td>小幅高开 23,405 → 早盘冲高 23,687 → 午后回落至 23,579 收盘</td></tr>
+    <tr><td style="color:#8b949e">盘面特征</td><td><strong>极端分化</strong>：科网平台集体反弹 / 光通信&AI大模型重挫 / 半导体承压 / 医疗健康走强</td></tr>
+    <tr><td style="color:#8b949e">核心驱动</td><td>可灵AI <strong>30亿美元</strong>融资持续发酵，科网估值修复；A股光纤股业绩暴雷传导港股；七月解禁潮施压AI大模型</td></tr>
+    <tr><td style="color:#8b949e">成交额</td><td>约 3,000 – 3,500 亿港元（预估，等待港交所确认）</td></tr>
+    <tr><td style="color:#8b949e">南向资金</td><td>等待港交所公布具体数据</td></tr>
+  </table>
+</div>
+
+<!-- ===== ⚠️ 极端分化警示 ===== -->
+<div class="alert-box">
+  <div class="title">⚠️ 今日核心矛盾：科网反弹 vs 硬件重挫</div>
+  <ul>
+    <li><strong>科网平台强势反弹</strong>：快手 +7.61%、美团 +4.61%、腾讯 +4.50% — 可灵AI融资带动AI商业化预期，互联网平台估值修复</li>
+    <li><strong>光通信/AI大模型暴跌</strong>：长飞光纤 <span class="down">-15.16%</span>、智谱 <span class="down">-14.95%</span>、舜宇光学 <span class="down">-7.91%</span> — A股光纤股业绩暴雷传导 + 七月解禁窗口抛压</li>
+    <li><strong>恒科"涨指数不涨个股"</strong>：尽管恒科收涨0.79%，但成分股中下跌家数远超上涨家数，权重科网股拉抬掩盖了AI硬件链条的深度回调</li>
+  </ul>
+</div>
+
+<!-- ===== AI产业链核心涨跌 ===== -->
+<h2>🤖 AI产业链 · 核心个股涨跌</h2>
+
+<h3 style="font-size:1em;margin:16px 0 8px;color:var(--green)">📈 涨幅前列</h3>
+<div class="card">
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价(HKD)</th><th>涨跌幅</th><th>细分</th></tr>
+    <tr><td>快手-W</td><td>01024</td><td>45.84</td><td class="up">+7.61%</td><td><span class="tag">AI视频/平台</span></td></tr>
+    <tr><td>德康农牧</td><td>02419</td><td>50.00</td><td class="up">+5.35%</td><td><span class="tag">农业科技</span></td></tr>
+    <tr><td>京东健康</td><td>06618</td><td>37.88</td><td class="up">+4.93%</td><td><span class="tag">AI医疗</span></td></tr>
+    <tr><td>美团-W</td><td>03690</td><td>74.90</td><td class="up">+4.61%</td><td><span class="tag">AI本地生活</span></td></tr>
+    <tr><td>腾讯控股</td><td>00700</td><td>450.60</td><td class="up">+4.50%</td><td><span class="tag">AI大模型/平台</span></td></tr>
+    <tr><td>微盟集团</td><td>02013</td><td>1.17</td><td class="up">+2.63%</td><td><span class="tag">AI SaaS</span></td></tr>
+    <tr><td>小鹏汽车-W</td><td>09868</td><td>52.95</td><td class="up">+2.42%</td><td><span class="tag">智驾/AI汽车</span></td></tr>
+    <tr><td>平安好医生</td><td>01833</td><td>7.58</td><td class="up">+2.29%</td><td><span class="tag">AI医疗</span></td></tr>
+    <tr><td>阿里巴巴-W</td><td>09988</td><td>95.70</td><td class="up">+1.70%</td><td><span class="tag">云/AI平台</span></td></tr>
+    <tr><td>网易-S</td><td>09999</td><td>208.20</td><td class="up">+1.36%</td><td><span class="tag">AI游戏/平台</span></td></tr>
+    <tr><td>京东集团-SW</td><td>09618</td><td>105.60</td><td class="up">+1.34%</td><td><span class="tag">AI电商平台</span></td></tr>
+    <tr><td>小米集团-W</td><td>01810</td><td>23.26</td><td class="up">+1.31%</td><td><span class="tag">AIoT/汽车</span></td></tr>
+    <tr><td>万国数据-SW</td><td>09698</td><td>29.24</td><td class="up">+0.90%</td><td><span class="tag">AI数据中心</span></td></tr>
+    <tr><td>携程集团-S</td><td>09961</td><td>325.20</td><td class="up">+0.31%</td><td><span class="tag">AI+OTA平台</span></td></tr>
+  </table>
+</div>
+
+<h3 style="font-size:1em;margin:16px 0 8px;color:var(--red)">📉 跌幅前列</h3>
+<div class="card">
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价(HKD)</th><th>涨跌幅</th><th>细分</th></tr>
+    <tr><td>长飞光纤光缆</td><td>06869</td><td>170.70</td><td class="down">-15.16%</td><td><span class="tag tag-red">光通信</span></td></tr>
+    <tr><td>智谱</td><td>02513</td><td>1,525.00</td><td class="down">-14.95%</td><td><span class="tag tag-red">AI大模型</span></td></tr>
+    <tr><td>舜宇光学科技</td><td>02382</td><td>55.30</td><td class="down">-7.91%</td><td><span class="tag tag-red">AI硬件/光学</span></td></tr>
+    <tr><td>ASMPT</td><td>00522</td><td>195.30</td><td class="down">-4.64%</td><td><span class="tag tag-red">半导体设备</span></td></tr>
+    <tr><td>地平线机器人-W</td><td>09660</td><td>4.48</td><td class="down">-4.27%</td><td><span class="tag tag-red">智驾/AI芯片</span></td></tr>
+    <tr><td>联想集团</td><td>00992</td><td>20.40</td><td class="down">-4.23%</td><td><span class="tag tag-red">AI PC</span></td></tr>
+    <tr><td>金山云</td><td>03896</td><td>4.78</td><td class="down">-3.63%</td><td><span class="tag tag-red">AI算力云</span></td></tr>
+    <tr><td>商汤-W</td><td>00020</td><td>1.34</td><td class="down">-2.90%</td><td><span class="tag tag-red">AI大模型</span></td></tr>
+    <tr><td>中芯国际</td><td>00981</td><td>75.50</td><td class="down">-2.71%</td><td><span class="tag tag-red">晶圆代工</span></td></tr>
+    <tr><td>理想汽车-W</td><td>02015</td><td>46.10</td><td class="down">-2.66%</td><td><span class="tag tag-red">智驾/新能源</span></td></tr>
+    <tr><td>协鑫科技</td><td>03800</td><td>0.67</td><td class="down">-1.47%</td><td><span class="tag tag-red">光伏/材料</span></td></tr>
+    <tr><td>百度集团-SW</td><td>09888</td><td>110.40</td><td class="down">-0.45%</td><td><span class="tag tag-red">AI大模型/智驾</span></td></tr>
+  </table>
+</div>
+
+<!-- ===== 板块资金流向 ===== -->
+<h2>💰 板块资金流向</h2>
+<div class="card">
+  <table>
+    <tr><th>板块</th><th>方向</th><th>代表性个股</th><th>逻辑</th></tr>
+    <tr>
+      <td><strong>互联网平台</strong></td>
+      <td class="up">资金大幅流入 ↑↑</td>
+      <td>快手 +7.6%、美团 +4.6%、腾讯 +4.5%</td>
+      <td>可灵AI $3B融资催化AI商业化叙事；平台估值低位（PE 19x，近十年低分位）+ 回购持续</td>
+    </tr>
+    <tr>
+      <td><strong>光通信</strong></td>
+      <td class="down">资金大幅流出 ↓↓</td>
+      <td>长飞光纤 -15.2%</td>
+      <td>A股杭电股份跌停、长盈通-13%业绩暴雷传导；前期涨幅过大获利盘集中了结</td>
+    </tr>
+    <tr>
+      <td><strong>AI大模型</strong></td>
+      <td class="down">恐慌性抛售 ↓↓</td>
+      <td>智谱 -15.0%、商汤 -2.9%</td>
+      <td>七月解禁窗口（智谱/MiniMax首批大规模解禁）+ 同步宣布"回A"引发估值重定价</td>
+    </tr>
+    <tr>
+      <td><strong>半导体制造/设备</strong></td>
+      <td class="down">资金流出 ↓</td>
+      <td>中芯国际 -2.7%、ASMPT -4.6%、华虹持平</td>
+      <td>延续费城半导体弱势；AI硬件链整体承压，资金向互联网平台切换</td>
+    </tr>
+    <tr>
+      <td><strong>AI医疗</strong></td>
+      <td class="up">资金流入 ↑</td>
+      <td>京东健康 +4.9%、平安好医生 +2.3%</td>
+      <td>AI辅助诊断/药物研发商业化路径渐明，防御性+成长性兼备</td>
+    </tr>
+    <tr>
+      <td><strong>智驾/机器人</strong></td>
+      <td style="color:var(--gold)">分化 ⚡</td>
+      <td>小鹏 +2.4% / 地平线 -4.3%</td>
+      <td>整车厂受AI赋能叙事支撑；AI芯片端随硬件链整体调整</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ===== 核心新闻 ===== -->
+<h2>📰 今日核心新闻</h2>
+<div class="card">
+  <div class="news-item">
+    <strong>🔥 科网平台大反攻：可灵AI融资30亿美元持续发酵</strong><br>
+    快手收涨7.61%领涨恒科，美团+4.61%、腾讯+4.50%。可灵AI本轮融资由CPE源峰、腾讯、阿里云、百度等联合领投，创全球视频大模型最大融资纪录，投后估值约180亿美元。市场重新定价AI商业化的"从0到1"信号，科网平台AI赋能估值修复逻辑获资金认可。
+  </div>
+  <div class="news-item">
+    <strong>💥 光通信断崖式下跌：A股光纤股业绩暴雷传导</strong><br>
+    长飞光纤单日暴跌15.16%，创近期最大单日跌幅。A股杭电股份跌停、长盈通一度跌超13%、永鼎股份触及跌停——多家光纤公司晚间发布业绩大幅低于预期的预告，前期G.654光纤集采涨价逻辑遭遇业绩证伪，恐慌情绪快速传导至港股。
+  </div>
+  <div class="news-item">
+    <strong>🏚️ 智谱暴跌15%：七月解禁"围城" + 回A双重压力</strong><br>
+    智谱AI单日暴跌14.95%，市值大幅缩水。Wind数据显示，2026年港股解禁规模高达1.55万亿港元（2025年仅约6,000亿），智谱与MiniMax解禁时间集中在7月上旬。解禁窗口临近之际，两家公司同步宣布启动"回A"计划，市场对高估值AI资产的定价逻辑进行重新审视。
+  </div>
+  <div class="news-item">
+    <strong>🔄 极致板块轮动：A股今日起实施新交易规则</strong><br>
+    7月6日起，A股正式实施全市场盘后固定价格交易（15:05-15:30），同时ST股票涨跌幅调整至10%。新规首日，A股光纤板块暴跌，科技板块内部分化剧烈。内外市场联动下，港股呈现"指数修复、个股普跌"的极端分化格局。
+  </div>
+  <div class="news-item">
+    <strong>🏥 AI医疗逆势走强</strong><br>
+    京东健康涨4.93%、平安好医生涨2.29%。在AI硬件链全线承压的背景下，AI医疗凭借防御属性+AI诊断商业化预期，获得轮动资金青睐。
+  </div>
+</div>
+
+<!-- ===== 后市展望 ===== -->
+<h2>🔮 观点速递</h2>
+<div class="card">
+  <p>
+  <strong>📌 短期：</strong>七月解禁潮是当前最大不确定性——1.55万亿港元解禁规模创历史新高，智谱/MiniMax首批解禁窗口（7月上旬）叠加"回A"预期混乱，AI大模型板块短期承压不可避免。光通信板块需等待A股情绪企稳+业绩验证后方可考虑重新介入。互联网平台因估值低位（恒科PE ~19x）+ AI商业化催化，短期相对防御性更强。
+  </p>
+  <p style="margin-top:10px">
+  <strong>📌 中期：</strong>AI产业链内部轮动加速是健康信号而非系统性风险。光通信1.6T光模块放量、AI数据中心扩容等长逻辑未被破坏，当前调整更多是筹码结构问题（前期涨幅过大+解禁抛压）。下半年关注：①智谱/MiniMax解禁后真实抛压 vs 基本面验证；②昆仑芯（百度）赴港IPO进展；③可灵AI商业化落地节奏。
+  </p>
+  <p style="margin-top:10px;color:#8b949e">
+  ⚠️ 风险提示：七月解禁规模远超历史均值，短期波动可能加剧。以上分析不构成投资建议。
+  </p>
+</div>
+
+<div class="footnote">
+  📊 数据来源：Yahoo Finance / 新浪财经 / 港交所｜报告生成时间：2026-07-06 17:30 HKT<br>
+  Hermes Agent 自动生成 · AI产业链深度版
+</div>
+
+</body>
+</html>
