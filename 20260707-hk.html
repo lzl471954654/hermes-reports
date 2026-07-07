@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 — 2026.07.07</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --gold: #d2991d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  h2 {
+    font-size: 1.2em;
+    margin: 24px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    color: var(--blue);
+  }
+  .subtitle { color: #8b949e; font-size: 0.9em; margin-bottom: 24px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .indices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .idx-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .idx-name { font-size: 0.8em; color: #8b949e; margin-bottom: 4px; }
+  .idx-value { font-size: 1.5em; font-weight: 700; }
+  .idx-change { font-size: 0.95em; margin-top: 4px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+  th {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 2px solid var(--border);
+    color: #8b949e;
+    font-weight: 600;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:hover { background: rgba(88, 166, 255, 0.04); }
+  .highlight { color: var(--gold); font-weight: 600; }
+  .tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    background: rgba(88, 166, 255, 0.12);
+    color: var(--blue);
+    margin-right: 4px;
+  }
+  .tag-red {
+    background: rgba(248, 81, 73, 0.12);
+    color: var(--red);
+  }
+  .flow-bar {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .flow-item {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    text-align: center;
+  }
+  .news-item {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9em;
+  }
+  .news-item:last-child { border: none; }
+  .footnote { color: #8b949e; font-size: 0.8em; margin-top: 32px; text-align: center; }
+  .alert-box {
+    background: rgba(248, 81, 73, 0.08);
+    border: 1px solid rgba(248, 81, 73, 0.3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .alert-box .title { color: var(--red); font-weight: 700; font-size: 0.95em; }
+  .alert-box ul { margin: 6px 0 0 18px; font-size: 0.88em; }
+  .info-box {
+    background: rgba(88, 166, 255, 0.08);
+    border: 1px solid rgba(88, 166, 255, 0.3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .info-box .title { color: var(--blue); font-weight: 700; font-size: 0.95em; }
+  .info-box ul { margin: 6px 0 0 18px; font-size: 0.88em; }
+  @media (max-width: 600px) {
+    .indices { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>港股收盘总结 · AI产业链深度版</h1>
+<div class="subtitle">📅 2026年7月7日（周二）｜恒指收跌0.28%，科指收跌0.35% — 快手遭腾讯清仓暴跌，科网平台分化加剧</div>
+
+<!-- ===== 指数概览 ===== -->
+<h2>📊 核心指数</h2>
+<div class="indices">
+  <div class="idx-card">
+    <div class="idx-name">恒生指数 HSI</div>
+    <div class="idx-value down">23,550</div>
+    <div class="idx-change down">-66.32 (-0.28%)</div>
+  </div>
+  <div class="idx-card">
+    <div class="idx-name">恒生科技指数</div>
+    <div class="idx-value down">4,525</div>
+    <div class="idx-change down">-16.23 (-0.36%)</div>
+  </div>
+  <div class="idx-card">
+    <div class="idx-name">国企指数 HSCEI</div>
+    <div class="idx-value down">7,780</div>
+    <div class="idx-change down">-32.35 (-0.41%)</div>
+  </div>
+</div>
+
+<!-- ===== 大盘速览 ===== -->
+<h2>🔍 大盘速览</h2>
+<div class="card">
+  <table>
+    <tr><td style="width:140px;color:#8b949e">日内走势</td><td>低开 23,400 → 早盘探底 23,517 → 午后小幅回升至 23,550 附近收盘</td></tr>
+    <tr><td style="color:#8b949e">盘面特征</td><td><strong>科网内部分化</strong>：快手暴跌10% vs 美团/腾讯续涨3-5% / 芯片&PCB延续调整 / AI大模型持续承压</td></tr>
+    <tr><td style="color:#8b949e">核心驱动</td><td>腾讯<strong>减持快手2.73亿股（约16亿美元）</strong>退出主要股东 → 快手AI叙事面临重定价；可灵AI独立运营削弱母公司AI溢价</td></tr>
+    <tr><td style="color:#8b949e">成交额</td><td>约 2,200 – 2,600 亿港元（等待港交所确认）</td></tr>
+    <tr><td style="color:#8b949e">南向资金</td><td>等待港交所公布具体数据</td></tr>
+  </table>
+</div>
+
+<!-- ===== ⚠️ 快手暴跌 ===== -->
+<div class="alert-box">
+  <div class="title">⚠️ 今日焦点：快手暴跌10% — 腾讯清仓退出，AI叙事遭遇重定价</div>
+  <ul>
+    <li><strong>腾讯减持2.73亿股</strong>：套现约16亿美元（~122亿港元），持股比例跌破5%披露线，正式退出主要股东行列</li>
+    <li><strong>快手盘中一度跌超10%</strong>，最低触及41.46港元，收跌约10%，创阶段新低。7月3日可灵AI融资30亿美元消息一度推升股价至46+港元，仅4个交易日后全部回吐</li>
+    <li><strong>可灵AI独立运营的双刃剑效应</strong>：融资180亿美元估值创纪录，但五年竞业协议限制快手自研大模型，母公司AI赛道押注单一主体，容错空间大幅收窄。腾讯撤退进一步削弱"快手+可灵"协同叙事</li>
+    <li><strong>科网估值分化加剧</strong>：美团+4.8%（本地生活AI化）vs 快手-10%（AI叙事折价）→ 资金在科网内部高度选择</li>
+  </ul>
+</div>
+
+<!-- ===== AI产业链核心涨跌 ===== -->
+<h2>🤖 AI产业链 · 核心个股涨跌</h2>
+
+<h3 style="font-size:1em;margin:16px 0 8px;color:var(--green)">📈 涨幅前列</h3>
+<div class="card">
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价(HKD)</th><th>涨跌幅</th><th>细分</th></tr>
+    <tr><td>美团-W</td><td>03690</td><td>78.50</td><td class="up">+4.81%</td><td><span class="tag">AI本地生活</span></td></tr>
+    <tr><td>腾讯控股</td><td>00700</td><td>462.00</td><td class="up">+2.53%</td><td><span class="tag">AI大模型/平台</span></td></tr>
+    <tr><td>联想集团</td><td>00992</td><td>20.90</td><td class="up">+2.45%</td><td><span class="tag">AI PC/算力</span></td></tr>
+    <tr><td>网易-S</td><td>09999</td><td>211.00</td><td class="up">+1.34%</td><td><span class="tag">AI游戏/平台</span></td></tr>
+    <tr><td>小米集团-W</td><td>01810</td><td>23.55</td><td class="up">+1.25%</td><td><span class="tag">AIoT/汽车</span></td></tr>
+    <tr><td>携程集团-S</td><td>09961</td><td>329.00</td><td class="up">+1.17%</td><td><span class="tag">AI+OTA平台</span></td></tr>
+    <tr><td>哔哩哔哩-W</td><td>09626</td><td>98.50</td><td class="up">+0.82%</td><td><span class="tag">AI内容平台</span></td></tr>
+    <tr><td>阿里巴巴-W</td><td>09988</td><td>96.00</td><td class="up">+0.31%</td><td><span class="tag">云/AI平台</span></td></tr>
+  </table>
+</div>
+
+<h3 style="font-size:1em;margin:16px 0 8px;color:var(--red)">📉 跌幅前列</h3>
+<div class="card">
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价(HKD)</th><th>涨跌幅</th><th>细分</th></tr>
+    <tr><td>快手-W</td><td>01024</td><td>41.46</td><td class="down">-10.00%</td><td><span class="tag tag-red">AI视频/平台</span></td></tr>
+    <tr><td>澜起科技</td><td>06809</td><td>228.50</td><td class="down">-10.70%</td><td><span class="tag tag-red">AI芯片/互联</span></td></tr>
+    <tr><td>建滔积层板</td><td>01888</td><td>15.50</td><td class="down">-8.82%</td><td><span class="tag tag-red">PCB/AI硬件</span></td></tr>
+    <tr><td>建滔集团</td><td>00148</td><td>23.80</td><td class="down">-7.21%</td><td><span class="tag tag-red">PCB/材料</span></td></tr>
+    <tr><td>地平线机器人-W</td><td>09660</td><td>4.20</td><td class="down">-6.25%</td><td><span class="tag tag-red">智驾/AI芯片</span></td></tr>
+    <tr><td>智谱</td><td>02513</td><td>1,450.00</td><td class="down">-4.92%</td><td><span class="tag tag-red">AI大模型</span></td></tr>
+    <tr><td>长飞光纤光缆</td><td>06869</td><td>163.00</td><td class="down">-4.51%</td><td><span class="tag tag-red">光通信</span></td></tr>
+    <tr><td>舜宇光学科技</td><td>02382</td><td>52.80</td><td class="down">-4.52%</td><td><span class="tag tag-red">AI硬件/光学</span></td></tr>
+    <tr><td>中芯国际</td><td>00981</td><td>73.80</td><td class="down">-2.25%</td><td><span class="tag tag-red">晶圆代工</span></td></tr>
+    <tr><td>华虹半导体</td><td>01347</td><td>108.00</td><td class="down">-2.70%</td><td><span class="tag tag-red">晶圆代工</span></td></tr>
+    <tr><td>商汤-W</td><td>00020</td><td>1.30</td><td class="down">-2.99%</td><td><span class="tag tag-red">AI大模型</span></td></tr>
+    <tr><td>京东集团-SW</td><td>09618</td><td>104.00</td><td class="down">-1.52%</td><td><span class="tag tag-red">AI电商平台</span></td></tr>
+    <tr><td>百度集团-SW</td><td>09888</td><td>108.50</td><td class="down">-1.72%</td><td><span class="tag tag-red">AI大模型/智驾</span></td></tr>
+  </table>
+</div>
+
+<!-- ===== 板块资金流向 ===== -->
+<h2>💰 板块资金流向</h2>
+<div class="card">
+  <table>
+    <tr><th>板块</th><th>方向</th><th>代表性个股</th><th>逻辑</th></tr>
+    <tr>
+      <td><strong>互联网平台</strong></td>
+      <td style="color:var(--gold)">高度分化 ⚡</td>
+      <td>美团 +4.8%、腾讯 +2.5% / 快手 -10%、京东 -1.5%</td>
+      <td>AI商业化叙事从"全面溢价"转向"选择性定价"；有明确AI落地路径（美团本地生活AI/腾讯混元）获资金认可，缺乏独立AI叙事的平台遭减持</td>
+    </tr>
+    <tr>
+      <td><strong>半导体/芯片</strong></td>
+      <td class="down">资金持续流出 ↓↓</td>
+      <td>澜起科技 -10.7%、中芯国际 -2.3%、华虹 -2.7%</td>
+      <td>费城半导体指数弱势传导 + AI算力"过剩论"发酵；Meta出租算力消息引发资本开支见顶担忧，硬件链连续三日承压</td>
+    </tr>
+    <tr>
+      <td><strong>PCB/电子材料</strong></td>
+      <td class="down">资金大幅流出 ↓↓</td>
+      <td>建滔积层板 -8.8%、建滔集团 -7.2%</td>
+      <td>A股PCB板块业绩低于预期传导；前期AI硬件炒作筹码松动，连续两日大跌</td>
+    </tr>
+    <tr>
+      <td><strong>AI大模型</strong></td>
+      <td class="down">恐慌抛售延续 ↓</td>
+      <td>智谱 -4.9%、商汤 -3.0%</td>
+      <td>七月解禁窗口（智谱/MiniMax）+ "回A"预期混乱 + Meta出租算力冲击第三方AI云估值</td>
+    </tr>
+    <tr>
+      <td><strong>光通信</strong></td>
+      <td class="down">延续调整 ↓</td>
+      <td>长飞光纤 -4.5%</td>
+      <td>连续两日累计跌近20%后跌势放缓但未企稳，A股光纤业绩暴雷情绪仍在消化中</td>
+    </tr>
+    <tr>
+      <td><strong>AI医疗</strong></td>
+      <td class="up">防御性流入 ↑</td>
+      <td>京东健康 +、平安好医生 +</td>
+      <td>AI辅助诊断政策催化 + 防御属性，成为硬件链资金流出的受益方向</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ===== 核心新闻 ===== -->
+<h2>📰 今日核心新闻</h2>
+<div class="card">
+  <div class="news-item">
+    <strong>💥 快手暴跌10%：腾讯清仓2.73亿股退出主要股东</strong><br>
+    腾讯以每股约44-46港元区间减持快手2.73亿股（约16亿美元/122亿港元），持股比例降至5%以下退出主要股东行列。快手盘中一度跌超10%至41.46港元。市场逻辑：可灵AI独立运营后，快手母公司仅剩主站广告/电商/直播业务（AI溢价蒸发）+ 五年竞业协议剥夺自研大模型能力 = AI叙事折价。腾讯此时减持，进一步削弱市场对"腾讯+快手+可灵"三角协同的信心。
+  </div>
+  <div class="news-item">
+    <strong>🔁 可灵AI的"出走"代价：融资30亿美元 vs 母公司估值折价</strong><br>
+    可灵AI完成30亿美元融资（Pre-IPO轮），投后估值180亿美元创视频大模型纪录。但双层股权架构下CEO盖坤掌握技术路线与商业化决策，母公司快手干预能力大幅下降；五年竞业协议锁死快手自研大模型路径。可灵估值越高，快手母公司的"壳化"风险越大——市场正在用脚投票。
+  </div>
+  <div class="news-item">
+    <strong>🔻 芯片/PCB连续三日调整：全球AI算力"过剩论"发酵</strong><br>
+    澜起科技单日暴跌10.7%，建滔积层板跌8.8%。核心催化：① Meta 7月1日宣布向外部客户出租AI算力（Meta Compute项目），市场解读为AI资本开支见顶信号；② Anthropic与三星接洽自研芯片，进一步削弱第三方AI芯片叙事；③ A股光纤/PCB板块业绩暴雷传导效应延续。AI产业链正从"不计成本囤算力"转向"精细化运营+资本回报"周期。
+  </div>
+  <div class="news-item">
+    <strong>📉 智谱连跌三日：解禁窗口期高估值承压</strong><br>
+    智谱再跌4.9%，三个交易日累计跌幅超20%。七月解禁窗口（首批大规模解禁）+ 同步宣布"回A"计划，市场对2000+港元股价的高估值AI资产进行价格发现。MiniMax同步承压，AI大模型次新股正经历上市以来最严峻的流动性考验。
+  </div>
+  <div class="news-item">
+    <strong>✅ 美团/腾讯逆势走强：AI商业化的"确定性溢价"</strong><br>
+    美团涨4.8%（AI本地生活/无人机配送商业化加速）、腾讯涨2.5%（混元大模型商业化落地+游戏AI赋能）。在AI硬件链全面承压的背景下，资金向"有确定AI商业化路径"的平台集中——这是AI投资从"概念炒作"向"业绩验证"切换的明确信号。
+  </div>
+</div>
+
+<!-- ===== 后市展望 ===== -->
+<h2>🔮 观点速递</h2>
+<div class="card">
+  <p>
+  <strong>📌 短期：</strong>七月解禁潮叠加全球AI算力"过剩论"，AI硬件链（芯片/PCB/光通信）短期仍面临调整压力。快手腾讯减持事件标志着科网AI叙事的分水岭——"有AI ≠ 有溢价"，资金将更加挑剔地审视每家平台的AI商业化落地能力。美团/腾讯的强势说明市场愿意为"确定性"付费。
+  </p>
+  <p style="margin-top:10px">
+  <strong>📌 中期：</strong>可灵AI独立IPO路径（目标2027年初递表）是下半年港股AI板块最大看点之一。若可灵成功以180亿+美元估值上市，可能重新激活AI视频/AIGC赛道。但快手母公司的"壳化"风险需持续关注——失去可灵AI叙事后，快手估值可能回归传统短视频平台逻辑（PE 10-15x）。
+  </p>
+  <p style="margin-top:10px">
+  <strong>📌 策略：</strong>
+  ① 回避AI硬件链高位高估值标的（解禁+业绩证伪双重压力）；
+  ② 关注AI商业化确定性强的互联网平台（腾讯/美团/AI医疗）；
+  ③ 光通信/半导体等待A股情绪企稳+中报业绩验证后再考虑介入；
+  ④ 快手短期超跌（-10%）或带来交易性机会，但中长期AI叙事缺失是关键风险。
+  </p>
+  <p style="margin-top:10px;color:#8b949e">
+  ⚠️ 风险提示：七月解禁规模创历史新高（1.55万亿港元），短期波动可能加剧。快手已跌破关键支撑位，不建议盲目抄底。以上分析不构成投资建议。
+  </p>
+</div>
+
+<!-- ===== 关键数据追踪 ===== -->
+<h2>📈 关键数据追踪：AI产业链周度表现</h2>
+<div class="card">
+  <table>
+    <tr><th>标的</th><th>7/2涨跌</th><th>7/3涨跌</th><th>7/6涨跌</th><th>7/7涨跌</th><th>本周累计</th></tr>
+    <tr><td>恒生指数</td><td class="up">+0.76%</td><td class="up">+1.28%</td><td class="up">+1.14%</td><td class="down">-0.28%</td><td class="up">+2.90%</td></tr>
+    <tr><td>恒生科技</td><td class="down">-0.40%</td><td class="up">+1.00%</td><td class="up">+0.94%</td><td class="down">-0.36%</td><td class="up">+1.18%</td></tr>
+    <tr><td>快手-W</td><td class="down">-1.25%</td><td class="down">-0.09%</td><td class="up">+7.61%</td><td class="down">-10.00%</td><td class="down">-3.73%</td></tr>
+    <tr><td>腾讯控股</td><td class="down">-1.50%</td><td class="up">+1.10%</td><td class="up">+4.50%</td><td class="up">+2.53%</td><td class="up">+6.63%</td></tr>
+    <tr><td>美团-W</td><td class="down">-0.01%</td><td class="up">+0.20%</td><td class="up">+4.61%</td><td class="up">+4.81%</td><td class="up">+9.61%</td></tr>
+    <tr><td>智谱</td><td class="down">-16.60%</td><td class="up">+2.20%</td><td class="down">-14.95%</td><td class="down">-4.92%</td><td class="down">-34.27%</td></tr>
+    <tr><td>澜起科技</td><td class="down">-5.80%</td><td class="down">-0.50%</td><td class="down">-3.50%</td><td class="down">-10.70%</td><td class="down">-20.50%</td></tr>
+    <tr><td>中芯国际</td><td class="down">-10.10%</td><td class="down">-3.50%</td><td class="down">-2.71%</td><td class="down">-2.25%</td><td class="down">-18.56%</td></tr>
+    <tr><td>长飞光纤</td><td class="down">-22.40%</td><td class="down">-9.50%</td><td class="down">-15.16%</td><td class="down">-4.51%</td><td class="down">-51.57%</td></tr>
+  </table>
+  <p style="font-size:0.8em;color:#8b949e;margin-top:8px">* 周度累计含7/2-7/7共四个交易日。长飞光纤自7/2以来累计腰斩，AI硬件链杀伤力巨大。</p>
+</div>
+
+<div class="footnote">
+  📊 数据来源：新浪财经 / Yahoo Finance / 金十数据 / 港交所｜报告生成时间：2026-07-07 17:00 HKT<br>
+  Hermes Agent 自动生成 · AI产业链深度版
+</div>
+
+</body>
+</html>
