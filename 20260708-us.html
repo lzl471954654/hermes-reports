@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026年7月8日</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d28;
+    --border: #2a2d3a;
+    --text: #e1e4ed;
+    --sub: #8890a4;
+    --red: #f5555a;
+    --green: #26a69a;
+    --blue: #5b9cf5;
+    --accent: #7c5cfc;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px 16px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .date { color: var(--sub); font-size: 0.85rem; margin-bottom: 20px; }
+
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .section h2 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .section h2 .icon { font-size: 1.2rem; }
+
+  .index-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(42,45,58,0.5);
+    font-size: 0.92rem;
+  }
+  .index-row:last-child { border-bottom: none; }
+  .idx-name { color: var(--sub); }
+  .idx-change { font-weight: 600; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .flat { color: var(--sub); }
+
+  .stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  .stock-table th {
+    text-align: left;
+    color: var(--sub);
+    font-weight: 500;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.8rem;
+  }
+  .stock-table td {
+    padding: 7px 8px;
+    border-bottom: 1px solid rgba(42,45,58,0.4);
+  }
+  .stock-table tr:last-child td { border-bottom: none; }
+  .stock-symbol { font-weight: 600; color: var(--blue); }
+  .stock-name { color: var(--sub); font-size: 0.8rem; }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .tag-red { background: rgba(245,85,90,0.15); color: var(--red); }
+  .tag-green { background: rgba(38,166,154,0.15); color: var(--green); }
+  .tag-blue { background: rgba(91,156,245,0.15); color: var(--blue); }
+  .tag-accent { background: rgba(124,92,252,0.15); color: var(--accent); }
+
+  .news-item {
+    padding: 6px 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(42,45,58,0.35);
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-dot { color: var(--accent); margin-right: 6px; }
+
+  .map-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(42,45,58,0.35);
+    font-size: 0.88rem;
+  }
+  .map-item:last-child { border-bottom: none; }
+  .map-arrow { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer {
+    margin-top: 20px;
+    font-size: 0.75rem;
+    color: var(--sub);
+    text-align: center;
+    padding: 10px;
+  }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+
+  .highlight-box {
+    background: rgba(124,92,252,0.08);
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    margin-top: 10px;
+  }
+
+  .summary-point {
+    display: flex;
+    gap: 8px;
+    padding: 5px 0;
+    font-size: 0.9rem;
+  }
+  .summary-num { color: var(--accent); font-weight: 700; min-width: 20px; }
+</style>
+</head>
+<body>
+
+<h1>🌐 AI产业链美股收盘 &amp; A股映射早报</h1>
+<div class="date">2026年7月8日（周三）｜ 覆盖7月7日（周二）美股收盘</div>
+
+<!-- ========== 市场总览 ========== -->
+<div class="section">
+  <h2><span class="icon">📊</span>美股三大指数</h2>
+  <div class="index-row">
+    <span class="idx-name">道琼斯工业</span>
+    <span>52,925.15</span>
+    <span class="idx-change down">-0.25%</span>
+    <span style="font-size:0.78rem; color:var(--sub)">盘中创历史新高后回落</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">标普500</span>
+    <span>7,503.85</span>
+    <span class="idx-change down">-0.45%</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">纳斯达克综合</span>
+    <span>25,818.69</span>
+    <span class="idx-change down">-1.16%</span>
+    <span style="font-size:0.78rem; color:var(--sub)">领跌</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">费城半导体 SOX</span>
+    <span>—</span>
+    <span class="idx-change down">↓芯片股普跌</span>
+    <span style="font-size:0.78rem; color:var(--sub)">前日+3.79%后回吐</span>
+  </div>
+</div>
+
+<!-- ========== AI产业链核心 ========== -->
+<div class="section">
+  <h2><span class="icon">🧠</span>AI产业链核心个股</h2>
+
+  <h3 style="font-size:0.88rem; color:var(--sub); margin:4px 0 8px 0;">🔧 算力芯片 &amp; 设计</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>收盘</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">NVDA</td>
+      <td class="stock-name">英伟达</td>
+      <td>$196.25</td>
+      <td class="down">~-2%</td>
+      <td><span class="tag tag-red">DeepSeek自研芯片</span></td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">AVGO</td>
+      <td class="stock-name">博通</td>
+      <td>$373.60</td>
+      <td class="down">↓</td>
+      <td>区间 $367-$383</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">AMD</td>
+      <td class="stock-name">超威半导体</td>
+      <td>—</td>
+      <td class="down">↓</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">TSM</td>
+      <td class="stock-name">台积电</td>
+      <td>—</td>
+      <td class="down">↓</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">MRVL</td>
+      <td class="stock-name">迈威尔</td>
+      <td>—</td>
+      <td class="down">↓</td>
+      <td>区间 $223-$239</td>
+    </tr>
+  </table>
+
+  <h3 style="font-size:0.88rem; color:var(--sub); margin:14px 0 8px 0;">💾 存储 &amp; HBM</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>收盘</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">MU</td>
+      <td class="stock-name">美光科技</td>
+      <td>—</td>
+      <td class="down">↓</td>
+      <td>区间 $892-$947，<span class="tag tag-accent">SK海力士IPO压力</span></td>
+    </tr>
+  </table>
+
+  <h3 style="font-size:0.88rem; color:var(--sub); margin:14px 0 8px 0;">☁️ AI软件 &amp; 应用</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>收盘</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">PLTR</td>
+      <td class="stock-name">Palantir</td>
+      <td>—</td>
+      <td>—</td>
+      <td>区间 $131-$139</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">SPCX</td>
+      <td class="stock-name">SpaceX</td>
+      <td>$149.58</td>
+      <td class="down">-5%</td>
+      <td><span class="tag tag-red">纳指100纳入日，买预期卖事实</span></td>
+    </tr>
+  </table>
+
+  <h3 style="font-size:0.88rem; color:var(--sub); margin:14px 0 8px 0;">🏢 科技巨头 (Magnificent 7)</h3>
+  <div style="font-size:0.88rem; color:var(--sub);">
+    MSFT · GOOGL · AMZN · META · AAPL · TSLA — 多数随大盘收跌，科技板块承压
+  </div>
+</div>
+
+<!-- ========== 盘后动态 ========== -->
+<div class="section">
+  <h2><span class="icon">🌙</span>盘后 &amp; 关键动态</h2>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>原油大涨</strong>：WTI盘后跳涨$1.76至$72.20（+2.5%），布伦特+$1.72至$75.88 — 美国撤销伊朗石油销售许可，霍尔木兹海峡油轮遇袭后地缘风险升级
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>DeepSeek自研AI芯片</strong>：路透报道中国AI初创DeepSeek正开发自有推理芯片，旨在减少对英伟达和华为的依赖 — NVDA盘中最深跌2.4%
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>SK海力士$280亿纳斯达克IPO</strong>：7月10日挂牌，HBM龙头巨额融资引发内存供给过剩担忧。Cramer：买三星、观望SK海力士
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>SpaceX纳指100首日跌5%</strong>：$43亿被动买盘消化后，"买预期卖事实"模式重演（对比Palantir纳入后走势）
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>Cramer喊"抄底"</strong>：建议利用抛售买入跌幅最大的芯片股；高盛称NVDA 21.7倍远期PE"极具吸引力"（五年均值72倍）
+  </div>
+</div>
+
+<!-- ========== A股映射 ========== -->
+<div class="section">
+  <h2><span class="icon">🇨🇳</span>A股映射分析</h2>
+
+  <div style="font-size:0.85rem; color:var(--sub); margin-bottom:10px;">
+    ⚠️ A股上一交易日（7月2日）科创50暴跌7.7%，半导体、光模块、算力全线重挫。7月7日美股芯片再跌，情绪面压力延续。
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>光模块/CPO（中际旭创·新易盛·天孚通信）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">NVDA+AI芯片普跌 → 上游光模块订单预期承压。但1.6T放量+业绩预增基本面支撑仍在，超跌后关注修复弹性。</span>
+    </div>
+  </div>
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>存储芯片（兆易创新·北京君正·江波龙）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">SK海力士$280亿IPO + 美光承压 → 存储供给担忧传导A股。但HBM供不应求格局未变，国产替代逻辑中长期成立。</span>
+    </div>
+  </div>
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>AI芯片/算力（寒武纪·海光信息·景嘉微）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">DeepSeek自研芯片+NVDA替代叙事 → 短期利空海外供应链，但国产AI芯片"自主可控"逻辑反而受益。</span>
+    </div>
+  </div>
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>半导体设备/材料（北方华创·中微公司·沪硅产业）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">费城半导体连续承压 → A股设备板块回调幅度已大（北方华创等7月2日跌停），存在超跌修复窗口。</span>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>💡 策略参考：</strong>美股AI芯片连续两日抛售（7月1日SOX -6%，7月7日再跌），但高盛/Cramer等机构逆势看多。A股科创50短期情绪极致冰点（7月2日-7.7%），若今日开盘继续低开，关注光模块、设备龙头的左侧布局机会。苹果MR+Vision Pro生态、1.6T光模块业绩确定性较高的标的可能率先企稳。
+  </div>
+</div>
+
+<hr>
+<div class="disclaimer">
+  ⚠️ 以上内容基于公开数据整理，仅供参考，不构成投资建议。市场有风险，投资需谨慎。<br>
+  数据来源：CNBC、Investopedia、Robinhood、Reuters、TradingKey 等 | 生成时间：2026-07-08
+</div>
+
+</body>
+</html>
