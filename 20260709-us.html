@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026年7月9日</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d28;
+    --text: #e1e4e8;
+    --text-secondary: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --border: #30363d;
+    --accent: #7c3aed;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-size: 1.6em;
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .date {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin-top: 6px;
+  }
+  .header .tagline {
+    color: var(--orange);
+    font-size: 0.85em;
+    margin-top: 4px;
+  }
+
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+  }
+  .section h2 {
+    font-size: 1.15em;
+    margin-bottom: 14px;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h2 .icon { font-size: 1.2em; }
+
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .index-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .index-card .name { font-size: 0.85em; color: var(--text-secondary); }
+  .index-card .value { font-size: 1.5em; font-weight: 700; margin: 4px 0; }
+  .index-card .change { font-size: 0.9em; font-weight: 600; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93em;
+  }
+  th {
+    text-align: left;
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85em;
+  }
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(48,54,61,0.4);
+    font-variant-numeric: tabular-nums;
+  }
+  tr:last-child td { border-bottom: none; }
+  .stock-name { font-weight: 600; }
+  .stock-code { color: var(--text-secondary); font-size: 0.8em; margin-left: 4px; }
+  .tag {
+    display: inline-block;
+    font-size: 0.75em;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    font-weight: 500;
+  }
+  .tag-ai { background: rgba(124,58,237,0.2); color: #a78bfa; }
+  .tag-chip { background: rgba(88,166,255,0.15); color: #79c0ff; }
+  .tag-cloud { background: rgba(63,185,80,0.15); color: #56d364; }
+  .tag-mega { background: rgba(210,153,29,0.15); color: #e3b341; }
+
+  .event-list { list-style: none; }
+  .event-list li {
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(48,54,61,0.3);
+    font-size: 0.93em;
+  }
+  .event-list li:last-child { border-bottom: none; }
+  .event-list .bullet { color: var(--accent); margin-right: 8px; }
+
+  .mapping-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+  }
+  .mapping-item {
+    font-size: 0.88em;
+    padding: 6px 0;
+  }
+  .mapping-item .us { color: var(--blue); font-weight: 500; }
+  .mapping-item .arrow { color: var(--text-secondary); margin: 0 6px; }
+  .mapping-item .cn { color: var(--orange); }
+
+  .footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.78em;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(88,166,255,0.08));
+    border: 1px solid rgba(124,58,237,0.3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    font-size: 0.93em;
+  }
+  .highlight-box strong { color: var(--blue); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 AI产业链美股收盘与A股映射早报</h1>
+  <div class="date">2026年7月9日（周四）| 覆盖7月8日美股交易</div>
+  <div class="tagline">⚡ 伊朗局势骤然升级 · 油价暴涨 · 芯片分化加剧</div>
+</div>
+
+<!-- 市场概览 -->
+<div class="section">
+  <h2><span class="icon">📊</span> 美股三大指数</h2>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">道琼斯工业</div>
+      <div class="value">52,348</div>
+      <div class="change down">-576.76 (-1.09%)</div>
+    </div>
+    <div class="index-card">
+      <div class="name">标普500</div>
+      <div class="value">7,470</div>
+      <div class="change down">-0.28%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">纳斯达克综合</div>
+      <div class="value">25,871</div>
+      <div class="change up">+51.96 (+0.20%)</div>
+    </div>
+    <div class="index-card">
+      <div class="name">费城半导体 SOX</div>
+      <div class="value">12,307</div>
+      <div class="change up">分化显著 ▸</div>
+    </div>
+  </div>
+</div>
+
+<!-- 核心事件 -->
+<div class="section">
+  <h2><span class="icon">🔥</span> 核心驱动事件</h2>
+  <ul class="event-list">
+    <li><span class="bullet">▪</span><strong>美伊局势骤然升级：</strong>特朗普在土耳其北约峰会上宣布伊朗停火协议「已结束」，美军恢复对伊打击并撤销石油制裁豁免。布伦特原油暴涨5%至$78，WTI大涨5%至$74。</li>
+    <li><span class="bullet">▪</span><strong>苹果 × 博通 $300亿AI芯片大单：</strong>双方宣布多年合作协议延长至2031年，博通将为苹果开发供应定制ASIC芯片，并投资$15亿扩建科罗拉多工厂。AVGO收涨4.83%。</li>
+    <li><span class="bullet">▪</span><strong>英伟达领衔芯片反弹：</strong>经历连续数日重挫后，AI芯片龙头企稳反弹。NVDA涨3.65%至$204.12，存储芯片SNDK涨4.22%，资金回补AI核心资产。</li>
+    <li><span class="bullet">▪</span><strong>微软Xbox大重组：</strong>计划裁减3200人（20%游戏部门），剥离五家工作室，引发科技巨头成本管控担忧。</li>
+    <li><span class="bullet">▪</span><strong>油价飙升压制道指：</strong>能源成本上涨预期拖累工业、航空等周期板块，道指重挫577点；但科技股相对抗跌，纳指逆势收红。</li>
+  </ul>
+</div>
+
+<!-- AI产业链核心标的 -->
+<div class="section">
+  <h2><span class="icon">🧠</span> AI产业链核心标的收盘</h2>
+
+  <div class="highlight-box">
+    <strong>📌 关键信号：</strong>芯片板块出现明显分化——AI算力核心（NVDA、AVGO）获资金回补强劲反弹，而半导体设备与部分二线芯片继续承压。苹果$300亿大单再次验证<strong>定制ASIC芯片是AI算力军备竞赛的下一个主战场</strong>。
+  </div>
+
+  <h3 style="font-size:0.95em;color:var(--text-secondary);margin:16px 0 8px;">🔴 AI算力芯片</h3>
+  <table>
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+    <tr>
+      <td><span class="stock-name">NVIDIA</span><span class="stock-code">NVDA</span><span class="tag tag-ai">GPU龙头</span></td>
+      <td>$204.12</td>
+      <td class="up">+3.65%</td>
+      <td style="font-size:0.85em;">领衔AI反弹，CEO黄仁勋此前发声稳定信心；AWS GPU价格上涨20%反映算力供不应求</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Broadcom</span><span class="stock-code">AVGO</span><span class="tag tag-chip">ASIC定制</span></td>
+      <td>$388.69</td>
+      <td class="up">+4.83%</td>
+      <td style="font-size:0.85em;">苹果$300亿大单至2031年；盘后微跌至$387.54；Erste Group下调至Hold</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">AMD</span><span class="stock-code">AMD</span><span class="tag tag-chip">GPU挑战者</span></td>
+      <td>-</td>
+      <td class="down">约-1~2%</td>
+      <td style="font-size:0.85em;">上周与Meta达成千亿美元AI芯片协议后高位震荡；设备股拖累整体偏弱</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Intel</span><span class="stock-code">INTC</span><span class="tag tag-chip">IDM</span></td>
+      <td>-</td>
+      <td class="down">-0.14%</td>
+      <td style="font-size:0.85em;">相对温和，代工战略转型仍在进行中</td>
+    </tr>
+  </table>
+
+  <h3 style="font-size:0.95em;color:var(--text-secondary);margin:16px 0 8px;">💾 存储 & 设备</h3>
+  <table>
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+    <tr>
+      <td><span class="stock-name">Micron</span><span class="stock-code">MU</span><span class="tag tag-chip">HBM存储</span></td>
+      <td>~$934</td>
+      <td class="up">+1.11%</td>
+      <td style="font-size:0.85em;">花旗列入「上行催化剂」观察名单；DRAM短缺仍是算力瓶颈；瑞银大幅上调DRAM价格预测</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">SanDisk</span><span class="stock-code">SNDK</span><span class="tag tag-chip">NAND闪存</span></td>
+      <td>-</td>
+      <td class="up">+4.22%</td>
+      <td style="font-size:0.85em;">超跌反弹，此前连续两日重挫超10%</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">ASML</span><span class="stock-code">ASML</span><span class="tag tag-chip">EUV光刻</span></td>
+      <td>-</td>
+      <td class="down">约-4%</td>
+      <td style="font-size:0.85em;">被设备板块拖累；伯恩斯坦上调目标价至€2300（+41%上行空间）</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">TSMC</span><span class="stock-code">TSM</span><span class="tag tag-chip">代工龙头</span></td>
+      <td>-</td>
+      <td class="down">-4.25%</td>
+      <td style="font-size:0.85em;">跟随设备股下挫；CoWoS扩产持续推进</td>
+    </tr>
+  </table>
+
+  <h3 style="font-size:0.95em;color:var(--text-secondary);margin:16px 0 8px;">☁️ 科技巨头（AI云基础设施）</h3>
+  <table>
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+    <tr>
+      <td><span class="stock-name">Apple</span><span class="stock-code">AAPL</span><span class="tag tag-mega">Magnificent 7</span></td>
+      <td>$310.76</td>
+      <td class="up">显著上涨</td>
+      <td style="font-size:0.85em;">折叠屏iPhone备货上调至1000万台 + Broadcom $300亿AI芯片大单共振；市值$4.55万亿</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Microsoft</span><span class="stock-code">MSFT</span><span class="tag tag-cloud">Azure/AI</span></td>
+      <td>~$382</td>
+      <td class="down">约-1.7%</td>
+      <td style="font-size:0.85em;">Xbox裁员3200人+剥离工作室；BMO下调目标价至$500；AI基础设施投资维持激进</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Tesla</span><span class="stock-code">TSLA</span><span class="tag tag-mega">Magnificent 7</span></td>
+      <td>$391-$401区间</td>
+      <td>震荡</td>
+      <td style="font-size:0.85em;">日内在$390.51-$401.43窄幅波动；Dojo超算与Optimus机器人叙事支撑估值</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Meta/Google/Amazon</span><span class="stock-code">META/GOOGL/AMZN</span></td>
+      <td>-</td>
+      <td>小幅波动</td>
+      <td style="font-size:0.85em;">整体随大盘震荡；AI Capex叙事不变，云计算需求稳健</td>
+    </tr>
+  </table>
+</div>
+
+<!-- A股映射 -->
+<div class="section">
+  <h2><span class="icon">🇨🇳</span> A股映射与策略参考</h2>
+
+  <div class="highlight-box">
+    <strong>🎯 核心判断：</strong>美伊局势推升油价压制市场风偏，但AI算力需求叙事未破——NVDA反弹+AVGO大单验证产业链景气度。A股AI板块短期受情绪扰动，中期聚焦<strong>CPO光模块、HBM存储、国产算力</strong>三条主线。
+  </div>
+
+  <h3 style="font-size:0.95em;color:var(--text-secondary);margin:12px 0 8px;">映射方向</h3>
+  <div class="mapping-grid">
+    <div class="mapping-item"><span class="us">NVDA +3.65%</span><span class="arrow">→</span><span class="cn">寒武纪、海光信息、景嘉微</span></div>
+    <div class="mapping-item"><span class="us">AVGO $300亿AI大单</span><span class="arrow">→</span><span class="cn">通富微电、长电科技（先进封装）</span></div>
+    <div class="mapping-item"><span class="us">MU DRAM需求强劲</span><span class="arrow">→</span><span class="cn">兆易创新、北京君正、深科技</span></div>
+    <div class="mapping-item"><span class="us">ASML高端光刻需求</span><span class="arrow">→</span><span class="cn">中微公司、北方华创、芯源微</span></div>
+    <div class="mapping-item"><span class="us">AI算力军备竞赛持续</span><span class="arrow">→</span><span class="cn">中际旭创、新易盛、天孚通信（CPO）</span></div>
+    <div class="mapping-item"><span class="us">AAPL折叠屏+芯片升级</span><span class="arrow">→</span><span class="cn">立讯精密、蓝思科技、领益智造</span></div>
+    <div class="mapping-item"><span class="us">MSFT Xbox裁员重组</span><span class="arrow">→</span><span class="cn">游戏出海链情绪偏负面</span></div>
+    <div class="mapping-item"><span class="us">油价暴涨5%</span><span class="arrow">→</span><span class="cn">航空/化工承压；中海油/中石油受益</span></div>
+  </div>
+
+  <h3 style="font-size:0.95em;color:var(--text-secondary);margin:16px 0 8px;">⚠️ 风险提示</h3>
+  <ul class="event-list">
+    <li><span class="bullet">▪</span>美伊冲突若持续升级→油价进一步上行→全球风险资产承压，A股难以独善其身</li>
+    <li><span class="bullet">▪</span>费城半导体指数高位剧烈波动，7月开局即遭「系统性空头踩踏」，AI板块以天为单位评估</li>
+    <li><span class="bullet">▪</span>市场关注周四中国6月CPI/PPI数据，若通缩压力加大可能触发政策博弈</li>
+    <li><span class="bullet">▪</span>资金正从纯芯片交易向AI应用/云计算轮动，A股关注AI应用端机会</li>
+  </ul>
+</div>
+
+<div class="footer">
+  📡 Hermes Agent 自动生成 | 数据来源：Yahoo Finance, CNBC, TheStreet, Motley Fool, Trading Economics<br>
+  ⚠️ 仅供参考，不构成投资建议 | 更新时间：2026-07-09 08:00 CST
+</div>
+
+</body>
+</html>
