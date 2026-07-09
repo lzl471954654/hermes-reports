@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-07-09</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #a371f7;
+    --orange: #d2991d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header h1 { font-size: 1.6em; color: #e6edf3; margin-bottom: 6px; }
+  .header .date { color: var(--text-dim); font-size: 0.9em; }
+  .header .verdict {
+    margin-top: 14px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1a3a2a 0%, #0d2b1a 100%);
+    border: 1px solid #2d5a3d;
+    font-size: 1.05em;
+    line-height: 1.7;
+  }
+  .verdict strong { color: var(--green); }
+
+  .index-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 600px) { .index-row { grid-template-columns: repeat(2, 1fr); } }
+
+  .index-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .index-card .name { font-size: 0.82em; color: var(--text-dim); margin-bottom: 4px; }
+  .index-card .price { font-size: 1.4em; font-weight: 700; color: #e6edf3; }
+  .index-card .change { font-size: 1.1em; font-weight: 600; margin-top: 2px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .index-card .detail { font-size: 0.75em; color: var(--text-dim); margin-top: 4px; }
+
+  .section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .section h2 {
+    font-size: 1.1em;
+    color: var(--blue);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section h2 .icon { margin-right: 6px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.92em; }
+  th { text-align: left; color: var(--text-dim); font-weight: 500; padding: 6px 8px; border-bottom: 1px solid var(--border); font-size: 0.82em; }
+  td { padding: 7px 8px; border-bottom: 1px solid #21262d; }
+  tr:last-child td { border-bottom: none; }
+  td.price { text-align: right; font-variant-numeric: tabular-nums; }
+  td.pct { text-align: right; font-weight: 600; }
+  .stock-name { display: flex; align-items: center; gap: 6px; }
+  .stock-code { color: var(--text-dim); font-size: 0.82em; }
+  .tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 0.7em; font-weight: 600; }
+  .tag-limit-up { background: #1a3a2a; color: var(--green); }
+  .tag-20cm { background: #1a1f3a; color: var(--purple); }
+
+  .event-list { list-style: none; }
+  .event-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #21262d;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.9em;
+  }
+  .event-list li:last-child { border-bottom: none; }
+  .event-bullet { color: var(--orange); flex-shrink: 0; }
+
+  .footer {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.78em;
+    padding: 24px 0 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+  .divider { color: var(--border); margin: 0 8px; }
+
+  .heatmap-bar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .heat-chip {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.82em;
+    font-weight: 500;
+  }
+  .heat-hot { background: #1a3a2a; color: var(--green); border: 1px solid #2d5a3d; }
+  .heat-warm { background: #2a2510; color: var(--orange); border: 1px solid #4a3d10; }
+  .heat-cool { background: #2a1010; color: var(--red); border: 1px solid #4a1a1a; }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 0.85em;
+    color: var(--text-dim);
+  }
+  .stat-row span:last-child { color: var(--text); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 A股盘后总结 · AI产业链深度版</h1>
+  <div class="date">2026年7月9日（周四）收盘</div>
+  <div class="verdict">
+    <strong>深V大反转！</strong>科创50暴涨8.41%，AI产业链全面反攻。<br>
+    早盘超4600股下跌、沪指一度逼近3900，午后资金疯狂涌入半导体/CPO/先进封装，<strong>两市V型反转收红</strong>。科创50单日涨幅创年内新高，AI算力硬件全面开花——兆易创新、东山精密、浪潮信息、通富微电齐齐涨停，盛合晶微20cm封板。
+  </div>
+</div>
+
+<!-- 指数面板 -->
+<div class="index-row">
+  <div class="index-card">
+    <div class="name">上证指数</div>
+    <div class="price">4036.59</div>
+    <div class="change up">+1.65%</div>
+    <div class="detail">成交 1.36万亿 · 振幅 2.56%</div>
+  </div>
+  <div class="index-card">
+    <div class="name">深证成指</div>
+    <div class="price">15398.73</div>
+    <div class="change up">+3.07%</div>
+    <div class="detail">成交 1.55万亿</div>
+  </div>
+  <div class="index-card">
+    <div class="name">创业板指</div>
+    <div class="price">4018.17</div>
+    <div class="change up">+4.49%</div>
+    <div class="detail">成交 7266亿</div>
+  </div>
+  <div class="index-card" style="border-color: #58a6ff44;">
+    <div class="name">科创50 ⚡</div>
+    <div class="price">2185.83</div>
+    <div class="change up">+8.41%</div>
+    <div class="detail">成交 2245亿 · 年内最大单日涨幅</div>
+  </div>
+</div>
+
+<!-- 板块热度 -->
+<div class="section">
+  <h2><span class="icon">🔥</span>AI产业链 · 板块热度</h2>
+  <div class="heatmap-bar">
+    <span class="heat-chip heat-hot">先进封装 +12.5%</span>
+    <span class="heat-chip heat-hot">半导体设备 +9.8%</span>
+    <span class="heat-chip heat-hot">CPO/光模块 +7.2%</span>
+    <span class="heat-chip heat-hot">存储芯片 +6.9%</span>
+    <span class="heat-chip heat-warm">PCB/CCL +6.1%</span>
+    <span class="heat-chip heat-warm">AI服务器 +5.8%</span>
+    <span class="heat-chip heat-warm">液冷 +4.5%</span>
+    <span class="heat-chip heat-warm">MLCC +2.6%</span>
+  </div>
+  <div class="stat-row"><span>两市合计成交额</span><span>约 3.86 万亿（放量）</span></div>
+  <div class="stat-row"><span>涨跌家数（午后逆转）</span><span style="color:var(--green);">科技主线强势回补</span></div>
+</div>
+
+<!-- 光通信/CPO -->
+<div class="section">
+  <h2><span class="icon">🔦</span>光通信 / CPO</h2>
+  <table>
+    <thead><tr><th>标的</th><th style="text-align:right">收盘价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+    <tbody>
+      <tr><td class="stock-name">中际旭创 <span class="stock-code">300308</span></td><td class="price">1,194.90</td><td class="pct up">+5.90%</td></tr>
+      <tr><td class="stock-name">新易盛 <span class="stock-code">300502</span></td><td class="price">545.50</td><td class="pct up">+6.78%</td></tr>
+      <tr><td class="stock-name">天孚通信 <span class="stock-code">300394</span></td><td class="price">271.50</td><td class="pct up">+10.51%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 算力芯片 / 半导体 -->
+<div class="section">
+  <h2><span class="icon">🧠</span>算力芯片 / 半导体设备</h2>
+  <table>
+    <thead><tr><th>标的</th><th style="text-align:right">收盘价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+    <tbody>
+      <tr><td class="stock-name">寒武纪 <span class="stock-code">688256</span></td><td class="price">1,535.01</td><td class="pct up">+8.59%</td></tr>
+      <tr><td class="stock-name">海光信息 <span class="stock-code">688041</span></td><td class="price">363.46</td><td class="pct up">+5.97%</td></tr>
+      <tr><td class="stock-name">中芯国际 <span class="stock-code">688981</span></td><td class="price">173.00</td><td class="pct up">+13.74%</td></tr>
+      <tr><td class="stock-name">北方华创 <span class="stock-code">002371</span></td><td class="price">878.43</td><td class="pct up">+9.49%</td></tr>
+      <tr><td class="stock-name">中船特气 <span class="stock-code">688146</span></td><td class="price">363.60</td><td class="pct up">+9.85%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 存储/HBM -->
+<div class="section">
+  <h2><span class="icon">💾</span>存储 / HBM</h2>
+  <table>
+    <thead><tr><th>标的</th><th style="text-align:right">收盘价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+    <tbody>
+      <tr><td class="stock-name">兆易创新 <span class="stock-code">603986</span><span class="tag tag-limit-up">涨停</span></td><td class="price">663.49</td><td class="pct up">+10.00%</td></tr>
+      <tr><td class="stock-name">江波龙 <span class="stock-code">301308</span></td><td class="price">620.00</td><td class="pct up">+4.60%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PCB/CCL + 先进封装 + AI服务器/液冷 -->
+<div class="section">
+  <h2><span class="icon">📋</span>PCB/CCL · 先进封装 · AI服务器/液冷</h2>
+  <table>
+    <thead><tr><th>标的</th><th style="text-align:right">收盘价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+    <tbody>
+      <tr><td class="stock-name">胜宏科技 <span class="stock-code">300476</span></td><td class="price">296.70</td><td class="pct up">+6.09%</td></tr>
+      <tr><td class="stock-name">东山精密 <span class="stock-code">002384</span><span class="tag tag-limit-up">涨停</span></td><td class="price">261.32</td><td class="pct up">+10.00%</td></tr>
+      <tr><td class="stock-name">金安国纪 <span class="stock-code">002636</span></td><td class="price">99.56</td><td class="pct up">+6.24%</td></tr>
+      <tr><td class="stock-name">盛合晶微 <span class="stock-code">688584</span><span class="tag tag-20cm">20cm涨停</span></td><td class="price">40.27</td><td class="pct up" style="color:var(--purple);">+19.99%</td></tr>
+      <tr><td class="stock-name">通富微电 <span class="stock-code">002156</span><span class="tag tag-limit-up">涨停</span></td><td class="price">72.17</td><td class="pct up">+10.00%</td></tr>
+      <tr><td class="stock-name">浪潮信息 <span class="stock-code">000977</span><span class="tag tag-limit-up">3连板</span></td><td class="price">85.99</td><td class="pct up">+10.00%</td></tr>
+      <tr><td class="stock-name">英维克 <span class="stock-code">002837</span></td><td class="price">75.87</td><td class="pct up">+5.20%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- MLCC + 上游材料 + 交换机 -->
+<div class="section">
+  <h2><span class="icon">🧱</span>MLCC / 上游材料 / 交换机</h2>
+  <table>
+    <thead><tr><th>标的</th><th style="text-align:right">收盘价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+    <tbody>
+      <tr><td class="stock-name">三环集团 <span class="stock-code">300408</span></td><td class="price">133.81</td><td class="pct up">+2.59%</td></tr>
+      <tr><td class="stock-name">宏和科技 <span class="stock-code">603256</span></td><td class="price">213.65</td><td class="pct up">+4.22%</td></tr>
+      <tr><td class="stock-name">共进股份 <span class="stock-code">603118</span></td><td class="price">13.42</td><td class="pct down">-7.06%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 要闻事件 -->
+<div class="section">
+  <h2><span class="icon">📰</span>今日要闻 · 驱动逻辑</h2>
+  <ul class="event-list">
+    <li><span class="event-bullet">▸</span><strong>长鑫科技正式启动科创板IPO</strong> — 7月16日打新，拟发行66.88亿股，是中国存储芯片自主化的里程碑事件，直接点燃存储及先进封装板块情绪。</li>
+    <li><span class="event-bullet">▸</span><strong>存储Q3合约价确认大幅上调</strong> — 威刚董事长确认DRAM合约价Q3环比+20%~30%，NAND闪存+35%~40%，存储涨价周期延续，利好兆易创新、江波龙。</li>
+    <li><span class="event-bullet">▸</span><strong>浪潮信息半年度业绩预报大超预期</strong> — 预计H1净利润26~31亿（同比+226%~288%），AI服务器交付放量逻辑得到验证，今日3连板。</li>
+    <li><span class="event-bullet">▸</span><strong>27家A股公司集中发布风险提示公告</strong> — 监管层对数据中心交换机、液冷、CPO等热门题材炒作进行窗口指导，但市场情绪未受明显压制。</li>
+    <li><span class="event-bullet">▸</span><strong>美国AI泡沫论扰动情绪</strong> — 美国财政部内部报告将AI热潮类比互联网泡沫，但A股科创资金承接力度强劲，恐慌被日内消化。</li>
+    <li><span class="event-bullet">▸</span><strong>北美CSP 2026年资本开支指引高达7100亿美元</strong> — AI算力基础设施需求持续超预期，光模块/CPO/液冷等核心环节受益确定性高。</li>
+  </ul>
+</div>
+
+<div class="footer">
+  Hermes Agent · 自动生成 · 数据来源：东方财富 / 新浪财经<br>
+  <span style="color:var(--red);">⚠️ 本报告仅供参考，不构成投资建议。市场有风险，投资需谨慎。</span>
+</div>
+
+</body>
+</html>
