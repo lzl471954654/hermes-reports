@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-07-10</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --red: #f85149;
+    --green: #3fb950;
+    --orange: #d2991d;
+    --purple: #bc8cff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.8em; margin-bottom: 6px; color: #f0f6fc; }
+  h1 span { color: var(--text-dim); font-size: 0.55em; font-weight: 400; margin-left: 10px; }
+  h2 { font-size: 1.25em; color: #f0f6fc; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 1.05em; color: var(--accent); margin: 16px 0 8px; }
+  .subtitle { color: var(--text-dim); font-size: 0.9em; margin-bottom: 20px; }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 14px 0;
+  }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .index-item { text-align: center; padding: 12px 8px; }
+  .index-name { font-size: 0.8em; color: var(--text-dim); margin-bottom: 4px; }
+  .index-val { font-size: 1.5em; font-weight: 700; }
+  .index-chg { font-size: 0.85em; margin-top: 2px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .neutral { color: var(--orange); }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.78em;
+    margin-right: 4px;
+  }
+  .tag-up { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-down { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-warn { background: rgba(210,153,29,0.15); color: var(--orange); }
+  .tag-info { background: rgba(88,166,255,0.12); color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+  th { text-align: left; color: var(--text-dim); font-weight: 500; padding: 8px 6px; border-bottom: 1px solid var(--border); font-size: 0.82em; }
+  td { padding: 8px 6px; border-bottom: 1px solid rgba(48,54,61,0.6); }
+  .stock-name { font-weight: 500; }
+  .stock-code { color: var(--text-dim); font-size: 0.82em; margin-left: 4px; }
+  .flow-cell { font-weight: 600; }
+  .flow-pos { color: var(--green); }
+  .flow-neg { color: var(--red); }
+  hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  .chain-label {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.9em; color: var(--text-dim);
+  }
+  .chain-dot {
+    width: 8px; height: 8px; border-radius: 50%; display: inline-block;
+  }
+  .dot-strong { background: var(--green); }
+  .dot-weak { background: var(--red); }
+  .dot-mixed { background: var(--orange); }
+  .insight-box {
+    background: rgba(88,166,255,0.06);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin: 14px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.92em;
+  }
+  .warning-box {
+    background: rgba(248,81,73,0.06);
+    border-left: 3px solid var(--red);
+    padding: 12px 16px;
+    margin: 14px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.92em;
+  }
+  .footer { color: var(--text-dim); font-size: 0.78em; text-align: center; margin-top: 32px; }
+  @media (max-width: 700px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    body { padding: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>📊 A股盘后总结 · AI产业链深度版 <span>2026年7月10日 周五</span></h1>
+<p class="subtitle">科创板50 · 光通信/CPO · 存储/HBM · 半导体设备 · PCB/CCL · MLCC · 先进封装 · 液冷</p>
+
+<!-- ====== 指数概览 ====== -->
+<h2>一、指数速览</h2>
+<div class="grid-4">
+  <div class="card index-item">
+    <div class="index-name">上证指数</div>
+    <div class="index-val down">−1.37%</div>
+    <div class="index-chg down">回踩4000关口</div>
+  </div>
+  <div class="card index-item">
+    <div class="index-name">深证成指</div>
+    <div class="index-val down">−3.17%</div>
+    <div class="index-chg down">科技权重承压</div>
+  </div>
+  <div class="card index-item">
+    <div class="index-name">创业板指</div>
+    <div class="index-val down">−3.84%</div>
+    <div class="index-chg down">跌幅最大</div>
+  </div>
+  <div class="card index-item">
+    <div class="index-name">科创50</div>
+    <div class="index-val down">−1.68%</div>
+    <div class="index-chg down">早盘+2%后回落</div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+  <div class="grid-3" style="margin-bottom:0;">
+    <div><span style="color:var(--text-dim)">成交额</span> <strong>34,660亿</strong> <span class="tag tag-down">缩量2,961亿</span></div>
+    <div><span style="color:var(--text-dim)">涨跌比</span> <strong>超2,600只下跌</strong> <span class="tag tag-down">普跌</span></div>
+    <div><span style="color:var(--text-dim)">北证50</span> <strong class="up">+0.77%</strong> <span class="tag tag-up">逆市</span></div>
+  </div>
+</div>
+
+<div class="insight-box">
+  <strong>📌 分时特征：</strong>早盘科创50一度涨超2%，半导体产业链爆发（华微电子、华天科技涨停，长电科技+4%）；随后银行股拉升、双创转弱，软科技（AI应用/软件）活跃，硬科技（半导体/CPO/PCB）午后调整收跌。典型的「早盘脉冲、午后回落」一日游行情。
+</div>
+
+<!-- ====== AI产业链八大赛道 ====== -->
+<h2>二、AI产业链八大赛道 · 今日温度</h2>
+
+<div class="card">
+<table>
+<thead>
+<tr><th style="width:14%">赛道</th><th style="width:10%">强度</th><th>盘面特征</th><th style="width:34%">核心标的今日动态</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>🔵 光通信/CPO</strong></td>
+  <td><span class="tag tag-warn">早强午弱</span></td>
+  <td>早盘紫光股份涨停领涨，光迅科技+4%、铭普光磁+4%；午后随硬科技回落，「易中天」组合涨跌分化</td>
+  <td>新易盛收涨0.71%（主力净流出7,667万）；中际旭创收跌（回撤约25%自6月高点）；天孚通信回撤约38%</td>
+</tr>
+<tr>
+  <td><strong>🟣 存储/HBM</strong></td>
+  <td><span class="tag tag-down">分化承压</span></td>
+  <td>7月9日长鑫科技启动招股、存储器指数涨超8%，今日高开后获利了结。SK海力士ADR同日纳斯达克上市</td>
+  <td>兆易创新：本周初跌停后获融资净买入7.82亿；江波龙：中报预增但今日回吐；佰维存储/德明利跟跌</td>
+</tr>
+<tr>
+  <td><strong>🟢 半导体设备</strong></td>
+  <td><span class="tag tag-warn">冲高回落</span></td>
+  <td>受益大基金三期及国产替代逻辑，早盘冲高后跟随大盘回落</td>
+  <td>中微公司：7月2日-11.5%，本周主力净流入17.3亿；北方华创净流入16.5亿；中芯国际净流入30.6亿</td>
+</tr>
+<tr>
+  <td><strong>🟡 PCB/CCL</strong></td>
+  <td><span class="tag tag-down">延续调整</span></td>
+  <td>港股建滔集团较6月高点几近腰斩，A股PCB板块跟随调整，高频高速板需求逻辑未变但估值消化中</td>
+  <td>东山精密：7月初跌停后主力净流入29.6亿（本周累计）；深南电路/沪电股份：走弱</td>
+</tr>
+<tr>
+  <td><strong>🟠 MLCC</strong></td>
+  <td><span class="tag tag-down">高位回撤</span></td>
+  <td>涨价逻辑未破（村田7月涨10-40%），但5-6月暴涨后进入获利回吐。高容产品仍有20-30%涨价空间预期</td>
+  <td>三环集团：切入华为/浪潮服务器链；风华高科：车规MLCC龙头；国瓷材料：钛酸钡粉体上游</td>
+</tr>
+<tr>
+  <td><strong>🔴 先进封装</strong></td>
+  <td><span class="tag tag-mixed">局部活跃</span></td>
+  <td>长鑫科技招股带动封装链情绪，封测四小龙早盘冲高，午后受「最弱不止跌」拖累回落</td>
+  <td>华天科技：本周主力净流入57亿+；长电科技：净流入37+亿；通富微电：CPO封装技术突破</td>
+</tr>
+<tr>
+  <td><strong>⚪ 上游材料</strong></td>
+  <td><span class="tag tag-down">全面回调</span></td>
+  <td>电子特气、硅片、石英等全线调整。中船特气（年涨767%）高位回调</td>
+  <td>神工股份：二季度大涨219%后回撤29%；立昂微/沪硅产业回撤25-30%</td>
+</tr>
+<tr>
+  <td><strong>🔵 液冷/服务器</strong></td>
+  <td><span class="tag tag-warn">分化</span></td>
+  <td>浪潮信息2连板后高位震荡（北向资金7月9日净买7.9亿）；液冷方向飞龙股份提示占比极低</td>
+  <td>浪潮信息：中报预增驱动，7月9日获融资净买9.47亿居首；飞龙股份：液冷收入占比低</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- ====== 主力资金动向 ====== -->
+<h2>三、主力资金风向标（本周累计）</h2>
+<div class="grid-2">
+  <div class="card">
+    <h3 style="margin-top:0">🔴 净流出居前</h3>
+    <table>
+      <tr><td class="stock-name">兆易创新</td><td class="stock-code">603986</td><td class="flow-cell flow-neg">−28.2亿</td></tr>
+      <tr><td class="stock-name">亨通光电</td><td class="stock-code">600487</td><td class="flow-cell flow-neg">持续净流出</td></tr>
+      <tr><td class="stock-name">中天科技</td><td class="stock-code">600522</td><td class="flow-cell flow-neg">−8.67%（单日）</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">🟢 净流入居前（周）</h3>
+    <table>
+      <tr><td class="stock-name">中兴通讯</td><td class="stock-code">000063</td><td class="flow-cell flow-pos">+45.7亿</td></tr>
+      <tr><td class="stock-name">长电科技</td><td class="stock-code">600584</td><td class="flow-cell flow-pos">+37.5亿</td></tr>
+      <tr><td class="stock-name">中芯国际</td><td class="stock-code">688981</td><td class="flow-cell flow-pos">+30.6亿</td></tr>
+      <tr><td class="stock-name">东山精密</td><td class="stock-code">002384</td><td class="flow-cell flow-pos">+29.6亿</td></tr>
+      <tr><td class="stock-name">华天科技</td><td class="stock-code">002185</td><td class="flow-cell flow-pos">+22.2亿</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ====== 关键驱动与风险 ====== -->
+<h2>四、关键驱动因素 &amp; 风险提示</h2>
+
+<div class="grid-2">
+  <div class="card">
+    <h3 style="margin-top:0">✅ 多方驱动</h3>
+    <ul style="padding-left:18px; font-size:0.9em; color:var(--text-dim); line-height:1.8;">
+      <li><strong>长鑫科技IPO</strong>：国产DRAM龙头招股，重塑存储产业链估值锚，7月9日半导体指数涨超8%</li>
+      <li><strong>AI算力capex上行</strong>：全球云厂商资本开支翻倍，1.6T光模块批量交付，量价齐升趋势未破</li>
+      <li><strong>MLCC涨价浪潮</strong>：村田7月涨价10-40%，AI服务器MLCC用量为传统8-12倍，供需缺口至2028年</li>
+      <li><strong>中报业绩验证期</strong>：浪潮信息2连板印证算力龙头业绩确定性，7月15日前密集披露</li>
+      <li><strong>大基金三期加持</strong>：半导体设备与材料国产化持续推进，政策面支撑明确</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">⚠️ 风险因素</h3>
+    <ul style="padding-left:18px; font-size:0.9em; color:var(--text-dim); line-height:1.8;">
+      <li><strong>全球科技共振下行</strong>：费城半导体指数回调近两成，三星/SK海力士回撤超25%，港股建滔腰斩</li>
+      <li><strong>交易拥挤度过高</strong>：5-6月集体暴涨后估值消化需求强烈，多只龙头从高点回撤25-40%</li>
+      <li><strong>中报证伪风险</strong>：7月15日中报预告截止，高估值无业绩支撑的纯题材股面临杀估值</li>
+      <li><strong>日内脉冲失效</strong>：早盘多头多次尝试突破均被「最弱不止跌」拖累，封测/存储方向突破失败</li>
+      <li><strong>流动性收缩</strong>：成交额从3.7万亿缩至3.47万亿，高位换手不足限制反弹高度</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ====== 核心标的跟踪矩阵 ====== -->
+<h2>五、AI产业链核心标的跟踪</h2>
+<div class="card">
+<table>
+<thead>
+<tr>
+  <th>标的</th><th>代码</th><th>赛道</th><th>本周动态</th><th>信号</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>中际旭创</td><td>300308</td><td>光模块</td><td>6月高点回撤~25%，1.6T交付是核心跟踪</td><td><span class="tag tag-warn">等业绩验证</span></td></tr>
+<tr><td>新易盛</td><td>300502</td><td>光模块</td><td>7/10收涨0.71%，高点回撤~21%</td><td><span class="tag tag-warn">缩量企稳</span></td></tr>
+<tr><td>天孚通信</td><td>300394</td><td>光器件</td><td>高点回撤~38%，板块回撤最深</td><td><span class="tag tag-down">超跌</span></td></tr>
+<tr><td>兆易创新</td><td>603986</td><td>存储芯片</td><td>7月初跌停，本周获融资净买7.8亿</td><td><span class="tag tag-warn">多空博弈</span></td></tr>
+<tr><td>江波龙</td><td>301308</td><td>存储模组</td><td>中报预增属个例，7月2日跌10.3%</td><td><span class="tag tag-down">高位震荡</span></td></tr>
+<tr><td>浪潮信息</td><td>000977</td><td>AI服务器</td><td>2连板后高位震荡，北向净买7.9亿</td><td><span class="tag tag-up">业绩驱动</span></td></tr>
+<tr><td>中芯国际</td><td>688981</td><td>晶圆代工</td><td>主力周净流入30.6亿</td><td><span class="tag tag-up">资金认可</span></td></tr>
+<tr><td>中微公司</td><td>688012</td><td>刻蚀设备</td><td>7月2日-11.5%，本周主力净流入17.3亿</td><td><span class="tag tag-warn">震荡筑底</span></td></tr>
+<tr><td>北方华创</td><td>002371</td><td>半导体设备</td><td>主力周净流入16.5亿</td><td><span class="tag tag-up">资金吸筹</span></td></tr>
+<tr><td>长电科技</td><td>600584</td><td>先进封装</td><td>长鑫招股受益，周净流入37.5亿</td><td><span class="tag tag-up">强于板块</span></td></tr>
+<tr><td>华天科技</td><td>002185</td><td>先进封装</td><td>封测龙头，主力学流入57亿+</td><td><span class="tag tag-up">资金聚焦</span></td></tr>
+<tr><td>三环集团</td><td>300408</td><td>MLCC</td><td>高容技术标杆，华为服务器链</td><td><span class="tag tag-warn">高位消化</span></td></tr>
+<tr><td>中船特气</td><td>688146</td><td>电子特气</td><td>年涨767%后高位回调</td><td><span class="tag tag-down">涨幅过大</span></td></tr>
+<tr><td>东山精密</td><td>002384</td><td>PCB</td><td>7月初跌停，周净流入29.6亿</td><td><span class="tag tag-warn">资金分歧</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ====== 结论 ====== -->
+<h2>六、策略小结</h2>
+
+<div class="insight-box">
+  <strong>📌 一句话总结：</strong>科创50早盘冲高2%后翻绿，AI硬科技「脉冲式一日游」特征明显——多头在「最弱不止跌」（兆易创新、亨通光电等持续新低）的背景下突破失败。但主力资金本周逆势大额净流入封测（华天+长电）、设备（中微+北方华创）和晶圆代工（中芯国际），显示机构在调整中低位吸筹。
+</div>
+
+<div class="warning-box">
+  <strong>⚠️ 短期风险提示：</strong>中报预告截止日7月15日临近，本周进入「业绩证伪期」——高估值、无实质业绩的概念跟风股面临补跌风险。全球科技同步调整（费半-20%、韩存储-25%、港股PCB腰斩）构成外部压力，A股AI链估值消化尚未完成。建议等待回踩确认信号，不急于左侧抄底。
+</div>
+
+<div class="card" style="margin-top:14px;">
+  <strong>🔍 下周关注：</strong>
+  <ol style="padding-left:18px; margin-top:6px; font-size:0.9em; color:var(--text-dim); line-height:1.8;">
+    <li><strong>SK海力士ADR首日表现</strong>（7/10上市）→ 对HBM/存储板块的映射效应</li>
+    <li><strong>长鑫科技发行定价</strong> → 影响A股存储产业链估值中枢</li>
+    <li><strong>中报预告最后冲刺</strong>（7/15截止）→ 光模块/算力/存储业绩验证</li>
+    <li><strong>美国6月CPI+美联储纪要</strong>（7/9公布）→ 全球科技股风险偏好</li>
+    <li><strong>科创50关键支撑位</strong> → 能否在半导体设备/封测带领下企稳反弹</li>
+  </ol>
+</div>
+
+<div class="footer">
+  Hermes · A股盘后总结 AI产业链深度版 · 2026-07-10 收盘生成<br>
+  数据来源：同花顺、东方财富、财联社、新浪财经<br>
+  ⚠️ 以上为客观复盘，不构成投资建议
+</div>
+
+</body>
+</html>
