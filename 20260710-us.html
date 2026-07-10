@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026年7月10日</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d28;
+    --text: #e1e4e8;
+    --text-secondary: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --border: #30363d;
+    --accent: #7c3aed;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-size: 1.6em;
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .date {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin-top: 6px;
+  }
+  .header .tagline {
+    color: var(--orange);
+    font-size: 0.85em;
+    margin-top: 4px;
+  }
+
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+  }
+  .section h2 {
+    font-size: 1.15em;
+    margin-bottom: 14px;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h2 .icon { font-size: 1.2em; }
+
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .index-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .index-card .name { font-size: 0.85em; color: var(--text-secondary); }
+  .index-card .value { font-size: 1.5em; font-weight: 700; margin: 4px 0; }
+  .index-card .change { font-size: 0.9em; font-weight: 600; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93em;
+  }
+  th {
+    text-align: left;
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85em;
+  }
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(48,54,61,0.4);
+    font-variant-numeric: tabular-nums;
+  }
+  tr:last-child td { border-bottom: none; }
+  .stock-name { font-weight: 600; }
+  .stock-code { color: var(--text-secondary); font-size: 0.8em; margin-left: 4px; }
+  .tag {
+    display: inline-block;
+    font-size: 0.75em;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    font-weight: 500;
+  }
+  .tag-ai { background: rgba(124,58,237,0.2); color: #a78bfa; }
+  .tag-chip { background: rgba(88,166,255,0.15); color: #79c0ff; }
+  .tag-cloud { background: rgba(63,185,80,0.15); color: #56d364; }
+  .tag-mega { background: rgba(210,153,29,0.15); color: #e3b341; }
+
+  .event-list { list-style: none; }
+  .event-list li {
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(48,54,61,0.3);
+    font-size: 0.93em;
+  }
+  .event-list li:last-child { border-bottom: none; }
+  .event-list .bullet { color: var(--accent); margin-right: 8px; }
+
+  .mapping-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+  }
+  .mapping-item {
+    font-size: 0.88em;
+    padding: 6px 0;
+  }
+  .mapping-item .us { color: var(--blue); font-weight: 500; }
+  .mapping-item .arrow { color: var(--text-secondary); margin: 0 6px; }
+  .mapping-item .cn { color: var(--orange); }
+
+  .footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.78em;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(88,166,255,0.08));
+    border: 1px solid rgba(124,58,237,0.3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    font-size: 0.93em;
+  }
+  .highlight-box strong { color: var(--blue); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 AI产业链美股收盘与A股映射早报</h1>
+  <div class="date">2026年7月10日（周五）| 覆盖7月9日美股交易</div>
+  <div class="tagline">⚡ AI芯片全面反攻 · SK海力士$265亿IPO定价 · 苹果博通$300亿大单续约</div>
+</div>
+
+<!-- 市场概览 -->
+<div class="section">
+  <h2><span class="icon">📊</span> 美股三大指数</h2>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">道琼斯工业</div>
+      <div class="value">52,444</div>
+      <div class="change up">+96.18 (+0.18%)</div>
+    </div>
+    <div class="index-card">
+      <div class="name">标普500</div>
+      <div class="value">7,543.64</div>
+      <div class="change up">+0.81%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">纳斯达克综合</div>
+      <div class="value">26,206.89</div>
+      <div class="change up">+336.86 (+1.30%)</div>
+    </div>
+    <div class="index-card">
+      <div class="name">罗素2000</div>
+      <div class="value">2,992.55</div>
+      <div class="change up">+1.22%</div>
+    </div>
+  </div>
+  <div style="margin-top:12px;font-size:0.85em;color:var(--text-secondary);text-align:center;">
+    VIX恐慌指数：15.84 (-6.27%) | 油价回落 + AI芯片强劲反弹 = 风险偏好修复
+  </div>
+</div>
+
+<!-- 核心事件 -->
+<div class="section">
+  <h2><span class="icon">🔥</span> 核心驱动事件</h2>
+  <ul class="event-list">
+    <li><span class="bullet">▪</span><strong>SK海力士$265亿IPO震撼定价：</strong>韩国存储巨头SK Hynix美国ADR定价$149/ADS，较韩国收盘价溢价3.1%，超额认购逾7倍，融资$265亿，周五（7/10）纳斯达克首日交易。这是2026年全球最大IPO，点燃存储板块做多热情。</li>
+    <li><span class="bullet">▪</span><strong>苹果×博通$300亿AI芯片大单续约：</strong>双方宣布合作协议延长至2031年，博通将为苹果开发供应多代定制ASIC芯片用于iPhone等核心产品。AVGO收涨约4%至$403。该协议再次验证定制AI芯片是算力军备竞赛的核心战场。</li>
+    <li><span class="bullet">▪</span><strong>英伟达领衔AI芯片全面反弹：</strong>NVDA收涨3.65%至$204.12，Perplexity宣布选择NVDA Vera芯片而非Intel/AMD进行AI推理加速测试。期权市场大量看涨押注，看涨/看跌比率飙升。</li>
+    <li><span class="bullet">▪</span><strong>光通信板块爆发：</strong>Lumentum（LITE）暴涨11.63%至$789，Coherent（COHR）、康宁（GLW）大涨超8%。AI数据中心高速光互联需求持续超预期，1.6T光模块放量在即。</li>
+    <li><span class="bullet">▪</span><strong>美伊局势边际缓和：</strong>油价自前日高点回落，市场对冲突扩大化担忧减弱。芯片股无视地缘风险强势上涨，显示AI产业逻辑的强劲韧性。</li>
+  </ul>
+</div>
+
+<!-- AI产业链核心标的 -->
+<div class="section">
+  <h2><span class="icon">🧠</span> AI产业链核心标的收盘</h2>
+
+  <div class="highlight-box">
+    <strong>📌 关键信号：</strong>AI产业链出现罕见的<strong>全面普涨</strong>——从上游算力芯片（NVDA/AVGO/AMD）到中游存储（MU/SK Hynix）再到下游光通信（LITE/COHR/GLW），资金全线回补。SK海力士$265亿IPO定价+苹果博通$300亿大单构成双重催化剂，验证AI需求从GPU向全产业链扩散。
+  </div>
+
+  <h3 style="font-size:0.95em;color:var(--text-secondary);margin:16px 0 8px;">🔴 AI算力芯片</h3>
+  <table>
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+    <tr>
+      <td><span class="stock-name">NVIDIA</span><span class="stock-code">NVDA</span><span class="tag tag-ai">GPU龙头</span></td>
+      <td>$204.12</td>
+      <td class="up">+3.65%</td>
+      <td style="font-size:0.85em;">连续两日逆势走强；Perplexity选择Vera芯片替代Intel/AMD；期权看涨情绪高涨；成交$293亿</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Broadcom</span><span class="stock-code">AVGO</span><span class="tag tag-chip">ASIC定制</span></td>
+      <td>$403.24</td>
+      <td class="up">~+4%</td>
+      <td style="font-size:0.85em;">苹果$300亿AI芯片大单延至2031年；市值$1.85万亿；PE~62x；Erste Group下调至Hold评级</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">AMD</span><span class="stock-code">AMD</span><span class="tag tag-chip">GPU挑战者</span></td>
+      <td>-</td>
+      <td class="up">~+6%</td>
+      <td style="font-size:0.85em;">强势反弹，收复前日跌势；MI400路线图推进中；数据中心GPU持续追赶NVDA</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Marvell</span><span class="stock-code">MRVL</span><span class="tag tag-chip">定制ASIC</span></td>
+      <td>-</td>
+      <td class="up">+1.6%</td>
+      <td style="font-size:0.85em;">跟随AVGO上涨；数据中心定制芯片业务持续扩张；7/10除息日$0.06</td>
+    </tr>
+  </table>
+
+  <h3 style="font-size:0.95em;color:var(--text-secondary);margin:16px 0 8px;">💾 存储 & 光通信</h3>
+  <table>
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+    <tr>
+      <td><span class="stock-name">Micron</span><span class="stock-code">MU</span><span class="tag tag-chip">HBM存储</span></td>
+      <td>-</td>
+      <td class="up">+6~9%</td>
+      <td style="font-size:0.85em;">日内一度飙升9%+，SK海力士IPO带动板块狂欢；花旗列入90天正面观察；DRAM供应紧张至2028年</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">SanDisk</span><span class="stock-code">SNDK</span><span class="tag tag-chip">NAND闪存</span></td>
+      <td>-</td>
+      <td class="up">+6%+</td>
+      <td style="font-size:0.85em;">连续第二日强势反弹，收复本周初重挫失地</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Lumentum</span><span class="stock-code">LITE</span><span class="tag tag-chip">光芯片/模块</span></td>
+      <td>$789</td>
+      <td class="up">+11.63%</td>
+      <td style="font-size:0.85em;">AI数据中心光互联龙头；NVDA投资$20亿+多年采购承诺；1.6T光模块放量核心受益</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Corning</span><span class="stock-code">GLW</span><span class="tag tag-chip">光通信材料</span></td>
+      <td>-</td>
+      <td class="up">+8%+</td>
+      <td style="font-size:0.85em;">光纤/光缆核心供应商，AI数据中心扩建拉动需求</td>
+    </tr>
+  </table>
+
+  <h3 style="font-size:0.95em;color:var(--text-secondary);margin:16px 0 8px;">☁️ 科技巨头（AI云基础设施）</h3>
+  <table>
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+    <tr>
+      <td><span class="stock-name">Apple</span><span class="stock-code">AAPL</span><span class="tag tag-mega">Magnificent 7</span></td>
+      <td>-</td>
+      <td class="up">+1.3%</td>
+      <td style="font-size:0.85em;">博通$300亿AI芯片大单+折叠屏iPhone备货上调，双利好共振</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Meta</span><span class="stock-code">META</span><span class="tag tag-cloud">Llama/AI</span></td>
+      <td>-</td>
+      <td class="down">下跌</td>
+      <td style="font-size:0.85em;">Reuters报道其AI芯片生产计划引发市场质疑；此前出售算力传闻压制情绪</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Microsoft</span><span class="stock-code">MSFT</span><span class="tag tag-cloud">Azure/AI</span></td>
+      <td>-</td>
+      <td class="down">-1%+</td>
+      <td style="font-size:0.85em;">Xbox重组裁员3200人拖累；但Azure AI云基础设施投资维持激进</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">Alphabet</span><span class="stock-code">GOOGL</span><span class="tag tag-cloud">Gemini/TPU</span></td>
+      <td>-</td>
+      <td class="down">-1%+</td>
+      <td style="font-size:0.85em;">云计算竞争加剧；但TPU自研芯片+Gemini大模型叙事不变</td>
+    </tr>
+  </table>
+</div>
+
+<!-- 盘后与隔夜动态 -->
+<div class="section">
+  <h2><span class="icon">🌙</span> 盘后与隔夜动态</h2>
+  <ul class="event-list">
+    <li><span class="bullet">▪</span><strong>SK海力士ADR周五首秀：</strong>定价$149，较韩国溢价3.1%，周五纳斯达克上市交易（代码SKHY）。若首日表现强劲，将进一步提振全球存储板块情绪。</li>
+    <li><span class="bullet">▪</span><strong>NVDA盘后平稳：</strong>$202.78附近窄幅震荡，市场等待周五SK海力士首秀对芯片板块的影响。</li>
+    <li><span class="bullet">▪</span><strong>中国6月CPI/PPI今日公布：</strong>市场关注通缩压力，若数据低于预期可能触发政策宽松博弈，利好A股科技成长板块。</li>
+    <li><span class="bullet">▪</span><strong>下周关注：</strong>美股Q2财报季即将开启，AI相关企业资本开支指引将是关键。微软、谷歌、Meta预计下周公布财报。</li>
+  </ul>
+</div>
+
+<!-- A股映射 -->
+<div class="section">
+  <h2><span class="icon">🇨🇳</span> A股映射与策略参考</h2>
+
+  <div class="highlight-box">
+    <strong>🎯 核心判断：</strong>美股AI产业链全面反弹+SK海力士$265亿IPO+苹果博通$300亿大单，三重利好共振。A股AI板块情绪将显著回暖，重点关注<strong>光模块CPO、存储芯片、国产算力</strong>三条主线。今日中国CPI/PPI数据若偏弱，反而可能强化政策宽松预期，科技成长风格占优。
+  </div>
+
+  <h3 style="font-size:0.95em;color:var(--text-secondary);margin:12px 0 8px;">映射方向</h3>
+  <div class="mapping-grid">
+    <div class="mapping-item"><span class="us">NVDA +3.65% 两日强势</span><span class="arrow">→</span><span class="cn">寒武纪、海光信息、景嘉微</span></div>
+    <div class="mapping-item"><span class="us">AVGO苹果$300亿AI大单</span><span class="arrow">→</span><span class="cn">通富微电、长电科技（先进封装）</span></div>
+    <div class="mapping-item"><span class="us">SK海力士$265亿IPO + MU暴涨</span><span class="arrow">→</span><span class="cn">兆易创新、北京君正、深科技</span></div>
+    <div class="mapping-item"><span class="us">LITE +11.6% 光通信爆发</span><span class="arrow">→</span><span class="cn">中际旭创、新易盛、天孚通信（CPO）</span></div>
+    <div class="mapping-item"><span class="us">光芯片需求激增</span><span class="arrow">→</span><span class="cn">源杰科技、长光华芯、光迅科技</span></div>
+    <div class="mapping-item"><span class="us">AI算力军备竞赛全面扩散</span><span class="arrow">→</span><span class="cn">工业富联、浪潮信息、中科曙光</span></div>
+    <div class="mapping-item"><span class="us">高端光刻/设备需求</span><span class="arrow">→</span><span class="cn">中微公司、北方华创、芯源微</span></div>
+    <div class="mapping-item"><span class="us">AAPL +1.3% 折叠屏升级</span><span class="arrow">→</span><span class="cn">立讯精密、蓝思科技、领益智造</span></div>
+  </div>
+
+  <h3 style="font-size:0.95em;color:var(--text-secondary);margin:16px 0 8px;">⚠️ 风险提示</h3>
+  <ul class="event-list">
+    <li><span class="bullet">▪</span>SK海力士IPO首日表现是短期情绪风向标——若高开低走可能拖累板块；若强势则A股存储链受益</li>
+    <li><span class="bullet">▪</span>A股CPO/光模块板块已处历史高位（中际旭创万亿市值），追高需谨慎，关注回调低吸机会</li>
+    <li><span class="bullet">▪</span>美股下周Q2财报季，AI资本开支指引若有任何减速信号，可能引发全球AI板块共振调整</li>
+    <li><span class="bullet">▪</span>美伊局势虽有缓和但未根本解决，地缘风险仍可能随时扰动市场</li>
+  </ul>
+</div>
+
+<div class="footer">
+  📡 Hermes Agent 自动生成 | 数据来源：Yahoo Finance, CNBC, TheStreet, Reuters, Trading Economics, 东方财富, 新浪财经<br>
+  ⚠️ 仅供参考，不构成投资建议 | 更新时间：2026-07-10 08:00 CST
+</div>
+
+</body>
+</html>
