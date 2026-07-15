@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏋️ 健身&饮食日报 — 2026-07-15</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: #0d1b2a;
+  color: #e0e0e0;
+  line-height: 1.6;
+  padding: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.header {
+  text-align: center;
+  padding: 24px 0 12px;
+  border-bottom: 1px solid rgba(79, 195, 247, 0.15);
+  margin-bottom: 20px;
+}
+.header h1 { font-size: 1.4rem; color: #4fc3f7; font-weight: 700; }
+.header .date { font-size: 0.85rem; color: #78909c; margin-top: 4px; }
+.header .tagline { font-size: 0.8rem; color: #546e7a; margin-top: 2px; }
+
+.overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.overview-card {
+  background: rgba(79, 195, 247, 0.06);
+  border: 1px solid rgba(79, 195, 247, 0.12);
+  border-radius: 10px;
+  padding: 14px 10px;
+  text-align: center;
+}
+.overview-card .label { font-size: 0.7rem; color: #78909c; text-transform: uppercase; letter-spacing: 0.5px; }
+.overview-card .value { font-size: 1.3rem; font-weight: 700; color: #4fc3f7; margin-top: 4px; }
+.overview-card.warn { border-color: rgba(255, 167, 38, 0.3); background: rgba(255, 167, 38, 0.06); }
+.overview-card.warn .value { color: #ffa726; }
+
+.member-section {
+  background: rgba(79, 195, 247, 0.03);
+  border: 1px solid rgba(79, 195, 247, 0.08);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+.member-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(79, 195, 247, 0.1);
+}
+.member-avatar { font-size: 1.5rem; }
+.member-name { font-size: 1.05rem; font-weight: 700; color: #4fc3f7; }
+.member-meta { font-size: 0.75rem; color: #78909c; }
+.member-body { font-size: 0.9rem; }
+.member-body .no-record {
+  color: #546e7a;
+  font-style: italic;
+  padding: 8px 0;
+  font-size: 0.85rem;
+}
+.member-body .history-note {
+  background: rgba(79, 195, 247, 0.04);
+  border-left: 2px solid rgba(79, 195, 247, 0.2);
+  padding: 8px 12px;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: #78909c;
+  border-radius: 0 6px 6px 0;
+}
+
+.meal-card {
+  background: rgba(79, 195, 247, 0.04);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+.meal-card .meal-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4fc3f7;
+  margin-bottom: 6px;
+}
+.meal-card .meal-desc {
+  font-size: 0.8rem;
+  color: #b0bec5;
+  margin-bottom: 8px;
+}
+.meal-card .meal-desc em { color: #78909c; }
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+.nutrition-item {
+  text-align: center;
+  background: rgba(13, 27, 42, 0.6);
+  border-radius: 6px;
+  padding: 8px 4px;
+}
+.nutrition-item .nut-label { font-size: 0.65rem; color: #78909c; text-transform: uppercase; }
+.nutrition-item .nut-value { font-size: 0.95rem; font-weight: 700; color: #e0e0e0; margin-top: 2px; }
+.nutrition-item .nut-value.highlight { color: #4fc3f7; }
+
+.training-card {
+  background: rgba(255, 167, 38, 0.06);
+  border: 1px solid rgba(255, 167, 38, 0.15);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+.training-card .train-title { font-size: 0.85rem; font-weight: 600; color: #ffa726; margin-bottom: 6px; }
+
+.review-box {
+  background: rgba(79, 195, 247, 0.05);
+  border-left: 3px solid #4fc3f7;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin-top: 10px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+.review-box .review-label { font-size: 0.7rem; color: #4fc3f7; font-weight: 600; margin-bottom: 4px; }
+
+.suggestion-box {
+  background: rgba(129, 199, 132, 0.06);
+  border: 1px solid rgba(129, 199, 132, 0.15);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  font-size: 0.82rem;
+}
+.suggestion-box .sug-label { font-size: 0.7rem; color: #81c784; font-weight: 600; margin-bottom: 2px; }
+
+.reminder-box {
+  background: rgba(79, 195, 247, 0.05);
+  border: 1px solid rgba(79, 195, 247, 0.12);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.reminder-box h3 { font-size: 0.9rem; color: #4fc3f7; margin-bottom: 8px; }
+.reminder-box p, .reminder-box li { font-size: 0.82rem; color: #b0bec5; }
+
+.completeness-box {
+  background: rgba(13, 27, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: #546e7a;
+}
+.completeness-box h3 { font-size: 0.8rem; color: #78909c; margin-bottom: 6px; }
+
+.footer {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(79, 195, 247, 0.08);
+  font-size: 0.7rem;
+  color: #455a64;
+}
+
+.emoji-bullet { margin-right: 6px; }
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 6px;
+}
+.tag.estimate { background: rgba(255, 167, 38, 0.15); color: #ffa726; }
+.tag.record { background: rgba(79, 195, 247, 0.12); color: #4fc3f7; }
+
+@media (max-width: 480px) {
+  .overview { grid-template-columns: repeat(2, 1fr); }
+  .nutrition-grid { grid-template-columns: repeat(2, 1fr); }
+  body { padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏋️ 健身&饮食日报</h1>
+  <div class="date">2026 年 7 月 15 日 · 周三</div>
+  <div class="tagline">fitness 频道每日总结 · 自动生成</div>
+</div>
+
+<!-- 概览卡片 -->
+<div class="overview">
+  <div class="overview-card">
+    <div class="label">👥 有记录</div>
+    <div class="value">1/3</div>
+  </div>
+  <div class="overview-card">
+    <div class="label">🏋️ 训练人数</div>
+    <div class="value">0</div>
+  </div>
+  <div class="overview-card">
+    <div class="label">🔥 最高消耗</div>
+    <div class="value">—</div>
+  </div>
+  <div class="overview-card warn">
+    <div class="label">⚠️ 缺口警告</div>
+    <div class="value">无</div>
+  </div>
+</div>
+
+<!-- lzl / 智林 -->
+<div class="member-section">
+  <div class="member-header">
+    <span class="member-avatar">🐉</span>
+    <div>
+      <div class="member-name">智林</div>
+      <div class="member-meta">185cm · ~93.5kg · 目标：逆转脂肪肝</div>
+    </div>
+  </div>
+  <div class="member-body">
+    <!-- 饮食 -->
+    <div class="meal-card">
+      <div class="meal-title">🥘 午餐 — 麻辣香锅 <span class="tag estimate">估算</span></div>
+      <div class="meal-desc">
+        🍗🐟 鸡胸肉 + 鱼片 ~500g &nbsp;|&nbsp; 🥬 蔬菜（西兰花、菠菜、白萝卜等）~500g <br>
+        🍚 白米饭 ~200g &nbsp;|&nbsp; 🌶️ 辣椒酱 ~35g <br>
+        <em>烹饪方式：麻辣香锅，少油少盐，与之前模式一致。肉量从平时的 ~400g 拉到 500g，今天胃口不错 👌</em>
+      </div>
+      <div class="nutrition-grid">
+        <div class="nutrition-item">
+          <div class="nut-label">🔥 热量</div>
+          <div class="nut-value">895 kcal</div>
+        </div>
+        <div class="nutrition-item">
+          <div class="nut-label">🥩 蛋白质</div>
+          <div class="nut-value highlight">122g</div>
+        </div>
+        <div class="nutrition-item">
+          <div class="nut-label">🍞 碳水</div>
+          <div class="nut-value">78g</div>
+        </div>
+        <div class="nutrition-item">
+          <div class="nut-label">🧈 脂肪</div>
+          <div class="nut-value">9g</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 训练 -->
+    <div style="color: #546e7a; font-size: 0.85rem; padding: 6px 0 4px; font-style: italic;">🏋️ 今日暂无训练记录</div>
+
+    <!-- 评价 -->
+    <div class="review-box">
+      <div class="review-label">💬 灰灰点评</div>
+      今天午餐把肉量拉到了 500g，蛋白直接冲到 122g 一顿——这个量对 185cm/93.5kg 的体型相当扎实。蔬菜 500g 也管够，西兰花+菠菜+白萝卜组合纤维和微量营养素都照顾到了。脂肪只有 9g 是因为少油少盐做法+纯瘦蛋白源（鸡胸+白鱼），可以说是目前为止最干净的一顿。<br><br>
+      但全天只有这一顿记录，热量还不到 900 kcal。如果你今天有训练计划，晚饭必须补碳水+再补一顿蛋白。如果今天是休息日，这一顿也远不够——BMR 就 2,300，900 kcal 到晚上身体会明显缺燃料。
+    </div>
+
+    <!-- 明日建议 -->
+    <div class="suggestion-box">
+      <div class="sug-label">📋 明日建议</div>
+      晚饭补一顿，蛋白≥50g + 碳水≥60g。如果今天练了，碳水可以再放一点。睡前饿的话牛奶/酸奶垫一下。
+    </div>
+  </div>
+</div>
+
+<!-- Monkiki -->
+<div class="member-section">
+  <div class="member-header">
+    <span class="member-avatar">🐱</span>
+    <div>
+      <div class="member-name">Monkiki</div>
+      <div class="member-meta">170cm · ~70kg · 目标：65–67.5kg</div>
+    </div>
+  </div>
+  <div class="member-body">
+    <div class="no-record">📭 今日暂无有效记录</div>
+    <div class="history-note">
+      📌 上一次记录 7/7：背+手臂训练 399 kcal，饮食碗杂面+卤蛋+Dirty + 川菜大桌。7/3 休息日火锅局 2,647 kcal。已中断 8 天。
+    </div>
+  </div>
+</div>
+
+<!-- Ckddd -->
+<div class="member-section">
+  <div class="member-header">
+    <span class="member-avatar">🐔</span>
+    <div>
+      <div class="member-name">Ckddd</div>
+      <div class="member-meta">~64kg · 体脂 ~14.6% · 目标：增肌</div>
+    </div>
+  </div>
+  <div class="member-body">
+    <div class="no-record">📭 今日暂无有效记录</div>
+    <div class="history-note">
+      📌 上一次记录 7/8：燕麦片+水煮蛋+冰美式（~265 kcal）。7/7 练了胸+三头+肩膀（手动记录）。已中断 7 天。
+    </div>
+  </div>
+</div>
+
+<!-- 群内提醒 -->
+<div class="reminder-box">
+  <h3>💡 群内提醒</h3>
+  <ul style="padding-left: 18px; margin-top: 4px;">
+    <li>周三只有智林一人记录了午餐，Monkiki 和 Ckddd 已中断超过一周——哪怕一句话「今天没练/吃了啥」也是好的 📝</li>
+    <li>智林午餐蛋白 122g 很顶，但别让这一天只有一顿记录。晚饭或加餐别忘了吱一声</li>
+    <li>Ckddd 增肌期目标，中断 7 天 —— 是不是该冒个泡了？😼</li>
+  </ul>
+</div>
+
+<!-- 数据完整度 -->
+<div class="completeness-box">
+  <h3>📊 数据完整度</h3>
+  <p>
+    ✅ <strong>MD 本地文件：</strong>三份记录均成功读取。仅 lzl.md 有 2026-07-15 条目（午餐）。<br>
+    ⚠️ <strong>群聊记录：</strong>未能获取 Discord #fitness 频道数据（cron 环境无会话接入能力）。<br>
+    📌 <strong>结论：</strong>报告基于本地 MD 文件生成。如有群聊打卡遗漏，请自行补充。
+  </p>
+</div>
+
+<div class="footer">
+  Hermes Agent · fitness 频道 · 每日 23:00 自动生成 · 2026-07-15
+</div>
+
+</body>
+</html>
