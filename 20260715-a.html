@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-07-15</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.7;
+    padding: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .header {
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 6px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    color: #8b949e;
+  }
+  .header .date {
+    font-size: 12px;
+    color: #484f58;
+    margin-top: 4px;
+  }
+  .card {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 18px;
+    color: #f0f6fc;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #21262d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2 .icon { font-size: 20px; }
+  .indices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+  .index-item {
+    background: #0d1117;
+    border-radius: 6px;
+    padding: 14px 16px;
+    border-left: 3px solid #30363d;
+  }
+  .index-item.up { border-left-color: #3fb950; }
+  .index-item.down { border-left-color: #f85149; }
+  .index-item .name { font-size: 13px; color: #8b949e; margin-bottom: 4px; }
+  .index-item .value { font-size: 22px; font-weight: 700; color: #f0f6fc; }
+  .index-item .change { font-size: 14px; margin-top: 2px; }
+  .index-item .change.up { color: #3fb950; }
+  .index-item .change.down { color: #f85149; }
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .sector-item {
+    background: #0d1117;
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .sector-item .sector-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #f0f6fc;
+    margin-bottom: 6px;
+  }
+  .sector-item .sector-status {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .sector-item .sector-status.strong { background: #3fb95020; color: #3fb950; }
+  .sector-item .sector-status.weak { background: #f8514920; color: #f85149; }
+  .sector-item .sector-status.neutral { background: #d2992220; color: #d29922; }
+  .sector-item .detail { font-size: 13px; color: #8b949e; line-height: 1.6; }
+  .sector-item .stocks { font-size: 12px; color: #6e7681; margin-top: 6px; }
+  .highlight { color: #58a6ff; font-weight: 600; }
+  .red { color: #f85149; }
+  .green { color: #3fb950; }
+  .yellow { color: #d29922; }
+  .divider {
+    border: none;
+    border-top: 1px solid #21262d;
+    margin: 16px 0;
+  }
+  .context-box {
+    background: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #8b949e;
+    line-height: 1.7;
+  }
+  .context-box strong { color: #c9d1d9; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    margin: 2px 3px;
+  }
+  .tag-red { background: #f8514920; color: #f85149; }
+  .tag-green { background: #3fb95020; color: #3fb950; }
+  .tag-blue { background: #58a6ff20; color: #58a6ff; }
+  .tag-yellow { background: #d2992220; color: #d29922; }
+  .footer {
+    text-align: center;
+    color: #484f58;
+    font-size: 12px;
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #21262d;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #21262d;
+  }
+  th {
+    color: #8b949e;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  td { color: #c9d1d9; }
+  .data-note {
+    font-size: 11px;
+    color: #d29922;
+    background: #d2992210;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 A股盘后总结 · AI产业链深度版</h1>
+  <div class="subtitle">聚焦：光通信/CPO · 存储/HBM · 半导体设备 · PCB/CCL · MLCC · 先进封装 · 上游材料 · AI服务器/液冷</div>
+  <div class="date">2026年7月15日 星期三 · 数据截至收盘（15:00 CST）</div>
+</div>
+
+<div class="data-note">
+  ⚠️ 收盘数据发布存在延迟。以下核心指数为半日/盘中区间数据，八大AI产业链赛道分析基于全日行情趋势整合。
+</div>
+
+<!-- ===== 核心指数 ===== -->
+<div class="card">
+  <h2><span class="icon">📈</span> 核心指数表现</h2>
+  <div class="indices">
+    <div class="index-item down">
+      <div class="name">上证指数</div>
+      <div class="value">~3,963</div>
+      <div class="change down">▼ ~0.1%</div>
+    </div>
+    <div class="index-item down">
+      <div class="name">深证成指</div>
+      <div class="value">~14,868</div>
+      <div class="change down">▼ ~0.4%</div>
+    </div>
+    <div class="index-item down">
+      <div class="name">创业板指</div>
+      <div class="value">~3,837</div>
+      <div class="change down">▼ ~0.4%</div>
+    </div>
+    <div class="index-item down">
+      <div class="name">科创50</div>
+      <div class="value">—</div>
+      <div class="change down">▼ >3%</div>
+    </div>
+  </div>
+  <div class="context-box">
+    <strong>盘面特征：</strong>指数与个股严重背离——全市场超<span class="green">3,600只个股上涨</span>，但三大指数集体飘绿。权重股（尤其半导体/芯片大票）拖累指数，中小市值题材股活跃。<br>
+    <strong>风格切换：</strong>资金从前期拥挤的AI/半导体赛道<span class="red">显著流出</span>，大幅转向<span class="green">创新药、生物科技、白酒</span>等防御/消费板块。
+  </div>
+</div>
+
+<!-- ===== AI产业链八大方向 ===== -->
+<div class="card">
+  <h2><span class="icon">🔬</span> AI产业链八大方向 · 今日全景</h2>
+
+  <div class="sector-grid">
+
+    <!-- 光通信/CPO -->
+    <div class="sector-item">
+      <div class="sector-name">🔌 光通信 / CPO</div>
+      <div class="sector-status weak">承压回调</div>
+      <div class="detail">
+        昨日"易中天"（中际旭创+6.86%、新易盛+11%、天孚通信+5.48%）暴力反弹后，今日获利盘回吐。科创50跌超3%拖累板块情绪。<br>
+        <span class="highlight">基本面：</span>1.6T光模块迭代加速，CPO规模量产时点或推迟至2028-2029年（SemiAnalysis），NPO有望先行放量。
+      </div>
+      <div class="stocks">
+        <span class="tag tag-yellow">中际旭创</span>
+        <span class="tag tag-yellow">新易盛</span>
+        <span class="tag tag-yellow">天孚通信</span>
+        <span class="tag tag-blue">光迅科技</span>
+        <span class="tag tag-blue">源杰科技</span>
+      </div>
+    </div>
+
+    <!-- 存储/HBM -->
+    <div class="sector-item">
+      <div class="sector-name">💾 存储 / HBM</div>
+      <div class="sector-status weak">分化走弱</div>
+      <div class="detail">
+        德明利中报预告H1净利润57-65亿（同比扭亏），但Q2环比下降5%-29%，市场解读为增速放缓信号。HBM封装需求持续旺盛，但板块高位筹码松动。<br>
+        <span class="highlight">产业催化：</span>HBM3E量产爬坡，存储涨价周期延续至2027年预期（东海证券）。
+      </div>
+      <div class="stocks">
+        <span class="tag tag-yellow">德明利</span>
+        <span class="tag tag-yellow">兆易创新</span>
+        <span class="tag tag-blue">江波龙</span>
+        <span class="tag tag-blue">佰维存储</span>
+        <span class="tag tag-blue">北京君正</span>
+      </div>
+    </div>
+
+    <!-- 半导体设备 -->
+    <div class="sector-item">
+      <div class="sector-name">⚙️ 半导体设备</div>
+      <div class="sector-status weak">显著承压</div>
+      <div class="detail">
+        电子化学品、半导体板块位居跌幅榜前列。前期龙头北方华创、中微公司经过7月9日大涨后进入调整周期。国产替代长逻辑未破，但高位估值消化中。<br>
+        <span class="highlight">中期逻辑：</span>存储及先进制程扩产+国产化率提升，设备环节Q2业绩初现增长（中信证券）。
+      </div>
+      <div class="stocks">
+        <span class="tag tag-yellow">北方华创</span>
+        <span class="tag tag-yellow">中微公司</span>
+        <span class="tag tag-blue">拓荆科技</span>
+        <span class="tag tag-blue">华海清科</span>
+        <span class="tag tag-blue">盛美上海</span>
+      </div>
+    </div>
+
+    <!-- PCB / CCL -->
+    <div class="sector-item">
+      <div class="sector-name">🟩 PCB / CCL</div>
+      <div class="sector-status neutral">冲高分化</div>
+      <div class="detail">
+        昨日东山精密、沪电股份、生益科技午后涨停，今日面临获利兑现压力。电子布等上游原材料涨价潮从高端向中低端外溢，产业链扩产加剧产能过剩担忧。<br>
+        <span class="highlight">业绩验证：</span>东山精密H1净利润29-30亿（+282%~296%），超预期。
+      </div>
+      <div class="stocks">
+        <span class="tag tag-green">东山精密</span>
+        <span class="tag tag-green">沪电股份</span>
+        <span class="tag tag-blue">生益科技</span>
+        <span class="tag tag-blue">深南电路</span>
+        <span class="tag tag-blue">鹏鼎控股</span>
+      </div>
+    </div>
+
+    <!-- MLCC -->
+    <div class="sector-item">
+      <div class="sector-name">🔲 MLCC</div>
+      <div class="sector-status neutral">随板块波动</div>
+      <div class="detail">
+        AI服务器、HPC拉动高阶MLCC需求，供给缺口涨价逻辑延续。板块跟随半导体整体情绪波动，缺乏独立催化剂。<br>
+        <span class="highlight">产业背景：</span>东海证券指出MLCC出现供给缺口涨价，本轮周期大概率持续到2027年。
+      </div>
+      <div class="stocks">
+        <span class="tag tag-blue">三环集团</span>
+        <span class="tag tag-blue">风华高科</span>
+        <span class="tag tag-blue">火炬电子</span>
+      </div>
+    </div>
+
+    <!-- 先进封装 -->
+    <div class="sector-item">
+      <div class="sector-name">📦 先进封装</div>
+      <div class="sector-status neutral">高位震荡</div>
+      <div class="detail">
+        7月9日板块批量涨停后资金分化。HBM封装（Cowos、EMIB等）需求持续爆发，但短期筹码拥挤度偏高。<br>
+        <span class="highlight">催化：</span>台积电计划下半年上调3nm制程报价最高15%，先进封装价值量持续提升。
+      </div>
+      <div class="stocks">
+        <span class="tag tag-blue">华天科技</span>
+        <span class="tag tag-blue">长电科技</span>
+        <span class="tag tag-blue">通富微电</span>
+        <span class="tag tag-blue">晶方科技</span>
+        <span class="tag tag-blue">甬矽电子</span>
+      </div>
+    </div>
+
+    <!-- 上游材料 -->
+    <div class="sector-item">
+      <div class="sector-name">🧪 上游材料</div>
+      <div class="sector-status weak">走弱</div>
+      <div class="detail">
+        电子化学品板块跌幅居前。Low-α球硅/球铝、电子特气、光刻胶等细分方向受板块情绪拖累。<br>
+        <span class="highlight">亮点：</span>联瑞新材、壹石通等Low-α球形氧化铝产品在HBM封装材料中持续受益。
+      </div>
+      <div class="stocks">
+        <span class="tag tag-yellow">联瑞新材</span>
+        <span class="tag tag-yellow">壹石通</span>
+        <span class="tag tag-blue">沪硅产业</span>
+        <span class="tag tag-blue">南大光电</span>
+        <span class="tag tag-blue">华海诚科</span>
+      </div>
+    </div>
+
+    <!-- AI服务器/液冷 -->
+    <div class="sector-item">
+      <div class="sector-name">🖥️ AI服务器 / 液冷</div>
+      <div class="sector-status neutral">分化整理</div>
+      <div class="detail">
+        赛意信息公告拟采购50.79亿元高性能算力服务器，产业需求端持续验证。液冷方向受益于Rubin架构单柜功耗翻倍、风冷触顶逻辑。<br>
+        <span class="highlight">中期趋势：</span>液冷已成AI服务器散热标配，冷板与CDU价值量快速抬升（东吴证券）。
+      </div>
+      <div class="stocks">
+        <span class="tag tag-blue">工业富联</span>
+        <span class="tag tag-blue">英维克</span>
+        <span class="tag tag-blue">中石科技</span>
+        <span class="tag tag-blue">飞荣达</span>
+        <span class="tag tag-blue">思泉新材</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== 资金流向与热点 ===== -->
+<div class="card">
+  <h2><span class="icon">💰</span> 资金流向 &amp; 板块轮动</h2>
+  <table>
+    <tr><th>方向</th><th>板块</th><th>资金动向</th></tr>
+    <tr><td><span class="tag tag-green">流入</span></td><td>创新药、生物科技</td><td>强势爆发，多股涨停</td></tr>
+    <tr><td><span class="tag tag-green">流入</span></td><td>白酒、消费</td><td>防御属性获资金青睐</td></tr>
+    <tr><td><span class="tag tag-green">流入</span></td><td>医疗服务</td><td>医药商业板块持续走高</td></tr>
+    <tr><td><span class="tag tag-red">流出</span></td><td>半导体、芯片</td><td>前期拥挤赛道资金撤离</td></tr>
+    <tr><td><span class="tag tag-red">流出</span></td><td>光通信/CPO</td><td>反弹后获利了结</td></tr>
+    <tr><td><span class="tag tag-red">流出</span></td><td>能源设备、贵金属</td><td>周期股同步走弱</td></tr>
+  </table>
+  <div class="context-box">
+    <strong>轮动定性：</strong>今日为典型的"<span class="red">芯光大道</span>→<span class="green">喝酒吃药</span>"切换行情。中报预告截止日（7月15日），高估值无业绩兑现的纯题材股面临"证伪期"杀估值压力。华泰证券指出，本轮调整为拥挤度出清与中报定价切换的叠加，<strong>尚且不是产业逻辑的证伪</strong>。
+  </div>
+</div>
+
+<!-- ===== 重要公告与业绩 ===== -->
+<div class="card">
+  <h2><span class="icon">📋</span> 重要公告 · 中报业绩预告（7月15日截止日）</h2>
+  <table>
+    <tr><th>公司</th><th>方向</th><th>业绩摘要</th><th>信号</th></tr>
+    <tr>
+      <td>德明利</td>
+      <td>存储</td>
+      <td>H1净利润57-65亿，扭亏为盈；Q2环比-5%~-29%</td>
+      <td><span class="tag tag-yellow">增速放缓</span></td>
+    </tr>
+    <tr>
+      <td>东山精密</td>
+      <td>PCB</td>
+      <td>H1净利润29-30亿，同比+282%~296%</td>
+      <td><span class="tag tag-green">超预期</span></td>
+    </tr>
+    <tr>
+      <td>长飞光纤</td>
+      <td>光通信</td>
+      <td>H1净利润24-30亿，同比+711%~914%</td>
+      <td><span class="tag tag-green">爆发增长</span></td>
+    </tr>
+    <tr>
+      <td>光迅科技</td>
+      <td>光模块</td>
+      <td>H1净利润5.59-6.15亿，同比+50%~65%</td>
+      <td><span class="tag tag-green">稳健增长</span></td>
+    </tr>
+    <tr>
+      <td>北方稀土</td>
+      <td>上游材料</td>
+      <td>H1净利润19.8-20.6亿，同比+113%~121%</td>
+      <td><span class="tag tag-green">超预期</span></td>
+    </tr>
+    <tr>
+      <td>赛意信息</td>
+      <td>算力</td>
+      <td>拟采购不超过50.79亿元算力服务器</td>
+      <td><span class="tag tag-blue">产业验证</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ===== 关键产业新闻 ===== -->
+<div class="card">
+  <h2><span class="icon">📰</span> 产业关键动态</h2>
+  <div class="context-box">
+    <strong>🔹 CPO量产时点或推迟：</strong>SemiAnalysis报告指出，CPO规模量产时间可能推迟至2028-2029年，NPO有望加速推进。光通信板块前期涨幅较大出现调整，但行业基本面向好趋势不变（中信建投）。<br><br>
+    <strong>🔹 PCB产业链涨价扩散：</strong>电子玻纤布等上游原材料出现产能"挤兑"，涨价潮从高端向中低端品类外溢。但持续扩产潮加剧产能过剩担忧（证券时报）。<br><br>
+    <strong>🔹 台积电涨价信号：</strong>计划下半年上调3nm制程报价最高15%，明年可能再涨5-10%；联电宣布2026H2选择性涨价（东海证券）。<br><br>
+    <strong>🔹 AI算力采购持续：</strong>赛意信息拟50.79亿采购算力服务器，亚马逊、微软领衔数据中心需求狂潮——产业需求端持续验证。<br><br>
+    <strong>🔹 韩国监管风暴：</strong>韩国政府四大经济部门将研究单股杠杆ETF对股市冲击的应对方案，或影响亚太科技股风险偏好。<br><br>
+    <strong>🔹 外资持续调研：</strong>今年以来580余家外资机构对A股开展3900余次调研，电子设备、半导体设备、集成电路为聚焦重点。
+  </div>
+</div>
+
+<!-- ===== 后市研判 ===== -->
+<div class="card">
+  <h2><span class="icon">🔮</span> 后市研判 · AI产业链核心逻辑</h2>
+  <div class="context-box">
+    <strong>📌 短期（1-2周）：</strong>中报预告截止日已至，"证伪期"进入尾声。AI产业链经过7月2日和7月13日两轮深度回调，筹码结构显著改善。7月14日V型反弹显示下方承接力较强。关注下周中国Q2 GDP、贸易数据等宏观催化剂。<br><br>
+    <strong>📌 中期（1-3个月）：</strong>科技股行情从"炒预期"全面转向"验业绩"阶段。光通信/CPO、存储、PCB三大赛道业绩兑现最为硬核（2026H1普遍高增）。产业景气度大概率延续至2027年（东海证券），短期调整不改变产业上行趋势。<br><br>
+    <strong>📌 风险提示：</strong>①美股费半波动对A股科技板块的情绪传导；②部分高位标的估值仍需时间消化（天孚通信最大回撤38%为前车之鉴）；③产能过剩担忧（PCB/CCL链条）。<br><br>
+    <strong>📌 策略参考：</strong>华泰证券——"本轮调整是拥挤度出清与中报定价切换的叠加，尚且不是产业逻辑的证伪"；中信证券——"FAB、设备叙事向上，光模块仍保持低估值优势"。
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="footer">
+  <p>⚠️ 本报告基于公开市场数据整理，不构成任何投资建议。股市有风险，入市需谨慎。</p>
+  <p>Generated by Hermes Agent · 2026-07-15 15:16 CST</p>
+</div>
+
+</body>
+</html>
