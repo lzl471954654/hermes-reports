@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-07-15</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --muted: #8b949e;
+    --red: #f85149;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --purple: #a371f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .header h1 { font-size: 1.6rem; margin-bottom: 0.3rem; color: #f0f6fc; }
+  .header .date { color: var(--muted); font-size: 0.9rem; }
+  .header .tagline { color: var(--blue); font-size: 0.85rem; margin-top: 0.3rem; }
+
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .index-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem;
+    text-align: center;
+  }
+  .index-card .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .index-card .value { font-size: 1.8rem; font-weight: 700; margin: 0.3rem 0; }
+  .index-card .change { font-size: 0.95rem; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+
+  .section { margin-bottom: 2rem; }
+  .section h2 {
+    font-size: 1.15rem;
+    border-left: 3px solid var(--blue);
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+    color: #f0f6fc;
+  }
+  .section h3 {
+    font-size: 0.95rem;
+    color: var(--blue);
+    margin: 1rem 0 0.5rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+  }
+  th, td {
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  th { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  tr:hover { background: rgba(88, 166, 255, 0.04); }
+
+  .tag {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-right: 0.3rem;
+  }
+  .tag-semiconductor { background: rgba(163,113,247,0.15); color: var(--purple); }
+  .tag-optical { background: rgba(88,166,255,0.15); color: var(--blue); }
+  .tag-compute { background: rgba(210,153,29,0.15); color: var(--orange); }
+  .tag-app { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-platform { background: rgba(248,81,73,0.15); color: var(--red); }
+
+  .flow-bar {
+    display: flex; gap: 0.5rem; margin: 1rem 0; align-items: center; font-size: 0.85rem;
+  }
+  .flow-in { color: var(--green); font-weight: 600; }
+  .flow-out { color: var(--red); font-weight: 600; }
+
+  .narrative {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  .narrative p { margin-bottom: 0.5rem; }
+  .narrative p:last-child { margin-bottom: 0; }
+
+  .highlight-box {
+    background: rgba(210,153,29,0.08);
+    border: 1px solid rgba(210,153,29,0.25);
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+  }
+  .highlight-box strong { color: var(--orange); }
+
+  .footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .disclaimer {
+    background: rgba(248,81,73,0.08);
+    border: 1px solid rgba(248,81,73,0.2);
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🇭🇰 港股收盘总结 · AI产业链深度版</h1>
+  <div class="date">2026年7月15日（周三）</div>
+  <div class="tagline">AI产业链 · 半导体光通信算力 · 互联网平台 · 冲高回落 · 深度复盘</div>
+</div>
+
+<!-- 指数概览 -->
+<div class="index-grid">
+  <div class="index-card">
+    <div class="label">恒生指数</div>
+    <div class="value">24,678.65</div>
+    <div class="change up">▲ +337.92 (+1.39%)</div>
+  </div>
+  <div class="index-card">
+    <div class="label">恒生科技指数</div>
+    <div class="value">4,740.55</div>
+    <div class="change up">▲ +61.09 (+1.31%)</div>
+  </div>
+  <div class="index-card">
+    <div class="label">国企指数</div>
+    <div class="value">~8,195</div>
+    <div class="change up">▲ 约 +1.14%</div>
+  </div>
+  <div class="index-card">
+    <div class="label">大市成交额</div>
+    <div class="value">~3,200亿</div>
+    <div class="change" style="color:var(--muted)">港元</div>
+  </div>
+</div>
+
+<!-- 盘面叙事 -->
+<div class="section">
+  <h2>📊 盘面叙事</h2>
+  <div class="narrative">
+    <p><strong>科网巨头集体反攻，AI硬件冲高回落。</strong>隔夜美股CPI数据温和（6月通胀3.5%放缓超预期），缓解加息忧虑，恒指高开后持续走强，午间一度涨至24,695.62点（+1.46%）。午后AI硬件板块获利了结压力显现，恒指升幅小幅收窄，最终收报24,678.65点，涨1.39%。恒生科技指数同步走强，收涨1.31%报4,740.55点。成交额约3,200亿港元，市场活跃度维持高位。</p>
+    <p><strong>核心背景：</strong>① 美国6月CPI同比3.5%（预期3.6%），加息压力骤降，美股科技反弹（纳指+0.9%）；② 7月17-20日上海世界人工智能大会（WAIC）临近，习近平出席，AI政策催化预期升温；③ 南向资金今日大幅净卖出近216亿港元，主抛小米、长飞光纤，显示北水在高位果断兑现，加仓阿里巴巴方向明确。</p>
+  </div>
+</div>
+
+<!-- 日内波动警示 -->
+<div class="highlight-box">
+  <strong>⚠️ 日内剧烈波动警示：</strong>AI硬件板块今日呈现典型「高空坠落」走势 —— 长飞光纤盘中最高暴涨34.5%（触及188.0港元）后收盘仅+12%报156.4；兆易创新早盘+19%至750港元，收盘+4%报656.5；澜起科技盘中+12%，收盘+8%。午后获利盘集中涌出，南向资金同步大举减持，显示短期AI硬件筹码松动风险加剧。
+</div>
+
+<!-- 板块涨跌 -->
+<div class="section">
+  <h2>🔬 AI产业链五大板块深度</h2>
+
+  <h3>1. 互联网平台 <span class="tag tag-platform">互联网</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌</th><th>日内区间</th><th>关键驱动</th></tr>
+    <tr><td>美团-W</td><td>03690</td><td>83.50</td><td class="up">▲ +7.12%</td><td>77.00 - 84.45</td><td>科网龙头集体反弹，消费复苏预期+外卖补贴收窄提振利润</td></tr>
+    <tr><td>腾讯控股</td><td>00700</td><td>473.80</td><td class="up">▲ +3.54%</td><td>455.40 - 476.40</td><td>连续33日回购支撑，广告+云业务增长预期</td></tr>
+    <tr><td>快手-W</td><td>01024</td><td>44.70</td><td class="up">▲ +2.52%</td><td>43.66 - 45.36</td><td>跟随大市反弹，AI短视频应用概念</td></tr>
+    <tr><td>阿里巴巴</td><td>09988</td><td>113.40</td><td class="up">▲ +2.44%</td><td>109.10 - 114.80</td><td>南向资金加仓明确，阿里云收入预增45%</td></tr>
+    <tr><td>小米集团</td><td>01810</td><td>25.84</td><td style="color:var(--muted)">● 持平</td><td>25.28 - 26.20</td><td>南向资金大举净卖出24.21亿港元，盘中冲高回落</td></tr>
+    <tr><td>百度集团</td><td>09888</td><td>107.70</td><td class="down">▼ -5.77%</td><td>105.90 - 109.00</td><td>连续两日重挫（昨日-7%），AI PC解禁窗口期抛压持续</td></tr>
+  </table>
+  <p style="font-size:0.82rem;color:var(--muted);margin-top:-0.5rem;">📌 互联网平台今日呈现「美团领涨、百度领跌」的极度分化格局。美团单日+7%为近期最大涨幅，机构看好Q2外卖亏损收窄+到店业务复苏。百度则连续两日累计跌超12%，市场担忧AI PC赛道竞争加剧。</p>
+
+  <h3>2. 半导体制造/设计 <span class="tag tag-semiconductor">半导体</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌</th><th>日内区间</th><th>关键驱动</th></tr>
+    <tr><td>兆易创新</td><td>03986</td><td>656.50</td><td class="up">▲ +4.37%</td><td>645.50 - 750.00</td><td>存储芯片早盘大涨后大幅回落，SK海力士Q2指引不及预期</td></tr>
+    <tr><td>澜起科技</td><td>06809</td><td>360.20</td><td class="up">▲ +8.43%</td><td>342.00 - 372.00</td><td>存储接口芯片龙头，AI服务器DDR5渗透率提升逻辑</td></tr>
+    <tr><td>中芯国际</td><td>00981</td><td>76.40</td><td class="down">▼ -2.49%</td><td>75.35 - 80.85</td><td>连续第三日调整，半导体制造板块资金流出</td></tr>
+    <tr><td>华虹半导体</td><td>01347</td><td>168.90</td><td class="down">▼ -1.97%</td><td>163.80 - 177.10</td><td>跟随中芯国际走弱，晶圆代工板块承压</td></tr>
+  </table>
+  <p style="font-size:0.82rem;color:var(--muted);margin-top:-0.5rem;">📌 半导体板块内部分化显著 —— 存储/接口芯片（兆易创新、澜起科技）早盘延续AI算力热度大涨，午后随获利盘涌出涨幅收窄；而晶圆制造（中芯国际、华虹）则连跌三日，资金从制造端流出。WSTS预测全年半导体市场1.51万亿美元（+90%），但短期估值消化压力不小。</p>
+
+  <h3>3. 光通信 / 光纤光缆 <span class="tag tag-optical">光通信</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌</th><th>日内区间</th><th>关键驱动</th></tr>
+    <tr><td>长飞光纤光缆</td><td>06869</td><td>156.40</td><td class="up">▲ +11.95%</td><td>153.00 - 188.00</td><td>中报预增711%-914%引爆早盘，午后获利了结回吐过半涨幅</td></tr>
+    <tr><td>曦智科技-P</td><td>01879</td><td>—</td><td class="down">▼ 约 -11%</td><td>—</td><td>光计算芯片概念，跟风长飞后遭抛售</td></tr>
+    <tr><td>剑桥科技</td><td>06166</td><td>—</td><td class="down">▼ 约 -6%</td><td>—</td><td>光模块概念，港股通前期有增持但今日跟随板块回落</td></tr>
+  </table>
+  <p style="font-size:0.82rem;color:var(--muted);margin-top:-0.5rem;">📌 长飞光纤今日上演「冰火两重天」：早盘受中报预增（归母净利润24-30亿，同比+711%-914%）刺激暴涨至188港元（+34.5%），午后南向资金大举净卖出17.83亿港元，收盘回落至156.4（+12%）。一日振幅高达35港元，显示AI算力光纤概念虽强但高位筹码已松动。</p>
+
+  <h3>4. AI算力 / 云计算 <span class="tag tag-compute">算力</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>方向</th><th>关键驱动</th></tr>
+    <tr><td>联想集团</td><td>00992</td><td class="up">▲ 反弹</td><td>AI PC概念回暖，WAIC临近触发新一轮布局</td></tr>
+    <tr><td>金山云</td><td>03896</td><td class="up">▲ 跟随反弹</td><td>阿里云收入预增45%提振云计算板块情绪</td></tr>
+    <tr><td>万国数据</td><td>09698</td><td class="up">▲ 微涨</td><td>数据中心IDC需求稳健，AI推理算力需求持续增长</td></tr>
+  </table>
+  <p style="font-size:0.82rem;color:var(--muted);margin-top:-0.5rem;">📌 算力板块跟随科技股整体回暖。大摩最新预测五大云厂商2028年算力翻四倍，供需两旺格局有望催化算力板块重回新高。</p>
+
+  <h3>5. AI应用 / 大模型 <span class="tag tag-app">AI应用</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>方向</th><th>关键驱动</th></tr>
+    <tr><td>MINIMAX-W</td><td>00100</td><td class="up">▲ +14%</td><td>AI应用龙头强势领涨，午间涨超14%，WAIC催化预期强烈</td></tr>
+    <tr><td>商汤-W</td><td>00020</td><td class="up">▲ 反弹</td><td>大晓机器人ACE-Brain-0.5开源后资金回流，WAIC前布局</td></tr>
+    <tr><td>智谱</td><td>02513</td><td class="up">▲ 上涨</td><td>大模型概念回暖，上周暴涨32%后短暂回调，今日重拾升势</td></tr>
+    <tr><td>第四范式</td><td>06682</td><td class="up">▲ 跟涨</td><td>企业级AI应用概念，跟随板块整体走强</td></tr>
+  </table>
+  <p style="font-size:0.82rem;color:var(--muted);margin-top:-0.5rem;">📌 AI应用板块是今日真正主线。MINIMAX以+14%领涨，远超硬件板块涨幅。市场逻辑切换明显：从前期AI硬件（芯片/光通信）向AI应用（大模型/软件）轮动。7/17 WAIC大会习近平出席，AI应用板块有望迎来政策催化高峰。</p>
+</div>
+
+<!-- 资金流向 -->
+<div class="section">
+  <h2>💰 资金流向</h2>
+  <div class="narrative">
+    <p><strong>南向资金今日大幅净卖出近216亿港元（港股通数据）：</strong></p>
+    <p>📉 <strong>净卖出前列：</strong></p>
+    <p><span class="flow-out">小米集团-W (01810)：-24.21亿港元</span> —— 北水高位果断兑现</p>
+    <p><span class="flow-out">长飞光纤光缆 (06869)：-17.83亿港元</span> —— 中报利好落地后大规模减持</p>
+    <p><span class="flow-out">中国海洋石油 (00883)：-10.91亿港元</span> —— 油价高位获利了结</p>
+    <p><span class="flow-out">美团-W (03690)：-7.24亿港元</span> —— 股价+7%之际北水逆向减仓</p>
+    <p>📈 <strong>净买入方向：</strong><span class="flow-in">阿里巴巴 (09988) —— 南向资金逆势加仓，云业务预增45%逻辑获认可</span></p>
+    <p style="margin-top:0.8rem;font-size:0.82rem;color:var(--muted);">
+      ⚠️ 单日净卖出216亿港元为近期较大规模，尤其AI硬件（小米、长飞光纤）被集中减持。北水在关键阻力位选择获利了结，叠加日内冲高回落走势，显示短期市场情绪趋于谨慎。但阿里巴巴获逆势加仓，资金在互联网平台与AI硬件之间出现明确再平衡。
+    </p>
+  </div>
+</div>
+
+<!-- 今日之最 -->
+<div class="section">
+  <h2>🏆 今日之最</h2>
+  <table>
+    <tr><th>类别</th><th>板块/个股</th><th>表现</th><th>逻辑</th></tr>
+    <tr><td class="up">最强板块</td><td>生物医药</td><td class="up">▲ 领涨大盘</td><td>「十五五」规划全链条支持创新药+上半年出海1100亿美元+昭衍新药预增884%-1377%，三重共振</td></tr>
+    <tr><td class="up">最强个股</td><td>MINIMAX-W</td><td class="up">▲ +14%</td><td>AI应用龙头，WAIC大会催化+资金从硬件向应用切换</td></tr>
+    <tr><td class="up">最强AI硬件</td><td>澜起科技</td><td class="up">▲ +8.43%</td><td>DDR5接口芯片龙头，AI服务器渗透率持续提升</td></tr>
+    <tr><td class="up">最强科网</td><td>美团-W</td><td class="up">▲ +7.12%</td><td>外卖补贴收窄+到店复苏，互联网龙头补涨</td></tr>
+    <tr><td class="down">最弱AI硬件</td><td>光通信（曦智）</td><td class="down">▼ 约 -11%</td><td>早盘跟涨后遭集中抛售，光计算概念炒作退潮</td></tr>
+    <tr><td class="down">最弱科网</td><td>百度集团</td><td class="down">▼ -5.77%</td><td>连续两日累计-12%，AI PC解禁窗口期抛压</td></tr>
+    <tr><td class="down">最弱制造</td><td>中芯国际</td><td class="down">▼ -2.49%</td><td>半导体制造连跌三日，资金向应用端迁移</td></tr>
+    <tr><td style="color:var(--orange)">最大振幅</td><td>长飞光纤光缆</td><td style="color:var(--orange)">早盘+34.5%→收+12%</td><td>中报预增711%-914%引爆后南向资金17.83亿净卖出砸盘，一日振幅35港元</td></tr>
+  </table>
+</div>
+
+<!-- 前瞻 -->
+<div class="section">
+  <h2>🔭 前瞻关注</h2>
+  <div class="narrative">
+    <p>1. <strong>7/17-20 上海世界人工智能大会（WAIC）：</strong>习近平出席开幕式，AI政策催化预期达到高潮。重点关注AI应用（MINIMAX、智谱、商汤）和大模型基础设施的政策利好。AI应用板块有望成为下阶段主战场。</p>
+    <p>2. <strong>AI硬件获利了结风险：</strong>长飞光纤日内振幅35港元、南向资金单日净卖出216亿均为警示信号。AI硬件（芯片、光通信）短期涨幅过大，中报利好基本兑现，需警惕「Buy the Rumor, Sell the Fact」风险。</p>
+    <p>3. <strong>资金轮动方向：</strong>今日盘面清晰显示资金从AI硬件→AI应用+医药的切换。南向资金加仓阿里减仓小米/长飞，这一轮动趋势能否持续值得跟踪。</p>
+    <p>4. <strong>7月财报季关键节点：</strong>光模块（剑桥科技）、光纤（长飞光纤）、半导体（中芯国际、华虹）的中报将逐一披露，实际业绩与预期的差距将决定下一阶段AI硬件板块走向。</p>
+    <p>5. <strong>全球宏观：</strong>美国6月CPI回落至3.5%为港股提供短期做多窗口，但中东局势（美军空袭伊朗）可能扰动原油价格和风险偏好。</p>
+  </div>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免责声明：</strong>本报告基于公开市场数据整理分析，仅供研究参考，不构成任何投资建议。AI产业链波动剧烈，请注意风险控制与仓位管理。数据来源包括Yahoo Finance、新浪财经、智通财经、财联社、信报等，部分数据可能存在时延。
+</div>
+
+<div class="footer">
+  报告生成时间：2026-07-15 港股收盘后 · 由 AI 自动生成 · 仅作信息参考
+</div>
+
+</body>
+</html>
