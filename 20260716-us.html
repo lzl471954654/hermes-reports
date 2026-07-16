@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026-07-16</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card-bg: #1a1d28;
+    --border: #2a2d3a;
+    --text: #e1e4ed;
+    --text-secondary: #8b8fa3;
+    --green: #16c784;
+    --red: #ea3943;
+    --blue: #3b82f6;
+    --accent: #a78bfa;
+    --gold: #f59e0b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    line-height: 1.6;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .date { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 24px; }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .indices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .index-item {
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .index-name { font-size: 0.8rem; color: var(--text-secondary); }
+  .index-value { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .index-change { font-size: 0.9rem; }
+  .green { color: var(--green); }
+  .red { color: var(--red); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  th {
+    text-align: left;
+    padding: 8px 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .symbol { font-weight: 600; }
+  .symbol .name { font-weight: 400; color: var(--text-secondary); font-size: 0.78rem; margin-left: 6px; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+  .tag-up { background: rgba(22,199,132,0.12); color: var(--green); }
+  .tag-down { background: rgba(234,57,67,0.12); color: var(--red); }
+  .tag-flat { background: rgba(139,143,163,0.12); color: var(--text-secondary); }
+  .news-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.88rem;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-right: 6px;
+    background: rgba(59,130,246,0.15);
+    color: var(--blue);
+  }
+  .news-tag.warn { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .mapping-table td:first-child { width: 120px; }
+  .mapping-table td:nth-child(2) { color: var(--text-secondary); font-size: 0.8rem; }
+  .summary-box {
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    background: rgba(167,139,250,0.06);
+    border-radius: 0 8px 8px 0;
+    margin-top: 12px;
+    font-size: 0.9rem;
+  }
+  .footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-top: 20px;
+    padding: 12px;
+  }
+  hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  .highlight { color: var(--gold); }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🌐 AI产业链美股收盘与A股映射早报</h1>
+  <div class="date">📅 2026年7月16日（周四） | 分析7月15日（周三）美股收盘</div>
+
+  <!-- 美股大盘 -->
+  <div class="card">
+    <h2>📊 美股三大指数</h2>
+    <div class="indices">
+      <div class="index-item">
+        <div class="index-name">S&P 500</div>
+        <div class="index-value">7,572.40</div>
+        <div class="index-change green">+0.38%</div>
+      </div>
+      <div class="index-item">
+        <div class="index-name">纳斯达克综合</div>
+        <div class="index-value">26,269.23</div>
+        <div class="index-change green">+0.62%</div>
+      </div>
+      <div class="index-item">
+        <div class="index-name">道琼斯工业</div>
+        <div class="index-value">52,658.64</div>
+        <div class="index-change green">+0.29%</div>
+      </div>
+    </div>
+    <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:8px;">
+      纳指领涨三大指数，芯片股内部分化明显。ASML开盘跳涨7%后回落，存储芯片因出口管制预期承压，苹果逆势大涨4%撑起大盘。
+    </p>
+  </div>
+
+  <!-- AI芯片产业链 -->
+  <div class="card">
+    <h2>🔬 AI芯片产业链核心标的</h2>
+    <table>
+      <thead>
+        <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>信号</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="symbol">NVDA<span class="name">英伟达</span></span></td>
+          <td>$212.50</td>
+          <td class="green">+0.33%</td>
+          <td><span class="tag tag-up">AI龙头稳</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">AMD<span class="name">超威半导体</span></span></td>
+          <td>$529.14</td>
+          <td class="red">-3.46%</td>
+          <td><span class="tag tag-down">获利回吐</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">AVGO<span class="name">博通</span></span></td>
+          <td>$389.11*</td>
+          <td class="">--</td>
+          <td><span class="tag tag-flat">定制芯片/AI网络</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">TSM<span class="name">台积电</span></span></td>
+          <td>~$426.62</td>
+          <td class="green">+1.5%*</td>
+          <td><span class="tag tag-up">今日发财报</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">ASML<span class="name">阿斯麦</span></span></td>
+          <td>--</td>
+          <td class="red">-0.54%</td>
+          <td><span class="tag tag-up">Q2超预期高开回落</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">MU<span class="name">美光</span></span></td>
+          <td>~$970</td>
+          <td class="red">-6.96%</td>
+          <td><span class="tag tag-down">出口管制担忧</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">MRVL<span class="name">Marvell</span></span></td>
+          <td>--</td>
+          <td class="red">-6.62%</td>
+          <td><span class="tag tag-down">云厂商CAPEX预期下调</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">INTC<span class="name">英特尔</span></span></td>
+          <td>$107.76</td>
+          <td class="red">-5.34%</td>
+          <td><span class="tag tag-down">转型疑虑</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">SMCI<span class="name">超微电脑</span></span></td>
+          <td>~$27.70</td>
+          <td class="">--</td>
+          <td><span class="tag tag-flat">AI服务器</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">ARM<span class="name">Arm Holdings</span></span></td>
+          <td>~$300</td>
+          <td class="">--</td>
+          <td><span class="tag tag-up">目标价上调至$430</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="color:var(--text-secondary);font-size:0.75rem;margin-top:8px;">* AVGO基于前日收盘价；TSM为盘中参考价，今日盘后Q2财报。部分个股因数据源限制未取得精确收盘价。</p>
+  </div>
+
+  <!-- 科技巨头 -->
+  <div class="card">
+    <h2>🏢 科技巨头（Mag 7）</h2>
+    <table>
+      <thead>
+        <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="symbol">AAPL<span class="name">苹果</span></span></td>
+          <td>$327.50</td>
+          <td class="green">+4.01%</td>
+          <td>创阶段新高，AI叙事+服务收入增长</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">MSFT<span class="name">微软</span></span></td>
+          <td>~$385</td>
+          <td class="red">-1.5%*</td>
+          <td>前日$384.93，软件板块整体承压</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">NVDA<span class="name">英伟达</span></span></td>
+          <td>$212.50</td>
+          <td class="green">+0.33%</td>
+          <td>盘后微跌-0.20%</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">GOOGL<span class="name">谷歌</span></span></td>
+          <td>--</td>
+          <td class="">--</td>
+          <td>AI Safety Index获C评级</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">AMZN<span class="name">亚马逊</span></span></td>
+          <td>--</td>
+          <td class="">--</td>
+          <td>AWS: 2026 CAPEX $200B</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">META<span class="name">Meta</span></span></td>
+          <td>--</td>
+          <td class="">--</td>
+          <td>AI Safety Index仅D+，$125B CAPEX</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">TSLA<span class="name">特斯拉</span></span></td>
+          <td>$396~$399</td>
+          <td class="">--</td>
+          <td>区间窄幅震荡</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 盘后动态 -->
+  <div class="card">
+    <h2>🌙 盘后与隔夜动态</h2>
+    <div class="news-item">
+      <span class="news-tag">财报</span>
+      <strong>ASML Q2超预期</strong> — 开盘跳涨7%+，但因获利盘涌出收盘倒跌0.54%。AI光刻机需求依然强劲。
+    </div>
+    <div class="news-item">
+      <span class="news-tag warn">财报预告</span>
+      <strong>台积电（TSM）今日盘后Q2财报</strong> — 市场预期营收$40B、EPS $3.87。Citi已上调目标价，列为"30天上行催化剂观察"。
+    </div>
+    <div class="news-item">
+      <span class="news-tag warn">政策风险</span>
+      <strong>美国或对存储芯片实施出口管制</strong> — MU暴跌6.96%，市场担忧HBM及高端DRAM对华出口受限。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">CAPEX</span>
+      <strong>MRVL跌6.62%</strong> — 主要云厂商下调资本支出预期，AI定制芯片和光互联需求预期修正。
+    </div>
+    <div class="news-item">
+      <span class="news-tag warn">IPO</span>
+      <strong>SpaceX跌破IPO发行价</strong> — 上市以来首次破发，市场情绪转向谨慎。
+    </div>
+  </div>
+
+  <!-- AI产业新闻 -->
+  <div class="card">
+    <h2>🤖 AI产业重大新闻</h2>
+    <div class="news-item">
+      <span class="news-tag">安全评级</span>
+      <strong>2026 AI安全指数发布：全行业不及格</strong> — 未来生命研究所（FLI）发布AI Safety Index，Anthropic获C+（最高），OpenAI与DeepMind获C，Meta获D+，xAI、DeepSeek、Mistral基本失败。全行业无一家达到B级。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">投资</span>
+      <strong>四大云厂商2026 AI CAPEX合计约$700B</strong> — 亚马逊$200B、谷歌$185B、Meta $125B、微软$120B。高盛预计2025-2030年累计$5.3万亿。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">芯片</span>
+      <strong>BofA重申AI芯片"长期更强"判断</strong> — 看好NVDA/AMD/AVGO/MU/MRVL，AI数据中心TAM预测2030年达$1.7万亿。
+    </div>
+    <div class="news-item">
+      <span class="news-tag warn">地缘</span>
+      <strong>英伟达发布亚洲客户AI芯片新规</strong> — 进一步收紧对亚洲买家的AI芯片销售管控，可能影响中东及东南亚数据中心部署。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">评级</span>
+      <strong>ARM遭HSBC下调至Hold</strong> — 尽管KeyBanc将目标价大幅上调至$430，HSBC以"已涨122%"为由降级。ARM盘前下跌。
+    </div>
+  </div>
+
+  <!-- A股映射 -->
+  <div class="card">
+    <h2>🇨🇳 A股映射分析</h2>
+    <table class="mapping-table">
+      <thead>
+        <tr><th>美股映射</th><th>A股标的</th><th>逻辑</th><th>今日预判</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>NVDA +0.33%</td>
+          <td>寒武纪、海光信息</td>
+          <td>GPU/AI芯片对标</td>
+          <td><span class="tag tag-flat">中性偏稳</span></td>
+        </tr>
+        <tr>
+          <td>TSM 今日财报</td>
+          <td>中芯国际、华虹半导体</td>
+          <td>晶圆代工对标；TSMC财报指引决定板块方向</td>
+          <td><span class="tag tag-up">等待催化</span></td>
+        </tr>
+        <tr>
+          <td>ASML +7%→-0.54%</td>
+          <td>北方华创、中微公司</td>
+          <td>半导体设备对标；ASML Q2超预期正面</td>
+          <td><span class="tag tag-up">正面映射</span></td>
+        </tr>
+        <tr>
+          <td>MU -6.96%</td>
+          <td>兆易创新、北京君正</td>
+          <td>存储芯片对标；出口管制担忧利空</td>
+          <td><span class="tag tag-down">情绪承压</span></td>
+        </tr>
+        <tr>
+          <td>MRVL -6.62%</td>
+          <td>中际旭创、新易盛</td>
+          <td>光模块/光互联；云CAPEX预期下调</td>
+          <td><span class="tag tag-down">短期承压</span></td>
+        </tr>
+        <tr>
+          <td>SMCI AI服务器</td>
+          <td>工业富联、浪潮信息</td>
+          <td>AI服务器代工/集成</td>
+          <td><span class="tag tag-flat">震荡横盘</span></td>
+        </tr>
+        <tr>
+          <td>INTC -5.34%</td>
+          <td>龙芯中科</td>
+          <td>CPU自主可控对标；但逻辑不同</td>
+          <td><span class="tag tag-flat">独立行情</span></td>
+        </tr>
+        <tr>
+          <td>AAPL +4.01%</td>
+          <td>立讯精密、歌尔股份</td>
+          <td>果链；苹果大涨利好供应链</td>
+          <td><span class="tag tag-up">正面映射</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="summary-box">
+      <strong>💡 今日A股AI产业链核心判断：</strong><br>
+      1️⃣ <strong>设备板块正面</strong>——ASML Q2超预期验证AI扩产逻辑，北方华创、中微公司有望受益；<br>
+      2️⃣ <strong>存储/光模块承压</strong>——MU暴跌+MRVL下行拖累存储和光互联情绪，兆易创新、中际旭创等注意短期回调风险；<br>
+      3️⃣ <strong>果链反弹</strong>——苹果大涨4%创新高，立讯精密、歌尔股份有望获得情绪提振；<br>
+      4️⃣ <strong>台积电财报是关键变量</strong>——今日盘后TSMC Q2财报将决定全球半导体板块下一阶段方向。若超预期（营收>$40B），A股芯片代工和设备板块有望迎来催化。
+    </div>
+  </div>
+
+  <hr>
+  <div class="footer">
+    ⚠️ 免责声明：本报告仅为信息整理与市场映射分析，不构成任何投资建议。数据来源于公开市场信息，部分个股收盘价可能存在延迟或误差。<br>
+    Generated by Hermes Agent · 2026-07-16
+  </div>
+</div>
+</body>
+</html>
