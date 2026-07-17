@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-07-17</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-secondary: #8b949e;
+    --red: #f85149;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --purple: #a371f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 1.8em;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .date { color: var(--text-secondary); font-size: 0.9em; margin-top: 6px; }
+  .header .tagline {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 1.1em;
+    margin-top: 8px;
+    padding: 6px 16px;
+    border: 1px solid var(--red);
+    border-radius: 20px;
+    display: inline-block;
+  }
+  .index-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .index-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .index-card .name { font-size: 0.85em; color: var(--text-secondary); }
+  .index-card .value { font-size: 1.8em; font-weight: 700; margin: 4px 0; }
+  .index-card .change { font-size: 1em; font-weight: 600; }
+  .index-card .highlow { font-size: 0.78em; color: var(--text-secondary); margin-top: 4px; }
+  .down { color: var(--red); }
+  .up { color: var(--green); }
+
+  .section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .section h2 {
+    font-size: 1.2em;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h2 .icon { font-size: 1.1em; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+  th {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+  }
+  tr:last-child td { border-bottom: none; }
+  .code { color: var(--text-secondary); font-size: 0.82em; font-family: monospace; }
+  .stock-name { font-weight: 600; }
+  .vol { color: var(--text-secondary); font-size: 0.85em; }
+  .arrow-down { color: var(--red); }
+  .arrow-up { color: var(--green); }
+
+  .insight-box {
+    background: rgba(88,166,255,0.06);
+    border: 1px solid rgba(88,166,255,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .insight-box h3 { font-size: 0.95em; margin-bottom: 8px; color: var(--blue); }
+  .insight-box p { color: var(--text-secondary); font-size: 0.9em; }
+
+  .footer {
+    text-align: center;
+    padding: 24px 0;
+    color: var(--text-secondary);
+    font-size: 0.82em;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+  .footer a { color: var(--blue); text-decoration: none; }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .tag-red { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-orange { background: rgba(210,153,29,0.15); color: var(--orange); }
+  .tag-blue { background: rgba(88,166,255,0.15); color: var(--blue); }
+
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .index-cards { grid-template-columns: 1fr; }
+    .section { padding: 16px; }
+    table { font-size: 0.78em; }
+    td, th { padding: 6px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>港股收盘总结 · AI产业链深度版</h1>
+  <div class="date">2026年7月17日 · 周五收盘</div>
+  <div class="tagline">⚠ 全线重挫 · AI硬件赛道拥挤仓位集中清算</div>
+</div>
+
+<!-- ====== 指数概览 ====== -->
+<div class="index-cards">
+  <div class="index-card">
+    <div class="name">恒生指数 HSI</div>
+    <div class="value down">24,495.88</div>
+    <div class="change down">▼ 512.72 (-2.05%)</div>
+    <div class="highlow">高 25,166 · 低 24,332</div>
+  </div>
+  <div class="index-card">
+    <div class="name">恒生科技指数</div>
+    <div class="value down">4,611.67</div>
+    <div class="change down">▼ 222.77 (-4.61%)</div>
+    <div class="highlow">高 4,847 · 低 4,570</div>
+  </div>
+  <div class="index-card">
+    <div class="name">国企指数 HSCEI</div>
+    <div class="value down">8,116.66</div>
+    <div class="change down">▼ 201.48 (-2.42%)</div>
+    <div class="highlow">高 8,373 · 低 8,048</div>
+  </div>
+  <div class="index-card">
+    <div class="name">恒生指数成交额</div>
+    <div class="value" style="color: var(--orange);">~188.8亿</div>
+    <div class="change" style="color: var(--orange);">港元</div>
+    <div class="highlow">较前日放量</div>
+  </div>
+</div>
+
+<!-- ====== 核心观点 ====== -->
+<div class="insight-box">
+  <h3>📊 今日核心观点</h3>
+  <p>
+    <strong>AI硬件赛道遭遇年内最惨烈单日清算。</strong>恒生科技指数暴跌4.61%，远超恒指跌幅，科技板块成为重灾区。半导体、光通信、PCB、AI应用全线崩塌——智谱（Z.AI）单日暴跌28.17%，华虹宏力、兆易创新、剑桥科技跌幅均超12%。市场传闻AI硬件赛道交易拥挤度松动，叠加极端杠杆仓位被迫平仓，引发连锁反应。科网平台股同样未能幸免，腾讯、美团跌近5%，快手跌近8%。全市场仅比亚迪电子等极少数个股逆势微涨。这是AI链自6月底回调以来最猛烈的一波出清，短期情绪极度悲观，但急跌也往往为中长期布局打开窗口。
+  </p>
+</div>
+
+<!-- ====== 半导体制造/设计 ====== -->
+<div class="section">
+  <h2><span class="icon">🔴</span> 半导体制造 & 设计 —— 全线重挫</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">华虹宏力</span></td>
+        <td><span class="code">01347</span></td>
+        <td>HK$137.30</td>
+        <td class="down"><strong>-12.77%</strong> <span class="tag tag-red">暴跌</span></td>
+        <td class="vol">102.70亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">兆易创新</span></td>
+        <td><span class="code">03986</span></td>
+        <td>HK$527.50</td>
+        <td class="down"><strong>-12.08%</strong> <span class="tag tag-red">暴跌</span></td>
+        <td class="vol">29.29亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">中芯国际</span></td>
+        <td><span class="code">00981</span></td>
+        <td>HK$67.40</td>
+        <td class="down"><strong>-10.37%</strong> <span class="tag tag-red">暴跌</span></td>
+        <td class="vol">167.37亿</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 三大晶圆/存储龙头集体跌超10%。华虹宏力从盘中159.4高点到134.3低点振幅超16%，反映极端多空博弈。中芯国际成交167亿居半导体之首，恐慌性抛售特征明显。
+  </p>
+</div>
+
+<!-- ====== 光通信 & PCB ====== -->
+<div class="section">
+  <h2><span class="icon">🔴</span> 光通信 & PCB —— CPO概念全线崩塌</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">剑桥科技</span></td>
+        <td><span class="code">06166</span></td>
+        <td>HK$84.05</td>
+        <td class="down"><strong>-18.71%</strong> <span class="tag tag-red">崩跌</span></td>
+        <td class="vol">15.05亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">建滔积层板</span></td>
+        <td><span class="code">01888</span></td>
+        <td>HK$41.80</td>
+        <td class="down"><strong>-14.62%</strong> <span class="tag tag-red">暴跌</span></td>
+        <td class="vol">67.15亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">长飞光纤光缆</span></td>
+        <td><span class="code">06869</span></td>
+        <td>HK$130.00</td>
+        <td class="down"><strong>-11.44%</strong> <span class="tag tag-red">暴跌</span></td>
+        <td class="vol">38.83亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">建滔集团</span></td>
+        <td><span class="code">00148</span></td>
+        <td>HK$51.00</td>
+        <td class="down"><strong>-10.29%</strong> <span class="tag tag-red">暴跌</span></td>
+        <td class="vol">22.53亿</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 CPO/光通信概念领跌全场。剑桥科技从100港元关口直接跌至84港元，建滔积层板一天抹去近15%市值。本轮下跌与前期极端拥挤的多头仓位集中平仓高度相关——AI硬件赛道此前积累了巨量杠杆资金，踩踏效应尤为剧烈。
+  </p>
+</div>
+
+<!-- ====== 互联网平台 ====== -->
+<div class="section">
+  <h2><span class="icon">🔴</span> 互联网平台 —— 全面回撤</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">快手</span></td>
+        <td><span class="code">01024</span></td>
+        <td>HK$43.26</td>
+        <td class="down"><strong>-7.80%</strong> <span class="tag tag-red">重挫</span></td>
+        <td class="vol">34.33亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">哔哩哔哩</span></td>
+        <td><span class="code">09626</span></td>
+        <td>HK$139.10</td>
+        <td class="down"><strong>-5.95%</strong></td>
+        <td class="vol">6.30亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">腾讯控股</span></td>
+        <td><span class="code">00700</span></td>
+        <td>HK$460.00</td>
+        <td class="down"><strong>-4.96%</strong></td>
+        <td class="vol">159.20亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">美团</span></td>
+        <td><span class="code">03690</span></td>
+        <td>HK$82.90</td>
+        <td class="down"><strong>-4.93%</strong></td>
+        <td class="vol">62.27亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">阿里巴巴</span></td>
+        <td><span class="code">09988</span></td>
+        <td>HK$112.30</td>
+        <td class="down"><strong>-3.94%</strong></td>
+        <td class="vol">133.83亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">百度</span></td>
+        <td><span class="code">09888</span></td>
+        <td>HK$106.20</td>
+        <td class="down"><strong>-3.72%</strong></td>
+        <td class="vol">10.04亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">小米集团</span></td>
+        <td><span class="code">01810</span></td>
+        <td>HK$26.94</td>
+        <td class="down"><strong>-2.04%</strong></td>
+        <td class="vol">71.18亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">网易</span></td>
+        <td><span class="code">09999</span></td>
+        <td>HK$203.20</td>
+        <td class="down"><strong>-0.68%</strong></td>
+        <td class="vol">19.76亿</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 科网平台股无一幸免，快手领跌近8%。腾讯跌破460关口、美团失守83，阿里回吐千问接入苹果消息后的涨幅。小米相对抗跌（-2.04%），网易仅微跌0.68%展现防御属性。
+  </p>
+</div>
+
+<!-- ====== AI应用 ====== -->
+<div class="section">
+  <h2><span class="icon">🔴</span> AI应用 & 大模型 —— 智谱单日崩塌</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">智谱</span></td>
+        <td><span class="code">02513</span></td>
+        <td>HK$1,112.00</td>
+        <td class="down"><strong>-28.17%</strong> <span class="tag tag-red">崩盘</span></td>
+        <td class="vol">174.86亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">商汤</span></td>
+        <td><span class="code">00020</span></td>
+        <td>HK$1.30</td>
+        <td class="down"><strong>-6.47%</strong></td>
+        <td class="vol">6.67亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">联想集团</span></td>
+        <td><span class="code">00992</span></td>
+        <td>HK$21.38</td>
+        <td class="down"><strong>-3.95%</strong></td>
+        <td class="vol">20.60亿</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 智谱单日暴跌28%，从1548港元开盘价一路下杀至1085低点，成交175亿为全市场之最。作为AI大模型旗舰标的，其走势对整个AI应用板块形成严重拖累。联想相对抗跌，AI PC叙事提供一定支撑。
+  </p>
+</div>
+
+<!-- ====== 消费电子/硬件 ====== -->
+<div class="section">
+  <h2><span class="icon">🟡</span> 消费电子 & 其他科技硬件</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">比亚迪电子</span></td>
+        <td><span class="code">00285</span></td>
+        <td>HK$23.76</td>
+        <td class="up"><strong>+1.28%</strong> <span class="tag tag-green">逆势</span></td>
+        <td class="vol">7.97亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">创科实业</span></td>
+        <td><span class="code">00669</span></td>
+        <td>HK$128.00</td>
+        <td class="down">-1.23%</td>
+        <td class="vol">6.44亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">理想汽车</span></td>
+        <td><span class="code">02015</span></td>
+        <td>HK$48.74</td>
+        <td class="down">-3.29%</td>
+        <td class="vol">6.15亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">泡泡玛特</span></td>
+        <td><span class="code">09992</span></td>
+        <td>HK$162.80</td>
+        <td class="down">-3.15%</td>
+        <td class="vol">18.76亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">瑞声科技</span></td>
+        <td><span class="code">02018</span></td>
+        <td>HK$38.74</td>
+        <td class="down">-5.60%</td>
+        <td class="vol">2.92亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">舜宇光学</span></td>
+        <td><span class="code">02382</span></td>
+        <td>HK$53.80</td>
+        <td class="down">-4.61%</td>
+        <td class="vol">7.49亿</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 比亚迪电子（+1.28%）成为今日极少数逆势上涨的科技股，或受益于汽车电子/智能驾驶独立逻辑。消费电子光学双雄（舜宇/瑞声）随大盘下挫。创科实业仅微跌1.23%，工具类出口逻辑相对独立。
+  </p>
+</div>
+
+<!-- ====== 资金流向 & ETF ====== -->
+<div class="section">
+  <h2><span class="icon">💰</span> 板块ETF & 资金信号</h2>
+  <table>
+    <thead>
+      <tr><th>ETF</th><th>代码</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">恒生医疗ETF</span></td>
+        <td><span class="code">513060</span></td>
+        <td>0.517</td>
+        <td class="down"><strong>-5.48%</strong></td>
+        <td class="vol">9.28亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">恒生科技ETF</span></td>
+        <td><span class="code">513180</span></td>
+        <td>0.586</td>
+        <td class="down"><strong>-4.40%</strong></td>
+        <td class="vol">46.17亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">中概互联ETF</span></td>
+        <td><span class="code">513050</span></td>
+        <td>1.096</td>
+        <td class="down"><strong>-4.28%</strong></td>
+        <td class="vol">46.02亿</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">恒生中国企业ETF</span></td>
+        <td><span class="code">510900</span></td>
+        <td>1.007</td>
+        <td class="down"><strong>-2.33%</strong></td>
+        <td class="vol">2.92亿</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 恒生科技ETF（513180）和中概互联ETF（513050）成交均超46亿，显示内地资金在暴跌中博弈剧烈。医疗ETF跌幅最大（-5.48%），创新药板块同样遭遇抛售潮。
+  </p>
+</div>
+
+<!-- ====== 小结 ====== -->
+<div class="section" style="border-color: rgba(248,81,73,0.3);">
+  <h2><span class="icon">📉</span> 今日总结 & 后市观察</h2>
+  <table>
+    <thead><tr><th>维度</th><th>观察</th></tr></thead>
+    <tbody>
+      <tr><td style="white-space:nowrap;font-weight:600;">市场情绪</td><td>恐慌级别。AI全链条无差别抛售，前期拥挤的多头杠杆仓位集体平仓引发踩踏。</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">跌得最狠</td><td>智谱 <span class="down">-28.17%</span>、剑桥科技 <span class="down">-18.71%</span>、建滔积层板 <span class="down">-14.62%</span></td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">逆势亮点</td><td>比亚迪电子 <span class="up">+1.28%</span>（汽车电子独立逻辑）、网易 <span class="down">-0.68%</span>（防御属性）</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">资金信号</td><td>恒生科技ETF成交46亿放量博弈，南向资金动向待收盘后披露。急跌通常伴随南向抄底。</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">后续关注</td><td>① 南向资金今日净买入/卖出数据 ② 盘后AI硬件龙头是否有回购/澄清公告 ③ 下周一是否出现技术性反弹</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">策略提示</td><td>急跌不抄底，等待企稳信号。AI硬件中长期逻辑未变（国产算力+CPO），但短期需要消化拥挤仓位。关注南向资金流向作为先行指标。</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <p>数据来源：新浪财经 · 香港交易所实时行情 | 生成时间：2026-07-17 16:30 HKT</p>
+  <p>报告由 Hermes Agent 自动生成 · <a href="https://reports.dns-cloudflare.com/20260717-hk.html">永久链接</a></p>
+  <p style="margin-top:8px;color:var(--red);">⚠ 免责声明：本报告仅为信息整理，不构成任何投资建议。市场有风险，投资需谨慎。</p>
+</div>
+
+</body>
+</html>
