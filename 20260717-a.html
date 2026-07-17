@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大A盘后总结 · AI产业链深度版 | 2026.07.17</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.7;
+    padding: 28px 20px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 28px;
+    border-bottom: 1px solid #21262d;
+    margin-bottom: 32px;
+  }
+  .header .date {
+    font-size: 14px;
+    color: #8b949e;
+    margin-bottom: 4px;
+    letter-spacing: 2px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 6px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    color: #58a6ff;
+    font-weight: 500;
+  }
+  .panic-meter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .panic-label {
+    font-size: 13px;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .panic-bar {
+    width: 240px;
+    height: 8px;
+    background: #21262d;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .panic-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #f85149, #ff7b72);
+    border-radius: 4px;
+    width: 85%;
+  }
+  .panic-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ff7b72;
+  }
+  .section {
+    margin-bottom: 36px;
+  }
+  .section h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #21262d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h2 .icon { font-size: 20px; }
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .index-card {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .index-card .name {
+    font-size: 12px;
+    color: #8b949e;
+    margin-bottom: 4px;
+  }
+  .index-card .value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f0f6fc;
+  }
+  .index-card .change {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  .down { color: #f85149; }
+  .up { color: #3fb950; }
+  .info-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .info-item {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 6px;
+    padding: 10px 16px;
+  }
+  .info-item .label { font-size: 12px; color: #8b949e; }
+  .info-item .val { font-size: 16px; font-weight: 600; color: #f0f6fc; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #21262d;
+  }
+  th {
+    color: #8b949e;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td {
+    color: #c9d1d9;
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .tag-red { background: rgba(248,81,73,0.15); color: #ff7b72; }
+  .tag-green { background: rgba(63,185,80,0.15); color: #3fb950; }
+  .tag-blue { background: rgba(88,166,255,0.15); color: #58a6ff; }
+  .tag-yellow { background: rgba(210,153,34,0.15); color: #d29922; }
+  .highlight-box {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-left: 3px solid #58a6ff;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .highlight-box.danger {
+    border-left-color: #f85149;
+  }
+  .highlight-box.warn {
+    border-left-color: #d29922;
+  }
+  .trigger-list {
+    list-style: none;
+    padding: 0;
+  }
+  .trigger-list li {
+    padding: 8px 14px;
+    margin: 6px 0;
+    background: #161b22;
+    border-radius: 6px;
+    border: 1px solid #21262d;
+    font-size: 14px;
+  }
+  .trigger-list li .num {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    background: #30363d;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 8px;
+    color: #8b949e;
+  }
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #21262d;
+    text-align: center;
+    font-size: 12px;
+    color: #484f58;
+  }
+  .verdict {
+    font-size: 17px;
+    font-weight: 700;
+    color: #f0f6fc;
+    padding: 16px 20px;
+    background: #161b22;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    line-height: 1.8;
+  }
+  .verdict .emoji { font-size: 20px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="date">2026.07.17 · FRIDAY</div>
+  <h1>📊 大A盘后总结</h1>
+  <div class="subtitle">AI 产业链深度版</div>
+  <div class="panic-meter">
+    <span class="panic-label">恐慌指数</span>
+    <div class="panic-bar"><div class="panic-fill"></div></div>
+    <span class="panic-value">85</span>
+  </div>
+</div>
+
+<!-- ====== 指数概览 ====== -->
+<div class="section">
+  <h2><span class="icon">📉</span> 主要指数</h2>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">上证指数</div>
+      <div class="value">~3,762</div>
+      <div class="change down">−3.05%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">深证成指</div>
+      <div class="value">—</div>
+      <div class="change down">−5.40%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">创业板指</div>
+      <div class="value">—</div>
+      <div class="change down">−7.15%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">科创50</div>
+      <div class="value">—</div>
+      <div class="change down">−7%+</div>
+    </div>
+    <div class="index-card">
+      <div class="name">北证50</div>
+      <div class="value">—</div>
+      <div class="change down">大幅下跌</div>
+    </div>
+  </div>
+  <div class="info-row">
+    <div class="info-item">
+      <div class="label">成交额</div>
+      <div class="val">2.65 万亿</div>
+    </div>
+    <div class="info-item">
+      <div class="label">较上日</div>
+      <div class="val" style="color:#3fb950">+2,514 亿（放量）</div>
+    </div>
+    <div class="info-item">
+      <div class="label">上涨 / 下跌</div>
+      <div class="val"><span style="color:#3fb950">—</span> / <span style="color:#f85149">5,000+</span></div>
+    </div>
+    <div class="info-item">
+      <div class="label">涨跌停比</div>
+      <div class="val">跌停远多于涨停</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 核心结论 ====== -->
+<div class="section">
+  <h2><span class="icon">🧠</span> 核心判断</h2>
+  <div class="verdict">
+    <p>今日A股遭遇本轮科技牛市以来最猛烈的单日调整，沪指失守3800点，科创50暴跌逾7%。<strong>隔夜美股存储芯片崩盘</strong>（费城半导体 −4.29%，SK海力士 −13%）是直接导火索，恐慌情绪沿"存储 → 半导体 → 光通信 → 算力硬件"链条全面传导。叠加中报业绩预告收官后利好兑现、地缘风险升级（美对伊朗新一轮空袭），三重压力集中释放，全市场超5000只个股下跌，放量恐慌出逃特征明显。</p>
+  </div>
+</div>
+
+<!-- ====== 外部风暴 ====== -->
+<div class="section">
+  <h2><span class="icon">🌍</span> 外部风暴眼</h2>
+  <ul class="trigger-list">
+    <li><span class="num">1</span><strong>美股半导体雪崩：</strong>费城半导体指数隔夜 −4.29%，SK海力士 −13%，闪迪 −12%，希捷 −10%，美光 −5%。存储芯片遭集中抛售，恐慌蔓延至整个半导体板块。</li>
+    <li><span class="num">2</span><strong>地缘风险升级：</strong>美军16日对伊朗阿巴斯港发动新一轮空袭，全球避险情绪骤升。</li>
+    <li><span class="num">3</span><strong>韩国股市崩盘：</strong>韩国KOSPI大跌超7%，SK海力士 −11%、三星电子 −8%，亚太科技股全线溃败。</li>
+    <li><span class="num">4</span><strong>港股承压：</strong>恒生科技指数 −4.04%，芯片股跌幅居前，兆易创新跌超8%，建滔积层板跌超9%。</li>
+  </ul>
+</div>
+
+<!-- ====== AI产业链全景 ====== -->
+<div class="section">
+  <h2><span class="icon">🔗</span> AI 产业链 · 八大方向纵深</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:14%">方向</th>
+        <th style="width:12%">强度</th>
+        <th style="width:34%">核心标的与表现</th>
+        <th style="width:40%">逻辑与点评</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>光通信 / CPO</strong></td>
+        <td><span class="tag tag-red">🔴 重灾</span></td>
+        <td>光迅科技、剑桥科技、长光华芯<strong>跌停</strong>；中际旭创、新易盛、天孚通信大幅下挫；康宁（美股光纤龙头）隔夜 −10%</td>
+        <td>本轮领跌方向。美股康宁暴跌 + 光模块降价小作文 + 前期涨幅过大三重打击。CPO作为AI硬件中涨幅最大、拥挤度最高的方向，获利盘出逃最猛烈。</td>
+      </tr>
+      <tr>
+        <td><strong>存储 / HBM</strong></td>
+        <td><span class="tag tag-red">🔴 重灾</span></td>
+        <td><strong>德明利连续3日跌停</strong>（千亿市值，此前9倍涨幅）；兆易创新前日跌停；佰维存储、澜起科技大幅杀跌</td>
+        <td>美股存储崩盘直接映射。SK海力士 −13% 重创HBM叙事。德明利中报不及预期成为压垮信心的最后一根稻草——业绩验证失败 + 高估值回归。</td>
+      </tr>
+      <tr>
+        <td><strong>半导体设备</strong></td>
+        <td><span class="tag tag-red">🔴 重灾</span></td>
+        <td>北方华创逼近跌停；华峰测控、中科飞测、富创精密跌超10%；圣晖集成连续跌停</td>
+        <td>此前最强势方向之一，涨幅巨大后进入拥挤度出清阶段。中报窗口期，业绩能否支撑当前估值成为市场核心焦虑点。</td>
+      </tr>
+      <tr>
+        <td><strong>PCB / CCL</strong></td>
+        <td><span class="tag tag-yellow">🟡 承压</span></td>
+        <td>沪电股份、深南电路、东山精密显著回调；建滔积层板（港股）−9%；逸豪新材前日逆势20cm涨停后今日回落</td>
+        <td>PCB作为AI算力硬件"卖水人"，基本面最扎实（涨价持续），但短期受板块情绪拖累。建滔年内第六次涨价函被恐慌情绪无视，估值压缩阶段。</td>
+      </tr>
+      <tr>
+        <td><strong>MLCC</strong></td>
+        <td><span class="tag tag-yellow">🟡 承压</span></td>
+        <td>三环集团、风华高科等被动元件标的跟随下跌</td>
+        <td>MLCC涨价逻辑（全球大厂7月集体调价 + 稀土出口管制导致日系高端粉体产能硬约束）中期看多，但短期逃不过系统性杀跌。</td>
+      </tr>
+      <tr>
+        <td><strong>先进封装</strong></td>
+        <td><span class="tag tag-yellow">🟡 分化</span></td>
+        <td>长电科技、通富微电跟跌；部分先进封装标的盘中相对抗跌</td>
+        <td>部分资金在恐慌中从纯硬件向先进封装切换（"韬定律V2"叙事），但整体仍难逃系统性拖累。机构对Chiplet中长期逻辑仍有信仰。</td>
+      </tr>
+      <tr>
+        <td><strong>上游材料</strong></td>
+        <td><span class="tag tag-yellow">🟡 承压</span></td>
+        <td>有研新材、上海合晶、清溢光电跌超10%</td>
+        <td>上游供给刚性 + 扩产周期长的底层逻辑未破，但短期资金毫无差别地抛售。后续关注中报业绩能否成为分化锚点。</td>
+      </tr>
+      <tr>
+        <td><strong>AI服务器 / 液冷</strong></td>
+        <td><span class="tag tag-yellow">🟡 承压</span></td>
+        <td>工业富联、中科曙光等算力服务器标的显著下跌；液冷方向同步回落</td>
+        <td>AI算力资本开支景气度仍在，但短期拥挤度出清叠加中报兑现压力，资金选择集体撤退。液冷渗透率提升的长期逻辑未变。</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ====== 逆势亮点 ====== -->
+<div class="section">
+  <h2><span class="icon">💡</span> 逆势亮点</h2>
+  <table>
+    <thead>
+      <tr><th>方向</th><th>表现</th><th>逻辑</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>电力板块</strong></td>
+        <td><span class="tag tag-green">🟢 领涨</span> 桂冠电力、深南电A、乐山电力、华银电力涨停</td>
+        <td>防御属性 + 夏季用电高峰 + 绿电政策催化，资金从高波动科技向低估值红利切换</td>
+      </tr>
+      <tr>
+        <td><strong>银行板块</strong></td>
+        <td><span class="tag tag-green">🟢 护盘</span> 建设银行涨超3%，湘财股份涨停</td>
+        <td>国家队护盘迹象明显，大金融成为资金避风港</td>
+      </tr>
+      <tr>
+        <td><strong>端侧硬件</strong></td>
+        <td><span class="tag tag-blue">🔵 活跃</span> 米奥会展20cm涨停</td>
+        <td>AI从云端向终端扩散的逻辑独立于存储/光模块，资金寻找相对低位的AI分支</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ====== 下跌归因 ====== -->
+<div class="section">
+  <h2><span class="icon">🔍</span> 下跌归因 · 三层逻辑</h2>
+
+  <div class="highlight-box danger">
+    <strong>第一层 · 外部冲击（直接导火索）</strong><br>
+    隔夜美股存储芯片崩盘 → 费城半导体 −4.29% → SK海力士 −13%，闪迪 −12%。恐慌沿"存储 → 半导体 → 光通信 → 算力"链条全天候传导。韩国股市 −7%、港股科指 −4% 确认亚太科技股系统性溃败。
+  </div>
+
+  <div class="highlight-box warn">
+    <strong>第二层 · 中报季兑现压力（结构内因）</strong><br>
+    中报业绩预告已收官，资金"买预期、卖事实"。德明利中报不及预期（Q2环比下滑）直接一字跌停，引发市场对科技股业绩能否支撑当前估值的集体怀疑。光模块虽业绩确定性强，但前期涨幅已经充分定价。
+  </div>
+
+  <div class="highlight-box">
+    <strong>第三层 · 拥挤度出清（技术必然）</strong><br>
+    华泰证券研报指出：本轮调整为"拥挤度出清 + 中报定价切换"叠加，尚不是产业逻辑证伪。科技板块（尤其光通信/半导体设备）资金拥挤度已达历史极值，获利盘集中了结是健康调整的必经阶段。
+  </div>
+</div>
+
+<!-- ====== 后市观察 ====== -->
+<div class="section">
+  <h2><span class="icon">🔭</span> 后市关键观察点</h2>
+  <ul class="trigger-list">
+    <li><span class="num">1</span><strong>美股半导体能否企稳：</strong>今夜费城半导体走势是关键。若继续下杀，A股科技周一大概率继续承压；若企稳反弹，则恐慌情绪有望边际修复。</li>
+    <li><span class="num">2</span><strong>中报正式披露季开启：</strong>业绩预告已收官，正式中报将从下周起密集发布。真正业绩超预期的标的将在分化中率先企稳——"去伪存真"。</li>
+    <li><span class="num">3</span><strong>AI产业基本面未变：</strong>本轮调整更多是交易层面（拥挤度 + 外部冲击），AI算力需求、国产替代、存储涨价等核心逻辑未被证伪。恐慌中需要区分：哪些是被错杀的优质资产，哪些是纯题材炒作。</li>
+    <li><span class="num">4</span><strong>政策面：</strong>关注本周末是否有利好政策出台对冲恐慌情绪（如降准、行业催化等）。</li>
+    <li><span class="num">5</span><strong>量价关系：</strong>今日放量下跌（2.65万亿），说明恐慌盘在出清而非锁死。若后续缩量企稳，则短期底部有望形成。</li>
+  </ul>
+</div>
+
+<div class="footer">
+  <p>⚡ 大A盘后总结 · AI产业链深度版 | 2026.07.17</p>
+  <p style="margin-top:4px;">本报告由 Hermes Agent 自动生成，仅供参考，不构成投资建议。市场有风险，投资需谨慎。</p>
+</div>
+
+</body>
+</html>
