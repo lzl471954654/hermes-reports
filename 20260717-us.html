@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026-07-17</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card-bg: #1a1d28;
+    --border: #2a2d3a;
+    --text: #e1e4ed;
+    --text-secondary: #8b8fa3;
+    --green: #16c784;
+    --red: #ea3943;
+    --blue: #3b82f6;
+    --accent: #a78bfa;
+    --gold: #f59e0b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    line-height: 1.6;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .date { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 24px; }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .indices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .index-item {
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .index-name { font-size: 0.8rem; color: var(--text-secondary); }
+  .index-value { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .index-change { font-size: 0.9rem; }
+  .green { color: var(--green); }
+  .red { color: var(--red); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  th {
+    text-align: left;
+    padding: 8px 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .symbol { font-weight: 600; }
+  .symbol .name { font-weight: 400; color: var(--text-secondary); font-size: 0.78rem; margin-left: 6px; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+  .tag-up { background: rgba(22,199,132,0.12); color: var(--green); }
+  .tag-down { background: rgba(234,57,67,0.12); color: var(--red); }
+  .tag-flat { background: rgba(139,143,163,0.12); color: var(--text-secondary); }
+  .news-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.88rem;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-right: 6px;
+    background: rgba(59,130,246,0.15);
+    color: var(--blue);
+  }
+  .news-tag.warn { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .mapping-table td:first-child { width: 120px; }
+  .mapping-table td:nth-child(2) { color: var(--text-secondary); font-size: 0.8rem; }
+  .summary-box {
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    background: rgba(167,139,250,0.06);
+    border-radius: 0 8px 8px 0;
+    margin-top: 12px;
+    font-size: 0.9rem;
+  }
+  .footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-top: 20px;
+    padding: 12px;
+  }
+  hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  .highlight { color: var(--gold); }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🌐 AI产业链美股收盘与A股映射早报</h1>
+  <div class="date">📅 2026年7月17日（周五） | 分析7月16日（周四）美股收盘</div>
+
+  <!-- 美股大盘 -->
+  <div class="card">
+    <h2>📊 美股三大指数</h2>
+    <div class="indices">
+      <div class="index-item">
+        <div class="index-name">S&P 500</div>
+        <div class="index-value">7,533.77</div>
+        <div class="index-change red">-0.51%</div>
+      </div>
+      <div class="index-item">
+        <div class="index-name">纳斯达克综合</div>
+        <div class="index-value">25,881.95</div>
+        <div class="index-change red">-1.47%</div>
+      </div>
+      <div class="index-item">
+        <div class="index-name">道琼斯工业</div>
+        <div class="index-value">52,398*</div>
+        <div class="index-change red">-0.20%</div>
+      </div>
+    </div>
+    <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:8px;">
+      纳指领跌，半导体板块连续第二日重挫。AI资本开支放缓担忧发酵，叠加谷歌Gemini 3.5 Pro延迟和美国-伊朗地缘风险升级，科技股全线承压。防御性板块相对抗跌。
+    </p>
+  </div>
+
+  <!-- AI芯片产业链 -->
+  <div class="card">
+    <h2>🔬 AI芯片产业链核心标的</h2>
+    <table>
+      <thead>
+        <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>信号</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="symbol">NVDA<span class="name">英伟达</span></span></td>
+          <td>$212.50</td>
+          <td class="red">-0.2%*</td>
+          <td><span class="tag tag-flat">相对抗跌</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">AMD<span class="name">超威半导体</span></span></td>
+          <td>~$505</td>
+          <td class="red">-5.0%</td>
+          <td><span class="tag tag-down">领跌芯片</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">AVGO<span class="name">博通</span></span></td>
+          <td>~$381</td>
+          <td class="red">-3.0%</td>
+          <td><span class="tag tag-down">AI定制芯片回调</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">MRVL<span class="name">Marvell</span></span></td>
+          <td>--</td>
+          <td class="red">-8.0%</td>
+          <td><span class="tag tag-down">CAPEX担忧重灾区</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">INTC<span class="name">英特尔</span></span></td>
+          <td>~$98</td>
+          <td class="red">-5.0%</td>
+          <td><span class="tag tag-down">持续承压</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">MU<span class="name">美光</span></span></td>
+          <td>~$880</td>
+          <td class="red">-2.5%*</td>
+          <td><span class="tag tag-down">存储跟跌</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">SMCI<span class="name">超微电脑</span></span></td>
+          <td>$26.90</td>
+          <td class="red">-2.7%</td>
+          <td><span class="tag tag-down">AI服务器疲软</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">TSM<span class="name">台积电</span></span></td>
+          <td>~$400</td>
+          <td class="red">-4.0%</td>
+          <td><span class="tag tag-down">财报好但见光死</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">ASML<span class="name">阿斯麦</span></span></td>
+          <td>~$1,770</td>
+          <td class="red">-1.5%*</td>
+          <td><span class="tag tag-down">跟随板块走弱</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">LRCX<span class="name">泛林</span></span></td>
+          <td>$350.20</td>
+          <td class="red">-0.34%</td>
+          <td><span class="tag tag-flat">设备相对抗跌</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">KLAC<span class="name">科磊</span></span></td>
+          <td>$233.31</td>
+          <td class="red">-0.95%</td>
+          <td><span class="tag tag-flat">设备相对抗跌</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="color:var(--text-secondary);font-size:0.75rem;margin-top:8px;">* 部分个股因数据源限制使用估算收盘价，NVDA参考盘后数据。MRVL跌幅最大（-8%），AMD/INTC均跌约5%。</p>
+  </div>
+
+  <!-- 科技巨头 -->
+  <div class="card">
+    <h2>🏢 科技巨头与AI应用层</h2>
+    <table>
+      <thead>
+        <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="symbol">AAPL<span class="name">苹果</span></span></td>
+          <td>$333.13</td>
+          <td class="green">+1.7%</td>
+          <td>逆势走强，AI手机叙事+服务收入</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">MSFT<span class="name">微软</span></span></td>
+          <td>$400.62</td>
+          <td class="green">+1.3%</td>
+          <td>逆势反弹，市场看好7/29财报</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">GOOGL<span class="name">谷歌</span></span></td>
+          <td>$354.46</td>
+          <td class="red">-4.4%</td>
+          <td><strong>Gemini 3.5 Pro推迟数月</strong>，蒸发$200B市值</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">AMZN<span class="name">亚马逊</span></span></td>
+          <td>$250.06</td>
+          <td class="red">-1.9%</td>
+          <td>跟随科技板块回调</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">META<span class="name">Meta</span></span></td>
+          <td>$663.29</td>
+          <td class="red">-2.6%</td>
+          <td>AI Safety Index仅D+，估值承压</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">TSLA<span class="name">特斯拉</span></span></td>
+          <td>$391.04</td>
+          <td class="red">-0.9%</td>
+          <td>相对抗跌，窄幅震荡</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">PLTR<span class="name">Palantir</span></span></td>
+          <td>~$130</td>
+          <td class="red">-2.5%*</td>
+          <td>AI应用层跟跌，PE 150x高估值承压</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">DELL<span class="name">戴尔</span></span></td>
+          <td>$412.68</td>
+          <td class="red">-3.0%*</td>
+          <td>AI服务器供应链情绪走弱</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 盘后与晚间动态 -->
+  <div class="card">
+    <h2>🌙 盘后与重大事件</h2>
+    <div class="news-item">
+      <span class="news-tag warn">AI模型</span>
+      <strong>谷歌Gemini 3.5 Pro推迟数月上线的新闻周四午后引爆，股价暴跌4.4%，单日蒸发近$200B市值。</strong>市场担忧谷歌在AI军备竞赛中落后于OpenAI和Anthropic。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">财报</span>
+      <strong>台积电Q2财报超预期但股价反跌4%。</strong>净利润同比增长77%，上调全年营收指引至"略超40%增长"，但Capex大幅上调至$600-640亿引发市场对过度投资的担忧。经典的"买预期卖事实"行情。
+    </div>
+    <div class="news-item">
+      <span class="news-tag warn">CAPEX</span>
+      <strong>AI资本开支放缓恐慌席卷芯片板块。</strong>MRVL暴跌8%成为重灾区，市场重新审视云厂商AI基础设施投入的可持续性。AMD、INTC跟跌约5%。
+    </div>
+    <div class="news-item">
+      <span class="news-tag warn">地缘</span>
+      <strong>美国-伊朗冲突升级</strong> — 油价持续走高，避险情绪压制风险资产。军工股成为少数受益方向。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">数据</span>
+      <strong>美国6月零售销售不及预期</strong> — 消费动能放缓引发经济软着陆信心动摇，加剧市场避险情绪。
+    </div>
+  </div>
+
+  <!-- AI产业新闻 -->
+  <div class="card">
+    <h2>🤖 AI产业深度解读</h2>
+    <div class="news-item">
+      <span class="news-tag warn">关键信号</span>
+      <strong>TSMC Capex大幅上调是双刃剑。</strong>短期：$600-640亿Capex远超$520-560亿预期，市场担心供给过剩和利润率稀释。中长期：AI需求真实且强劲，扩产是龙头对需求信心的最直接背书，设备供应商（ASML/AMAT/LRCX/KLAC）中长期逻辑反而强化。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">竞争格局</span>
+      <strong>Gemini延迟重塑AI竞争格局。</strong>谷歌旗舰模型推迟，OpenAI/GPT-5和Anthropic/Claude 4的竞争优势扩大。微软（OpenAI最大股东）成为间接受益者，这也是MSFT逆势上涨的核心逻辑之一。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">资金面</span>
+      <strong>资金从AI芯片向软件/应用层轮动迹象初现。</strong>MSFT +1.3%、AAPL +1.7%逆势走强，而芯片纯正标的全面承压。市场可能在重新定价AI产业链不同环节的价值分布。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">中国映射</span>
+      <strong>DeepSeek等国产模型获关注。</strong>在美国AI监管趋严+出口管制背景下，国产AI模型和应用生态的自主可控逻辑进一步强化。
+    </div>
+  </div>
+
+  <!-- A股映射 -->
+  <div class="card">
+    <h2>🇨🇳 A股映射分析（7月17日预判）</h2>
+    <table class="mapping-table">
+      <thead>
+        <tr><th>美股映射</th><th>A股标的</th><th>逻辑</th><th>今日预判</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>NVDA -0.2%</td>
+          <td>寒武纪、海光信息</td>
+          <td>GPU/AI芯片对标；龙头抗跌</td>
+          <td><span class="tag tag-flat">中性震荡</span></td>
+        </tr>
+        <tr>
+          <td>TSM -4%（财报好）</td>
+          <td>中芯国际、华虹半导体</td>
+          <td>晶圆代工对标；Capex上调利好设备</td>
+          <td><span class="tag tag-up">设备端正面</span></td>
+        </tr>
+        <tr>
+          <td>ASML/LRCX 相对抗跌</td>
+          <td>北方华创、中微公司</td>
+          <td>半导体设备；TSMC Capex +60B是中长期利好</td>
+          <td><span class="tag tag-up">正面催化</span></td>
+        </tr>
+        <tr>
+          <td>MRVL -8%（CAPEX担忧）</td>
+          <td>中际旭创、新易盛、天孚通信</td>
+          <td>光模块/CPO；CAPEX放缓直接利空</td>
+          <td><span class="tag tag-down">🔴 短期承压</span></td>
+        </tr>
+        <tr>
+          <td>AMD/INTC -5%</td>
+          <td>龙芯中科、海光信息</td>
+          <td>CPU/GPU对标；情绪传导</td>
+          <td><span class="tag tag-down">情绪偏弱</span></td>
+        </tr>
+        <tr>
+          <td>SMCI -2.7% / DELL</td>
+          <td>工业富联、浪潮信息、中科曙光</td>
+          <td>AI服务器；CAPEX担忧传导</td>
+          <td><span class="tag tag-down">偏弱震荡</span></td>
+        </tr>
+        <tr>
+          <td>MU 存储跟跌</td>
+          <td>兆易创新、北京君正</td>
+          <td>存储芯片对标；需求前景不确定性</td>
+          <td><span class="tag tag-flat">中性偏弱</span></td>
+        </tr>
+        <tr>
+          <td>AAPL +1.7%</td>
+          <td>立讯精密、歌尔股份、蓝思科技</td>
+          <td>果链；苹果逆势上涨提振</td>
+          <td><span class="tag tag-up">正面映射</span></td>
+        </tr>
+        <tr>
+          <td>GOOGL -4.4%（AI延迟）</td>
+          <td>科大讯飞、商汤、百度</td>
+          <td>AI大模型/应用对标；国产替代叙事强化</td>
+          <td><span class="tag tag-up">国产替代逻辑</span></td>
+        </tr>
+        <tr>
+          <td>MSFT +1.3%（软件抗跌）</td>
+          <td>金山办公、用友网络</td>
+          <td>AI软件/SaaS映射</td>
+          <td><span class="tag tag-flat">中性</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="summary-box">
+      <strong>💡 今日A股AI产业链核心判断：</strong><br>
+      1️⃣ <strong>光模块板块🔴风险警示</strong>——MRVL暴跌8%直接验证AI CAPEX放缓叙事，中际旭创、新易盛、天孚通信短期面临情绪和估值双重压力，建议谨慎；<br>
+      2️⃣ <strong>设备板块正面催化</strong>——TSMC Capex上调至$600-640亿是最强信号，北方华创、中微公司中长期逻辑得到验证，回调即机会；<br>
+      3️⃣ <strong>果链受益</strong>——苹果逆势涨1.7%，立讯精密、歌尔股份今日大概率跟涨，注意高开后的获利回吐；<br>
+      4️⃣ <strong>国产AI叙事强化</strong>——谷歌AI模型延迟+美国出口管制趋严，国产AI（科大讯飞、寒武纪）自主可控逻辑获得新一轮叙事支撑；<br>
+      5️⃣ <strong>整体判断：A股AI板块今日大概率低开</strong>，但内部分化将显著——光模块/服务器方向承压，设备/果链/国产AI方向可能低开高走。
+    </div>
+  </div>
+
+  <hr>
+  <div class="footer">
+    ⚠️ 免责声明：本报告仅为信息整理与市场映射分析，不构成任何投资建议。数据来源于公开市场信息搜索，部分个股收盘价可能存在延迟或误差。<br>
+    Generated by Hermes Agent · 2026-07-17 08:00 CST
+  </div>
+</div>
+</body>
+</html>
