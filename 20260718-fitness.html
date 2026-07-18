@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-07-18 健身&饮食日报</title>
+<style>
+  :root {
+    --bg: #0d1b2a;
+    --card: #132238;
+    --accent: #4fc3f7;
+    --accent-dim: #2d7a9e;
+    --text: #e0e6ed;
+    --muted: #8fa4b8;
+    --warn: #ffcc80;
+    --danger: #ef5350;
+    --green: #66bb6a;
+    --border: #1e3a52;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.7;
+    padding: 20px 16px 60px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.5rem; color: var(--accent); margin-bottom: 4px; }
+  .date { color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; }
+  .overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .stat-card .value { font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+  .stat-card .label { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+  .stat-card.warn .value { color: var(--warn); }
+  .member-section {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px 18px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+  }
+  .member-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .member-emoji { font-size: 1.6rem; }
+  .member-name { font-size: 1.1rem; font-weight: 600; }
+  .member-meta { font-size: 0.78rem; color: var(--muted); }
+  .subsection { margin-bottom: 12px; }
+  .subsection h4 {
+    font-size: 0.85rem;
+    color: var(--accent-dim);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .subsection p, .subsection li { font-size: 0.9rem; color: var(--text); }
+  .nodata { color: var(--muted); font-style: italic; font-size: 0.85rem; }
+  .history { font-size: 0.78rem; color: var(--muted); background: rgba(79,195,247,0.06); padding: 8px 12px; border-radius: 6px; margin: 8px 0; }
+  .comment { font-size: 0.85rem; color: var(--text); padding: 8px 12px; border-left: 3px solid var(--accent-dim); margin: 8px 0; }
+  .suggestion { font-size: 0.85rem; color: var(--green); }
+  .reminder-box {
+    background: rgba(79,195,247,0.08);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .reminder-box h3 { font-size: 1rem; color: var(--accent); margin-bottom: 8px; }
+  .reminder-box li { font-size: 0.85rem; margin-bottom: 4px; color: var(--text); }
+  .completeness {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .tag-empty { background: rgba(255,255,255,0.08); color: var(--muted); }
+  .tag-warn { background: rgba(255,204,128,0.15); color: var(--warn); }
+  .footer { text-align: center; color: var(--muted); font-size: 0.7rem; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border); }
+  hr { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+</style>
+</head>
+<body>
+<h1>🏋️ 健身&饮食日报</h1>
+<p class="date">2026年7月18日 星期六 · 23:00 CST</p>
+
+<!-- 概览 -->
+<div class="overview">
+  <div class="stat-card">
+    <div class="value">0/3</div>
+    <div class="label">今日打卡</div>
+  </div>
+  <div class="stat-card">
+    <div class="value">—</div>
+    <div class="label">训练人数</div>
+  </div>
+  <div class="stat-card">
+    <div class="value">—</div>
+    <div class="label">最高消耗</div>
+  </div>
+  <div class="stat-card warn">
+    <div class="value">—</div>
+    <div class="label">缺口警告</div>
+  </div>
+</div>
+
+<!-- 智林 -->
+<div class="member-section">
+  <div class="member-header">
+    <span class="member-emoji">🐉</span>
+    <div>
+      <div class="member-name">智林</div>
+      <div class="member-meta">185cm · ~93.5kg · 减脂中 · 目标逆转脂肪肝</div>
+    </div>
+  </div>
+  <div class="subsection">
+    <h4>🏋️ 训练</h4>
+    <p class="nodata">今日暂无有效记录</p>
+    <div class="history">📋 上一次记录：7/15 午餐麻辣香锅（鸡胸+鱼片 500g，蛋白 ~122g，热量 ~895 kcal）。7/16—7/18 连续三天无记录。</div>
+  </div>
+  <div class="subsection">
+    <h4>🥘 饮食</h4>
+    <p class="nodata">今日暂无有效记录</p>
+  </div>
+  <div class="subsection">
+    <h4>📊 身体状态</h4>
+    <p class="nodata">未记录</p>
+  </div>
+  <div class="comment">💬 7/15 那顿午餐蛋白 122g 是历史最高，但全天只见一顿 ~895 kcal。三天断联——周末如果不补记录，下周一看不到趋势变化了。</div>
+  <div class="suggestion">📋 明天周日，发张午餐照片就行，一句话足以接上记录链。</div>
+</div>
+
+<!-- Monkiki -->
+<div class="member-section">
+  <div class="member-header">
+    <span class="member-emoji">🐱</span>
+    <div>
+      <div class="member-name">Monkiki</div>
+      <div class="member-meta">170cm · ~70kg · 目标 65–67.5kg · 已中断 11 天</div>
+    </div>
+  </div>
+  <div class="subsection">
+    <h4>🏋️ 训练</h4>
+    <p class="nodata">今日暂无有效记录</p>
+    <div class="history">📋 上一次记录：7/7（背+手臂 1h08min · 399 kcal · 重庆）。餐后跳舞消耗 ~100 kcal。此后 7/8—7/18 连续 11 天无记录。</div>
+  </div>
+  <div class="subsection">
+    <h4>🥘 饮食</h4>
+    <p class="nodata">今日暂无有效记录</p>
+  </div>
+  <div class="subsection">
+    <h4>📊 身体状态</h4>
+    <p class="nodata">未记录</p>
+  </div>
+  <div class="comment">💬 11 天中断——这是建群以来最长空窗。7/7 最后一战状态很好：碗杂面+川菜大桌蛋白 138g，练完背还即兴跳舞 💃。不管在哪、在忙什么——减脂不等人，回来只需要一句话。</div>
+  <div class="suggestion">📋 周末回归黄金窗口。不用一小时起步：半小时爬坡或在家做顿凉拌牛肉发个图，链就接上了。</div>
+</div>
+
+<!-- Ckddd -->
+<div class="member-section">
+  <div class="member-header">
+    <span class="member-emoji">🐔</span>
+    <div>
+      <div class="member-name">Ckddd</div>
+      <div class="member-meta">~64kg · 体脂 ~14.6% · 目标增肌 · 已中断 10 天</div>
+    </div>
+  </div>
+  <div class="subsection">
+    <h4>🏋️ 训练</h4>
+    <p class="nodata">今日暂无有效记录</p>
+    <div class="history">📋 上一次训练记录：7/7（胸+三头+肩膀）。上一次饮食记录：7/8（燕麦+蛋+冰美式）。7/9—7/18 连续 10 天无记录。</div>
+  </div>
+  <div class="subsection">
+    <h4>🥘 饮食</h4>
+    <p class="nodata">今日暂无有效记录</p>
+  </div>
+  <div class="subsection">
+    <h4>📊 身体状态</h4>
+    <p class="nodata">未记录</p>
+  </div>
+  <div class="comment">💬 10 天不练，增肌刺激基本代谢完了。但好消息是——低体脂（14.6%）+肌肉记忆都在，恢复一周就能回到中断前水平。关键在于别再往后拖。</div>
+  <div class="suggestion">📋 撸铁半小时，哪个部位都行。蛋白质目标 ~102g/天（1.6g/kg），先稳住营养线再谈强度。蛋白粉备在手里别过期了 😂</div>
+</div>
+
+<!-- 群内提醒 -->
+<div class="reminder-box">
+  <h3>💡 群内提醒</h3>
+  <ul>
+    <li>📭 周末第二天继续全军覆没——周报明天要出了，今天不补明天没数据可报</li>
+    <li>🐱 Monkiki <strong>11 天</strong>中断、🐔 Ckddd <strong>10 天</strong>中断——不需要解释，回来就行</li>
+    <li>🐉 智林 7/15 只记录了一顿——三天空白，训练和饮食状态完全未知</li>
+    <li>📸 明天开始，发张饭图或训练截图就能把记录链续上，一句话就够</li>
+  </ul>
+</div>
+
+<!-- 数据完整度 -->
+<div class="completeness">
+  <strong>📊 数据完整度</strong><br>
+  · MD 本地文件：三份均成功读取，均无今日（7/18）数据<br>
+  · 群聊记录：cron 环境无会话接入能力，未能获取 Discord #fitness 数据<br>
+  · 结论：基于本地 MD 文件生成——三人今日均无有效记录。如群内有遗漏，请成员自行补充。
+</div>
+
+<div class="footer">
+  Generated by Hermes · 2026-07-18 23:00 CST
+</div>
+</body>
+</html>
