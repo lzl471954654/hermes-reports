@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏋️ 健身&饮食日报 2026-07-20</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0d1b2a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.5rem;
+    color: #4fc3f7;
+    margin-bottom: 4px;
+  }
+  .date { color: #78909c; font-size: 0.85rem; margin-bottom: 20px; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: #162d45;
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+    border-left: 3px solid #4fc3f7;
+  }
+  .card .value { font-size: 1.6rem; font-weight: 700; color: #4fc3f7; margin: 4px 0; }
+  .card .label { font-size: 0.78rem; color: #90a4ae; }
+  .card.warn { border-left-color: #ff8a65; }
+  .card.warn .value { color: #ff8a65; }
+  .person-section {
+    background: #12273b;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .person-section h2 {
+    font-size: 1.15rem;
+    color: #4fc3f7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .person-section h3 {
+    font-size: 0.95rem;
+    color: #81d4fa;
+    margin: 12px 0 6px;
+    border-bottom: 1px solid #1a3a54;
+    padding-bottom: 4px;
+  }
+  .metric-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 8px 0;
+  }
+  .metric-tag {
+    background: #1a3a54;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: #b0bec5;
+  }
+  .metric-tag strong { color: #4fc3f7; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+    margin: 8px 0;
+  }
+  th {
+    text-align: left;
+    color: #90a4ae;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-bottom: 1px solid #1a3a54;
+    font-size: 0.78rem;
+  }
+  td {
+    padding: 5px 8px;
+    border-bottom: 1px solid #0d1b2a;
+  }
+  .empty { color: #546e7a; font-style: italic; font-size: 0.85rem; }
+  .warn-text { color: #ff8a65; font-weight: 600; }
+  .good-text { color: #81c784; }
+  .estimate { color: #90a4ae; font-size: 0.75rem; }
+  .comment-box {
+    background: #0d1b2a;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 0.85rem;
+    border-left: 3px solid #4fc3f7;
+  }
+  .footer {
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 1px solid #1a3a54;
+    font-size: 0.75rem;
+    color: #546e7a;
+  }
+  .reminder {
+    background: #1a2332;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 16px 0;
+    font-size: 0.85rem;
+    color: #b0bec5;
+  }
+  .reminder strong { color: #4fc3f7; }
+  hr { border: none; border-top: 1px solid #1a3a54; margin: 12px 0; }
+</style>
+</head>
+<body>
+
+<h1>🏋️ 健身&饮食日报</h1>
+<div class="date">📅 2026年7月20日 · 周一</div>
+
+<!-- 概览卡片 -->
+<div class="cards">
+  <div class="card">
+    <div class="value">1/3</div>
+    <div class="label">今日打卡</div>
+  </div>
+  <div class="card">
+    <div class="value">1</div>
+    <div class="label">训练人数</div>
+  </div>
+  <div class="card">
+    <div class="value">345</div>
+    <div class="label">🔥 最高消耗 (kcal)</div>
+  </div>
+  <div class="card warn">
+    <div class="value">~300</div>
+    <div class="label">⚠️ 最低净摄入 (kcal)</div>
+  </div>
+</div>
+
+<!-- ========== Monkiki ========== -->
+<div class="person-section">
+  <h2>👤 Monkiki</h2>
+
+  <h3>🏋️ 训练</h3>
+  <div class="metric-row">
+    <span class="metric-tag">⏱ <strong>1h04m11s</strong></span>
+    <span class="metric-tag">🔥 总消耗 <strong>345 kcal</strong></span>
+    <span class="metric-tag">❤️ 平均心率 <strong>105 bpm</strong></span>
+    <span class="metric-tag">📈 最高 <strong>133 bpm</strong></span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-tag">类型：传统力量训练</span>
+    <span class="metric-tag">📍 西安</span>
+    <span class="metric-tag">🕐 18:24–19:28</span>
+  </div>
+  <p class="estimate">⚠️ 具体动作/组数/重量未记录（仅摘要页截图）</p>
+
+  <h3>🍳 饮食</h3>
+  <table>
+    <tr><th>餐次</th><th>内容</th><th>🔥 热量</th><th>🥩 蛋白质</th><th>🍞 碳水</th><th>🧈 脂肪</th></tr>
+    <tr>
+      <td>第一餐</td>
+      <td>白米饭 + 番茄炒蛋 + 青菜牛肉片 + 土豆红椒</td>
+      <td>~645 kcal</td><td>~32g</td><td>~88g</td><td>~18g</td>
+    </tr>
+    <tr>
+      <td>晚餐</td>
+      <td colspan="5" class="empty">⏳ 待补充（训练后净摄入仅 ~300 kcal，必须补）</td>
+    </tr>
+  </table>
+
+  <h3>📊 目前结算</h3>
+  <table>
+    <tr><td>🍳 第一餐</td><td style="text-align:right">+645 kcal</td><td style="text-align:right">32g 蛋白</td></tr>
+    <tr><td>🏋️ 力量训练</td><td style="text-align:right; color:#81c784">−345 kcal</td><td style="text-align:right">—</td></tr>
+    <tr style="font-weight:700"><td>目前净摄入</td><td style="text-align:right; color:#ff8a65">~300 kcal</td><td style="text-align:right">~32g</td></tr>
+  </table>
+
+  <div class="comment-box">
+    💬 <strong>灰灰点评：</strong>64 分钟实打实练完，平均心率 105 偏保守（组间歇可能偏长或强度偏轻），但 345 kcal 消耗对力量训练来说不算低。真正的考验在晚饭——目前净摄入只剩 300 kcal，身体零燃料状态，晚餐蛋白必须往 40g+ 补，碳水也放开吃。自己做的这顿家常四菜不错，番茄炒蛋+牛肉双蛋白打底，控油路线在线 👌
+  </div>
+
+  <h3>📝 明日建议</h3>
+  <div class="comment-box">
+    • 🍗 晚饭蛋白质目标 40-50g（加鸡胸/虾/豆腐都行）<br>
+    • 🍚 碳水别省，训练日肌肉等着补糖原<br>
+    • 📸 下次训练截图记得截详情页（动作/组数/重量）<br>
+    • 🥤 睡前如果饿了补一杯蛋白粉或酸奶
+  </div>
+</div>
+
+<!-- ========== 智林 ========== -->
+<div class="person-section">
+  <h2>👤 智林</h2>
+  <p class="empty">今日暂无有效记录</p>
+  <p class="estimate">上次记录：7/15 午餐麻辣香锅（500g 肉+500g 蔬菜+米饭，~895 kcal / 122g 蛋白）</p>
+</div>
+
+<!-- ========== Ckddd ========== -->
+<div class="person-section">
+  <h2>👤 Ckddd</h2>
+  <p class="empty">今日暂无有效记录</p>
+  <p class="estimate">上次记录：7/8 燕麦+水煮蛋+冰美式（~265 kcal）</p>
+</div>
+
+<!-- 群内提醒 -->
+<div class="reminder">
+  <strong>📢 群内提醒：</strong><br>
+  • Monkiki 晚饭赶紧吃，训练完别空腹超过 2 小时 ⏰<br>
+  • 智林和 Ckddd 今天如果练了/吃了记得记录，别让日报空着 📝<br>
+  • 本周一开局只有 1 人打卡，大家别偷懒 💪
+</div>
+
+<!-- 数据完整度 -->
+<hr>
+<div class="footer">
+  <strong>📋 数据完整度说明</strong><br>
+  • 数据来源：本地 md 文件（lzl.md / monkiki.md / ckddd.md）<br>
+  • 群聊记录：Discord #fitness 频道未能读取（session_search 不可用），本次日报仅基于本地 md 文件生成<br>
+  • 成员覆盖：1/3 有效记录（Monkiki ✅ · 智林 ❌ · Ckddd ❌）<br>
+  • Monkiki 晚餐数据待补充——目前净摄入存在缺口警告<br>
+  • 所有热量/蛋白质数值均为估算，仅供参考<br>
+  <br>
+  🕐 生成时间：2026-07-20 23:00 CST · by Hermes Daily Agent
+</div>
+
+</body>
+</html>
