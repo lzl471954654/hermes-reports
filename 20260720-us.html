@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026-07-20</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card-bg: #1a1d28;
+    --border: #2a2d3a;
+    --text: #e1e4ed;
+    --text-secondary: #8b8fa3;
+    --green: #16c784;
+    --red: #ea3943;
+    --blue: #3b82f6;
+    --accent: #a78bfa;
+    --gold: #f59e0b;
+    --orange: #f97316;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    line-height: 1.6;
+  }
+  .container { max-width: 960px; margin: 0 auto; }
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .date { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 24px; }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .indices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .index-item {
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .index-name { font-size: 0.8rem; color: var(--text-secondary); }
+  .index-value { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .index-change { font-size: 0.9rem; }
+  .green { color: var(--green); }
+  .red { color: var(--red); }
+  .orange { color: var(--orange); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  th {
+    text-align: left;
+    padding: 8px 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .symbol { font-weight: 600; }
+  .symbol .name { font-weight: 400; color: var(--text-secondary); font-size: 0.78rem; margin-left: 6px; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-left: 6px;
+  }
+  .tag-up { background: rgba(22,199,132,0.12); color: var(--green); }
+  .tag-down { background: rgba(234,57,67,0.12); color: var(--red); }
+  .tag-flat { background: rgba(139,143,163,0.12); color: var(--text-secondary); }
+  .tag-warn { background: rgba(249,115,22,0.15); color: var(--orange); }
+  .news-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.88rem;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-right: 6px;
+    background: rgba(59,130,246,0.15);
+    color: var(--blue);
+  }
+  .news-tag.warn { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .news-tag.danger { background: rgba(234,57,67,0.15); color: var(--red); }
+  .mapping-table td:first-child { width: 130px; }
+  .mapping-table td:nth-child(2) { color: var(--text-secondary); font-size: 0.8rem; }
+  .summary-box {
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    background: rgba(167,139,250,0.06);
+    border-radius: 0 8px 8px 0;
+    margin-top: 12px;
+    font-size: 0.9rem;
+  }
+  .week-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+    font-size: 0.82rem;
+  }
+  .week-stat {
+    background: rgba(255,255,255,0.02);
+    border-radius: 6px;
+    padding: 10px;
+  }
+  .week-stat .label { color: var(--text-secondary); font-size: 0.75rem; }
+  .week-stat .value { font-size: 1.2rem; font-weight: 700; }
+  .divider { border-top: 1px dashed var(--border); margin: 10px 0; }
+  .footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-top: 20px;
+    padding: 12px;
+  }
+  hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  .highlight { color: var(--gold); }
+  .vix-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(249,115,22,0.2);
+    color: var(--orange);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🌐 AI产业链美股收盘与A股映射早报</h1>
+  <div class="date">📅 2026年7月20日（周一） | 分析7月17日（周五）美股收盘 + 周末动态</div>
+
+  <!-- 美股大盘 -->
+  <div class="card">
+    <h2>📊 美股三大指数（7/17 周五收盘）</h2>
+    <div class="indices">
+      <div class="index-item">
+        <div class="index-name">S&P 500</div>
+        <div class="index-value">7,457.69</div>
+        <div class="index-change red">-1.01%</div>
+      </div>
+      <div class="index-item">
+        <div class="index-name">纳斯达克综合</div>
+        <div class="index-value">25,520.24</div>
+        <div class="index-change red">-1.40%</div>
+      </div>
+      <div class="index-item">
+        <div class="index-name">道琼斯工业</div>
+        <div class="index-value">52,146.42</div>
+        <div class="index-change red">-0.77%</div>
+      </div>
+      <div class="index-item">
+        <div class="index-name">费城半导体 SOX</div>
+        <div class="index-value">11,673.89</div>
+        <div class="index-change red">-1.63%</div>
+      </div>
+    </div>
+    <div class="week-summary">
+      <div class="week-stat">
+        <div class="label">SOX 周跌幅（7/13-7/17）</div>
+        <div class="value red">-5.5%</div>
+        <div style="color:var(--text-secondary);font-size:0.72rem">12,348 → 11,674</div>
+      </div>
+      <div class="week-stat">
+        <div class="label">VIX 恐慌指数</div>
+        <div class="value orange">18.77</div>
+        <div style="color:var(--text-secondary);font-size:0.72rem">周低15.67 → 周高18.77 (+19.8%)</div>
+      </div>
+    </div>
+    <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:8px;">
+      周五三大指数集体收跌，纳指领跌。芯片板块连续第三个交易日重挫，SOX指数全周从高点回撤近8%。NFLX财报暴雷（-7.3%）加剧科技板块恐慌，VIX升至18.77创周内新高。Google Gemini延迟+AI CAPEX可持续性担忧+伊朗地缘风险三重压制。
+    </p>
+  </div>
+
+  <!-- AI芯片产业链 -->
+  <div class="card">
+    <h2>🔬 AI芯片产业链核心标的（7/17收盘）</h2>
+    <table>
+      <thead>
+        <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>周跌幅</th><th>信号</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="symbol">NVDA<span class="name">英伟达</span></span></td>
+          <td>$202.81</td>
+          <td class="red">-2.21%</td>
+          <td class="red">-4.6%</td>
+          <td><span class="tag tag-down">跌破$205支撑</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">AMD<span class="name">超威半导体</span></span></td>
+          <td>$495.76</td>
+          <td class="red">-1.03%</td>
+          <td class="red">-9.6%</td>
+          <td><span class="tag tag-down">周跌近10%，领跌芯片</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">AVGO<span class="name">博通</span></span></td>
+          <td>$370.83</td>
+          <td class="red">-0.97%</td>
+          <td class="red">-5.9%</td>
+          <td><span class="tag tag-down">AI定制芯片回调</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">MRVL<span class="name">Marvell</span></span></td>
+          <td>$188.68</td>
+          <td class="green">+0.20%</td>
+          <td class="red">-15.2%</td>
+          <td><span class="tag tag-warn">🔴 周跌15%，CAPEX重灾区</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">INTC<span class="name">英特尔</span></span></td>
+          <td>$95.04</td>
+          <td class="red">-2.00%</td>
+          <td class="red">-11.8%</td>
+          <td><span class="tag tag-down">跌破$100，深度承压</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">MU<span class="name">美光</span></span></td>
+          <td>$848.95</td>
+          <td class="red">-0.50%</td>
+          <td class="red">-13.6%</td>
+          <td><span class="tag tag-warn">🔴 HBM叙事遭重创</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">SMCI<span class="name">超微电脑</span></span></td>
+          <td>$24.18</td>
+          <td class="red">-2.03%</td>
+          <td class="red">-12.6%</td>
+          <td><span class="tag tag-down">AI服务器需求疑虑</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">TSM<span class="name">台积电</span></span></td>
+          <td>$398.37</td>
+          <td class="red">-2.77%</td>
+          <td class="red">-5.5%</td>
+          <td><span class="tag tag-down">财报好但见光死</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">ASML<span class="name">阿斯麦</span></span></td>
+          <td>$1,747.58</td>
+          <td class="red">-2.09%</td>
+          <td class="red">-3.2%</td>
+          <td><span class="tag tag-flat">相对抗跌</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">LRCX<span class="name">泛林</span></span></td>
+          <td>$313.30</td>
+          <td class="red">-2.39%</td>
+          <td class="red">-9.5%</td>
+          <td><span class="tag tag-down">设备板块跟跌</span></td>
+        </tr>
+        <tr>
+          <td><span class="symbol">KLAC<span class="name">科磊</span></span></td>
+          <td>$212.75</td>
+          <td class="red">-3.02%</td>
+          <td class="red">-7.6%</td>
+          <td><span class="tag tag-down">设备板块跟跌</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="divider"></div>
+    <div style="color:var(--text-secondary);font-size:0.8rem;">
+      📉 <strong>周度总结：</strong>芯片板块经历2024年以来最惨烈的一周。MRVL周跌-15.2%、MU跌-13.6%、SMCI跌-12.6%、INTC跌-11.8%、AMD跌-9.6%。仅ASML相对抗跌（-3.2%）。SMH半导体ETF周五收$556.53，周跌-7.3%。
+    </div>
+  </div>
+
+  <!-- 科技巨头 -->
+  <div class="card">
+    <h2>🏢 科技巨头与AI应用层（7/17收盘）</h2>
+    <table>
+      <thead>
+        <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>周跌幅</th><th>要点</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="symbol">AAPL<span class="name">苹果</span></span></td>
+          <td>$333.74</td>
+          <td class="green">+0.14%</td>
+          <td class="green">+5.2%</td>
+          <td>🟢 全周逆势上涨，AI手机叙事+避险资金流入</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">MSFT<span class="name">微软</span></span></td>
+          <td>$393.82</td>
+          <td class="red">-1.82%</td>
+          <td class="red">-0.5%</td>
+          <td>相对抗跌，OpenAI股东间接受益Google延迟</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">GOOGL<span class="name">谷歌</span></span></td>
+          <td>$346.77</td>
+          <td class="red">-2.17%</td>
+          <td class="red">-6.5%</td>
+          <td>🔴 Gemini 3.5 Pro推迟，周四-4.4%后周五续跌</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">AMZN<span class="name">亚马逊</span></span></td>
+          <td>$247.23</td>
+          <td class="red">-1.06%</td>
+          <td class="red">-3.0%</td>
+          <td>跟随科技板块回调</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">META<span class="name">Meta</span></span></td>
+          <td>$646.01</td>
+          <td class="red">-2.79%</td>
+          <td class="red">-5.2%</td>
+          <td>AI Safety Index D+ 持续压制情绪</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">TSLA<span class="name">特斯拉</span></span></td>
+          <td>$380.84</td>
+          <td class="red">-2.61%</td>
+          <td class="red">-3.9%</td>
+          <td>跌破$390，消费+科技双重压力</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">NFLX<span class="name">奈飞</span></span></td>
+          <td>$68.95</td>
+          <td class="red">-7.26%</td>
+          <td class="red">-6.6%</td>
+          <td>🔴 财报暴雷！Q3指引miss，暴跌拖累纳指</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">PLTR<span class="name">Palantir</span></span></td>
+          <td>$132.38</td>
+          <td class="red">-1.53%</td>
+          <td class="red">-1.0%</td>
+          <td>AI应用层相对抗跌，PE~140x</td>
+        </tr>
+        <tr>
+          <td><span class="symbol">DELL<span class="name">戴尔</span></span></td>
+          <td>$396.34</td>
+          <td class="green">+1.27%</td>
+          <td class="red">-12.6%</td>
+          <td>周五小幅反弹，但全周从$458跌至$396</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="divider"></div>
+    <div style="color:var(--text-secondary);font-size:0.8rem;">
+      💡 <strong>分化显著：</strong>AAPL全周逆势涨5.2%成避险首选；Google则因AI军备竞赛落后担忧周跌6.5%；NFLX财报炸雷-7.3%是周五最大个股拖累。
+    </div>
+  </div>
+
+  <!-- 盘后与重大事件 -->
+  <div class="card">
+    <h2>🌙 盘后与周末重大事件</h2>
+    <div class="news-item">
+      <span class="news-tag danger">抛售潮</span>
+      <strong>芯片板块遭遇2024年以来最大规模抛售。</strong>SOX指数全周四阴一阳，从7/14高点12,662跌至7/17低点11,674，回撤7.8%。Reuters/Bloomberg/ABC News/Fortune多家主流财经媒体集中报道AI芯片抛售潮。
+    </div>
+    <div class="news-item">
+      <span class="news-tag warn">AI模型</span>
+      <strong>谷歌Gemini 3.5 Pro延迟消息持续发酵。</strong>周四消息引发GOOGL暴跌-4.4%，周五续跌-2.2%，两天蒸发市值近$300B。市场重新审视AI竞争格局——OpenAI/Microsoft优势扩大。
+    </div>
+    <div class="news-item">
+      <span class="news-tag danger">财报</span>
+      <strong>NFLX Q2财报不及预期，Q3指引大幅miss。</strong>周五暴跌-7.26%，从$74.35直接砸到$68.95，成为当日纳指最大权重拖累之一。
+    </div>
+    <div class="news-item">
+      <span class="news-tag warn">CAPEX</span>
+      <strong>AI基础设施投资可持续性遭华尔街全面审视。</strong>MRVL周跌15%成为CAPEX担忧风向标。TSMC上调Capex至$600-640亿被视为"过度投资"信号而非需求信心。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">资金面</span>
+      <strong>杠杆资金被迫平仓加剧抛售。</strong>Reuters报道指出，芯片板块此次回调触发了大量杠杆多头头寸的强制平仓，形成"下跌→平仓→更多下跌"的负反馈螺旋。
+    </div>
+    <div class="news-item">
+      <span class="news-tag warn">地缘</span>
+      <strong>美国-伊朗局势持续紧张</strong>，油价高企压制风险偏好，VIX从周低15.67升至18.77创三周新高。
+    </div>
+  </div>
+
+  <!-- AI产业深度解读 -->
+  <div class="card">
+    <h2>🤖 AI产业深度解读</h2>
+    <div class="news-item">
+      <span class="news-tag warn">核心矛盾</span>
+      <strong>「需求真实 vs 估值过高」是当前AI板块核心矛盾。</strong>TSMC Q2净利润同比+77%、全年指引上调都证明AI需求极为强劲。但估值已充分price in——SOX市盈率处于历史90%分位，任何风吹草动都会触发获利了结。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">竞争格局</span>
+      <strong>AI军备竞赛进入"淘汰赛"阶段。</strong>Google延迟 → Microsoft/OpenAI优势扩大 → 利好MSFT和OpenAI生态。市场开始区分"有护城河的AI"和"纯CAPEX受益的AI"，前者（AAPL/MSFT）抗跌，后者（MRVL/DELL/SMCI）暴跌。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">资金轮动</span>
+      <strong>从硬件向软件/应用层轮动迹象明显。</strong>AAPL全周+5.2%、PLTR仅-1%远优于芯片板块。资金在用脚投票——AI产业链价值正从基础设施层向应用层迁移。这是结构性变化，不是短期回调。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">杠杆风险</span>
+      <strong>杠杆多头集中平仓是抛售放大器。</strong>芯片股一直是杠杆ETF和期权交易的重灾区。本次回调触发Margin Call→强制平仓的负反馈，基本面没有恶化但技术面已破位，短期修复需要时间。
+    </div>
+    <div class="news-item">
+      <span class="news-tag">宏观环境</span>
+      <strong>降息预期 vs 衰退担忧拉锯。</strong>市场对9月降息概率仍维持在70%+，但零售数据+就业数据边际走弱增加了"硬着陆"担忧。科技板块作为久期最长的资产，对利率/衰退预期最敏感。
+    </div>
+  </div>
+
+  <!-- A股映射 -->
+  <div class="card">
+    <h2>🇨🇳 A股映射分析（7月21日周二预判）</h2>
+    <p style="color:var(--text-secondary);font-size:0.82rem;margin-bottom:12px;">周一A股已对周五美股做出反应，以下为周二（7/21）延续性判断。基于周一盘中表现+周末消化。</p>
+    <table class="mapping-table">
+      <thead>
+        <tr><th>美股映射</th><th>A股标的</th><th>逻辑</th><th>今日预判</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SOX周跌-5.5%、SMH-7.3%</td>
+          <td>芯片ETF、半导体板块</td>
+          <td>板块级情绪传导，周一A股已大跌</td>
+          <td><span class="tag tag-warn">🔴 周二延续弱势</span></td>
+        </tr>
+        <tr>
+          <td>NVDA -2.2% / $202</td>
+          <td>寒武纪、海光信息</td>
+          <td>GPU对标；龙头跌破支撑位</td>
+          <td><span class="tag tag-down">偏弱震荡</span></td>
+        </tr>
+        <tr>
+          <td>MRVL -15.2%（周）、MU -13.6%</td>
+          <td>中际旭创、新易盛、天孚通信</td>
+          <td>光模块/CPO；CAPEX担忧最直接映射</td>
+          <td><span class="tag tag-warn">🔴 首当其冲，谨慎抄底</span></td>
+        </tr>
+        <tr>
+          <td>AMD -9.6% / INTC -11.8%</td>
+          <td>龙芯中科、海光信息</td>
+          <td>CPU/GPU对标；情绪传导</td>
+          <td><span class="tag tag-down">弱势震荡</span></td>
+        </tr>
+        <tr>
+          <td>SMCI -12.6% / DELL -12.6%</td>
+          <td>工业富联、浪潮信息、中科曙光</td>
+          <td>AI服务器；需求端担忧</td>
+          <td><span class="tag tag-down">偏弱</span></td>
+        </tr>
+        <tr>
+          <td>TSM -5.5%（Capex上调但跌）</td>
+          <td>中芯国际、华虹半导体</td>
+          <td>晶圆代工对标；"买预期卖事实"</td>
+          <td><span class="tag tag-flat">中性偏弱</span></td>
+        </tr>
+        <tr>
+          <td>ASML -3.2%（相对抗跌）</td>
+          <td>北方华创、中微公司</td>
+          <td>设备端最抗跌；TSMC Capex上调是中期利好</td>
+          <td><span class="tag tag-up">🟢 逢低关注</span></td>
+        </tr>
+        <tr>
+          <td>AAPL +5.2%（全周逆势涨）</td>
+          <td>立讯精密、歌尔股份、蓝思科技</td>
+          <td>果链+AI手机叙事最强方向</td>
+          <td><span class="tag tag-up">🟢 正面映射</span></td>
+        </tr>
+        <tr>
+          <td>GOOGL -6.5%（AI延迟）</td>
+          <td>科大讯飞、商汤、百度</td>
+          <td>国产AI大模型自主可控逻辑强化</td>
+          <td><span class="tag tag-up">🟢 国产替代叙事</span></td>
+        </tr>
+        <tr>
+          <td>PLTR -1%（相对抗跌）</td>
+          <td>金山办公、用友网络</td>
+          <td>AI应用/SaaS端资金偏好</td>
+          <td><span class="tag tag-flat">中性</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="summary-box">
+      <strong>💡 A股AI产业链周二核心判断：</strong><br><br>
+      1️⃣ <strong>🔴 芯片/光模块短期回避</strong>——美股芯片板块经历了2024年以来最惨烈的一周（SOX周跌-5.5%、MRVL-15%、MU-14%），且多家媒体将此次抛售定性为"投资者对AI芯片交易失去信心"。A股芯片/光模块板块周一大概率已跟随大跌，周二延续弱势概率大，不建议急于抄底；<br><br>
+      2️⃣ <strong>🟢 果链是最确定的避风港</strong>——AAPL全周逆势涨+5.2%，AI手机+Vision Pro生态+服务收入增长+避险资金流入四重驱动，立讯/歌尔/蓝思是当前A股AI产业链中最安全的方向；<br><br>
+      3️⃣ <strong>🟢 半导体设备分化中找机会</strong>——ASML仅跌-3.2%远优于板块，TSMC Capex上调$600-640亿对设备是中长期真利好。北方华创、中微公司这轮如果被错杀，是中期布局窗口；<br><br>
+      4️⃣ <strong>🟢 国产AI叙事获得意外催化</strong>——Google AI延迟+美股芯片抛售=资金重新审视"美国AI霸权"叙事，国产AI大模型/算力（寒武纪、科大讯飞）的自主可控逻辑反而强化；<br><br>
+      5️⃣ <strong>⚠️ 杠杆平仓风险需警惕</strong>——Reuters报道确认本次美股芯片抛售触发了杠杆多头平仓的负反馈。A股融资余额同样处于高位，需警惕连锁反应。等待VIX回落到16以下、SOX出现日线阳线后再考虑加仓芯片。短期内"多看少动"。
+    </div>
+  </div>
+
+  <hr>
+  <div class="footer">
+    ⚠️ 免责声明：本报告仅为信息整理与市场映射分析，不构成任何投资建议。数据来源：Yahoo Finance (yfinance)、Google News、Reuters。<br>
+    Generated by Hermes Agent · 2026-07-20 08:00 CST
+  </div>
+</div>
+</body>
+</html>
