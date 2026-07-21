@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-07-21</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --purple: #a371f7;
+    --cyan: #39d2c0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header h1 { font-size: 1.8em; color: #fff; margin-bottom: 6px; }
+  .header .date { color: var(--text-dim); font-size: 0.9em; }
+  .header .subtitle { color: var(--blue); font-size: 0.85em; margin-top: 4px; }
+
+  .highlight-bar {
+    background: linear-gradient(135deg, #1a2332, #0d2137);
+    border: 1px solid #1f6feb33;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-around;
+  }
+  .highlight-item { text-align: center; }
+  .highlight-item .label { font-size: 0.8em; color: var(--text-dim); }
+  .highlight-item .value { font-size: 1.3em; font-weight: 700; color: #fff; }
+  .highlight-item .value.up { color: var(--green); }
+  .highlight-item .value.down { color: var(--red); }
+
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  .section h2 {
+    font-size: 1.15em;
+    color: #fff;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section h2 .icon { margin-right: 6px; }
+
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .index-card {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid var(--border);
+  }
+  .index-card .name { font-size: 0.8em; color: var(--text-dim); }
+  .index-card .price { font-size: 1.2em; font-weight: 700; }
+  .index-card .chg { font-size: 0.95em; font-weight: 600; }
+  .index-card .detail { font-size: 0.75em; color: var(--text-dim); margin-top: 4px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+  th { text-align: left; padding: 8px 10px; color: var(--text-dim); font-weight: 500; font-size: 0.85em; border-bottom: 2px solid var(--border); }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .stock-name { font-weight: 600; color: #e6edf3; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+  .badge-limit { background: #da363322; color: #f85149; }
+  .badge-surge { background: #3fb95022; color: #3fb950; }
+
+  .insight-box {
+    background: linear-gradient(135deg, #1a1e2b, #1a2332);
+    border-left: 3px solid var(--purple);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+  }
+  .insight-box p { margin: 6px 0; font-size: 0.9em; }
+
+  .amplitude-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    margin-top: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .amplitude-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #f85149, #d2991d, #3fb950);
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-dim);
+    font-size: 0.75em;
+    border-top: 1px solid var(--border);
+    margin-top: 30px;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.7em;
+    margin-left: 4px;
+    font-weight: 600;
+  }
+  .tag-hot { background: #f8514922; color: #f85149; }
+  .tag-lead { background: #d2991d22; color: #d2991d; }
+
+  @media (max-width: 600px) {
+    body { padding: 10px; }
+    .highlight-bar { flex-direction: column; gap: 8px; }
+    .index-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 A股盘后总结 · AI产业链深度版</h1>
+  <div class="date">2026年7月21日（周二） 收盘</div>
+  <div class="subtitle">指数窄震 · AI全线爆发 · 半导体/存储/材料三箭齐发</div>
+</div>
+
+<!-- 市场概览 -->
+<div class="highlight-bar">
+  <div class="highlight-item">
+    <div class="label">成交额（估算）</div>
+    <div class="value">2.96万亿</div>
+  </div>
+  <div class="highlight-item">
+    <div class="label">AI产业链标的</div>
+    <div class="value up">15/15 上涨</div>
+  </div>
+  <div class="highlight-item">
+    <div class="label">AI平均涨幅</div>
+    <div class="value up">+11.51%</div>
+  </div>
+  <div class="highlight-item">
+    <div class="label">涨停/逼近涨停</div>
+    <div class="value up">6只</div>
+  </div>
+  <div class="highlight-item">
+    <div class="label">日内振幅中位数</div>
+    <div class="value" style="color:var(--orange)">17.2%</div>
+  </div>
+</div>
+
+<!-- 大盘指数 -->
+<div class="section">
+  <h2><span class="icon">📈</span>大盘指数</h2>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">上证指数</div>
+      <div class="price">3812.16</div>
+      <div class="chg up">+0.42%</div>
+      <div class="detail">开3864 → 低3743 → 高3865</div>
+    </div>
+    <div class="index-card">
+      <div class="name">深证成指</div>
+      <div class="price">13656.09</div>
+      <div class="chg up">+0.34%</div>
+      <div class="detail">开14264 → 低13364 → 高14265</div>
+    </div>
+    <div class="index-card">
+      <div class="name">创业板指</div>
+      <div class="price">3469.22</div>
+      <div class="chg up">+0.76%</div>
+      <div class="detail">开3686 → 低3373 → 高3687</div>
+    </div>
+    <div class="index-card" style="border-color: #a371f744;">
+      <div class="name">科创50 ⭐</div>
+      <div class="price">1747.49</div>
+      <div class="chg up">+1.68%</div>
+      <div class="detail">开1903 → 低1664 → 高1905</div>
+    </div>
+    <div class="index-card">
+      <div class="name">沪深300</div>
+      <div class="price">4630.85</div>
+      <div class="chg up">+0.71%</div>
+      <div class="detail">开4739 → 低4566 → 高4739</div>
+    </div>
+  </div>
+</div>
+
+<!-- AI产业链核心标的 -->
+<div class="section">
+  <h2><span class="icon">🔬</span>AI产业链核心标的 · 涨跌幅一览</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>细分方向</th>
+        <th>标的</th>
+        <th>收盘价</th>
+        <th>涨跌幅</th>
+        <th>日内走势</th>
+        <th>振幅</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="3" style="color:var(--cyan);font-weight:600;">光通信/CPO</td>
+        <td class="stock-name">中际旭创</td>
+        <td>1136.55</td>
+        <td class="up">+13.20%</td>
+        <td style="font-size:0.8em;">开1020→低989→收1137</td>
+        <td style="color:var(--orange);">14.7%</td>
+      </tr>
+      <tr>
+        <td class="stock-name">新易盛</td>
+        <td>551.77</td>
+        <td class="up">+8.19%</td>
+        <td style="font-size:0.8em;">开519→低491→收552</td>
+        <td style="color:var(--orange);">12.4%</td>
+      </tr>
+      <tr>
+        <td class="stock-name">天孚通信</td>
+        <td>230.99</td>
+        <td class="up">+8.17%</td>
+        <td style="font-size:0.8em;">开215→低188→收231</td>
+        <td style="color:var(--red);">20.6%</td>
+      </tr>
+      <tr style="background: rgba(163,113,247,0.05);">
+        <td rowspan="3" style="color:var(--purple);font-weight:600;">存储/HBM <span class="tag tag-lead">领涨</span></td>
+        <td class="stock-name">北京君正</td>
+        <td>168.00</td>
+        <td class="up" style="font-weight:700;">+16.95%</td>
+        <td style="font-size:0.8em;">开150→低136→收168</td>
+        <td style="color:var(--red);font-weight:600;">22.7%</td>
+      </tr>
+      <tr style="background: rgba(163,113,247,0.05);">
+        <td class="stock-name">澜起科技</td>
+        <td>219.59</td>
+        <td class="up" style="font-weight:700;">+15.61%</td>
+        <td style="font-size:0.8em;">开198→低181→收220</td>
+        <td style="color:var(--red);">20.8%</td>
+      </tr>
+      <tr style="background: rgba(163,113,247,0.05);">
+        <td class="stock-name">兆易创新</td>
+        <td>475.53</td>
+        <td class="up">+10.00% <span class="badge badge-limit">涨停</span></td>
+        <td style="font-size:0.8em;">开446→低401→收476</td>
+        <td style="color:var(--orange);">17.2%</td>
+      </tr>
+      <tr>
+        <td rowspan="2" style="color:var(--blue);font-weight:600;">半导体设备</td>
+        <td class="stock-name">中微公司</td>
+        <td>407.88</td>
+        <td class="up" style="font-weight:700;">+19.09% <span class="badge badge-surge">逼近涨停</span></td>
+        <td style="font-size:0.8em;">开353→低341→收408</td>
+        <td style="color:var(--red);">19.8%</td>
+      </tr>
+      <tr>
+        <td class="stock-name">北方华创</td>
+        <td>744.60</td>
+        <td class="up">+10.00% <span class="badge badge-limit">涨停</span></td>
+        <td style="font-size:0.8em;">开699→低678→收745</td>
+        <td style="color:var(--orange);">9.8%</td>
+      </tr>
+      <tr>
+        <td rowspan="2" style="color:var(--green);font-weight:600;">PCB/CCL</td>
+        <td class="stock-name">深南电路</td>
+        <td>350.00</td>
+        <td class="up">+7.90%</td>
+        <td style="font-size:0.8em;">开330→低295→收350</td>
+        <td style="color:var(--orange);">17.8%</td>
+      </tr>
+      <tr>
+        <td class="stock-name">沪电股份</td>
+        <td>122.60</td>
+        <td class="up">+6.59%</td>
+        <td style="font-size:0.8em;">开115→低104→收123</td>
+        <td style="color:var(--orange);">16.6%</td>
+      </tr>
+      <tr>
+        <td rowspan="2" style="color:var(--orange);font-weight:600;">先进封装</td>
+        <td class="stock-name">长电科技</td>
+        <td>84.69</td>
+        <td class="up">+10.00% <span class="badge badge-limit">涨停</span></td>
+        <td style="font-size:0.8em;">开77→低69→收85</td>
+        <td style="color:var(--red);">20.0%</td>
+      </tr>
+      <tr>
+        <td class="stock-name">通富微电</td>
+        <td>69.30</td>
+        <td class="up">+10.00% <span class="badge badge-limit">涨停</span></td>
+        <td style="font-size:0.8em;">开64→低57→收69</td>
+        <td style="color:var(--red);">19.5%</td>
+      </tr>
+      <tr>
+        <td rowspan="2" style="color:#e6edf3;font-weight:600;">AI服务器/液冷</td>
+        <td class="stock-name">浪潮信息</td>
+        <td>88.66</td>
+        <td class="up">+9.07%</td>
+        <td style="font-size:0.8em;">开81→低76→收89</td>
+        <td style="color:var(--orange);">16.1%</td>
+      </tr>
+      <tr>
+        <td class="stock-name">工业富联</td>
+        <td>60.98</td>
+        <td class="up">+7.93%</td>
+        <td style="font-size:0.8em;">开58→低55→收61</td>
+        <td style="color:var(--orange);">11.7%</td>
+      </tr>
+      <tr style="background: rgba(248,81,73,0.05);">
+        <td style="color:var(--red);font-weight:600;">上游材料/MLCC <span class="tag tag-hot">涨停</span></td>
+        <td class="stock-name">国瓷材料</td>
+        <td>59.90</td>
+        <td class="up" style="font-weight:700;">+19.99% <span class="badge badge-limit">涨停</span></td>
+        <td style="font-size:0.8em;">开54→低50→收60(一字)</td>
+        <td style="color:var(--red);">20.0%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 深度洞察 -->
+<div class="section">
+  <h2><span class="icon">💡</span>深度洞察</h2>
+
+  <div class="insight-box">
+    <p><strong>🔹 指数"假平静"与AI"真爆发"</strong></p>
+    <p>三大指数收盘涨幅均不足1%，但AI产业链15只核心标的全线大涨，平均涨幅+11.51%。上证日内从最高3865回落至最低3743（-122点）后V型反弹，非AI板块承压明显——资金从传统权重向AI主线集中调仓。</p>
+  </div>
+
+  <div class="insight-box">
+    <p><strong>🔹 科创50领涨背后的信号</strong></p>
+    <p>科创50收涨+1.68%领跑所有宽基指数，其权重股（中微公司+19%、澜起科技+15.6%）贡献主要涨幅。科创50日内振幅高达14%，从低点1664到收盘1747，午后V反力度极强。</p>
+  </div>
+
+  <div class="insight-box">
+    <p><strong>🔹 领涨三主线：存储、设备、材料</strong></p>
+    <p>① <b>存储/HBM</b>方向最强（北京君正+17%、澜起科技+15.6%、兆易创新涨停），HBM扩产+涨价逻辑持续强化；② <b>半导体设备</b>（中微公司+19%、北方华创涨停），国产替代+扩产周期共振；③ <b>上游材料</b>（国瓷材料涨停20cm），MLCC+电子陶瓷粉体材料进入AI算力硬件供应链。</p>
+  </div>
+
+  <div class="insight-box">
+    <p><strong>🔹 日内V型反转与高振幅</strong></p>
+    <p>所有AI标的日内振幅均超10%（中位数17.2%），北京君正振幅达22.7%。典型走势：早盘高开→10点后恐慌跳水（部分跌超-5%至-10%）→午后强势反转收于全天高位。这种"暴力洗盘"特征显示AI线筹码经历了一轮充分换手，午后多头占据绝对优势。</p>
+  </div>
+
+  <div class="insight-box">
+    <p><strong>🔹 近3万亿成交额的信号</strong></p>
+    <p>全市场成交额约2.96万亿，为近期天量水平。高成交+AI集中爆发=主线共识强化。需关注后续能否持续放量，若缩量则AI内部将分化，设备/材料等基本面更确定的方向可能继续占优。</p>
+  </div>
+
+  <div class="insight-box">
+    <p><strong>🔹 后续关注</strong></p>
+    <p>① 存储/HBM方向能否走出持续行情（关注明日溢价承接力度）；② 半导体设备中微公司+19%是否触发监管关注；③ 国瓷材料（MLCC上游粉体）的AI逻辑是否能从主题切换到业绩验证。短期注意高潮次日的分化风险，但AI产业链中期趋势不变。</p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>⚠️ 以上内容基于公开行情数据整理，仅供参考，不构成任何投资建议。</p>
+  <p>Generated by Hermes Agent · 2026-07-21 15:30 CST</p>
+</div>
+
+</body>
+</html>
