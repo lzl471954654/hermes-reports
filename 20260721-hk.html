@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-07-21</title>
+<style>
+  :root {
+    --bg: #0d1117; --card-bg: #161b22; --border: #30363d;
+    --text: #c9d1d9; --text-secondary: #8b949e; --accent: #58a6ff;
+    --up: #3fb950; --down: #f85149; --warn: #d2991d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; padding: 24px; max-width: 1200px; margin: 0 auto; }
+  .header { text-align: center; padding: 32px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+  .header h1 { font-size: 28px; color: #e6edf3; margin-bottom: 4px; }
+  .header .date { color: var(--text-secondary); font-size: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+  .card h2 { font-size: 16px; color: var(--accent); margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .index-row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px solid rgba(48,54,61,0.5); }
+  .index-row:last-child { border-bottom: none; }
+  .index-name { font-weight: 600; }
+  .index-val { font-size: 20px; font-weight: 700; }
+  .up { color: var(--up); } .down { color: var(--down); }
+  .highlight { background: rgba(63,185,80,0.08); border-left: 3px solid var(--up); }
+  .highlight-down { background: rgba(248,81,73,0.08); border-left: 3px solid var(--down); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 8px 6px; color: var(--text-secondary); font-weight: 600; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  td { padding: 7px 6px; border-bottom: 1px solid rgba(48,54,61,0.4); }
+  tr:hover { background: rgba(88,166,255,0.04); }
+  .tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 600; margin-right: 4px; }
+  .tag-semi { background: #1f6feb22; color: #58a6ff; }
+  .tag-optic { background: #d2991d22; color: #d2991d; }
+  .tag-app { background: #3fb95022; color: #3fb950; }
+  .tag-platform { background: #a371f722; color: #a371f7; }
+  .tag-telecom { background: #f0883e22; color: #f0883e; }
+  .section-title { font-size: 20px; color: #e6edf3; margin: 28px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+  .summary-box { background: linear-gradient(135deg, #1a2332, #161b22); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+  .summary-box p { margin-bottom: 8px; }
+  .flow-positive { color: var(--up); font-weight: 700; }
+  .flow-negative { color: var(--down); font-weight: 700; }
+  .disclaimer { margin-top: 32px; padding: 12px; background: rgba(210,153,29,0.06); border: 1px solid rgba(210,153,29,0.2); border-radius: 6px; font-size: 12px; color: var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 港股收盘总结 · AI产业链深度版</h1>
+  <div class="date">2026年7月21日（星期二） 16:08 HKT</div>
+</div>
+
+<!-- 市场概览 -->
+<div class="summary-box">
+  <h2 style="color:var(--accent);margin-bottom:12px">🔍 今日核心观点</h2>
+  <p><strong>AI半导体全面爆发，港股半导体板块单日暴涨逾10%。</strong>恒指近平收（-0.04%），但科技指数逆势上涨1.32%，AI硬件尤其是晶圆代工/设备环节领涨全场。华虹半导体（+17.64%）、中芯国际（+8.17%）、ASMPT（+6.64%）集体井喷，GX中国半导体ETF单日飙升11.71%。光通信/光学器件板块同步走强，反映市场对AI算力基建扩张的强烈预期。互联网平台分化，阿里巴巴、京东微涨，美团、百度承压。</p>
+</div>
+
+<!-- 三大指数 -->
+<div class="grid-3">
+  <div class="card">
+    <h2>恒生指数 HSI</h2>
+    <div class="index-row">
+      <span class="index-name">收盘</span>
+      <span class="index-val">25,150.54</span>
+    </div>
+    <div class="index-row">
+      <span>涨跌</span>
+      <span class="down">-10.76 (-0.04%)</span>
+    </div>
+    <div class="index-row"><span>最高</span><span>25,253.65</span></div>
+    <div class="index-row"><span>最低</span><span>24,991.39</span></div>
+    <div class="index-row"><span>成交额</span><span>135.78亿 HKD</span></div>
+  </div>
+  <div class="card highlight">
+    <h2>恒生科技指数 HSTECH</h2>
+    <div class="index-row">
+      <span class="index-name">收盘</span>
+      <span class="index-val">4,755.66</span>
+    </div>
+    <div class="index-row">
+      <span>涨跌</span>
+      <span class="up">+62.68 (+1.32%)</span>
+    </div>
+    <div class="index-row"><span>最高</span><span>4,844.10</span></div>
+    <div class="index-row"><span>最低</span><span>4,730.15</span></div>
+    <div class="index-row"><span>成交额</span><span>18.60亿 HKD</span></div>
+  </div>
+  <div class="card">
+    <h2>恒生国企指数 HSCEI</h2>
+    <div class="index-row">
+      <span class="index-name">收盘</span>
+      <span class="index-val">8,381.19</span>
+    </div>
+    <div class="index-row">
+      <span>涨跌</span>
+      <span class="down">-21.22 (-0.25%)</span>
+    </div>
+    <div class="index-row"><span>最高</span><span>8,417.81</span></div>
+    <div class="index-row"><span>最低</span><span>8,312.20</span></div>
+    <div class="index-row"><span>成交额</span><span>25.16亿 HKD</span></div>
+  </div>
+</div>
+
+<!-- 半导体制造/设备 —— 今日主角 -->
+<h2 class="section-title">🔥 半导体制造 & 设备 — 今日最强主线</h2>
+<div class="card highlight" style="margin-bottom:16px">
+  <p style="color:var(--up);font-size:14px;margin-bottom:8px"><strong>💡 板块逻辑：</strong>国产替代加速 + AI芯片需求持续攀升，推动港股半导体代工/设备估值重估。华虹、中芯双双创阶段新高，GX中国半导体 ETF (03191) 单日暴涨 11.71%，资金集中涌入信号明确。</p>
+</div>
+<table>
+  <thead>
+    <tr><th>代码</th><th>名称</th><th>细分</th><th>收盘价</th><th>涨跌幅</th><th>成交额(HKD)</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01347</td><td>华虹半导体</td><td><span class="tag tag-semi">晶圆代工</span></td>
+      <td><strong>168.10</strong></td>
+      <td class="up">+17.64% 🚀</td><td>113.75亿</td>
+    </tr>
+    <tr>
+      <td>00981</td><td>中芯国际</td><td><span class="tag tag-semi">晶圆代工</span></td>
+      <td><strong>75.45</strong></td>
+      <td class="up">+8.17% 🔥</td><td>131.85亿</td>
+    </tr>
+    <tr>
+      <td>00522</td><td>ASMPT</td><td><span class="tag tag-semi">封装设备</span></td>
+      <td><strong>171.90</strong></td>
+      <td class="up">+6.64% 🔥</td><td>7.68亿</td>
+    </tr>
+    <tr>
+      <td>03191</td><td>GX中国半导体 ETF</td><td><span class="tag tag-semi">板块ETF</span></td>
+      <td><strong>100.20</strong></td>
+      <td class="up">+11.71% 🔥</td><td>0.75亿</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 光通信 & 光学器件 -->
+<h2 class="section-title">📡 AI硬件：光通信 & 光学器件</h2>
+<table>
+  <thead>
+    <tr><th>代码</th><th>名称</th><th>细分</th><th>收盘价</th><th>涨跌幅</th><th>成交额(HKD)</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>02382</td><td>舜宇光学科技</td><td><span class="tag tag-optic">手机光学</span></td>
+      <td><strong>57.35</strong></td><td class="up">+4.65%</td><td>9.20亿</td>
+    </tr>
+    <tr>
+      <td>01415</td><td>高伟电子</td><td><span class="tag tag-optic">光学模组</span></td>
+      <td><strong>22.24</strong></td><td class="up">+3.44%</td><td>1.19亿</td>
+    </tr>
+    <tr>
+      <td>06088</td><td>鸿腾精密</td><td><span class="tag tag-telecom">连接器</span></td>
+      <td><strong>5.56</strong></td><td class="up">+3.15%</td><td>1.46亿</td>
+    </tr>
+    <tr>
+      <td>01478</td><td>丘钛科技</td><td><span class="tag tag-optic">摄像头模组</span></td>
+      <td><strong>6.93</strong></td><td class="up">+2.97%</td><td>0.43亿</td>
+    </tr>
+    <tr>
+      <td>02018</td><td>瑞声科技</td><td><span class="tag tag-optic">声学/光学</span></td>
+      <td><strong>39.42</strong></td><td class="up">+1.23%</td><td>2.05亿</td>
+    </tr>
+    <tr>
+      <td>00763</td><td>中兴通讯</td><td><span class="tag tag-telecom">通信设备</span></td>
+      <td><strong>24.40</strong></td><td class="up">+4.01%</td><td>5.72亿</td>
+    </tr>
+    <tr>
+      <td>00285</td><td>比亚迪电子</td><td><span class="tag tag-optic">EMS/结构件</span></td>
+      <td><strong>23.76</strong></td><td class="down">-1.57%</td><td>5.82亿</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- AI应用 / SaaS -->
+<h2 class="section-title">🤖 AI应用 & 企业服务</h2>
+<table>
+  <thead>
+    <tr><th>代码</th><th>名称</th><th>细分</th><th>收盘价</th><th>涨跌幅</th><th>成交额(HKD)</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>03738</td><td>阜博集团</td><td><span class="tag tag-app">AI版权保护</span></td>
+      <td><strong>2.44</strong></td><td class="up">+7.97% 🔥</td><td>0.71亿</td>
+    </tr>
+    <tr>
+      <td>00020</td><td>商汤-W</td><td><span class="tag tag-app">AI大模型</span></td>
+      <td><strong>1.40</strong></td><td class="up">+2.94%</td><td>8.02亿</td>
+    </tr>
+    <tr>
+      <td>03888</td><td>金山软件</td><td><span class="tag tag-app">AI办公/WPS</span></td>
+      <td><strong>25.20</strong></td><td class="up">+2.77%</td><td>2.38亿</td>
+    </tr>
+    <tr>
+      <td>02158</td><td>医渡科技</td><td><span class="tag tag-app">AI医疗</span></td>
+      <td><strong>4.92</strong></td><td class="up">+2.71%</td><td>0.16亿</td>
+    </tr>
+    <tr>
+      <td>02013</td><td>微盟集团</td><td><span class="tag tag-app">AI营销SaaS</span></td>
+      <td><strong>1.20</strong></td><td class="up">+2.56%</td><td>0.29亿</td>
+    </tr>
+    <tr>
+      <td>00268</td><td>金蝶国际</td><td><span class="tag tag-app">ERP/AI云</span></td>
+      <td><strong>7.26</strong></td><td class="up">+1.97%</td><td>2.11亿</td>
+    </tr>
+    <tr>
+      <td>02121</td><td>创新奇智</td><td><span class="tag tag-app">工业AI</span></td>
+      <td><strong>3.83</strong></td><td class="up">+1.59%</td><td>0.01亿</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 互联网平台 -->
+<h2 class="section-title">🌐 互联网平台 — 分化格局</h2>
+<table>
+  <thead>
+    <tr><th>代码</th><th>名称</th><th>细分</th><th>收盘价</th><th>涨跌幅</th><th>成交额(HKD)</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>06618</td><td>京东健康</td><td><span class="tag tag-platform">在线医疗</span></td>
+      <td><strong>38.78</strong></td><td class="up">+1.31%</td><td>2.39亿</td>
+    </tr>
+    <tr>
+      <td>09618</td><td>京东集团-SW</td><td><span class="tag tag-platform">电商</span></td>
+      <td><strong>121.50</strong></td><td class="up">+1.25%</td><td>16.23亿</td>
+    </tr>
+    <tr>
+      <td>09988</td><td>阿里巴巴-W</td><td><span class="tag tag-platform">电商/云</span></td>
+      <td><strong>117.10</strong></td><td class="up">+0.26%</td><td>110.84亿</td>
+    </tr>
+    <tr>
+      <td>00700</td><td>腾讯控股</td><td><span class="tag tag-platform">社交/游戏</span></td>
+      <td><strong>474.60</strong></td><td class="down">-0.67%</td><td>93.79亿</td>
+    </tr>
+    <tr>
+      <td>01024</td><td>快手-W</td><td><span class="tag tag-platform">短视频</span></td>
+      <td><strong>44.96</strong></td><td class="down">-0.66%</td><td>12.34亿</td>
+    </tr>
+    <tr>
+      <td>09961</td><td>携程集团-S</td><td><span class="tag tag-platform">在线旅游</span></td>
+      <td><strong>347.00</strong></td><td class="down">-0.91%</td><td>9.77亿</td>
+    </tr>
+    <tr>
+      <td>01810</td><td>小米集团-W</td><td><span class="tag tag-platform">智能硬件</span></td>
+      <td><strong>27.44</strong></td><td class="down">-1.08%</td><td>40.91亿</td>
+    </tr>
+    <tr>
+      <td>09999</td><td>网易</td><td><span class="tag tag-platform">游戏</span></td>
+      <td><strong>208.40</strong></td><td class="down">-1.23%</td><td>12.95亿</td>
+    </tr>
+    <tr>
+      <td>03690</td><td>美团-W</td><td><span class="tag tag-platform">本地生活</span></td>
+      <td><strong>85.15</strong></td><td class="down">-1.33%</td><td>25.91亿</td>
+    </tr>
+    <tr>
+      <td>09888</td><td>百度集团-SW</td><td><span class="tag tag-platform">搜索/AI</span></td>
+      <td><strong>106.90</strong></td><td class="down">-2.11%</td><td>9.00亿</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 资金面 & ETF -->
+<div class="grid-2" style="margin-top:24px">
+  <div class="card">
+    <h2>📈 科技ETF表现</h2>
+    <table>
+      <tr><td>南方恒生科技 (03033)</td><td class="up">+1.51%</td><td>成交 197.08亿</td></tr>
+      <tr><td>XL二南方恒科 (07226)</td><td class="up">+2.63%</td><td>成交 9.55亿</td></tr>
+      <tr><td>安硕恒生科技 (03067)</td><td class="up">+1.30%</td><td>成交 3.48亿</td></tr>
+      <tr><td>GX中国半导体 (03191)</td><td class="up" style="font-weight:700">+11.71%</td><td>成交 0.75亿</td></tr>
+      <tr><td>GX中国云算 (09826)</td><td class="up">+0.69%</td><td>成交 5826</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h2>🏷️ 板块轮动总结</h2>
+    <table>
+      <tr><td>🔴 <strong>半导体制造</strong></td><td class="up" style="font-size:14px;font-weight:700">+10~18%</td><td>今日最强</td></tr>
+      <tr><td>🟠 <strong>半导体设备</strong></td><td class="up">+6.6%</td><td>跟涨</td></tr>
+      <tr><td>🟡 <strong>光通信/光学</strong></td><td class="up">+2~5%</td><td>AI 算力溢出</td></tr>
+      <tr><td>🟢 <strong>AI应用/SaaS</strong></td><td class="up">+2~8%</td><td>普遍走强</td></tr>
+      <tr><td>🔵 <strong>互联网平台</strong></td><td class="down">-2~+1%</td><td>分化明显</td></tr>
+      <tr><td>⚪ <strong>通信设备</strong></td><td class="up">+4%</td><td>中兴领涨</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 今日最强/最弱 -->
+<div class="grid-2" style="margin-top:16px">
+  <div class="card highlight">
+    <h2>🚀 今日 AI 产业链最强 TOP 5</h2>
+    <table>
+      <tr><td style="width:80px"><strong>01347</strong></td><td>华虹半导体</td><td class="up" style="font-weight:700">+17.64%</td></tr>
+      <tr><td><strong>03191</strong></td><td>GX中国半导体</td><td class="up" style="font-weight:700">+11.71%</td></tr>
+      <tr><td><strong>00981</strong></td><td>中芯国际</td><td class="up" style="font-weight:700">+8.17%</td></tr>
+      <tr><td><strong>03738</strong></td><td>阜博集团</td><td class="up" style="font-weight:700">+7.97%</td></tr>
+      <tr><td><strong>00522</strong></td><td>ASMPT</td><td class="up" style="font-weight:700">+6.64%</td></tr>
+    </table>
+  </div>
+  <div class="card highlight-down">
+    <h2>📉 今日 AI 产业链最弱 TOP 5</h2>
+    <table>
+      <tr><td style="width:80px"><strong>09888</strong></td><td>百度集团</td><td class="down" style="font-weight:700">-2.11%</td></tr>
+      <tr><td><strong>00285</strong></td><td>比亚迪电子</td><td class="down" style="font-weight:700">-1.57%</td></tr>
+      <tr><td><strong>03690</strong></td><td>美团</td><td class="down" style="font-weight:700">-1.33%</td></tr>
+      <tr><td><strong>09999</strong></td><td>网易</td><td class="down" style="font-weight:700">-1.23%</td></tr>
+      <tr><td><strong>01810</strong></td><td>小米集团</td><td class="down" style="font-weight:700">-1.08%</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免责声明：</strong>本报告基于公开市场数据自动生成，仅供信息参考，不构成任何投资建议。数据来源：Sina Finance、EastMoney。市场有风险，投资需谨慎。过往表现不代表未来收益。
+</div>
+
+</body>
+</html>
