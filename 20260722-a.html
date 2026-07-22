@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-07-22</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    color: #f0f6fc;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .header .date {
+    color: #8b949e;
+    font-size: 0.9rem;
+    margin-top: 6px;
+  }
+  .header .sub { color: #58a6ff; font-size: 0.85rem; margin-top: 4px; }
+
+  /* Index Cards */
+  .index-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .idx-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+  }
+  .idx-card .name { color: #8b949e; font-size: 0.85rem; }
+  .idx-card .val  { font-size: 1.5rem; font-weight: 700; color: #f0f6fc; margin: 6px 0 2px; }
+  .idx-card .chg  { font-size: 0.95rem; }
+  .idx-card .vol  { color: #6e7681; font-size: 0.78rem; margin-top: 6px; }
+  .down { color: #f85149; }
+  .up   { color: #3fb950; }
+
+  /* Summary Box */
+  .summary-box {
+    background: linear-gradient(135deg, #1a1f2b 0%, #161b22 100%);
+    border: 1px solid #30363d;
+    border-left: 4px solid #58a6ff;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+  }
+  .summary-box p { color: #c9d1d9; font-size: 0.92rem; margin: 4px 0; }
+
+  /* Sector Table */
+  .sector-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin: 28px 0 14px;
+    padding-left: 10px;
+    border-left: 3px solid #58a6ff;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+  }
+  thead th {
+    text-align: left;
+    padding: 8px 12px;
+    background: #161b22;
+    color: #8b949e;
+    font-weight: 600;
+    font-size: 0.78rem;
+    border-bottom: 1px solid #30363d;
+    position: sticky; top: 0;
+  }
+  tbody td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #21262d;
+    vertical-align: middle;
+  }
+  tbody tr:hover { background: #1a1f2b; }
+  .stock-code { color: #8b949e; font-size: 0.78rem; margin-left: 6px; }
+  .stock-name { color: #f0f6fc; font-weight: 600; }
+  .price { color: #c9d1d9; font-variant-numeric: tabular-nums; }
+  .chg-pct { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .chg-pct.down { color: #f85149; }
+  .chg-pct.up   { color: #3fb950; }
+  .turnover { color: #6e7681; font-size: 0.8rem; }
+
+  /* Section divider */
+  .section { margin-bottom: 10px; }
+  .section .label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .label-hot   { background: rgba(248,81,73,0.15); color: #f85149; }
+  .label-mixed { background: rgba(88,166,255,0.15); color: #58a6ff; }
+  .label-cool  { background: rgba(63,185,80,0.15); color: #3fb950; }
+
+  /* Insights */
+  .insights {
+    margin-top: 28px;
+    padding: 18px 22px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+  }
+  .insights h3 { color: #f0f6fc; font-size: 1rem; margin-bottom: 12px; }
+  .insights ul { list-style: none; padding: 0; }
+  .insights li {
+    padding: 6px 0 6px 18px;
+    color: #c9d1d9;
+    font-size: 0.88rem;
+    position: relative;
+    border-bottom: 1px solid #21262d;
+  }
+  .insights li:last-child { border-bottom: none; }
+  .insights li::before { content: "▸"; position: absolute; left: 0; color: #58a6ff; }
+
+  .footer {
+    text-align: center;
+    color: #484f58;
+    font-size: 0.72rem;
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid #21262d;
+  }
+
+  @media (max-width: 640px) {
+    .index-row { grid-template-columns: 1fr; }
+    body { padding: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 A股盘后总结 · AI产业链深度版</h1>
+  <div class="date">2026年7月22日（周三）· 收盘</div>
+  <div class="sub">聚焦：光通信/CPO · 存储/HBM · 半导体设备 · PCB/CCL · MLCC · 先进封装 · 上游材料 · AI服务器/液冷</div>
+</div>
+
+<!-- 三大指数 -->
+<div class="index-row">
+  <div class="idx-card">
+    <div class="name">上证指数</div>
+    <div class="val">3,839.67</div>
+    <div class="chg down">▼ 24.70（-0.64%）</div>
+    <div class="vol">成交 1.26万亿</div>
+  </div>
+  <div class="idx-card">
+    <div class="name">深证成指</div>
+    <div class="val">14,169.97</div>
+    <div class="chg down">▼ 94.32（-0.66%）</div>
+    <div class="vol">成交 1.40万亿</div>
+  </div>
+  <div class="idx-card">
+    <div class="name">创业板指</div>
+    <div class="val">3,644.98</div>
+    <div class="chg down">▼ 40.99（-1.11%）</div>
+    <div class="vol">成交 6,398亿</div>
+  </div>
+</div>
+
+<div class="summary-box">
+  <p>🔴 <strong>今日全市场成交合计约 2.66万亿</strong>，三大指数集体收跌，创业板跌幅靠前。</p>
+  <p>⚡ AI产业链经历剧烈分化：光通信/CPO全线重挫，存储方向大幅回调，先进封装逆势走强，半导体设备内部分化显著——资金从高估值算力基建向封测/设备环节轮动。</p>
+</div>
+
+<!-- 光通信 / CPO -->
+<div class="section"><span class="label label-hot">光通信 / CPO</span></div>
+<table>
+  <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr></thead>
+  <tbody>
+    <tr><td><span class="stock-name">新易盛</span><span class="stock-code">300502</span></td><td class="price">508.80</td><td class="chg-pct down">-7.79%</td><td class="turnover">332.3亿</td></tr>
+    <tr><td><span class="stock-name">中际旭创</span><span class="stock-code">300308</span></td><td class="price">1,060.80</td><td class="chg-pct down">-6.66%</td><td class="turnover">405.6亿</td></tr>
+    <tr><td><span class="stock-name">源杰科技</span><span class="stock-code">688498</span></td><td class="price">1,415.00</td><td class="chg-pct down">-6.29%</td><td class="turnover">113.6亿</td></tr>
+    <tr><td><span class="stock-name">天孚通信</span><span class="stock-code">300394</span></td><td class="price">217.63</td><td class="chg-pct down">-5.79%</td><td class="turnover">9.5亿</td></tr>
+  </tbody>
+</table>
+
+<!-- 存储 / HBM -->
+<div class="section"><span class="label label-hot">存储 / HBM</span></div>
+<table>
+  <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr></thead>
+  <tbody>
+    <tr><td><span class="stock-name">佰维存储</span><span class="stock-code">688525</span></td><td class="price">248.28</td><td class="chg-pct down">-8.37%</td><td class="turnover">123.7亿</td></tr>
+    <tr><td><span class="stock-name">兆易创新</span><span class="stock-code">603986</span></td><td class="price">470.00</td><td class="chg-pct down">-1.16%</td><td class="turnover">368.3亿</td></tr>
+  </tbody>
+</table>
+
+<!-- PCB / CCL -->
+<div class="section"><span class="label label-hot">PCB / CCL</span></div>
+<table>
+  <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr></thead>
+  <tbody>
+    <tr><td><span class="stock-name">沪电股份</span><span class="stock-code">002463</span></td><td class="price">114.23</td><td class="chg-pct down">-6.83%</td><td class="turnover">92.5亿</td></tr>
+    <tr><td><span class="stock-name">深南电路</span><span class="stock-code">002916</span></td><td class="price">337.98</td><td class="chg-pct down">-3.43%</td><td class="turnover">44.1亿</td></tr>
+    <tr><td><span class="stock-name">胜宏科技</span><span class="stock-code">300476</span></td><td class="price">240.40</td><td class="chg-pct up">+0.05%</td><td class="turnover">101.0亿</td></tr>
+  </tbody>
+</table>
+
+<!-- 先进封装 -->
+<div class="section"><span class="label label-cool">先进封装</span></div>
+<table>
+  <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr></thead>
+  <tbody>
+    <tr><td><span class="stock-name">通富微电</span><span class="stock-code">002156</span></td><td class="price">74.90</td><td class="chg-pct up">+8.08%</td><td class="turnover">186.4亿</td></tr>
+    <tr><td><span class="stock-name">长电科技</span><span class="stock-code">600584</span></td><td class="price">85.78</td><td class="chg-pct up">+1.29%</td><td class="turnover">224.5亿</td></tr>
+  </tbody>
+</table>
+
+<!-- 半导体设备 -->
+<div class="section"><span class="label label-mixed">半导体设备</span></div>
+<table>
+  <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr></thead>
+  <tbody>
+    <tr><td><span class="stock-name">拓荆科技</span><span class="stock-code">688072</span></td><td class="price">791.08</td><td class="chg-pct up">+3.48%</td><td class="turnover">90.0亿</td></tr>
+    <tr><td><span class="stock-name">北方华创</span><span class="stock-code">002371</span></td><td class="price">764.00</td><td class="chg-pct up">+2.61%</td><td class="turnover">175.0亿</td></tr>
+    <tr><td><span class="stock-name">中微公司</span><span class="stock-code">688012</span></td><td class="price">392.99</td><td class="chg-pct down">-3.65%</td><td class="turnover">137.3亿</td></tr>
+  </tbody>
+</table>
+
+<!-- AI芯片 / 算力 -->
+<div class="section"><span class="label label-mixed">AI芯片 / 算力</span></div>
+<table>
+  <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr></thead>
+  <tbody>
+    <tr><td><span class="stock-name">紫光国微</span><span class="stock-code">002049</span></td><td class="price">66.24</td><td class="chg-pct up">+1.47%</td><td class="turnover">2.9亿</td></tr>
+    <tr><td><span class="stock-name">龙芯中科</span><span class="stock-code">688047</span></td><td class="price">114.03</td><td class="chg-pct down">-2.93%</td><td class="turnover">0.8亿</td></tr>
+    <tr><td><span class="stock-name">寒武纪</span><span class="stock-code">688256</span></td><td class="price">1,310.00</td><td class="chg-pct down">-2.96%</td><td class="turnover">17.8亿</td></tr>
+  </tbody>
+</table>
+
+<!-- AI服务器 / 液冷 -->
+<div class="section"><span class="label label-mixed">AI服务器 / 液冷</span></div>
+<table>
+  <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr></thead>
+  <tbody>
+    <tr><td><span class="stock-name">浪潮信息</span><span class="stock-code">000977</span></td><td class="price">90.47</td><td class="chg-pct up">+2.04%</td><td class="turnover">176.9亿</td></tr>
+    <tr><td><span class="stock-name">工业富联</span><span class="stock-code">601138</span></td><td class="price">60.71</td><td class="chg-pct down">-0.44%</td><td class="turnover">97.6亿</td></tr>
+  </tbody>
+</table>
+
+<!-- MLCC / 上游材料 -->
+<div class="section"><span class="label label-hot">MLCC / 上游材料</span></div>
+<table>
+  <thead><tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr></thead>
+  <tbody>
+    <tr><td><span class="stock-name">三环集团</span><span class="stock-code">300408</span></td><td class="price">102.98</td><td class="chg-pct down">-4.24%</td><td class="turnover">93.8亿</td></tr>
+    <tr><td><span class="stock-name">沪硅产业</span><span class="stock-code">688126</span></td><td class="price">26.60</td><td class="chg-pct down">-3.90%</td><td class="turnover">37.1亿</td></tr>
+    <tr><td><span class="stock-name">卓胜微</span><span class="stock-code">300782</span></td><td class="price">74.07</td><td class="chg-pct down">-2.20%</td><td class="turnover">1.3亿</td></tr>
+  </tbody>
+</table>
+
+<!-- 深度分析 -->
+<div class="insights">
+  <h3>🔍 今日核心观察</h3>
+  <ul>
+    <li><strong>CPO/光通信成重灾区：</strong>新易盛-7.79%、中际旭创-6.66%领跌，板块前期累计涨幅巨大，获利盘集中兑现。但成交额仍维持高位（旭创超400亿、新易盛超330亿），多空分歧激烈，需关注明后两日能否企稳。</li>
+    <li><strong>先进封装逆势爆发：</strong>通富微电+8.08%一枝独秀，长电科技跟涨+1.29%。Chiplet/先进封装作为AI芯片扩产的刚性需求环节，获得资金青睐，成为今日AI链最强分支。</li>
+    <li><strong>设备端结构性行情：</strong>拓荆科技+3.48%、北方华创+2.61%逆势收红，与中微公司-3.65%形成鲜明对比。资金在设备板块内部择优，薄膜沉积刻蚀方向优于其他环节。</li>
+    <li><strong>算力硬件整体承压：</strong>沪电股份-6.83%、佰维存储-8.37%，算力基建链（PCB+存储）与CPO同步回调。市场对AI硬件估值出现重新定价迹象。</li>
+    <li><strong>风格切换信号：</strong>高PE的CPO/存储杀跌 vs 相对低位的封测/设备补涨，市场结构呈现"高低切"特征。需警惕若CPO继续下杀是否引发系统性调整。</li>
+  </ul>
+</div>
+
+<div class="footer">
+  Hermes Agent · A股AI产业链盘后总结 · 数据来源：新浪行情 / 东方财富 · 仅供参考，不构成投资建议
+</div>
+
+</body>
+</html>
