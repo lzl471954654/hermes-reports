@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏋️ 健身&饮食日报 | 2026-07-24 周五</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: #0d1b2a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 24px 0 16px;
+    border-bottom: 2px solid #1b3a4b;
+    margin-bottom: 20px;
+  }
+  .header h1 { font-size: 1.5em; color: #4fc3f7; margin-bottom: 4px; }
+  .header .date { font-size: 0.85em; color: #78909c; }
+  .header .day-tag {
+    display: inline-block;
+    background: #1b3a4b;
+    color: #4fc3f7;
+    border-radius: 12px;
+    padding: 2px 12px;
+    font-size: 0.8em;
+    margin-top: 8px;
+  }
+
+  .overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .card {
+    background: #112233;
+    border: 1px solid #1b3a4b;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+  }
+  .card .label { font-size: 0.75em; color: #78909c; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card .value { font-size: 1.6em; font-weight: 700; color: #4fc3f7; }
+  .card .unit { font-size: 0.7em; color: #546e7a; }
+  .card.warn { border-color: #ff7043; }
+  .card.warn .value { color: #ff7043; }
+
+  .member-section {
+    background: #112233;
+    border: 1px solid #1b3a4b;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .member-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1b3a4b;
+  }
+  .member-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #1b3a4b;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2em;
+  }
+  .member-name { font-size: 1.1em; font-weight: 600; color: #fff; }
+  .member-meta { font-size: 0.75em; color: #78909c; }
+  .no-record {
+    color: #546e7a;
+    font-style: italic;
+    font-size: 0.9em;
+    padding: 12px 0;
+    text-align: center;
+    border: 1px dashed #1b3a4b;
+    border-radius: 8px;
+    margin: 8px 0;
+  }
+  .subsection { margin: 12px 0; }
+  .subsection-title {
+    font-size: 0.8em;
+    color: #4fc3f7;
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 0.85em;
+    border-bottom: 1px solid #0d1b2a;
+  }
+  .stat-label { color: #78909c; }
+  .stat-value { color: #e0e0e0; font-weight: 500; }
+
+  .integrity {
+    background: #112233;
+    border: 1px solid #1b3a4b;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 16px;
+  }
+  .integrity h3 { font-size: 0.85em; color: #4fc3f7; margin-bottom: 8px; }
+  .integrity p { font-size: 0.8em; color: #78909c; line-height: 1.5; }
+  .integrity .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin: 2px;
+  }
+  .badge.warn { background: #3e2723; color: #ffab91; }
+  .badge.info { background: #1b3a4b; color: #4fc3f7; }
+
+  .footer {
+    text-align: center;
+    font-size: 0.7em;
+    color: #455a64;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #1b3a4b;
+  }
+  .tip {
+    background: #1b3a4b;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 0.8em;
+    color: #b0bec5;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  .tip::before { content: '💡 '; }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid #1b3a4b;
+    margin: 10px 0;
+  }
+
+  .emoji { font-size: 1.1em; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏋️ 健身 & 饮食日报</h1>
+  <div class="date">2026 年 7 月 24 日 · 星期五</div>
+  <div class="day-tag">第 30 周</div>
+</div>
+
+<!-- 概览卡片 -->
+<div class="overview">
+  <div class="card">
+    <div class="label">👥 记录人数</div>
+    <div class="value">0<span class="unit">/3</span></div>
+  </div>
+  <div class="card">
+    <div class="label">🏋️ 今日训练</div>
+    <div class="value">0<span class="unit">人</span></div>
+  </div>
+  <div class="card">
+    <div class="label">🔥 最高消耗</div>
+    <div class="value">—<span class="unit"> kcal</span></div>
+  </div>
+  <div class="card warn">
+    <div class="label">⚠️ 缺口警告</div>
+    <div class="value">—</div>
+  </div>
+</div>
+
+<!-- 成员分区 -->
+
+<!-- 智林 -->
+<div class="member-section">
+  <div class="member-header">
+    <div class="member-avatar">🧔</div>
+    <div>
+      <div class="member-name">智林</div>
+      <div class="member-meta">185cm · 93.5kg · 减脂中</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🏋️ 训练</div>
+    <div class="no-record">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🍽️ 饮食</div>
+    <div class="no-record">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">📊 身体状态</div>
+    <div class="no-record">今日未记录</div>
+  </div>
+
+  <div class="tip">上次记录：7/15 麻辣香锅午餐（895 kcal，蛋白 122g）。已 9 天未更新，记得补上这几天的训练和饮食呀～</div>
+</div>
+
+<!-- Monkiki -->
+<div class="member-section">
+  <div class="member-header">
+    <div class="member-avatar">🐱</div>
+    <div>
+      <div class="member-name">Monkiki</div>
+      <div class="member-meta">170cm · ~70kg · 减脂中（目标 65-67.5kg）</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🏋️ 训练</div>
+    <div class="no-record">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🍽️ 饮食</div>
+    <div class="no-record">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">📊 身体状态</div>
+    <div class="no-record">今日未记录</div>
+  </div>
+
+  <div class="tip">上次记录：7/20 力量训练 64min（345 kcal）+ 家常四菜（645 kcal）。已 4 天未更新～</div>
+</div>
+
+<!-- Ckddd -->
+<div class="member-section">
+  <div class="member-header">
+    <div class="member-avatar">💪</div>
+    <div>
+      <div class="member-name">Ckddd</div>
+      <div class="member-meta">~64kg · 增肌中 · 体脂 ~14.6%</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🏋️ 训练</div>
+    <div class="no-record">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">🍽️ 饮食</div>
+    <div class="no-record">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">📊 身体状态</div>
+    <div class="no-record">今日未记录</div>
+  </div>
+
+  <div class="tip">上次记录：7/8 燕麦+水煮蛋+冰美式（265 kcal）。已 16 天未更新，Ckddd 快回来！🥲</div>
+</div>
+
+<!-- 群内提醒 -->
+<div class="member-section" style="border-color: #ff7043;">
+  <div class="member-header" style="border-color: #3e2723;">
+    <div class="member-avatar" style="background:#3e2723;">📢</div>
+    <div>
+      <div class="member-name">群内提醒</div>
+      <div class="member-meta">一个都不能少</div>
+    </div>
+  </div>
+  <div style="font-size: 0.85em; color: #b0bec5; line-height: 1.7;">
+    <p>📸 <strong>发图即记录</strong>：拍了餐照 / 训练截图丢到群里，Agent 会自动结构化归档到本地 md 文件，日报就不用写「暂无记录」了 😅</p>
+    <p style="margin-top:8px;">📝 也可以直接 @ Agent 口述：「午餐麻辣香锅 400g 鸡胸+鱼」「肩训 50 分钟」，一样能记录。</p>
+    <p style="margin-top:8px;">🔗 日报归档：<code style="background:#0d1b2a;padding:2px 6px;border-radius:4px;font-size:0.9em;">/home/lzl/fitness_logs/</code></p>
+  </div>
+</div>
+
+<!-- 数据完整度 -->
+<div class="integrity">
+  <h3>📋 数据完整度</h3>
+  <p>
+    <span class="badge warn">⚠️ 群聊不可用</span>
+    <span class="badge info">MD 文件正常</span>
+  </p>
+  <p style="margin-top:10px;">
+    今日日报 <strong>仅基于本地 MD 文件</strong> 生成。Discord #fitness 频道会话搜索工具在当前环境中不可用，群聊中的口头记录未能纳入统计。如群内有当日有效记录，请手动补充到 MD 文件或重新触发日报生成。
+  </p>
+  <p style="margin-top:8px;">
+    本地文件覆盖：<strong>3/3</strong> 名成员均无当日记录。
+  </p>
+</div>
+
+<div class="footer">
+  📅 日报由 Hermes Agent 自动生成 · 每天 23:00<br>
+  数据来源：本地 MD 记录 · 仅基于当日数据，不编造
+</div>
+
+</body>
+</html>
