@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026-07-27</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --purple: #a371f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.5em; margin-bottom: 4px; }
+  h2 { font-size: 1.15em; color: var(--blue); margin: 28px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  h3 { font-size: 1em; color: var(--text-dim); margin: 16px 0 8px; }
+  .subtitle { color: var(--text-dim); font-size: 0.85em; margin-bottom: 20px; }
+  .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .market-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .market-card .label { font-size: 0.8em; color: var(--text-dim); }
+  .market-card .value { font-size: 1.4em; font-weight: 700; margin: 2px 0; }
+  .market-card .chg { font-size: 0.85em; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .flat { color: var(--text-dim); }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 18px; font-size: 0.88em; }
+  th, td { padding: 8px 12px; text-align: right; border-bottom: 1px solid var(--border); }
+  th { text-align: right; color: var(--text-dim); font-weight: 500; font-size: 0.82em; }
+  td:first-child, th:first-child { text-align: left; }
+  td:nth-child(2), th:nth-child(2) { text-align: left; color: var(--text-dim); font-size: 0.8em; }
+
+  .tag {
+    display: inline-block; font-size: 0.7em; padding: 1px 6px; border-radius: 3px; margin-right: 4px;
+    background: var(--border); color: var(--text-dim);
+  }
+  .tag-bull { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-bear { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-info { background: rgba(88,166,255,0.12); color: var(--blue); }
+
+  .news-item { padding: 6px 0; border-bottom: 1px solid rgba(48,54,61,0.5); font-size: 0.88em; }
+  .news-item:last-child { border-bottom: none; }
+
+  .mapping-item { padding: 8px 0; border-bottom: 1px solid rgba(48,54,61,0.5); font-size: 0.85em; }
+  .mapping-item:last-child { border-bottom: none; }
+
+  .highlight-box {
+    background: var(--card); border-left: 3px solid var(--blue);
+    padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.88em;
+  }
+
+  .section-note { font-size: 0.8em; color: var(--text-dim); margin: -6px 0 10px; }
+
+  .footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 0.75em; color: var(--text-dim); text-align: center; }
+</style>
+</head>
+<body>
+
+<h1>🌐 AI产业链美股收盘与A股映射早报</h1>
+<p class="subtitle">📅 2026年7月27日（周一）· 覆盖7月24日（周五）美股收盘 + 周末动态</p>
+
+<!-- ===== 美股大盘 ===== -->
+<h2>📊 美股三大指数</h2>
+<div class="market-grid">
+  <div class="market-card">
+    <div class="label">标普500</div>
+    <div class="value">7,411.98</div>
+    <div class="chg down">▼ 0.61%</div>
+  </div>
+  <div class="market-card">
+    <div class="label">纳斯达克综合</div>
+    <div class="value">24,975.82</div>
+    <div class="chg down">▼ 2.13%</div>
+  </div>
+  <div class="market-card">
+    <div class="label">道琼斯工业</div>
+    <div class="value">51,947.25</div>
+    <div class="chg down">▼ 0.38%</div>
+  </div>
+</div>
+<p class="section-note">三大指数周线收跌。纳指周跌2.13%领跌——AI半导体板块周五遭遇广泛获利了结，但部分软件/SaaS标的出现技术性反弹。市场在消化财报季后重新定价AI各环节的估值。</p>
+
+<!-- ===== 宏观背景 ===== -->
+<div class="highlight-box">
+  <strong>🗺️ 宏观背景：</strong>美联储降息预期反复摇摆；中东地缘风险推升油价；科技巨头Q2财报季进入尾声，市场关注AI资本支出ROI——"投入大、回报待验证"成为核心分歧。周五半导体板块遭遇集中抛售，资金轮动至防御性板块及部分超跌软件股。
+</div>
+
+<!-- ===== AI硬件/半导体 ===== -->
+<h2>🔧 AI硬件 & 半导体（7/24周五）</h2>
+<table>
+  <thead><tr><th>标的</th><th>代码</th><th>收盘价</th><th>日涨跌</th><th>周涨跌</th></tr></thead>
+  <tbody>
+    <tr><td>NVIDIA</td><td>NVDA</td><td>$206.84</td><td class="down">▼ 0.92%</td><td class="down">▼ 2.46%</td></tr>
+    <tr><td>超微电脑</td><td>SMCI</td><td>$30.10</td><td class="down">▼ 3.53%</td><td class="down">▼ 1.51%</td></tr>
+    <tr><td>戴尔科技</td><td>DELL</td><td>$437.50</td><td class="down">▼ 0.42%</td><td class="down">▼ 0.97%</td></tr>
+    <tr><td>博通</td><td>AVGO</td><td>$381.92</td><td class="down">▼ 2.69%</td><td class="down">▼ 3.75%</td></tr>
+    <tr><td>AMD</td><td>AMD</td><td>$521.95</td><td class="down">▼ 3.29%</td><td class="down">▼ 5.50%</td></tr>
+    <tr><td>Marvell</td><td>MRVL</td><td>$194.23</td><td class="down">▼ 7.21%</td><td class="down">▼ 7.94%</td></tr>
+    <tr><td>高通</td><td>QCOM</td><td>$166.97</td><td class="down">▼ 2.42%</td><td class="down">▼ 4.93%</td></tr>
+    <tr><td>Arista网络</td><td>ANET</td><td>$173.99</td><td class="down">▼ 1.48%</td><td class="down">▼ 0.50%</td></tr>
+    <tr><td>台积电</td><td>TSM</td><td>$403.41</td><td class="down">▼ 2.93%</td><td class="down">▼ 4.22%</td></tr>
+    <tr><td>美光科技</td><td>MU</td><td>$920.95</td><td class="down">▼ 6.99%</td><td class="down">▼ 4.02%</td></tr>
+    <tr><td>Arm控股</td><td>ARM</td><td>$260.01</td><td class="down">▼ 8.14%</td><td class="down">▼ 8.25%</td></tr>
+    <tr><td>英特尔</td><td>INTC</td><td>$92.32</td><td class="down">▼ 7.89%</td><td class="down">▼ 10.04%</td></tr>
+  </tbody>
+</table>
+<p class="section-note">
+  <span class="tag tag-bear">黑色星期五</span> 半导体板块全线暴跌。ARM -8.1%、INTC -7.9%、MRVL -7.2%、MU -7.0% 领跌——存储与芯片IP方向遭遇最猛烈抛售。<br>
+  <span class="tag tag-info">相对抗跌</span> NVDA仅跌0.92%、DELL跌0.42%、ANET跌1.48%——AI服务器与网络设备韧性较强。<br>
+  <span class="tag tag-bear">英特尔危机</span> INTC周跌超10%跌破$100，跌至$92——制程延期与市场份额流失的长期叙事持续发酵。
+</p>
+
+<!-- ===== AI软件/云/SaaS ===== -->
+<h2>☁️ AI软件 · 云 · SaaS（7/24周五）</h2>
+<table>
+  <thead><tr><th>标的</th><th>代码</th><th>收盘价</th><th>日涨跌</th><th>周涨跌</th></tr></thead>
+  <tbody>
+    <tr><td>苹果</td><td>AAPL</td><td>$333.02</td><td class="up">▲ 3.53%</td><td class="up">▲ 2.19%</td></tr>
+    <tr><td>微软</td><td>MSFT</td><td>$381.70</td><td class="up">▲ 0.03%</td><td class="down">▼ 2.21%</td></tr>
+    <tr><td>谷歌</td><td>GOOGL</td><td>$319.74</td><td class="up">▲ 0.65%</td><td class="down">▼ 6.53%</td></tr>
+    <tr><td>亚马逊</td><td>AMZN</td><td>$232.11</td><td class="down">▼ 0.66%</td><td class="down">▼ 5.21%</td></tr>
+    <tr><td>Meta</td><td>META</td><td>$595.19</td><td class="down">▼ 1.80%</td><td class="down">▼ 5.10%</td></tr>
+    <tr><td>Salesforce</td><td>CRM</td><td>$163.66</td><td class="up">▲ 4.29%</td><td class="up">▲ 0.40%</td></tr>
+    <tr><td>Oracle</td><td>ORCL</td><td>$114.99</td><td class="down">▼ 4.21%</td><td class="down">▼ 8.62%</td></tr>
+    <tr><td>ServiceNow</td><td>NOW</td><td>$98.78</td><td class="up">▲ 7.44%</td><td class="up">▲ 3.48%</td></tr>
+    <tr><td>Palantir</td><td>PLTR</td><td>$122.92</td><td class="down">▼ 0.36%</td><td class="down">▼ 1.32%</td></tr>
+    <tr><td>Snowflake</td><td>SNOW</td><td>$268.06</td><td class="up">▲ 1.11%</td><td class="up">▲ 0.10%</td></tr>
+    <tr><td>CrowdStrike</td><td>CRWD</td><td>$183.28</td><td class="down">▼ 0.08%</td><td class="down">▼ 2.73%</td></tr>
+  </tbody>
+</table>
+<p class="section-note">
+  <span class="tag tag-bull">反弹亮点</span> NOW大涨7.4%、CRM涨4.3%、AAPL涨3.5%——超跌SaaS和消费电子龙头吸引抄底资金。<br>
+  <span class="tag tag-bear">持续承压</span> ORCL跌4.2%、周跌8.6%——企业IT支出放缓担忧未散。GOOGL/META/MSFT周线均显著收跌，AI巨额投入引发市场疑虑。<br>
+  <span class="tag tag-info">分化明显</span> 硬件普跌 vs 软件分化——市场从"All in AI"叙事转向精细化：寻找真正有ROI的环节。
+</p>
+
+<!-- ===== 关键动态 ===== -->
+<h2>📰 关键AI产业动态</h2>
+<div class="news-item">🔴 <strong>AMD发布全栈AI服务器：</strong>AMD宣布最新AI服务器已全面投产，未来数月内发货。CEO表示"全AI服务器栈"策略将直接挑战NVIDIA——但该消息未能提振股价，AMD周五仍跌3.3%（Reuters 7/23）。</div>
+<div class="news-item">🔴 <strong>半导体集体重挫：</strong>周五AI芯片板块遭遇年内最猛烈单日抛售之一，ARM/INTC/MU/MRVL均跌超7%。SOXX半导体ETF期权交易量激增，资金方向偏空（Yahoo Finance/Moomoo）。</div>
+<div class="news-item">🟡 <strong>超大规模Capex叙事分化：</strong>华尔街开始区分"好Capex"（AI训练基础设施）和"坏Capex"（回报不确定的AGI探索）。BofA维持NVDA/AMD为AI首选，但市场短期情绪转向谨慎。</div>
+<div class="news-item">🟡 <strong>AAPL逆势走强：</strong>苹果周五涨3.5%领涨科技巨头，市场预期其AI战略（端侧模型+隐私）相对保守但确定性高，在AI泡沫担忧中获得避险溢价。</div>
+<div class="news-item">🔵 <strong>存储芯片承压：</strong>MU周跌4%——HBM需求仍旺盛但传统存储产能过剩担忧浮现，估值回调压力持续。</div>
+<div class="news-item">🔵 <strong>INTC跌破$100：</strong>英特尔周五暴跌7.9%至$92.32，制程追赶叙事破裂+AI芯片市场份额流失双重打击，创多年新低。</div>
+
+<!-- ===== A股映射 ===== -->
+<h2>🇨🇳 A股映射参考</h2>
+<table>
+  <thead><tr><th>美股信号</th><th>映射逻辑</th><th>A股相关方向</th><th>信号</th></tr></thead>
+  <tbody>
+    <tr><td>NVDA -0.9%（相对抗跌）</td><td>AI算力核心锚仍稳</td><td>光模块/服务器/PCB（中际旭创、新易盛、工业富联、沪电股份）</td><td class="flat">中性偏多</td></tr>
+    <tr><td>INTC -7.9% / ARM -8.1%</td><td>芯片IP与制造方向崩塌</td><td>晶圆代工/芯片设计IP（中芯国际、芯原股份）</td><td class="down">偏空</td></tr>
+    <tr><td>MU -7.0% / MRVL -7.2%</td><td>存储与数据中心芯片重挫</td><td>存储/数据中心芯片（兆易创新、北京君正、江波龙、澜起科技）</td><td class="down">偏空</td></tr>
+    <tr><td>AMD -3.3%（全栈AI服务器消息无效）</td><td>GPU二梯队竞争叙事</td><td>GPU/加速芯片（寒武纪、海光信息）</td><td class="down">偏空</td></tr>
+    <tr><td>TSM -2.9%</td><td>代工环节持续承压</td><td>晶圆代工/封测（中芯国际、长电科技、通富微电）</td><td class="down">偏空</td></tr>
+    <tr><td>AAPL +3.5%（逆势走强）</td><td>端侧AI+消费电子</td><td>果链/AI终端（立讯精密、歌尔股份、蓝思科技）</td><td class="up">偏多</td></tr>
+    <tr><td>NOW +7.4% / CRM +4.3%</td><td>超跌SaaS反弹</td><td>AI应用/企业软件（金山办公、用友网络、科大讯飞）</td><td class="up">偏多</td></tr>
+    <tr><td>半导体板块系统性回调</td><td>全球AI估值收缩传导</td><td>科创50/半导体ETF（整体承压）</td><td class="down">偏空</td></tr>
+  </tbody>
+</table>
+
+<div class="highlight-box">
+  <strong>💡 核心映射逻辑：</strong>周五美股半导体全线暴跌形成强负反馈，今日A股AI产业链大概率低开。相对抗跌的方向（NVDA/AAPL/NOW）提供有限支撑。重点关注：<strong>(1) 光模块能否借助NVDA韧性企稳；(2) 存储/代工方向承压最重；(3) Apple链可能有独立行情；(4) 软件/应用层或受益于资金从硬件撤退。</strong>整体判断：<strong>短期谨慎、结构性分化</strong>，回避纯芯片制造/存储方向，关注算力基础设施龙头回调后的机会。
+</div>
+
+<!-- ===== 风险提示 ===== -->
+<div class="footer">
+  ⚠️ 以上为客观数据分析，不构成投资建议。市场有风险，投资需谨慎。<br>
+  数据来源：Yahoo Finance API · 生成时间：2026-07-27 北京时间早间
+</div>
+
+</body>
+</html>
