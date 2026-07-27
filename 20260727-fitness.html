@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💪 健身&饮食日报 · 2026-07-27</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #0d1b2a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 24px 0;
+    border-bottom: 2px solid #1b3a5c;
+    margin-bottom: 20px;
+  }
+  .header h1 { color: #4fc3f7; font-size: 1.5em; }
+  .header .date { color: #78909c; font-size: 0.9em; margin-top: 4px; }
+  .overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .stat-card {
+    background: #132238;
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid #1b3a5c;
+    text-align: center;
+  }
+  .stat-card .num { font-size: 1.6em; font-weight: bold; color: #4fc3f7; }
+  .stat-card .label { font-size: 0.78em; color: #78909c; margin-top: 2px; }
+  .stat-card.warn { border-color: #ff8a65; }
+  .stat-card.warn .num { color: #ff8a65; }
+  .member-section {
+    background: #132238;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+    border: 1px solid #1b3a5c;
+  }
+  .member-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1b3a5c;
+  }
+  .member-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4fc3f7, #1b5e20);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2em;
+  }
+  .member-name { color: #4fc3f7; font-size: 1.05em; font-weight: 600; }
+  .member-meta { color: #78909c; font-size: 0.8em; }
+  .member-body { color: #b0bec5; font-size: 0.9em; }
+  .member-body .row { display: flex; gap: 8px; margin-bottom: 6px; }
+  .member-body .tag {
+    background: #1b3a5c;
+    color: #4fc3f7;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.78em;
+    white-space: nowrap;
+  }
+  .no-record { color: #546e7a; font-style: italic; }
+  .stale-badge {
+    background: #3e2723;
+    color: #ff8a65;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    margin-left: 8px;
+  }
+  .reminder-box {
+    background: #1a3a2e;
+    border: 1px solid #2e5a3e;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 16px;
+    color: #a5d6a7;
+    font-size: 0.85em;
+  }
+  .reminder-box strong { color: #4fc3f7; }
+  .data-quality {
+    background: #132238;
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid #1b3a5c;
+    font-size: 0.8em;
+    color: #78909c;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid #1b3a5c;
+    margin: 20px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏋️ 健身&饮食日报</h1>
+  <div class="date">2026年7月27日 · 周一</div>
+</div>
+
+<div class="overview">
+  <div class="stat-card warn">
+    <div class="num">0/3</div>
+    <div class="label">今日打卡人数</div>
+  </div>
+  <div class="stat-card warn">
+    <div class="num">0</div>
+    <div class="label">今日训练人数</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">—</div>
+    <div class="label">最高消耗 (kcal)</div>
+  </div>
+  <div class="stat-card">
+    <div class="num">—</div>
+    <div class="label">缺口警告</div>
+  </div>
+</div>
+
+<!-- ===== 智林 ===== -->
+<div class="member-section">
+  <div class="member-header">
+    <div class="member-avatar">🦍</div>
+    <div>
+      <div class="member-name">智林 <span class="stale-badge">已断更 12 天</span></div>
+      <div class="member-meta">185cm · 93.5kg · 减脂中 · 目标逆转脂肪肝</div>
+    </div>
+  </div>
+  <div class="member-body">
+    <div class="row"><span class="tag">🏋️ 训练</span> 今日暂无有效记录</div>
+    <div class="row"><span class="tag">🍽️ 饮食</span> 今日暂无有效记录</div>
+    <div class="row"><span class="tag">📊 身体</span> 今日未记录</div>
+    <div style="margin-top:8px; color:#546e7a;">📝 上次记录：7/15 午餐麻辣香锅（蛋白 ~122g，无训练记录）</div>
+    <div style="margin-top:4px; color:#4fc3f7; font-size:0.82em;">💡 快两周了，麻辣香锅还在吃吗？哪怕拍一张今天的午餐照片也算回归 📸</div>
+  </div>
+</div>
+
+<!-- ===== Monkiki ===== -->
+<div class="member-section">
+  <div class="member-header">
+    <div class="member-avatar">🐱</div>
+    <div>
+      <div class="member-name">Monkiki <span class="stale-badge">已断更 7 天</span></div>
+      <div class="member-meta">170cm · ~70kg · 减脂中 · 目标 65-67.5kg</div>
+    </div>
+  </div>
+  <div class="member-body">
+    <div class="row"><span class="tag">🏋️ 训练</span> 今日暂无有效记录</div>
+    <div class="row"><span class="tag">🍽️ 饮食</span> 今日暂无有效记录</div>
+    <div class="row"><span class="tag">📊 身体</span> 今日未记录</div>
+    <div style="margin-top:8px; color:#546e7a;">📝 上次记录：7/20 力量训练 1h（心率 avg 105）+ 家常四菜</div>
+    <div style="margin-top:4px; color:#4fc3f7; font-size:0.82em;">💡 一周没动静啦，从重庆回西安了？不管在哪，有空丢个训练截图就是胜利 🎯</div>
+  </div>
+</div>
+
+<!-- ===== Ckddd ===== -->
+<div class="member-section">
+  <div class="member-header">
+    <div class="member-avatar">🐔</div>
+    <div>
+      <div class="member-name">Ckddd <span class="stale-badge">已断更 19 天</span></div>
+      <div class="member-meta">~64kg · 体脂 ~14.6% · 增肌中</div>
+    </div>
+  </div>
+  <div class="member-body">
+    <div class="row"><span class="tag">🏋️ 训练</span> 今日暂无有效记录</div>
+    <div class="row"><span class="tag">🍽️ 饮食</span> 今日暂无有效记录</div>
+    <div class="row"><span class="tag">📊 身体</span> 今日未记录</div>
+    <div style="margin-top:8px; color:#546e7a;">📝 上次记录：7/8 燕麦+蛋+冰美式（~265 kcal）</div>
+    <div style="margin-top:4px; color:#ff8a65; font-size:0.82em;">⚠️ 快三周没更新了！64kg 增肌期如果不吃不练，体重可能已经往下掉了。群友们想知道你还在不在 😅</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="reminder-box">
+  <strong>📢 群内提醒</strong><br>
+  周一小结：三个人今天都没有有效记录。七月快结束了，回顾一下这个月的目标进度吧——<br><br>
+  <strong>智林：</strong>12 天没打卡，脂肪肝逆转是个长跑，记录断了不代表脚步断了——明天重新开始就行 💪<br>
+  <strong>Monkiki：</strong>一周没更新，不过你之前节奏一直很稳，应该只是忙不是放弃。回来冒个泡～<br>
+  <strong>Ckddd：</strong>19 天断更，再不来日报里的「寻人启事」真该升级到电话催更了 📞<br><br>
+  📌 本地 MD 文件是最可靠的数据源。拍了照片、做了训练、称了体重——丢进 md 文件里，哪怕一句话也行。日报跑起来的前提是你们先跑起来 🏃
+</div>
+
+<div class="data-quality">
+  📋 <strong>数据完整度：</strong>仅基于本地 MD 文件（lzl.md / monkiki.md / ckddd.md）生成。Discord #fitness 群聊搜索不可用（本环境无 session_search 工具）。3/3 成员今日均无有效记录。上次有效记录日期：智林 7/15、Monkiki 7/20、Ckddd 7/8。所有历史数据中提及的热量和蛋白质数值均为估算。
+</div>
+
+</body>
+</html>
