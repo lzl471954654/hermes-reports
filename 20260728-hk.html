@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-07-28</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card-bg: #1a1d2e;
+    --border: #2a2d3e;
+    --text: #e1e4e8;
+    --text-secondary: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --accent: #8b5cf6;
+    --gold: #d2991d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang HK', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .header h1 {
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+  .header .date { color: var(--text-secondary); font-size: 0.95rem; }
+  .header .subtitle { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.25rem; }
+
+  .market-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .market-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .market-card .label { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+  .market-card .value { font-size: 1.6rem; font-weight: 700; margin: 0.25rem 0; }
+  .market-card .change { font-size: 1rem; font-weight: 600; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+
+  .section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .section h2 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section h2 .icon { font-size: 1.3rem; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  th {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid rgba(42,45,62,0.4);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover { background: rgba(255,255,255,0.02); }
+  .sym { color: var(--blue); font-weight: 500; }
+  .stock-name { font-weight: 500; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .vol { color: var(--text-secondary); font-size: 0.82rem; }
+
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 768px) {
+    .analysis-grid { grid-template-columns: 1fr; }
+    .market-bar { grid-template-columns: 1fr; }
+    body { padding: 1rem; }
+  }
+
+  .insight-box {
+    background: rgba(139,92,246,0.08);
+    border: 1px solid rgba(139,92,246,0.2);
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+  .insight-box h3 {
+    font-size: 0.95rem;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .insight-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .insight-box li {
+    padding: 0.35rem 0;
+    font-size: 0.88rem;
+    color: var(--text);
+  }
+  .insight-box li::before {
+    content: '▸ ';
+    color: var(--accent);
+    font-size: 0.7rem;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .badge-hot { background: rgba(248,81,73,0.15); color: var(--red); }
+  .badge-cool { background: rgba(63,185,80,0.15); color: var(--green); }
+
+  .footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .footer a { color: var(--blue); text-decoration: none; }
+  .divergence { color: var(--gold); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>港股收盘总结 · AI产业链深度版</h1>
+  <div class="date">2026年7月28日（星期二）</div>
+  <div class="subtitle">📡 聚焦半导体制造 · 光通信 · 算力 · AI应用 · 互联网平台</div>
+</div>
+
+<!-- 大盘概览 -->
+<div class="market-bar">
+  <div class="market-card">
+    <div class="label">恒生指数 HSI</div>
+    <div class="value">25,298</div>
+    <div class="change up">+0.36%</div>
+  </div>
+  <div class="market-card">
+    <div class="label">恒生科技 HSTECH</div>
+    <div class="value">~5,380</div>
+    <div class="change up">+2.12%</div>
+  </div>
+  <div class="market-card">
+    <div class="label">AI产业链 ⚡</div>
+    <div class="value">分化剧烈</div>
+    <div class="change" style="color: var(--gold);">硬件⇣ 应用⇡</div>
+  </div>
+</div>
+
+<!-- 核心观察 -->
+<div class="analysis-grid">
+  <div class="insight-box">
+    <h3>🔥 资金热捧 · AI应用层</h3>
+    <ul>
+      <li><strong>小米集团</strong> (+9.51%) — 两日累涨~10%，AI手机+造车双轮驱动，成交2.19亿股</li>
+      <li><strong>金蝶国际</strong> (+5.58%) — 企业级AI SaaS概念，ERP龙头云转型加速</li>
+      <li><strong>商汤-W</strong> (+5.30%) — 生成式AI大模型热度延续，成交4.55亿股</li>
+      <li><strong>美团</strong> (+3.92%) — AI本地生活落地预期升温</li>
+      <li><strong>腾讯</strong> (+2.95%) — AI+生态护城河，微信AI功能渗透率提升</li>
+      <li><strong>阿里巴巴</strong> (+2.09%) — AI云业务增长预期</li>
+    </ul>
+  </div>
+  <div class="insight-box">
+    <h3>❄️ 资金撤离 · 半导体/光通信硬件</h3>
+    <ul>
+      <li><strong>ASMPT</strong> (-14.75%) ⚠️ — 巨量暴跌，开盘跳空150→139，疑似业绩预警/行业砍单</li>
+      <li><strong>长飞光纤</strong> (-10.24%) — 5日累跌25%，光纤光缆需求预期转弱</li>
+      <li><strong>华虹半导体</strong> (-8.08%) — 成熟制程代工承压，中美博弈加剧不确定性</li>
+      <li><strong>万国数据</strong> (-4.52%) — IDC数据中心估值回归</li>
+      <li><strong>联想集团</strong> (-3.37%) — AI PC预期消化后获利回吐</li>
+      <li><strong>中芯国际</strong> (-3.08%) — 先进制程受限，地缘政治风险溢价收缩</li>
+    </ul>
+  </div>
+</div>
+
+<!-- AI产业链全景表 -->
+<div class="section">
+  <h2><span class="icon">🔗</span> AI产业链全景 · 今日表现</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>产业链环节</th>
+        <th>股票</th>
+        <th style="text-align:right">收盘价</th>
+        <th style="text-align:right">涨跌幅</th>
+        <th style="text-align:right">最高</th>
+        <th style="text-align:right">最低</th>
+        <th style="text-align:right">成交量</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="2" style="font-size:0.8rem;color:var(--text-secondary);">🖥️ 半导体制造</td>
+        <td><span class="sym">0981</span> <span class="stock-name">中芯国际</span></td>
+        <td class="num">69.15</td>
+        <td class="num down">-3.08%</td>
+        <td class="num">73.60</td><td class="num">68.00</td><td class="num vol">115.5M</td></tr>
+      <tr>
+        <td><span class="sym">1347</span> <span class="stock-name">华虹半导体</span></td>
+        <td class="num">137.70</td>
+        <td class="num down">-8.08%</td>
+        <td class="num">152.90</td><td class="num">135.60</td><td class="num vol">42.4M</td></tr>
+      <tr><td style="font-size:0.8rem;color:var(--text-secondary);">🔧 半导体设备</td>
+        <td><span class="sym">0522</span> <span class="stock-name">ASMPT</span></td>
+        <td class="num">139.30</td>
+        <td class="num down">-14.75%</td>
+        <td class="num">153.60</td><td class="num">136.00</td><td class="num vol">5.1M</td></tr>
+      <tr><td style="font-size:0.8rem;color:var(--text-secondary);">📡 光通信</td>
+        <td><span class="sym">6869</span> <span class="stock-name">长飞光纤</span></td>
+        <td class="num">108.70</td>
+        <td class="num down">-10.24%</td>
+        <td class="num">119.00</td><td class="num">106.40</td><td class="num vol">30.0M</td></tr>
+      <tr><td style="font-size:0.8rem;color:var(--text-secondary);">🏗️ 通信设备</td>
+        <td><span class="sym">0763</span> <span class="stock-name">中兴通讯</span></td>
+        <td class="num">24.16</td>
+        <td class="num down">-1.63%</td>
+        <td class="num">24.56</td><td class="num">23.58</td><td class="num vol">15.3M</td></tr>
+      <tr><td style="font-size:0.8rem;color:var(--text-secondary);">🏢 数据中心</td>
+        <td><span class="sym">9698</span> <span class="stock-name">万国数据</span></td>
+        <td class="num">30.00</td>
+        <td class="num down">-4.52%</td>
+        <td class="num">30.74</td><td class="num">29.62</td><td class="num vol">4.2M</td></tr>
+      <tr><td style="font-size:0.8rem;color:var(--text-secondary);">💻 AI硬件终端</td>
+        <td><span class="sym">0992</span> <span class="stock-name">联想集团</span></td>
+        <td class="num">23.52</td>
+        <td class="num down">-3.37%</td>
+        <td class="num">24.22</td><td class="num">22.92</td><td class="num vol">100.6M</td></tr>
+      <tr><td rowspan="2" style="font-size:0.8rem;color:var(--text-secondary);">📱 消费电子</td>
+        <td><span class="sym">1810</span> <span class="stock-name">小米集团</span></td>
+        <td class="num">29.26</td>
+        <td class="num up">+9.51%</td>
+        <td class="num">29.66</td><td class="num">28.58</td><td class="num vol">218.6M</td></tr>
+      <tr>
+        <td><span class="sym">0285</span> <span class="stock-name">比亚迪电子</span></td>
+        <td class="num">23.14</td>
+        <td class="num down">-0.69%</td>
+        <td class="num">23.84</td><td class="num">22.84</td><td class="num vol">5.8M</td></tr>
+      <tr><td rowspan="2" style="font-size:0.8rem;color:var(--text-secondary);">🔬 光学器件</td>
+        <td><span class="sym">2382</span> <span class="stock-name">舜宇光学</span></td>
+        <td class="num">58.25</td>
+        <td class="num down">-0.17%</td>
+        <td class="num">59.45</td><td class="num">56.50</td><td class="num vol">12.7M</td></tr>
+      <tr>
+        <td><span class="sym">2018</span> <span class="stock-name">瑞声科技</span></td>
+        <td class="num">38.78</td>
+        <td class="num down">-0.31%</td>
+        <td class="num">40.58</td><td class="num">38.34</td><td class="num vol">8.3M</td></tr>
+      <tr><td style="font-size:0.8rem;color:var(--text-secondary);">☁️ AI云计算</td>
+        <td><span class="sym">3896</span> <span class="stock-name">金山云</span></td>
+        <td class="num">5.15</td>
+        <td class="num up">+2.59%</td>
+        <td class="num">5.42</td><td class="num">5.05</td><td class="num vol">48.5M</td></tr>
+      <tr><td style="font-size:0.8rem;color:var(--text-secondary);">🧠 AI大模型</td>
+        <td><span class="sym">0020</span> <span class="stock-name">商汤-W</span></td>
+        <td class="num">1.39</td>
+        <td class="num up">+5.30%</td>
+        <td class="num">1.40</td><td class="num">1.32</td><td class="num vol">454.9M</td></tr>
+      <tr><td style="font-size:0.8rem;color:var(--text-secondary);">📊 AI企业软件</td>
+        <td><span class="sym">0268</span> <span class="stock-name">金蝶国际</span></td>
+        <td class="num">7.38</td>
+        <td class="num up">+5.58%</td>
+        <td class="num">7.68</td><td class="num">7.27</td><td class="num vol">46.3M</td></tr>
+      <tr><td rowspan="4" style="font-size:0.8rem;color:var(--text-secondary);">🌐 互联网平台</td>
+        <td><span class="sym">0700</span> <span class="stock-name">腾讯控股</span></td>
+        <td class="num">447.40</td>
+        <td class="num up">+2.95%</td>
+        <td class="num">452.00</td><td class="num">441.60</td><td class="num vol">17.1M</td></tr>
+      <tr>
+        <td><span class="sym">9988</span> <span class="stock-name">阿里巴巴</span></td>
+        <td class="num">112.30</td>
+        <td class="num up">+2.09%</td>
+        <td class="num">114.20</td><td class="num">111.00</td><td class="num vol">72.5M</td></tr>
+      <tr>
+        <td><span class="sym">3690</span> <span class="stock-name">美团</span></td>
+        <td class="num">90.10</td>
+        <td class="num up">+3.92%</td>
+        <td class="num">92.20</td><td class="num">89.35</td><td class="num vol">62.2M</td></tr>
+      <tr>
+        <td><span class="sym">9888</span> <span class="stock-name">百度集团</span></td>
+        <td class="num">101.30</td>
+        <td class="num down">-2.88%</td>
+        <td class="num">104.40</td><td class="num">99.60</td><td class="num vol">12.9M</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 板块资金流向 -->
+<div class="analysis-grid">
+  <div class="section" style="margin-bottom:0;">
+    <h2><span class="icon">📈</span> 今日涨幅 TOP5</h2>
+    <table>
+      <thead><tr><th>#</th><th>股票</th><th style="text-align:right">涨幅</th><th style="text-align:right">收盘价</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>小米集团</td><td class="num up">+9.51%</td><td class="num">29.26</td></tr>
+        <tr><td>2</td><td>金蝶国际</td><td class="num up">+5.58%</td><td class="num">7.38</td></tr>
+        <tr><td>3</td><td>商汤-W</td><td class="num up">+5.30%</td><td class="num">1.39</td></tr>
+        <tr><td>4</td><td>美团</td><td class="num up">+3.92%</td><td class="num">90.10</td></tr>
+        <tr><td>5</td><td>腾讯控股</td><td class="num up">+2.95%</td><td class="num">447.40</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section" style="margin-bottom:0;">
+    <h2><span class="icon">📉</span> 今日跌幅 TOP5</h2>
+    <table>
+      <thead><tr><th>#</th><th>股票</th><th style="text-align:right">跌幅</th><th style="text-align:right">收盘价</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>ASMPT</td><td class="num down">-14.75%</td><td class="num">139.30</td></tr>
+        <tr><td>2</td><td>长飞光纤</td><td class="num down">-10.24%</td><td class="num">108.70</td></tr>
+        <tr><td>3</td><td>华虹半导体</td><td class="num down">-8.08%</td><td class="num">137.70</td></tr>
+        <tr><td>4</td><td>万国数据</td><td class="num down">-4.52%</td><td class="num">30.00</td></tr>
+        <tr><td>5</td><td>联想集团</td><td class="num down">-3.37%</td><td class="num">23.52</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 深度分析 -->
+<div class="section">
+  <h2><span class="icon">🔍</span> 深度分析：AI产业链分化逻辑</h2>
+  <div class="analysis-grid" style="margin-bottom:0;">
+    <div class="insight-box">
+      <h3>📊 市场信号解读</h3>
+      <ul>
+        <li><strong>硬件→软件轮动明确：</strong>半导体设备/制造端集体重挫 vs AI应用/平台全线走强，反映市场对AI投资回报开始从「建基础设施」转向「找应用落地」</li>
+        <li><strong>ASMPT -14.75% 疑因业绩预警：</strong>开盘跳空低开150→139，成交量5倍放大，疑似行业砍单或指引大幅下调，需密切关注今晚公告</li>
+        <li><strong>长飞光纤 5日累跌25%：</strong>光纤缆需求预期转弱，叠加前期AI算力光通信炒作退潮</li>
+        <li><strong>小米两日涨10%：</strong>AI手机+SU7造车量产双催化，资金从B2B硬件转向B2C终端</li>
+      </ul>
+    </div>
+    <div class="insight-box">
+      <h3>🎯 策略视角</h3>
+      <ul>
+        <li><strong>短期回避：</strong>半导体设备/成熟制程代工 — ASMPT、华虹的暴跌可能引发板块连锁反应</li>
+        <li><strong>关注分化机会：</strong>AI应用层（金蝶、商汤）vs 算力硬件层 的剪刀差已达到极端水平</li>
+        <li><strong>互联网平台估值修复：</strong>腾讯447、阿里112、美团90，AI赋能预期的估值重塑仍在进行中</li>
+        <li><strong>警惕风险：</strong>百度逆势下跌-2.88%，AI大模型竞争的赢家尚未明朗</li>
+        <li><strong>恒生科技ETF (3032) +2.12%</strong> 跑赢恒指，科技板块整体偏强</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>📡 数据来源：Yahoo Finance | 生成时间：2026-07-28 16:30 HKT</p>
+  <p>⚠️ 本报告仅供信息参考，不构成投资建议。投资有风险，入市需谨慎。</p>
+  <p>Powered by <a href="https://hermes-agent.nousresearch.com" target="_blank">Hermes Agent</a> · <a href="https://reports.dns-cloudflare.com">reports.dns-cloudflare.com</a></p>
+</div>
+
+</body>
+</html>
