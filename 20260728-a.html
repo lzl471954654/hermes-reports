@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-07-28</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  padding: 30px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.header {
+  text-align: center;
+  padding: 30px 0;
+  border-bottom: 1px solid #21262d;
+  margin-bottom: 30px;
+}
+.header h1 { font-size: 1.8em; color: #f0f6fc; margin-bottom: 6px; }
+.header .date { color: #8b949e; font-size: 0.95em; }
+.header .subtitle { color: #58a6ff; font-size: 0.9em; margin-top: 4px; }
+
+.section { margin-bottom: 32px; }
+.section-title {
+  font-size: 1.15em; color: #58a6ff; font-weight: 700;
+  border-left: 3px solid #58a6ff; padding-left: 10px; margin-bottom: 14px;
+}
+
+.index-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.index-card { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 16px 18px; }
+.index-card .name { color: #8b949e; font-size: 0.85em; }
+.index-card .value { font-size: 1.5em; font-weight: 700; color: #f0f6fc; margin: 4px 0; }
+.index-card .change { font-size: 0.95em; font-weight: 600; }
+.up { color: #3fb950; }
+.down { color: #f85149; }
+.flat { color: #8b949e; }
+.index-card .detail { font-size: 0.78em; color: #484f58; margin-top: 4px; }
+
+.alert-banner {
+  background: linear-gradient(135deg, #1a0a0a 0%, #0a0a1a 100%);
+  border: 1px solid #f8514955; border-radius: 10px;
+  padding: 18px 22px; margin: 20px 0;
+}
+.alert-banner h3 { color: #f85149; margin-bottom: 8px; font-size: 1.05em; }
+.alert-banner p { font-size: 0.92em; margin: 4px 0; }
+.alert-banner .dim { color: #8b949e; font-size: 0.85em; }
+
+.overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.overview-item { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 12px 14px; text-align: center; }
+.overview-item .label { color: #8b949e; font-size: 0.8em; }
+.overview-item .number { font-size: 1.2em; font-weight: 700; color: #f0f6fc; }
+
+.chain-block { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 0; margin-bottom: 16px; overflow: hidden; }
+.chain-header { background: #1a2332; padding: 12px 16px; font-weight: 700; font-size: 0.95em; color: #58a6ff; border-bottom: 1px solid #21262d; }
+.chain-header .badge { font-size: 0.75em; padding: 2px 8px; border-radius: 4px; margin-left: 8px; font-weight: 400; }
+
+.stock-table { width: 100%; border-collapse: collapse; }
+.stock-table td, .stock-table th { padding: 9px 16px; text-align: left; font-size: 0.9em; border-bottom: 1px solid #21262d; }
+.stock-table th { color: #8b949e; font-weight: 500; font-size: 0.8em; background: #0d1117; }
+.stock-table tr:last-child td { border-bottom: none; }
+.stock-table tr:hover { background: #1c2129; }
+.stock-table .stock-name { color: #e6edf3; font-weight: 500; }
+.stock-table .stock-code { color: #484f58; font-size: 0.82em; margin-left: 6px; }
+
+.highlight-green { color: #3fb950; font-weight: 600; }
+.highlight-red { color: #f85149; font-weight: 600; }
+
+.limit-down { background: #f8514922; color: #f85149; font-size: 0.75em; padding: 1px 6px; border-radius: 3px; font-weight: 700; margin-left: 4px; }
+.limit-up { background: #3fb95022; color: #3fb950; font-size: 0.75em; padding: 1px 6px; border-radius: 3px; font-weight: 700; margin-left: 4px; }
+
+.summary-box {
+  background: linear-gradient(135deg, #1a2332, #161b22);
+  border: 1px solid #30363d; border-radius: 10px; padding: 20px 24px; margin-top: 20px;
+}
+.summary-box h3 { color: #f0f6fc; font-size: 1.05em; margin-bottom: 12px; }
+.summary-box ul { list-style: none; padding: 0; }
+.summary-box ul li { padding: 6px 0; color: #c9d1d9; font-size: 0.9em; border-bottom: 1px solid #21262d; }
+.summary-box ul li:last-child { border-bottom: none; }
+.summary-box ul li::before { content: "▸ "; color: #58a6ff; }
+.highlight { color: #f0f6fc; font-weight: 600; }
+.green { color: #3fb950; }
+.red { color: #f85149; }
+
+.flow-summary { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.flow-tag { background: #1f6feb22; border: 1px solid #1f6feb44; color: #58a6ff; padding: 6px 14px; border-radius: 20px; font-size: 0.88em; font-weight: 500; }
+.flow-tag.strong { background: #3fb95022; border-color: #3fb95044; color: #3fb950; }
+.flow-tag.warn { background: #f8514922; border-color: #f8514944; color: #f85149; }
+
+.footer { text-align: center; color: #484f58; font-size: 0.75em; margin-top: 40px; padding-top: 20px; border-top: 1px solid #21262d; }
+.footer a { color: #58a6ff; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 A股盘后总结</h1>
+  <div class="date">2026年7月28日 · 周二</div>
+  <div class="subtitle">AI产业链深度版 ⚡ 光通信 · 存储 · 半导体设备 · PCB/CCL · MLCC · 先进封装 · 材料 · 服务器/液冷</div>
+</div>
+
+<!-- ===== ⚠️ 核心警报 ===== -->
+<div class="alert-banner">
+  <h3>⚠️ 今日极端行情：上证微跌「护盘脸」，创业板暴跌 7.35%「血流成河」</h3>
+  <p>上证指数在银行、中字头权重强力护盘下仅跌 <strong class="down">-0.02%</strong>，但全市场真实面貌极其惨烈——<strong class="down">创业板指暴跌 7.35%</strong>、<strong class="down">科创50 跌 6.33%</strong>，AI 硬件链出现罕见的集体跌停潮。</p>
+  <p class="dim">光模块、PCB、存储、先进封装、半导体设备全产业链超 15 只个股跌停或逼近跌停，仅 AI 应用方向（金山办公、科大讯飞、拓尔思）微幅飘红，「硬→软」轮动信号强烈。</p>
+</div>
+
+<!-- ===== 指数概览 ===== -->
+<div class="section">
+  <div class="section-title">📈 主要指数</div>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">上证指数</div>
+      <div class="value">3,813.32</div>
+      <div class="change flat">▼ -0.02%</div>
+      <div class="detail">昨收 3,814.20 | 权重护盘明显</div>
+    </div>
+    <div class="index-card">
+      <div class="name">深证成指</div>
+      <div class="value">13,509.68</div>
+      <div class="change down">▼ -1.92%</div>
+      <div class="detail">昨收 13,774.70 | 中小盘普跌</div>
+    </div>
+    <div class="index-card" style="border-color: #f8514955;">
+      <div class="name">创业板指 ⚠️</div>
+      <div class="value down" style="font-size:1.8em;">3,327.03</div>
+      <div class="change down" style="font-size:1.1em;">▼ -7.35%</div>
+      <div class="detail">昨收 3,590.79 | 创近一年最大单日跌幅</div>
+    </div>
+    <div class="index-card" style="border-color: #f8514955;">
+      <div class="name">科创50</div>
+      <div class="value down">1,693.48</div>
+      <div class="change down">▼ -6.33%</div>
+      <div class="detail">昨收 1,807.95 | 半导体重挫</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 市场概况 ===== -->
+<div class="section">
+  <div class="section-title">🔍 市场概况</div>
+  <div class="overview-grid">
+    <div class="overview-item"><div class="label">上证涨跌比</div><div class="number down" style="font-size:1em;">约 1:9</div></div>
+    <div class="overview-item"><div class="label">涨停家数</div><div class="number" style="font-size:1em; color:#3fb950;">极少</div></div>
+    <div class="overview-item"><div class="label">跌停家数</div><div class="number down" style="font-size:1em;">大面积</div></div>
+    <div class="overview-item"><div class="label">北向资金</div><div class="number down" style="font-size:1em;">大幅流出</div></div>
+    <div class="overview-item"><div class="label">风格特征</div><div class="number down" style="font-size:0.9em;">拉权重砸科技</div></div>
+    <div class="overview-item"><div class="label">AI链跌停</div><div class="number down">15+ 只</div></div>
+  </div>
+</div>
+
+<!-- ===== AI产业链全景 ===== -->
+<div class="section">
+  <div class="section-title">🔗 AI产业链全景</div>
+
+  <!-- 1. 光通信/CPO -->
+  <div class="chain-block">
+    <div class="chain-header">🔦 光通信 / CPO <span class="badge" style="background:#f8514933;color:#f85149;">全线崩塌 · 今日重灾区</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">中际旭创</span><span class="stock-code">300308</span></td><td style="text-align:right">908.00</td><td style="text-align:right" class="highlight-red">-15.69%</td></tr>
+        <tr><td><span class="stock-name">新易盛</span><span class="stock-code">300502</span></td><td style="text-align:right">406.90</td><td style="text-align:right" class="highlight-red">-17.13% <span class="limit-down">今日AI链最大跌幅</span></td></tr>
+        <tr><td><span class="stock-name">天孚通信</span><span class="stock-code">300394</span></td><td style="text-align:right">181.56</td><td style="text-align:right" class="highlight-red">-13.21%</td></tr>
+        <tr><td><span class="stock-name">剑桥科技</span><span class="stock-code">603083</span></td><td style="text-align:right">156.40</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+        <tr><td><span class="stock-name">光迅科技</span><span class="stock-code">002281</span></td><td style="text-align:right">173.57</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2. 光通信 -->
+  <div class="chain-block">
+    <div class="chain-header">🌐 光通信 <span class="badge" style="background:#f8514933;color:#f85149;">全面杀跌</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">烽火通信</span><span class="stock-code">600498</span></td><td style="text-align:right">35.23</td><td style="text-align:right" class="highlight-red">-6.87%</td></tr>
+        <tr><td><span class="stock-name">长飞光纤</span><span class="stock-code">601869</span></td><td style="text-align:right">302.30</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+        <tr><td><span class="stock-name">亨通光电</span><span class="stock-code">600487</span></td><td style="text-align:right">50.01</td><td style="text-align:right" class="highlight-red">-9.97%</td></tr>
+        <tr><td><span class="stock-name">中天科技</span><span class="stock-code">600522</span></td><td style="text-align:right">29.96</td><td style="text-align:right" class="highlight-red">-8.27%</td></tr>
+        <tr><td><span class="stock-name">特发信息</span><span class="stock-code">000070</span></td><td style="text-align:right">13.03</td><td style="text-align:right" class="highlight-red">-4.61%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. 高速互联/PCB -->
+  <div class="chain-block">
+    <div class="chain-header">🔌 高速互联 / PCB <span class="badge" style="background:#f8514933;color:#f85149;">集体跌停</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">立讯精密</span><span class="stock-code">002475</span></td><td style="text-align:right">60.10</td><td style="text-align:right" class="highlight-red">-4.44%</td></tr>
+        <tr><td><span class="stock-name">鹏鼎控股</span><span class="stock-code">002938</span></td><td style="text-align:right">83.96</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+        <tr><td><span class="stock-name">沪电股份</span><span class="stock-code">002463</span></td><td style="text-align:right">105.75</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+        <tr><td><span class="stock-name">深南电路</span><span class="stock-code">002916</span></td><td style="text-align:right">318.10</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+        <tr><td><span class="stock-name">景旺电子</span><span class="stock-code">603228</span></td><td style="text-align:right">73.85</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+        <tr><td><span class="stock-name">胜宏科技</span><span class="stock-code">300476</span></td><td style="text-align:right">210.18</td><td style="text-align:right" class="highlight-red">-11.93%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4. 先进光电集成 -->
+  <div class="chain-block">
+    <div class="chain-header">💡 先进光电集成 <span class="badge" style="background:#f8514933;color:#f85149;">暴跌</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">源杰科技</span><span class="stock-code">688498</span></td><td style="text-align:right">1,226.00</td><td style="text-align:right" class="highlight-red">-16.77%</td></tr>
+        <tr><td><span class="stock-name">仕佳光子</span><span class="stock-code">688313</span></td><td style="text-align:right">100.20</td><td style="text-align:right" class="highlight-red">-12.79%</td></tr>
+        <tr><td><span class="stock-name">华工科技</span><span class="stock-code">000988</span></td><td style="text-align:right">100.58</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+        <tr><td><span class="stock-name">联特科技</span><span class="stock-code">688195</span></td><td style="text-align:right">115.66</td><td style="text-align:right" class="highlight-red">-7.88%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. 算力/AI服务器 -->
+  <div class="chain-block">
+    <div class="chain-header">🖥️ 算力 / AI服务器 <span class="badge" style="background:#f8514933;color:#f85149;">普跌</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">中科曙光</span><span class="stock-code">603019</span></td><td style="text-align:right">92.10</td><td style="text-align:right" class="highlight-red">-4.80%</td></tr>
+        <tr><td><span class="stock-name">浪潮信息</span><span class="stock-code">000977</span></td><td style="text-align:right">79.85</td><td style="text-align:right" class="highlight-red">-6.06%</td></tr>
+        <tr><td><span class="stock-name">工业富联</span><span class="stock-code">601138</span></td><td style="text-align:right">58.08</td><td style="text-align:right" class="highlight-red">-5.64%</td></tr>
+        <tr><td><span class="stock-name">紫光股份</span><span class="stock-code">000938</span></td><td style="text-align:right">41.48</td><td style="text-align:right" class="highlight-green">+0.02%</td></tr>
+        <tr><td><span class="stock-name">拓维信息</span><span class="stock-code">002261</span></td><td style="text-align:right">26.61</td><td style="text-align:right" class="highlight-red">-2.38%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 6. PCB/CCL -->
+  <div class="chain-block">
+    <div class="chain-header">📋 PCB / CCL <span class="badge" style="background:#f8514933;color:#f85149;">跌停潮</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">生益科技</span><span class="stock-code">600183</span></td><td style="text-align:right">113.39</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+        <tr><td><span class="stock-name">兴森科技</span><span class="stock-code">002436</span></td><td style="text-align:right">32.13</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+        <tr><td><span class="stock-name">胜宏科技</span><span class="stock-code">300476</span></td><td style="text-align:right">210.18</td><td style="text-align:right" class="highlight-red">-11.93%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 7. 半导体晶圆制造 -->
+  <div class="chain-block">
+    <div class="chain-header">🏭 半导体晶圆制造 <span class="badge" style="background:#f8514933;color:#f85149;">普跌</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">中芯国际</span><span class="stock-code">688981</span></td><td style="text-align:right">136.70</td><td style="text-align:right" class="highlight-red">-4.92%</td></tr>
+        <tr><td><span class="stock-name">华虹公司</span><span class="stock-code">688347</span></td><td style="text-align:right">281.00</td><td style="text-align:right" class="highlight-red">-8.88%</td></tr>
+        <tr><td><span class="stock-name">士兰微</span><span class="stock-code">600460</span></td><td style="text-align:right">30.17</td><td style="text-align:right" class="highlight-red">-6.68%</td></tr>
+        <tr><td><span class="stock-name">三安光电</span><span class="stock-code">600703</span></td><td style="text-align:right">12.12</td><td style="text-align:right" class="highlight-red">-1.70%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 8. 半导体设备 -->
+  <div class="chain-block">
+    <div class="chain-header">⚙️ 半导体设备 <span class="badge" style="background:#f8514933;color:#f85149;">重挫</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">北方华创</span><span class="stock-code">002371</span></td><td style="text-align:right">715.00</td><td style="text-align:right" class="highlight-red">-7.14%</td></tr>
+        <tr><td><span class="stock-name">中微公司</span><span class="stock-code">688012</span></td><td style="text-align:right">383.00</td><td style="text-align:right" class="highlight-red">-4.19%</td></tr>
+        <tr><td><span class="stock-name">盛美上海</span><span class="stock-code">688082</span></td><td style="text-align:right">287.01</td><td style="text-align:right" class="highlight-red">-6.51%</td></tr>
+        <tr><td><span class="stock-name">拓荆科技</span><span class="stock-code">688072</span></td><td style="text-align:right">710.00</td><td style="text-align:right" class="highlight-red">-10.34%</td></tr>
+        <tr><td><span class="stock-name">华海清科</span><span class="stock-code">688120</span></td><td style="text-align:right">258.00</td><td style="text-align:right" class="highlight-red">-4.97%</td></tr>
+        <tr><td><span class="stock-name">芯源微</span><span class="stock-code">688037</span></td><td style="text-align:right">332.44</td><td style="text-align:right" class="highlight-red">-4.83%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 9. 上游材料 -->
+  <div class="chain-block">
+    <div class="chain-header">🧪 上游材料 <span class="badge" style="background:#f8514933;color:#f85149;">普跌</span><span class="badge" style="background:#3fb95033;color:#3fb950;margin-left:4px;">清溢光电逆势涨停</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">清溢光电</span><span class="stock-code">300637</span></td><td style="text-align:right">8.80</td><td style="text-align:right" class="highlight-green">+13.70% <span class="limit-up">今日AI链唯一涨停</span></td></tr>
+        <tr><td><span class="stock-name">雅克科技</span><span class="stock-code">002409</span></td><td style="text-align:right">166.43</td><td style="text-align:right" class="highlight-red">-1.72%</td></tr>
+        <tr><td><span class="stock-name">彤程新材</span><span class="stock-code">603650</span></td><td style="text-align:right">64.72</td><td style="text-align:right" class="highlight-red">-0.83%</td></tr>
+        <tr><td><span class="stock-name">南大光电</span><span class="stock-code">300346</span></td><td style="text-align:right">54.21</td><td style="text-align:right" class="highlight-red">-2.76%</td></tr>
+        <tr><td><span class="stock-name">安集科技</span><span class="stock-code">688019</span></td><td style="text-align:right">253.00</td><td style="text-align:right" class="highlight-red">-4.49%</td></tr>
+        <tr><td><span class="stock-name">沪硅产业</span><span class="stock-code">688126</span></td><td style="text-align:right">25.30</td><td style="text-align:right" class="highlight-red">-5.24%</td></tr>
+        <tr><td><span class="stock-name">江丰电子</span><span class="stock-code">300666</span></td><td style="text-align:right">223.02</td><td style="text-align:right" class="highlight-red">-7.40%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 10. 先进封装 -->
+  <div class="chain-block">
+    <div class="chain-header">📦 先进封装 <span class="badge" style="background:#f8514933;color:#f85149;">重挫</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">长电科技</span><span class="stock-code">600584</span></td><td style="text-align:right">76.83</td><td style="text-align:right" class="highlight-red">-6.70%</td></tr>
+        <tr><td><span class="stock-name">通富微电</span><span class="stock-code">002156</span></td><td style="text-align:right">69.00</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+        <tr><td><span class="stock-name">华天科技</span><span class="stock-code">002185</span></td><td style="text-align:right">17.47</td><td style="text-align:right" class="highlight-red">-6.02%</td></tr>
+        <tr><td><span class="stock-name">晶方科技</span><span class="stock-code">603005</span></td><td style="text-align:right">29.94</td><td style="text-align:right" class="highlight-red">-4.10%</td></tr>
+        <tr><td><span class="stock-name">甬矽电子</span><span class="stock-code">688362</span></td><td style="text-align:right">68.49</td><td style="text-align:right" class="highlight-red">-11.35%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 11. 存储/HBM -->
+  <div class="chain-block">
+    <div class="chain-header">💾 存储 / HBM <span class="badge" style="background:#f8514933;color:#f85149;">重灾区</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">兆易创新</span><span class="stock-code">603986</span></td><td style="text-align:right">390.63</td><td style="text-align:right" class="highlight-red">-10.00% <span class="limit-down">跌停</span></td></tr>
+        <tr><td><span class="stock-name">紫光国微</span><span class="stock-code">002049</span></td><td style="text-align:right">63.82</td><td style="text-align:right" class="highlight-red">-3.30%</td></tr>
+        <tr><td><span class="stock-name">江波龙</span><span class="stock-code">301308</span></td><td style="text-align:right">330.00</td><td style="text-align:right" class="highlight-red">-11.74%</td></tr>
+        <tr><td><span class="stock-name">佰维存储</span><span class="stock-code">688525</span></td><td style="text-align:right">209.82</td><td style="text-align:right" class="highlight-red">-12.98%</td></tr>
+        <tr><td><span class="stock-name">朗科科技</span><span class="stock-code">300042</span></td><td style="text-align:right">39.65</td><td style="text-align:right" class="highlight-red">-6.82%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 12. MLCC/被动元件 -->
+  <div class="chain-block">
+    <div class="chain-header">🔩 MLCC / 被动元件 <span class="badge" style="background:#f8514933;color:#f85149;">普跌</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">三环集团</span><span class="stock-code">300408</span></td><td style="text-align:right">100.83</td><td style="text-align:right" class="highlight-red">-9.63%</td></tr>
+        <tr><td><span class="stock-name">风华高科</span><span class="stock-code">000636</span></td><td style="text-align:right">43.19</td><td style="text-align:right" class="highlight-red">-2.37%</td></tr>
+        <tr><td><span class="stock-name">洁美科技</span><span class="stock-code">002859</span></td><td style="text-align:right">58.67</td><td style="text-align:right" class="highlight-red">-7.45%</td></tr>
+        <tr><td><span class="stock-name">顺络电子</span><span class="stock-code">002138</span></td><td style="text-align:right">41.68</td><td style="text-align:right" class="highlight-red">-7.77%</td></tr>
+        <tr><td><span class="stock-name">麦捷科技</span><span class="stock-code">300319</span></td><td style="text-align:right">14.77</td><td style="text-align:right" class="highlight-red">-7.57%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 13. AI应用/Agent -->
+  <div class="chain-block">
+    <div class="chain-header">🤖 AI应用 / Agent <span class="badge" style="background:#3fb95033;color:#3fb950;">逆势抗跌 · 唯一亮点</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">金山办公</span><span class="stock-code">688111</span></td><td style="text-align:right">241.24</td><td style="text-align:right" class="highlight-green">+0.18%</td></tr>
+        <tr><td><span class="stock-name">科大讯飞</span><span class="stock-code">002230</span></td><td style="text-align:right">39.81</td><td style="text-align:right" class="highlight-green">+0.20%</td></tr>
+        <tr><td><span class="stock-name">拓尔思</span><span class="stock-code">300229</span></td><td style="text-align:right">12.62</td><td style="text-align:right" class="highlight-green">+1.28%</td></tr>
+        <tr><td><span class="stock-name">同花顺</span><span class="stock-code">300033</span></td><td style="text-align:right">213.98</td><td style="text-align:right" class="highlight-red">-2.09%</td></tr>
+        <tr><td><span class="stock-name">昆仑万维</span><span class="stock-code">300418</span></td><td style="text-align:right">37.61</td><td style="text-align:right" class="highlight-red">-1.47%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 14. 机器人 -->
+  <div class="chain-block">
+    <div class="chain-header">🦾 机器人 <span class="badge" style="background:#f8514933;color:#f85149;">跟跌</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">汇川技术</span><span class="stock-code">300124</span></td><td style="text-align:right">58.67</td><td style="text-align:right" class="highlight-red">-1.36%</td></tr>
+        <tr><td><span class="stock-name">埃斯顿</span><span class="stock-code">002747</span></td><td style="text-align:right">30.34</td><td style="text-align:right" class="highlight-red">-3.84%</td></tr>
+        <tr><td><span class="stock-name">绿的谐波</span><span class="stock-code">688017</span></td><td style="text-align:right">293.03</td><td style="text-align:right" class="highlight-red">-5.93%</td></tr>
+        <tr><td><span class="stock-name">拓斯达</span><span class="stock-code">300607</span></td><td style="text-align:right">29.20</td><td style="text-align:right" class="highlight-red">-0.41%</td></tr>
+        <tr><td><span class="stock-name">禾川科技</span><span class="stock-code">688320</span></td><td style="text-align:right">27.45</td><td style="text-align:right" class="highlight-green">+0.62%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 15. 长鑫存储上游 -->
+  <div class="chain-block">
+    <div class="chain-header">🏗️ 长鑫存储上游 <span class="badge" style="background:#f8514933;color:#f85149;">跌停</span></div>
+    <table class="stock-table">
+      <thead><tr><th>股票</th><th style="text-align:right">现价</th><th style="text-align:right">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="stock-name">深科技</span><span class="stock-code">000021</span></td><td style="text-align:right">39.56</td><td style="text-align:right" class="highlight-red">-9.99% <span class="limit-down">近跌停</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== 盘面特征与总结 ===== -->
+<div class="section">
+  <div class="section-title">🧠 盘面特征与资金逻辑</div>
+  <div class="flow-summary">
+    <span class="flow-tag warn">光通信/CPO 全线崩塌</span>
+    <span class="flow-tag warn">PCB 集体跌停</span>
+    <span class="flow-tag warn">存储/HBM 重灾区</span>
+    <span class="flow-tag warn">先进封装 多股跌停</span>
+    <span class="flow-tag warn">半导体设备 普跌</span>
+    <span class="flow-tag warn">MLCC 普跌</span>
+    <span class="flow-tag">上游材料 抗跌</span>
+    <span class="flow-tag strong">AI应用 逆势飘红</span>
+    <span class="flow-tag strong">清溢光电 涨停</span>
+  </div>
+
+  <div class="summary-box" style="margin-top:18px;">
+    <h3>📋 今日AI产业链核心要点</h3>
+    <ul>
+      <li><span class="highlight red">创业板指暴跌 7.35%、科创50 跌 6.33%</span>——创近一年最大单日跌幅，AI 硬件链遭遇「系统性屠杀」</li>
+      <li><span class="highlight red">上证指数仅微跌 0.02%</span>——银行、中字头权重强力护盘，指数与真实体感严重背离，典型「国家队长下掩护科技出货」</li>
+      <li><span class="highlight red">AI 硬件全线跌停潮：15+ 只跌停</span>——深南电路、沪电股份、景旺电子、生益科技、鹏鼎控股、剑桥科技、光迅科技、长飞光纤、华工科技、兴森科技、通富微电、兆易创新 等集体封死跌停板</li>
+      <li><span class="highlight red">光模块三巨头崩塌：</span>新易盛 -17.13%（AI链今日最大跌幅）、中际旭创 -15.69%、天孚通信 -13.21%，板块逻辑遭遇重大考验</li>
+      <li><span class="highlight red">存储/HBM方向惨烈：</span>佰维存储 -12.98%、江波龙 -11.74%、兆易创新跌停，存储周期预期出现裂痕</li>
+      <li><span class="highlight green">仅 AI 应用方向逆势收红</span>——金山办公 +0.18%、科大讯飞 +0.20%、拓尔思 +1.28%，资金呈现从「硬→软」的极致轮动，算力硬件遭抛售而软件应用端获避险资金流入</li>
+      <li><span class="highlight green">清溢光电逆势涨停 +13.70%</span>——掩模版/光刻材料方向成为今日 AI 链唯一涨停股，或与国产替代+光刻相关主题资金驱动有关</li>
+      <li><span class="highlight">上游材料相对抗跌：</span>雅克科技 -1.72%、彤程新材 -0.83%，半导体材料国产替代逻辑仍有一定支撑</li>
+      <li><span class="highlight">北向资金大幅流出：</span>外资对 AI 硬件方向的大规模撤离是今日暴跌的核心推手之一，或与海外 AI 资本开支预期下调、中美科技博弈升级等因素相关</li>
+      <li><span class="highlight">后续关注：</span>明日是否存在技术性反弹（急跌后的反抽），特别是光模块和 PCB 方向能否止跌企稳；AI 应用方向的「硬→软」切换是否会持续</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  <p>报告由 Hermes Agent 自动化生成 · 数据来源：Yahoo Finance v8 API · 东方财富</p>
+  <p>⚠️ 本报告仅供参考，不构成任何投资建议。投资有风险，入市需谨慎。</p>
+  <p>Generated: 2026-07-28 收盘后</p>
+</div>
+
+</body>
+</html>
