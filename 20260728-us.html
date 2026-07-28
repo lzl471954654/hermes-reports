@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026-07-28</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d28;
+    --border: #2a2d3a;
+    --text: #e1e4eb;
+    --sub: #8b8fa3;
+    --green: #00c853;
+    --red: #ff5252;
+    --blue: #448aff;
+    --orange: #ff9100;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; }
+  .header .date { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .index-card {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .index-card .name { font-size: 12px; color: var(--sub); margin-bottom: 4px; }
+  .index-card .value { font-size: 22px; font-weight: 700; }
+  .index-card .change { font-size: 14px; margin-top: 2px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .section {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+  }
+  .section h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left;
+    padding: 8px 10px;
+    color: var(--sub);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  td { padding: 8px 10px; border-bottom: 1px solid rgba(42,45,58,0.5); }
+  tr:last-child td { border-bottom: none; }
+  td.right { text-align: right; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .badge-up { background: rgba(0,200,83,0.15); color: var(--green); }
+  .badge-down { background: rgba(255,82,82,0.15); color: var(--red); }
+  .tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    margin-left: 4px;
+  }
+  .tag-semi { background: rgba(68,138,255,0.2); color: var(--blue); }
+  .tag-cloud { background: rgba(255,145,0,0.2); color: var(--orange); }
+  .tag-software { background: rgba(0,200,83,0.2); color: var(--green); }
+  .insight-box {
+    background: rgba(68,138,255,0.08);
+    border-left: 3px solid var(--blue);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 14px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .insight-box strong { color: var(--blue); }
+  .mapping-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .map-item {
+    background: rgba(255,255,255,0.03);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+  .map-item .en { font-size: 14px; font-weight: 600; }
+  .map-item .cn { color: var(--sub); margin-top: 2px; }
+  .map-item .direction { margin-top: 4px; }
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--sub);
+    font-size: 11px;
+  }
+  .disclaimer {
+    background: rgba(255,82,82,0.08);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 11px;
+    color: var(--sub);
+    margin-top: 20px;
+  }
+  .section-summary {
+    font-size: 13px;
+    color: var(--sub);
+    margin-bottom: 14px;
+    line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 AI产业链美股收盘 & A股映射早报</h1>
+  <div class="date">📅 2026年7月28日（周二）| 分析7月27日（周一）收盘</div>
+</div>
+
+<!-- 三大指数概览 -->
+<div class="overview">
+  <div class="index-card">
+    <div class="name">标普500 S&P 500</div>
+    <div class="value">7,413.18</div>
+    <div class="change up">+4.88 (+0.07%)</div>
+  </div>
+  <div class="index-card">
+    <div class="name">纳斯达克 NASDAQ</div>
+    <div class="value">24,932.08</div>
+    <div class="change down">-205.61 (-0.82%)</div>
+  </div>
+  <div class="index-card">
+    <div class="name">道琼斯 DJIA</div>
+    <div class="value">52,210.08</div>
+    <div class="change up">+498.43 (+0.96%)</div>
+  </div>
+</div>
+
+<!-- 市场概况 -->
+<div class="section">
+  <h2>📊 市场背景</h2>
+  <table>
+    <tr><td>VIX 恐慌指数</td><td class="right"><strong>18.67</strong>（前值 18.70，基本持平）</td></tr>
+    <tr><td>10年期美债收益率</td><td class="right"><strong>4.64%</strong>（前值 4.70%，↓6bp）</td></tr>
+    <tr><td>市场风格</td><td class="right"><strong>道指领涨，纳指承压 → 价值轮动</strong></td></tr>
+  </table>
+</div>
+
+<!-- 核心判断 -->
+<div class="section">
+  <h2>🔍 核心判断</h2>
+  <div class="insight-box">
+    <strong>AI硬件崩、软件起——板块内剧烈轮动。</strong>周一美股上演极致的AI内部分化：AI半导体全线暴跌（ASML -8.2%、MU -9.1%、MRVL -9.6%、AMD -8.3%、NVDA -5.9%），而AI应用/软件方向强势反弹（PLTR +6.6%、MSFT +2.0%、GOOGL +2.8%、SNOW +2.9%）。道指涨近500点但纳指收绿，本质是场内存量资金从高估值AI硬件撤出、涌入软件与价值板块。10Y收益率回落6bp至4.64%略缓解估值压力，但不足以抵挡半导体获利了结潮。
+  </div>
+</div>
+
+<!-- AI半导体 -->
+<div class="section">
+  <h2>🔴 AI半导体 <span class="tag tag-semi">硬件</span></h2>
+  <table>
+    <thead>
+      <tr><th>代码</th><th>公司</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">成交量</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>NVDA</td><td>英伟达</td><td class="right">$196.51</td><td class="right"><span class="badge badge-down">-5.87%</span></td><td class="right">1.53亿</td></tr>
+      <tr><td>AMD</td><td>超威</td><td class="right">$494.95</td><td class="right"><span class="badge badge-down">-8.29%</span></td><td class="right">3164万</td></tr>
+      <tr><td>AVGO</td><td>博通</td><td class="right">$383.22</td><td class="right"><span class="badge badge-down">-2.36%</span></td><td class="right">1581万</td></tr>
+      <tr><td>TSM</td><td>台积电</td><td class="right">$399.09</td><td class="right"><span class="badge badge-down">-3.97%</span></td><td class="right">1567万</td></tr>
+      <tr><td>ASML</td><td>阿斯麦</td><td class="right">$1,655.26</td><td class="right"><span class="badge badge-down">-8.19%</span></td><td class="right">332万</td></tr>
+      <tr><td>MU</td><td>美光</td><td class="right">$900.20</td><td class="right"><span class="badge badge-down">-9.09%</span></td><td class="right">4686万</td></tr>
+      <tr><td>MRVL</td><td>迈威尔</td><td class="right">$189.17</td><td class="right"><span class="badge badge-down">-9.62%</span></td><td class="right">2152万</td></tr>
+      <tr><td>SMCI</td><td>超微电脑</td><td class="right">$29.81</td><td class="right"><span class="badge badge-down">-4.46%</span></td><td class="right">3510万</td></tr>
+      <tr><td>ARM</td><td>安谋</td><td class="right">$266.33</td><td class="right"><span class="badge badge-down">-5.90%</span></td><td class="right">503万</td></tr>
+    </tbody>
+  </table>
+  <div class="section-summary" style="margin-top:12px;">
+    ⚠️ 半导体板块全面溃败，平均跌幅 -6.4%。MU、MRVL、AMD 跌幅超 8%，放量下跌特征明显。资金大规模撤离硬件端。
+  </div>
+</div>
+
+<!-- AI软件/云/平台 -->
+<div class="section">
+  <h2>🟢 AI软件·云·平台 <span class="tag tag-software">应用</span></h2>
+  <table>
+    <thead>
+      <tr><th>代码</th><th>公司</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">成交量</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>MSFT</td><td>微软</td><td class="right">$389.10</td><td class="right"><span class="badge badge-up">+1.97%</span></td><td class="right">2775万</td></tr>
+      <tr><td>GOOGL</td><td>谷歌</td><td class="right">$326.56</td><td class="right"><span class="badge badge-up">+2.79%</span></td><td class="right">2834万</td></tr>
+      <tr><td>META</td><td>Meta</td><td class="right">$593.87</td><td class="right"><span class="badge badge-down">-2.02%</span></td><td class="right">1111万</td></tr>
+      <tr><td>AMZN</td><td>亚马逊</td><td class="right">$231.39</td><td class="right"><span class="badge badge-down">-0.97%</span></td><td class="right">3490万</td></tr>
+      <tr><td>PLTR</td><td>Palantir</td><td class="right">$131.53</td><td class="right"><span class="badge badge-up">+6.62%</span></td><td class="right">3648万</td></tr>
+      <tr><td>SNOW</td><td>Snowflake</td><td class="right">$272.92</td><td class="right"><span class="badge badge-up">+2.94%</span></td><td class="right">379万</td></tr>
+    </tbody>
+  </table>
+  <div class="section-summary" style="margin-top:12px;">
+    ✅ AI应用端逆势走强。PLTR 暴涨 6.6% 领涨，MSFT、GOOGL 反弹有力，软件SaaS方向获资金青睐。"买铲子不如买淘金者"的逻辑正在兑现。
+  </div>
+</div>
+
+<!-- A股映射 -->
+<div class="section">
+  <h2>🇨🇳 A股映射参考</h2>
+  <div class="section-summary">
+    今日A股开盘，AI产业链大概率出现"半导体重挫、软件分化"的格局。注意以下几点：
+  </div>
+  
+  <div style="margin-bottom: 16px;">
+    <h3 style="font-size:13px; color: var(--red); margin-bottom:8px;">🔴 承压方向 — AI半导体映射</h3>
+    <div class="mapping-grid">
+      <div class="map-item">
+        <div class="en">寒武纪-U (688256)</div>
+        <div class="cn">国产AI芯片龙头</div>
+        <div class="direction down">⚠ 美股NVDA/AMD暴跌，情绪传导压力大</div>
+      </div>
+      <div class="map-item">
+        <div class="en">海光信息 (688041)</div>
+        <div class="cn">国产CPU/GPU</div>
+        <div class="direction down">⚠ AI算力板块整体承压</div>
+      </div>
+      <div class="map-item">
+        <div class="en">中芯国际 (688981)</div>
+        <div class="cn">晶圆代工龙头</div>
+        <div class="direction down">⚠ TSM跌4%，全球代工情绪转弱</div>
+      </div>
+      <div class="map-item">
+        <div class="en">北方华创 (002371)</div>
+        <div class="cn">半导体设备龙头</div>
+        <div class="direction down">⚠ ASML暴跌8%，设备股首当其冲</div>
+      </div>
+      <div class="map-item">
+        <div class="en">韦尔股份 (603501)</div>
+        <div class="cn">CIS芯片/MRVL对标</div>
+        <div class="direction down">⚠ MRVL跌9.6%，存储+模拟承压</div>
+      </div>
+      <div class="map-item">
+        <div class="en">兆易创新 (603986)</div>
+        <div class="cn">存储芯片/MU对标</div>
+        <div class="direction down">⚠ MU跌9%，存储板块情绪冰点</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h3 style="font-size:13px; color: var(--green); margin-bottom:8px;">🟢 可能受益方向 — AI应用映射</h3>
+    <div class="mapping-grid">
+      <div class="map-item">
+        <div class="en">金山办公 (688111)</div>
+        <div class="cn">AI+办公软件</div>
+        <div class="direction up">✅ MSFT反弹映射，AI应用端有支撑</div>
+      </div>
+      <div class="map-item">
+        <div class="en">科大讯飞 (002230)</div>
+        <div class="cn">AI大模型+应用</div>
+        <div class="direction up">✅ PLTR大涨6.6%，AI应用叙事升温</div>
+      </div>
+      <div class="map-item">
+        <div class="en">浪潮信息 (000977)</div>
+        <div class="cn">AI服务器</div>
+        <div class="direction down">⚠ 两面性：硬件受拖累，但SMCI跌幅相对可控</div>
+      </div>
+      <div class="map-item">
+        <div class="en">中科曙光 (603019)</div>
+        <div class="cn">国产算力/超算</div>
+        <div class="direction down">⚠ 国产算力逻辑独立，但整体情绪偏空</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 盘后 -->
+<div class="section">
+  <h2>🌙 盘后动态</h2>
+  <div class="section-summary">
+    截至美东时间7月27日20:00，盘后交易尚未出现显著波动信号。关注周二盘前是否有财报或重大消息催化。重点关注：
+    <ul style="margin-top:8px; padding-left:16px;">
+      <li>MU 周一跌超9%后盘后暂稳于$900，若无利空消化，周二或有技术性反弹</li>
+      <li>NVDA $196 为关键心理位，若跌破可能引发更大规模止损</li>
+      <li>ASML $1655 为近半年低位，需关注是否有机构研报下调评级</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 风险提示 -->
+<div class="disclaimer">
+  ⚠️ <strong>风险提示：</strong>本报告仅为信息整理与市场观察，不构成任何投资建议。A股受政策、流动性、市场情绪多重因素影响，映射逻辑仅供参考。投资者应基于独立判断做出决策。过往表现不代表未来收益。
+</div>
+
+<div class="footer">
+  Generated by Hermes Cron · 2026-07-28 · 数据来源：Yahoo Finance
+</div>
+
+</body>
+</html>
