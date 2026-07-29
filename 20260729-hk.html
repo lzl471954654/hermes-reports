@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-07-29</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-secondary: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --accent: #58a6ff;
+    --accent2: #d2a8ff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.8rem; margin-bottom: 4px; color: #fff; }
+  h2 { font-size: 1.25rem; margin: 28px 0 12px; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  h3 { font-size: 1.05rem; color: var(--accent2); margin: 16px 0 8px; }
+  .date-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .card .label { font-size: 0.8rem; color: var(--text-secondary); }
+  .card .value { font-size: 1.5rem; font-weight: 700; }
+  .card .change { font-size: 0.9rem; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 0.9rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: right;
+  }
+  th { background: var(--card-bg); color: var(--text-secondary); font-weight: 600; text-align: center; }
+  td:first-child, td:nth-child(2) { text-align: left; }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-right: 4px;
+    font-weight: 600;
+  }
+  .tag-semi { background: #1f6feb33; color: #58a6ff; }
+  .tag-optical { background: #d2a8ff33; color: #d2a8ff; }
+  .tag-ai { background: #3fb95033; color: #3fb950; }
+  .tag-cloud { background: #f0883e33; color: #f0883e; }
+  .tag-evs { background: #79c0ff33; color: #79c0ff; }
+  .insight-box {
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+  }
+  .footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<h1>🇭🇰 港股收盘总结 · AI产业链深度版</h1>
+<div class="date-badge">📅 2026年7月29日（周三）</div>
+
+<!-- ====== 大盘概览 ====== -->
+<h2>📊 大盘概览</h2>
+<div class="summary-cards">
+  <div class="card">
+    <div class="label">恒生指数 HSI</div>
+    <div class="value">25,807.92</div>
+    <div class="change up">↑ +497.07 (+1.96%)</div>
+    <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">成交额 1,419 亿港元</div>
+  </div>
+  <div class="card">
+    <div class="label">恒生科技指数</div>
+    <div class="value">4,864.73</div>
+    <div class="change up">↑ +134.12 (+2.84%)</div>
+    <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">科技股领跑大市</div>
+  </div>
+  <div class="card">
+    <div class="label">今日区间 (HSI)</div>
+    <div class="value" style="font-size:1.1rem;">25,487 – 25,809</div>
+    <div class="change" style="color:var(--text-secondary);">高开高走，全天强势</div>
+  </div>
+</div>
+
+<div class="insight-box">
+  <strong>🔑 核心观点：</strong>港股今日强势反弹，恒指收涨近 2%，科技指数涨近 3% 明显跑赢。AI 应用端全线爆发——小米涨近 9% 领跑，腾讯涨超 4%，舜宇光学涨 5.4%。但半导体制造端出现回调，中芯国际逆市跌 2.75%，华虹跌 1.1%，显示资金在 AI 产业链内部从「硬件制造」向「终端应用+平台」轮动。
+</div>
+
+<!-- ====== AI 产业链全景 ====== -->
+<h2>🔗 AI 产业链全景</h2>
+
+<h3>🏭 半导体制造 / 设计</h3>
+<table>
+  <tr><th>代码</th><th>名称</th><th>标签</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>52周高/低</th></tr>
+  <tr>
+    <td>0981.HK</td><td>中芯国际</td>
+    <td><span class="tag tag-semi">晶圆代工</span></td>
+    <td>67.20</td>
+    <td class="down">-2.75%</td>
+    <td>101.4 亿</td>
+    <td>93.50 / 47.14</td>
+  </tr>
+  <tr>
+    <td>1347.HK</td><td>华虹半导体</td>
+    <td><span class="tag tag-semi">特色工艺</span></td>
+    <td>136.80</td>
+    <td class="down">-1.09%</td>
+    <td>68.3 亿</td>
+    <td>219.60 / 39.10</td>
+  </tr>
+</table>
+
+<div class="insight-box">
+  <strong>📉 半导体回调：</strong>中芯国际盘中一度跌至 63.55（较前收 -8%），尾盘收回部分失地。华虹同样冲高回落，全日波幅达 15.55 港元。市场担忧美国新一轮对华芯片出口管制传闻，叠加前期涨幅过高后的获利回吐。两股合计成交近 170 亿港元，换手率极高。
+</div>
+
+<h3>📷 光通信 / 光学感知</h3>
+<table>
+  <tr><th>代码</th><th>名称</th><th>标签</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>52周高/低</th></tr>
+  <tr>
+    <td>2382.HK</td><td>舜宇光学</td>
+    <td><span class="tag tag-optical">车载光学</span></td>
+    <td>61.20</td>
+    <td class="up">+5.43%</td>
+    <td>15.1 亿</td>
+    <td>90.06 / 50.74</td>
+  </tr>
+  <tr>
+    <td>2018.HK</td><td>瑞声科技</td>
+    <td><span class="tag tag-optical">精密声学</span></td>
+    <td>39.24</td>
+    <td class="up">+1.03%</td>
+    <td>1.7 亿</td>
+    <td>50.59 / 30.95</td>
+  </tr>
+  <tr>
+    <td>1478.HK</td><td>丘钛科技</td>
+    <td><span class="tag tag-optical">摄像头模组</span></td>
+    <td>7.01</td>
+    <td class="up">+3.39%</td>
+    <td>0.4 亿</td>
+    <td>16.17 / 6.31</td>
+  </tr>
+</table>
+
+<div class="insight-box">
+  <strong>📈 光学链强势：</strong>舜宇光学涨 5.4% 领跑光学板块，市场预期其车载镜头及 AI 视觉模组需求持续放量。丘钛科技涨 3.4% 跟随。光学赛道的共识逻辑清晰——无论 AI 终端形态如何演进（手机/汽车/机器人），视觉感知硬件需求确定性高。
+</div>
+
+<h3>🤖 AI 平台 / 云 / 应用</h3>
+<table>
+  <tr><th>代码</th><th>名称</th><th>标签</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>52周高/低</th></tr>
+  <tr>
+    <td>0700.HK</td><td>腾讯控股</td>
+    <td><span class="tag tag-ai">AI 大模型</span></td>
+    <td>466.40</td>
+    <td class="up">+4.29%</td>
+    <td>167.6 亿</td>
+    <td>675.13 / 411.00</td>
+  </tr>
+  <tr>
+    <td>9988.HK</td><td>阿里巴巴</td>
+    <td><span class="tag tag-cloud">AI 云</span></td>
+    <td>113.60</td>
+    <td class="up">+1.43%</td>
+    <td>106.1 亿</td>
+    <td>184.57 / 88.65</td>
+  </tr>
+  <tr>
+    <td>9888.HK</td><td>百度集团</td>
+    <td><span class="tag tag-ai">自动驾驶AI</span></td>
+    <td>103.00</td>
+    <td class="up">+1.38%</td>
+    <td>10.8 亿</td>
+    <td>161.20 / 84.20</td>
+  </tr>
+  <tr>
+    <td>1024.HK</td><td>快手</td>
+    <td><span class="tag tag-ai">AI 视频</span></td>
+    <td>42.80</td>
+    <td class="up">+1.09%</td>
+    <td>18.5 亿</td>
+    <td>91.04 / 39.72</td>
+  </tr>
+  <tr>
+    <td>3690.HK</td><td>美团</td>
+    <td><span class="tag tag-ai">AI 本地生活</span></td>
+    <td>92.30</td>
+    <td class="up">+2.22%</td>
+    <td>75.3 亿</td>
+    <td>130.60 / 63.65</td>
+  </tr>
+  <tr>
+    <td>9618.HK</td><td>京东集团</td>
+    <td><span class="tag tag-ai">AI 供应链</span></td>
+    <td>126.20</td>
+    <td class="up">+1.69%</td>
+    <td>15.7 亿</td>
+    <td>138.78 / 92.55</td>
+  </tr>
+  <tr>
+    <td>9961.HK</td><td>携程集团</td>
+    <td><span class="tag tag-ai">AI 旅行</span></td>
+    <td>367.00</td>
+    <td class="up">+5.10%</td>
+    <td>19.0 亿</td>
+    <td>613.00 / 299.20</td>
+  </tr>
+  <tr>
+    <td>9999.HK</td><td>网易</td>
+    <td><span class="tag tag-ai">AI 游戏</span></td>
+    <td>203.20</td>
+    <td class="up">+1.80%</td>
+    <td>16.3 亿</td>
+    <td>243.13 / 167.82</td>
+  </tr>
+</table>
+
+<div class="insight-box">
+  <strong>🚀 AI 平台全面开花：</strong>腾讯大涨 4.3% 成交额 168 亿居全市场之首——市场对其 AI 大模型商业化及广告效率提升预期升温。携程涨 5.1% 创阶段新高，AI 赋能的个性化推荐正转化为实际订单增长。AI 应用层的「增收逻辑」正在逐步兑现。
+</div>
+
+<h3>📱 AI 终端 / 智能硬件</h3>
+<table>
+  <tr><th>代码</th><th>名称</th><th>标签</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>52周高/低</th></tr>
+  <tr>
+    <td>1810.HK</td><td>小米集团</td>
+    <td><span class="tag tag-evs">AIoT + EV</span></td>
+    <td>31.88</td>
+    <td class="up">+8.95%</td>
+    <td>151.5 亿</td>
+    <td>59.90 / 21.30</td>
+  </tr>
+</table>
+
+<div class="insight-box">
+  <strong>🔥 小米暴涨 8.95%：</strong>今日全场最亮眼的 AI 标的。成交额 152 亿，全市场第二。SU7 交付量持续超预期 + AIoT 生态溢价重估是核心驱动力。高盛等大行上调目标价，市场开始以「AI 终端平台」而非「硬件制造商」给估值。小米正从手机公司蜕变为 AI x EV x IoT 三位一体的生态平台。
+</div>
+
+<!-- ====== 涨跌榜 ====== -->
+<h2>🏆 AI 产业链涨跌榜</h2>
+
+<h3>📈 涨幅 TOP 5</h3>
+<table>
+  <tr><th>排名</th><th>代码</th><th>名称</th><th>板块</th><th>涨幅</th><th>核心驱动</th></tr>
+  <tr><td>🥇</td><td>1810.HK</td><td>小米集团</td><td>AI终端</td><td class="up">+8.95%</td><td>SU7 交付超预期 + AIoT 估值重估</td></tr>
+  <tr><td>🥈</td><td>2382.HK</td><td>舜宇光学</td><td>光学</td><td class="up">+5.43%</td><td>车载 + AI 视觉模组需求放量</td></tr>
+  <tr><td>🥉</td><td>9961.HK</td><td>携程集团</td><td>AI应用</td><td class="up">+5.10%</td><td>AI 个性化推荐驱动增长</td></tr>
+  <tr><td>4</td><td>0700.HK</td><td>腾讯控股</td><td>AI平台</td><td class="up">+4.29%</td><td>大模型商业化 + 广告效率提升</td></tr>
+  <tr><td>5</td><td>1478.HK</td><td>丘钛科技</td><td>光学</td><td class="up">+3.39%</td><td>跟随舜宇光学板块效应</td></tr>
+</table>
+
+<h3>📉 跌幅榜（仅 2 只下跌）</h3>
+<table>
+  <tr><th>排名</th><th>代码</th><th>名称</th><th>板块</th><th>跌幅</th><th>原因</th></tr>
+  <tr><td>1</td><td>0981.HK</td><td>中芯国际</td><td>半导体</td><td class="down">-2.75%</td><td>美国芯片管制传闻 + 获利回吐</td></tr>
+  <tr><td>2</td><td>1347.HK</td><td>华虹半导体</td><td>半导体</td><td class="down">-1.09%</td><td>跟随板块回调</td></tr>
+</table>
+
+<!-- ====== 资金流向 ====== -->
+<h2>💰 板块资金流向分析</h2>
+<div class="summary-cards">
+  <div class="card">
+    <div class="label">AI 应用/平台</div>
+    <div class="value up">大幅流入</div>
+    <div class="change" style="color:var(--text-secondary);">腾讯+阿里+美团合计成交 349 亿</div>
+  </div>
+  <div class="card">
+    <div class="label">AI 终端/硬件</div>
+    <div class="value up">显著流入</div>
+    <div class="change" style="color:var(--text-secondary);">小米单只成交 152 亿，光学链跟涨</div>
+  </div>
+  <div class="card">
+    <div class="label">半导体制造</div>
+    <div class="value down">资金流出</div>
+    <div class="change" style="color:var(--text-secondary);">中芯+华虹合计成交 170 亿但收跌</div>
+  </div>
+</div>
+
+<div class="insight-box">
+  <strong>🔄 产业链内部轮动：</strong>今日资金从「AI 基础设施（半导体制造）」向「AI 终端应用（手机/汽车/平台）」切换。中芯国际虽然成交超百亿但收跌，是典型的「放量下跌」——短线资金获利了结信号。与此同时腾讯、小米等应用端标的放量大涨。这轮 AI 行情的第二阶段正在从「硬件军备竞赛」转向「应用落地兑现」。
+</div>
+
+<!-- ====== 展望 ====== -->
+<h2>🔮 短期展望与关注点</h2>
+<div class="insight-box">
+  <ul style="padding-left:20px;">
+    <li><strong>半导体板块：</strong>关注美国对华芯片管制政策落地情况。若实际措施弱于传闻，中芯/华虹有望反弹。当前回调为技术性调整，中长期国产替代逻辑不变。</li>
+    <li><strong>AI 应用端：</strong>腾讯、小米动能强劲，但短线涨幅较大，需关注获利回吐压力。8 月财报季将是关键验证节点。</li>
+    <li><strong>光学链：</strong>舜宇光学刚从 52 周低点反弹，估值仍有修复空间。关注车载及机器人视觉的订单数据。</li>
+    <li><strong>恒指技术面：</strong>突破 25,800 关口，下一阻力位 26,200（前高）。支撑位 25,300。若量能持续维持 1,300 亿以上，有望继续上攻。</li>
+  </ul>
+</div>
+
+<!-- ====== 免责声明 ====== -->
+<div class="footer">
+  <p>⚠️ 本报告由 AI 自动生成，仅供信息参考，不构成任何投资建议。投资有风险，入市需谨慎。</p>
+  <p>数据来源：Sina Finance · 生成时间：2026-07-29 16:30 HKT</p>
+  <p>Generated by Hermes Agent · <a href="https://reports.dns-cloudflare.com/20260729-hk.html">reports.dns-cloudflare.com/20260729-hk.html</a></p>
+</div>
+
+</body>
+</html>
