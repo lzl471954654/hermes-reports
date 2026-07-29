@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年7月29日</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif; max-width: 860px; margin: 0 auto; padding: 20px; line-height: 1.7; }
+h1 { color: #58a6ff; font-size: 1.8em; border-bottom: 2px solid #30363d; padding-bottom: 12px; margin-bottom: 8px; }
+.subtitle { color: #8b949e; font-size: 0.9em; margin-bottom: 25px; }
+h2 { color: #f0883e; margin-top: 35px; margin-bottom: 12px; font-size: 1.35em; }
+h3 { color: #7ee787; margin: 15px 0 8px 0; font-size: 1.1em; }
+h3 a { color: #7ee787; }
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+p { margin: 8px 0; }
+.headline-box { background: linear-gradient(135deg, #161b22 0%, #1a2332 100%); border-left: 4px solid #7ee787; padding: 20px; margin: 12px 0; border-radius: 8px; }
+.headline-box h3 { margin-top: 0; font-size: 1.2em; }
+.p0 { background: #161b22; border-left: 4px solid #7ee787; padding: 15px; margin: 12px 0; border-radius: 6px; }
+.p1 { background: #161b22; border-left: 4px solid #58a6ff; padding: 12px; margin: 8px 0; border-radius: 6px; }
+.p2 { background: #161b22; border-left: 4px solid #484f58; padding: 12px; margin: 8px 0; border-radius: 6px; }
+.insight-box { background: #1a2332; border: 1px solid #58a6ff; padding: 18px; margin: 25px 0; border-radius: 8px; }
+.tag { display: inline-block; background: #21262d; color: #8b949e; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+.analysis { color: #e6edf3; margin-top: 8px; font-style: italic; border-left: 2px solid #30363d; padding-left: 12px; }
+.divider { border: none; border-top: 1px solid #21262d; margin: 28px 0; }
+.footer { color: #484f58; font-size: 0.8em; text-align: center; margin-top: 45px; padding-top: 20px; border-top: 1px solid #21262d; }
+.footer a { color: #8b949e; }
+.meta { color: #8b949e; font-size: 0.85em; margin-bottom: 4px; }
+.highlight { color: #f0883e; font-weight: bold; }
+.note { background: #21262d; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; color: #f0883e; }
+</style>
+</head>
+<body>
+
+<h1>🤖 AI 前沿日报</h1>
+<p class="subtitle">2026年7月29日 · 星期二 · 第1期</p>
+
+<!-- 🔥 TODAY'S HEADLINE -->
+<h2>🔥 今日头条</h2>
+
+<div class="headline-box">
+<h3>MCP 协议发布史上最大更新：彻底走向无状态</h3>
+<p class="meta"><span class="tag">P0</span> <span class="tag">Agent</span> <span class="tag">Infrastructure</span> · 2026-07-28</p>
+<p>Model Context Protocol (MCP) 正式发布了 <strong>2026-07-28</strong> 版规范——这是一次根本性的架构变革。MCP 从一个有状态的、需要握手的双向协议，转变为<strong>无状态的请求/响应协议</strong>。这意味着什么？</p>
+<ul style="margin: 10px 0; padding-left: 20px;">
+  <li><strong>取消握手与 Session</strong>：不再有 <code>initialize/initialized</code> 交换，不再有 <code>Mcp-Session-Id</code> header。每个请求自包含协议版本、客户端身份和能力声明。</li>
+  <li><strong>Multi-Round Trip Requests (MRTR)</strong>：服务器可以在单次请求中返回「需要更多输入」，客户端重试携带补充数据。这在无状态约束下实现了原来有状态才能做的多轮交互。</li>
+  <li><strong>Header-based 路由</strong>：<code>Mcp-Method</code> 和 <code>Mcp-Name</code> 直接走 HTTP header，网关层即可路由和鉴权，无需解析 JSON body。</li>
+  <li><strong>HTTP+SSE 正式弃用</strong>：给了一年过渡期，全面转向 Streamable HTTP。</li>
+  <li><strong>Tasks 扩展正式化</strong>：从实验性核心提升为正式扩展 <code>io.modelcontextprotocol/tasks</code>，支持 poll-based 任务管理和更新。</li>
+</ul>
+<div class="analysis">
+💡 <strong>为什么这是今日最重要的事：</strong>MCP 从「玩具协议」进化到了「生产级基础设施」。无状态化意味着你可以把 MCP server 部署在标准负载均衡器后面、在 Lambda/Cloud Run 上水平扩展、用 CDN 缓存 tool 定义——之前这些都是奢望。AWS Bedrock AgentCore 已宣布同步支持。这对 agent 开发者意味着：<strong>你的 MCP 工具服务器现在可以在真正的生产环境里跑了，不再需要维护脆弱的 WebSocket 长连接。</strong>
+</div>
+<p style="margin-top: 8px;">📎 <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank">官方博客</a> · 维护者：David Soria Parra & Den Delimarsky · 阅读时间 12 分钟</p>
+</div>
+
+<!-- 🤖 AGENT FRONTIER -->
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+<h3>📄 StateAct：用程序状态替代像素——长时程 Computer-Use Agent 的新范式</h3>
+<p class="meta"><span class="tag">P0</span> <span class="tag">Agent</span> <span class="tag">Computer Use</span> · Hugging Face Papers · 2026-07-28</p>
+<p>当前的 computer-use agent（如 Claude Computer Use、OpenAI Operator）依赖屏幕像素理解界面状态，这在长时程任务中面临严重挑战：分辨率损失、视觉歧义、上下文窗口爆炸。StateAct 提出一个颠覆性思路：<strong>让 agent 直接读取程序状态（DOM tree、accessibility tree、窗口层级）而非截图</strong>。论文证明这种方法在长时程任务中显著优于 pixel-based 方法。</p>
+<div class="analysis">
+💡 对 agent 开发者：如果你在做 GUI automation agent，这个方向值得密切关注。程序状态作为 agent 的观测空间，信息密度远高于像素，token 消耗也更少。这可能会成为下一代 computer-use agent 的标准做法。</div>
+</div>
+
+<div class="p0">
+<h3>📄 JarvisHub：Canvas 原生多模态创意 Agent 开源框架</h3>
+<p class="meta"><span class="tag">P0</span> <span class="tag">Agent</span> <span class="tag">Multimodal</span> · Hugging Face Papers · 2026-07-28</p>
+<p>一个开放的多模态创意 agent 测试平台，专门针对 canvas-based 的创作任务（图像编辑、设计、视频处理）。它不是又一个「用 LLM 调用 Stable Diffusion」的玩具——而是真正在 canvas 空间中进行多步操作的 agent 框架。</p>
+<div class="analysis">
+💡 创意 agent 是 agent 领域一个被低估的方向。目前大部分 agent 框架集中在代码和数据分析，但创意工作流（设计、视频编辑、音乐制作）的 agent 化才刚刚开始。JarvisHub 提供了一个标准化的评估和开发平台。</div>
+</div>
+
+<div class="p0">
+<h3>📄 Multi-Agent Protocol Distillation：从闭源到开源的 Agentic Search 跨越</h3>
+<p class="meta"><span class="tag">P0</span> <span class="tag">Agent</span> <span class="tag">Distillation</span> · Hugging Face Papers · 2026-07-28</p>
+<p>这篇论文解决了一个实际问题：闭源 agentic search 系统（如 Google Deep Research、Perplexity）表现好但不开放，开源方案往往效果差一截。作者通过<strong>多智能体协议蒸馏</strong>——让多个开源 agent 协作并从闭源系统学习搜索策略——显著缩小了这个差距。</p>
+<div class="analysis">
+💡 这为 agent 开发者提供了一个实用思路：如果你的 agent 在特定任务上不如闭源方案，可以尝试用多 agent 协作 + 蒸馏的方式弯道超车，而不是从头训练。</div>
+</div>
+
+<div class="p1">
+<h3>🛠 OpenClaude Improved — "runs anywhere, uses anything"</h3>
+<p class="meta"><span class="tag">P1</span> <span class="tag">Tool</span> <span class="tag">Open Source</span> · GitHub · ⭐581 · 创建于 2026-07-26</p>
+<p>一款开源的 agentic AI 编程助手，兼容 Claude Code 工作流，支持 MCP 协议，同时还能用 Gemini 和 OpenRouter 作为后端。两天内获得 581 星。</p>
+<div class="analysis">
+💡 Claude Code 的成功催生了一波开源复刻潮，但这个项目的独特之处在于多模型后端支持。如果你在寻找一个不绑定单一供应商的 coding agent 方案，可以关注。</div>
+</div>
+
+<!-- ⚡ SMALL MODELS & EFFICIENCY -->
+<h2>⚡ 小模型 & 效率革命</h2>
+
+<div class="p0">
+<h3>🚀 Kimi K3 发布：2.8T 参数，史上最大开源模型</h3>
+<p class="meta"><span class="tag">P0</span> <span class="tag">Open Source</span> <span class="tag">Architecture</span> · 2026-07-28</p>
+<p>Moonshot AI (Kimi) 发布了 <strong>Kimi K3</strong>——这是一个 2.8 万亿参数的开源模型，一举成为目前最大的 open-weight 模型。Sebastian Raschka 第一时间发布了详细的架构分析。核心亮点：</p>
+<ul style="margin: 10px 0; padding-left: 20px;">
+  <li><strong>LatentMoE</strong>：类似 Nemotron 3 Ultra，将大规模线性层压缩为低维潜在空间后进行 MoE 路由，大幅降低推理时的内存占用。</li>
+  <li><strong>Multi-Head Latent Attention (MHLA)</strong> + <strong>Kimi Delta Attention</strong>：对传统 attention 机制的效率改进，减少 KV cache 开销。</li>
+  <li><strong>推理效率优先</strong>：整体架构设计哲学是「在不牺牲太多性能的前提下，让推理更快更省」——与 DeepSeek V4、Nemotron 3 的大方向一致。</li>
+  <li><strong>可本地运行</strong>：社区已验证在 M1 Max 上可运行。</li>
+</ul>
+<div class="analysis">
+💡 这不是又一个「参数更大就更好」的故事。Kimi K3 的真正意义在于它证明了一件事：<strong>开源社区现在有能力训练并公开 2T+ 级别的模型了</strong>。这不是 Meta 或 Google 放出来的，而是一个相对小得多的团队（Moonshot）做到的。加上 LatentMoE 等效率技术，它为 agent 开发者提供了一个真正可以在本地或私有云上部署的 frontier 级模型。这对「不想把数据送给 API 厂商」的 enterprise agent 场景意义重大。</div>
+<p style="margin-top: 8px;">📎 <a href="https://sebastianraschka.com/blog/2026/kimi-k3-architecture-notes.html" target="_blank">Sebastian Raschka 架构分析</a> · <a href="https://news.ycombinator.com/item?id=49090233" target="_blank">HN: M1 Max 运行体验</a></p>
+</div>
+
+<div class="p1">
+<h3>📄 Sol-Attn: 视频生成推理的 Attention 稀疏化加速</h3>
+<p class="meta"><span class="tag">P1</span> <span class="tag">Efficiency</span> <span class="tag">Inference</span> · Hugging Face Papers · 2026-07-28</p>
+<p>提出一种 on-the-fly attention 稀疏化方法，在视频生成推理中将 attention 计算量大幅降低，且几乎不影响生成质量。</p>
+<div class="analysis">
+💡 视频生成的推理成本一直是瓶颈。这类工作虽然在生成领域，但其 attention 稀疏化思路对长上下文 LLM 推理也有借鉴意义。</div>
+</div>
+
+<!-- 📡 WIDE ANGLE -->
+<h2>📡 广角扫描</h2>
+
+<div class="p2">
+<h3>Anthropic：用 Claude 发现 HAWK-256 密码学漏洞</h3>
+<p class="meta"><span class="tag">P2</span> <span class="tag">Security</span> · Anthropic Research · 2026-07-28</p>
+<p>Anthropic 发布了使用 Claude 辅助发现密码学弱点的工作，展示了 AI 在安全审计中的实际应用。同时引起了 HN 的广泛讨论。</p>
+<div class="analysis">💡 这条的深层含义是：AI 辅助安全研究正在从理论走向实践。对 agent 开发者来说，这意味着未来你的 agent 可能会被用来审计自己的代码安全性——双向的。</div>
+</div>
+
+<div class="p2">
+<h3>Deer Workflow：TypeScript 原生的图工程运行时</h3>
+<p class="meta"><span class="tag">P2</span> <span class="tag">Tool</span> · GitHub · ⭐319</p>
+<p>一个开源图工程运行时，在 TypeScript 中编排工作流，将语义工作委托给可替换的后端。适合构建复杂的 agent 工作流管道。</p>
+</div>
+
+<div class="p2">
+<h3>OpenAI / Anthropic 博客均无 24h 内新文章</h3>
+<p>截至报告时间，OpenAI、DeepMind、Meta AI、Mistral、xAI 官方博客均无过去 24 小时内新发布的文章。夏季相对安静期。</p>
+</div>
+
+<!-- 💭 DEEP THINKING -->
+<h2>💭 深度思考</h2>
+
+<div class="insight-box">
+<h3>🧠 MCP 无状态化 + Kimi K3 开源 = Agent 基础设施的关键转折</h3>
+<p>今天的两条 P0 新闻看似不相关，但合在一起指向同一个趋势：<strong>agent 开发的「民主化」和「工业化」正在同时加速</strong>。</p>
+<p>MCP 的无状态化解决的是「怎么让 agent 在生产环境稳定运行」的问题——这是工业化。Kimi K3 的 2.8T 开源模型解决的是「不依赖 API 厂商也能用上 frontier 模型」的问题——这是民主化。</p>
+<p>两者叠加，意味着一个团队现在可以：用 Kimi K3 等开源大模型在私有基础设施上部署推理，通过无状态 MCP server 连接企业内部工具和数据源，构建完全自主可控的 agent 系统。几个月前这还需要大量的工程妥协——现在正在变成工程现实。</p>
+<p class="highlight" style="margin-top: 10px;">📌 Actionable：如果你的团队还在用 stateful MCP + API-only 模型，现在就是重新评估架构的好时机。无状态 MCP 的迁移成本不高（一年过渡期），但带来的可扩展性提升是质变的。</p>
+</div>
+
+<div class="insight-box">
+<h3>🔍 Computer-Use Agent 的新方向：告别像素</h3>
+<p>StateAct 的「程序状态 > 像素」思路值得所有做 GUI agent 的开发者重视。过去一年我们看到了大量基于截图的 computer-use agent，但它们在长时程任务中几乎都会遇到上下文窗口和视觉歧义的问题。直接读取 DOM/accessibility tree 不仅能解决这些问题，还能让 agent 的操作更精确、token 消耗更低。</p>
+<p>同时，这也意味着 agent 的安全边界需要重新思考——一个能看到 DOM tree 的 agent 比一个只看截图的 agent 拥有更多信息。权限控制不再只是「能不能截图」，而是「能访问哪些程序状态」。</p>
+</div>
+
+<div class="divider"></div>
+
+<p style="color: #8b949e; font-size: 0.9em;">
+📊 <strong>本期概况：</strong>搜索了 arXiv、Hugging Face Papers、Hacker News、GitHub Trending、Anthropic Research 等来源，筛选出 10 条有价值条目，其中 P0（必入）5 条，P1（选入）2 条，P2（备选）3 条。今日核心主题：<strong>MCP 协议大升级 + Kimi K3 开源。</strong>
+</p>
+
+<div class="footer">
+<p>AI 前沿日报 · 2026年7月29日</p>
+<p>Generated by Hermes Agent · <a href="https://reports.dns-cloudflare.com/daily/ai/2026-07-29.html">reports.dns-cloudflare.com/daily/ai/2026-07-29.html</a></p>
+</div>
+
+</body>
+</html>
