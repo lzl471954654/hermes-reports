@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-07-30</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-secondary: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --accent: #58a6ff;
+    --accent2: #d2a8ff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.8rem; margin-bottom: 4px; color: #fff; }
+  h2 { font-size: 1.25rem; margin: 28px 0 12px; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  h3 { font-size: 1.05rem; color: var(--accent2); margin: 16px 0 8px; }
+  .date-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .card .label { font-size: 0.8rem; color: var(--text-secondary); }
+  .card .value { font-size: 1.5rem; font-weight: 700; }
+  .card .change { font-size: 0.9rem; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 0.9rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: right;
+  }
+  th { background: var(--card-bg); color: var(--text-secondary); font-weight: 600; text-align: center; }
+  td:first-child, td:nth-child(2) { text-align: left; }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-right: 4px;
+    font-weight: 600;
+  }
+  .tag-semi { background: #1f6feb33; color: #58a6ff; }
+  .tag-optical { background: #d2a8ff33; color: #d2a8ff; }
+  .tag-ai { background: #3fb95033; color: #3fb950; }
+  .tag-cloud { background: #f0883e33; color: #f0883e; }
+  .tag-evs { background: #79c0ff33; color: #79c0ff; }
+  .insight-box {
+    background: var(--card-bg);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+  }
+  .insight-box.warning {
+    border-left-color: var(--red);
+  }
+  .footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<h1>🇭🇰 港股收盘总结 · AI产业链深度版</h1>
+<div class="date-badge">📅 2026年7月30日（周四）</div>
+
+<!-- ====== 大盘概览 ====== -->
+<h2>📊 大盘概览</h2>
+<div class="summary-cards">
+  <div class="card">
+    <div class="label">恒生指数 HSI</div>
+    <div class="value">25,858.27</div>
+    <div class="change up">↑ +50.35 (+0.20%)</div>
+    <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">几乎持平，盘中震荡</div>
+  </div>
+  <div class="card">
+    <div class="label">恒生科技指数</div>
+    <div class="value">4,801.46</div>
+    <div class="change down">↓ -63.27 (-1.30%)</div>
+    <div style="font-size:0.8rem;color:var(--text-secondary);margin-top:4px;">科技指数明显跑输大市</div>
+  </div>
+  <div class="card">
+    <div class="label">今日区间 (HSI)</div>
+    <div class="value" style="font-size:1.1rem;">25,657 – 25,972</div>
+    <div class="change" style="color:var(--text-secondary);">高开低走，尾盘勉强收红</div>
+  </div>
+</div>
+
+<div class="insight-box warning">
+  <strong>⚠️ 核心观点：</strong>今日恒指表面波澜不惊（+0.2%），但 AI 产业链内部发生剧烈地震——半导体板块崩盘式下跌，中芯国际暴跌 8.04%，华虹半导体暴跌 9.65%，舜宇光学跌 6.78%。仅腾讯（+1.80%）逆市走强，科技指数跌 1.3% 明显跑输。这场「硬件大逃杀」的核心触发点是美国对华新一轮芯片出口管制传闻发酵，叠加前期半导体板块涨幅巨大后的惨烈获利回吐。市场正在从「AI 硬件军备竞赛」叙事急剧转向「AI 应用落地」叙事——但今天的盘面显示，这种轮动已经演变为恐慌性抛售。
+</div>
+
+<!-- ====== AI 产业链全景 ====== -->
+<h2>🔗 AI 产业链全景</h2>
+
+<h3>🏭 半导体制造 / 设计 🔴 重灾区</h3>
+<table>
+  <tr><th>代码</th><th>名称</th><th>标签</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>52周高/低</th></tr>
+  <tr>
+    <td>0981.HK</td><td>中芯国际</td>
+    <td><span class="tag tag-semi">晶圆代工</span></td>
+    <td>61.80</td>
+    <td class="down">-8.04%</td>
+    <td>96.3 亿</td>
+    <td>93.50 / 47.14</td>
+  </tr>
+  <tr>
+    <td>1347.HK</td><td>华虹半导体</td>
+    <td><span class="tag tag-semi">特色工艺</span></td>
+    <td>123.60</td>
+    <td class="down">-9.65%</td>
+    <td>55.2 亿</td>
+    <td>219.60 / 39.10</td>
+  </tr>
+</table>
+
+<div class="insight-box warning">
+  <strong>🚨 半导体闪崩：</strong>中芯国际跌 8.04% 收报 61.80，录得全日最低价，成交额 96.3 亿——典型的「放量暴跌」形态。华虹更是暴跌 9.65%，从 52 周高点 219.60 已回调逾 43%。两股合计成交 151.5 亿港元，占大市成交的相当比例，且全天几乎无反弹——卖盘持续涌现。市场对美国新一轮对华芯片出口管制传闻极度敏感，叠加前期半导体板块涨幅过高，获利盘不计成本出逃。这不是回调——这是恐慌性抛售。
+</div>
+
+<h3>📷 光通信 / 光学感知 🔴 重灾区</h3>
+<table>
+  <tr><th>代码</th><th>名称</th><th>标签</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>52周高/低</th></tr>
+  <tr>
+    <td>2382.HK</td><td>舜宇光学</td>
+    <td><span class="tag tag-optical">车载光学</span></td>
+    <td>57.05</td>
+    <td class="down">-6.78%</td>
+    <td>10.3 亿</td>
+    <td>90.19 / 50.29</td>
+  </tr>
+  <tr>
+    <td>2018.HK</td><td>瑞声科技</td>
+    <td><span class="tag tag-optical">精密声学</span></td>
+    <td>38.68</td>
+    <td class="down">-1.43%</td>
+    <td>1.8 亿</td>
+    <td>50.65 / 30.85</td>
+  </tr>
+  <tr>
+    <td>1478.HK</td><td>丘钛科技</td>
+    <td><span class="tag tag-optical">摄像头模组</span></td>
+    <td>6.70</td>
+    <td class="down">-4.42%</td>
+    <td>0.4 亿</td>
+    <td>16.44 / 6.31</td>
+  </tr>
+</table>
+
+<div class="insight-box warning">
+  <strong>📉 光学链遭池鱼之殃：</strong>舜宇光学暴跌 6.78%，将昨日涨幅全部抹去且倒跌。瑞声科技跌 1.43%，丘钛科技跌 4.42%。光学链今日并非自身基本面出了问题，而是被半导体恐慌情绪波及——投资者开始重新审视 AI 硬件供应链的整体风险。舜宇从 52 周高点 90.19 已回调 37%，逼近 52 周低点 50.29。若恐慌持续，存在考验前低的风险。
+</div>
+
+<h3>🤖 AI 平台 / 云 / 应用 🟡 分化</h3>
+<table>
+  <tr><th>代码</th><th>名称</th><th>标签</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>52周高/低</th></tr>
+  <tr>
+    <td>0700.HK</td><td>腾讯控股</td>
+    <td><span class="tag tag-ai">AI 大模型</span></td>
+    <td>474.80</td>
+    <td class="up">+1.80%</td>
+    <td>140.4 亿</td>
+    <td>677.70 / 411.00</td>
+  </tr>
+  <tr>
+    <td>9988.HK</td><td>阿里巴巴</td>
+    <td><span class="tag tag-cloud">AI 云</span></td>
+    <td>112.50</td>
+    <td class="down">-0.97%</td>
+    <td>77.3 亿</td>
+    <td>185.17 / 88.65</td>
+  </tr>
+  <tr>
+    <td>9888.HK</td><td>百度集团</td>
+    <td><span class="tag tag-ai">自动驾驶AI</span></td>
+    <td>98.85</td>
+    <td class="down">-4.03%</td>
+    <td>11.1 亿</td>
+    <td>161.20 / 84.20</td>
+  </tr>
+  <tr>
+    <td>1024.HK</td><td>快手</td>
+    <td><span class="tag tag-ai">AI 视频</span></td>
+    <td>42.92</td>
+    <td class="up">+0.28%</td>
+    <td>15.6 亿</td>
+    <td>91.91 / 39.72</td>
+  </tr>
+  <tr>
+    <td>3690.HK</td><td>美团</td>
+    <td><span class="tag tag-ai">AI 本地生活</span></td>
+    <td>92.30</td>
+    <td class="up" style="color:var(--text-secondary);">0.00%</td>
+    <td>44.1 亿</td>
+    <td>127.00 / 63.65</td>
+  </tr>
+  <tr>
+    <td>9618.HK</td><td>京东集团</td>
+    <td><span class="tag tag-ai">AI 供应链</span></td>
+    <td>127.60</td>
+    <td class="up">+1.11%</td>
+    <td>17.7 亿</td>
+    <td>139.89 / 91.99</td>
+  </tr>
+  <tr>
+    <td>9961.HK</td><td>携程集团</td>
+    <td><span class="tag tag-ai">AI 旅行</span></td>
+    <td>369.20</td>
+    <td class="up">+0.60%</td>
+    <td>15.6 亿</td>
+    <td>613.00 / 299.20</td>
+  </tr>
+  <tr>
+    <td>9999.HK</td><td>网易</td>
+    <td><span class="tag tag-ai">AI 游戏</span></td>
+    <td>204.00</td>
+    <td class="up">+0.39%</td>
+    <td>17.8 亿</td>
+    <td>244.17 / 167.67</td>
+  </tr>
+</table>
+
+<div class="insight-box">
+  <strong>🟢 腾讯一枝独秀：</strong>在 AI 硬件全线崩盘的背景下，腾讯逆市涨 1.80%，成交额 140.4 亿全市场第一。市场在用真金白银投票——AI「软件+平台」模式在不确定性中更具防御性。美团平收、京东小涨、快手微涨，AI 应用端整体呈现「大盘跌我不跌」的抗跌姿态。百度跌 4.03% 是个例外，与其自动驾驶业务面临竞争压力有关。
+</div>
+
+<h3>📱 AI 终端 / 智能硬件</h3>
+<table>
+  <tr><th>代码</th><th>名称</th><th>标签</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>52周高/低</th></tr>
+  <tr>
+    <td>1810.HK</td><td>小米集团</td>
+    <td><span class="tag tag-evs">AIoT + EV</span></td>
+    <td>31.10</td>
+    <td class="down">-2.45%</td>
+    <td>72.7 亿</td>
+    <td>59.90 / 21.30</td>
+  </tr>
+</table>
+
+<div class="insight-box">
+  <strong>📱 小米回吐：</strong>昨日暴涨 8.95% 后今日回吐 2.45%，属于正常的获利回吐。成交额 72.7 亿仍维持高位活跃度。31.10 的收盘价仍远高于昨日前收的 29 元水平（经调整），短线获利盘消化后关注 30 元整数关口的支撑力度。SU7 交付 + AIoT 重估的中线逻辑未被破坏，但短期不宜追高。
+</div>
+
+<!-- ====== 涨跌榜 ====== -->
+<h2>🏆 AI 产业链涨跌榜</h2>
+
+<h3>📈 涨幅榜</h3>
+<table>
+  <tr><th>排名</th><th>代码</th><th>名称</th><th>板块</th><th>涨幅</th><th>核心驱动</th></tr>
+  <tr><td>🥇</td><td>0700.HK</td><td>腾讯控股</td><td>AI平台</td><td class="up">+1.80%</td><td>AI 大模型商业化预期 + 资金避风港</td></tr>
+  <tr><td>🥈</td><td>9618.HK</td><td>京东集团</td><td>AI应用</td><td class="up">+1.11%</td><td>AI 供应链效率提升</td></tr>
+  <tr><td>🥉</td><td>9961.HK</td><td>携程集团</td><td>AI应用</td><td class="up">+0.60%</td><td>AI 个性化推荐持续驱动</td></tr>
+  <tr><td>4</td><td>9999.HK</td><td>网易</td><td>AI应用</td><td class="up">+0.39%</td><td>AI 游戏概念防御属性</td></tr>
+  <tr><td>5</td><td>1024.HK</td><td>快手</td><td>AI应用</td><td class="up">+0.28%</td><td>AI 视频商业化稳步推进</td></tr>
+</table>
+
+<h3>📉 跌幅榜 — 全军覆没</h3>
+<table>
+  <tr><th>排名</th><th>代码</th><th>名称</th><th>板块</th><th>跌幅</th><th>原因</th></tr>
+  <tr><td>1</td><td>1347.HK</td><td>华虹半导体</td><td>半导体</td><td class="down">-9.65%</td><td>美国芯片管制恐慌 + 获利回吐</td></tr>
+  <tr><td>2</td><td>0981.HK</td><td>中芯国际</td><td>半导体</td><td class="down">-8.04%</td><td>放量暴跌，恐慌性抛售</td></tr>
+  <tr><td>3</td><td>2382.HK</td><td>舜宇光学</td><td>光学</td><td class="down">-6.78%</td><td>硬件链遭恐慌波及</td></tr>
+  <tr><td>4</td><td>1478.HK</td><td>丘钛科技</td><td>光学</td><td class="down">-4.42%</td><td>跟随板块下跌</td></tr>
+  <tr><td>5</td><td>9888.HK</td><td>百度集团</td><td>AI平台</td><td class="down">-4.03%</td><td>自动驾驶竞争压力</td></tr>
+  <tr><td>6</td><td>1810.HK</td><td>小米集团</td><td>AI终端</td><td class="down">-2.45%</td><td>昨日暴涨后的获利回吐</td></tr>
+  <tr><td>7</td><td>2018.HK</td><td>瑞声科技</td><td>光学</td><td class="down">-1.43%</td><td>硬件链情绪拖累</td></tr>
+  <tr><td>8</td><td>9988.HK</td><td>阿里巴巴</td><td>AI云</td><td class="down">-0.97%</td><td>科技股整体承压</td></tr>
+</table>
+
+<!-- ====== 资金流向 ====== -->
+<h2>💰 板块资金流向分析</h2>
+<div class="summary-cards">
+  <div class="card">
+    <div class="label">半导体制造</div>
+    <div class="value down">恐慌流出 🔴</div>
+    <div class="change" style="color:var(--text-secondary);">中芯+华虹合计成交 151.5 亿，放量暴跌</div>
+  </div>
+  <div class="card">
+    <div class="label">光学感知链</div>
+    <div class="value down">显著流出</div>
+    <div class="change" style="color:var(--text-secondary);">舜宇单日跌 6.78% 领跌板块</div>
+  </div>
+  <div class="card">
+    <div class="label">AI 应用/平台</div>
+    <div class="value up">资金避风港 🟢</div>
+    <div class="change" style="color:var(--text-secondary);">腾讯独揽 140 亿，AI 软件端抗跌</div>
+  </div>
+</div>
+
+<div class="insight-box warning">
+  <strong>🔄 轮动升级为恐慌：</strong>昨日我们指出「资金从 AI 基础设施向 AI 终端应用轮动」，但今日的盘面已经超出了正常轮动的范畴——半导体链出现的是典型的恐慌性抛售。中芯国际 96 亿成交收于全天最低价，买盘消失殆尽。华虹 55 亿成交跌 9.65%，从 52 周高点回调幅度已超过 43%。这不是资金的有序转移，而是踩踏式出逃。触发点是美国对华芯片管制新传闻，但深层次原因是前期半导体估值已经严重透支，一旦叙事出现裂痕，获利盘夺路而逃。
+</div>
+
+<!-- ====== 展望 ====== -->
+<h2>🔮 短期展望与关注点</h2>
+<div class="insight-box">
+  <ul style="padding-left:20px;">
+    <li><strong>半导体板块——关键节点：</strong>中芯国际 60 港元是重要心理关口（今日最低 61.80 已逼近），若跌破则下一支撑在 55 元（52 周低点 47.14 附近）。关注今晚美国是否正式公布芯片管制细则——若有正式文件落地且措施弱于预期，反而是抄底机会。反之若超预期，则可能触发第二轮抛售。</li>
+    <li><strong>AI 应用端——避风港能否持续：</strong>腾讯今天逆市上涨，但 474.80 距 52 周低 411 元空间有限，上方 677 阻力位遥远。其他 AI 应用标的涨幅均有限（0.28%-1.11%），说明资金并非积极买入应用端，而是从硬件端逃出后的「无处可去」。若半导体恐慌蔓延至整个科技板块，AI 应用端也难独善其身。</li>
+    <li><strong>恒指技术面：</strong>勉强守住 25,800，但高开低走的日内形态偏弱。若半导体恐慌未能在周末前企稳，恒指可能回落至 25,300-25,500 区间。科技指数若跌破 4,700（今日最低 4,776），则中期趋势转弱。</li>
+    <li><strong>关键变量：</strong>今晚美股半导体板块（NVDA/AMD/AVGO）的表现将是明天港股的风向标。若美股半导体同样大跌，则全球 AI 硬件共振下跌，港股半导体的调整会更深更久。</li>
+  </ul>
+</div>
+
+<!-- ====== 免责声明 ====== -->
+<div class="footer">
+  <p>⚠️ 本报告由 AI 自动生成，仅供信息参考，不构成任何投资建议。投资有风险，入市需谨慎。</p>
+  <p>数据来源：Tencent Finance (qt.gtimg.cn) · 生成时间：2026-07-30 16:30 HKT</p>
+  <p>Generated by Hermes Agent · <a href="https://reports.dns-cloudflare.com/20260730-hk.html">reports.dns-cloudflare.com/20260730-hk.html</a></p>
+</div>
+
+</body>
+</html>
