@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-07-30</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #21262d;
+    --text: #c9d1d9;
+    --dim: #8b949e;
+    --red: #f85149;
+    --green: #3fb950;
+    --amber: #d2991d;
+    --accent: #58a6ff;
+    --purple: #a371f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; padding: 24px; max-width: 960px; margin: 0 auto; line-height: 1.6; }
+  h1 { font-size: 1.6em; margin-bottom: 4px; }
+  h1 .date { color: var(--dim); font-size: 0.65em; font-weight: normal; }
+  h2 { font-size: 1.2em; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); color: var(--accent); }
+  h3 { font-size: 1.0em; margin: 16px 0 8px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.05em; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.78em; font-weight: 600; }
+  .tag-red { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-amber { background: rgba(210,153,29,0.15); color: var(--amber); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 12px 0; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .card .label { font-size: 0.78em; color: var(--dim); }
+  .card .value { font-size: 1.8em; font-weight: 700; margin: 2px 0; }
+  .card .change { font-size: 0.9em; }
+  .card .meta { font-size: 0.75em; color: var(--dim); margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); font-size: 0.9em; }
+  th { color: var(--dim); font-weight: 500; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.04em; }
+  td.right { text-align: right; }
+  .red { color: var(--red); }
+  .green { color: var(--green); }
+  .bar { display: inline-block; height: 4px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+  .bar-red { background: var(--red); }
+  .bar-green { background: var(--green); }
+  .summary-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+  .summary-box p { margin: 4px 0; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  .footer { text-align: center; color: var(--dim); font-size: 0.78em; margin-top: 32px; }
+  .heatmap { display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0; }
+  .heatmap .cell { width: 20px; height: 20px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<h1>📊 A股盘后总结 · AI产业链深度版 <span class="date">2026-07-30 周四</span></h1>
+
+<!-- ===== 大盘概览 ===== -->
+<h2>一、大盘指数</h2>
+<div class="cards">
+  <div class="card">
+    <div class="label">上证指数</div>
+    <div class="value">3,804.69</div>
+    <div class="change red">−0.62% (−23.78)</div>
+    <div class="meta">高 3,839 · 低 3,767</div>
+  </div>
+  <div class="card">
+    <div class="label">深证成指</div>
+    <div class="value">13,285.80</div>
+    <div class="change red">−2.73% (−372.64)</div>
+    <div class="meta">高 13,619 · 低 13,068</div>
+  </div>
+  <div class="card">
+    <div class="label">创业板指</div>
+    <div class="value">3,244.62</div>
+    <div class="change red">−3.97% (−134.08)</div>
+    <div class="meta">高 3,353 · 低 3,158</div>
+  </div>
+  <div class="card">
+    <div class="label">科创50</div>
+    <div class="value">1,588.41</div>
+    <div class="change red">−5.38% (−90.33)</div>
+    <div class="meta">高 1,671 · 低 1,562</div>
+  </div>
+</div>
+
+<div class="summary-box">
+  <p><strong>🔴 今日定性：科技股恐慌性抛售。</strong>上证指数在权重护盘下跌幅可控，但深市与科创板遭遇无差别杀跌。科创50暴跌5.38%创阶段新低，创业板指跌近4%，AI产业链成重灾区。光通信、先进封装、PCB、上游材料多个子赛道出现批量跌停。</p>
+</div>
+
+<hr class="divider">
+
+<!-- ===== AI产业链八大方向 ===== -->
+<h2>二、AI产业链 · 核心标的扫描</h2>
+
+<h3>🔵 光通信 / CPO</h3>
+<table>
+  <tr><th>股票</th><th>代码</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">成交额(亿)</th></tr>
+  <tr><td>中际旭创</td><td>300308</td><td class="right">864.00</td><td class="right red">−9.15%</td><td class="right">597.7</td></tr>
+  <tr><td>天孚通信</td><td>300394</td><td class="right">160.10</td><td class="right red">−12.07%</td><td class="right">95.5</td></tr>
+  <tr><td>新易盛</td><td>300502</td><td class="right">371.10</td><td class="right red">−11.90%</td><td class="right">361.3</td></tr>
+  <tr><td>源杰科技</td><td>688498</td><td class="right">1,016.80</td><td class="right red">−17.20%</td><td class="right">110.4</td></tr>
+</table>
+
+<h3>🟣 存储 / HBM</h3>
+<table>
+  <tr><th>股票</th><th>代码</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">成交额(亿)</th></tr>
+  <tr><td>兆易创新</td><td>603986</td><td class="right">371.10</td><td class="right green">+1.94%</td><td class="right">354.8</td></tr>
+  <tr><td>北京君正</td><td>300223</td><td class="right">123.66</td><td class="right red">−0.72%</td><td class="right">69.5</td></tr>
+  <tr><td>澜起科技</td><td>688008</td><td class="right">196.78</td><td class="right red">−5.17%</td><td class="right">118.3</td></tr>
+</table>
+
+<h3>🟠 半导体设备</h3>
+<table>
+  <tr><th>股票</th><th>代码</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">成交额(亿)</th></tr>
+  <tr><td>北方华创</td><td>002371</td><td class="right">668.07</td><td class="right red">−5.42%</td><td class="right">111.1</td></tr>
+  <tr><td>中微公司</td><td>688012</td><td class="right">346.50</td><td class="right red">−3.75%</td><td class="right">119.0</td></tr>
+  <tr><td>拓荆科技</td><td>688072</td><td class="right">642.00</td><td class="right red">−8.40%</td><td class="right">55.6</td></tr>
+</table>
+
+<h3>🟢 PCB / CCL</h3>
+<table>
+  <tr><th>股票</th><th>代码</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">成交额(亿)</th></tr>
+  <tr><td>沪电股份</td><td>002463</td><td class="right">96.55</td><td class="right red">−8.27%</td><td class="right">79.6</td></tr>
+  <tr><td>深南电路</td><td>002916</td><td class="right">284.50</td><td class="right red">−9.97%</td><td class="right">40.8</td></tr>
+  <tr><td>生益科技</td><td>600183</td><td class="right">100.08</td><td class="right red">−7.49%</td><td class="right">82.5</td></tr>
+</table>
+
+<h3>🟡 MLCC</h3>
+<table>
+  <tr><th>股票</th><th>代码</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">成交额(亿)</th></tr>
+  <tr><td>风华高科</td><td>000636</td><td class="right">50.50</td><td class="right green">+6.29%</td><td class="right">131.6</td></tr>
+  <tr><td>三环集团</td><td>300408</td><td class="right">105.30</td><td class="right red">−3.30%</td><td class="right">117.7</td></tr>
+</table>
+
+<h3>🔴 先进封装</h3>
+<table>
+  <tr><th>股票</th><th>代码</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">成交额(亿)</th></tr>
+  <tr><td>长电科技</td><td>600584</td><td class="right">64.51</td><td class="right red">−10.00%</td><td class="right">106.5</td></tr>
+  <tr><td>通富微电</td><td>002156</td><td class="right">55.89</td><td class="right red">−10.00%</td><td class="right">91.9</td></tr>
+  <tr><td>华天科技</td><td>002185</td><td class="right">14.91</td><td class="right red">−10.02%</td><td class="right">61.9</td></tr>
+</table>
+
+<h3>⚪ AI服务器 / 液冷</h3>
+<table>
+  <tr><th>股票</th><th>代码</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">成交额(亿)</th></tr>
+  <tr><td>工业富联</td><td>601138</td><td class="right">53.80</td><td class="right red">−6.84%</td><td class="right">83.5</td></tr>
+  <tr><td>浪潮信息</td><td>000977</td><td class="right">69.08</td><td class="right red">−7.82%</td><td class="right">65.0</td></tr>
+  <tr><td>中科曙光</td><td>603019</td><td class="right">81.00</td><td class="right red">−6.51%</td><td class="right">55.6</td></tr>
+  <tr><td>英维克</td><td>002837</td><td class="right">47.15</td><td class="right red">−10.00%</td><td class="right">22.5</td></tr>
+</table>
+
+<h3>🟤 上游材料</h3>
+<table>
+  <tr><th>股票</th><th>代码</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">成交额(亿)</th></tr>
+  <tr><td>南大光电</td><td>300346</td><td class="right">47.61</td><td class="right red">−7.21%</td><td class="right">27.5</td></tr>
+  <tr><td>雅克科技</td><td>002409</td><td class="right">136.96</td><td class="right red">−10.00%</td><td class="right">54.7</td></tr>
+</table>
+
+<hr class="divider">
+
+<!-- ===== 综合分析与资金流向 ===== -->
+<h2>三、盘面解读</h2>
+
+<div class="summary-box">
+  <p><strong>1. 系统性杀跌，AI全线溃退。</strong>今日AI产业链八大方向中，仅存储方向的兆易创新(+1.94%)和MLCC方向的风华高科(+6.29%)逆势收红，其余22只标的全部下跌。跌幅中位数约−8.5%，共有5只标的触及跌停（长电科技、通富微电、华天科技、英维克、雅克科技）。</p>
+</div>
+
+<div class="summary-box">
+  <p><strong>2. CPO/光通信领跌，泡沫挤出加速。</strong>板块四只标的平均跌幅−12.6%，源杰科技暴跌17.2%。高估值标的在此轮调整中首当其冲——中际旭创成交额高达597亿，为全场之最，资金出逃信号明确。此前CPO板块估值已透支2027年预期，市场情绪逆转后踩踏效应明显。</p>
+</div>
+
+<div class="summary-box">
+  <p><strong>3. 存储出现分化，HBM叙事尚有支撑。</strong>兆易创新逆势收红+1.94%，盘中振幅高达50元（低342→高392），显示多空剧烈博弈。澜起科技跌5.17%但成交额118亿仍处高位。存储方向有HBM扩产、国产替代双重逻辑，是AI链条中基本面最硬的环节之一，资金并未全面撤离。</p>
+</div>
+
+<div class="summary-box">
+  <p><strong>4. 先进封装三剑客集体跌停，信号恶劣。</strong>长电、通富、华天同步封板跌停。这三家均为机构重仓，今日集体踩踏意味着部分机构在系统性降低科技仓位。短期需观察是否有基本面利空（如海外封装订单变数）还是纯流动性驱动。</p>
+</div>
+
+<div class="summary-box">
+  <p><strong>5. 风格切换信号？</strong>上证指数仅跌0.62%而科创50暴跌5.38%，剪刀差高达4.76个百分点，为近期罕见。结合国债期货走强，市场可能在交易"科技退潮→防御回归"逻辑。短期需警惕AI高估值品种的进一步去泡沫风险，关注是否有政策面或基本面的超预期催化。</p>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 涨跌分布 ===== -->
+<h2>四、AI链涨跌分布</h2>
+<div class="cards">
+  <div class="card">
+    <div class="label">上涨</div>
+    <div class="value green">2</div>
+    <div class="change">兆易创新 +1.94%<br>风华高科 +6.29%</div>
+  </div>
+  <div class="card">
+    <div class="label">下跌 0~5%</div>
+    <div class="value amber">5</div>
+    <div class="change">北京君正、澜起科技<br>北方华创、中微公司<br>三环集团</div>
+  </div>
+  <div class="card">
+    <div class="label">下跌 5~9%</div>
+    <div class="value red">10</div>
+    <div class="change">中际旭创、拓荆科技<br>沪电股份、深南电路<br>生益科技、工业富联<br>浪潮信息、中科曙光<br>南大光电、新易盛</div>
+  </div>
+  <div class="card">
+    <div class="label">跌停 ≥10%</div>
+    <div class="value red">7</div>
+    <div class="change">天孚通信、源杰科技<br>长电科技、通富微电<br>华天科技、英维克<br>雅克科技</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<h2>五、明日关注</h2>
+<div class="summary-box">
+  <p>① 晚间是否有监管层窗口指导或政策表态；</p>
+  <p>② 美股科技股今晚表现（纳指期货、费城半导体指数），A股AI链近期与美股联动性极强；</p>
+  <p>③ 关注兆易创新、风华高科能否延续强势——这两只是今日仅存的"火种"，若明日补跌则情绪将进一步恶化；</p>
+  <p>④ 先进封装三剑客是否有龙虎榜机构抄底迹象。</p>
+</div>
+
+<div class="footer">
+  <p>⚡ Hermes Agent 自动生成 · 数据来源：新浪财经/东方财富 · 仅供参考，不构成投资建议</p>
+  <p>生成时间：2026-07-30 15:30 CST</p>
+</div>
+
+</body>
+</html>
