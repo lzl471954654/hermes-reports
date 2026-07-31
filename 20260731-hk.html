@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-07-31</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d28;
+    --border: #2a2d3a;
+    --text: #c9d1d9;
+    --text-secondary: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --orange: #d2991d;
+    --accent: #58a6ff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang HK', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+  }
+  .header .date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  .market-bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .market-card {
+    flex: 1 1 220px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    min-width: 200px;
+  }
+  .market-card .label { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px; }
+  .market-card .value { font-size: 1.5rem; font-weight: 700; }
+  .market-card .change { font-size: 0.85rem; margin-top: 2px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 28px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    color: var(--accent);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  th {
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 10px 8px;
+    border-bottom: 1px solid rgba(42,45,58,0.4);
+  }
+  td.code { color: var(--text-secondary); font-size: 0.82rem; font-family: 'SF Mono', monospace; }
+  td.name { font-weight: 500; }
+  td.price { font-weight: 600; }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(88,166,255,0.12);
+    color: var(--blue);
+    margin-right: 4px;
+  }
+  .tag.purple { background: rgba(188,140,255,0.12); color: var(--purple); }
+  .tag.orange { background: rgba(210,153,29,0.12); color: var(--orange); }
+  .tag.green { background: rgba(63,185,80,0.12); color: var(--green); }
+  .insight-box {
+    background: var(--card);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .insight-box h3 {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: var(--orange);
+  }
+  .insight-box p, .insight-box li {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+  .insight-box ul { padding-left: 18px; }
+  .strong { color: var(--text); font-weight: 600; }
+  .flow-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .flow-item {
+    flex: 1 1 180px;
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    text-align: center;
+  }
+  .flow-item .label { font-size: 0.75rem; color: var(--text-secondary); }
+  .flow-item .value { font-size: 1.1rem; font-weight: 700; margin-top: 4px; }
+  .footer {
+    text-align: center;
+    padding: 32px 0 8px;
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+  }
+  .footer a { color: var(--blue); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>港股收盘总结 · AI产业链深度版</h1>
+  <div class="date">📅 2026年7月31日（周五）&nbsp;|&nbsp; 数据源：腾讯行情</div>
+</div>
+
+<!-- 市场概览 -->
+<div class="market-bar">
+  <div class="market-card">
+    <div class="label">恒生指数 HSI</div>
+    <div class="value">25,884.43</div>
+    <div class="change up">▲ +25.55 (+0.10%)</div>
+    <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:4px;">高 25,917 | 低 25,623</div>
+  </div>
+  <div class="market-card">
+    <div class="label">恒生科技指数</div>
+    <div class="value">4,829.22</div>
+    <div class="change up">▲ +25.45 (+0.53%)</div>
+    <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:4px;">高 4,872 | 低 4,764</div>
+  </div>
+  <div class="market-card">
+    <div class="label">恒科/恒生比值</div>
+    <div class="value">18.66%</div>
+    <div class="change" style="color:var(--text-secondary);">科技略强于大市</div>
+    <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:4px;">成交额 328 亿 HKD</div>
+  </div>
+</div>
+
+<!-- 核心发现 -->
+<div class="insight-box">
+  <h3>🔑 今日核心发现</h3>
+  <ul>
+    <li><span class="strong">AI云计算/IDC全线爆发</span>：金山云 +13.55%、万国数据 +9.15%，资金抢筹 AI 基础设施赛道，市场在定价「算力即生产力」。</li>
+    <li><span class="strong">半导体制造双雄齐涨</span>：中芯国际 +1.94%、华虹半导体 +1.20%，惟华虹盘初高开 15% 后大幅回落（开 144→收 127），获利回吐显著。</li>
+    <li><span class="strong">消费电子硬件遭重锤</span>：小米集团暴跌 -6.57%（成交 111 亿）、比亚迪电子 -3.50%、舜宇光学 -3.06%，或反映市场对终端消费需求担忧。</li>
+    <li><span class="strong">AI SaaS/平台端分化</span>：第四范式 +5.93%、商汤 +2.13%，但百度逆势 -1.67%，纯 AI 标的受追捧，互联网平台型 AI 承压。</li>
+    <li><span class="strong">运营商小幅回调</span>：中国移动 -1.06%、中国电信 -0.42%，此前连续上涨后的正常技术性回吐。</li>
+  </ul>
+</div>
+
+<!-- AI产业链涨跌榜 -->
+<h2 class="section-title">📊 AI 产业链涨跌全景</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>代码</th>
+      <th>名称</th>
+      <th>产业链定位</th>
+      <th style="text-align:right">收盘价</th>
+      <th style="text-align:right">涨跌幅</th>
+      <th style="text-align:right">成交额(亿)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:rgba(63,185,80,0.05);">
+      <td class="code">03896</td>
+      <td class="name">金山云</td>
+      <td><span class="tag green">AI云</span></td>
+      <td class="price" style="text-align:right">5.70</td>
+      <td style="text-align:right" class="up"><strong>+13.55%</strong></td>
+      <td style="text-align:right">15.68</td>
+    </tr>
+    <tr style="background:rgba(63,185,80,0.05);">
+      <td class="code">09698</td>
+      <td class="name">万国数据-SW</td>
+      <td><span class="tag green">IDC</span></td>
+      <td class="price" style="text-align:right">31.00</td>
+      <td style="text-align:right" class="up"><strong>+9.15%</strong></td>
+      <td style="text-align:right">2.42</td>
+    </tr>
+    <tr style="background:rgba(63,185,80,0.05);">
+      <td class="code">06682</td>
+      <td class="name">第四范式</td>
+      <td><span class="tag purple">AI平台</span></td>
+      <td class="price" style="text-align:right">29.28</td>
+      <td style="text-align:right" class="up"><strong>+5.93%</strong></td>
+      <td style="text-align:right">2.39</td>
+    </tr>
+    <tr style="background:rgba(63,185,80,0.03);">
+      <td class="code">02018</td>
+      <td class="name">瑞声科技</td>
+      <td><span class="tag orange">光学声学</span></td>
+      <td class="price" style="text-align:right">40.00</td>
+      <td style="text-align:right" class="up">+5.43%</td>
+      <td style="text-align:right">2.70</td>
+    </tr>
+    <tr style="background:rgba(63,185,80,0.03);">
+      <td class="code">02400</td>
+      <td class="name">心动公司</td>
+      <td><span class="tag purple">AI应用</span></td>
+      <td class="price" style="text-align:right">48.20</td>
+      <td style="text-align:right" class="up">+3.43%</td>
+      <td style="text-align:right">1.56</td>
+    </tr>
+    <tr style="background:rgba(63,185,80,0.03);">
+      <td class="code">00020</td>
+      <td class="name">商汤-W</td>
+      <td><span class="tag purple">AI大模型</span></td>
+      <td class="price" style="text-align:right">1.44</td>
+      <td style="text-align:right" class="up">+2.13%</td>
+      <td style="text-align:right">9.98</td>
+    </tr>
+    <tr>
+      <td class="code">00981</td>
+      <td class="name">中芯国际</td>
+      <td><span class="tag">晶圆代工</span></td>
+      <td class="price" style="text-align:right">63.20</td>
+      <td style="text-align:right" class="up">+1.94%</td>
+      <td style="text-align:right">94.80</td>
+    </tr>
+    <tr>
+      <td class="code">01347</td>
+      <td class="name">华虹半导体</td>
+      <td><span class="tag">晶圆代工</span></td>
+      <td class="price" style="text-align:right">127.00</td>
+      <td style="text-align:right" class="up">+1.20%</td>
+      <td style="text-align:right">70.78</td>
+    </tr>
+    <tr>
+      <td class="code">00700</td>
+      <td class="name">腾讯控股</td>
+      <td><span class="tag">互联网平台</span></td>
+      <td class="price" style="text-align:right">475.20</td>
+      <td style="text-align:right" class="up">+0.72%</td>
+      <td style="text-align:right">123.91</td>
+    </tr>
+    <tr>
+      <td class="code">03690</td>
+      <td class="name">美团-W</td>
+      <td><span class="tag">互联网平台</span></td>
+      <td class="price" style="text-align:right">93.00</td>
+      <td style="text-align:right" class="up">+0.38%</td>
+      <td style="text-align:right">38.55</td>
+    </tr>
+    <tr>
+      <td class="code">09988</td>
+      <td class="name">阿里巴巴-W</td>
+      <td><span class="tag">云+AI</span></td>
+      <td class="price" style="text-align:right">111.40</td>
+      <td style="text-align:right" class="down">-0.36%</td>
+      <td style="text-align:right">152.00</td>
+    </tr>
+    <tr>
+      <td class="code">00728</td>
+      <td class="name">中国电信</td>
+      <td><span class="tag">算力网络</span></td>
+      <td class="price" style="text-align:right">4.74</td>
+      <td style="text-align:right" class="down">-0.42%</td>
+      <td style="text-align:right">3.17</td>
+    </tr>
+    <tr>
+      <td class="code">00941</td>
+      <td class="name">中国移动</td>
+      <td><span class="tag">算力网络</span></td>
+      <td class="price" style="text-align:right">83.90</td>
+      <td style="text-align:right" class="down">-1.06%</td>
+      <td style="text-align:right">19.01</td>
+    </tr>
+    <tr>
+      <td class="code">09888</td>
+      <td class="name">百度集团-SW</td>
+      <td><span class="tag purple">AI+搜索</span></td>
+      <td class="price" style="text-align:right">100.40</td>
+      <td style="text-align:right" class="down">-1.67%</td>
+      <td style="text-align:right">11.68</td>
+    </tr>
+    <tr style="background:rgba(248,81,73,0.05);">
+      <td class="code">02382</td>
+      <td class="name">舜宇光学科技</td>
+      <td><span class="tag orange">光学镜头</span></td>
+      <td class="price" style="text-align:right">55.45</td>
+      <td style="text-align:right" class="down"><strong>-3.06%</strong></td>
+      <td style="text-align:right">11.44</td>
+    </tr>
+    <tr style="background:rgba(248,81,73,0.05);">
+      <td class="code">00285</td>
+      <td class="name">比亚迪电子</td>
+      <td><span class="tag orange">电子制造</span></td>
+      <td class="price" style="text-align:right">23.18</td>
+      <td style="text-align:right" class="down"><strong>-3.50%</strong></td>
+      <td style="text-align:right">4.24</td>
+    </tr>
+    <tr style="background:rgba(248,81,73,0.08);">
+      <td class="code">01810</td>
+      <td class="name">小米集团-W</td>
+      <td><span class="tag orange">终端+AIoT</span></td>
+      <td class="price" style="text-align:right">29.00</td>
+      <td style="text-align:right" class="down"><strong>-6.57%</strong></td>
+      <td style="text-align:right">111.41</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 板块资金流向 -->
+<h2 class="section-title">💰 板块资金流向与微观结构</h2>
+
+<div class="flow-row">
+  <div class="flow-item">
+    <div class="label">🏭 半导体制造</div>
+    <div class="value up">偏强</div>
+    <div style="font-size:0.75rem;color:var(--text-secondary);">SMIC + 华虹双涨</div>
+  </div>
+  <div class="flow-item">
+    <div class="label">☁️ AI云/IDC</div>
+    <div class="value up">🔥 强势</div>
+    <div style="font-size:0.75rem;color:var(--text-secondary);">金山云+13.5% 万国+9.2%</div>
+  </div>
+  <div class="flow-item">
+    <div class="label">🤖 AI大模型/SaaS</div>
+    <div class="value up">偏强</div>
+    <div style="font-size:0.75rem;color:var(--text-secondary);">范式+5.9% 商汤+2.1%</div>
+  </div>
+  <div class="flow-item">
+    <div class="label">📱 消费电子</div>
+    <div class="value down">弱势</div>
+    <div style="font-size:0.75rem;color:var(--text-secondary);">小米-6.6% 舜宇-3.1%</div>
+  </div>
+</div>
+
+<div class="insight-box" style="margin-top:16px;">
+  <h3>📈 市场微观结构分析</h3>
+  <ul>
+    <li><span class="strong">华虹半导体「高开低走」</span>：开盘价 144.30（涨约 15%），收盘仅 127.00（+1.20%），留下长上影线。全天振幅约 14%，成交 70.78 亿（远超日均），大量筹码在 135-145 区间换手，短期获利盘压力大。</li>
+    <li><span class="strong">中芯国际相对稳健</span>：开 67.00 收 63.20，虽也有回落，但始终在昨日收盘价（62.00）上方运行，承接力较好。</li>
+    <li><span class="strong">小米放量暴跌异动</span>：成交 111.41 亿 HKD，跌 -6.57%，盘中最低 27.76。可能触发因素是市场对 Q2 手机出货量前景的担忧，或机构调仓。关注后续是否有消息面催化。</li>
+    <li><span class="strong">阿里巴巴成交 152 亿居首</span>：全日振幅较大（高 119.30 → 收 111.40），显示多空分歧激烈。云业务估值重估仍是核心变量。</li>
+    <li><span class="strong">金山云+万国数据「双核驱动」</span>：AI 算力需求逻辑持续强化，两者均为小市值（金山云约 258 亿、万国约 468 亿），弹性大，资金偏好明显。</li>
+  </ul>
+</div>
+
+<!-- 后市展望 -->
+<h2 class="section-title">🔮 后市关注</h2>
+<div class="insight-box">
+  <ul>
+    <li><span class="strong">AI 云计算/IDC 能否延续强势</span>：金山云、万国数据今天领涨，关注下周一是否有获利回吐，以及是否有机构上调目标价跟进。</li>
+    <li><span class="strong">华虹半导体的「假突破」风险</span>：今日高开低走形态不利于短期，若能守住 120 关口则无虞，跌破则可能回踩 110。</li>
+    <li><span class="strong">小米暴跌后走势</span>：关注盘后是否有公告澄清，若无实质利空，急跌后往往有技术性反弹机会。</li>
+    <li><span class="strong">下周宏观催化</span>：关注周末是否有政策面或行业大单消息（国产算力采购、大模型备案进度等）。</li>
+  </ul>
+</div>
+
+<div class="footer">
+  <p>本报告由 Hermes Agent 自动生成 | 数据源：腾讯行情 API | 仅供研究参考，不构成投资建议</p>
+  <p><a href="https://reports.dns-cloudflare.com/20260731-hk.html">https://reports.dns-cloudflare.com/20260731-hk.html</a></p>
+</div>
+
+</body>
+</html>
