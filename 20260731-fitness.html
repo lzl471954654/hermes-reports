@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健身&饮食日报 — 2026-07-31（周五）</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #0d1b2a;
+    color: #e0e6ed;
+    line-height: 1.65;
+    padding: 16px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 24px 0 16px 0;
+    border-bottom: 1px solid #1b3a4b;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    color: #4fc3f7;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .header .date {
+    font-size: 0.85rem;
+    color: #6b8ba4;
+    margin-top: 4px;
+  }
+  .overview {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .card {
+    background: #112240;
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid #1b3a4b;
+  }
+  .card .label {
+    font-size: 0.75rem;
+    color: #6b8ba4;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .card .value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4fc3f7;
+    margin-top: 4px;
+  }
+  .card.warn .value { color: #ff8a65; }
+  .member-section {
+    background: #112240;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+    border: 1px solid #1b3a4b;
+  }
+  .member-section h2 {
+    font-size: 1.05rem;
+    color: #4fc3f7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .member-section h2 .emoji { font-size: 1.2rem; }
+  .streak-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #1b3a4b;
+    color: #6b8ba4;
+    margin-left: 6px;
+  }
+  .streak-badge.warning {
+    background: #3e2723;
+    color: #ff8a65;
+  }
+  .sub-section {
+    margin-bottom: 10px;
+  }
+  .sub-section .sub-title {
+    font-size: 0.78rem;
+    color: #6b8ba4;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .sub-section .sub-content {
+    font-size: 0.9rem;
+    color: #c8d6e5;
+  }
+  .no-data {
+    color: #5a7d96;
+    font-style: italic;
+    font-size: 0.85rem;
+  }
+  .last-record {
+    background: #0a1923;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: #6b8ba4;
+    border-left: 2px solid #1b3a4b;
+  }
+  .last-record strong { color: #4fc3f7; }
+  .section-divider {
+    text-align: center;
+    color: #1b3a4b;
+    font-size: 0.8rem;
+    margin: 18px 0 12px 0;
+  }
+  .tip-box {
+    background: #0a1923;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 14px;
+    border-left: 3px solid #4fc3f7;
+    font-size: 0.85rem;
+    color: #94b8d6;
+    line-height: 1.6;
+  }
+  .tip-box strong { color: #4fc3f7; }
+  .completeness {
+    font-size: 0.75rem;
+    color: #4a6a80;
+    text-align: center;
+    padding: 16px 0 8px 0;
+    border-top: 1px solid #1b3a4b;
+    margin-top: 20px;
+  }
+  .completeness span { color: #ff8a65; }
+  a { color: #4fc3f7; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏋️ 健身&饮食日报</h1>
+  <div class="date">2026年7月31日 · 周五 · 第31周</div>
+</div>
+
+<!-- 概览卡片 -->
+<div class="overview">
+  <div class="card warn">
+    <div class="label">📋 打卡人数</div>
+    <div class="value">0 / 3</div>
+  </div>
+  <div class="card warn">
+    <div class="label">🏋️ 训练人数</div>
+    <div class="value">0</div>
+  </div>
+  <div class="card warn">
+    <div class="label">🔥 最高消耗</div>
+    <div class="value">—</div>
+  </div>
+  <div class="card">
+    <div class="label">⚡ 缺口警告</div>
+    <div class="value">无数据</div>
+  </div>
+</div>
+
+<!-- 智林 -->
+<div class="member-section">
+  <h2><span class="emoji">🐉</span> 智林（lzl）<span class="streak-badge warning">断更 16 天</span></h2>
+  <div class="sub-section">
+    <div class="sub-title">🏋️ 训练</div>
+    <div class="sub-content"><span class="no-data">今日暂无有效记录</span></div>
+  </div>
+  <div class="sub-section">
+    <div class="sub-title">🍽️ 饮食</div>
+    <div class="sub-content"><span class="no-data">今日暂无有效记录</span></div>
+  </div>
+  <div class="sub-section">
+    <div class="sub-title">📊 身体</div>
+    <div class="sub-content"><span class="no-data">今日未记录</span></div>
+  </div>
+  <div class="last-record">
+    📝 上次记录：<strong>7/15</strong> 午餐麻辣香锅（鸡胸+鱼片 500g · ~895 kcal · 122g 蛋白）<br>
+    ⚖️ 体重 93.5kg · 目标减脂逆转脂肪肝
+  </div>
+</div>
+
+<!-- Monkiki -->
+<div class="member-section">
+  <h2><span class="emoji">🐱</span> Monkiki<span class="streak-badge warning">断更 11 天</span></h2>
+  <div class="sub-section">
+    <div class="sub-title">🏋️ 训练</div>
+    <div class="sub-content"><span class="no-data">今日暂无有效记录</span></div>
+  </div>
+  <div class="sub-section">
+    <div class="sub-title">🍽️ 饮食</div>
+    <div class="sub-content"><span class="no-data">今日暂无有效记录</span></div>
+  </div>
+  <div class="sub-section">
+    <div class="sub-title">📊 身体</div>
+    <div class="sub-content"><span class="no-data">今日未记录</span></div>
+  </div>
+  <div class="last-record">
+    📝 上次记录：<strong>7/20</strong> 力量训练 1h04m（345 kcal）+ 家常四菜（~645 kcal · 32g 蛋白）<br>
+    ⚖️ 体重 ~70kg · 目标 65–67.5kg
+  </div>
+</div>
+
+<!-- Ckddd -->
+<div class="member-section">
+  <h2><span class="emoji">🐔</span> Ckddd<span class="streak-badge warning">断更 23 天</span></h2>
+  <div class="sub-section">
+    <div class="sub-title">🏋️ 训练</div>
+    <div class="sub-content"><span class="no-data">今日暂无有效记录</span></div>
+  </div>
+  <div class="sub-section">
+    <div class="sub-title">🍽️ 饮食</div>
+    <div class="sub-content"><span class="no-data">今日暂无有效记录</span></div>
+  </div>
+  <div class="sub-section">
+    <div class="sub-title">📊 身体</div>
+    <div class="sub-content"><span class="no-data">今日未记录</span></div>
+  </div>
+  <div class="last-record">
+    📝 上次记录：<strong>7/8</strong> 燕麦片 50g + 水煮蛋 + 冰美式（~265 kcal · 13g 蛋白）<br>
+    ⚖️ 体重 ~64kg · 目标增肌
+  </div>
+</div>
+
+<div class="section-divider">— ⚡ —</div>
+
+<!-- 群内提醒 -->
+<div class="tip-box">
+  <strong>🗓️ 七月的最后一天。</strong>智林断更 16 天、Monkiki 11 天、Ckddd 23 天——全群已连续两天静默。<br><br>
+  八月在即，不妨把它当成一个重启的契机：哪怕只是一顿饭的照片、一条训练截图，都能让这个群重新活过来 📸<br><br>
+  <strong>不追求完美，只追求"记录下来"。</strong>几分钟的记录，比完美的计划更有价值。
+</div>
+
+<div class="tip-box">
+  <strong>💡 小建议：</strong>想恢复打卡又觉得门槛高？试试「最少可行动作」——发一张食物照片 + 一句话，3 秒搞定。Agent 会帮你补齐数据，你只需要按下快门 📱
+</div>
+
+<div class="completeness">
+  📊 数据完整度：仅基于本地 MD 文件生成（lzl.md / monkiki.md / ckddd.md）<br>
+  群聊搜索不可用（无 session_search 权限）· 成员今日均无本地记录<br>
+  ⏰ 生成时间：2026-07-31 23:00 CST · <span>3 人全静默</span>
+</div>
+
+</body>
+</html>
