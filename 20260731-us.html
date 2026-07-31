@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026-07-31</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d28;
+    --border: #2a2d3a;
+    --text: #e1e4eb;
+    --sub: #8b8fa3;
+    --green: #00c853;
+    --red: #ff5252;
+    --blue: #448aff;
+    --orange: #ff9100;
+    --yellow: #ffd600;
+    --purple: #7c5cfc;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; }
+  .header .date { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .index-card {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .index-card .name { font-size: 12px; color: var(--sub); margin-bottom: 4px; }
+  .index-card .value { font-size: 22px; font-weight: 700; }
+  .index-card .change { font-size: 14px; margin-top: 2px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .flat { color: var(--yellow); }
+  .section {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+  }
+  .section h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left;
+    padding: 8px 10px;
+    color: var(--sub);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  td { padding: 8px 10px; border-bottom: 1px solid rgba(42,45,58,0.5); }
+  tr:last-child td { border-bottom: none; }
+  td.right { text-align: right; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .badge-up { background: rgba(0,200,83,0.15); color: var(--green); }
+  .badge-down { background: rgba(255,82,82,0.15); color: var(--red); }
+  .badge-flat { background: rgba(255,214,0,0.12); color: var(--yellow); }
+  .tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    margin-left: 4px;
+  }
+  .tag-semi { background: rgba(68,138,255,0.2); color: var(--blue); }
+  .tag-cloud { background: rgba(255,145,0,0.2); color: var(--orange); }
+  .tag-software { background: rgba(0,200,83,0.2); color: var(--green); }
+  .tag-earnings { background: rgba(124,92,252,0.2); color: var(--purple); }
+  .insight-box {
+    background: rgba(68,138,255,0.08);
+    border-left: 3px solid var(--blue);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 14px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .insight-box strong { color: var(--blue); }
+  .bullish-box {
+    background: rgba(0,200,83,0.06);
+    border-left: 3px solid var(--green);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 14px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .bullish-box strong { color: var(--green); }
+  .alert-box {
+    background: rgba(255,82,82,0.1);
+    border: 1px solid rgba(255,82,82,0.3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .alert-box strong { color: var(--red); }
+  .mapping-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .map-item {
+    background: rgba(255,255,255,0.03);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+  .map-item .en { font-size: 14px; font-weight: 600; }
+  .map-item .cn { color: var(--sub); margin-top: 2px; }
+  .map-item .direction { margin-top: 4px; }
+  .section-summary {
+    font-size: 13px;
+    color: var(--sub);
+    margin-bottom: 14px;
+    line-height: 1.8;
+  }
+  .ah-table td { font-size: 12px; }
+  .highlight-nvda {
+    background: rgba(0,200,83,0.04);
+    border-left: 2px solid var(--green);
+    padding-left: 8px;
+  }
+  .highlight-meta {
+    background: rgba(255,82,82,0.06);
+    border-left: 2px solid var(--red);
+    padding-left: 8px;
+  }
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--sub);
+    font-size: 11px;
+  }
+  .disclaimer {
+    background: rgba(255,82,82,0.08);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 11px;
+    color: var(--sub);
+    margin-top: 20px;
+  }
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .comp-card {
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid var(--border);
+  }
+  .comp-card.win { border-color: rgba(0,200,83,0.3); }
+  .comp-card.lose { border-color: rgba(255,82,82,0.3); }
+  .comp-card h3 { font-size: 14px; margin-bottom: 8px; }
+  .comp-card .price { font-size: 20px; font-weight: 700; }
+  .comp-card .detail { font-size: 12px; color: var(--sub); margin-top: 4px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 AI产业链美股收盘 & A股映射早报</h1>
+  <div class="date">📅 2026年7月31日（周五）| 分析7月30日（周四）收盘 · 财报季关键日</div>
+</div>
+
+<!-- 三大指数概览 -->
+<div class="overview">
+  <div class="index-card">
+    <div class="name">标普500 S&P 500</div>
+    <div class="value">7,437.63</div>
+    <div class="change up">+121.48 (+1.66%)</div>
+  </div>
+  <div class="index-card">
+    <div class="name">纳斯达克 NASDAQ</div>
+    <div class="value">25,122.18</div>
+    <div class="change up">+679.24 (+2.78%)</div>
+  </div>
+  <div class="index-card">
+    <div class="name">道琼斯 DJIA</div>
+    <div class="value">52,208.06</div>
+    <div class="change up">+613.92 (+1.19%)</div>
+  </div>
+</div>
+
+<!-- 市场背景 -->
+<div class="section">
+  <h2>📊 市场背景</h2>
+  <table>
+    <tr><td>VIX 恐慌指数</td><td class="right"><strong>17.09</strong>（前值 20.66，<span class="up">↓17.3%</span>）— 恐慌大幅退潮</td></tr>
+    <tr><td>10年期美债收益率</td><td class="right"><strong>4.66%</strong>（前值 4.62%，↑4bp）</td></tr>
+    <tr><td>市场风格</td><td class="right"><strong>强力反弹 · 纳指领涨 — 财报驱动极度分化</strong></td></tr>
+  </table>
+</div>
+
+<!-- 核心判断 -->
+<div class="section">
+  <h2>🔍 核心判断</h2>
+  <div class="bullish-box">
+    <strong>🟢 AI三连暴跌后暴力反弹——MSFT财报验证AI变现逻辑，半导体全线反攻。</strong>在经历了7月27-29日连续三天的AI板块屠杀后，周四美股上演了教科书级的超跌反弹。导火索是<strong>微软7月29日盘后财报大超预期</strong>：Azure增速重新加速、Copilot商业 adoption 强劲，直接验证了"AI投入有回报"这一市场最大疑虑。AI半导体集体爆发：MU +18.4%、AMD +13.0%、MRVL +12.2%——空头被全面碾压。但<strong>Meta同日财报暴雷</strong>（-8.0%），AI支出飙升但广告收入不及预期，成为科技巨头中第一个因"AI烧钱无底洞"被惩罚的公司。盘后AMZN财报超预期（+9.5%），AWS AI服务收入加速，继续强化AI变现叙事。
+  </div>
+  <div class="insight-box">
+    <strong>🔑 核心矛盾转变：</strong>市场从"AI是不是泡沫"转向"谁的AI投入能赚钱"。MSFT和AMZN用财报证明了自己是AI赢家，而META则被贴上了"AI烧钱王"的标签。这一分化将成为下半年科技股的核心主线。<br><br>
+    <strong>三日过山车回顾（7/28→7/29→7/30）：</strong>NVDA $197→$190→$195 | AMD $455→$430→$485 | MU $821→$739→$875。半导体7/29的暴跌如今看来更像是财报前的恐慌性清仓+空头陷阱。
+  </div>
+</div>
+
+<!-- 财报双城记 -->
+<div class="section">
+  <h2>📢 财报双城记：MSFT 🆚 META <span class="tag tag-earnings">Q2 2026</span></h2>
+  <div class="comparison-grid">
+    <div class="comp-card win">
+      <h3>🏆 微软 MSFT — AI赢家</h3>
+      <div class="price up">$451.10</div>
+      <div class="detail">
+        <span class="badge badge-up">+15.51%</span> · 两日累涨 +14.7%<br>
+        📌 Azure增速30%+，Copilot seats超预期<br>
+        📌 AI已贡献可量化收入，资本开支有回报<br>
+        📌 盘后微调至 $448.47（-0.6%），获利盘消化中
+      </div>
+    </div>
+    <div class="comp-card lose">
+      <h3>💔 Meta META — AI烧钱王</h3>
+      <div class="price down">$539.03</div>
+      <div class="detail">
+        <span class="badge badge-down">-7.95%</span> · 两日累跌 -9.2%<br>
+        📌 AI支出指引大幅上调，广告增速放缓<br>
+        📌 Llama开源模型烧钱无数，变现路径模糊<br>
+        📌 盘后小幅反弹至 $542.78（+0.7%），但趋势未改
+      </div>
+    </div>
+  </div>
+  <div class="section-summary" style="margin-top:12px;">
+    💡 <strong>市场给出的判决：</strong>微软=AI能赚钱，Meta=AI只烧钱。这一范式将主导未来几个季度的科技股定价逻辑。"有AI收入"vs"只有AI故事"的分化已经开始。
+  </div>
+</div>
+
+<!-- AI半导体 -->
+<div class="section">
+  <h2>🟢 AI半导体 — 暴力反弹 <span class="tag tag-semi">硬件</span></h2>
+  <table>
+    <thead>
+      <tr><th>代码</th><th>公司</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">两日累计</th></tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-nvda"><td>NVDA</td><td>英伟达</td><td class="right">$195.04</td><td class="right"><span class="badge badge-up">+2.65%</span></td><td class="right"><span class="badge badge-down">-1.00%</span></td></tr>
+      <tr><td>AMD</td><td>超威</td><td class="right">$485.39</td><td class="right"><span class="badge badge-up">+13.00%</span></td><td class="right"><span class="badge badge-up">+6.77%</span></td></tr>
+      <tr><td>AVGO</td><td>博通</td><td class="right">$387.84</td><td class="right"><span class="badge badge-up">+4.73%</span></td><td class="right"><span class="badge badge-up">+1.82%</span></td></tr>
+      <tr><td>TSM</td><td>台积电</td><td class="right">$403.31</td><td class="right"><span class="badge badge-up">+7.64%</span></td><td class="right"><span class="badge badge-up">+2.80%</span></td></tr>
+      <tr><td>ASML</td><td>阿斯麦</td><td class="right">$1,651.44</td><td class="right"><span class="badge badge-up">+6.50%</span></td><td class="right"><span class="badge badge-up">+4.33%</span></td></tr>
+      <tr><td>MU</td><td>美光</td><td class="right">$874.66</td><td class="right"><span class="badge badge-up">+18.36%</span></td><td class="right"><span class="badge badge-up">+6.60%</span></td></tr>
+      <tr><td>MRVL</td><td>迈威尔</td><td class="right">$183.30</td><td class="right"><span class="badge badge-up">+12.18%</span></td><td class="right"><span class="badge badge-up">+5.06%</span></td></tr>
+      <tr><td>SMCI</td><td>超微电脑</td><td class="right">$27.73</td><td class="right"><span class="badge badge-up">+7.90%</span></td><td class="right"><span class="badge badge-down">-2.53%</span></td></tr>
+      <tr><td>ARM</td><td>安谋</td><td class="right">$241.54</td><td class="right"><span class="badge badge-up">+7.40%</span></td><td class="right"><span class="badge badge-down">-1.31%</span></td></tr>
+    </tbody>
+  </table>
+  <div class="section-summary" style="margin-top:12px;">
+    🟢 <strong>全面反攻，空头回补推动极致反弹。</strong>MU +18.4% 创近期最大单日涨幅——前一日-10%的恐慌变成了一场经典的空头陷阱。AMD +13% 领涨AI芯片，市场重新定价其MI400前景。但须注意：NVDA 仅反弹+2.65%，龙头相对克制——$190-$195区间需要更多时间筑底。盘后继续偏强：AMD +2.9%、MU +3.2%、MRVL +6.6%、TSM +2.3%，动能未尽。
+  </div>
+</div>
+
+<!-- AI软件/云/平台 -->
+<div class="section">
+  <h2>AI软件·云·平台 — 极度分化 <span class="tag tag-software">应用</span></h2>
+  <table>
+    <thead>
+      <tr><th>代码</th><th>公司</th><th class="right">收盘价</th><th class="right">涨跌幅</th><th class="right">关键驱动</th></tr>
+    </thead>
+    <tbody>
+      <tr class="highlight-nvda"><td>MSFT</td><td>微软</td><td class="right">$451.10</td><td class="right"><span class="badge badge-up">+15.51%</span></td><td class="right"><span class="tag tag-earnings">财报暴击</span> Q2全面超预期</td></tr>
+      <tr class="highlight-meta"><td>META</td><td>Meta</td><td class="right">$539.03</td><td class="right"><span class="badge badge-down">-7.95%</span></td><td class="right"><span class="tag tag-earnings">财报暴雷</span> AI支出飙升无回报</td></tr>
+      <tr><td>AMZN</td><td>亚马逊</td><td class="right">$235.50</td><td class="right"><span class="badge badge-up">+3.90%</span></td><td class="right"><span class="tag tag-earnings">盘后+9.5%</span> AWS AI爆发</td></tr>
+      <tr><td>GOOGL</td><td>谷歌</td><td class="right">$333.66</td><td class="right"><span class="badge badge-down">-0.91%</span></td><td class="right">横盘整理，等待财报</td></tr>
+      <tr><td>CRM</td><td>Salesforce</td><td class="right">$180.71</td><td class="right"><span class="badge badge-down">-4.07%</span></td><td class="right">前日+3.8%获利回吐</td></tr>
+      <tr><td>NOW</td><td>ServiceNow</td><td class="right">$110.07</td><td class="right"><span class="badge badge-down">-4.92%</span></td><td class="right">前日+4.7%获利回吐</td></tr>
+      <tr><td>SNOW</td><td>Snowflake</td><td class="right">$298.10</td><td class="right"><span class="badge badge-up">+5.37%</span></td><td class="right">两日累涨+10.3%，数据基建叙事</td></tr>
+      <tr><td>PLTR</td><td>Palantir</td><td class="right">$122.26</td><td class="right"><span class="badge badge-down">-0.60%</span></td><td class="right">横盘，AI应用赛道等待催化</td></tr>
+    </tbody>
+  </table>
+  <div class="section-summary" style="margin-top:12px;">
+    ⚡ <strong>财报季成为AI板块的终极分水岭。</strong>CRM/NOW前日大涨后周四回吐全部涨幅——在MSFT财报光芒下，中小型SaaS的AI故事相形见绌。SNOW是唯一连续走强的软件标的（两日+10.3%），数据基础设施是AI的"卖铲人"，叙事类似半导体。盘后AMZN +9.5% 意味着周五科技股可能继续高开，但META的惨状提醒市场：不是所有AI投入都值得买单。
+  </div>
+</div>
+
+<!-- 盘后 -->
+<div class="section">
+  <h2>🌙 盘后动态（美东7月30日 20:00 ET）</h2>
+  <table class="ah-table">
+    <thead>
+      <tr><th>代码</th><th class="right">收盘</th><th class="right">盘后价</th><th class="right">变动</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>AMZN</td><td class="right">$235.50</td><td class="right">$257.95</td><td class="right"><span class="badge badge-up">+9.53%</span></td><td>🔥 Q2财报超预期，AWS AI加速</td></tr>
+      <tr><td>MRVL</td><td class="right">$183.30</td><td class="right">$195.31</td><td class="right"><span class="badge badge-up">+6.55%</span></td><td>ASIC叙事持续强化</td></tr>
+      <tr><td>MU</td><td class="right">$874.66</td><td class="right">$902.90</td><td class="right"><span class="badge badge-up">+3.23%</span></td><td>HBM需求预期继续推升</td></tr>
+      <tr><td>AMD</td><td class="right">$485.39</td><td class="right">$499.30</td><td class="right"><span class="badge badge-up">+2.87%</span></td><td>反弹动能延续</td></tr>
+      <tr><td>ARM</td><td class="right">$241.54</td><td class="right">$248.50</td><td class="right"><span class="badge badge-up">+2.88%</span></td><td>架构授权叙事回暖</td></tr>
+      <tr><td>TSM</td><td class="right">$403.31</td><td class="right">$412.77</td><td class="right"><span class="badge badge-up">+2.35%</span></td><td>AI代工需求强劲</td></tr>
+      <tr><td>NVDA</td><td class="right">$195.04</td><td class="right">$196.84</td><td class="right"><span class="badge badge-up">+0.92%</span></td><td>温和跟涨，$200关口在望</td></tr>
+      <tr><td>MSFT</td><td class="right">$451.10</td><td class="right">$448.47</td><td class="right"><span class="badge badge-down">-0.58%</span></td><td>大涨后小幅消化</td></tr>
+      <tr><td>META</td><td class="right">$539.03</td><td class="right">$542.78</td><td class="right"><span class="badge badge-up">+0.70%</span></td><td>微幅回升，但趋势未改</td></tr>
+    </tbody>
+  </table>
+  <div class="section-summary" style="margin-top:12px;">
+    🔥 <strong>AMZN盘后暴拉+9.5%是本日最大看点。</strong>AWS AI服务收入增速超预期，直接呼应了MSFT的AI变现逻辑——云巨头正在实打实地从AI中赚钱。MRVL盘后+6.6%延续强势，ASIC定制芯片叙事持续发酵。整体来看，盘后AI方向延续强势，周五（7/31）美股有望继续高开，尤其是云/AI基础设施链。
+  </div>
+</div>
+
+<!-- A股映射 -->
+<div class="section">
+  <h2>🇨🇳 A股映射参考（7月31日周五开盘）</h2>
+  <div class="section-summary">
+    今日A股AI产业链迎来本轮调整周期中最明确的<strong>反弹催化</strong>：美股AI半导体在MSFT财报验证AI变现逻辑后全线暴拉，外加盘后AMZN继续走强，情绪面全面转暖。前三个交易日A股AI板块已经跟随美股大幅回调（预计科创50累计跌幅5-8%），今日高开概率极大。关键看点是：<strong>超跌反弹力度 vs 是否出现高开低走。</strong>
+  </div>
+  
+  <div style="margin-bottom: 16px;">
+    <h3 style="font-size:13px; color: var(--green); margin-bottom:8px;">🟢 强反弹方向 — AI半导体/硬件映射（直接受益）</h3>
+    <div class="mapping-grid">
+      <div class="map-item">
+        <div class="en">寒武纪-U (688256)</div>
+        <div class="cn">国产AI芯片龙头 · NVDA映射</div>
+        <div class="direction up">🟢 NVDA企稳$195 + MSFT验证AI投入，国产AI芯片情绪修复</div>
+      </div>
+      <div class="map-item">
+        <div class="en">海光信息 (688041)</div>
+        <div class="cn">国产CPU/GPU · AMD映射</div>
+        <div class="direction up">🟢🟢 AMD暴拉+13%，算力国产替代重回叙事中心</div>
+      </div>
+      <div class="map-item">
+        <div class="en">中际旭创 (300308)</div>
+        <div class="cn">光模块龙头 · NVDA供应链映射</div>
+        <div class="direction up">🟢🟢 AI反弹+AMZN AWS超预期，光模块需求逻辑全面强化</div>
+      </div>
+      <div class="map-item">
+        <div class="en">新易盛 (300502)</div>
+        <div class="cn">光模块 · 800G/1.6T核心标的</div>
+        <div class="direction up">🟢 板块系统性反弹，高弹性标的弹性更大</div>
+      </div>
+      <div class="map-item">
+        <div class="en">兆易创新 (603986)</div>
+        <div class="cn">存储芯片 · MU映射</div>
+        <div class="direction up">🟢🟢 MU单日+18.4%，存储板块情绪逆袭，关注江波龙、佰维存储</div>
+      </div>
+      <div class="map-item">
+        <div class="en">北方华创 (002371)</div>
+        <div class="cn">半导体设备 · ASML映射</div>
+        <div class="direction up">🟢 ASML +6.5%两日+4.3%，设备股系统性修复</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 16px;">
+    <h3 style="font-size:13px; color: var(--blue); margin-bottom:8px;">🔵 AI应用/软件方向（结构性机会）</h3>
+    <div class="mapping-grid">
+      <div class="map-item">
+        <div class="en">金山办公 (688111)</div>
+        <div class="cn">AI+办公 · MSFT Copilot映射</div>
+        <div class="direction up">🟢🟢 MSFT +15.5%，Copilot变现逻辑最直接的A股映射</div>
+      </div>
+      <div class="map-item">
+        <div class="en">科大讯飞 (002230)</div>
+        <div class="cn">AI大模型+应用</div>
+        <div class="direction up">🟢 AI变现叙事强化，应用端情绪回暖</div>
+      </div>
+      <div class="map-item">
+        <div class="en">浪潮信息 (000977)</div>
+        <div class="cn">AI服务器 · SMCI映射</div>
+        <div class="direction up">🟢 SMCI +7.9%反弹，但两日仍跌-2.5%，服务器需更多时间</div>
+      </div>
+      <div class="map-item">
+        <div class="en">用友网络 (600588)</div>
+        <div class="cn">企业级SaaS · CRM映射</div>
+        <div class="direction flat">⚡ CRM回吐涨幅，SaaS方向催化不够鲜明</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h3 style="font-size:13px; color: var(--red); margin-bottom:8px;">🔴 需警惕的方向</h3>
+    <div class="mapping-grid">
+      <div class="map-item">
+        <div class="en">AI广告/营销标的</div>
+        <div class="cn">Meta映射的社交/广告AI</div>
+        <div class="direction down">🔴 META两日-9.2%，AI烧钱无回报叙事可能传导至A股AI概念炒作标的</div>
+      </div>
+      <div class="map-item">
+        <div class="en">高估值纯概念AI股</div>
+        <div class="cn">无业绩支撑的AI概念</div>
+        <div class="direction down">🔴 市场聚焦"AI变现"，纯概念炒作标的可能被边缘化</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 今日关注 -->
+<div class="section">
+  <h2>📌 今日A股开盘重点关注</h2>
+  <div class="insight-box">
+    <strong>1. 光模块/CPO板块的报复性反弹：</strong>此前三个交易日光模块跟随NVDA大幅回调，今日在AI全面反攻+AMZN AWS超预期的双重催化下，中际旭创、新易盛、天孚通信有望领涨。关注是否出现涨停潮。<br><br>
+    <strong>2. 存储板块的V型反转机会：</strong>MU 7/29 -9.9%→7/30 +18.4%，A股存储标的（兆易创新、江波龙、佰维存储）可能直接高开5%+。若有资金在昨日恐慌中抄底，今日将是兑现日。<br><br>
+    <strong>3. 金山办公的独立行情潜力：</strong>MSFT +15.5%的Copilot变现逻辑是A股AI应用（尤其是金山办公）最强映射。若今日金山办公高开高走，可能带动整个AI应用板块。<br><br>
+    <strong>4. 警惕高开低走风险：</strong>今日为周五，且A股已连续调整，获利盘+解套盘可能在开盘冲高后涌出。若科创50高开超过3%，需关注量能是否配合。无量高开需谨慎。<br><br>
+    <strong>5. Meta映射标的的风险隔离：</strong>META财报暴雷提醒市场AI不等于印钞机。A股纯AI概念炒作标的（尤其是没有落地收入、靠AI概念拉升的）可能在本轮分化中被资金抛弃。
+  </div>
+</div>
+
+<!-- 风险提示 -->
+<div class="disclaimer">
+  ⚠️ <strong>风险提示：</strong>本报告仅为信息整理与市场观察，不构成任何投资建议。AI板块处于高波动期，单日涨跌幅度可能极大。A股受政策、流动性、市场情绪多重因素影响，映射逻辑仅供参考。美股盘后数据存在延迟，请以实时行情为准。投资者应基于独立判断做出决策。过往表现不代表未来收益。
+</div>
+
+<div class="footer">
+  Generated by Hermes Cron · 2026-07-31 · 数据来源：Yahoo Finance (yfinance)
+</div>
+
+</body>
+</html>
