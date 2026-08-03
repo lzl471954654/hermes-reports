@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026.08.03</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --red: #f85149;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --yellow: #d2991d;
+    --purple: #a371f7;
+    --orange: #f0883e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.8rem; color: #e6edf3; margin-bottom: 4px; }
+  h2 { font-size: 1.3rem; color: #e6edf3; margin: 32px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 1.1rem; color: var(--blue); margin: 16px 0 8px; }
+  .date { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 24px; }
+  .grid { display: grid; gap: 16px; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .idx-name { font-size: 0.85rem; color: var(--text-dim); }
+  .idx-price { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .idx-chg { font-size: 1.1rem; font-weight: 600; }
+  .up { color: var(--red); }
+  .down { color: var(--green); }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92rem; }
+  th { text-align: left; padding: 10px 8px; border-bottom: 2px solid var(--border); color: var(--text-dim); font-weight: 600; font-size: 0.85rem; }
+  td { padding: 8px; border-bottom: 1px solid var(--border); }
+  tr:hover { background: rgba(88, 166, 255, 0.04); }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .badge-red { background: rgba(248, 81, 73, 0.15); color: var(--red); }
+  .badge-green { background: rgba(63, 185, 80, 0.15); color: var(--green); }
+  .badge-yellow { background: rgba(210, 153, 29, 0.15); color: var(--yellow); }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    margin: 2px;
+    background: rgba(88, 166, 255, 0.1);
+    color: var(--blue);
+    border: 1px solid rgba(88,166,255,0.2);
+  }
+  .alert {
+    background: rgba(248, 81, 73, 0.08);
+    border-left: 3px solid var(--red);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .insight {
+    background: rgba(88, 166, 255, 0.06);
+    border-left: 3px solid var(--blue);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  ul { margin-left: 20px; }
+  li { margin: 4px 0; color: var(--text-dim); }
+  .footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.8rem; text-align: center; }
+  @media (max-width: 768px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    body { padding: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>📊 A股盘后总结 · AI产业链深度版</h1>
+<div class="date">2026年8月3日（周一）· 收盘 | 数据来源：东方财富 / 同花顺</div>
+
+<!-- 大盘指数 -->
+<h2>一、大盘概览</h2>
+<div class="grid grid-4">
+  <div class="card">
+    <div class="idx-name">上证指数</div>
+    <div class="idx-price">3,812.61</div>
+    <div class="idx-chg down">▼ 0.59%</div>
+    <div style="font-size:0.8rem;color:var(--text-dim)">成交额 9,523亿</div>
+  </div>
+  <div class="card">
+    <div class="idx-name">深证成指</div>
+    <div class="idx-price">13,497.10</div>
+    <div class="idx-chg down">▼ 0.96%</div>
+    <div style="font-size:0.8rem;color:var(--text-dim)">成交额 10,451亿</div>
+  </div>
+  <div class="card">
+    <div class="idx-name">创业板指</div>
+    <div class="idx-price">3,320.09</div>
+    <div class="idx-chg down">▼ 1.24%</div>
+    <div style="font-size:0.8rem;color:var(--text-dim)">成交额 4,897亿</div>
+  </div>
+  <div class="card" style="border-color: rgba(248,81,73,0.4);">
+    <div class="idx-name">科创50 ⚠</div>
+    <div class="idx-price">1,552.89</div>
+    <div class="idx-chg down">▼ 5.08%</div>
+    <div style="font-size:0.8rem;color:var(--text-dim)">昨日收盘 1,635.96</div>
+  </div>
+</div>
+
+<div class="alert">
+  <strong>⚠ 盘面特征：</strong>三大指数震荡收跌，科创50暴跌超5%。电子板块主力资金净流出超<strong>218亿</strong>，半导体产业链遭遇重挫。资金向电网设备、机械设备等防御板块轮动，直流输电概念多股涨停。全市场近3500只个股下跌。
+</div>
+
+<!-- AI产业链八大方向 -->
+<h2>二、AI产业链 · 核心标的涨跌</h2>
+
+<h3>🔵 光通信 / CPO <span class="badge badge-green">内部分化</span></h3>
+<table>
+  <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>备注</th></tr>
+  <tr>
+    <td>天孚通信 <span style="color:var(--text-dim)">300394</span></td>
+    <td>180.50</td>
+    <td class="up">+5.55%</td>
+    <td>逆势领涨CPO板块，光器件龙头订单预期持续提升</td>
+  </tr>
+  <tr>
+    <td>中际旭创 <span style="color:var(--text-dim)">300308</span></td>
+    <td>902.50</td>
+    <td class="up">+0.05%</td>
+    <td>千元关口窄幅震荡，800G/1.6T订单排至2027-2028年</td>
+  </tr>
+  <tr>
+    <td>新易盛 <span style="color:var(--text-dim)">300502</span></td>
+    <td>394.08</td>
+    <td class="down">-0.49%</td>
+    <td>冲高回落，400元关口承压</td>
+  </tr>
+</table>
+
+<h3>🟡 存储 / HBM <span class="badge badge-red">全线重挫</span></h3>
+<table>
+  <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>备注</th></tr>
+  <tr>
+    <td>佰维存储 <span style="color:var(--text-dim)">688525</span></td>
+    <td>206.80</td>
+    <td class="down">-8.49%</td>
+    <td>存储龙头暴跌，H1净利预增3200%+但高位获利盘涌出</td>
+  </tr>
+  <tr>
+    <td>香农芯创 <span style="color:var(--text-dim)">300475</span></td>
+    <td>134.03</td>
+    <td class="down">-8.07%</td>
+    <td>HBM分销概念股跟跌</td>
+  </tr>
+  <tr>
+    <td>北京君正 <span style="color:var(--text-dim)">300223</span></td>
+    <td>119.00</td>
+    <td class="down">-6.16%</td>
+    <td>存储+AIoT双主线承压</td>
+  </tr>
+</table>
+
+<h3>🔴 半导体设备 <span class="badge badge-red">重灾区</span></h3>
+<table>
+  <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>备注</th></tr>
+  <tr>
+    <td>中微公司 <span style="color:var(--text-dim)">688012</span></td>
+    <td>309.85</td>
+    <td class="down">-9.93%</td>
+    <td>几乎跌停！刻蚀设备龙头领跌板块</td>
+  </tr>
+  <tr>
+    <td>北方华创 <span style="color:var(--text-dim)">002371</span></td>
+    <td>641.30</td>
+    <td class="down">-6.65%</td>
+    <td>国产半导体设备平台龙头大幅回撤</td>
+  </tr>
+</table>
+
+<h3>🟠 PCB / CCL <span class="badge badge-yellow">温和回调</span></h3>
+<table>
+  <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>备注</th></tr>
+  <tr>
+    <td>沪电股份 <span style="color:var(--text-dim)">002463</span></td>
+    <td>101.61</td>
+    <td class="down">-2.06%</td>
+    <td>AI服务器PCB相对抗跌</td>
+  </tr>
+  <tr>
+    <td>深南电路 <span style="color:var(--text-dim)">002916</span></td>
+    <td>302.31</td>
+    <td class="down">-1.85%</td>
+    <td>封装基板+PCB双轮驱动，跌幅可控</td>
+  </tr>
+</table>
+
+<h3>🟣 先进封装 <span class="badge badge-red">深度回调</span></h3>
+<table>
+  <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>备注</th></tr>
+  <tr>
+    <td>通富微电 <span style="color:var(--text-dim)">002156</span></td>
+    <td>51.34</td>
+    <td class="down">-9.50%</td>
+    <td>AMD封测核心供应商遭重锤</td>
+  </tr>
+  <tr>
+    <td>长电科技 <span style="color:var(--text-dim)">600584</span></td>
+    <td>61.00</td>
+    <td class="down">-7.17%</td>
+    <td>封测龙头同步大跌</td>
+  </tr>
+</table>
+
+<h3>🟢 AI服务器 / 液冷 <span class="badge badge-yellow">分化明显</span></h3>
+<table>
+  <tr><th>股票</th><th>收盘价</th><th>涨跌幅</th><th>备注</th></tr>
+  <tr>
+    <td>中科曙光 <span style="color:var(--text-dim)">603019</span></td>
+    <td>83.69</td>
+    <td class="up">+0.28%</td>
+    <td>算力基础设施龙头微涨，相对抗跌</td>
+  </tr>
+  <tr>
+    <td>浪潮信息 <span style="color:var(--text-dim)">000977</span></td>
+    <td>71.09</td>
+    <td class="down">-6.21%</td>
+    <td>AI服务器组装龙头大幅回调</td>
+  </tr>
+  <tr>
+    <td>英维克 <span style="color:var(--text-dim)">002837</span></td>
+    <td>46.45</td>
+    <td class="down">-2.11%</td>
+    <td>液冷温控概念跌幅相对温和</td>
+  </tr>
+</table>
+
+<!-- 涨跌分布 -->
+<h2>三、AI产业链涨跌幅分布</h2>
+<div class="grid grid-2">
+  <div class="card">
+    <h3 style="margin-top:0">📈 上涨梯队</h3>
+    <table>
+      <tr><td>天孚通信</td><td class="up">+5.55%</td><td style="color:var(--text-dim);font-size:0.8rem">光器件</td></tr>
+      <tr><td>中科曙光</td><td class="up">+0.28%</td><td style="color:var(--text-dim);font-size:0.8rem">AI服务器</td></tr>
+      <tr><td>中际旭创</td><td class="up">+0.05%</td><td style="color:var(--text-dim);font-size:0.8rem">光模块</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">📉 下跌梯队</h3>
+    <table>
+      <tr><td>中微公司</td><td class="down">-9.93%</td><td style="color:var(--text-dim);font-size:0.8rem">半导体设备</td></tr>
+      <tr><td>通富微电</td><td class="down">-9.50%</td><td style="color:var(--text-dim);font-size:0.8rem">先进封装</td></tr>
+      <tr><td>佰维存储</td><td class="down">-8.49%</td><td style="color:var(--text-dim);font-size:0.8rem">存储</td></tr>
+      <tr><td>香农芯创</td><td class="down">-8.07%</td><td style="color:var(--text-dim);font-size:0.8rem">存储分销</td></tr>
+      <tr><td>长电科技</td><td class="down">-7.17%</td><td style="color:var(--text-dim);font-size:0.8rem">封测</td></tr>
+      <tr><td>北方华创</td><td class="down">-6.65%</td><td style="color:var(--text-dim);font-size:0.8rem">半导体设备</td></tr>
+      <tr><td>浪潮信息</td><td class="down">-6.21%</td><td style="color:var(--text-dim);font-size:0.8rem">AI服务器</td></tr>
+      <tr><td>北京君正</td><td class="down">-6.16%</td><td style="color:var(--text-dim);font-size:0.8rem">存储+AIoT</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 驱动因素 -->
+<h2>四、核心驱动因素</h2>
+<div class="grid grid-2">
+  <div class="card">
+    <h3 style="margin-top:0">🌍 海外压力</h3>
+    <ul>
+      <li>费城半导体指数较6月历史高点累计跌超<strong>20%</strong></li>
+      <li>苹果上周五暴跌7.4%，供应短缺担忧拖累科技板块</li>
+      <li>俄罗斯卫星通讯社发文警告AI投资或形成金融泡沫</li>
+      <li>美股科技连续调整，纳指/半导体持续承压</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">🇨🇳 内部结构</h3>
+    <ul>
+      <li>电子板块主力资金单日净流出<strong>218.56亿</strong>，半导体子板块流出居前</li>
+      <li>资金轮动至电网设备（直流输电、特高压）等防御性板块</li>
+      <li>7月科技板块深度调整后，高位获利盘继续兑现</li>
+      <li>宇树科技科创板IPO在即（8月5日询价），机器人概念分流部分资金</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 机构观点 -->
+<h2>五、机构观点速递</h2>
+<div class="insight">
+  <strong>东方财富策略团队（8月3日）：</strong>对A股指数后续趋势维持乐观看法，政策底、资金底、内需底和情绪底逐渐明确。海外波动加剧并未改变A股内部再平衡方向。
+</div>
+<div class="insight">
+  <strong>广发策略：</strong>AI基本面没有本质恶化，大概率不是尖顶，可能还会再创新高。7月调整后属于正常技术回调。
+</div>
+<div class="insight">
+  <strong>中信证券（上周五）：</strong>2026年迎接金属溢价时代，供应扰动+需求高景气+流动性宽松共同支撑。科技板块调整后关注业绩确定性和估值性价比。
+</div>
+
+<!-- 策略提示 -->
+<h2>六、关键观察</h2>
+<div class="grid grid-3">
+  <div class="card">
+    <h3 style="margin-top:0">🔴 风险信号</h3>
+    <ul>
+      <li>科创50单日暴跌5%，逼近前期低点</li>
+      <li>设备/封测龙头接近跌停，恐慌抛售迹象</li>
+      <li>电子板块主力资金连续大幅流出</li>
+      <li>AI泡沫论国际舆论升温</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">🟡 分化线索</h3>
+    <ul>
+      <li>CPO内部：天孚通信逆势+5.55%，光器件环节景气确认</li>
+      <li>PCB环节回调幅度远小于设备/封测</li>
+      <li>中科曙光逆势翻红，算力平台差异化</li>
+      <li>液冷温控跌幅可控（英维克-2%）</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">🟢 中期支撑</h3>
+    <ul>
+      <li>云厂商资本开支指引仍在上修</li>
+      <li>光模块订单已排至2027-2028年</li>
+      <li>国产替代+自主可控逻辑不变</li>
+      <li>政策底+资金底逐渐确立</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  <p>⚠ 免责声明：本报告仅为AI产业链数据整理与客观分析，不构成任何投资建议。市场有风险，投资需谨慎。</p>
+  <p>Generated by Hermes Agent · 2026-08-03 15:30 CST</p>
+</div>
+
+</body>
+</html>
