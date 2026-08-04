@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026年8月4日</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --red: #f85149;
+    --green: #3fb950;
+    --accent: #58a6ff;
+    --accent2: #d2a8ff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+    background: var(--bg); color: var(--text); padding: 24px; line-height: 1.6;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  .header {
+    text-align: center; padding: 32px 0 24px; border-bottom: 1px solid var(--border); margin-bottom: 28px;
+  }
+  .header h1 { font-size: 1.5em; margin-bottom: 4px; }
+  .header .date { color: var(--text-dim); font-size: 0.9em; }
+  .summary-box {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 20px 24px; margin-bottom: 24px;
+  }
+  .summary-box p { margin: 6px 0; }
+  .tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 0.8em; font-weight: 600; margin-right: 6px;
+  }
+  .tag-up { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-down { background: rgba(248,81,73,0.15); color: var(--red); }
+  .index-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px; margin-bottom: 24px;
+  }
+  .index-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px 20px; text-align: center;
+  }
+  .index-card .name { font-size: 0.85em; color: var(--text-dim); margin-bottom: 4px; }
+  .index-card .price { font-size: 1.5em; font-weight: 700; }
+  .index-card .chg { font-size: 1em; margin-top: 4px; }
+  .section-title {
+    font-size: 1.1em; font-weight: 600; margin: 28px 0 12px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    color: var(--accent);
+  }
+  table {
+    width: 100%; border-collapse: collapse; margin-bottom: 20px;
+    border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+  }
+  th, td {
+    padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--border);
+  }
+  th {
+    background: var(--bg-card); color: var(--text-dim); font-weight: 600;
+    font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  th:first-child, td:first-child { text-align: left; }
+  tr:hover { background: rgba(88,166,255,0.05); }
+  .up { color: var(--red); }  /* A股红涨绿跌 */
+  .down { color: var(--green); }
+  .strong-up { font-weight: 700; }
+  .context-box {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px 20px; margin-bottom: 24px; font-size: 0.9em;
+  }
+  .context-box .item { margin: 6px 0; padding-left: 12px; border-left: 3px solid var(--accent2); }
+  .footer {
+    text-align: center; color: var(--text-dim); font-size: 0.8em;
+    padding: 32px 0 16px; border-top: 1px solid var(--border); margin-top: 32px;
+  }
+  .highlight { color: var(--accent2); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>📊 A股盘后总结 · AI产业链深度版</h1>
+  <div class="date">2026年8月4日（周二）  收盘后</div>
+</div>
+
+<!-- 大盘概览 -->
+<div class="index-grid">
+  <div class="index-card">
+    <div class="name">上证指数</div>
+    <div class="price up">3,822.28</div>
+    <div class="chg"><span class="tag tag-up">+0.33%</span> +12.62</div>
+  </div>
+  <div class="index-card">
+    <div class="name">深证成指</div>
+    <div class="price up">13,885.71</div>
+    <div class="chg"><span class="tag tag-up">+3.25%</span> +437.42</div>
+  </div>
+  <div class="index-card">
+    <div class="name">创业板指</div>
+    <div class="price up">3,488.97</div>
+    <div class="chg"><span class="tag tag-up">+5.64%</span> +186.42</div>
+  </div>
+  <div class="index-card">
+    <div class="name">科创50</div>
+    <div class="price up">1,616.36</div>
+    <div class="chg"><span class="tag tag-up">+4.09%</span> +63.47</div>
+  </div>
+</div>
+
+<!-- 昨日回顾 -->
+<div class="context-box">
+  <div class="item"><strong>📉 昨日（8/3）回顾：</strong>沪指跌0.59%，深证跌0.96%，创业板跌1.24%，科创50暴跌超5%。半导体、电脑硬件板块领跌，超4000只个股飘红但指数收跌，权重股承压严重。</div>
+  <div class="item"><strong>📈 今日剧情：</strong>三大指数集体低开后暴力拉升，创业板、科创50一马当先，尾盘高位震荡企稳。成交额合计约2.2万亿，较昨日明显放量。全市场超4000只个股飘红。</div>
+</div>
+
+<!-- 市场背景 -->
+<div class="context-box">
+  <div class="item"><strong>🌐 隔夜美股：</strong>科技股领涨，道指创收盘纪录新高，AI基础设施信心重启，为今日A股科技反弹提供情绪锚点。</div>
+  <div class="item"><strong>💾 FMS 2026 闪存峰会：</strong>8/4-6 在美国硅谷 Santa Clara 召开。SK海力士与闪迪联合发布全球首个 HBF（High Bandwidth Flash）标准，旨在解决AI推理阶段的内存瓶颈。三星、铠侠等存储巨头齐聚，讨论AI时代存储架构变革。</div>
+  <div class="item"><strong>🏛️ 白宫AI峰会：</strong>美国白宫今日召集人工智能企业，评估AI安全与产业发展方向。</div>
+  <div class="item"><strong>📋 宇树科技IPO：</strong>宇树科技科创板IPO初步询价日定为8月5日，人形机器人赛道持续升温。</div>
+</div>
+
+<!-- 光通信 / CPO -->
+<h2 class="section-title">🔹 一、光通信 / CPO —— 今日最强主线</h2>
+<table>
+<thead><tr><th>标的</th><th>收盘价</th><th>涨幅</th><th>最高</th><th>最低</th><th>昨收</th></tr></thead>
+<tbody>
+<tr>
+  <td>中际旭创</td>
+  <td class="up strong-up">1,021.99</td>
+  <td class="up strong-up">+13.24%</td>
+  <td>1,033.89</td><td>934.44</td><td>902.50</td>
+</tr>
+<tr>
+  <td>新易盛</td>
+  <td class="up strong-up">448.00</td>
+  <td class="up strong-up">+13.68%</td>
+  <td>453.18</td><td>409.00</td><td>394.08</td>
+</tr>
+<tr>
+  <td>天孚通信</td>
+  <td class="up strong-up">212.00</td>
+  <td class="up strong-up">+17.45%</td>
+  <td>216.00</td><td>188.18</td><td>180.50</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size:0.9em;color:var(--text-dim);margin-bottom:20px;">
+  「易中天」三剑客集体暴力反弹，天孚通信领涨近18%，中际旭创、新易盛双双涨超13%。美股AI算力链修复叠加国内超跌，资金集中回补光模块赛道，板块情绪达到沸点。
+</p>
+
+<!-- 半导体设备 -->
+<h2 class="section-title">🔹 二、半导体设备 —— 龙头领涨，板块普涨</h2>
+<table>
+<thead><tr><th>标的</th><th>收盘价</th><th>涨幅</th><th>最高</th><th>最低</th><th>昨收</th></tr></thead>
+<tbody>
+<tr>
+  <td>北方华创</td>
+  <td class="up strong-up">687.00</td>
+  <td class="up strong-up">+7.13%</td>
+  <td>698.00</td><td>632.01</td><td>641.30</td>
+</tr>
+<tr>
+  <td>中微公司</td>
+  <td class="up">317.74</td>
+  <td class="up">+2.55%</td>
+  <td>327.13</td><td>305.23</td><td>309.85</td>
+</tr>
+<tr>
+  <td>拓荆科技</td>
+  <td class="up">604.50</td>
+  <td class="up">+2.14%</td>
+  <td>618.86</td><td>570.00</td><td>591.86</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size:0.9em;color:var(--text-dim);margin-bottom:20px;">
+  北方华创领涨超7%逼近700元大关，中微公司、拓荆科技温和反弹。设备板块经历昨日重挫后出现技术性修复，但整体爆发力不如光通信方向，反映资金选择性回流。
+</p>
+
+<!-- 存储 / HBM -->
+<h2 class="section-title">🔹 三、存储 / HBM —— 峰会催化，温和跟涨</h2>
+<table>
+<thead><tr><th>标的</th><th>收盘价</th><th>涨幅</th><th>最高</th><th>最低</th><th>昨收</th></tr></thead>
+<tbody>
+<tr>
+  <td>佰维存储</td>
+  <td class="up">217.53</td>
+  <td class="up">+5.19%</td>
+  <td>219.54</td><td>206.33</td><td>206.80</td>
+</tr>
+<tr>
+  <td>江波龙</td>
+  <td class="up">336.05</td>
+  <td class="up">+5.08%</td>
+  <td>338.50</td><td>317.01</td><td>319.80</td>
+</tr>
+<tr>
+  <td>德明利</td>
+  <td class="up">364.18</td>
+  <td class="up">+4.35%</td>
+  <td>369.31</td><td>347.00</td><td>349.00</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size:0.9em;color:var(--text-dim);margin-bottom:20px;">
+  FMS 2026 闪存峰会今日开幕，SK海力士与闪迪联合发布 HBF 标准。存储板块跟随大盘温和上涨，涨幅集中在4-5%，相对克制。需关注后续两天峰会是否有更多重磅产品/技术发布催化。
+</p>
+
+<!-- PCB / CCL -->
+<h2 class="section-title">🔹 四、PCB / CCL —— 双涨停，景气确认</h2>
+<table>
+<thead><tr><th>标的</th><th>收盘价</th><th>涨幅</th><th>最高</th><th>最低</th><th>昨收</th></tr></thead>
+<tbody>
+<tr>
+  <td>沪电股份</td>
+  <td class="up strong-up">111.77</td>
+  <td class="up strong-up">+10.00%</td>
+  <td>111.77</td><td>103.23</td><td>101.61</td>
+</tr>
+<tr>
+  <td>深南电路</td>
+  <td class="up strong-up">332.54</td>
+  <td class="up strong-up">+10.00%</td>
+  <td>332.54</td><td>308.00</td><td>302.31</td>
+</tr>
+<tr>
+  <td>生益电子</td>
+  <td class="up strong-up">102.79</td>
+  <td class="up strong-up">+7.87%</td>
+  <td>104.33</td><td>95.90</td><td>95.29</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size:0.9em;color:var(--text-dim);margin-bottom:20px;">
+  沪电股份、深南电路双双封板！AI服务器机架高速连接中PCB用量提升逻辑持续验证。生益电子涨近8%逼近涨停。PCB/CCL方向成为今日除CPO外最强细分，高盛此前上调台系CCL定价前景，景气传导明确。
+</p>
+
+<!-- MLCC -->
+<h2 class="section-title">🔹 五、MLCC —— 材料端弹性突出</h2>
+<table>
+<thead><tr><th>标的</th><th>收盘价</th><th>涨幅</th><th>最高</th><th>最低</th><th>昨收</th></tr></thead>
+<tbody>
+<tr>
+  <td>三环集团</td>
+  <td class="up">120.98</td>
+  <td class="up">+6.12%</td>
+  <td>124.10</td><td>109.11</td><td>114.00</td>
+</tr>
+<tr>
+  <td>联瑞新材</td>
+  <td class="up strong-up">111.18</td>
+  <td class="up strong-up">+10.96%</td>
+  <td>112.60</td><td>100.90</td><td>100.20</td>
+</tr>
+<tr>
+  <td>洁美科技</td>
+  <td class="up strong-up">60.00</td>
+  <td class="up strong-up">+8.75%</td>
+  <td>60.69</td><td>53.06</td><td>55.17</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size:0.9em;color:var(--text-dim);margin-bottom:20px;">
+  联瑞新材（硅微粉）涨近11%表现亮眼，洁美科技（载带）涨近9%，三环集团涨超6%。MLCC上游材料端弹性显著优于下游，AI算力对高端MLCC需求拉动逻辑持续兑现。
+</p>
+
+<!-- 先进封装 + AI芯片 -->
+<h2 class="section-title">🔹 六、先进封装 / AI芯片 —— 稳定修复</h2>
+<table>
+<thead><tr><th>标的</th><th>收盘价</th><th>涨幅</th><th>最高</th><th>最低</th><th>昨收</th></tr></thead>
+<tbody>
+<tr>
+  <td>中芯国际</td>
+  <td class="up">121.10</td>
+  <td class="up">+3.95%</td>
+  <td>122.50</td><td>115.21</td><td>116.50</td>
+</tr>
+<tr>
+  <td>通富微电</td>
+  <td class="up strong-up">55.60</td>
+  <td class="up strong-up">+8.30%</td>
+  <td>55.93</td><td>51.66</td><td>51.34</td>
+</tr>
+<tr>
+  <td>寒武纪</td>
+  <td class="up">1,078.21</td>
+  <td class="up">+4.88%</td>
+  <td>1,097.87</td><td>1,019.00</td><td>1,028.00</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size:0.9em;color:var(--text-dim);margin-bottom:20px;">
+  通富微电涨8.30%领跑封测方向，寒武纪涨近5%站稳千元，中芯国际温和反弹约4%。先进封装、AI芯片整体呈现普涨修复格局，弹性低于光模块与PCB。
+</p>
+
+<!-- 上游材料 -->
+<h2 class="section-title">🔹 七、上游材料 —— 全面跟涨</h2>
+<table>
+<thead><tr><th>标的</th><th>收盘价</th><th>涨幅</th><th>最高</th><th>最低</th><th>昨收</th></tr></thead>
+<tbody>
+<tr>
+  <td>南大光电</td>
+  <td class="up">49.45</td>
+  <td class="up">+6.05%</td>
+  <td>49.92</td><td>46.66</td><td>46.63</td>
+</tr>
+<tr>
+  <td>安集科技</td>
+  <td class="up">227.66</td>
+  <td class="up">+4.96%</td>
+  <td>231.99</td><td>216.58</td><td>216.91</td>
+</tr>
+<tr>
+  <td>晶瑞电材</td>
+  <td class="up">12.07</td>
+  <td class="up">+4.32%</td>
+  <td>12.20</td><td>11.60</td><td>11.57</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size:0.9em;color:var(--text-dim);margin-bottom:20px;">
+  半导体材料方向全线飘红，南大光电涨超6%，安集科技涨近5%。国产替代长期逻辑叠加AI产业链景气传导，上游材料作为"卖铲人"持续受益。
+</p>
+
+<!-- AI服务器 / 液冷 -->
+<h2 class="section-title">🔹 八、AI服务器 / 液冷 —— 稳健跟涨</h2>
+<table>
+<thead><tr><th>标的</th><th>收盘价</th><th>涨幅</th><th>最高</th><th>最低</th><th>昨收</th></tr></thead>
+<tbody>
+<tr>
+  <td>浪潮信息</td>
+  <td class="up">74.14</td>
+  <td class="up">+3.46%</td>
+  <td>74.74</td><td>71.54</td><td>71.66</td>
+</tr>
+<tr>
+  <td>中科曙光</td>
+  <td class="up">85.55</td>
+  <td class="up">+2.22%</td>
+  <td>85.60</td><td>83.23</td><td>83.69</td>
+</tr>
+<tr>
+  <td>欧陆通</td>
+  <td class="up strong-up">184.68</td>
+  <td class="up strong-up">+7.84%</td>
+  <td>188.08</td><td>170.00</td><td>171.25</td>
+</tr>
+</tbody>
+</table>
+<p style="font-size:0.9em;color:var(--text-dim);margin-bottom:20px;">
+  服务器电源龙头欧陆通涨近8%，放量上攻；浪潮信息、中科曙光温和反弹2-3%。AI服务器/液冷方向近期受微软、亚马逊财报数据中心capex指引支撑，趋势稳健。
+</p>
+
+<!-- 核心结论 -->
+<div class="summary-box" style="margin-top:28px;">
+  <h3 style="margin-bottom:12px;color:var(--accent);">🎯 核心结论</h3>
+  <p><strong>1. V型暴力修复，AI链全面反攻。</strong>科创50昨日暴跌5%+后今日大涨4%+，创业板涨超5.6%，市场呈现强势修复格局，但沪指仅微涨0.33%，大盘股仍显克制。</p>
+  <p><strong>2. CPO/光通信是今日最强主线。</strong>「易中天」三剑客涨幅13-17%，资金集中回补前期超跌的高弹性赛道，短期情绪修复主导行情。</p>
+  <p><strong>3. PCB涨停潮确认景气度。</strong>沪电股份、深南电路双双涨停，AI服务器对高端PCB的拉货逻辑持续兑现，板块确定性获资金认可。</p>
+  <p><strong>4. FMS 2026 存储峰会是本周最大催化剂。</strong>HBF新标准发布，后续两天（8/5-6）关注存储、先进封装方向是否出现更多催化。</p>
+  <p><strong>5. 反弹而非反转，短线仍需谨慎。</strong>今日普涨更多是超跌修复+事件催化共振，半导体设备、存储等方向强度不及光模块，结构性分化格局未变。关注明日能否延续放量。</p>
+</div>
+
+<div class="footer">
+  <p>Hermes Agent 自动生成 · 数据来源：新浪财经 / 东方财富</p>
+  <p>⚠️ 本文仅为AI产业链跟踪复盘，不构成任何投资建议</p>
+  <p>📍 2026-08-04 15:30 CST</p>
+</div>
+
+</div>
+</body>
+</html>
