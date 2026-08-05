@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI产业链美股收盘与A股映射早报 | 2026年8月5日</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --text-secondary: #8b949e;
+            --green: #3fb950;
+            --red: #f85149;
+            --blue: #58a6ff;
+            --purple: #bc8cff;
+            --orange: #d2991d;
+            --accent: #1f6feb;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0 20px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+        .header h1 {
+            font-size: 1.8em;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+        .header .date { color: var(--text-secondary); font-size: 0.95em; }
+        .header .subtitle { color: var(--text-secondary); font-size: 0.85em; margin-top: 2px; }
+
+        .section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 1.1em;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section h2 .icon { font-size: 1.2em; }
+
+        .level-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 2px 0;
+        }
+        .level-badge .lvl {
+            font-size: 1.2em;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+        .pct-up { color: var(--green); font-weight: 600; }
+        .pct-down { color: var(--red); font-weight: 600; }
+        .tag-record {
+            background: rgba(63,185,80,0.15);
+            color: var(--green);
+            font-size: 0.7em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        .indices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+        .index-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+        .index-card .name { font-size: 0.85em; color: var(--text-secondary); }
+        .index-card .value-row { display: flex; align-items: baseline; gap: 8px; margin-top: 2px; }
+        .index-card .value { font-size: 1.4em; font-weight: 700; }
+        .index-card .change { font-size: 0.95em; }
+
+        .stock-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92em;
+        }
+        .stock-table th, .stock-table td {
+            padding: 8px 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(48,54,61,0.5);
+        }
+        .stock-table th {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .stock-table .ticker { font-weight: 700; color: var(--blue); }
+        .stock-table .name-col { color: var(--text-secondary); }
+
+        .driver-list { list-style: none; padding: 0; }
+        .driver-list li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            border-bottom: 1px solid rgba(48,54,61,0.3);
+        }
+        .driver-list li:last-child { border-bottom: none; }
+        .driver-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .after-hours { background: rgba(248,81,73,0.06); border-color: rgba(248,81,73,0.2); }
+        .after-hours h2 { color: var(--red); }
+
+        .mapping-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+        }
+        .mapping-card {
+            background: rgba(255,255,255,0.025);
+            border-radius: 8px;
+            padding: 14px 16px;
+            border-left: 3px solid var(--accent);
+        }
+        .mapping-card h3 { font-size: 0.9em; margin-bottom: 6px; color: var(--blue); }
+        .mapping-card .tickers {
+            font-size: 0.82em;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .mapping-card .note {
+            font-size: 0.82em;
+            color: var(--orange);
+            margin-top: 4px;
+        }
+
+        .news-item {
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(48,54,61,0.3);
+            font-size: 0.9em;
+        }
+        .news-item:last-child { border-bottom: none; }
+        .news-item .tag {
+            display: inline-block;
+            font-size: 0.7em;
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-right: 6px;
+            font-weight: 600;
+        }
+        .tag-bull { background: rgba(63,185,80,0.15); color: var(--green); }
+        .tag-bear { background: rgba(248,81,73,0.15); color: var(--red); }
+        .tag-info { background: rgba(88,166,255,0.15); color: var(--blue); }
+
+        .footer {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.75em;
+            padding: 20px 0 10px;
+            border-top: 1px solid var(--border);
+            margin-top: 10px;
+        }
+        .disclaimer {
+            font-size: 0.72em;
+            color: var(--text-secondary);
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .section { padding: 14px 16px; }
+            .indices-grid { grid-template-columns: 1fr; }
+            .stock-table { font-size: 0.8em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🌐 AI产业链 · 美股收盘与A股映射早报</h1>
+    <div class="date">2026年8月5日（周三）· 覆盖8月4日（周二）美股收盘</div>
+    <div class="subtitle">编撰：Hermes AI · 数据来源：Bloomberg / Yahoo Finance / The Guardian</div>
+</div>
+
+<!-- ====== 美股大盘 ====== -->
+<div class="section">
+    <h2><span class="icon">📊</span> 美股三大指数 <span style="font-weight:400;color:var(--text-secondary);font-size:0.85em;">— 8月4日收盘</span></h2>
+    <div class="indices-grid">
+        <div class="index-card">
+            <div class="name">道琼斯工业指数 DJI</div>
+            <div class="value-row">
+                <span class="value">54,085</span>
+                <span class="change pct-up">+907 / +1.7%</span>
+            </div>
+            <span class="tag-record">连续第二日历史新高</span>
+        </div>
+        <div class="index-card">
+            <div class="name">标普500指数 SPX</div>
+            <div class="value-row">
+                <span class="value">~7,737</span>
+                <span class="change pct-up">+1.8%</span>
+            </div>
+            <span class="tag-record">历史新高 · 突破6月2日前高7,620</span>
+        </div>
+        <div class="index-card">
+            <div class="name">纳斯达克综指 IXIC</div>
+            <div class="value-row">
+                <span class="value">~26,588</span>
+                <span class="change pct-up">+2.6%</span>
+            </div>
+            <span class="tag-record">领涨三大指数</span>
+        </div>
+        <div class="index-card">
+            <div class="name">纳斯达克100 NDX</div>
+            <div class="value-row">
+                <span class="value">—</span>
+                <span class="change pct-up">+3.3%</span>
+            </div>
+            <span style="font-size:0.8em;color:var(--text-secondary);">科技权重暴力拉升</span>
+        </div>
+    </div>
+
+    <h3 style="font-size:0.95em;margin-top:16px;color:var(--text-secondary);">📌 上涨驱动</h3>
+    <ul class="driver-list">
+        <li><strong>AI业绩浪潮：</strong>Amazon、Palantir等AI相关公司财报继续超预期，云计算/AI收入加速增长</li>
+        <li><strong>霍尔木兹海峡谈判：</strong>美伊外交接触推动海峡重开预期，油价回落缓解通胀担忧</li>
+        <li><strong>企业盈利整体强劲：</strong>Q2财报季整体表现良好，市场风险偏好显著回升</li>
+        <li><strong>美元走弱 + 国债收益率稳定：</strong>宏观环境对科技股估值友好</li>
+    </ul>
+</div>
+
+<!-- ====== AI 半导体产业链 ====== -->
+<div class="section">
+    <h2><span class="icon">🔬</span> AI半导体核心个股</h2>
+    <table class="stock-table">
+        <thead>
+            <tr>
+                <th>代码</th>
+                <th>公司</th>
+                <th>收盘价</th>
+                <th>涨跌幅</th>
+                <th>要点</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="ticker">NVDA</td>
+                <td class="name-col">英伟达</td>
+                <td>$200.75</td>
+                <td class="pct-up">+2.65%</td>
+                <td style="font-size:0.82em;">盘中触及$206.64，盘后回落至$198.95；CPO宣告量产</td>
+            </tr>
+            <tr>
+                <td class="ticker">AMD</td>
+                <td class="name-col">超威半导体</td>
+                <td>~$520</td>
+                <td class="pct-up">+8.90%</td>
+                <td style="font-size:0.82em;">YTD+126%，盘后Q2财报Q3指引不及AI预期<span class="pct-down"> 盘后大跌</span></td>
+            </tr>
+            <tr>
+                <td class="ticker">AVGO</td>
+                <td class="name-col">博通</td>
+                <td>$420.12</td>
+                <td class="pct-up">+7.10%</td>
+                <td style="font-size:0.82em;">$128B AI相关交易受关注，单日市值增~$133B</td>
+            </tr>
+            <tr>
+                <td class="ticker">TSM</td>
+                <td class="name-col">台积电</td>
+                <td>~$340-370</td>
+                <td class="pct-up">跟随上涨</td>
+                <td style="font-size:0.82em;">AI芯片代工核心受益者，Q2财报预期积极</td>
+            </tr>
+            <tr>
+                <td class="ticker">MU</td>
+                <td class="name-col">美光科技</td>
+                <td>—</td>
+                <td class="pct-up">跟随上涨</td>
+                <td style="font-size:0.82em;">HBM高带宽存储器持续供不应求</td>
+            </tr>
+            <tr>
+                <td class="ticker">SMCI</td>
+                <td class="name-col">超微电脑</td>
+                <td>—</td>
+                <td class="pct-up">跟随上涨</td>
+                <td style="font-size:0.82em;">英伟达服务器合作伙伴，持续受益</td>
+            </tr>
+            <tr>
+                <td class="ticker">PLTR</td>
+                <td class="name-col">Palantir</td>
+                <td>—</td>
+                <td class="pct-up">+17%</td>
+                <td style="font-size:0.82em;">Q2营收$1.935B创纪录，AI主权需求"前所未有"</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ====== 云计算/AI巨头 ====== -->
+<div class="section">
+    <h2><span class="icon">☁️</span> 云计算 &amp; AI平台巨头 <span style="font-weight:400;color:var(--text-secondary);font-size:0.85em;">— 近5个交易日表现</span></h2>
+    <table class="stock-table">
+        <thead>
+            <tr><th>代码</th><th>公司</th><th>近5日涨幅</th><th>核心看点</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="ticker">MSFT</td><td class="name-col">微软</td>
+                <td class="pct-up">+26.5%</td>
+                <td style="font-size:0.82em;">Azure云业务加速，Copilot AI商业化超预期</td>
+            </tr>
+            <tr>
+                <td class="ticker">AMZN</td><td class="name-col">亚马逊</td>
+                <td class="pct-up">+20.4%</td>
+                <td style="font-size:0.82em;">市值突破$3万亿；AWS增速37%（18季度最快）；Q2 EPS $5.75碾压预期</td>
+            </tr>
+            <tr>
+                <td class="ticker">GOOGL</td><td class="name-col">谷歌</td>
+                <td class="pct-up">+12.5%</td>
+                <td style="font-size:0.82em;">近12个月+98%，AI货币化验证最强标的</td>
+            </tr>
+            <tr>
+                <td class="ticker">META</td><td class="name-col">Meta</td>
+                <td class="pct-up">+7%</td>
+                <td style="font-size:0.82em;">广告AI驱动增长，Reality Labs支出受关注</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ====== 盘后 & 风险提示 ====== -->
+<div class="section after-hours">
+    <h2><span class="icon">⚠️</span> 盘后动态 &amp; 风险关注</h2>
+
+    <div class="news-item">
+        <span class="tag tag-bear">AMD 盘后大跌</span>
+        AMD发布Q2财报：Q3营收指引$13B（±$300M），同比+41%，环比+13%，但市场对AI数据中心增长预期远高于此。YTD涨幅126%已充分定价，盘后股价显著承压。彭博评："sales outlook disappoints investors after AI-fueled rally."
+    </div>
+    <div class="news-item">
+        <span class="tag tag-info">NVDA 盘后走弱</span>
+        收盘$200.75，盘后回落至$198.95（-0.9%），AI热情并未完全转化为隔夜持续动能。
+    </div>
+    <div class="news-item">
+        <span class="tag tag-bull">ON 盘后上涨</span>
+        安森美半导体(onsemi) Q2营收$1.604B（+9% YoY），EPS $0.74超预期，自由现金流翻四倍至$4.25亿，盘后上涨。
+    </div>
+    <div class="news-item">
+        <span class="tag tag-bear">AMD风险传导</span>
+        AMD盘后下跌对周三A股半导体板块形成情绪压制，尤其警惕光模块/算力链高估值品种的获利回吐。
+    </div>
+</div>
+
+<!-- ====== AI重大动态 ====== -->
+<div class="section">
+    <h2><span class="icon">📡</span> AI产业链重大动态</h2>
+    <div class="news-item">
+        <span class="tag tag-bull">NVDA CPO量产</span>
+        英伟达资深副总裁Gilad Shainer正式宣告：<strong>共封装光学(CPO)步入量产阶段</strong>，并点名未来光通讯市场最大商机在垂直扩充(Scale-up)，所需频宽效能为水平扩充(Scale-out)的十倍。直接利好光通信/光模块产业链。
+    </div>
+    <div class="news-item">
+        <span class="tag tag-bull">PLTR AI主权需求</span>
+        Palantir CEO Alex Karp称AI主权需求"otherworldly"（前所未有），美国商业客户增长149%，国防+企业双轮驱动。
+    </div>
+    <div class="news-item">
+        <span class="tag tag-info">AMZN AWS加速</span>
+        AWS Q2增速37%为18个季度以来最快，云基础设施capex持续扩张，利好上游芯片/光模块/服务器供应链。
+    </div>
+    <div class="news-item">
+        <span class="tag tag-info">MSFT Copilot</span>
+        微软近5日+26.5%暴力反弹，Azure+AI Copilot商业化进展成为本轮科技股反攻核心叙事。
+    </div>
+</div>
+
+<!-- ====== A股映射 ====== -->
+<div class="section">
+    <h2><span class="icon">🇨🇳</span> A股映射 · 今日关注方向</h2>
+
+    <div class="mapping-grid">
+        <div class="mapping-card">
+            <h3>🔗 CPO/光模块 — 核心受益</h3>
+            <p style="font-size:0.88em;">英伟达CPO量产宣告是最直接催化剂。Scale-up（垂直扩展）对光互联带宽需求是Scale-out的十倍。</p>
+            <div class="tickers">🎯 中际旭创 · 天孚通信 · 新易盛 · 剑桥科技 · 光迅科技</div>
+            <div class="note">⚠️ 但AMD盘后下跌或引发高估值品种短期波动，关注分化</div>
+        </div>
+
+        <div class="mapping-card">
+            <h3>🖥️ AI算力/服务器</h3>
+            <p style="font-size:0.88em;">AWS/微软云capex持续扩张，博通$128B AI交易，算力基建景气度确认。AMD盘后预警短期压力。</p>
+            <div class="tickers">🎯 工业富联 · 浪潮信息 · 中科曙光 · 紫光股份</div>
+            <div class="note">⚠️ AMD指引低于预期，算力链今日或分化，注意高低切换</div>
+        </div>
+
+        <div class="mapping-card">
+            <h3>🧠 AI芯片/寒武纪</h3>
+            <p style="font-size:0.88em;">美股AI芯片整体强势（NVDA+AVGO），但AMD盘后暴跌提示"预期差"风险。A股AI芯片（寒武纪）估值同样处于高位。</p>
+            <div class="tickers">🎯 寒武纪 · 海光信息 · 景嘉微</div>
+            <div class="note">AMD预警提示：当YTD涨幅过大（>100%），任何不及预期都会被放大</div>
+        </div>
+
+        <div class="mapping-card">
+            <h3>📊 AI应用/软件</h3>
+            <p style="font-size:0.88em;">Palantir+17%验证AI应用商业模式，微软Copilot商业化加速，A股AI应用有望跟涨。</p>
+            <div class="tickers">🎯 金山办公 · 科大讯飞 · 万兴科技 · 拓尔思</div>
+        </div>
+    </div>
+</div>
+
+<!-- ====== 总结 ====== -->
+<div class="section">
+    <h2><span class="icon">🧭</span> 综合判断</h2>
+    <div style="font-size:0.92em; line-height:1.8;">
+        <p>✅ <strong>积极面：</strong>美股三大指数齐创历史新高，AI产业链从芯片到云平台全面爆发，CPO量产、AWS加速、Palantir AI主权需求等构成强基本面支撑。A股光模块/CPO板块今日有望高开。</p>
+        <p style="margin-top:8px;">⚠️ <strong>风险面：</strong>AMD盘后大跌是今日最大预警信号 —— 当YTD涨幅超过120%时，即使Q3指引同比+41%仍被市场解读为"不及AI预期"。这对A股高估值AI品种（寒武纪、光模块龙头等）构成直接情绪映射。</p>
+        <p style="margin-top:8px;">🎯 <strong>A股策略：</strong>CPO/光模块受英伟达直接催化短多，但警惕AMD盘后情绪传导引发的高位震荡。重点观察：①光模块三巨头开盘强度 ②寒武纪能否扛住AMD映射压力 ③AI应用线（金山办公/科大讯飞）是否借PLTR效应补涨。</p>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Hermes AI · 自动化早报生成 · 2026年8月5日 08:00 CST</p>
+    <p class="disclaimer">⚠️ 本文基于公开市场数据自动生成，不构成任何投资建议。投资有风险，入市需谨慎。数据可能因盘中/盘后波动存在偏差，请以实际行情为准。</p>
+</div>
+
+</body>
+</html>
