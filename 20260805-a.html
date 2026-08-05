@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-08-05</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text2: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #a371f7;
+    --orange: #d29922;
+    --cyan: #39d2c0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 20px;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-size: 1.8em;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+  }
+  .header .date { color: var(--text2); font-size: .95em; }
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 600px) { .index-grid { grid-template-columns: repeat(2, 1fr); } }
+  .index-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .index-card .name { font-size: .8em; color: var(--text2); margin-bottom: 6px; }
+  .index-card .value { font-size: 1.3em; font-weight: 700; margin-bottom: 4px; }
+  .index-card .change { font-size: .95em; font-weight: 600; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+  }
+  .section h2 {
+    font-size: 1.15em;
+    color: var(--blue);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h2 .icon { font-size: 1.2em; }
+
+  .overview-text {
+    color: var(--text);
+    font-size: .95em;
+    line-height: 1.8;
+  }
+  .overview-text strong { color: var(--cyan); }
+  .overview-text .hl-up { color: var(--green); font-weight: 600; }
+  .overview-text .hl-down { color: var(--red); font-weight: 600; }
+
+  .chain-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .9em;
+  }
+  .chain-table th {
+    text-align: left;
+    padding: 10px 12px;
+    color: var(--text2);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    font-size: .82em;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .chain-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(48,54,61,.5);
+  }
+  .chain-table tr:last-child td { border-bottom: none; }
+  .chain-table .sector { font-weight: 600; }
+  .chain-table .status { font-weight: 600; }
+  .chain-table .st-strong { color: var(--green); }
+  .chain-table .st-positive { color: var(--cyan); }
+  .chain-table .st-neutral { color: var(--orange); }
+  .chain-table .st-weak { color: var(--red); }
+  .chain-table .tickers { color: var(--text2); font-size: .85em; }
+
+  .catalyst-list {
+    list-style: none;
+    padding: 0;
+  }
+  .catalyst-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(48,54,61,.4);
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    font-size: .93em;
+  }
+  .catalyst-list li:last-child { border-bottom: none; }
+  .catalyst-list .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: .72em;
+    font-weight: 700;
+    white-space: nowrap;
+    min-width: 56px;
+    text-align: center;
+  }
+  .tag-macro { background: rgba(88,166,255,.15); color: var(--blue); }
+  .tag-sector { background: rgba(163,113,247,.15); color: var(--purple); }
+  .tag-policy { background: rgba(210,153,34,.15); color: var(--orange); }
+  .tag-global { background: rgba(57,210,192,.15); color: var(--cyan); }
+
+  .flow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 600px) { .flow-grid { grid-template-columns: 1fr; } }
+  .flow-item {
+    background: rgba(22,27,34,.6);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+  .flow-item .label { font-size: .78em; color: var(--text2); margin-bottom: 4px; }
+  .flow-item .value { font-size: 1.15em; font-weight: 700; }
+
+  .risk-box {
+    background: rgba(248,81,73,.08);
+    border: 1px solid rgba(248,81,73,.25);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: .88em;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+  .risk-box strong { color: var(--orange); }
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text2);
+    font-size: .78em;
+    border-top: 1px solid var(--border);
+    margin-top: 28px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px dashed rgba(48,54,61,.4);
+    margin: 16px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 A股盘后总结 · AI产业链深度版</h1>
+  <div class="date">2026年8月5日 · 周三 · 收盘</div>
+</div>
+
+<!-- 主要指数 -->
+<div class="index-grid">
+  <div class="index-card">
+    <div class="name">上证指数</div>
+    <div class="value">3,822.28</div>
+    <div class="change up">+0.33%</div>
+  </div>
+  <div class="index-card">
+    <div class="name">深证成指</div>
+    <div class="value">13,885.71</div>
+    <div class="change up">+3.25%</div>
+  </div>
+  <div class="index-card">
+    <div class="name">创业板指</div>
+    <div class="value">3,488.97</div>
+    <div class="change up">+5.64%</div>
+  </div>
+  <div class="index-card">
+    <div class="name">科创50</div>
+    <div class="value">—</div>
+    <div class="change up">+4.09%</div>
+  </div>
+</div>
+
+<!-- 盘面概述 -->
+<div class="section">
+  <h2><span class="icon">🔥</span> 盘面概述</h2>
+  <div class="overview-text">
+    今日A股<strong>深强沪弱、成长碾压价值</strong>，创业板指暴涨<span class="hl-up">+5.64%</span>，科创50大涨<span class="hl-up">+4.09%</span>，而沪指仅微涨+0.33%。两市成交额维持<span class="hl-up">2万亿+</span>级别，市场风格极致偏向AI驱动的科技成长板块。<br><br>
+    核心驱动力：<strong>路透独家报道三星、SK海力士正在测试中微公司（AMEC）刻蚀设备</strong>——这是韩国存储双巨头首次实质性评估中国半导体设备，标志着国产设备从"能用"向"被全球顶级客户认可"的关键跃迁。AI算力需求持续爆发，"易中天"（新易盛、中际旭创、天孚通信）光模块三巨头延续强势，带动整个AI硬件链集体狂欢。
+  </div>
+</div>
+
+<!-- AI产业链细分 -->
+<div class="section">
+  <h2><span class="icon">🔗</span> AI产业链 · 八大方向</h2>
+  <table class="chain-table">
+    <thead>
+      <tr><th>方向</th><th>今日强度</th><th>逻辑/催化</th><th>核心标的</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sector">光通信 / CPO</td>
+        <td class="status st-strong">★★★★★ 领涨</td>
+        <td>海外云厂商CAPEX大增，1.6T光模块放量在即；天孚通信逼近20CM涨停，新易盛涨超8%</td>
+        <td class="tickers">中际旭创、新易盛、天孚通信</td>
+      </tr>
+      <tr>
+        <td class="sector">半导体设备</td>
+        <td class="status st-strong">★★★★★ 爆量</td>
+        <td>三星/SK海力士测试中微公司设备，国产替代叙事升维</td>
+        <td class="tickers">中微公司、北方华创、拓荆科技</td>
+      </tr>
+      <tr>
+        <td class="sector">AI芯片 / 算力</td>
+        <td class="status st-strong">★★★★☆</td>
+        <td>寒武纪涨超5%，国产大算力芯片持续受益AI军备竞赛</td>
+        <td class="tickers">寒武纪、海光信息、芯原股份</td>
+      </tr>
+      <tr>
+        <td class="sector">先进封装</td>
+        <td class="status st-positive">★★★★☆</td>
+        <td>Chiplet/CoWoS扩产逻辑延续；朗迪集团涨停</td>
+        <td class="tickers">长电科技、通富微电、朗迪集团</td>
+      </tr>
+      <tr>
+        <td class="sector">存储 / HBM</td>
+        <td class="status st-positive">★★★☆☆</td>
+        <td>铠侠ADR隔夜涨14%，存储周期向上；A股存储相对滞后</td>
+        <td class="tickers">兆易创新、江波龙、佰维存储</td>
+      </tr>
+      <tr>
+        <td class="sector">AI服务器 / 液冷</td>
+        <td class="status st-positive">★★★☆☆</td>
+        <td>算力基建需求带动服务器/液冷产业链联动</td>
+        <td class="tickers">工业富联、英维克、高澜股份</td>
+      </tr>
+      <tr>
+        <td class="sector">PCB / CCL</td>
+        <td class="status st-neutral">★★★☆☆</td>
+        <td>AI PCB价值量提升逻辑持续，但短期涨幅落后于光模块</td>
+        <td class="tickers">沪电股份、深南电路、生益科技</td>
+      </tr>
+      <tr>
+        <td class="sector">上游材料 / MLCC</td>
+        <td class="status st-neutral">★★☆☆☆</td>
+        <td>跟随半导体板块温和上涨，相对滞涨</td>
+        <td class="tickers">雅克科技、三环集团、洁美科技</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 资金面 -->
+<div class="section">
+  <h2><span class="icon">💰</span> 资金面与流动性</h2>
+  <div class="flow-grid">
+    <div class="flow-item">
+      <div class="label">两市成交额</div>
+      <div class="value up">2万亿+</div>
+    </div>
+    <div class="flow-item">
+      <div class="label">央行逆回购</div>
+      <div class="value" style="color:var(--blue);">5000亿</div>
+    </div>
+    <div class="flow-item">
+      <div class="label">资金偏好</div>
+      <div class="value up">AI硬科技</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="overview-text" style="font-size:.9em;">
+    央行今日开展<strong>5000亿元买断式逆回购</strong>操作（3个月期），维持流动性充裕。场内资金高度集中在AI算力硬件方向，半导体设备ETF持续获资金加仓，年内规模从16亿飙升至50亿级别。
+  </div>
+</div>
+
+<!-- 关键催化剂 -->
+<div class="section">
+  <h2><span class="icon">⚡</span> 关键催化剂</h2>
+  <ul class="catalyst-list">
+    <li>
+      <span class="tag tag-global">地缘</span>
+      <span><strong>三星、SK海力士测试中微公司设备</strong>（路透社8月5日）——韩国存储巨头寻求中国设备供应链以规避美国出口管制风险，国产半导体设备全球化叙事重大突破。</span>
+    </li>
+    <li>
+      <span class="tag tag-sector">产业</span>
+      <span><strong>海外光通信产业链大涨</strong>——铠侠ADR涨14%，Lumentum/Coherent涨超9%，美股AI硬件链情绪传导至A股。</span>
+    </li>
+    <li>
+      <span class="tag tag-macro">宏观</span>
+      <span><strong>央行5000亿买断式逆回购</strong>——维持银行体系流动性充裕，信号意义明确。</span>
+    </li>
+    <li>
+      <span class="tag tag-sector">产业</span>
+      <span><strong>9月CIOE光博会 + 云栖大会 + ECOC光通信展</strong>——下半年密集产业催化窗口期，机构建议逢低布局光模块板块。</span>
+    </li>
+    <li>
+      <span class="tag tag-policy">政策</span>
+      <span><strong>31省份AI产业版图浮现</strong>（经济参考报8月5日）——顶层设计加速落地，硬科技企业列队上市。</span>
+    </li>
+  </ul>
+</div>
+
+<!-- 风险提示 -->
+<div class="section">
+  <h2><span class="icon">⚠️</span> 风险与关注</h2>
+  <div class="risk-box">
+    <strong>① 极致分化风险：</strong>今日创业板暴涨5.64%而上证仅微涨0.33%，成长/价值剪刀差已达极端水平，短期获利盘压力不容忽视。<br>
+    <strong>② 韩国股市崩盘传导：</strong>韩股KOSPI经历半年翻倍后剧烈反转，56万亿韩元蒸发、32万账户强平，全球半导体情绪波动可能外溢。<br>
+    <strong>③ 光模块估值：</strong>"易中天"三巨头年内涨幅惊人（中际旭创+124%、寒武纪+175%），高位博弈需注意仓位管理。<br>
+    <strong>④ 地缘不确定性：</strong>中微公司获韩企测试虽是利好，但美国出口管制政策随时可能加码反制。
+  </div>
+</div>
+
+<div class="footer">
+  📋 本报告由 Hermes Agent 自动生成 · 数据来源：公开市场信息 · 仅供参考，不构成投资建议
+</div>
+
+</body>
+</html>
