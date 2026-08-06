@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-08-06 健身&饮食日报</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #0d1b2a;
+    color: #e0e8f0;
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 24px 0 20px;
+    border-bottom: 2px solid #1b3a4b;
+    margin-bottom: 20px;
+  }
+  .header h1 { font-size: 1.5rem; color: #4fc3f7; font-weight: 700; }
+  .header .date { font-size: 0.85rem; color: #7b9db5; margin-top: 4px; }
+
+  .overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: #13293d;
+    border: 1px solid #1b3a4b;
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+  .card .label { font-size: 0.75rem; color: #7b9db5; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card .value { font-size: 1.4rem; font-weight: 700; color: #4fc3f7; margin: 4px 0; }
+  .card .sub { font-size: 0.72rem; color: #5a7d8c; }
+  .card.warn { border-color: #ff8a65; }
+  .card.warn .value { color: #ff8a65; }
+
+  .member {
+    background: #13293d;
+    border: 1px solid #1b3a4b;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .member h2 {
+    font-size: 1.15rem;
+    color: #4fc3f7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .member h2 .emoji { font-size: 1.3rem; }
+  .section { margin-bottom: 14px; }
+  .section h3 {
+    font-size: 0.85rem;
+    color: #7b9db5;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    border-left: 3px solid #4fc3f7;
+    padding-left: 8px;
+  }
+  .section p, .section li { font-size: 0.9rem; color: #c8d6e0; }
+  ul { padding-left: 18px; }
+  li { margin-bottom: 4px; }
+
+  .empty { color: #5a7d8c; font-style: italic; font-size: 0.88rem; }
+
+  .eval {
+    background: #1a3344;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-top: 12px;
+    font-size: 0.88rem;
+    color: #b0c8d8;
+    border-left: 3px solid #4fc3f7;
+  }
+  .suggestion {
+    background: #1b2e3a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #90b8cc;
+  }
+  .suggestion::before { content: "💡 "; }
+
+  .reminder {
+    background: #1a3344;
+    border: 1px solid #ff8a65;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 20px 0;
+  }
+  .reminder h2 { font-size: 1rem; color: #ff8a65; margin-bottom: 8px; }
+  .reminder p { font-size: 0.88rem; color: #c8d6e0; }
+
+  .completeness {
+    background: #0f1f2d;
+    border-radius: 10px;
+    padding: 14px;
+    margin-top: 20px;
+    font-size: 0.78rem;
+    color: #5a7d8c;
+    border: 1px dashed #1b3a4b;
+  }
+  .completeness h3 { font-size: 0.8rem; color: #7b9db5; margin-bottom: 6px; }
+
+  .footer {
+    text-align: center;
+    font-size: 0.72rem;
+    color: #3d5a6b;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #1b3a4b;
+  }
+
+  @media (max-width: 480px) {
+    .overview { grid-template-columns: repeat(2, 1fr); }
+    body { padding: 10px; }
+    .member { padding: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏋️ 健身&饮食日报</h1>
+  <div class="date">2026 年 8 月 6 日 · 周四</div>
+</div>
+
+<div class="overview">
+  <div class="card warn">
+    <div class="label">📋 今日打卡</div>
+    <div class="value">0 / 3</div>
+    <div class="sub">全员未打卡</div>
+  </div>
+  <div class="card warn">
+    <div class="label">🏋️ 今日训练</div>
+    <div class="value">0 人</div>
+    <div class="sub">无训练记录</div>
+  </div>
+  <div class="card">
+    <div class="label">🔥 最高消耗</div>
+    <div class="value">—</div>
+    <div class="sub">无数据</div>
+  </div>
+  <div class="card">
+    <div class="label">⚠️ 缺口警告</div>
+    <div class="value">N/A</div>
+    <div class="sub">无数据</div>
+  </div>
+</div>
+
+<!-- 智林 -->
+<div class="member">
+  <h2><span class="emoji">🦍</span> 智林（lzl）</h2>
+  <div class="section">
+    <h3>🍽️ 饮食</h3>
+    <p class="empty">今日暂无有效记录</p>
+  </div>
+  <div class="section">
+    <h3>🏋️ 训练</h3>
+    <p class="empty">今日暂无有效记录</p>
+  </div>
+  <div class="section">
+    <h3>📊 身体状态</h3>
+    <ul>
+      <li>体重：93.5kg（最近记录 2026-08-03）</li>
+      <li>身高：185cm · BMI：~27.3</li>
+      <li>BMR：~2,300 kcal/天（Apple Watch 估算）</li>
+      <li>目标：逆转脂肪肝，继续减重</li>
+    </ul>
+  </div>
+  <div class="eval">
+    上次记录在 8/3，午餐+晚餐同款鸡胸鱼肉组合 ~1,440 kcal 全天，蛋白质 ~196g 到位但脂肪仅 14g 偏低。今天是周四——如果中午能练一下，下午去补记录。减脂期能连续记录就是最好的纪律。
+  </div>
+  <div class="suggestion">周四传统力量训练日，正餐热量别压太低。脂肪别长期个位数，加一勺花生酱或几个全蛋，对激素水平更友好。中午如果练了，蛋白质往 150g+ 保持。</div>
+</div>
+
+<!-- Monkiki -->
+<div class="member">
+  <h2><span class="emoji">🍳</span> Monkiki</h2>
+  <div class="section">
+    <h3>🍽️ 饮食</h3>
+    <p class="empty">今日暂无有效记录</p>
+  </div>
+  <div class="section">
+    <h3>🏋️ 训练</h3>
+    <p class="empty">今日暂无有效记录</p>
+  </div>
+  <div class="section">
+    <h3>📊 身体状态</h3>
+    <ul>
+      <li>体重：~70kg · 身高 170cm · BMI 24.2（最近记录 2026-07-20）</li>
+      <li>目标：65–67.5kg（减 5-10 斤）</li>
+    </ul>
+  </div>
+  <div class="eval">
+    上次记录 7/20，超过两周了。不管是在忙还是在偷懒——回来补个卡就好。哪怕一句话「今天吃了啥」也比空白强。数据断了趋势分析全凭脑补，而且越不记录越容易放松（人的天性😂）。
+  </div>
+  <div class="suggestion">回来第一件事：称个体重 + 拍一顿饭。两周数据空缺补不回来，但明天开始重新积累就行。空气炸锅+无底料火锅的技能包还在，随时可以重新上线 💪</div>
+</div>
+
+<!-- Ckddd -->
+<div class="member">
+  <h2><span class="emoji">🐔</span> Ckddd</h2>
+  <div class="section">
+    <h3>🍽️ 饮食</h3>
+    <p class="empty">今日暂无有效记录</p>
+  </div>
+  <div class="section">
+    <h3>🏋️ 训练</h3>
+    <p class="empty">今日暂无有效记录</p>
+  </div>
+  <div class="section">
+    <h3>📊 身体状态</h3>
+    <ul>
+      <li>体重：~64kg · 体脂 ~14.6%（最近记录 2026-07-08）</li>
+      <li>目标：增肌</li>
+    </ul>
+  </div>
+  <div class="eval">
+    上次记录 7/8，快一个月了。64kg 体脂 14.6% 是很好的增肌起点——但增肌要热量盈余，不记录饮食和训练完全无法判断吃够了没有。如果还在坚持练，数据回来看看增重进展——别浪费这个天赋底子 💪
+  </div>
+  <div class="suggestion">增肌期每天摄入建议 1.6-2.0g/kg 蛋白质（~102-128g），热量盈余 200-300 kcal。不记录很容易吃不够——回来打卡吧，哪怕一周补一次也行。</div>
+</div>
+
+<div class="reminder">
+  <h2>📢 群内提醒</h2>
+  <p>今天又是全群熄火的一天 😅 三人连续第三天没打卡了（8/4→8/5→8/6）。</p>
+  <p style="margin-top:8px;">不需要长篇大论——Apple Watch 截个图 +「练了背」+ 一顿饭的照片就够。数据积累是趋势分析的基础，没有数据只能空喊加油。你们仨想减脂的减脂、想增肌的增肌，不记录等于蒙眼跑步，效率掉一半 😤</p>
+  <p style="margin-top:8px;">明天周五了，谁先回来打卡谁就是本周 MVP 🏆</p>
+</div>
+
+<div class="completeness">
+  <h3>📋 数据完整度</h3>
+  <p>• 本地 md 文件：lzl ✅ / monkiki ✅ / ckddd ✅ — 但三个文件均无今天（2026-08-06）的记录</p>
+  <p>• Discord 群聊：未接入（session_search 工具不可用），仅基于本地 md 文件生成</p>
+  <p>• 所有热量/蛋白质数值均为估算，可能存在 ±15-20% 误差</p>
+  <p>• 生成时间：2026-08-06 23:00（cron）</p>
+</div>
+
+<div class="footer">
+  Generated by Hermes · 健身&饮食群每日总结 · #fitness
+</div>
+
+</body>
+</html>
