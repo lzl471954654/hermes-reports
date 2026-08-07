@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-08-07 健身&饮食日报 | #fitness</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1b2a;
+    color: #e0e6ed;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 1.5rem;
+    color: #4fc3f7;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .date { color: #7e8c9e; font-size: 0.85rem; margin-bottom: 20px; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: #152238;
+    border-radius: 12px;
+    padding: 14px 16px;
+    border: 1px solid #1e3350;
+  }
+  .card .label { font-size: 0.75rem; color: #7e8c9e; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card .value { font-size: 1.4rem; font-weight: 700; color: #4fc3f7; margin-top: 2px; }
+  .card .sub { font-size: 0.78rem; color: #7e8c9e; margin-top: 2px; }
+  .card.warn { border-color: #ff8a65; }
+  .card.warn .value { color: #ff8a65; }
+  .section {
+    background: #152238;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    border: 1px solid #1e3350;
+  }
+  .section h2 {
+    font-size: 1.15rem;
+    color: #4fc3f7;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1e3350;
+  }
+  .section h3 {
+    font-size: 0.95rem;
+    color: #90caf9;
+    margin: 14px 0 6px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    font-weight: 600;
+  }
+  .tag-red { background: rgba(255,138,101,0.18); color: #ff8a65; }
+  .tag-green { background: rgba(129,199,132,0.18); color: #81c784; }
+  .tag-blue { background: rgba(79,195,247,0.18); color: #4fc3f7; }
+  .tag-gray { background: rgba(126,140,158,0.15); color: #7e8c9e; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 12px;
+    font-size: 0.85rem;
+  }
+  th, td {
+    padding: 6px 10px;
+    text-align: left;
+    border-bottom: 1px solid #1e3350;
+  }
+  th { color: #7e8c9e; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+  td { color: #c8d6e5; }
+  .highlight { color: #4fc3f7; font-weight: 600; }
+  .warn-text { color: #ff8a65; }
+  .emoji { font-size: 1.1rem; }
+  blockquote {
+    border-left: 3px solid #4fc3f7;
+    padding: 8px 14px;
+    margin: 12px 0;
+    background: rgba(79,195,247,0.06);
+    border-radius: 0 8px 8px 0;
+    color: #b0bec5;
+    font-size: 0.9rem;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid #1e3350;
+    margin: 16px 0;
+  }
+  .reminder {
+    background: rgba(79,195,247,0.08);
+    border: 1px solid rgba(79,195,247,0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .reminder h2 { border-bottom: none; margin-bottom: 6px; }
+  .footer {
+    font-size: 0.75rem;
+    color: #5a6a7e;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .no-record {
+    color: #5a6a7e;
+    font-style: italic;
+    padding: 8px 0;
+  }
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    font-size: 0.88rem;
+    border-bottom: 1px solid rgba(30,51,80,0.6);
+  }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-label { color: #7e8c9e; }
+  .stat-val { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>🏋️ 健身&饮食日报</h1>
+<div class="date">📅 2026 年 8 月 7 日 星期五 · 第 31 周</div>
+
+<!-- 概览卡片 -->
+<div class="cards">
+  <div class="card warn">
+    <div class="label">📋 打卡人数</div>
+    <div class="value">0 / 3</div>
+    <div class="sub">连续第 4 天</div>
+  </div>
+  <div class="card warn">
+    <div class="label">🏃 训练人数</div>
+    <div class="value">0</div>
+    <div class="sub">今日无训练记录</div>
+  </div>
+  <div class="card">
+    <div class="label">🔥 最高消耗</div>
+    <div class="value">—</div>
+    <div class="sub">N/A</div>
+  </div>
+  <div class="card warn">
+    <div class="label">⚠️ 缺口警告</div>
+    <div class="value">N/A</div>
+    <div class="sub">无数据可分析</div>
+  </div>
+</div>
+
+<!-- 智林 -->
+<div class="section">
+  <h2>🦍 智林（lzl）</h2>
+
+  <h3>🍽️ 饮食</h3>
+  <p class="no-record">今日暂无有效记录</p>
+
+  <h3>🏋️ 训练</h3>
+  <p class="no-record">今日暂无有效记录</p>
+
+  <h3>📊 身体状态</h3>
+  <div class="stat-row"><span class="stat-label">体重</span><span class="stat-val">93.5kg</span></div>
+  <div class="stat-row"><span class="stat-label">身高 / BMI</span><span class="stat-val">185cm / ~27.3</span></div>
+  <div class="stat-row"><span class="stat-label">BMR</span><span class="stat-val">~2,300 kcal/天（Apple Watch 估算）</span></div>
+  <div class="stat-row"><span class="stat-label">目标</span><span class="stat-val">逆转脂肪肝，继续减重</span></div>
+  <div class="stat-row"><span class="stat-label">最近记录</span><span class="stat-val">2026-08-03（午餐+晚餐）</span></div>
+
+  <h3>💬 评价</h3>
+  <blockquote>
+    上次记录 8/3，到现在 4 天空白。那天的鸡胸+鱼肉双蛋午餐+晚餐结构其实很好——蛋白质 196g 到位，就是脂肪仅 14g 长期偏低。今天周五，传统上中午有力量训练窗口。如果练了，回来补上数据；没练也不用有压力，周末补回来就是。减脂期能持续记录比完美主义更重要 🔑
+  </blockquote>
+
+  <h3>💡 明日建议</h3>
+  <blockquote>
+    周六休息日，正餐适当放宽不用太压热量。连续几天空白后回归记录的第一天，从一顿饭开始就行——哪怕就拍个午餐。脂肪别忘了补，蛋黄/坚果/花生酱随便来点，别让激素水平被超低脂拖垮。
+  </blockquote>
+</div>
+
+<!-- Monkiki -->
+<div class="section">
+  <h2>🍳 Monkiki</h2>
+
+  <h3>🍽️ 饮食</h3>
+  <p class="no-record">今日暂无有效记录</p>
+
+  <h3>🏋️ 训练</h3>
+  <p class="no-record">今日暂无有效记录</p>
+
+  <h3>📊 身体状态</h3>
+  <div class="stat-row"><span class="stat-label">体重</span><span class="stat-val">~70kg</span></div>
+  <div class="stat-row"><span class="stat-label">身高 / BMI</span><span class="stat-val">170cm / 24.2</span></div>
+  <div class="stat-row"><span class="stat-label">目标</span><span class="stat-val">65–67.5kg（减 5-10 斤）</span></div>
+  <div class="stat-row"><span class="stat-label">最近记录</span><span class="stat-val">2026-07-20（力量训练+第一餐）</span></div>
+
+  <h3>💬 评价</h3>
+  <blockquote>
+    上次记录 7/20，已经失联超过两周半了 📡。7/20 那天练了 64 分钟力量训练 + 家常四菜，净摄入才 300 kcal 明显不够——然后就没有然后了。不管这半个月是在忙工作、在旅行、还是单纯休息，回来的时候不需要解释，补个今天的记录就行。哪怕脱了鞋站上去看一眼体重数字，也是个开始。
+  </blockquote>
+
+  <h3>💡 明日建议</h3>
+  <blockquote>
+    周六回归日。两件事：① 站上去看体重（两周半可能变化明显）；② 拍一顿饭。不需要算热量，不需要写完整分析——就一个数字 + 一张照片。数据断了两周不可怕，可怕的是因为断太久干脆不回来了。空气炸锅+无底料火锅的技能包还在等你宠幸 🥘
+  </blockquote>
+</div>
+
+<!-- Ckddd -->
+<div class="section">
+  <h2>🐔 Ckddd</h2>
+
+  <h3>🍽️ 饮食</h3>
+  <p class="no-record">今日暂无有效记录</p>
+
+  <h3>🏋️ 训练</h3>
+  <p class="no-record">今日暂无有效记录</p>
+
+  <h3>📊 身体状态</h3>
+  <div class="stat-row"><span class="stat-label">体重</span><span class="stat-val">~64kg</span></div>
+  <div class="stat-row"><span class="stat-label">体脂率</span><span class="stat-val">~14.6%（InBody 2026-02-25）</span></div>
+  <div class="stat-row"><span class="stat-label">肌肉量</span><span class="stat-val">53.4kg</span></div>
+  <div class="stat-row"><span class="stat-label">目标</span><span class="stat-val">增肌</span></div>
+  <div class="stat-row"><span class="stat-label">最近记录</span><span class="stat-val">2026-07-08（燕麦+蛋+冰美式）</span></div>
+
+  <h3>💬 评价</h3>
+  <blockquote>
+    上次记录 7/8，整整一个月空白 📅。7/8 那天早餐燕麦+水煮蛋+冰美式，一整天就这一条记录——增肌期这个量完全不够。你在三个人里体脂率最低（14.6%），肌肉量最高（53.4kg），这个底子是实打实的天赋级。但增肌不像减脂——不记录饮食，很难判断每天到底是吃够了还是亏空着。一个月的空白足够让 64kg 往下跌 2-3kg，也可能原地踏步但肌肉在悄无声息地流失。
+  </blockquote>
+
+  <h3>💡 明日建议</h3>
+  <blockquote>
+    最需要回来记录的人。增肌期目标摄入：蛋白质 ~102-128g/天（1.6-2.0g/kg），总热量盈余 200-300 kcal。一个月没数据了，明天先称个体重看看有没有掉——如果 <63kg 了，那说明热量一直不够；如果稳在 64-65kg，那说明吃够但训练可能断了。不管哪种情况，数据一来一目了然。Hilmar 蛋白粉不知道过期没 😂
+  </blockquote>
+</div>
+
+<!-- 群内提醒 -->
+<div class="reminder">
+  <h2>📢 群内提醒</h2>
+  <p style="font-size:0.92rem; color:#b0bec5; line-height:1.7;">
+    今天又是全群空白的一天 😶 从 8/4 到 8/7，<strong>连续第四天三人零打卡</strong>。这已经是本群历史上最长连续空白期了。<br><br>
+    不需要多正式——Apple Watch 截个图 + 一句话「练了背」，或者一顿饭照片 +「今天吃了这个」，5 秒搞定。数据积累不是为了卷，是为了让未来的自己回头看时知道走过的路。一个月后你想知道「我到底什么时候开始掉体重的」「增肌期吃得够不够到底差在哪」，这些答案全藏在每天的记录里。<br><br>
+    明天周六，谁先回来打个卡，哪怕一句话，就是本周 MVP 🏆 不用压力，不用解释，回来就行。
+  </p>
+</div>
+
+<!-- 数据完整度 -->
+<div class="section">
+  <h2>📋 数据完整度</h2>
+  <table>
+    <tr><td style="color:#7e8c9e;">本地 md 文件</td><td>lzl ✅ / monkiki ✅ / ckddd ✅ — 三个文件均无今天（2026-08-07）的记录</td></tr>
+    <tr><td style="color:#7e8c9e;">Discord 群聊</td><td>未接入（session_search 工具不可用），仅基于本地 md 文件生成</td></tr>
+    <tr><td style="color:#7e8c9e;">热量 &amp; 蛋白质</td><td>所有数值均为估算，可能存在 ±15-20% 误差</td></tr>
+    <tr><td style="color:#7e8c9e;">生成时间</td><td>2026-08-07 23:00 CST（cron 自动）</td></tr>
+  </table>
+</div>
+
+<div class="footer">
+  Generated by Hermes Agent · #fitness 频道日报 · 每天 23:00 自动推送
+</div>
+
+</body>
+</html>
