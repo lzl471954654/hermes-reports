@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-08-07</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --accent: #58a6ff;
+    --accent2: #d2a8ff;
+    --orange: #d2991d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header h1 { font-size: 1.6em; color: #f0f6fc; }
+  .header .date { color: var(--text-dim); font-size: 0.9em; margin-top: 4px; }
+  .header .subtitle { color: var(--accent2); font-size: 0.85em; margin-top: 2px; }
+  
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .index-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .index-card .name { font-size: 0.85em; color: var(--text-dim); }
+  .index-card .value { font-size: 1.5em; font-weight: 700; margin: 4px 0; }
+  .index-card .change { font-size: 1em; font-weight: 600; }
+  .index-card .range { font-size: 0.75em; color: var(--text-dim); margin-top: 4px; }
+  .up { color: var(--red); } .down { color: var(--green); }
+  .index-card .up { color: var(--red); }
+  .index-card .down { color: var(--green); }
+
+  .section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .section h2 {
+    font-size: 1.1em;
+    color: var(--accent);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section h2 .icon { margin-right: 6px; }
+
+  .stock-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .stock-table th {
+    text-align: left;
+    color: var(--text-dim);
+    font-size: 0.8em;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .stock-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(48,54,61,0.4);
+    font-size: 0.9em;
+  }
+  .stock-table .code { color: var(--text-dim); font-size: 0.8em; }
+  .stock-table .change-up { color: var(--red); font-weight: 600; }
+  .stock-table .change-down { color: var(--green); font-weight: 600; }
+  .stock-table .vol { color: var(--text-dim); font-size: 0.85em; }
+
+  .summary-box {
+    background: rgba(88,166,255,0.06);
+    border-left: 3px solid var(--accent);
+    padding: 14px 16px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 16px;
+  }
+  .summary-box p { margin: 4px 0; font-size: 0.95em; }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    margin: 2px;
+  }
+  .tag-hot { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-warm { background: rgba(210,153,29,0.15); color: var(--orange); }
+  .tag-mild { background: rgba(88,166,255,0.12); color: var(--accent); }
+
+  .footer {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.75em;
+    padding: 24px 0 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+  .highlight { color: var(--accent2); font-weight: 600; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 A股盘后总结 · AI产业链深度版</h1>
+  <div class="date">2026年8月7日（周五）收盘</div>
+  <div class="subtitle">光通信 · 存储 · 半导体设备 · PCB · 先进封装 · 上游材料 · 液冷</div>
+</div>
+
+<!-- ====== 指数概览 ====== -->
+<div class="index-grid">
+  <div class="index-card">
+    <div class="name">上证指数</div>
+    <div class="value num">3896.49</div>
+    <div class="change down">▼ -0.10%</div>
+    <div class="range">开盘 3940.04 | 最低 3885.62</div>
+  </div>
+  <div class="index-card">
+    <div class="name">深证成指</div>
+    <div class="value num">14152.78</div>
+    <div class="change up">▲ +0.30%</div>
+    <div class="range">开盘 14311.01 | 最低 14049.34</div>
+  </div>
+  <div class="index-card">
+    <div class="name">创业板指</div>
+    <div class="value num">3537.44</div>
+    <div class="change up">▲ +0.62%</div>
+    <div class="range">开盘 3563.12 | 最低 3507.62</div>
+  </div>
+  <div class="index-card">
+    <div class="name">科创50</div>
+    <div class="value num">1697.37</div>
+    <div class="change down">▼ -0.23%</div>
+    <div class="range">开盘 1744.02 | 最低 1686.66</div>
+  </div>
+</div>
+
+<!-- ====== 核心观点 ====== -->
+<div class="summary-box">
+  <p>🔹 <strong>高开低走，深强沪弱。</strong>四大指数早盘集体高开，随后震荡走低。上证一度冲高3940后翻绿，延续3900点关口拉锯；深成指与创业板微红报收，科创50最弱跌0.23%。</p>
+  <p>🔹 <strong>AI产业链内部分化加剧。</strong>PCB/CCL与上游材料领涨，CPO光模块龙头回调——资金从高位CPO轮动至PCB与材料端，做高低切换。</p>
+  <p>🔹 <strong>两市合计成交约2.66万亿</strong>（沪市1.21万亿 + 深市1.45万亿），量能维持高位但未继续放量，注意后续量价配合。</p>
+</div>
+
+<!-- ====== 光通信/CPO ====== -->
+<div class="section">
+  <h2><span class="icon">🔷</span>光通信 / CPO <span class="tag tag-mild">高位震荡</span></h2>
+  <table class="stock-table">
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    <tr>
+      <td>中际旭创 <span class="code">300308</span></td>
+      <td class="num">919.87</td>
+      <td class="change-down">-3.68%</td>
+      <td class="vol">547亿</td>
+    </tr>
+    <tr>
+      <td>新易盛 <span class="code">300502</span></td>
+      <td class="num">420.95</td>
+      <td class="change-down">-0.22%</td>
+      <td class="vol">258亿</td>
+    </tr>
+    <tr>
+      <td>天孚通信 <span class="code">300394</span></td>
+      <td class="num">230.68</td>
+      <td class="change-up">+2.40%</td>
+      <td class="vol">141亿</td>
+    </tr>
+  </table>
+  <p style="font-size:0.82em;color:var(--text-dim);margin-top:8px;">中际旭创高开981→低走收919，振幅超10%，成交547亿居全市场前列。CPO板块昨日强势反弹后今日获利盘兑现明显，"易中天"组合仅天孚通信微红。</p>
+</div>
+
+<!-- ====== PCB/CCL ====== -->
+<div class="section">
+  <h2><span class="icon">🟢</span>PCB / CCL <span class="tag tag-hot">今日最强</span></h2>
+  <table class="stock-table">
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    <tr>
+      <td>胜宏科技 <span class="code">300476</span></td>
+      <td class="num">280.20</td>
+      <td class="change-up">+12.01%</td>
+      <td class="vol">198亿</td>
+    </tr>
+    <tr>
+      <td>深南电路 <span class="code">002916</span></td>
+      <td class="num">382.63</td>
+      <td class="change-up">+8.09%</td>
+      <td class="vol">53亿</td>
+    </tr>
+    <tr>
+      <td>沪电股份 <span class="code">002463</span></td>
+      <td class="num">125.87</td>
+      <td class="change-up">+7.40%</td>
+      <td class="vol">99亿</td>
+    </tr>
+  </table>
+  <p style="font-size:0.82em;color:var(--text-dim);margin-top:8px;">PCB板块集体爆发，胜宏科技涨超12%领衔，深南电路涨超8%。AI服务器对高多层板/HDI需求持续拉动，资金从CPO切换至PCB做补涨。</p>
+</div>
+
+<!-- ====== 存储/HBM ====== -->
+<div class="section">
+  <h2><span class="icon">🟡</span>存储 / HBM <span class="tag tag-warm">温和回暖</span></h2>
+  <table class="stock-table">
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    <tr>
+      <td>江波龙 <span class="code">301308</span></td>
+      <td class="num">386.60</td>
+      <td class="change-up">+5.53%</td>
+      <td class="vol">95亿</td>
+    </tr>
+    <tr>
+      <td>北京君正 <span class="code">300223</span></td>
+      <td class="num">144.05</td>
+      <td class="change-up">+5.15%</td>
+      <td class="vol">70亿</td>
+    </tr>
+  </table>
+  <p style="font-size:0.82em;color:var(--text-dim);margin-top:8px;">存储板块从月初暴跌中温和修复。江波龙涨5.5%，北京君正涨5.2%。隔夜美光/闪迪财报后大跌对A股存储情绪有一定压制，但国产替代逻辑支撑内资承接意愿。</p>
+</div>
+
+<!-- ====== 半导体设备 ====== -->
+<div class="section">
+  <h2><span class="icon">🔶</span>半导体设备 / 测试</h2>
+  <table class="stock-table">
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    <tr>
+      <td>精测电子 <span class="code">300567</span></td>
+      <td class="num">223.91</td>
+      <td class="change-up">+7.65%</td>
+      <td class="vol">24亿</td>
+    </tr>
+    <tr>
+      <td>北方华创 <span class="code">002371</span></td>
+      <td class="num">751.99</td>
+      <td class="change-up">+1.28%</td>
+      <td class="vol">64亿</td>
+    </tr>
+    <tr>
+      <td>长川科技 <span class="code">300604</span></td>
+      <td class="num">283.21</td>
+      <td class="change-up">+1.68%</td>
+      <td class="vol">62亿</td>
+    </tr>
+    <tr>
+      <td>中芯国际 <span class="code">688981</span></td>
+      <td class="num">128.50</td>
+      <td class="change-up">+3.50%</td>
+      <td class="vol">76亿</td>
+    </tr>
+  </table>
+  <p style="font-size:0.82em;color:var(--text-dim);margin-top:8px;">半导体设备链集体收红，精测电子涨7.65%领跑。中芯国际涨3.5%，晶圆代工环节受益于稼动率回升预期。设备板块受益于国产化率提升+存储扩产双重逻辑。</p>
+</div>
+
+<!-- ====== 先进封装 ====== -->
+<div class="section">
+  <h2><span class="icon">🟠</span>先进封装</h2>
+  <table class="stock-table">
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    <tr>
+      <td>通富微电 <span class="code">002156</span></td>
+      <td class="num">64.72</td>
+      <td class="change-up">+6.17%</td>
+      <td class="vol">102亿</td>
+    </tr>
+    <tr>
+      <td>华天科技 <span class="code">002185</span></td>
+      <td class="num">17.98</td>
+      <td class="change-up">+4.17%</td>
+      <td class="vol">77亿</td>
+    </tr>
+  </table>
+  <p style="font-size:0.82em;color:var(--text-dim);margin-top:8px;">通富微电涨超6%，华天科技涨超4%。2026年国产先进封装合计投资超300亿的产业叙事持续发酵。</p>
+</div>
+
+<!-- ====== 上游材料 ====== -->
+<div class="section">
+  <h2><span class="icon">🟣</span>上游材料 <span class="tag tag-hot">资金聚焦</span></h2>
+  <table class="stock-table">
+    <tr><th>标的</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    <tr>
+      <td>容大感光 <span class="code">300576</span></td>
+      <td class="num">31.99</td>
+      <td class="change-up">+7.67%</td>
+      <td class="vol">17亿</td>
+    </tr>
+    <tr>
+      <td>江丰电子 <span class="code">300666</span></td>
+      <td class="num">252.54</td>
+      <td class="change-up">+5.83%</td>
+      <td class="vol">55亿</td>
+    </tr>
+    <tr>
+      <td>南大光电 <span class="code">300346</span></td>
+      <td class="num">58.32</td>
+      <td class="change-up">+4.33%</td>
+      <td class="vol">44亿</td>
+    </tr>
+    <tr>
+      <td>雅克科技 <span class="code">002409</span></td>
+      <td class="num">148.79</td>
+      <td class="change-up">+2.61%</td>
+      <td class="vol">47亿</td>
+    </tr>
+  </table>
+  <p style="font-size:0.82em;color:var(--text-dim);margin-top:8px;">半导体材料板块普涨，光刻胶方向（容大感光+7.7%）与靶材方向（江丰电子+5.8%）弹性最大。上游材料作为AI硬件产业链"卖铲人"逻辑持续演绎。</p>
+</div>
+
+<!-- ====== AI服务器 / 液冷 / MLCC ====== -->
+<div class="section">
+  <h2><span class="icon">🔵</span>AI服务器 · 液冷 · MLCC</h2>
+  <table class="stock-table">
+    <tr><th>标的</th><th>细分</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th></tr>
+    <tr>
+      <td>英维克 <span class="code">002837</span></td>
+      <td>液冷</td>
+      <td class="num">55.90</td>
+      <td class="change-up">+5.61%</td>
+      <td class="vol">29亿</td>
+    </tr>
+    <tr>
+      <td>浪潮信息 <span class="code">000977</span></td>
+      <td>AI服务器</td>
+      <td class="num">77.99</td>
+      <td class="change-up">+1.56%</td>
+      <td class="vol">72亿</td>
+    </tr>
+    <tr>
+      <td>三环集团 <span class="code">300408</span></td>
+      <td>MLCC</td>
+      <td class="num">127.39</td>
+      <td class="change-up">+0.31%</td>
+      <td class="vol">106亿</td>
+    </tr>
+  </table>
+  <p style="font-size:0.82em;color:var(--text-dim);margin-top:8px;">液冷方向英维克涨5.6%，随PCB产业链联动走强。三环集团微涨0.3%表现平淡，MLCC板块仍处于AI需求验证等待期。</p>
+</div>
+
+<!-- ====== 市场总览 ====== -->
+<div class="section">
+  <h2><span class="icon">📈</span>资金与情绪</h2>
+  <table class="stock-table">
+    <tr><td style="width:140px;">沪深成交额</td><td class="num">2.66万亿</td><td style="color:var(--text-dim);">（沪1.21万亿 + 深1.45万亿）</td></tr>
+    <tr><td>领涨方向</td><td>PCB/CCL、上游材料、先进封装</td><td></td></tr>
+    <tr><td>领跌方向</td><td>CPO龙头（中际旭创-3.7%）、科创权重</td><td></td></tr>
+    <tr><td>资金特征</td><td colspan="2">AI链内部高低切换，CPO→PCB/材料；半导体设备与存储温和跟涨</td></tr>
+    <tr><td>外部环境</td><td colspan="2">隔夜美股三大指数全线下跌，闪迪/西部数据绩后大跌，存储情绪偏谨慎；特朗普宣布对多晶硅加征关税</td></tr>
+  </table>
+</div>
+
+<hr>
+
+<div class="summary-box">
+  <p><strong>📌 核心结论：</strong></p>
+  <p>1. <strong>大盘高开低走，3900点仍有压力。</strong>上证早盘触及3940后回落翻绿，全天振幅55点，显示3900上方抛压不轻。深成指与创业板勉强收红，结构性行情延续。</p>
+  <p>2. <strong>AI产业链内部轮动加速。</strong>CPO三巨头高位震荡，中际旭创跌近4%——资金明显从高位光模块腾挪至相对低位的PCB（胜宏+12%、深南+8%）和上游材料（容大+8%、精测+8%），"卖铲子"逻辑持续发酵。</p>
+  <p>3. <strong>短线策略：关注AI链高低切换节奏。</strong>CPO短期获利回吐压力加大，PCB/CCL与材料端短期弹性最强，但需警惕快速拉升后的技术性回调。存储板块在月初急跌后进入磨底修复阶段，中线视角可逐步关注。</p>
+</div>
+
+<div class="footer">
+  <p>⚠️ 以上内容仅供参考，不构成投资建议。数据来源：新浪财经API。</p>
+  <p>Hermes Agent · 自动生成于 2026-08-07 15:30 CST</p>
+</div>
+
+</body>
+</html>
