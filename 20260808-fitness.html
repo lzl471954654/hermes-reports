@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-08-08 健身&饮食日报 · #fitness</title>
+<style>
+  :root { --bg: #0d1b2a; --card: #132a40; --accent: #4fc3f7; --accent-dim: #1e4a6a; --text: #e0e7f0; --text-muted: #8899aa; --warn: #ffb74d; --danger: #ef5350; --good: #66bb6a; --tag-bg: rgba(79,195,247,0.12); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Noto Sans SC","PingFang SC",sans-serif; padding:16px; line-height:1.6; max-width:640px; margin:0 auto; }
+  .header { text-align:center; padding:20px 0 8px; }
+  .header h1 { font-size:1.25rem; font-weight:700; color:var(--accent); }
+  .header .date { font-size:0.85rem; color:var(--text-muted); margin-top:4px; }
+  .header .streak { font-size:0.8rem; color:var(--warn); margin-top:6px; background:rgba(255,183,77,0.12); display:inline-block; padding:3px 12px; border-radius:12px; }
+
+  .overview { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:16px 0; }
+  .ov-card { background:var(--card); border-radius:10px; padding:14px; text-align:center; }
+  .ov-card .num { font-size:1.5rem; font-weight:700; color:var(--accent); }
+  .ov-card .label { font-size:0.75rem; color:var(--text-muted); margin-top:2px; }
+  .ov-card.zero .num { color:var(--text-muted); }
+
+  .section { background:var(--card); border-radius:12px; padding:18px; margin:14px 0; }
+  .section h3 { font-size:0.95rem; color:var(--accent); margin-bottom:12px; border-left:3px solid var(--accent); padding-left:10px; }
+  .subsection { margin-bottom:14px; }
+  .subsection h4 { font-size:0.85rem; color:var(--text-muted); margin-bottom:6px; font-weight:600; }
+  .no-data { color:var(--text-muted); font-size:0.85rem; font-style:italic; padding:4px 0; }
+
+  .stat-row { display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid rgba(79,195,247,0.08); font-size:0.85rem; }
+  .stat-row .k { color:var(--text-muted); }
+  .stat-row .v { color:var(--text); font-weight:500; }
+
+  .comment { background:rgba(79,195,247,0.06); border-radius:8px; padding:12px; font-size:0.85rem; color:var(--text); margin:10px 0; line-height:1.7; }
+  .tip { background:rgba(102,187,106,0.08); border-radius:8px; padding:12px; font-size:0.83rem; color:var(--good); margin:10px 0; }
+  .tip::before { content:"💡 "; }
+
+  .reminder { background:rgba(255,183,77,0.08); border-radius:10px; padding:14px; font-size:0.84rem; color:var(--warn); margin:14px 0; line-height:1.7; }
+
+  .footer { font-size:0.72rem; color:var(--text-muted); text-align:center; padding:16px 0 24px; }
+  .footer p { margin:2px 0; }
+
+  .tag { display:inline-block; background:var(--tag-bg); color:var(--accent); font-size:0.72rem; padding:2px 8px; border-radius:6px; margin:2px 2px 0 0; }
+
+  hr { border:none; border-top:1px solid rgba(79,195,247,0.1); margin:14px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏋️ 健身 & 饮食日报</h1>
+  <div class="date">2026-08-08 · 周六</div>
+  <div class="streak">⚠️ 连续第 5 天全群零打卡</div>
+</div>
+
+<!-- 概览卡片 -->
+<div class="overview">
+  <div class="ov-card zero">
+    <div class="num">0/3</div>
+    <div class="label">今日打卡</div>
+  </div>
+  <div class="ov-card zero">
+    <div class="num">—</div>
+    <div class="label">训练消耗</div>
+  </div>
+  <div class="ov-card zero">
+    <div class="num">—</div>
+    <div class="label">最高消耗</div>
+  </div>
+  <div class="ov-card zero">
+    <div class="num">N/A</div>
+    <div class="label">缺口警告</div>
+  </div>
+</div>
+
+<!-- 智林 -->
+<div class="section">
+  <h3>🦍 智林（lzl）</h3>
+  
+  <div class="subsection">
+    <h4>🍽️ 饮食</h4>
+    <div class="no-data">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <h4>🏋️ 训练</h4>
+    <div class="no-data">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <h4>📊 身体状态</h4>
+    <div class="stat-row"><span class="k">体重</span><span class="v">93.5kg（最近记录 08-03）</span></div>
+    <div class="stat-row"><span class="k">身高 / BMI</span><span class="v">185cm · ~27.3</span></div>
+    <div class="stat-row"><span class="k">基础代谢</span><span class="v">~2,300 kcal/天（估算）</span></div>
+    <div class="stat-row"><span class="k">目标</span><span class="v">逆转脂肪肝，继续减重</span></div>
+  </div>
+
+  <div class="comment">
+    上次记录 8/3，到现在 5 天空白。8/3 那天的鸡胸+鱼肉双蛋午餐+晚餐结构其实很好——蛋白质 196g 到位、脂肪 14g 长期偏低。今天是周六休息日，不用算热量，哪怕拍一张午饭照片回来就算打卡。减脂期能持续记录比完美主义更重要。
+  </div>
+
+  <div class="tip">周日如果恢复训练窗口，中午那顿再加点健康脂肪——蛋黄、坚果、花生酱都行。超低脂（14g/天）长期跑下去会影响激素水平。</div>
+</div>
+
+<!-- Monkiki -->
+<div class="section">
+  <h3>🍳 Monkiki</h3>
+
+  <div class="subsection">
+    <h4>🍽️ 饮食</h4>
+    <div class="no-data">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <h4>🏋️ 训练</h4>
+    <div class="no-data">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <h4>📊 身体状态</h4>
+    <div class="stat-row"><span class="k">体重</span><span class="v">~70kg（最近记录 07-20）</span></div>
+    <div class="stat-row"><span class="k">身高 / BMI</span><span class="v">170cm · 24.2</span></div>
+    <div class="stat-row"><span class="k">目标</span><span class="v">65–67.5kg（减 5-10 斤）</span></div>
+  </div>
+
+  <div class="comment">
+    上次记录 7/20，已经失联超过三周。7/20 那天练了 64 分钟力量训练 + 家常四菜，净摄入才 300 kcal——然后就没有然后了。不管这大半个月是在忙、在旅行、还是单纯休息，回来的时候不需要解释。空气炸锅+无底料火锅的技能包还在等你宠幸 😌
+  </div>
+
+  <div class="tip">周日回归日。两件事：① 站上去看体重（三周半变化可能挺明显）；② 拍一顿饭。不需要算热量——就一个数字 + 一张图。零卡混调（黑咖啡+无糖雪碧/芬达）这个传统艺能不能丢 🥤</div>
+</div>
+
+<!-- Ckddd -->
+<div class="section">
+  <h3>🐔 Ckddd</h3>
+
+  <div class="subsection">
+    <h4>🍽️ 饮食</h4>
+    <div class="no-data">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <h4>🏋️ 训练</h4>
+    <div class="no-data">今日暂无有效记录</div>
+  </div>
+
+  <div class="subsection">
+    <h4>📊 身体状态</h4>
+    <div class="stat-row"><span class="k">体重</span><span class="v">~64kg · 体脂 ~14.6%（最近记录 07-08）</span></div>
+    <div class="stat-row"><span class="k">肌肉量</span><span class="v">53.4kg（2026-02 InBody）</span></div>
+    <div class="stat-row"><span class="k">目标</span><span class="v">增肌</span></div>
+  </div>
+
+  <div class="comment">
+    上次记录 7/8，整整一个月空白。体脂率最低（14.6%）、肌肉量最高（53.4kg），天赋底子不折扣——但增肌不像减脂，不记录饮食很难判断每天是吃够了还是亏空。一个月空白够让 64kg 往下掉几公斤，或者原地踏步但肌肉在慢慢流失。Hilmar 蛋白粉不知道过期没 😂
+  </div>
+
+  <div class="tip">最需要回来记录的人。先称体重——如果 &lt;63kg，说明热量一直不够；如果稳在 64-65kg，那说明吃够但训练可能断了。面包+鸡蛋+冰美式+蛋白粉的早餐公式简单可靠，随时可以重启。</div>
+</div>
+
+<!-- 群内提醒 -->
+<div class="reminder">
+  <strong>📢 群内提醒</strong><br>
+  今天是连续第五天三人零打卡——群历史最长空白期。八月初热浪确实让人不想动，但群的存在不是为了卷，是为了互相有个参照。不需要多正式——Apple Watch 截个锻炼图 + 一句话，或者一顿饭照片，5 秒搞定。数据积累不是给别人看的，是让未来的自己回头看时知道走过的路。<br><br>
+  明天周日，谁先回来打个卡就是本周 MVP 🏆。哪怕只发一句「今天吃了火锅，明天再练」，也算数。
+</div>
+
+<!-- 数据完整度 -->
+<div class="footer">
+  <p>📋 <strong>数据完整度</strong></p>
+  <p>lzl.md ✅ · monkiki.md ✅ · ckddd.md ✅ — 三个文件均无今天（2026-08-08）的记录</p>
+  <p>Discord 群聊：未接入（session_search 不可用），仅基于本地 md 文件生成</p>
+  <p>所有热量/蛋白质均为估算，可能存在 ±15-20% 误差</p>
+  <p>生成时间：2026-08-08 23:00（cron）</p>
+</div>
+
+</body>
+</html>
