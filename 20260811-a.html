@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-08-11</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.6; padding: 20px; max-width: 960px; margin: 0 auto;
+  }
+  h1 { font-size: 1.6em; color: #58a6ff; margin-bottom: 4px; }
+  .subtitle { color: #8b949e; font-size: 0.9em; margin-bottom: 24px; }
+  h2 { font-size: 1.2em; color: #f0883e; margin: 28px 0 12px; border-bottom: 1px solid #21262d; padding-bottom: 6px; }
+  h3 { font-size: 1.05em; color: #d2a8ff; margin: 18px 0 8px; }
+
+  .card { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 18px; margin-bottom: 16px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 640px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } }
+
+  .idx-card { background: #1c2128; border-radius: 6px; padding: 14px; text-align: center; border: 1px solid #30363d; }
+  .idx-name { font-size: 0.8em; color: #8b949e; }
+  .idx-value { font-size: 1.3em; font-weight: 700; margin: 4px 0; }
+  .idx-change { font-size: 0.9em; }
+  .up { color: #3fb950; }
+  .down { color: #f85149; }
+  .flat { color: #8b949e; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #21262d; font-size: 0.9em; }
+  th { color: #8b949e; font-weight: 600; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.78em; font-weight: 600; margin-right: 6px; }
+  .tag-up { background: rgba(63,185,80,0.15); color: #3fb950; }
+  .tag-down { background: rgba(248,81,73,0.15); color: #f85149; }
+  .tag-neutral { background: rgba(139,148,158,0.15); color: #8b949e; }
+
+  .highlights { padding: 12px; background: #1c2128; border-left: 3px solid #f0883e; border-radius: 0 6px 6px 0; margin: 12px 0; }
+  .highlights li { margin: 6px 0; font-size: 0.92em; }
+  ul { padding-left: 20px; }
+  li { margin: 4px 0; }
+
+  .footer { text-align: center; color: #484f58; font-size: 0.78em; margin-top: 32px; padding: 16px 0; border-top: 1px solid #21262d; }
+  .flow-arrow { margin: 0 6px; color: #484f58; }
+</style>
+</head>
+<body>
+
+<h1>📊 A股盘后总结 · AI产业链深度版</h1>
+<div class="subtitle">2026年8月11日（周二）| 数据来源：新浪财经 / 东方财富 / 公开市场数据</div>
+
+<!-- 核心指数 -->
+<h2>一、核心指数表现</h2>
+<div class="grid-4">
+  <div class="idx-card">
+    <div class="idx-name">上证指数</div>
+    <div class="idx-value down">3934.09</div>
+    <div class="idx-change down">-32.50 (-0.82%)</div>
+  </div>
+  <div class="idx-card">
+    <div class="idx-name">深证成指</div>
+    <div class="idx-value up">14350.50</div>
+    <div class="idx-change up">+32.68 (+0.23%)</div>
+  </div>
+  <div class="idx-card">
+    <div class="idx-name">创业板指</div>
+    <div class="idx-value up">~3575</div>
+    <div class="idx-change up">~+0.5% (估)</div>
+  </div>
+  <div class="idx-card">
+    <div class="idx-name">科创50</div>
+    <div class="idx-value down">1710.95</div>
+    <div class="idx-change down">-26.82 (-1.54%)</div>
+  </div>
+</div>
+<div class="card" style="margin-top:12px;">
+  <table>
+    <tr><th style="width:80px;">指标</th><th>今日</th><th>前一日</th><th>变化</th></tr>
+    <tr><td>上证成交额</td><td>10,667亿</td><td>11,669亿</td><td class="down">-1,002亿 (-8.6%)</td></tr>
+    <tr><td>沪深半日成交</td><td>1.52万亿</td><td>1.73万亿</td><td class="down">-2,153亿</td></tr>
+    <tr><td>涨跌家数</td><td colspan="3">全市场超3100只个股下跌（午盘数据），午后跌幅扩大</td></tr>
+  </table>
+</div>
+
+<!-- 大盘综述 -->
+<h2>二、大盘综述</h2>
+<div class="card">
+  <p style="margin-bottom:10px;">三大指数分化加剧，<strong>沪指终结五连阳</strong>，午后单边走弱，收盘跌0.82%报3934点；深成指微涨0.23%勉强收红；科创50重挫1.54%，半导体及算力硬件拖累明显。两市成交明显缩量，上证单边成交降至1.07万亿。</p>
+  <p>盘面呈现典型<strong>"跷跷板"行情</strong>：高位AI算力链持续回调，低位医药、消费、养殖等非AI板块接力走强。沪指虽五连阳后首阴，但整体仍在3900-4000区间震荡，尚未出现趋势破位。</p>
+</div>
+
+<!-- 板块全景 -->
+<h2>三、板块涨跌全景</h2>
+<div class="grid-2">
+  <div class="card">
+    <h3 style="margin-top:0;">🔥 领涨板块</h3>
+    <table>
+      <tr><td>MLCC（片式多层陶瓷电容）</td><td class="up">▲ 强势走高</td></tr>
+      <tr><td>医药 / 创新药</td><td class="up">▲ 近岸蛋白涨17.5%</td></tr>
+      <tr><td>人形机器人</td><td class="up">▲ 巨轮智能、北特科技涨停</td></tr>
+      <tr><td>养殖业</td><td class="up">▲ 益生股份涨停，民和+8%</td></tr>
+      <tr><td>影视传媒</td><td class="up">▲ 涨幅明显</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0;">❄️ 领跌板块</h3>
+    <table>
+      <tr><td>CPO / 光通信</td><td class="down">▼ 连续两日回调</td></tr>
+      <tr><td>半导体</td><td class="down">▼ 科创50 -1.54%</td></tr>
+      <tr><td>通信设备</td><td class="down">▼ 板块整体走弱</td></tr>
+      <tr><td>贵金属</td><td class="down">▼ 前日大涨后回吐</td></tr>
+      <tr><td>航天军工</td><td class="down">▼ 持续下挫</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- AI产业链深度 -->
+<h2>四、AI产业链八大赛道逐项拆解</h2>
+
+<div class="card">
+  <h3>1. 光通信 / CPO <span class="tag tag-down">回调</span></h3>
+  <p>CPO概念连续第二个交易日跌幅居前。上周英伟达CPO量产消息催化的短线涨幅继续消化，资金获利了结压力明显。"易中天"（中际旭创、新易盛、天孚通信）整体走弱。中期逻辑未破——2026年1.6T光模块放量、CPO从0到1的产业趋势确定，但短期拥挤度偏高，消化估值。</p>
+</div>
+
+<div class="card">
+  <h3>2. 存储 / HBM <span class="tag tag-neutral">震荡</span></h3>
+  <p>存储方向表现分化。长鑫科技前期受惠普/华硕/宏碁采用其芯片消息刺激后高位整理；兆易创新在Roundhill Memory ETF权重被长鑫反超，短期承压。HBM方向，长鑫存储2026年HBM3量产进展是中长期核心催化，但短期内DRAM现货价格高位，下游接受度受考验。</p>
+</div>
+
+<div class="card">
+  <h3>3. 半导体设备 <span class="tag tag-down">走弱</span></h3>
+  <p>科创50跌1.54%拖累半导体设备方向。全球半导体设备景气度虽持续上修（SEMI预计2025年设备销售1330亿美元创新高），但A股设备股前期涨幅较大，短期跟随科技板块回调。北方华创、中微公司等权重股承压。</p>
+</div>
+
+<div class="card">
+  <h3>4. PCB / CCL <span class="tag tag-down">回调</span></h3>
+  <p>元件板块整体走弱。AI驱动PCB向高多层板、高阶HDI升级的中长期逻辑不变（深南电路、沪电股份等），但短期跟随算力硬件调整。东莞证券研报指出AI服务器PCB价值量有望大幅提升，回调后关注布局窗口。</p>
+</div>
+
+<div class="card">
+  <h3>5. MLCC（片式多层陶瓷电容）<span class="tag tag-up">今日亮点</span></h3>
+  <p><strong>今日AI产业链中唯一明确领涨的细分赛道。</strong>双星新材等涨停。逻辑：AI服务器对高端MLCC用量数倍于传统服务器，村田制作所此前已宣布计划涨价应对AI需求。MLCC作为AI算力"被动元件"，正处于"用量暴增+价格调涨"双击阶段，是当前AI硬件链中相对低位的价值洼地。</p>
+</div>
+
+<div class="card">
+  <h3>6. 先进封装 <span class="tag tag-down">随半导体走弱</span></h3>
+  <p>先进封装板块跟随半导体整体回调。通富微电、长电科技、颀中科技等调整。中长期受益于Chiplet和HBM封装需求，但短期缺乏独立催化剂。</p>
+</div>
+
+<div class="card">
+  <h3>7. 上游材料 <span class="tag tag-neutral">分化</span></h3>
+  <p>半导体材料方向随设备板块走弱，但MLCC上游材料（陶瓷粉体、电极材料）受MLCC板块带动相对抗跌。光刻胶、硅片等传统半导体材料表现平淡。</p>
+</div>
+
+<div class="card">
+  <h3>8. AI服务器 / 液冷 <span class="tag tag-down">偏弱</span></h3>
+  <p>AI服务器及液冷方向整体偏弱，跟随算力硬件调整。川润股份等前期液冷标的回落。但中长期看，英伟达Vera Rubin等下一代算力系统功耗持续攀升，液冷渗透率提升趋势确定。</p>
+</div>
+
+<!-- 市场特征 -->
+<h2>五、市场结构特征</h2>
+<div class="highlights">
+  <ul>
+    <li><strong>高低切换深化：</strong>前期强势的AI算力硬件连续回调，低位医药、消费、养殖接力，资金从"拥挤的AI"向"低估的非AI"迁移。</li>
+    <li><strong>缩量调整：</strong>上证成交缩至1.07万亿，较前日减少约1000亿，市场在4000点关口前趋于谨慎。</li>
+    <li><strong>MLCC独树一帜：</strong>AI产业链内部也出现分化——算力端（CPO/半导体）回调，但被动元件端（MLCC）逆势走强，显示资金在AI链内部做高低切换。</li>
+    <li><strong>人形机器人反复活跃：</strong>宇树科技IPO申购催化，巨轮智能、北特科技午后拉板，机器人作为AI下游应用持续受关注。</li>
+    <li><strong>连板股情绪不减：</strong>爱丽家居12天11板，高位股投机情绪仍在，但监管风险累积。</li>
+  </ul>
+</div>
+
+<!-- 后市关注 -->
+<h2>六、后市关注要点</h2>
+<div class="card">
+  <table>
+    <tr><th style="width:20px;">#</th><th>关注点</th><th>逻辑</th></tr>
+    <tr><td>1</td><td>CPO/光通信何时止跌</td><td>产业趋势确定，回调幅度决定下一波介入时机</td></tr>
+    <tr><td>2</td><td>MLCC行情持续性</td><td>AI被动元件涨价逻辑能否扩散至电感、电阻等</td></tr>
+    <tr><td>3</td><td>成交量能否回升</td><td>缩量调整后需要放量确认方向</td></tr>
+    <tr><td>4</td><td>北向资金动向</td><td>外资对AI链的态度是重要边际变量</td></tr>
+    <tr><td>5</td><td>英伟达产业链催化</td><td>海外AI资本开支指引、1.6T光模块出货节奏</td></tr>
+    <tr><td>6</td><td>3900点支撑有效性</td><td>上证若跌破3900，可能触发更深回调</td></tr>
+  </table>
+</div>
+
+<!-- 免责 -->
+<div class="footer">
+  <p>⚠️ 本报告由 Hermes Agent 自动生成，数据来源于公开市场信息，仅供参考，不构成投资建议。</p>
+  <p>投资有风险，入市需谨慎。Generated at 2026-08-11 15:30 CST</p>
+</div>
+
+</body>
+</html>
