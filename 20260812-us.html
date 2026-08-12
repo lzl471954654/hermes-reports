@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026年8月11日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --green: #3fb950;
+  --red: #f85149;
+  --blue: #58a6ff;
+  --purple: #bc8cff;
+  --orange: #d2991d;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.header {
+  text-align: center;
+  padding: 30px 0 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+.header h1 { font-size: 1.6rem; color: #f0f6fc; }
+.header .date { color: var(--text-dim); font-size: 0.9rem; margin-top: 4px; }
+.header .tagline { color: var(--blue); font-size: 0.85rem; margin-top: 8px; }
+
+.section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.section h2 {
+  font-size: 1.1rem;
+  color: #f0f6fc;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.section h3 {
+  font-size: 0.95rem;
+  color: var(--blue);
+  margin: 14px 0 8px;
+}
+
+.index-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.index-card {
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+}
+.index-card .name { font-size: 0.8rem; color: var(--text-dim); }
+.index-card .value { font-size: 1.3rem; font-weight: 700; margin: 4px 0; }
+.index-card .change { font-size: 0.85rem; }
+.up { color: var(--green); }
+.down { color: var(--red); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+th {
+  text-align: left;
+  padding: 8px 10px;
+  background: #0d1117;
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #21262d;
+}
+tr:last-child td { border-bottom: none; }
+
+.news-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #21262d;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .title { font-weight: 600; color: #f0f6fc; }
+.news-item .summary { color: var(--text-dim); font-size: 0.85rem; margin-top: 2px; }
+.news-item .tag { 
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 4px;
+}
+.tag-bullish { background: rgba(63,185,80,0.15); color: var(--green); }
+.tag-neutral { background: rgba(139,148,158,0.15); color: var(--text-dim); }
+
+.insight-box {
+  background: linear-gradient(135deg, rgba(88,166,255,0.08), rgba(188,140,255,0.08));
+  border: 1px solid rgba(88,166,255,0.2);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-top: 12px;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+.insight-box strong { color: var(--blue); }
+
+.mapping-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+.mapping-item {
+  padding: 8px 10px;
+  background: #0d1117;
+  border-radius: 4px;
+}
+.mapping-item .us { color: var(--blue); font-weight: 600; }
+.mapping-item .cn { color: var(--text-dim); }
+.mapping-item .arrow { color: var(--text-dim); margin: 0 4px; }
+
+.disclaimer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+  body { padding: 10px; }
+  .index-row { grid-template-columns: 1fr; }
+  .mapping-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 AI产业链美股收盘与A股映射早报</h1>
+  <div class="date">2026年8月11日（周二）收盘 · 8月12日（周三）早间发布</div>
+  <div class="tagline">覆盖：美股三大指数 · AI芯片 · 云计算 · 盘后动态 · A股映射</div>
+</div>
+
+<!-- ===== 美股大盘 ===== -->
+<div class="section">
+  <h2>📊 美股三大指数</h2>
+  <div class="index-row">
+    <div class="index-card">
+      <div class="name">S&P 500</div>
+      <div class="value">7,728.20</div>
+      <div class="change down">▼ 0.32%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">纳斯达克</div>
+      <div class="value">26,445.45</div>
+      <div class="change down">▼ 0.60%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">道琼斯</div>
+      <div class="value">53,849.87</div>
+      <div class="change down">▼ 0.34%</div>
+    </div>
+  </div>
+  <div style="font-size:0.85rem; color: var(--text-dim); line-height:1.7;">
+    <p>三大指数连续第二个交易日回落，标普500自上周末创历史新高后小幅回调。市场面临双重压力：</p>
+    <p>① <strong>地缘风险升温</strong>：美伊霍尔木兹海峡谈判陷入僵局，伊朗提出解除制裁、释放冻结资产等条件，美方要求赔偿。布伦特原油涨 1.4% 至 $88.91，WTI 涨至 $77.93。黄金收于两个月高位。</p>
+    <p>② <strong>CPI 数据前夕观望</strong>：7月 CPI 将于周三（8/12）8:30 ET 公布，市场预期环比 +0.1%（前值温和），同比 3.4%。投资者在通胀数据出炉前保持谨慎。</p>
+    <p>③ 美债收益率小幅回落，10年期国债收益率走低，部分资金流入防御性资产。</p>
+  </div>
+</div>
+
+<!-- ===== AI芯片半导体 ===== -->
+<div class="section">
+  <h2>🔬 AI芯片 & 半导体板块</h2>
+  <table>
+    <thead>
+      <tr><th>代码</th><th>公司</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>NVDA</strong></td>
+        <td>英伟达</td>
+        <td>$216.50</td>
+        <td class="down">-0.7%</td>
+        <td>跟随大盘回调，52周区间 $164-$237，B系列出货节奏为关键关注点</td>
+      </tr>
+      <tr>
+        <td><strong>AMD</strong></td>
+        <td>超威半导体</td>
+        <td>$472.79</td>
+        <td class="down">-0.5%</td>
+        <td>GPU路线图关注度高，MI400系列预期支撑估值</td>
+      </tr>
+      <tr>
+        <td><strong>AVGO</strong></td>
+        <td>博通</td>
+        <td>~$218</td>
+        <td class="down">-0.8%</td>
+        <td>AI ASIC定制芯片+VMware整合持续贡献，估值稳健</td>
+      </tr>
+      <tr>
+        <td><strong>MRVL</strong></td>
+        <td>美满电子</td>
+        <td>$212.31</td>
+        <td class="down">-0.6%</td>
+        <td>数据中心光互联DSP龙头，AI网络升级核心受益</td>
+      </tr>
+      <tr>
+        <td><strong>TSM</strong></td>
+        <td>台积电</td>
+        <td>~$210</td>
+        <td class="down">-0.37%</td>
+        <td>先进封装CoWoS持续满载，2026年资本开支维持高位</td>
+      </tr>
+      <tr>
+        <td><strong>ASML</strong></td>
+        <td>阿斯麦</td>
+        <td>~$1,050</td>
+        <td class="down">-0.43%</td>
+        <td>市值突破$5000亿，High-NA EUV交付加速</td>
+      </tr>
+      <tr>
+        <td><strong>SMCI</strong></td>
+        <td>超微电脑</td>
+        <td>~$29</td>
+        <td class="down">-1.5%</td>
+        <td>前期受订单与法务问题冲击，液冷AI服务器长期逻辑不变</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:0.85rem; color: var(--text-dim); margin-top:10px;">
+    整体来看：费城半导体指数（SOX）跟随纳指走弱，AI芯片板块在大盘回调和CPI前夕承压。但盘后 AI算力基建叙事再获强催化（见下文）。
+  </div>
+</div>
+
+<!-- ===== AI云计算 & 应用层 ===== -->
+<div class="section">
+  <h2>☁️ AI云计算 & 应用层</h2>
+  <table>
+    <thead>
+      <tr><th>代码</th><th>公司</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>MSFT</strong></td>
+        <td>微软</td>
+        <td>~$550</td>
+        <td class="down">-0.4%</td>
+        <td>Azure AI增速强劲，2026年 $120B 资本开支计划</td>
+      </tr>
+      <tr>
+        <td><strong>GOOGL</strong></td>
+        <td>Alphabet</td>
+        <td>~$195</td>
+        <td class="down">-0.5%</td>
+        <td>Gemini生态扩展，$185B 资本开支，TPU v6自研芯片</td>
+      </tr>
+      <tr>
+        <td><strong>AMZN</strong></td>
+        <td>亚马逊</td>
+        <td>~$230</td>
+        <td class="down">-0.3%</td>
+        <td>AWS AI收入高增，$200B 资本开支领跑四大云厂</td>
+      </tr>
+      <tr>
+        <td><strong>META</strong></td>
+        <td>Meta</td>
+        <td>~$554</td>
+        <td class="up">+0.2%</td>
+        <td>Muse Glimmer开源模型发布（见下文），$125B 资本开支</td>
+      </tr>
+      <tr>
+        <td><strong>PLTR</strong></td>
+        <td>Palantir</td>
+        <td>~$163</td>
+        <td class="down">-1.2%</td>
+        <td>AI分析平台，2026年累计涨幅 +93%，短期获利回吐</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="insight-box">
+    <strong>💡 四大云厂 AI 资本开支 2026 年总计 $725B（同比 +77%）</strong><br>
+    Amazon $200B | Google $185B | Meta $125B | Microsoft $120B<br>
+    这些资本开支的 60-70% 流向算力基础设施（GPU/TPU/网络/数据中心），构成 AI 硬件产业链最坚实的需求底座。
+  </div>
+</div>
+
+<!-- ===== 盘后重大动态 ===== -->
+<div class="section">
+  <h2>🚀 盘后重大动态</h2>
+  
+  <div class="news-item">
+    <div class="title"><span class="tag tag-bullish">重磅</span> Anthropic 宣布 Theseus 基础设施平台 + $91亿 Riot 数据中心交易</div>
+    <div class="summary">
+      Anthropic 联合麦格理（Macquarie）和新加坡 GIC 成立 Theseus Infrastructure，专门为 Anthropic 开发、运营和租赁数据中心。同时，Anthropic 与比特币矿企 Riot Platforms 达成 $91亿 20年期协议，租用德州 Rockdale 园区 191MW 算力容量。Riot 股价盘后暴涨 +25%。此前 Anthropic 已于7月与 TeraWulf 签署 $190亿 数据中心租约。Anthropic 正在从「租云」转型「自建+直租」模式，AI 算力军备竞赛进入新阶段。
+    </div>
+  </div>
+  
+  <div class="news-item">
+    <div class="title"><span class="tag tag-bullish">开源</span> Meta 发布 Muse Glimmer：30B 开源本地 Agent 模型</div>
+    <div class="summary">
+      Meta 发布 Muse Glimmer，300亿参数、Apache 2.0 开源协议、可在单张 24GB GPU 上运行的本地 Agent 模型。针对工具调用、长任务执行和故障恢复优化。同时承诺即将开源旗舰模型 Muse Spark 1.2。此举将进一步推动 AI 推理的本地化和边缘化部署，降低对云端的依赖。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="title"><span class="tag tag-neutral">安全</span> OpenAI 发布 GPT-5.6-Cyber：专攻漏洞挖掘的 AI 模型</div>
+    <div class="summary">
+      OpenAI 8月10日发布 GPT-5.6-Cyber，专门用于安全漏洞发现与漏洞利用验证。模型已发现两个 Chrome 零日漏洞（zero-days）。仅限获批安全机构使用（包括 Accenture、Palo Alto Networks、CrowdStrike 等）。标志着 AI 在网络安全领域从「辅助」走向「主力」。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="title"><span class="tag tag-neutral">宏观</span> 7月 CPI 将于今日 8:30 ET 公布</div>
+    <div class="summary">
+      市场预期7月CPI环比 +0.1%，同比 3.4%。汽油价格回落是主要拖累因素。若数据低于预期，可能推动美债收益率进一步下行，利好科技/成长股估值；若超预期，则可能加剧短期回调压力。
+    </div>
+  </div>
+</div>
+
+<!-- ===== A股映射 ===== -->
+<div class="section">
+  <h2>🇨🇳 A股映射参考</h2>
+  
+  <h3>🔗 核心映射逻辑</h3>
+  <div style="font-size:0.85rem; color: var(--text-dim); margin-bottom:14px;">
+    <p>① <strong>算力军备竞赛升级</strong>：Anthropic Theseus + Riot $91亿交易再次印证AI数据中心建设处于加速期，直接利好国内光模块（CPO）、服务器代工、数据中心温控/电源等环节。</p>
+    <p>② <strong>端侧AI开源趋势</strong>：Meta Muse Glimmer 30B开源本地Agent模型，降低AI推理门槛，利好AIPC/边缘计算芯片、端侧推理硬件。</p>
+  </div>
+
+  <h3>📋 映射标的参考</h3>
+  <div class="mapping-grid">
+    <div class="mapping-item">
+      <span class="us">NVDA/AVGO/MRVL</span>
+      <span class="arrow">→</span>
+      <span class="cn">光模块：中际旭创、新易盛、天孚通信</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">NVDA/SMCI</span>
+      <span class="arrow">→</span>
+      <span class="cn">AI服务器：工业富联、浪潮信息、紫光股份</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">ASML/TSM</span>
+      <span class="arrow">→</span>
+      <span class="cn">半导体设备：北方华创、中微公司、盛美上海</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">NVDA/AMD</span>
+      <span class="arrow">→</span>
+      <span class="cn">AI芯片：寒武纪、海光信息、景嘉微</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">MU/存储</span>
+      <span class="arrow">→</span>
+      <span class="cn">存储芯片：兆易创新、北京君正、江波龙</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">Anthropic/Theseus</span>
+      <span class="arrow">→</span>
+      <span class="cn">数据中心：数据港、奥飞数据、润泽科技</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">Meta Muse 端侧</span>
+      <span class="arrow">→</span>
+      <span class="cn">端侧AI：晶晨股份、瑞芯微、全志科技</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">PLTR/AI应用</span>
+      <span class="arrow">→</span>
+      <span class="cn">AI应用：科大讯飞、拓尔思、云从科技</span>
+    </div>
+  </div>
+
+  <div class="insight-box" style="margin-top:14px;">
+    <strong>📌 今日A股关注方向：</strong>CPO光模块（Anthropic数据中心叙事+NVDA映射）、AI服务器代工、端侧AI芯片（Muse Glimmer开源催化）。短期注意CPI数据对全球科技股情绪的影响，若CPI低于预期有望迎来情绪修复。
+  </div>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本报告仅供信息参考，不构成投资建议。数据来源：CNBC、AP News、Bloomberg、Investopedia、MarketWatch 等，部分个股收盘价基于公开数据估算。投资有风险，入市需谨慎。<br>
+  Generated by Hermes Agent · 2026-08-12 AM
+</div>
+
+</body>
+</html>
