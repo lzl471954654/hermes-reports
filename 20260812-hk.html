@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-08-12</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-secondary: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --purple: #a371f7;
+    --cyan: #39d2c0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  header {
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  header h1 {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header .date { color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.95rem; }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--blue);
+  }
+  .indices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .index-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .index-item .name { font-size: 0.85rem; color: var(--text-secondary); }
+  .index-item .value { font-size: 1.4rem; font-weight: 700; margin: 0.3rem 0; }
+  .index-item .change { font-size: 0.9rem; font-weight: 600; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+  }
+  td {
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .badge-ai { background: rgba(163,113,247,0.2); color: var(--purple); }
+  .badge-semi { background: rgba(57,210,192,0.2); color: var(--cyan); }
+  .badge-platform { background: rgba(88,166,255,0.2); color: var(--blue); }
+  .badge-hardware { background: rgba(210,153,29,0.2); color: var(--orange); }
+  .badge-model { background: rgba(63,185,80,0.2); color: var(--green); }
+  .badge-optical { background: rgba(248,81,73,0.2); color: var(--red); }
+  .section-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  .flow-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+  }
+  .flow-item:last-child { border-bottom: none; }
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(163,113,247,0.1), rgba(57,210,192,0.1));
+    border: 1px solid rgba(163,113,247,0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+  .tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-right: 0.3rem;
+  }
+  .tag-hot { background: rgba(248,81,73,0.2); color: var(--red); }
+  .tag-new { background: rgba(57,210,192,0.2); color: var(--cyan); }
+  footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .disclaimer {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>🔬 港股收盘总结 · AI产业链深度版</h1>
+  <div class="date">📅 2026年8月12日（周三）· 恒指收报 ~25,350</div>
+</header>
+
+<!-- ── 大盘概览 ── -->
+<div class="card">
+  <h2>📊 大盘概览</h2>
+  <div class="indices">
+    <div class="index-item">
+      <div class="name">恒生指数 HSI</div>
+      <div class="value">~25,350</div>
+      <div class="change down">▼ ~1.1% (~280 pts)</div>
+    </div>
+    <div class="index-item">
+      <div class="name">恒生科技指数</div>
+      <div class="value">~4,860</div>
+      <div class="change down">▼ ~1.0% (~50 pts)</div>
+    </div>
+    <div class="index-item">
+      <div class="name">国企指数</div>
+      <div class="value">~8,440</div>
+      <div class="change down">▼ ~1.0%</div>
+    </div>
+    <div class="index-item">
+      <div class="name">大市成交额</div>
+      <div class="value">~1,800亿</div>
+      <div class="change" style="color:var(--text-secondary);">预估</div>
+    </div>
+  </div>
+  <div class="section-desc" style="margin-top:1rem;">
+    ⚠️ <strong>低开低走分化日：</strong>恒指早盘低开 0.60%，上午持续走低至 -1.17%，午后半导体板块带动小幅反弹但整体弱势。保险股受内地拟征境外保单收益税传闻拖累（友邦重挫），油金股荣辱互见。AI 大模型双雄逆市走强，半导体产业链成唯一亮点。
+  </div>
+</div>
+
+<!-- ── 宏观背景 ── -->
+<div class="card">
+  <h2>🌍 宏观背景</h2>
+  <div class="flow-item">
+    <span>📡 <strong>Lumentum 财报全面超预期</strong> <span class="tag tag-new">NEW</span></span>
+    <span style="color:var(--green);">光通信产业链高景气验证</span>
+  </div>
+  <div class="flow-item">
+    <span>🇺🇸 美伊和谈僵局持续</span>
+    <span>布兰特原油 ~$88/bbl</span>
+  </div>
+  <div class="flow-item">
+    <span>🇨🇳 内地拟征境外保单收益税传闻</span>
+    <span style="color:var(--red);">友邦保险重挫 ~6%</span>
+  </div>
+  <div class="flow-item">
+    <span>🏛️ 恒生科技指数改革咨询进行中</span>
+    <span style="color:var(--cyan);">30→50只，AI独立主题</span>
+  </div>
+  <div class="flow-item">
+    <span>🇺🇸 美股科技股承压</span>
+    <span>谷歌录近六个月最大单日跌幅</span>
+  </div>
+  <div class="highlight-box">
+    <strong>💡 核心矛盾：</strong>Lumentum 超预期财报验证 AI 算力对光通信/半导体的真实需求 → 港股半导体链获基本面支撑。但宏观逆风（保险税传闻 + 美股科技回调 + 油价高企）压制整体风险偏好，形成 <strong>「指数弱、结构强」</strong> 的分化格局。
+  </div>
+</div>
+
+<!-- ── AI产业链深度分析 ── -->
+<div class="card">
+  <h2>🧠 AI产业链 · 各环节表现</h2>
+  <div class="section-desc">
+    按产业链环节拆解：大模型 → 半导体制造 → 光通信/算力 → AI应用 → 互联网平台。今日 <strong>半导体制造 + 光通信</strong> 环节最强，<strong>互联网平台</strong> 最弱。
+  </div>
+
+  <!-- 大模型 -->
+  <h3 style="margin: 1.2rem 0 0.5rem; color: var(--purple);">🧬 大模型 & AI应用 <span class="tag tag-hot">逆市走强</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>涨跌幅</th><th>产业链定位</th><th>催化剂</th></tr>
+    <tr>
+      <td><strong>MiniMax</strong></td>
+      <td>0100.HK</td>
+      <td class="up">+9%+</td>
+      <td><span class="badge badge-model">大模型</span></td>
+      <td>港股通资金持续流入 + 恒科改革受益</td>
+    </tr>
+    <tr>
+      <td><strong>智谱</strong></td>
+      <td>2513.HK</td>
+      <td class="up">+5%+</td>
+      <td><span class="badge badge-model">大模型</span></td>
+      <td>AI 主题资金集中配置</td>
+    </tr>
+    <tr>
+      <td>商汤</td>
+      <td>0020.HK</td>
+      <td class="down">下跌</td>
+      <td><span class="badge badge-ai">AI应用</span></td>
+      <td>资金向纯大模型标的切换</td>
+    </tr>
+    <tr>
+      <td>美图公司</td>
+      <td>1357.HK</td>
+      <td style="color:var(--orange);">震荡</td>
+      <td><span class="badge badge-ai">AI影像</span></td>
+      <td>跟随AI应用板块波动</td>
+    </tr>
+  </table>
+
+  <!-- 半导体 -->
+  <h3 style="margin: 1.5rem 0 0.5rem; color: var(--cyan);">🔧 半导体制造 & 设计 <span class="tag tag-hot">领涨主线</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>涨跌幅</th><th>产业链定位</th><th>备注</th></tr>
+    <tr>
+      <td><strong>中芯国际</strong></td>
+      <td>0981.HK</td>
+      <td class="up">+5%~+7%</td>
+      <td><span class="badge badge-semi">晶圆代工</span></td>
+      <td>功率半导体缺货 + 国产替代加速</td>
+    </tr>
+    <tr>
+      <td><strong>华虹宏力</strong></td>
+      <td>1347.HK</td>
+      <td class="up">+5%~+7%</td>
+      <td><span class="badge badge-semi">特色工艺</span></td>
+      <td>8寸线产能满载，IGBT/MOSFET 需求旺盛</td>
+    </tr>
+    <tr>
+      <td>上海复旦</td>
+      <td>1385.HK</td>
+      <td class="up">上涨</td>
+      <td><span class="badge badge-semi">FPGA/芯片设计</span></td>
+      <td>跟随板块走强</td>
+    </tr>
+    <tr>
+      <td>ASMPT</td>
+      <td>0522.HK</td>
+      <td class="up">上涨</td>
+      <td><span class="badge badge-semi">先进封装设备</span></td>
+      <td>TCB 受益 AI 先进封装需求</td>
+    </tr>
+  </table>
+
+  <!-- 光通信&算力 -->
+  <h3 style="margin: 1.5rem 0 0.5rem; color: var(--orange);">📡 光通信 & AI算力 <span class="tag tag-new">Lumentum 催化</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>涨跌幅</th><th>产业链定位</th><th>催化剂</th></tr>
+    <tr>
+      <td><strong>长飞光纤</strong></td>
+      <td>6869.HK</td>
+      <td class="up">上涨</td>
+      <td><span class="badge badge-optical">光纤光缆</span></td>
+      <td>Lumentum 业绩验证光通信高景气</td>
+    </tr>
+    <tr>
+      <td><strong>建滔积层板</strong></td>
+      <td>1888.HK</td>
+      <td class="up">上涨</td>
+      <td><span class="badge badge-hardware">PCB/覆铜板</span></td>
+      <td>AI 服务器 PCB 需求驱动</td>
+    </tr>
+    <tr>
+      <td>联想集团</td>
+      <td>0992.HK</td>
+      <td style="color:var(--orange);">震荡</td>
+      <td><span class="badge badge-hardware">AI PC/服务器</span></td>
+      <td>前期涨幅过大，短线整固</td>
+    </tr>
+    <tr>
+      <td>中兴通讯</td>
+      <td>0763.HK</td>
+      <td class="up">上涨</td>
+      <td><span class="badge badge-hardware">算力/网络设备</span></td>
+      <td>AI 算力网络升级受益</td>
+    </tr>
+    <tr>
+      <td>比亚迪电子</td>
+      <td>0285.HK</td>
+      <td style="color:var(--orange);">震荡</td>
+      <td><span class="badge badge-hardware">EMS/服务器</span></td>
+      <td>跟随硬件板块分化</td>
+    </tr>
+  </table>
+
+  <!-- 互联网平台 -->
+  <h3 style="margin: 1.5rem 0 0.5rem; color: var(--blue);">🌐 互联网平台 <span class="tag tag-hot">承压</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>涨跌幅</th><th>产业链定位</th></tr>
+    <tr>
+      <td>腾讯控股</td>
+      <td>0700.HK</td>
+      <td class="down">~-2%</td>
+      <td><span class="badge badge-platform">社交/游戏/AI</span></td>
+    </tr>
+    <tr>
+      <td>阿里巴巴</td>
+      <td>9988.HK</td>
+      <td class="down">下跌</td>
+      <td><span class="badge badge-platform">电商/云/AI</span></td>
+    </tr>
+    <tr>
+      <td>美团</td>
+      <td>3690.HK</td>
+      <td class="down">下跌</td>
+      <td><span class="badge badge-platform">本地生活</span></td>
+    </tr>
+    <tr>
+      <td>小米集团</td>
+      <td>1810.HK</td>
+      <td class="down">下跌</td>
+      <td><span class="badge badge-platform">AIoT/汽车</span></td>
+    </tr>
+    <tr>
+      <td>快手</td>
+      <td>1024.HK</td>
+      <td class="down">下跌</td>
+      <td><span class="badge badge-platform">短视频/AI</span></td>
+    </tr>
+    <tr>
+      <td>哔哩哔哩</td>
+      <td>9626.HK</td>
+      <td class="down">下跌</td>
+      <td><span class="badge badge-platform">内容平台</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ── 板块资金流向 ── -->
+<div class="card">
+  <h2>💰 板块资金流向</h2>
+  <div class="flow-item">
+    <span>🔧 <strong>半导体制造/设备</strong></span>
+    <span class="up">强势流入 ↑↑</span>
+  </div>
+  <div class="flow-item">
+    <span>📡 <strong>光通信/光纤</strong></span>
+    <span class="up">明显流入 ↑</span>
+  </div>
+  <div class="flow-item">
+    <span>🧠 <strong>大模型/AI概念</strong></span>
+    <span class="up">持续流入 ↑</span>
+  </div>
+  <div class="flow-item">
+    <span>🪙 <strong>有色金属/黄金</strong></span>
+    <span class="up">避险流入 ↑</span>
+  </div>
+  <div class="flow-item">
+    <span>💻 <strong>硬件设备</strong></span>
+    <span style="color:var(--orange);">分化</span>
+  </div>
+  <div class="flow-item">
+    <span>🌐 <strong>互联网平台</strong></span>
+    <span class="down">资金流出 ↓</span>
+  </div>
+  <div class="flow-item">
+    <span>🛢️ <strong>石油石化</strong></span>
+    <span class="down">资金流出 ↓</span>
+  </div>
+  <div class="flow-item">
+    <span>🏦 <strong>银行/保险</strong></span>
+    <span class="down">资金流出 ↓↓</span>
+  </div>
+  <div class="highlight-box">
+    <strong>南向资金：</strong>上周（8/3-8/7）南向资金净买入近 100 亿港元，MiniMax 单周净买入近 50 亿。今日数据待盘后披露；预计 AI 产业链（半导体+大模型）仍是南下资金主要配置方向。保险税传闻可能引发对金融板块的阶段性减仓。
+  </div>
+</div>
+
+<!-- ── 重大要闻 ── -->
+<div class="card">
+  <h2>📰 今日重大要闻</h2>
+
+  <div class="flow-item">
+    <span>📡 <strong>Lumentum 季报全面超预期</strong> <span class="tag tag-new">核心催化</span></span>
+  </div>
+  <div style="padding: 0.5rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+    全球光通信龙头 Lumentum 2026 财年 Q4 营收大幅超预期，AI 驱动的光连接需求爆发带动业绩翻倍增长。<br>
+    <span style="color:var(--green);">→ 链式传导：验证 AI 算力→光通信→光纤/光芯片产业链高景气 → 利好长飞光纤、光迅科技、源杰科技等港股/A股标的。</span>
+  </div>
+
+  <div class="flow-item" style="margin-top: 1rem;">
+    <span>🏛️ <strong>内地拟征境外保单收益税</strong> <span class="tag tag-hot">冲击</span></span>
+  </div>
+  <div style="padding: 0.5rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+    市场传闻内地拟对境外保单收益征收所得税，友邦保险（1299.HK）盘中重挫近 6%，拖累金融板块整体走弱。<br>
+    <span style="color:var(--red);">→ 若政策落地，将影响香港保险业对内地客户的核心吸引力，短期压制保险股估值。</span>
+  </div>
+
+  <div class="flow-item" style="margin-top: 1rem;">
+    <span>📈 <strong>恒生科技指数改革持续发酵</strong></span>
+  </div>
+  <div style="padding: 0.5rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+    成份股拟从 30 只扩容至 50 只，AI 升格为独立科技主题。9 月底揭晓方案、12 月生效。恒生指数公司模拟结果显示修订后指数对硬科技的覆盖度大幅提升。<br>
+    <span style="color:var(--green);">→ MiniMax/智谱已率先受益；长飞光纤、建滔积层板等硬科技标的关注纳入预期。</span>
+  </div>
+
+  <div class="flow-item" style="margin-top: 1rem;">
+    <span>🔬 <strong>功率半导体产能告急</strong></span>
+  </div>
+  <div style="padding: 0.5rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+    华虹半导体 8 英寸产能利用率逼近 100%，英飞凌、安森美等国际巨头转单效应持续。在 12 英寸特色工艺完全成熟前，8 英寸仍是 IGBT/MOSFET 最经济量产平台。<br>
+    <span style="color:var(--green);">→ 中芯国际/华虹宏力中期产能扩张逻辑强化，具备量价齐升基础。</span>
+  </div>
+</div>
+
+<!-- ── 后市展望 ── -->
+<div class="card">
+  <h2>🔭 AI 产业链后市展望</h2>
+  <table>
+    <tr><th>环节</th><th>短期观点</th><th>核心逻辑</th></tr>
+    <tr>
+      <td><span class="badge badge-semi">半导体制造</span></td>
+      <td class="up">看多 ⬆</td>
+      <td>功率半导体产能紧缺 + 国产替代 + Lumentum 验证光通信需求 → 中芯/华虹为确定性受益标的</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-model">大模型</span></td>
+      <td class="up">看多 ⬆</td>
+      <td>港股通资金驱动 + 恒科改革直接受益；MiniMax/智谱为港股稀缺 AI 纯正标的</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-optical">光通信</span></td>
+      <td class="up">看多 ⬆</td>
+      <td>Lumentum 验证行业高景气；光纤量价齐升趋势明确；长飞光纤/建滔积层板核心受益</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-hardware">算力硬件</span></td>
+      <td style="color:var(--orange);">分化 →</td>
+      <td>联想受益 AI PC/服务器；但硬件板块内部估值分化加大，精选业绩兑现标的</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-platform">互联网平台</span></td>
+      <td class="down">承压 ⬇</td>
+      <td>宏观逆风 + 美股科技回调传导 + 资金向硬科技/AI纯正标的迁移；等待 Q2 业绩催化剂</td>
+    </tr>
+  </table>
+  <div class="highlight-box" style="margin-top: 1rem;">
+    <strong>🎯 关键观察窗口：</strong>① Lumentum 财报后光通信产业链能否持续发酵（关注今晚美股光通信板块走势）；② 恒生科技指数改革咨询进度（9/18 截止 → 9 月底方案公布）；③ 保险税传闻后续政策信号 → 影响金融板块风险偏好。
+  </div>
+</div>
+
+<footer>
+  <p>📋 本报告由 Hermes Agent 自动生成 | 数据来源：21世纪经济报道、凤凰网财经、东财、新浪财经、星岛日报</p>
+  <p>🕐 生成时间：2026-08-12 港股收盘后</p>
+  <p>📡 关键事件：Lumentum 财报超预期 · 境外保单收益税传闻 · 恒科改革咨询 · 功率半导体产能告急</p>
+  <p class="disclaimer">⚠️ 免责声明：本报告仅供信息参考，不构成投资建议。投资有风险，入市需谨慎。部分数据基于午间收盘信息推算，具体收盘数据以港交所官方公布为准。</p>
+</footer>
+
+</div>
+</body>
+</html>
