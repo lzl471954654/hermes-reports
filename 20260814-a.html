@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 · 2026-08-14</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --border:#2a3242;
+    --txt:#e6edf3; --sub:#8b949e; --muted:#6e7681;
+    --up:#f0464f; --down:#2ebd85; --flat:#8b949e;
+    --accent:#4fc3f7; --accent2:#7c6cf0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;padding:0 0 40px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px}
+  header{background:linear-gradient(135deg,#161b22 0%,#1c2230 100%);border-bottom:1px solid var(--border);padding:28px 0 22px;margin-bottom:20px}
+  header .date{color:var(--accent);font-size:13px;letter-spacing:.5px;margin-bottom:6px}
+  h1{font-size:22px;font-weight:700;margin-bottom:4px}
+  .subtitle{color:var(--sub);font-size:13px}
+  .section{margin:22px 0}
+  .section h2{font-size:16px;font-weight:700;margin-bottom:12px;padding-left:10px;border-left:3px solid var(--accent)}
+  .section h2 .en{color:var(--muted);font-weight:400;font-size:12px;margin-left:6px}
+  .idx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .idx-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+  .idx-card .name{color:var(--sub);font-size:12px}
+  .idx-card .val{font-size:20px;font-weight:700;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+  .idx-card .chg{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+  .up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--flat)}
+  .concl{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+  .concl p{color:var(--txt);font-size:14px;margin:6px 0}
+  .concl .hl{color:var(--accent);font-weight:600}
+  .stat-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+  .stat{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:13px}
+  .stat b{font-weight:700}
+  table{width:100%;border-collapse:collapse;font-size:13px;background:var(--panel);border-radius:10px;overflow:hidden}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+  th{background:var(--panel2);color:var(--sub);font-weight:600;font-size:12px}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  tr:last-child td{border-bottom:none}
+  .tbl-wrap{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:14px}
+  .badge{display:inline-block;font-size:11px;padding:1px 8px;border-radius:10px;font-weight:600}
+  .badge.up{background:rgba(240,70,79,.15)} .badge.down{background:rgba(46,189,133,.15)} .badge.flat{background:rgba(139,148,158,.15)}
+  .foot{margin-top:30px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);padding-top:16px;text-align:center}
+  .legend{font-size:12px;color:var(--sub);margin:6px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="date">A股盘后总结 · AI产业链深度版</div>
+    <h1>光模块领涨修复 · 成长风格回血</h1>
+    <div class="subtitle">2026年8月14日（周五）· 收盘 | 数据来源：腾讯行情实时接口</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 指数概览 -->
+  <div class="section">
+    <h2>指数概览 <span class="en">Market Indices</span></h2>
+    <div class="idx-grid">
+      <div class="idx-card"><div class="name">上证指数</div><div class="val flat">3927.18</div><div class="chg up">+0.01%</div></div>
+      <div class="idx-card"><div class="name">深证成指</div><div class="val up">14354.31</div><div class="chg up">+0.45%</div></div>
+      <div class="idx-card"><div class="name">创业板指</div><div class="val up">3626.30</div><div class="chg up">+1.12%</div></div>
+      <div class="idx-card"><div class="name">科创50</div><div class="val flat">1717.68</div><div class="chg flat">-0.00%</div></div>
+      <div class="idx-card"><div class="name">沪深300</div><div class="val up">4665.88</div><div class="chg up">+0.04%</div></div>
+      <div class="idx-card"><div class="name">北证50</div><div class="val down">1087.52</div><div class="chg down">-0.94%</div></div>
+    </div>
+    <div class="stat-row">
+      <div class="stat">两市成交额 <b>≈2.14万亿</b>（缩量）</div>
+      <div class="stat">创业板指领涨 <b>+1.12%</b></div>
+      <div class="stat">沪指平收 <b>+0.01%</b></div>
+    </div>
+  </div>
+
+  <!-- 核心结论 -->
+  <div class="section">
+    <h2>核心结论 <span class="en">Takeaway</span></h2>
+    <div class="concl">
+      <p>隔夜美股「温和CPI提振降息预期、AI概念领涨」背景下，A股今日震荡分化：<span class="hl">沪指基本平收（+0.01%）</span>，<span class="hl">创业板指领涨三大指数（+1.12%）</span>，深成指+0.45%，科创50、北证50微跌，两市成交额缩量至<span class="hl">≈2.14万亿元</span>，成长风格相对占优。</p>
+      <p>AI产业链在连续数日调整后<span class="hl">迎来修复反弹</span>：光模块/CPO全线走强，<span class="hl">剑桥科技涨停</span>，新易盛+4.23%、天孚通信+4.10%、光迅科技+3.61%；存储/HBM集体回暖，<span class="hl">兆易创新+3.21%领涨</span>；液冷方向爆发，高澜股份+5.09%、英维克+2.96%、申菱环境+2.89%。</p>
+      <p>但<span class="hl">内部分化仍存</span>：半导体设备中科飞测-3.53%领跌，AI服务器整机浪潮信息-0.83%、中科曙光-0.30%走弱，AI芯片寒武纪-1.13%；上游材料则普涨（安集科技+2.35%、沪硅产业+2.25%、江丰电子+1.94%）。</p>
+    </div>
+  </div>
+
+  <!-- 光通信/CPO -->
+  <div class="section">
+    <h2>光通信 / CPO <span class="en">Optical / CPO</span></h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td>剑桥科技（603083）</td><td class="num">185.90</td><td class="num up">+10.00% 🔴涨停</td></tr>
+        <tr><td>新易盛（300502）</td><td class="num">448.08</td><td class="num up">+4.23%</td></tr>
+        <tr><td>天孚通信（300394）</td><td class="num">267.71</td><td class="num up">+4.10%</td></tr>
+        <tr><td>光迅科技（002281）</td><td class="num">191.52</td><td class="num up">+3.61%</td></tr>
+        <tr><td>中际旭创（300308）</td><td class="num">943.00</td><td class="num up">+2.38%</td></tr>
+        <tr><td>源杰科技（688498）</td><td class="num">1519.00</td><td class="num up">+1.22%</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- 存储/HBM -->
+  <div class="section">
+    <h2>存储 / HBM <span class="en">Memory / HBM</span></h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td>兆易创新（603986）</td><td class="num">417.48</td><td class="num up">+3.21%</td></tr>
+        <tr><td>佰维存储（688525）</td><td class="num">242.00</td><td class="num up">+2.97%</td></tr>
+        <tr><td>德明利（001309）</td><td class="num">406.19</td><td class="num up">+2.44%</td></tr>
+        <tr><td>江波龙（301308）</td><td class="num">406.45</td><td class="num up">+2.38%</td></tr>
+        <tr><td>香农芯创（300475）</td><td class="num">161.03</td><td class="num up">+2.29%</td></tr>
+        <tr><td>深科技（000021）</td><td class="num">40.23</td><td class="num up">+1.72%</td></tr>
+        <tr><td>澜起科技（688008）</td><td class="num">211.91</td><td class="num up">+0.80%</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- 半导体设备 -->
+  <div class="section">
+    <h2>半导体设备 <span class="en">Semiconductor Equipment</span></h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td>中微公司（688012）</td><td class="num">374.85</td><td class="num up">+1.20%</td></tr>
+        <tr><td>拓荆科技（688072）</td><td class="num">688.20</td><td class="num up">+0.45%</td></tr>
+        <tr><td>华海清科（688120）</td><td class="num">263.42</td><td class="num up">+0.16%</td></tr>
+        <tr><td>北方华创（002371）</td><td class="num">738.66</td><td class="num flat">+0.01%</td></tr>
+        <tr><td>盛美上海（688082）</td><td class="num">305.40</td><td class="num down">-0.07%</td></tr>
+        <tr><td>中科飞测（688361）</td><td class="num">324.33</td><td class="num down">-3.53%</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- PCB/CCL -->
+  <div class="section">
+    <h2>PCB / CCL <span class="en">PCB / Copper Clad Laminate</span></h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td>生益电子（688183）</td><td class="num">115.99</td><td class="num up">+5.59%</td></tr>
+        <tr><td>生益科技（600183）</td><td class="num">143.21</td><td class="num up">+1.04%</td></tr>
+        <tr><td>景旺电子（603228）</td><td class="num">98.01</td><td class="num up">+0.83%</td></tr>
+        <tr><td>沪电股份（002463）</td><td class="num">121.27</td><td class="num up">+0.51%</td></tr>
+        <tr><td>深南电路（002916）</td><td class="num">378.00</td><td class="num flat">+0.01%</td></tr>
+        <tr><td>胜宏科技（300476）</td><td class="num">269.33</td><td class="num down">-0.73%</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- MLCC -->
+  <div class="section">
+    <h2>MLCC 被动元件 <span class="en">MLCC / Passive Components</span></h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td>风华高科（000636）</td><td class="num">62.73</td><td class="num up">+1.14%</td></tr>
+        <tr><td>三环集团（300408）</td><td class="num">129.09</td><td class="num up">+0.54%</td></tr>
+        <tr><td>洁美科技（002859）</td><td class="num">73.06</td><td class="num down">-2.31%</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- 先进封装 -->
+  <div class="section">
+    <h2>先进封装 <span class="en">Advanced Packaging</span></h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td>通富微电（002156）</td><td class="num">62.96</td><td class="num up">+1.19%</td></tr>
+        <tr><td>长电科技（600584）</td><td class="num">78.71</td><td class="num up">+1.14%</td></tr>
+        <tr><td>华天科技（002185）</td><td class="num">17.98</td><td class="num up">+0.56%</td></tr>
+        <tr><td>三佳科技（600520）</td><td class="num">25.15</td><td class="num up">+0.36%</td></tr>
+        <tr><td>甬矽电子（688362）</td><td class="num">67.99</td><td class="num down">-0.15%</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- 上游材料 -->
+  <div class="section">
+    <h2>上游材料 <span class="en">Upstream Materials</span></h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td>安集科技（688019）</td><td class="num">248.20</td><td class="num up">+2.35%</td></tr>
+        <tr><td>沪硅产业（688126）</td><td class="num">25.90</td><td class="num up">+2.25%</td></tr>
+        <tr><td>江丰电子（300666）</td><td class="num">255.90</td><td class="num up">+1.94%</td></tr>
+        <tr><td>鼎龙股份（300054）</td><td class="num">76.14</td><td class="num up">+1.63%</td></tr>
+        <tr><td>雅克科技（002409）</td><td class="num">151.22</td><td class="num up">+1.15%</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- AI服务器/液冷 -->
+  <div class="section">
+    <h2>AI 服务器 / 液冷 <span class="en">AI Server / Liquid Cooling</span></h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td>高澜股份（300499）</td><td class="num">29.75</td><td class="num up">+5.09%</td></tr>
+        <tr><td>英维克（002837）</td><td class="num">57.09</td><td class="num up">+2.96%</td></tr>
+        <tr><td>申菱环境（301018）</td><td class="num">92.60</td><td class="num up">+2.89%</td></tr>
+        <tr><td>工业富联（601138）</td><td class="num">66.19</td><td class="num up">+1.47%</td></tr>
+        <tr><td>中科曙光（603019）</td><td class="num">89.36</td><td class="num down">-0.30%</td></tr>
+        <tr><td>浪潮信息（000977）</td><td class="num">78.80</td><td class="num down">-0.83%</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- 涨跌幅榜 -->
+  <div class="section">
+    <h2>今日涨幅 / 跌幅榜 <span class="en">Top Movers</span></h2>
+    <div class="idx-grid">
+      <div class="idx-card"><div class="name">🔴 涨幅前列</div>
+        <div class="chg up" style="margin-top:8px">剑桥科技 +10.00%</div>
+        <div class="chg up">生益电子 +5.59%</div>
+        <div class="chg up">高澜股份 +5.09%</div>
+        <div class="chg up">新易盛 +4.23%</div>
+        <div class="chg up">天孚通信 +4.10%</div>
+      </div>
+      <div class="idx-card"><div class="name">🟢 跌幅前列</div>
+        <div class="chg down" style="margin-top:8px">中科飞测 -3.53%</div>
+        <div class="chg down">洁美科技 -2.31%</div>
+        <div class="chg down">寒武纪 -1.13%</div>
+        <div class="chg down">浪潮信息 -0.83%</div>
+        <div class="chg down">胜宏科技 -0.73%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div>数据来源：腾讯行情实时接口（2026-08-14 收盘）· 仅供参考，不构成投资建议</div>
+    <div class="legend">红涨绿跌 · 涨跌幅为收盘相对昨收计算</div>
+  </div>
+
+</div>
+</body>
+</html>
