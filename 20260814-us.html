@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026年8月14日</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-dim: #8b949e;
+  --green: #3fb950;
+  --red: #f85149;
+  --blue: #58a6ff;
+  --purple: #bc8cff;
+  --orange: #d2991d;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.header {
+  text-align: center;
+  padding: 30px 0 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+.header h1 { font-size: 1.6rem; color: #f0f6fc; }
+.header .date { color: var(--text-dim); font-size: 0.9rem; margin-top: 4px; }
+.header .tagline { color: var(--blue); font-size: 0.85rem; margin-top: 8px; }
+
+.section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.section h2 {
+  font-size: 1.1rem;
+  color: #f0f6fc;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.section h3 {
+  font-size: 0.95rem;
+  color: var(--blue);
+  margin: 14px 0 8px;
+}
+
+.index-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.index-card {
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+}
+.index-card .name { font-size: 0.8rem; color: var(--text-dim); }
+.index-card .value { font-size: 1.3rem; font-weight: 700; margin: 4px 0; }
+.index-card .change { font-size: 0.85rem; }
+.up { color: var(--green); }
+.down { color: var(--red); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+th {
+  text-align: left;
+  padding: 8px 10px;
+  background: #0d1117;
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #21262d;
+}
+tr:last-child td { border-bottom: none; }
+
+.news-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #21262d;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item .title { font-weight: 600; color: #f0f6fc; }
+.news-item .summary { color: var(--text-dim); font-size: 0.85rem; margin-top: 2px; }
+.news-item .tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 4px;
+}
+.tag-bullish { background: rgba(63,185,80,0.15); color: var(--green); }
+.tag-neutral { background: rgba(139,148,158,0.15); color: var(--text-dim); }
+.tag-bearish { background: rgba(248,81,73,0.15); color: var(--red); }
+
+.insight-box {
+  background: linear-gradient(135deg, rgba(88,166,255,0.08), rgba(188,140,255,0.08));
+  border: 1px solid rgba(88,166,255,0.2);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-top: 12px;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+.insight-box strong { color: var(--blue); }
+
+.mapping-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+.mapping-item {
+  padding: 8px 10px;
+  background: #0d1117;
+  border-radius: 4px;
+}
+.mapping-item .us { color: var(--blue); font-weight: 600; }
+.mapping-item .cn { color: var(--text-dim); }
+.mapping-item .arrow { color: var(--text-dim); margin: 0 4px; }
+
+.disclaimer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+  body { padding: 10px; }
+  .index-row { grid-template-columns: 1fr; }
+  .mapping-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 AI产业链美股收盘与A股映射早报</h1>
+  <div class="date">2026年8月13日（周四）收盘 · 8月14日（周五）早间发布</div>
+  <div class="tagline">覆盖：美股三大指数 · AI芯片 · 云计算 · 盘后动态 · A股映射</div>
+</div>
+
+<!-- ===== 美股大盘 ===== -->
+<div class="section">
+  <h2>📊 美股三大指数</h2>
+  <div class="index-row">
+    <div class="index-card">
+      <div class="name">S&P 500</div>
+      <div class="value">7,798.99</div>
+      <div class="change up">▲ 0.70%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">纳斯达克</div>
+      <div class="value">≈26,990</div>
+      <div class="change up">▲ 0.80%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">道琼斯</div>
+      <div class="value">53,839.99</div>
+      <div class="change up">▲ 0.13%</div>
+    </div>
+  </div>
+  <div style="font-size:0.85rem; color: var(--text-dim); line-height:1.7;">
+    <p>三大指数集体收涨，标普500刷新收盘历史新高（7,798.99），盘中一度触及 7,816.7 的历史新高。本轮上涨由「通信服务、房地产、信息技术」三大板块领涨，成长风格再度占优。</p>
+    <p>① <strong>7月 PPI 温和低于预期</strong>：周四公布的批发通胀（PPI）读数低于市场预期，进一步印证通胀降温路径。这是本周继 CPI 之后第二个温和的通胀读数，货币市场对美联储 9 月加息的定价已降至 40% 以下。多数机构预期年内按兵不动、2027 上半年开启降息，仅美银等少数机构坚持年内三次 25bp 加息。</p>
+    <p>② <strong>油价回落</strong>：原油价格高位回落，减轻通胀二次上行压力，进一步支撑风险偏好。</p>
+    <p>③ <strong>AI 财报持续超预期</strong>：Nebius、CoreWeave、超微等 AI 基础设施公司财报/指引强劲（见下文），点燃算力与云计算做多情绪。</p>
+  </div>
+</div>
+
+<!-- ===== AI芯片半导体 ===== -->
+<div class="section">
+  <h2>🔬 AI芯片 & 半导体板块</h2>
+  <table>
+    <thead>
+      <tr><th>代码</th><th>公司</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>NVDA</strong></td>
+        <td>英伟达</td>
+        <td>$225.30</td>
+        <td class="up">+0.5%</td>
+        <td>AI 算力核心，逼近历史区间上沿；Vera Rubin 平台预期 + 月底财报（板块风向标）</td>
+      </tr>
+      <tr>
+        <td><strong>MU</strong></td>
+        <td>美光</td>
+        <td>—</td>
+        <td class="up">+6.0%</td>
+        <td>长江存储跻身全球 NAND 前三，HBM/存储涨价周期强化，AI 内存需求强劲</td>
+      </tr>
+      <tr>
+        <td><strong>TSM</strong></td>
+        <td>台积电</td>
+        <td>≈$420</td>
+        <td class="up">+0.4%</td>
+        <td>2nm 良率突破 90%，美国亚利桑那厂将量产英伟达 AI 芯片，先进封装满载</td>
+      </tr>
+      <tr>
+        <td><strong>AMD</strong></td>
+        <td>超威半导体</td>
+        <td>≈$483</td>
+        <td class="up">+0.5%</td>
+        <td>UBS 预期其与 Intel 达成代工合作，数据中心 GPU（MI 系列）持续放量</td>
+      </tr>
+      <tr>
+        <td><strong>AVGO</strong></td>
+        <td>博通</td>
+        <td>≈$226</td>
+        <td class="up">+1.0%</td>
+        <td>定制 AI ASIC（XPU）+ 网络芯片双轮驱动，云厂自研芯片浪潮核心受益</td>
+      </tr>
+      <tr>
+        <td><strong>MRVL</strong></td>
+        <td>美满电子</td>
+        <td>$222.18</td>
+        <td class="up">+1.0%</td>
+        <td>数据中心光互联 DSP 龙头，AI 网络升级叙事持续受益</td>
+      </tr>
+      <tr>
+        <td><strong>SMCI</strong></td>
+        <td>超微电脑</td>
+        <td>—</td>
+        <td class="up">+双位数</td>
+        <td>Q4 财报超预期，Q1 营收指引 $14.5–15.5B，AI 服务器需求爆发</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:0.85rem; color: var(--text-dim); margin-top:10px;">
+    整体来看：芯片板块随大盘走强，美光以 +6% 领涨，驱动逻辑从「算力芯片」向「存储 + 互联 + 设备」多环节扩散。台积电 2nm 良率突破 90%、美国厂量产英伟达 AI 芯片，进一步夯实先进制程 + AI 代工的中期需求确定性。
+  </div>
+</div>
+
+<!-- ===== AI云计算 & 应用层 ===== -->
+<div class="section">
+  <h2>☁️ AI云计算 & 应用层</h2>
+  <table>
+    <thead>
+      <tr><th>代码</th><th>公司</th><th>收盘价</th><th>涨跌幅</th><th>要点</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>NBIS</strong></td>
+        <td>Nebius</td>
+        <td>—</td>
+        <td class="up">+18%</td>
+        <td>Q2 营收 $582.3M（+454% YoY），AI 云占营收 98%、同比增超 500%，需求爆发</td>
+      </tr>
+      <tr>
+        <td><strong>CRWV</strong></td>
+        <td>CoreWeave</td>
+        <td>—</td>
+        <td class="up">+21%</td>
+        <td>财报超预期、季度亏损收窄，AI 云算力（GPU 集群）需求强劲</td>
+      </tr>
+      <tr>
+        <td><strong>MSFT</strong></td>
+        <td>微软</td>
+        <td>≈$554</td>
+        <td class="up">+0.8%</td>
+        <td>Azure AI 增速强劲，2026 年 $120B 资本开支计划</td>
+      </tr>
+      <tr>
+        <td><strong>GOOGL</strong></td>
+        <td>Alphabet</td>
+        <td>≈$197</td>
+        <td class="up">+1.0%</td>
+        <td>Gemini 生态扩展，$185B 资本开支，TPU v6 自研芯片</td>
+      </tr>
+      <tr>
+        <td><strong>AMZN</strong></td>
+        <td>亚马逊</td>
+        <td>≈$233</td>
+        <td class="up">+1.2%</td>
+        <td>AWS AI 收入高增，$200B 资本开支领跑四大云厂</td>
+      </tr>
+      <tr>
+        <td><strong>META</strong></td>
+        <td>Meta</td>
+        <td>≈$560</td>
+        <td class="up">+1.0%</td>
+        <td>开源大模型持续发酵，$125B 资本开支</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="insight-box">
+    <strong>💡 AI 交易远未结束——「新云」（Neocloud）接力爆发</strong><br>
+    CoreWeave 与 Nebius 财报超预期、双双大涨，印证「AI 算力军备竞赛」正从四大云厂向独立 AI 云（Neocloud）外溢。四大云厂 2026 年资本开支合计约 $725B（同比 +77%），其中 60–70% 流向 GPU/TPU/网络/数据中心，构成 AI 硬件产业链最坚实的需求底座。
+  </div>
+</div>
+
+<!-- ===== 盘后重大动态 ===== -->
+<div class="section">
+  <h2>🚀 盘后重大动态</h2>
+
+  <div class="news-item">
+    <div class="title"><span class="tag tag-bearish">财报</span> 应用材料（AMAT）Q3 FY26 营收指引超预期，股价盘后回落</div>
+    <div class="summary">
+      应用材料盘后公布 Q3 FY26 财报，营收指引超出华尔街预期（即便按指引低端也高于一致预期）。但股价盘后走低，呈现典型「sell-the-news」——半导体设备需求虽强劲，但前期涨幅已充分计价，市场对估值消化与设备订单节奏出现分歧。AMAT 是 A 股半导体设备板块的重要风向标，其盘后回落或对北方华创、中微公司等形成短期情绪压制。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="title"><span class="tag tag-bullish">AI硬件</span> 思科 AI 驱动利润跳升，AI 网络设备叙事强化</div>
+    <div class="summary">
+      思科财报显示 AI 驱动的利润增长，叠加 Credo、Marvell 等高速互联环节持续走强，市场对「AI 网络互联」环节的定价进一步升温。AI 数据中心扩建带来的交换机、光互联、DSP 需求，构成除 GPU 之外的第二条确定性主线。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="title"><span class="tag tag-neutral">前瞻</span> 月底英伟达财报临近，AI 板块进入「财报验证期」</div>
+    <div class="summary">
+      英伟达将于月底公布财报（AI 板块风向标）。此前 Vera Rubin 平台被机构看好（伯恩斯坦维持买入、目标价 $300），B 系列出货节奏与数据中心收入指引将成为关键变量。建议关注光模块、交换芯片、存储、设备等环节订单指引的边际变化。
+    </div>
+  </div>
+</div>
+
+<!-- ===== A股映射 ===== -->
+<div class="section">
+  <h2>🇨🇳 A股映射参考</h2>
+
+  <h3>🔗 核心映射逻辑</h3>
+  <div style="font-size:0.85rem; color: var(--text-dim); margin-bottom:14px;">
+    <p>① <strong>存储涨价周期强化</strong>：美光 +6%、长江存储跻身全球 NAND 前三，直接利好 A 股存储板块（HBM/DRAM/NAND 涨价预期），关注兆易创新、江波龙、佰维存储、德明利等。</p>
+    <p>② <strong>AI 网络互联主线延续</strong>：Credo/Marvell 光互联 DSP 走强、思科 AI 利润跳升，映射 A 股光模块/CPO（中际旭创、新易盛、天孚通信）、交换芯片（盛科通信）、高速铜缆（沃尔核材、立讯精密）。</p>
+    <p>③ <strong>PPI 降温利好成长股估值</strong>：美联储加息担忧进一步缓解，全球风险偏好回升，利好 A 股 AI/科技成长板块整体情绪修复。</p>
+    <p>④ <strong>半导体设备需注意节奏</strong>：AMAT 盘后回落提示「利好兑现即回调」风险，映射 A 股半导体设备（北方华创、中微公司）时注意高开兑现风险。</p>
+  </div>
+
+  <h3>📋 映射标的参考</h3>
+  <div class="mapping-grid">
+    <div class="mapping-item">
+      <span class="us">MU/长江存储</span>
+      <span class="arrow">→</span>
+      <span class="cn">存储芯片：兆易创新、江波龙、佰维存储、德明利</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">CRDO/MRVL/AVGO</span>
+      <span class="arrow">→</span>
+      <span class="cn">光模块/CPO：中际旭创、新易盛、天孚通信</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">CRDO/铜互联</span>
+      <span class="arrow">→</span>
+      <span class="cn">高速铜缆/连接器：沃尔核材、鼎通科技、立讯精密</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">NVDA/SMCI</span>
+      <span class="arrow">→</span>
+      <span class="cn">AI服务器：工业富联、浪潮信息、紫光股份</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">AVGO/CSCO</span>
+      <span class="arrow">→</span>
+      <span class="cn">交换芯片/网络设备：盛科通信、锐捷网络</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">AMAT/TSM/ASML</span>
+      <span class="arrow">→</span>
+      <span class="cn">半导体设备：北方华创、中微公司、盛美上海</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">NVDA/AMD</span>
+      <span class="arrow">→</span>
+      <span class="cn">AI芯片：寒武纪、海光信息</span>
+    </div>
+    <div class="mapping-item">
+      <span class="us">AI应用/PCB</span>
+      <span class="arrow">→</span>
+      <span class="cn">PCB/算力：东山精密、沪电股份、生益科技</span>
+    </div>
+  </div>
+
+  <div class="insight-box" style="margin-top:14px;">
+    <strong>📌 今日A股关注方向：</strong>存储涨价（美光 +6% 映射主线）、光模块/CPO 与高速铜互联（AI 网络互联主线延续）、AI 服务器代工（超微指引超预期）。情绪层面 PPI 降温 + 标普创新高利好科技成长股整体，但需警惕 AMAT 盘后回落带来的半导体设备方向高开兑现风险。
+  </div>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本报告仅供信息参考，不构成投资建议。数据来源：Bloomberg、AP News、Yahoo Finance、Investopedia、AFR、StockScan、DowJonesToday、Barron's、FXStreet 等，三大指数及部分个股收盘价为基于公开数据整理，标「≈」或「—」者为估算，请以交易所官方数据为准。投资有风险，入市需谨慎。<br>
+  Generated by Hermes Agent · 2026-08-14 AM
+</div>
+
+</body>
+</html>
