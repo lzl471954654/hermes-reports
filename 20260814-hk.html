@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-08-14</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-secondary: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --purple: #a371f7;
+    --cyan: #39d2c0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  header {
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 2rem;
+  }
+  header h1 {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header .date { color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.95rem; }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--blue);
+  }
+  .indices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .index-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .index-item .name { font-size: 0.85rem; color: var(--text-secondary); }
+  .index-item .value { font-size: 1.4rem; font-weight: 700; margin: 0.3rem 0; }
+  .index-item .change { font-size: 0.9rem; font-weight: 600; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+  }
+  td {
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .badge-ai { background: rgba(163,113,247,0.2); color: var(--purple); }
+  .badge-semi { background: rgba(57,210,192,0.2); color: var(--cyan); }
+  .badge-platform { background: rgba(88,166,255,0.2); color: var(--blue); }
+  .badge-hardware { background: rgba(210,153,29,0.2); color: var(--orange); }
+  .badge-model { background: rgba(63,185,80,0.2); color: var(--green); }
+  .badge-optical { background: rgba(248,81,73,0.2); color: var(--red); }
+  .section-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  .flow-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+  }
+  .flow-item:last-child { border-bottom: none; }
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(163,113,247,0.1), rgba(57,210,192,0.1));
+    border: 1px solid rgba(163,113,247,0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+  .tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-right: 0.3rem;
+  }
+  .tag-hot { background: rgba(248,81,73,0.2); color: var(--red); }
+  .tag-new { background: rgba(57,210,192,0.2); color: var(--cyan); }
+  footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .disclaimer {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>🔬 港股收盘总结 · AI产业链深度版</h1>
+  <div class="date">📅 2026年8月14日（周五）· 恒指收报 25,119（4连跌）</div>
+</header>
+
+<!-- ── 大盘概览 ── -->
+<div class="card">
+  <h2>📊 大盘概览</h2>
+  <div class="indices">
+    <div class="index-item">
+      <div class="name">恒生指数 HSI</div>
+      <div class="value">25,119</div>
+      <div class="change down">▼ -278点 (-1.09%)</div>
+    </div>
+    <div class="index-item">
+      <div class="name">恒生科技指数</div>
+      <div class="value">4,715</div>
+      <div class="change down">▼ -78点 (-1.63%)</div>
+    </div>
+    <div class="index-item">
+      <div class="name">国企指数</div>
+      <div class="value">8,344</div>
+      <div class="change down">▼ -82点 (-0.97%)</div>
+    </div>
+    <div class="index-item">
+      <div class="name">盘面特征</div>
+      <div class="value">分化</div>
+      <div class="change" style="color:var(--orange);">业绩验证 · 挤泡沫</div>
+    </div>
+  </div>
+  <div class="section-desc" style="margin-top:1rem;">
+    ⚠️ <strong>指数 4 连跌、个股「冰火两重天」：</strong>恒指低开低走，收跌 1.09% 失守 25,200 关口；恒生科技指数跌幅更深（-1.63%）。盘面呈现罕见的<strong>「同板块内极端分化」</strong>——半导体龙头中芯国际凭 Q2 业绩（盈利同比 +260%）暴涨逾 5.5%，而华虹、大模型双雄、联想等前期暴涨的高位品种集体遭遇<strong>「挤泡沫」</strong>。港股 AI 产业链正式进入<strong>「业绩验证期」</strong>：靠预期和资金驱动的上涨正在退潮，真金白银只认兑现业绩的标的。
+  </div>
+</div>
+
+<!-- ── 宏观背景 ── -->
+<div class="card">
+  <h2>🌍 宏观背景 & 核心矛盾</h2>
+  <div class="flow-item">
+    <span>🔧 <strong>中芯国际 Q2 业绩炸裂</strong> <span class="tag tag-new">盈利+260%</span></span>
+    <span style="color:var(--green);">股价逆市暴涨 +5.55%</span>
+  </div>
+  <div class="flow-item">
+    <span>🧬 <strong>MiniMax 折让配股 + 可换股债，共集资 160 亿港元</strong> <span class="tag tag-hot">稀释</span></span>
+    <span style="color:var(--red);">股价暴跌 -11.73%</span>
+  </div>
+  <div class="flow-item">
+    <span>🔧 华虹 Q2 毛利率 16.5% 超预期，但「卖事实」</span>
+    <span style="color:var(--red);">股价重挫 -11.48%</span>
+  </div>
+  <div class="flow-item">
+    <span>🧠 市传智谱计划配股集资</span>
+    <span style="color:var(--red);">股价回落 -3.57%</span>
+  </div>
+  <div class="highlight-box">
+    <strong>💡 核心矛盾：</strong>今天港股 AI 产业链上演了教科书级的<strong>「业绩验证 vs 估值挤泡沫」</strong>。中芯国际用 Q2 营收突破 30 亿美元、盈利同比 +260% 的硬数据证明<strong>「AI 需求外溢」真实存在</strong>，获资金抱团；反观前期靠<strong>「稀缺性 + 预期」</strong>被爆炒的大模型双雄，一旦遭遇<strong>配股稀释</strong>（MiniMax 折让 9.9% 配股 + 可换股债共 160 亿，智谱亦传配股），高估值瞬间坍塌。市场正在回答一个问题：<strong>当 AI 叙事进入业绩验证期，谁是真业绩、谁在讲故事？</strong>
+  </div>
+</div>
+
+<!-- ── AI产业链深度分析 ── -->
+<div class="card">
+  <h2>🧠 AI产业链 · 各环节表现</h2>
+  <div class="section-desc">
+    按产业链环节拆解：半导体制造/设备 → 大模型 → 算力硬件 → 光通信 → AI应用 → 互联网平台。今日 <strong>半导体（中芯领涨）+ 光通信（长飞）</strong> 逆市走强，<strong>大模型（配股黑天鹅）+ 华虹（卖事实）+ 算力硬件（联想回落）</strong> 最弱。
+  </div>
+
+  <!-- 半导体制造 -->
+  <h3 style="margin: 1.2rem 0 0.5rem; color: var(--cyan);">🔧 半导体制造 & 设备 <span class="tag tag-hot">冰火两重天</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>产业链定位</th><th>催化剂</th></tr>
+    <tr>
+      <td><strong>中芯国际</strong></td>
+      <td>0981.HK</td>
+      <td>71.30</td>
+      <td class="up">+5.55%</td>
+      <td>119亿</td>
+      <td><span class="badge badge-semi">晶圆代工</span></td>
+      <td>Q2 营收 30 亿美元、盈利同比 +260%，AI 需求外溢</td>
+    </tr>
+    <tr>
+      <td><strong>华虹宏力</strong></td>
+      <td>1347.HK</td>
+      <td>130.30</td>
+      <td class="down">-11.48%</td>
+      <td>98亿</td>
+      <td><span class="badge badge-semi">特色工艺/晶圆代工</span></td>
+      <td>Q2 毛利率 16.5% 超预期，但「卖事实」获利回吐</td>
+    </tr>
+    <tr>
+      <td>ASMPT</td>
+      <td>0522.HK</td>
+      <td>176.70</td>
+      <td class="up">+0.51%</td>
+      <td>5.1亿</td>
+      <td><span class="badge badge-semi">先进封装设备</span></td>
+      <td>TCB 受益 AI 先进封装，高位抗跌</td>
+    </tr>
+    <tr>
+      <td>上海复旦</td>
+      <td>1385.HK</td>
+      <td>26.54</td>
+      <td class="down">-0.52%</td>
+      <td>0.5亿</td>
+      <td><span class="badge badge-semi">FPGA/芯片设计</span></td>
+      <td>跟随板块波动</td>
+    </tr>
+  </table>
+
+  <!-- 大模型 -->
+  <h3 style="margin: 1.5rem 0 0.5rem; color: var(--purple);">🧬 大模型 & AI应用 <span class="tag tag-hot">配股黑天鹅</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>产业链定位</th><th>催化剂</th></tr>
+    <tr>
+      <td><strong>MiniMax</strong></td>
+      <td>0100.HK</td>
+      <td>332.60</td>
+      <td class="down">-11.73%</td>
+      <td>96亿</td>
+      <td><span class="badge badge-model">大模型</span></td>
+      <td>折让 9.9% 配股 + 溢价 12.6% 可换股债，共集资 160 亿港元</td>
+    </tr>
+    <tr>
+      <td><strong>智谱</strong></td>
+      <td>2513.HK</td>
+      <td>1,270.00</td>
+      <td class="down">-3.57%</td>
+      <td>144亿</td>
+      <td><span class="badge badge-model">大模型</span></td>
+      <td>市传计划配股集资，稀释预期压制</td>
+    </tr>
+    <tr>
+      <td>商汤</td>
+      <td>0020.HK</td>
+      <td>1.41</td>
+      <td class="down">-1.40%</td>
+      <td>3.2亿</td>
+      <td><span class="badge badge-ai">AI应用</span></td>
+      <td>跟随大模型板块回调</td>
+    </tr>
+    <tr>
+      <td>美图公司</td>
+      <td>1357.HK</td>
+      <td>4.50</td>
+      <td class="up">+0.22%</td>
+      <td>1.6亿</td>
+      <td><span class="badge badge-ai">AI影像</span></td>
+      <td>低估值抗跌</td>
+    </tr>
+  </table>
+
+  <!-- 算力硬件 -->
+  <h3 style="margin: 1.5rem 0 0.5rem; color: var(--orange);">💻 算力硬件 & AI服务器 <span class="tag tag-hot">高位回落</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>产业链定位</th><th>催化剂</th></tr>
+    <tr>
+      <td><strong>联想集团</strong></td>
+      <td>0992.HK</td>
+      <td>33.60</td>
+      <td class="down">-3.72%</td>
+      <td>91亿</td>
+      <td><span class="badge badge-hardware">AI服务器/AI PC</span></td>
+      <td>前日暴涨 19.9% 后获利回吐</td>
+    </tr>
+    <tr>
+      <td>中兴通讯</td>
+      <td>0763.HK</td>
+      <td>25.06</td>
+      <td class="down">-1.03%</td>
+      <td>2.0亿</td>
+      <td><span class="badge badge-hardware">算力/网络设备</span></td>
+      <td>跟随大盘整固</td>
+    </tr>
+    <tr>
+      <td>比亚迪电子</td>
+      <td>0285.HK</td>
+      <td>23.70</td>
+      <td class="down">-0.17%</td>
+      <td>1.3亿</td>
+      <td><span class="badge badge-hardware">EMS/服务器</span></td>
+      <td>相对抗跌</td>
+    </tr>
+  </table>
+
+  <!-- 光通信&PCB -->
+  <h3 style="margin: 1.5rem 0 0.5rem; color: var(--red);">📡 光通信 & PCB <span class="tag tag-new">逆市走强</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>产业链定位</th></tr>
+    <tr>
+      <td><strong>长飞光纤光缆</strong></td>
+      <td>6869.HK</td>
+      <td>132.50</td>
+      <td class="up">+2.24%</td>
+      <td>32亿</td>
+      <td><span class="badge badge-optical">光纤光缆</span></td>
+    </tr>
+    <tr>
+      <td>建滔积层板</td>
+      <td>1888.HK</td>
+      <td>38.60</td>
+      <td class="up">+0.05%</td>
+      <td>31亿</td>
+      <td><span class="badge badge-hardware">PCB/覆铜板</span></td>
+    </tr>
+  </table>
+
+  <!-- 互联网平台 -->
+  <h3 style="margin: 1.5rem 0 0.5rem; color: var(--blue);">🌐 互联网平台 <span class="tag tag-hot">普跌承压</span></h3>
+  <table>
+    <tr><th>股票</th><th>代码</th><th>收盘价</th><th>涨跌幅</th><th>成交额</th><th>产业链定位</th></tr>
+    <tr>
+      <td><strong>腾讯控股</strong></td>
+      <td>0700.HK</td>
+      <td>441.00</td>
+      <td style="color:var(--text-secondary);">0.00%</td>
+      <td>126亿</td>
+      <td><span class="badge badge-platform">社交/游戏/AI</span></td>
+    </tr>
+    <tr>
+      <td><strong>美团</strong></td>
+      <td>3690.HK</td>
+      <td>87.20</td>
+      <td class="down">-4.44%</td>
+      <td>62亿</td>
+      <td><span class="badge badge-platform">本地生活</span></td>
+    </tr>
+    <tr>
+      <td>阿里巴巴</td>
+      <td>9988.HK</td>
+      <td>119.70</td>
+      <td class="down">-1.80%</td>
+      <td>62亿</td>
+      <td><span class="badge badge-platform">电商/云/AI</span></td>
+    </tr>
+    <tr>
+      <td>小米集团</td>
+      <td>1810.HK</td>
+      <td>25.66</td>
+      <td class="down">-0.85%</td>
+      <td>21亿</td>
+      <td><span class="badge badge-platform">AIoT/汽车</span></td>
+    </tr>
+    <tr>
+      <td>快手</td>
+      <td>1024.HK</td>
+      <td>40.20</td>
+      <td class="down">-1.52%</td>
+      <td>17亿</td>
+      <td><span class="badge badge-platform">短视频/AI</span></td>
+    </tr>
+    <tr>
+      <td>哔哩哔哩</td>
+      <td>9626.HK</td>
+      <td>133.90</td>
+      <td class="down">-0.74%</td>
+      <td>2.5亿</td>
+      <td><span class="badge badge-platform">内容平台</span></td>
+    </tr>
+    <tr>
+      <td>腾讯音乐</td>
+      <td>1698.HK</td>
+      <td>33.62</td>
+      <td class="up">+2.06%</td>
+      <td>0.7亿</td>
+      <td><span class="badge badge-platform">在线音乐/AI</span></td>
+    </tr>
+    <tr>
+      <td>阅文集团</td>
+      <td>0772.HK</td>
+      <td>22.30</td>
+      <td class="down">-0.45%</td>
+      <td>1.7亿</td>
+      <td><span class="badge badge-platform">IP内容/AI</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ── 板块资金流向 ── -->
+<div class="card">
+  <h2>💰 板块资金流向</h2>
+  <div class="flow-item">
+    <span>🔧 <strong>半导体制造（中芯）</strong></span>
+    <span class="up">强势流入 ↑↑（中芯放量成交 119亿，创阶段天量）</span>
+  </div>
+  <div class="flow-item">
+    <span>📡 <strong>光通信/PCB</strong></span>
+    <span class="up">温和流入 ↑（长飞 +2.24% 逆市收红）</span>
+  </div>
+  <div class="flow-item">
+    <span>🧬 <strong>大模型/AI概念</strong></span>
+    <span class="down">资金出逃 ↓↓（MiniMax + 智谱 合计成交超 240亿，净卖压沉重）</span>
+  </div>
+  <div class="flow-item">
+    <span>🔧 <strong>华虹（特色工艺）</strong></span>
+    <span class="down">获利了结 ↓（放量成交 98亿，单日 -11.48%）</span>
+  </div>
+  <div class="flow-item">
+    <span>💻 <strong>算力硬件（联想）</strong></span>
+    <span class="down">高位换手 ↓（联想成交 91亿，前日暴涨后回落）</span>
+  </div>
+  <div class="flow-item">
+    <span>🌐 <strong>互联网平台</strong></span>
+    <span class="down">持续承压 ↓（美团 -4.44% 领跌，腾讯早盘跌后收复）</span>
+  </div>
+  <div class="highlight-box">
+    <strong>南向资金：</strong>今日盘后数据待披露。近期趋势清晰——北水前期<strong>连续 5 日加仓 MiniMax</strong>、持续抛售阿里，本周（8/3-8/7）累计净买入近 100 亿港元。但今日 MiniMax、智谱双双因配股传闻/落地暴跌，南下资金大概率<strong>高位接盘大模型后反手减仓</strong>，而中芯国际的业绩兑现则可能吸引新一轮北水配置。市场风格正从「炒稀缺预期」切换到「买业绩确定性」。
+  </div>
+</div>
+
+<!-- ── 重大要闻 ── -->
+<div class="card">
+  <h2>📰 今日重大要闻</h2>
+
+  <div class="flow-item">
+    <span>🔧 <strong>中芯国际 Q2 营收突破 30 亿美元，盈利同比 +260%</strong> <span class="tag tag-new">最强业绩</span></span>
+  </div>
+  <div style="padding: 0.5rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+    中芯国际发布二季度业绩：整体销售收入 30 亿美元，环比增长 20%；毛利率 25.3%，环比增加 5.2 个百分点；盈利同比增约 260%。AI 需求外溢打开新周期，成熟制程产能利用率回升，公司同时给出积极的三季度指引。股价单日逆市暴涨 +5.55%，成交额近 119 亿港元，为今日港股最强主线。<br>
+    <span style="color:var(--green);">→ 链式传导：验证「AI 需求外溢 → 晶圆代工景气」逻辑，利好半导体制造/设备链（ASMPT 抗跌、国产替代持续发酵）。</span>
+  </div>
+
+  <div class="flow-item" style="margin-top: 1rem;">
+    <span>🧬 <strong>MiniMax 折让 9.9% 配股 + 溢价 12.6% 发可换股债，共集资 160 亿港元</strong> <span class="tag tag-hot">领跌</span></span>
+  </div>
+  <div style="padding: 0.5rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+    MiniMax 宣布以折让 9.9% 配股、溢价逾 12.6% 发行可换股债券，合计集资约 160 亿港元，用于大模型算力与研发投入。创始人闫俊杰同步宣布「实现 AGI 前 0 薪酬」。尽管融资弹药充足，但配股带来的<strong>短期稀释</strong>叠加前期暴涨后的获利盘，股价单日暴跌 -11.73%，成交额近 96 亿港元。<br>
+    <span style="color:var(--red);">→ 高估值大模型标的在「配股稀释」面前异常脆弱，资金从「抢稀缺」转为「避险」，拖累整个大模型板块。</span>
+  </div>
+
+  <div class="flow-item" style="margin-top: 1rem;">
+    <span>🔧 <strong>华虹 Q2 毛利率 16.5% 超预期，股价却「卖事实」重挫 -11.48%</strong> <span class="tag tag-hot">反差</span></span>
+  </div>
+  <div style="padding: 0.5rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+    华虹宏力二季度毛利率 16.5%，高于此前 14%-16% 的指引上沿、也高于市场预期；此前一季报归母净利同比暴增 513%。但股价在业绩落地后上演<strong>「利好出尽」</strong>，单日暴跌 -11.48%（收 130.3 港元），成交额 98 亿港元。<br>
+    <span style="color:var(--orange);">→ 特色工艺（功率/模拟）景气仍在，但前期连续大涨已透支预期，短线进入高位剧烈换手。</span>
+  </div>
+
+  <div class="flow-item" style="margin-top: 1rem;">
+    <span>🧠 <strong>市传智谱计划配股集资，股价回落 -3.57%</strong> <span class="tag tag-hot">黑天鹅</span></span>
+  </div>
+  <div style="padding: 0.5rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+    市场传闻 AI 大模型公司智谱（02513.HK）计划配股集资，虽然公司尚未证实，但稀释预期已压制股价，单日回落 -3.57%（收 1,270 港元），成交额高达 144 亿港元。<br>
+    <span style="color:var(--red);">→ 大模型双雄相继「配股」，高估值成长股的融资需求成为当前板块最大的压制因素。</span>
+  </div>
+
+  <div class="flow-item" style="margin-top: 1rem;">
+    <span>🌐 <strong>美团重挫 -4.44%，互联网平台集体承压</strong></span>
+  </div>
+  <div style="padding: 0.5rem 0; font-size: 0.88rem; color: var(--text-secondary);">
+    美团单日大跌 -4.44%（收 87.2 港元），为互联网平台板块最大跌幅；阿里 -1.80%、快手 -1.52% 跟随走弱。腾讯早盘一度跌超 1%，午后收复失地、收平于 441 港元，展现韧性。前期「AI 算力叙事」向互联网平台传导的预期降温，资金向业绩确定的半导体龙头集中。<br>
+    <span style="color:var(--orange);">→ 平台板块估值锚仍需后续财报（阿里、美团）给出「AI 投入换收入」的兑现路径。</span>
+  </div>
+</div>
+
+<!-- ── 后市展望 ── -->
+<div class="card">
+  <h2>🔭 AI 产业链后市展望</h2>
+  <table>
+    <tr><th>环节</th><th>短期观点</th><th>核心逻辑</th></tr>
+    <tr>
+      <td><span class="badge badge-semi">半导体制造</span></td>
+      <td class="up">看多 ⬆</td>
+      <td>中芯 Q2 盈利 +260%、AI 需求外溢兑现，成熟制程国产替代逻辑获业绩验证</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-optical">光通信</span></td>
+      <td class="up">看多 ⬆</td>
+      <td>长飞逆市收红，AI 算力带动光纤/光模块中期景气未变，回调即配置机会</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-model">大模型</span></td>
+      <td class="down">承压 ⬇</td>
+      <td>配股稀释 + 高估值，MiniMax/智谱需时间消化融资冲击；关注融资用途能否兑现收入</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-hardware">算力硬件</span></td>
+      <td style="color:var(--orange);">整固 →</td>
+      <td>联想前日暴涨后回吐，AI 服务器真实需求仍在，但短线获利盘需消化</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-platform">互联网平台</span></td>
+      <td class="down">承压 ⬇</td>
+      <td>「AI 投入→利润承压」的估值重定价延续，关注阿里/美团后续财报能否给出兑现路径</td>
+    </tr>
+  </table>
+  <div class="highlight-box" style="margin-top: 1rem;">
+    <strong>🎯 关键观察窗口：</strong>① 中芯国际 Q3 指引能否延续「AI 需求外溢」的高景气；② 大模型双雄（MiniMax/智谱）配股落地后的资金流向与融资用途；③ 恒生科技指数改革（扩容至 50 只、AI 独立主题）的最终方案——这决定大模型标的能否获得被动资金长期配置；④ 互联网平台后续财报（阿里、美团）的「AI 兑现」成色。
+  </div>
+</div>
+
+<footer>
+  <p>📋 本报告由 Hermes Agent 自动生成 | 数据来源：Yahoo Finance 行情、财联社、华尔街见闻、21财经、格隆汇、智通财经</p>
+  <p>🕐 生成时间：2026-08-14 港股收盘后（16:00 HKT）</p>
+  <p>📡 关键事件：中芯国际 Q2 盈利 +260% · MiniMax 配股+可换股债 160 亿 · 华虹 Q2 毛利率 16.5% 超预期 · 智谱传配股 · 港股 4 连跌</p>
+  <p class="disclaimer">⚠️ 免责声明：本报告仅供信息参考，不构成投资建议。投资有风险，入市需谨慎。行情数据基于收盘快照整理，成交额为估算值，具体以港交所官方公布为准。</p>
+</footer>
+
+</div>
+</body>
+</html>
