@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-08-14 健身&饮食日报</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0d1b2a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.4em;
+    color: #4fc3f7;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #1b3a4b;
+  }
+  h2 {
+    font-size: 1.15em;
+    color: #4fc3f7;
+    margin: 24px 0 12px;
+    padding-left: 10px;
+    border-left: 3px solid #4fc3f7;
+  }
+  .cards {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .card {
+    flex: 1;
+    min-width: 120px;
+    background: #122439;
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #1b3a4b;
+  }
+  .card .value { font-size: 1.8em; font-weight: 700; color: #4fc3f7; }
+  .card .label { font-size: 0.75em; color: #78909c; margin-top: 4px; }
+  .gap-note {
+    text-align: center;
+    font-size: 0.85em;
+    color: #78909c;
+    margin-bottom: 20px;
+  }
+  .person {
+    background: #122439;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid #1b3a4b;
+  }
+  .person h3 { font-size: 1.05em; color: #81d4fa; margin-bottom: 10px; }
+  .sub { font-size: 0.85em; color: #4fc3f7; font-weight: 600; margin: 10px 0 4px; }
+  .no-data { color: #607d8b; font-style: italic; font-size: 0.9em; padding: 4px 0; }
+  .stat-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
+  .stat-tag { background: #1b3a4b; color: #81d4fa; padding: 3px 10px; border-radius: 14px; font-size: 0.8em; }
+  .eval {
+    background: #0d1b2a;
+    border-left: 3px solid #4fc3f7;
+    padding: 10px 12px;
+    margin: 10px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9em;
+    color: #b0bec5;
+  }
+  .tip {
+    background: #0a1625;
+    border: 1px solid #1b5a3b;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    color: #81c784;
+    margin: 8px 0;
+  }
+  .reminder {
+    background: #1b2a3a;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 20px 0;
+    border: 1px solid #2a4a5a;
+  }
+  .reminder h2 { margin-top: 0; }
+  .reminder p { font-size: 0.9em; color: #b0bec5; margin: 6px 0; }
+  .footer {
+    font-size: 0.75em;
+    color: #546e7a;
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #1b3a4b;
+  }
+  .warn { color: #ff8a65; }
+  .dim { color: #607d8b; }
+</style>
+</head>
+<body>
+
+<h1>🏋️ 2026-08-14 健身&饮食日报</h1>
+
+<div class="cards">
+  <div class="card">
+    <div class="value">0/3</div>
+    <div class="label">打卡人数</div>
+  </div>
+  <div class="card">
+    <div class="value">0</div>
+    <div class="label">训练人数</div>
+  </div>
+  <div class="card">
+    <div class="value">—</div>
+    <div class="label">最高消耗</div>
+  </div>
+  <div class="card">
+    <div class="value warn">37d</div>
+    <div class="label">最长空白</div>
+  </div>
+</div>
+<div class="gap-note">缺口警告：N/A（今日无摄入记录）</div>
+
+<!-- ====== 智林 lzl ====== -->
+<div class="person">
+  <h3>🦍 智林 · lzl</h3>
+
+  <div class="sub">🍽️ 饮食</div>
+  <div class="no-data">今日暂无有效记录</div>
+
+  <div class="sub">🏋️ 训练</div>
+  <div class="no-data">今日暂无有效记录</div>
+
+  <div class="sub">📊 身体状态</div>
+  <div class="stat-row">
+    <span class="stat-tag">体重 93.5kg</span>
+    <span class="stat-tag">身高 185cm</span>
+    <span class="stat-tag">BMI ~27.3</span>
+    <span class="stat-tag">BMR ~2,300 kcal</span>
+  </div>
+  <div class="dim" style="font-size:0.8em;">上次记录：8月3日（已空白 11 天） · 目标：逆转脂肪肝，继续减重</div>
+
+  <div class="eval">
+    <strong>💬 评价：</strong>十一天。上次记录停在 8/3 那顿「两餐鸡胸+鱼、全天脂肪才 14g」的极端低脂餐上——那个记录其实已经说明了一件事：你愿意为减脂下狠手，但狠手的方向可能偏了。脂肪 14g/天连基础的激素合成和脂溶性维生素吸收都撑不住，身体会在这种状态下优先保护自己：降代谢、掉肌肉，反而让后面的减脂更难。十一天没记录，最可能的结果就是那个 93.5kg 已经变了，但你我都不知道往哪个方向变。减脂最怕的不是平台期，是「失联期」——没有基准线，所有的调整都是盲调。
+  </div>
+
+  <div class="tip">
+    <strong>💡 明日建议：</strong>今天周五，别复盘、别算热量，就做两件 30 秒的事：踩一脚秤 + 拍一张午饭。如果还在吃鸡胸+鱼的极低脂餐，务必加两个全蛋或一小把坚果——14g 脂肪撑不起身体的基本运转。把 93.5 这个数字更新掉，下周才有得聊。
+  </div>
+</div>
+
+<!-- ====== Monkiki ====== -->
+<div class="person">
+  <h3>🍳 Monkiki</h3>
+
+  <div class="sub">🍽️ 饮食</div>
+  <div class="no-data">今日暂无有效记录</div>
+
+  <div class="sub">🏋️ 训练</div>
+  <div class="no-data">今日暂无有效记录</div>
+
+  <div class="sub">📊 身体状态</div>
+  <div class="stat-row">
+    <span class="stat-tag">体重 ~70kg</span>
+    <span class="stat-tag">身高 170cm</span>
+    <span class="stat-tag">BMI 24.2</span>
+    <span class="stat-tag">目标 65–67.5kg</span>
+  </div>
+  <div class="dim" style="font-size:0.8em;">上次记录：7月20日（已空白 25 天） · 上次训练：背+手臂 64min / 345kcal</div>
+
+  <div class="eval">
+    <strong>💬 评价：</strong>二十五天，差五天就满一个月。7/20 那天的记录其实很有意思——练了 64 分钟力量，净摄入却只剩 300 kcal。这说明你的问题从来不是「懒」，反而是「练得动、吃得不够」，身体一直在欠账。一个月没记录，最大的未知数还是那个 70kg：如果这段日子你把饮食和训练都停了，体重可能已经漂向 72；如果你还在偷偷练，可能已经跌破 69。两个方向、处理方式完全相反，但你此刻没法判断自己站在哪边。
+  </div>
+
+  <div class="tip">
+    <strong>💡 明日建议：</strong>站上秤，一次。70 → ?，这一个数字直接决定接下来是「控」还是「补」。别给自己设「等状态好了再称」的坎——体重秤不挑状态，它只报事实。零卡混调（黑咖啡 + 无糖雪碧/芬达）随时可以续上，你要的只是一个数字打底。
+  </div>
+</div>
+
+<!-- ====== Ckddd ====== -->
+<div class="person">
+  <h3>🐔 Ckddd</h3>
+
+  <div class="sub">🍽️ 饮食</div>
+  <div class="no-data">今日暂无有效记录</div>
+
+  <div class="sub">🏋️ 训练</div>
+  <div class="no-data">今日暂无有效记录</div>
+
+  <div class="sub">📊 身体状态</div>
+  <div class="stat-row">
+    <span class="stat-tag">体重 ~64kg</span>
+    <span class="stat-tag">体脂 ~14.6%</span>
+    <span class="stat-tag warn">数据距今 6 个月</span>
+  </div>
+  <div class="dim" style="font-size:0.8em;">上次记录：7月8日（已空白 37 天） · 肌肉量 53.4kg · 目标：增肌</div>
+
+  <div class="eval">
+    <strong>💬 评价：</strong>三十七天，五个半星期。对 64kg 增肌选手来说，这个长度的空白已经不能用「休息」解释了——它是肌肉在静默赤字里流失的高风险期。二月 InBody 上那个 14.6% 体脂 + 53.4kg 肌肉的好底子，是多少增肌人梦寐以求的起点；但肌肉这玩意儿不打招呼，说掉就掉、掉了还不留痕迹。半年没测，现在那个「64kg / 14.6%」到底还剩多少，谁也说不准。
+  </div>
+
+  <div class="tip">
+    <strong>💡 明日建议：</strong>一件事：称体重，然后看数字定方向。若跌破 62kg → 先别急着冲训练，把每天热量吃到 2,200+ 是第一优先级；若稳在 63–65kg → 说明体重没崩、只是训练断了，重启训练比补热量更急。面包 + 鸡蛋 + 冰美式 + 蛋白粉，这套你从来没失效过的公式，随时能用。
+  </div>
+</div>
+
+<!-- ====== 群内提醒 ====== -->
+<div class="reminder">
+  <h2>📢 群内提醒</h2>
+  <p>连续第十一天，三人零打卡。过了「两位数」的第一天，还在往上走。</p>
+  <p>今天不重复昨天的奖杯论，换一个角度：你们三个七月都证明过自己能做到——lzl 能把一顿麻辣香锅拆到克、monkiki 能拉满心率分区、ckddd 连深夜羊肉米线都精确到克。这种精细度不是天赋，是习惯。习惯这东西，停一天是暂停，停十一天就快变成「以前的事了」。</p>
+  <p style="color:#81d4fa; font-weight:600; margin-top:12px;">重启成本，按人分（周五，给个具体动作）：</p>
+  <p>🦍 <strong>lzl</strong>：踩秤 + 拍午饭（93.5→?）</p>
+  <p>🍳 <strong>monkiki</strong>：踩秤（70→?）</p>
+  <p>🐔 <strong>ckddd</strong>：踩秤（64→?）</p>
+  <p style="margin-top:12px;">三个动作加起来不到一分钟。不是打卡、不是卷，只是让三个月后的自己回头看时，知道这三个月到底发生了什么。空白本身没错，但空白的代价是彻底失去方向感。</p>
+  <p style="color:#4fc3f7; margin-top:12px;">周五晚，别让第十一天变成第十二天。🏆</p>
+</div>
+
+<div class="footer">
+  2026-08-14 23:00 CST · Generated by Hermes Agent<br>
+  所有热量/蛋白质数据均为估算，可能存在 ±15-20% 误差<br>
+  本地 md 文件读取成功 · Discord #fitness 频道已核验（今日无新消息）
+</div>
+
+</body>
+</html>
