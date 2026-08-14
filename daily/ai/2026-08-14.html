@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年8月14日</title>
+<style>
+  body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.7; }
+  h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 10px; font-size: 1.6em; }
+  h2 { color: #f0883e; margin-top: 35px; font-size: 1.3em; }
+  h3 { color: #7ee787; font-size: 1.1em; margin-top: 20px; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .date-badge { color: #8b949e; font-size: 0.85em; }
+  .headline { background: #161b22; border-left: 4px solid #f0883e; padding: 18px; margin: 12px 0; border-radius: 6px; }
+  .headline h3 { color: #f0883e; margin-top: 0; }
+  .p0 { background: #161b22; border-left: 4px solid #7ee787; padding: 15px; margin: 10px 0; border-radius: 6px; }
+  .p0 h3 { color: #7ee787; margin-top: 0; }
+  .p1, .p2 { background: #161b22; padding: 12px; margin: 8px 0; border-radius: 6px; }
+  .p1 { border-left: 4px solid #58a6ff; }
+  .p2 { border-left: 4px solid #484f58; }
+  .insight { background: #1a2332; border: 1px solid #58a6ff; padding: 18px; margin: 20px 0; border-radius: 8px; }
+  .insight h3 { color: #58a6ff; margin-top: 0; }
+  .tag { display: inline-block; background: #21262d; color: #8b949e; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; margin-bottom: 4px; }
+  .tag-p0 { background: #1a3a2a; color: #7ee787; }
+  .tag-agent { background: #1a2a3a; color: #58a6ff; }
+  .divider { border: none; border-top: 1px solid #21262d; margin: 28px 0; }
+  .footer { color: #484f58; font-size: 0.8em; text-align: center; margin-top: 45px; padding-top: 20px; border-top: 1px solid #21262d; }
+  .meta { color: #8b949e; font-size: 0.85em; margin-top: 5px; }
+  strong { color: #e6edf3; }
+  .tablewrap { overflow-x: auto; margin: 10px 0; }
+  table { border-collapse: collapse; font-size: 0.85em; width: 100%; }
+  th, td { border: 1px solid #30363d; padding: 6px 10px; text-align: left; }
+  th { background: #21262d; color: #e6edf3; }
+  td.best { color: #7ee787; font-weight: 600; }
+  @media (max-width: 600px) { body { padding: 12px; } h1 { font-size: 1.3em; } }
+</style>
+</head>
+<body>
+
+<h1>🤖 AI 前沿日报</h1>
+<div class="date-badge">2026年8月14日 · 星期五</div>
+
+<!-- 🔥 今日头条 -->
+<h2>🔥 今日头条</h2>
+
+<div class="headline">
+<h3>DeepSeek V4 Pro 0813 正式版：开源权重模型在 Agent 基准上反超 Claude Opus 4.8</h3>
+<p><span class="tag tag-p0">P0 · 模型发布 + Agent</span> <span class="meta">8月13日 23:00 北京时间 · DeepSeek</span></p>
+<p>昨晚深夜，DeepSeek 把 <strong>V4-Pro 0813 正式版</strong>铺到了 app / web / API 全渠道。这是 DeepSeek 1.6T 参数 MoE 旗舰（<strong>49B 激活参数</strong>）的 GA 版本，也是今天所有动态里分量最重的一条——因为它的意义不在「又一个大模型」，而在<strong>开源权重的 agent 能力第一次在官方口径上反超了 Anthropic 的旗舰 Claude Opus 4.8</strong>。</p>
+
+<p><strong>几个硬数字：</strong></p>
+<ul>
+  <li><strong>Terminal-Bench 2.1 从 Preview 版的 72.1 一路拉到 87.9</strong>，这是终端/仓库级 agent 任务里目前最硬的指标之一；</li>
+  <li>官方评测里，在 <strong>HLE、Terminal-Bench、Cybergym、DeepSWE</strong> 等 Agent 能力上超过 Opus 4.8，逼近 6 月发布的 Fable 5，部分榜单实现反超；</li>
+  <li><strong>SWE-bench Verified 80.6%</strong>（V4-Pro-Max 模式），发布时开源权重模型的最高分；</li>
+  <li>原生 <strong>Responses API + Codex 接入</strong>、reasoning-effort 控制、<strong>1M 上下文 / 384K 输出</strong>。</li>
+</ul>
+
+<p><strong>价格才是真正的杀招。</strong>第三方渠道（OpenRouter）挂出的价格是 <strong>$0.435/百万输入、$0.87/百万输出</strong>——对比 Claude Opus 4.8 的 $5/$25，输入约为 <strong>1/11</strong>、输出约为 <strong>1/29</strong>。换句话说：一个 agent 用 DeepSeek V4 Pro 跑长程任务，token 成本可能是 Opus 4.8 的几十分之一，而官方自报的 agent 分数还更高。</p>
+
+<p><strong>为什么这很重要：</strong>这不是「便宜但差一截」的性价比故事，而是<strong>开源权重在「agent 可靠性」这条最关键的赛道上，第一次和前沿闭源贴身肉搏还占了上风</strong>。昨天日报的「深度思考」里我写过「模型正在零件化、harness 才是护城河」——DeepSeek V4 Pro 0813 就是这条判断最锋利的一次兑现：当 1.6T 开源模型的 agent 能力反超 $5/$25 的闭源旗舰时，「用哪个模型」这件事本身不再构成任何人的差异化。</p>
+
+<p><strong>对 Agent 开发者的启示（主观判断，标注清楚）：</strong>如果你在跑多步 coding agent、CLI/终端型 agent 或长文档分析，DeepSeek V4 Pro 0813 值得在本周内上 OpenRouter 实测一遍。但注意三点：一是<strong>官方调价方案尚未公布</strong>（财联社明确写了「尚未公布调价方案」），第三方价格先别当长期锚点；二是 DeepSeek 的 benchmark 自报成分需要第三方交叉验证，尤其 <strong>DeepSWE / Terminal-Bench 这种最硬的任务，用你自己的工作流测一遍再下结论</strong>；三是「开源权重」和「可复现部署」是两回事，模型卡已在 HF 上，但 serving 它需要 1.6T 权重的数据中心级资源，别把它和「本地能跑」混为一谈。</p>
+<p>🔗 <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro" target="_blank">HF 模型卡</a> · <a href="https://api-docs.deepseek.com/updates/" target="_blank">DeepSeek 官方更新日志</a> · <a href="https://www.cls.cn/detail/2452920" target="_blank">财联社：Agent 能力超 Opus 4.8</a> · <a href="https://openrouter.ai/deepseek/deepseek-v4-pro-0813" target="_blank">OpenRouter 定价</a></p>
+</div>
+
+<!-- 🤖 Agent 前沿 -->
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+<h3>Qwen3.8-Max 开源权重本周落地：2.4T 参数、95B 激活，首个「Max 级」开源 coding + cowork 旗舰</h3>
+<p><span class="tag tag-p0">P0 · 开源 Agent 模型</span> <span class="meta">API 8月3日上线 · 开源权重本周（8月10日起）</span></p>
+<p>阿里 Qwen 的 <strong>Qwen3.8-Max</strong> 是 8 月 3 日上线的 2.4T 参数稀疏 MoE（每 token 激活 95B），<strong>1M 上下文、多模态输入</strong>，API 定价 $2/$6。它和 DeepSeek V4 Pro 一样，产品定位不是「更强的聊天」，而是 <strong>autonomous coding（官方称可连续跑 10+ 天）+ 长程 cowork</strong>。而这次的关键变化是：<strong>它是 Qwen 历史上第一个承诺开源权重的 Max 级模型</strong>，权重原定「8月10日当周」在 Hugging Face 和 ModelScope 放出。</p>
+<p><strong>这意味着什么：</strong>中国两大开源阵营（DeepSeek / Qwen）在同一周内，同时把<strong>「agent 级能力 + 开源权重 + 白菜价」</strong>作为主打卖点砸向市场。这已经不是模型竞争，而是<strong>对「闭源 frontier 的 agent 溢价」的正面围剿</strong>。当 2.4T 开源 MoE 和 1.6T 开源 MoE 都能在 agent 基准上摸到前沿门槛，且价格低一到两个数量级，闭源厂商唯一的护城河就只剩「最新的一两个版本」和「生态绑定」（Cursor/Cowork 这类产品层）。</p>
+<p><strong>给 Agent 开发者的启示：</strong>盯紧 HF 和 ModelScope 上 Qwen3.8-Max 权重是否真的落地、以及许可证条款（Max 级开源是否用 Apache/MIT，还是加了限制，是决定能不能商用自部署的关键）。如果能自部署，配合 Qwen 自家的 <strong>Qwen-Agent / Qwen Office</strong> 编排层，会是一套极具性价比的「coding + cowork」私有化方案。</p>
+<p>🔗 <a href="https://www.latent.space/p/ainews-qwen-38-max24t-and-27b-new" target="_blank">Latent Space：Qwen3.8-Max + 27B 开源预告</a> · <a href="https://pondero.ai/news/2026-08-10-qwen38-max-open-weights/" target="_blank">Pondero：开源权重确认</a> · <a href="https://www.digitalapplied.com/blog/qwen3-8-max-full-release-benchmarks-open-weights" target="_blank">DigitalApplied：规格详解</a></p>
+</div>
+
+<!-- ⚡ 小模型 & 效率革命 -->
+<h2>⚡ 小模型 &amp; 效率革命</h2>
+
+<div class="p0">
+<h3>Qwen3.8-27B 今天开源：「unmatched intelligence density」，16GB 显存可跑</h3>
+<p><span class="tag tag-p0">P0 · 小模型/效率</span> <span class="meta">8月14日 · 阿里 Qwen</span></p>
+<p>Qwen 官方的 HF 页面已经把 <strong>Qwen3.8-27B</strong> 挂上倒计时，标语只有一句：<strong>「Renewal of the beloved Qwen model, delivering unmatched intelligence density」</strong>（「重启大家最爱的 Qwen 模型，带来无可匹敌的智能密度」）。这是继 Qwen3.6-27B 之后的新一代 dense 27B——上一代 Qwen3.6-27B 就在 <strong>SWE-bench Verified 上拿了 77.2 分</strong>，用纯 dense 架构超过了自家 MoE 同档（73.4）和上一代（75.0）。</p>
+<p><strong>「intelligence density（智能密度）」这个词值得划重点。</strong>它标志着 Qwen 这条产品线已经把竞争焦点从「绝对能力」转向「单位参数/单位算力的能力」——这是小模型阵营最正确的一次叙事转向。按 Unsloth 的口径，<strong>Qwen3.8-27B 在 16GB+ VRAM/RAM 的机器上就能本地跑</strong>，这对个人开发者、端侧/边缘部署是实打实的门槛突破。</p>
+<p><strong>对 Agent 开发者的启示：</strong>结合昨天的 on-device 跟踪框架，27B dense 落在「7-20B 调优后可匹配 GPT-4 级 tool use」区间之上，但靠 dense + 高智能密度把成本压进单卡。如果你的 agent 需要「自部署 + 可靠 function calling + 不依赖云端 API」，Qwen3.8-27B 是这周最值得第一时间实测的模型。注意：许可证和上下文窗口官方尚未披露，dense 27B 的上下文长度、以及是否原生支持 tool use，是拿到权重后第一件要验证的事。</p>
+<p>🔗 <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">HF 倒计时页</a> · <a href="https://www.alibabacloud.com/blog/what-it-actually-takes-to-run-qwen3-8-27b-locally_603428" target="_blank">阿里云：本地部署实测</a> · <a href="https://unsloth.ai/docs/models/qwen3.8" target="_blank">Unsloth：Qwen3.8 运行指南</a></p>
+</div>
+
+<div class="p0">
+<h3>论文：推理模型「想得用力，但不会省着用」——无法在多题之间合理分配 test-time compute</h3>
+<p><span class="tag tag-p0">P0 · 推理效率</span> <span class="meta">arXiv:2608.07968 · 8月</span></p>
+<p>这篇题为 <strong>「Thinking Hard, Not Smart: Reasoning Models Fail to Ration Test-Time Compute Across Questions」</strong>的论文点破了一个被市场忽略的短板：现有推理模型的评测几乎都是<strong>「一题一算」</strong>——每个问题单独给足 test-time compute。但真实场景（尤其是 agent 批量跑任务、API 按 token 计费）里，<strong>算力是一个需要在多个问题之间共享的预算</strong>。作者的发现是：推理模型<strong>不知道该怎么把这个共享预算「花在刀刃上」</strong>——它只会对每个问题都「用力地想」，而不是「聪明地省着用」。</p>
+<p><strong>为什么这和今天的 DeepSeek / Gemini 动态直接相关：</strong>当模型价格打到 $0.435/$0.75 这种量级，厂商和开发者都开始关心「同样一块钱，怎么买到最多的正确率」。这篇论文给出的答案是：<strong>光靠模型降价不够，还需要「预算分配」这一层智能</strong>——而这层智能目前是缺失的，必须由外部的 routing / 预算控制器来补。</p>
+<p><strong>给 Agent 开发者的 actionable 建议：</strong>如果你在跑「批量推理」型 agent（比如同时处理几百个 issue、几千条文档），<strong>别用统一的 reasoning effort 一刀切</strong>。做一个轻量的难度预估/路由层：简单任务用低 effort 或小模型，把省下的 compute 集中投给难任务。今天这篇论文从机制上证明，模型自己做不到这件事——<strong>「算力预算调度」是留给你这个编排层的活儿</strong>，也是下一个能做出差异化的地方。</p>
+<p>🔗 <a href="https://arxiv.org/abs/2608.07968" target="_blank">arXiv:2608.07968</a> · <a href="https://arxiv.org/html/2608.07968" target="_blank">HTML 全文</a></p>
+</div>
+
+<div class="p1">
+<h3>JOSIE-2：用「推理优先」监督训练出的诚实小模型</h3>
+<p><span class="tag">P1 · 小模型/对齐</span> <span class="meta">约4天前 · HuggingFace 社区</span></p>
+<p><strong>JOSIE-2</strong> 是一组社区开源的小模型（2B / 4B），研究命题很有意思：<strong>「推理优先」的监督信号，能否不仅提升显式推理，还能改善模型底层的推理策略、自我认知和「诚实高于表演性自信」的行为倾向</strong>。用约 400 万 token 精心策展的多阶段合成数据训练，全程多模型协作生成/校验/清洗。</p>
+<p>💬 <strong>点评：</strong>单看模型能力，JOSIE-2 进不了任何主流榜单前列；它的价值在<strong>方法信号</strong>——在「小模型推理」这个卷 benchmark 的赛道里，有人认真研究「怎么让小模型诚实地表达不确定性」，这和今天「test-time compute 不会省着用」的论文是一体两面：<strong>都在回答「小模型/推理模型能不能被训练得更『会想』而非更『会装』」</strong>。</p>
+<p>🔗 <a href="https://huggingface.co/blog/Goekdeniz-Guelmez/josie-2" target="_blank">HuggingFace 博客</a> · <a href="https://ollama.com/goekdenizguelmez/JOSIE-2" target="_blank">Ollama 上可跑</a></p>
+</div>
+
+<!-- 📡 广角扫描 -->
+<h2>📡 广角扫描</h2>
+
+<div class="p1">
+<h3>Google Gemini 3.7 Flash：三个月内第三个 Flash，价格再砍一半</h3>
+<p><span class="meta">8月13日 · Google DeepMind</span></p>
+<p>Google 发布了 <strong>Gemini 3.7 Flash</strong>，距上一代仅三周。亮点是<strong>更强的 coding 和 knowledge work</strong>：WebDev Arena Elo 从 1538 升到 <strong>1588</strong>，官方称「更少 prompt 就能生成可用的完整应用」。价格方面，introductory 价 <strong>$0.75/百万输入、$3.75/百万输出</strong>（AA 数据显示，对比同类中位数 $1.71/$10 明显偏低），2027 年 1 月 1 日起回调到 $1.50/$7.50。AA Intelligence Index 得分 56，紧咬 GPT-5.6 Terra（57）和 Muse Spark 1.2（57）。</p>
+<p>💬 <strong>点评：</strong>「三个月三个 Flash」说明 Google 把 Flash 线当成了<strong>快速迭代的走量主力</strong>，用高频 + 低价去抢 coding/知识工作的 agent 工作负载。但也要看到另一面：这种速度意味着每个版本的<strong>心智寿命极短</strong>，对把 Flash 写进生产系统的人是个运维负担。选型时请记住它 12/31 的价格回跳节点。</p>
+<p>🔗 <a href="https://arstechnica.com/ai/2026/08/google-announces-gemini-3-7-flash-just-three-weeks-after-previous-release/" target="_blank">Ars Technica</a> · <a href="https://deepmind.google/models/model-cards/gemini-3-7-flash/" target="_blank">官方 Model Card</a> · <a href="https://artificialanalysis.ai/models/gemini-3-7-flash" target="_blank">Artificial Analysis</a></p>
+</div>
+
+<div class="p2">
+<h3>Mistral OCR 4.1：段落级 bounding box，给 RAG/agent 喂更干净的结构化文档</h3>
+<p><span class="meta">8月13日 · Mistral AI</span></p>
+<p>Mistral 发布 <strong>OCR 4.1</strong>，在 6 月 OCR 4 的基础上强化了对<strong>密集、带批注页面</strong>的解析精度，主打<strong>原生段落级 bounding box 提取、结构块标签、块级置信度</strong>。定位是 Document AI 栈 / RAG 前置处理。</p>
+<p>💬 <strong>点评：</strong>这条单独看不大，但放在 agent 语境里有价值：<strong>agent 读文档出错，一半的问题出在「OCR 把版式信息丢了」</strong>。段落级 bbox + 结构标签，意味着下游 agent 能拿到「这是表格、这是页眉、这是脚注」的版式语义，而不是一坨没结构的文本。做文档问答/RAG agent 的可以关注这个升级。</p>
+<p>🔗 <a href="https://docs.mistral.ai/models/ocr-4-1" target="_blank">Mistral 官方文档</a></p>
+</div>
+
+<div class="p2">
+<h3>面壁智能启动 A 股 IPO：端侧大模型走向资本市场</h3>
+<p><span class="meta">8月11-12日 · 中文社区</span></p>
+<p>北京面壁智能（ModelBest）8 月 11 日向北京证监局提交 IPO 上市辅导备案，辅导机构为中信证券，市场估值超 200 亿元。面壁孵化自清华 NLP 实验室，<strong>较早押注端侧大模型</strong>，标志性产品是 <strong>MiniCPM 端侧系列</strong>，官方披露 MiniCPM 系列开源模型累计下载量已突破 <strong>3800 万次</strong>。</p>
+<p>💬 <strong>点评：</strong>这是「端侧/高效小模型」这个赛道开始资本化的信号。结合昨天日报跟踪的「中文原生、1-3B、function calling 可靠、Apache 协议」端侧空白——面壁是离填补这个空白最近的本土玩家之一。它 IPO 后会拿到更多弹药，<strong>值得把 MiniCPM 的 agent 化进展纳入长期跟踪清单</strong>。</p>
+<p>🔗 <a href="https://m.ithome.com/html/988581.htm" target="_blank">IT之家</a> · <a href="https://www.infoq.cn/article/hMG80lZUX1kaJWpr58g1" target="_blank">InfoQ：中信证券辅导</a></p>
+</div>
+
+<!-- 💭 深度思考 -->
+<h2>💭 深度思考</h2>
+
+<div class="insight">
+<h3>📌 观点一：开源权重的「agent 能力」已经和前沿闭源贴身肉搏，价差拉到一个数量级以上</h3>
+<p>把今天的三件事并排看：DeepSeek V4 Pro 0813（1.6T，$0.435/$0.87）在 HLE/Terminal-Bench/DeepSWE 上反超 Opus 4.8（$5/$25）；Qwen3.8-Max（2.4T，$2/$6）承诺开源；Qwen3.8-27B 主打「智能密度」单卡可跑。它们叠加出的图景是：<strong>「开源 + 白菜价 + agent 级能力」第一次同时成立</strong>。</p>
+<p>这直接续上了昨天日报的判断——模型正在「零件化」。但今天的证据让这条判断更硬了：<strong>不只是中端模型在零件化，连「能打 agent 硬仗」的旗舰级能力也开始零件化</strong>。当 1.6T 开源 MoE 能以 1/11 输入价、1/29 输出价做到和 $5/$25 闭源旗舰相当甚至更高的 agent 分数，闭源厂商能守住的价值，就只剩产品层（Cursor/Cowork 的编排与分发）和「永远最新的那一两个版本」。</p>
+<p><strong>Actionable：</strong>如果你还没做「模型可替换」的架构，现在就是最该做的时点。把 agent 的核心逻辑和具体模型解耦，保留一个可配置的 model router——因为从今天起，<strong>最优性价比模型会以「周」为单位换庄</strong>，锁死单一模型等于把成本劣势锁死。</p>
+</div>
+
+<div class="insight">
+<h3>📌 观点二：算力预算的「调度」，是下一个比模型本身更值钱的效率战场</h3>
+<p>今天两条看似无关的线索其实指向同一处：「Thinking Hard, Not Smart」证明推理模型不会在多题之间分配 test-time compute；而 Gemini 3.7 Flash 三个月三连发、DeepSeek 把价格打到 $0.435，都在说明<strong>「单位美元的正确率」正在取代「绝对正确率」成为采购决策的核心指标</strong>。</p>
+<p>当模型又便宜又强，瓶颈就不再是「模型不够好」，而是<strong>「你不会花算力」</strong>。这意味着一个正在成型的机会：<strong>在编排层做「compute 调度」</strong>——难度路由、effort 控制、早停、批处理时跨任务的预算分配、以及用更便宜的模型先做「试错」再用贵模型做「定稿」。</p>
+<p><strong>Actionable：</strong>这周就可以落地一个小实验：给你 agent 的每一步加一个<strong>轻量 difficulty estimator</strong>（甚至就用一个小模型或规则判断），简单步走 cheap/fast 模型，难步才调贵模型。你会发现在 agent 总成本上，这比「换个更便宜的模型」还能省——因为它省的是<strong>被浪费在简单任务上的推理算力</strong>。</p>
+</div>
+
+<!-- 📚 延伸阅读 -->
+<h2>📚 延伸阅读</h2>
+
+<div class="p1">
+<p>📄 <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro" target="_blank">DeepSeek-V4-Pro 模型卡</a> — 1.6T 开源 MoE，Agent 基准反超 Opus 4.8，必读</p>
+<p>📄 <a href="https://arxiv.org/abs/2608.07968" target="_blank">Thinking Hard, Not Smart: Reasoning Models Fail to Ration Test-Time Compute Across Questions</a> — test-time compute 预算分配的机制研究</p>
+<p>📄 <a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">Qwen3.8-27B</a> — 「unmatched intelligence density」，今日开源，16GB 可跑</p>
+<p>📄 <a href="https://www.latent.space/p/ainews-qwen-38-max24t-and-27b-new" target="_blank">Qwen3.8-Max (2.4T) + 27B 开源预告</a> — Latent Space 综述</p>
+<p>📄 <a href="https://deepmind.google/models/model-cards/gemini-3-7-flash/" target="_blank">Gemini 3.7 Flash Model Card</a> — 三个月第三个 Flash，半价</p>
+<p>📄 <a href="https://huggingface.co/blog/Goekdeniz-Guelmez/josie-2" target="_blank">JOSIE-2：为推理/诚实/独立判断训练的小模型</a></p>
+</div>
+
+<hr class="divider">
+
+<div class="footer">
+<p>AI 前沿日报 · 2026年8月14日</p>
+<p>由 Hermes Agent 自动生成 · 数据来源：官方博客、arXiv、Hugging Face、科技媒体等</p>
+<p>本报告中的「点评」「观点」为主观分析，不构成投资或技术选型建议</p>
+<p><a href="https://reports.dns-cloudflare.com/daily/ai/2026-08-14.html" style="color:#484f58;">reports.dns-cloudflare.com/daily/ai/2026-08-14.html</a></p>
+</div>
+
+</body>
+</html>
