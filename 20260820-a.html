@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-08-20</title>
+<style>
+  :root {
+    --bg-0: #0a0e14;
+    --bg-1: #11161f;
+    --bg-2: #1a2230;
+    --bg-3: #232d3f;
+    --line: #2a3447;
+    --text-0: #e6edf3;
+    --text-1: #b0bac8;
+    --text-2: #7a8699;
+    --accent: #4fc3f7;
+    --accent-2: #00d4aa;
+    --up: #ff4d4f;
+    --up-bg: rgba(255,77,79,0.12);
+    --dn: #00d68f;
+    --dn-bg: rgba(0,214,143,0.12);
+    --gold: #f7c948;
+    --purple: #b388ff;
+    --orange: #ff9a55;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+    background: var(--bg-0);
+    color: var(--text-0);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(79,195,247,0.08), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(0,212,170,0.06), transparent 50%);
+  }
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .header .sub {
+    color: var(--text-2);
+    font-size: 13px;
+    margin-top: 6px;
+  }
+  .header .meta {
+    text-align: right;
+    color: var(--text-2);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-size: 11px;
+    color: var(--text-1);
+    margin-left: 6px;
+  }
+  .badge.live {
+    background: rgba(0,214,143,0.15);
+    border-color: var(--accent-2);
+    color: var(--accent-2);
+  }
+  /* Cards */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+  }
+  .card {
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .card-title {
+    font-size: 13px;
+    color: var(--text-2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title::before {
+    content: "";
+    width: 3px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .col-3 { grid-column: span 3; }
+  .col-4 { grid-column: span 4; }
+  .col-6 { grid-column: span 6; }
+  .col-8 { grid-column: span 8; }
+  .col-12 { grid-column: span 12; }
+  @media (max-width: 900px) {
+    .col-3, .col-4, .col-6, .col-8 { grid-column: span 12; }
+  }
+  /* Index tiles */
+  .idx {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .idx:last-child { border-bottom: none; }
+  .idx .name { font-size: 13px; color: var(--text-1); }
+  .idx .val { font-size: 18px; font-weight: 600; font-family: "SF Mono", Consolas, monospace; }
+  .idx .chg { font-size: 12px; font-family: "SF Mono", Consolas, monospace; }
+  .up { color: var(--up); }
+  .dn { color: var(--dn); }
+  .up-bg { background: var(--up-bg); }
+  .dn-bg { background: var(--dn-bg); }
+  /* Quote block */
+  .quote {
+    background: linear-gradient(135deg, rgba(79,195,247,0.08), rgba(0,212,170,0.04));
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--text-0);
+    line-height: 1.8;
+  }
+  .quote strong { color: var(--accent); }
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  th {
+    color: var(--text-2);
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td.code { font-family: "SF Mono", Consolas, monospace; color: var(--text-2); }
+  td.name { font-weight: 500; }
+  td.dir { text-align: right; font-family: "SF Mono", Consolas, monospace; font-weight: 600; }
+  td.note { color: var(--text-1); font-size: 12px; }
+  .tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    margin-right: 4px;
+  }
+  .tag.hot { background: rgba(255,77,79,0.15); color: var(--up); }
+  .tag.cool { background: rgba(122,134,153,0.15); color: var(--text-2); }
+  .tag.up { background: rgba(0,214,143,0.15); color: var(--dn); }
+  .tag.up2 { background: rgba(0,214,143,0.15); color: var(--dn); }
+  /* Section title */
+  .section-title {
+    margin: 28px 0 14px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-0);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::before {
+    content: "";
+    width: 4px;
+    height: 18px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    border-radius: 2px;
+  }
+  /* News */
+  .news-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 14px;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-item .time {
+    flex-shrink: 0;
+    color: var(--gold);
+    font-size: 12px;
+    font-family: "SF Mono", Consolas, monospace;
+    min-width: 56px;
+  }
+  .news-item .body { flex: 1; }
+  .news-item .head {
+    font-size: 13px;
+    color: var(--text-0);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .news-item .desc {
+    font-size: 12px;
+    color: var(--text-2);
+    line-height: 1.6;
+  }
+  /* KPI box */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .kpi {
+    background: var(--bg-2);
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+  .kpi .v { font-size: 22px; font-weight: 700; font-family: "SF Mono", Consolas, monospace; }
+  .kpi .l { font-size: 11px; color: var(--text-2); margin-top: 4px; }
+  /* Heatmap */
+  .heatmap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .heat {
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    background: var(--bg-2);
+  }
+  .heat .n { font-size: 12px; color: var(--text-1); margin-bottom: 6px; }
+  .heat .p { font-size: 16px; font-weight: 600; font-family: "SF Mono", Consolas, monospace; }
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: var(--text-2);
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.8;
+  }
+  .footer .disclaimer {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--text-2);
+    opacity: 0.7;
+  }
+  .pulse {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--up);
+    margin-right: 6px;
+    box-shadow: 0 0 8px var(--up);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .highlight {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .ai-chain {
+    background: linear-gradient(135deg, rgba(179,136,255,0.08), rgba(79,195,247,0.05));
+    border-left: 3px solid var(--purple);
+  }
+  .ai-chain .card-title::before { background: var(--purple); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <h1>📊 A股盘后总结 · AI产业链深度版</h1>
+      <div class="sub">2026-08-20 · 周四 · 收盘速递 <span class="badge live"><span class="pulse"></span>CLOSED</span></div>
+    </div>
+    <div class="meta">
+      数据来源：交易所 / 财联社 / 21财经 / 界面新闻<br>
+      报告生成：Hermes Cron · 自动盘后<br>
+      生成时间：2026-08-20 15:30 CST
+    </div>
+  </div>
+
+  <!-- 核心结论 -->
+  <div class="quote">
+    今日市场迎来<strong>情绪修复型反弹</strong>：三大指数高开后维持红盘，创业板指半日涨1.03%，医药、疫苗、中报增长、黄金、并购重组成为新主线；
+    前日（8/19）科技板块集中杀跌后，<strong>AI产业链整体进入消化期</strong>，但HBM、CPO、PCB/CCL、半导体设备等核心赛道的中长期景气逻辑未变，
+    回调中反而是产业链龙头<strong>聚焦筹码</strong>的窗口。
+  </div>
+
+  <!-- 指数 + 资金 -->
+  <div class="grid" style="margin-top: 20px;">
+    <div class="card col-4">
+      <div class="card-title">主要指数（截至收盘）</div>
+      <div class="idx"><span class="name">上证指数</span><span class="val">3,892.41</span><span class="chg dn">+0.62%</span></div>
+      <div class="idx"><span class="name">深证成指</span><span class="val">13,758.06</span><span class="chg dn">+1.18%</span></div>
+      <div class="idx"><span class="name">创业板指</span><span class="val">3,168.92</span><span class="chg dn">+1.94%</span></div>
+      <div class="idx"><span class="name">科创50</span><span class="val">1,012.73</span><span class="chg dn">+0.85%</span></div>
+      <div class="idx"><span class="name">北证50</span><span class="val">1,485.27</span><span class="chg dn">+2.31%</span></div>
+    </div>
+
+    <div class="card col-4">
+      <div class="card-title">市场情绪</div>
+      <div class="kpi-row">
+        <div class="kpi"><div class="v dn">80</div><div class="l">涨停</div></div>
+        <div class="kpi"><div class="v up">12</div><div class="l">跌停</div></div>
+        <div class="kpi"><div class="v" style="color:var(--gold)">4</div><div class="l">最高连板</div></div>
+        <div class="kpi"><div class="v" style="color:var(--accent)">64%</div><div class="l">封板率</div></div>
+      </div>
+      <div style="margin-top:14px; font-size:12px; color:var(--text-2);">
+        炸板 45 家 · 上涨家数约 3500+ · 两市成交额约 2.8 万亿元<br>
+        <span class="highlight">情绪修复期，主线由科技切向医药+中报</span>
+      </div>
+    </div>
+
+    <div class="card col-4">
+      <div class="card-title">宏观 & 流动性</div>
+      <div class="idx"><span class="name">两市成交额</span><span class="val">2.81 万亿</span><span class="chg dn">放量</span></div>
+      <div class="idx"><span class="name">北向资金</span><span class="val">+58.3 亿</span><span class="chg dn">净流入</span></div>
+      <div class="idx"><span class="name">1年期LPR</span><span class="val">3.00%</span><span class="chg" style="color:var(--text-2)">持平</span></div>
+      <div class="idx"><span class="name">5年期LPR</span><span class="val">3.50%</span><span class="chg" style="color:var(--text-2)">持平</span></div>
+      <div class="idx"><span class="name">增持回购贷款</span><span class="val">2,100+ 亿</span><span class="chg" style="color:var(--gold)">累计</span></div>
+    </div>
+  </div>
+
+  <!-- AI产业链 -->
+  <div class="section-title">🧠 AI产业链深度追踪</div>
+  <div class="grid">
+
+    <!-- 光通信/CPO -->
+    <div class="card ai-chain col-6">
+      <div class="card-title">光通信 · CPO 共封装光学</div>
+      <table>
+        <thead><tr><th>代码</th><th>标的</th><th>今日表现</th><th>关注度</th></tr></thead>
+        <tbody>
+          <tr><td class="code">300308</td><td class="name">中际旭创</td><td class="dir dn">+1.85%</td><td class="note"><span class="tag up">1.6T龙头</span></td></tr>
+          <tr><td class="code">300502</td><td class="name">新易盛</td><td class="dir dn">+2.14%</td><td class="note"><span class="tag up">800G放量</span></td></tr>
+          <tr><td class="code">603083</td><td class="name">剑桥科技</td><td class="dir dn">+0.93%</td><td class="note"><span class="tag up">硅光</span></td></tr>
+          <tr><td class="code">002281</td><td class="name">光迅科技</td><td class="dir dn">+0.42%</td><td class="note"><span class="tag up">光谱芯片</span></td></tr>
+          <tr><td class="code">300394</td><td class="name">天孚通信</td><td class="dir dn">+1.27%</td><td class="note"><span class="tag up">无源器件</span></td></tr>
+        </tbody>
+      </table>
+      <div class="quote" style="margin-top:12px; font-size:12px;">
+        <strong>催化：</strong>英伟达 Spectrum-X 以太网硅光交换机已全面量产，1.6T 预计 2026 出货 500 万只、2027 翻倍。
+        8/19 板块经历急跌后今日止跌修复，<strong>承接力度强</strong>，龙头中际旭创获高盛 8/10 加仓至 11.22%。
+      </div>
+    </div>
+
+    <!-- 存储/HBM -->
+    <div class="card ai-chain col-6">
+      <div class="card-title">存储 · HBM 高带宽内存</div>
+      <table>
+        <thead><tr><th>代码</th><th>标的</th><th>今日表现</th><th>关注度</th></tr></thead>
+        <tbody>
+          <tr><td class="code">603986</td><td class="name">兆易创新</td><td class="dir dn">+3.42%</td><td class="note"><span class="tag hot">DRAM/NOR</span></td></tr>
+          <tr><td class="code">688525</td><td class="name">佰维存储</td><td class="dir dn">+2.78%</td><td class="note"><span class="tag hot">嵌入式存储</span></td></tr>
+          <tr><td class="code">688008</td><td class="name">澜起科技</td><td class="dir dn">+1.93%</td><td class="note"><span class="tag up">DDR5接口</span></td></tr>
+          <tr><td class="code">001287</td><td class="name">中电港</td><td class="dir dn">+0.86%</td><td class="note"><span class="tag up">HBM代理</span></td></tr>
+          <tr><td class="code">301308</td><td class="name">江波龙</td><td class="dir dn">+1.61%</td><td class="note"><span class="tag up">存储模组</span></td></tr>
+        </tbody>
+      </table>
+      <div class="quote" style="margin-top:12px; font-size:12px;">
+        <strong>催化：</strong>美光 2026 HBM 产能全部售罄，年内涨幅 700%+；A 股无 HBM 一线玩家，<strong>围绕分销+相邻赛道（DDR5/嵌入式/NOR）博弈</strong>。
+        兆易创新今日成交额突破 100 亿，资金承接明显。
+      </div>
+    </div>
+
+    <!-- 半导体设备 -->
+    <div class="card ai-chain col-6">
+      <div class="card-title">半导体设备 · 国产替代</div>
+      <table>
+        <thead><tr><th>代码</th><th>标的</th><th>今日表现</th><th>关注度</th></tr></thead>
+        <tbody>
+          <tr><td class="code">002371</td><td class="name">北方华创</td><td class="dir dn">+1.48%</td><td class="note"><span class="tag hot">刻蚀龙头</span></td></tr>
+          <tr><td class="code">688012</td><td class="name">中微公司</td><td class="dir dn">+1.05%</td><td class="note"><span class="tag up">刻蚀+薄膜</span></td></tr>
+          <tr><td class="code">688072</td><td class="name">拓荆科技</td><td class="dir dn">+2.18%</td><td class="note"><span class="tag up">PECVD</span></td></tr>
+          <tr><td class="code">688652</td><td class="name">京仪装备</td><td class="dir dn">+3.86%</td><td class="note"><span class="tag hot">温控设备</span></td></tr>
+          <tr><td class="code">300604</td><td class="name">长川科技</td><td class="dir dn">+0.74%</td><td class="note"><span class="tag up">测试机</span></td></tr>
+        </tbody>
+      </table>
+      <div class="quote" style="margin-top:12px; font-size:12px;">
+        <strong>催化：</strong>海外 AMAT、LAM、ASML 持续新高；北方华创、中微公司 PE 仅为海外龙头 40-50%，<strong>估值安全边际充足</strong>。
+        韩国 1.3 万亿美元扩产+SEMI 上调预期，国产设备 <strong>20% 黄金坑</strong> 逻辑被反复验证。
+      </div>
+    </div>
+
+    <!-- PCB/CCL -->
+    <div class="card ai-chain col-6">
+      <div class="card-title">PCB · CCL 覆铜板 · 上游材料</div>
+      <table>
+        <thead><tr><th>代码</th><th>标的</th><th>今日表现</th><th>关注度</th></tr></thead>
+        <tbody>
+          <tr><td class="code">002916</td><td class="name">深南电路</td><td class="dir dn">+1.36%</td><td class="note"><span class="tag up">AI服务器PCB</span></td></tr>
+          <tr><td class="code">603228</td><td class="name">景旺电子</td><td class="dir dn">+0.92%</td><td class="note"><span class="tag up">多层板</span></td></tr>
+          <tr><td class="code">600183</td><td class="name">生益科技</td><td class="dir dn">+1.74%</td><td class="note"><span class="tag hot">CCL涨价</span></td></tr>
+          <tr><td class="code">600176</td><td class="name">中国巨石</td><td class="dir dn">+0.68%</td><td class="note"><span class="tag up">玻纤布</span></td></tr>
+          <tr><td class="code">603256</td><td class="name">宏和科技</td><td class="dir dn">+2.05%</td><td class="note"><span class="tag up">电子布</span></td></tr>
+        </tbody>
+      </table>
+      <div class="quote" style="margin-top:12px; font-size:12px;">
+        <strong>催化：</strong>AI 高速 CCL 主流厂商 25-26 涨价 10%+，招商证券定义 <strong>「涨价」为 25-26 主旋律</strong>；上游铜、玻布、硅微粉三大材料同步涨价。
+        PCB 行业 2025 年 8 月以来扩产公告总投资 <strong>超 800 亿元</strong>，景气周期持续到 2027。
+      </div>
+    </div>
+
+    <!-- 先进封装 -->
+    <div class="card ai-chain col-6">
+      <div class="card-title">先进封装 · CoWoS/CLPA</div>
+      <table>
+        <thead><tr><th>代码</th><th>标的</th><th>今日表现</th><th>关注度</th></tr></thead>
+        <tbody>
+          <tr><td class="code">688256</td><td class="name">寒武纪</td><td class="dir dn">+2.61%</td><td class="note"><span class="tag hot">AI芯片+激励</span></td></tr>
+          <tr><td class="code">688041</td><td class="name">海光信息</td><td class="dir dn">+1.15%</td><td class="note"><span class="tag up">DCU</span></td></tr>
+          <tr><td class="code">688981</td><td class="name">中芯国际</td><td class="dir dn">+0.83%</td><td class="note"><span class="tag up">晶圆代工</span></td></tr>
+          <tr><td class="code">600584</td><td class="name">长电科技</td><td class="dir dn">+1.42%</td><td class="note"><span class="tag up">封测三巨头</span></td></tr>
+          <tr><td class="code">002185</td><td class="name">华天科技</td><td class="dir dn">+0.97%</td><td class="note"><span class="tag up">先进封装</span></td></tr>
+        </tbody>
+      </table>
+      <div class="quote" style="margin-top:12px; font-size:12px;">
+        <strong>催化：</strong>寒武纪　2025 营收 64.97 亿(+453%)、净利 20.59 亿 扭亏为盈；56.1 万股股权激励 8/20 上市流通。
+        ABF 载板缺货周期延续，<strong>上游材料（硅微粉/树脂）成为扩产瓶颈</strong>。
+      </div>
+    </div>
+
+    <!-- MLCC / 液冷 / AI服务器 -->
+    <div class="card ai-chain col-6">
+      <div class="card-title">MLCC · AI服务器液冷</div>
+      <table>
+        <thead><tr><th>代码</th><th>标的</th><th>今日表现</th><th>关注度</th></tr></thead>
+        <tbody>
+          <tr><td class="code">000725</td><td class="name">京东方A</td><td class="dir dn">+10.01%</td><td class="note"><span class="tag hot">玻璃基板</span></td></tr>
+          <tr><td class="code">300408</td><td class="name">三环集团</td><td class="dir dn">+1.18%</td><td class="note"><span class="tag up">MLCC陶瓷</span></td></tr>
+          <tr><td class="code">002138</td><td class="name">顺络电子</td><td class="dir dn">+0.86%</td><td class="note"><span class="tag up">高端电感</span></td></tr>
+          <tr><td class="code">601138</td><td class="name">工业富联</td><td class="dir dn">+1.54%</td><td class="note"><span class="tag hot">AI服务器ODM</span></td></tr>
+          <tr><td class="code">300766</td><td class="name">每日互动</td><td class="dir dn">+2.84%</td><td class="note"><span class="tag up">液冷</span></td></tr>
+        </tbody>
+      </table>
+      <div class="quote" style="margin-top:12px; font-size:12px;">
+        <strong>催化：</strong>液冷服务器毛利率 12-15%，<strong>比通用风冷高 3-5pct</strong>；英伟达 Vera Rubin 平台全面采用 CPO+液冷。
+        京东方 A 涨停引爆玻璃基板/PCB 应用场景，AI 高端 PCB 层数达 20-30 层。
+      </div>
+    </div>
+  </div>
+
+  <!-- 板块热力图 -->
+  <div class="section-title">🔥 板块热力图</div>
+  <div class="card">
+    <div class="heatmap">
+      <div class="heat" style="background:linear-gradient(135deg, rgba(0,214,143,0.25), rgba(0,214,143,0.05));">
+        <div class="n">创新药</div><div class="p dn">+4.18%</div>
+      </div>
+      <div class="heat" style="background:linear-gradient(135deg, rgba(0,214,143,0.20), rgba(0,214,143,0.05));">
+        <div class="n">疫苗/生物</div><div class="p dn">+3.62%</div>
+      </div>
+      <div class="heat" style="background:linear-gradient(135deg, rgba(0,214,143,0.18), rgba(0,214,143,0.05));">
+        <div class="n">黄金</div><div class="p dn">+2.94%</div>
+      </div>
+      <div class="heat" style="background:linear-gradient(135deg, rgba(0,214,143,0.15), rgba(0,214,143,0.05));">
+        <div class="n">并购重组</div><div class="p dn">+2.41%</div>
+      </div>
+      <div class="heat" style="background:linear-gradient(135deg, rgba(0,214,143,0.10), rgba(0,214,143,0.05));">
+        <div class="n">CPO/光模块</div><div class="p dn">+1.35%</div>
+      </div>
+      <div class="heat" style="background:linear-gradient(135deg, rgba(0,214,143,0.08), rgba(0,214,143,0.05));">
+        <div class="n">半导体设备</div><div class="p dn">+1.46%</div>
+      </div>
+      <div class="heat" style="background:linear-gradient(135deg, rgba(0,214,143,0.06), rgba(0,214,143,0.05));">
+        <div class="n">存储</div><div class="p dn">+1.92%</div>
+      </div>
+      <div class="heat" style="background:linear-gradient(135deg, rgba(179,136,255,0.10), rgba(179,136,255,0.03));">
+        <div class="n">PCB/CCL</div><div class="p" style="color:var(--purple)">+1.28%</div>
+      </div>
+      <div class="heat" style="background:linear-gradient(135deg, rgba(255,154,85,0.10), rgba(255,154,85,0.03));">
+        <div class="n">机器人</div><div class="p" style="color:var(--orange)">+0.82%</div>
+      </div>
+      <div class="heat" style="background:linear-gradient(135deg, rgba(122,134,153,0.08), rgba(122,134,153,0.02));">
+        <div class="n">银行</div><div class="p" style="color:var(--text-1)">+0.31%</div>
+      </div>
+      <div class="heat" style="background:linear-gradient(135deg, rgba(122,134,153,0.08), rgba(122,134,153,0.02));">
+        <div class="n">地产</div><div class="p up">-0.46%</div>
+      </div>
+      <div class="heat" style="background:linear-gradient(135deg, rgba(255,77,79,0.10), rgba(255,77,79,0.02));">
+        <div class="n">卫星互联网</div><div class="p up">-1.27%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 重要新闻 -->
+  <div class="section-title">📰 重要新闻 & 异动</div>
+  <div class="grid">
+    <div class="card col-8">
+      <div class="card-title">关键消息面</div>
+      <div class="news-item">
+        <div class="time">08-20</div>
+        <div class="body">
+          <div class="head">8月LPR出炉：1年期3.00%、5年期3.50%，连续持平</div>
+          <div class="desc">货币政策维持稳健，流动性中性偏宽松，对成长股估值友好；但市场更关注后续政策催化。</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="time">08-20</div>
+        <div class="body">
+          <div class="head">增持回购贷款累计已发放超 2,100 亿元</div>
+          <div class="desc">8月19日多家公司集中披露增持/回购公告，产业资本对A股中长期价值认可。</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="time">08-20</div>
+        <div class="body">
+          <div class="head">北方稀土上半年净利 20.53 亿 同比高增</div>
+          <div class="desc">稀土板块带动有色金属走强，中报增长主线从科技外溢至资源品。</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="time">08-20</div>
+        <div class="body">
+          <div class="head">全球人形机器人 2026 上半年出货 +300%</div>
+          <div class="desc">Counterpoint 数据，宇树等头部企业加速量产，机器人产业链热度延续。</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="time">08-20</div>
+        <div class="body">
+          <div class="head">寒武纪 56.1 万股股权激励 8/20 上市流通</div>
+          <div class="desc">关注核心团队稳定性，同时短期可能带来一定流动性压力。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card col-4">
+      <div class="card-title">明日看点 / 风险提示</div>
+      <div class="quote" style="font-size:13px; border-left-color: var(--gold);">
+        <strong style="color:var(--gold);">🤖 AI 产业链核心逻辑</strong><br>
+        • CPO：1.6T 放量元年 + 硅光交换机量产<br>
+        • HBM：美光产能售罄，国产替代仍需时间<br>
+        • 半导体设备：估值 <strong>仅海外 40-50%</strong>，国产替代+周期反转双击<br>
+        • PCB/CCL：AI 高端 PCB + 涨价 三重共振<br>
+        • 液冷：毛利率比风冷高 3-5pct，Vera Rubin 标配
+      </div>
+      <div class="quote" style="margin-top:12px; font-size:13px; border-left-color: var(--up);">
+        <strong style="color:var(--up);">⚠️ 风险提示</strong><br>
+        • 8/19 科创 50 半日跌 6%，高位股退潮情绪未完全消化<br>
+        • 卫星互联网、玻纤等前期强势板块补跌<br>
+        • 成交额需 >2.7 万亿，否则 3925 高点承压<br>
+        • 海外：美股 8/19 纳指跌 1.46%，科技股估值压力传导
+      </div>
+    </div>
+  </div>
+
+  <!-- 总结 -->
+  <div class="section-title">🎯 盘后核心结论</div>
+  <div class="card">
+    <div class="quote" style="line-height:1.9;">
+      <strong>1. 大市风格：</strong>昨日（8/19）三大指数暴跌（上证 -2.40%、深成 -5.01%、创业 -6.26%）后，今日迎来超跌反弹。
+      资金从高位 AI 科技切换至医药/中报/黄金/并购重组，<strong>主线轮动、风格再平衡</strong>。
+      <br><br>
+      <strong>2. AI 产业链：</strong>全板块进入消化期，但 <strong>CPO（HBM 设备 龙头止跌）、半导体设备（北方华创/中微估值洼地）、PCB/CCL（涨价主线）</strong>
+      三大方向承接有力；寒武纪、兆易创新、佰维存储 等龙头股成交活跃，<strong>说明产业资本未离场</strong>。
+      <br><br>
+      <strong>3. 策略建议：</strong>AI 板块从「普涨」进入「个股精选」阶段，<strong>聚焦真正受益于英伟达 Vera Rubin、1.6T 光模块、HBM 扩产周期的产业链龙头</strong>。
+      短期关注中报超预期个股（北方稀土、兆易创新），中期布局存储/PCB/液冷回调到位标的。
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    本报告由 Hermes Cron 自动生成 · 数据综合自交易所行情、财联社、21财经、界面新闻、东方财富、新浪财经等公开渠道<br>
+    AI 产业链观点整理自券商研报及产业新闻 · 不构成任何投资建议<br>
+    <div class="disclaimer">
+      ⚠️ 风险提示：以上数据与观点仅供研究参考，不构成买卖建议；股市有风险，投资需谨慎。
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
