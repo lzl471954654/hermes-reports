@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A股盘后总结 · AI产业链深度版｜2026-08-21</title>
+  <style>
+    :root {
+      --bg:#080c12; --panel:#101722; --panel2:#151e2b; --line:#263243;
+      --text:#e8eef7; --muted:#8d9aae; --soft:#b6c2d2; --cyan:#53c8ff;
+      --teal:#32d7b0; --red:#ff5b6b; --gold:#f5c56b; --purple:#b996ff;
+      --orange:#ff9a62;
+    }
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 8% 0%,rgba(83,200,255,.10),transparent 30%),radial-gradient(circle at 100% 35%,rgba(50,215,176,.06),transparent 25%),var(--bg);color:var(--text);font:14px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif}
+    .wrap{max-width:1320px;margin:auto;padding:30px 22px 64px}
+    header{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:22px}
+    h1{font-size:28px;letter-spacing:.5px;margin:0 0 7px;background:linear-gradient(90deg,var(--cyan),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .sub{color:var(--muted);font-size:13px}.meta{text-align:right;color:var(--muted);font-size:12px;line-height:1.75}.live{display:inline-block;color:var(--teal);border:1px solid rgba(50,215,176,.45);background:rgba(50,215,176,.08);border-radius:4px;padding:1px 8px;margin-left:8px;font-size:11px}
+    .lead{margin:18px 0;padding:17px 20px;border-left:3px solid var(--cyan);border-radius:0 8px 8px 0;background:linear-gradient(100deg,rgba(83,200,255,.10),rgba(50,215,176,.04));font-size:15px}.lead strong{color:var(--cyan)}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:15px}.card{background:rgba(16,23,34,.94);border:1px solid var(--line);border-radius:10px;padding:18px 19px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+    .span3{grid-column:span 3}.span4{grid-column:span 4}.span6{grid-column:span 6}.span8{grid-column:span 8}.span12{grid-column:span 12}
+    .title{font-size:12px;letter-spacing:1.1px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:8px}.title:before{content:"";width:3px;height:14px;border-radius:2px;background:var(--cyan)}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.kpi{background:var(--panel2);border-radius:7px;padding:12px;text-align:center}.kpi .v{font-size:22px;font-weight:700;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.kpi .l{font-size:11px;color:var(--muted);margin-top:3px}
+    .idx{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line);gap:8px}.idx:last-child{border-bottom:0}.idx .name{color:var(--soft);font-size:13px}.idx .val{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-weight:600;font-size:17px}.idx .chg{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px}
+    .up{color:var(--red)}.down{color:var(--teal)}.neutral{color:var(--muted)}.pos{color:var(--teal)}.neg{color:var(--red)}
+    .bar{height:7px;background:#202c3b;border-radius:5px;overflow:hidden;margin-top:8px}.bar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--teal),var(--cyan))}
+    .callout{padding:13px 15px;border-radius:7px;background:rgba(245,197,107,.07);border:1px solid rgba(245,197,107,.22);color:var(--soft);font-size:13px}.callout b{color:var(--gold)}
+    .section{margin:30px 0 14px;font-size:18px;font-weight:650;display:flex;align-items:center;gap:9px}.section:before{content:"";width:4px;height:19px;border-radius:2px;background:linear-gradient(var(--cyan),var(--teal))}
+    .ai{background:linear-gradient(140deg,rgba(185,150,255,.08),rgba(83,200,255,.035));border-left:3px solid var(--purple)}.ai .title:before{background:var(--purple)}
+    .pill{display:inline-block;border-radius:4px;padding:1px 7px;background:rgba(83,200,255,.1);color:var(--cyan);font-size:11px;margin-right:4px}.pill.hot{background:rgba(255,91,107,.12);color:var(--red)}.pill.warn{background:rgba(245,197,107,.12);color:var(--gold)}.pill.purple{background:rgba(185,150,255,.12);color:var(--purple)}
+    table{width:100%;border-collapse:collapse;font-size:12.5px}th{text-align:left;color:var(--muted);font-weight:500;font-size:11px;letter-spacing:.4px;padding:8px 6px;border-bottom:1px solid var(--line)}td{padding:8px 6px;border-bottom:1px solid rgba(38,50,67,.75)}tr:last-child td{border-bottom:0}td.num{text-align:right;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}td.code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--muted);white-space:nowrap}td.name{font-weight:500}.note{color:var(--muted);font-size:11px}
+    .rank{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.rank .item{padding:13px 12px;border-radius:8px;background:var(--panel2)}.rank .n{font-size:12px;color:var(--soft);margin-bottom:4px}.rank .p{font:600 17px ui-monospace,SFMono-Regular,Consolas,monospace}
+    .news{padding:11px 0;border-bottom:1px solid var(--line)}.news:last-child{border-bottom:0}.news .tag{color:var(--gold);font:12px ui-monospace,SFMono-Regular,Consolas,monospace;margin-right:12px}.news .head{font-weight:500}.news .desc{color:var(--muted);font-size:12px;margin-top:3px}
+    .foot{color:var(--muted);font-size:11px;border-top:1px solid var(--line);margin-top:32px;padding-top:18px;text-align:center;line-height:1.8}.foot .warn{color:var(--gold)}
+    @media(max-width:900px){header{display:block}.meta{text-align:left;margin-top:12px}.span3,.span4,.span6,.span8{grid-column:span 12}.kpis{grid-template-columns:repeat(2,1fr)}.rank{grid-template-columns:repeat(2,1fr)}table{font-size:12px}.idx .val{font-size:15px}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>📊 A股盘后总结 · AI产业链深度版</h1>
+      <div class="sub">2026-08-21 · 周五 · 收盘版 <span class="live">● CLOSED</span></div>
+    </div>
+    <div class="meta">数据时间：2026-08-21 收盘<br>生成时间：2026-08-21 15:16（北京时间）<br>行情口径：交易所/公开行情接口；新闻口径：财联社、央广网、同花顺、10jqka、21财经</div>
+  </header>
+
+  <div class="lead">今天是<strong>缩量反弹、指数强于个股</strong>：创业板指收涨1.43%，深成指涨0.87%，沪指微涨0.04%，但沪深两市成交额约<strong>1.88万亿元</strong>，较前一交易日缩量约<strong>2001亿元</strong>，全市场仍超过2800只个股下跌。盘面主线集中在<strong>算力硬件/CPO、半导体芯片、贵金属、锂矿及医药/疫苗</strong>，资金继续从广泛进攻转向少数高景气方向。</div>
+
+  <div class="grid">
+    <div class="card span4">
+      <div class="title">主要指数</div>
+      <div class="idx"><span class="name">上证指数</span><span class="val">3,905.20</span><span class="chg pos">+0.04%</span></div>
+      <div class="idx"><span class="name">深证成指</span><span class="val">14,094.17</span><span class="chg pos">+0.87%</span></div>
+      <div class="idx"><span class="name">创业板指</span><span class="val">3,545.58</span><span class="chg pos">+1.43%</span></div>
+      <div class="idx"><span class="name">科创50</span><span class="val">1,653.56</span><span class="chg pos">+0.04%</span></div>
+      <div class="idx"><span class="name">北证50</span><span class="val">1,075.38</span><span class="chg neg">−0.57%</span></div>
+    </div>
+    <div class="card span4">
+      <div class="title">量能与情绪</div>
+      <div class="kpis">
+        <div class="kpi"><div class="v">1.88万亿</div><div class="l">两市成交额</div></div>
+        <div class="kpi"><div class="v neg">55</div><div class="l">涨停（收盘统计）</div></div>
+        <div class="kpi"><div class="v up">13</div><div class="l">跌停（收盘统计）</div></div>
+        <div class="kpi"><div class="v" style="color:var(--gold)">76.4%</div><div class="l">封板率</div></div>
+      </div>
+      <div style="margin-top:14px;color:var(--muted);font-size:12px">炸板约17家 · 连板12家 · 最高3板<br><span style="color:var(--gold)">缩量修复，赚钱效应集中在局部科技与资源方向</span></div>
+    </div>
+    <div class="card span4">
+      <div class="title">盘面结构</div>
+      <div class="idx"><span class="name">强势方向</span><span class="val" style="font-size:14px">算力硬件/CPO</span><span class="chg pos">活跃</span></div>
+      <div class="idx"><span class="name">资源方向</span><span class="val" style="font-size:14px">贵金属/锂矿</span><span class="chg pos">活跃</span></div>
+      <div class="idx"><span class="name">医药方向</span><span class="val" style="font-size:14px">疫苗/生物</span><span class="chg pos">分化</span></div>
+      <div class="idx"><span class="name">风险信号</span><span class="val" style="font-size:14px">个股普跌</span><span class="chg neg">仍弱</span></div>
+      <div class="callout" style="margin-top:11px"><b>观察：</b>反弹有广度不足问题，不能把指数红盘等同于风险偏好全面修复。</div>
+    </div>
+  </div>
+
+  <div class="section">🧠 AI产业链八条主线：收盘样本温度计</div>
+  <div class="callout" style="margin-bottom:15px">以下涨跌幅为代表性个股的<strong>等权样本均值</strong>，不是官方行业指数；用于观察产业链内部强弱，不构成个股或行业涨跌预测。</div>
+  <div class="grid">
+    <div class="card ai span3">
+      <div class="title">光通信 / CPO</div>
+      <div class="kpi" style="background:rgba(50,215,176,.08)"><div class="v pos">+1.43%</div><div class="l">5股样本均值</div></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--soft)">新易盛 +6.76% · 中际旭创 +4.29% · 太辰光 +0.50%</div>
+      <div class="note" style="margin-top:7px">天孚通信 −1.15%，长芯博创 −3.23%，板块内部出现明显分化。</div>
+      <div class="bar"><i style="width:72%"></i></div>
+    </div>
+    <div class="card ai span3">
+      <div class="title">存储 / HBM映射</div>
+      <div class="kpi" style="background:rgba(50,215,176,.07)"><div class="v pos">+1.34%</div><div class="l">7股样本均值</div></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--soft)">德明利 +4.28% · 佰维存储 +1.83% · 兆易创新 +1.38%</div>
+      <div class="note" style="margin-top:7px">澜起科技 +0.72%，江波龙 +0.44%；存储方向偏强但非普涨。</div>
+      <div class="bar"><i style="width:67%"></i></div>
+    </div>
+    <div class="card ai span3">
+      <div class="title">半导体设备</div>
+      <div class="kpi" style="background:rgba(255,91,107,.06)"><div class="v neg">−0.27%</div><div class="l">6股样本均值</div></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--soft)">盛美上海 +2.07% · 北方华创 +0.26% · 拓荆科技 +0.33%</div>
+      <div class="note" style="margin-top:7px">中微公司 −0.82%，华海清科 −3.14%，设备内部轮动强于板块平均。</div>
+      <div class="bar"><i style="width:49%;background:linear-gradient(90deg,var(--red),var(--orange))"></i></div>
+    </div>
+    <div class="card ai span3">
+      <div class="title">PCB / CCL</div>
+      <div class="kpi" style="background:rgba(50,215,176,.12)"><div class="v pos">+4.29%</div><div class="l">5股样本均值</div></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--soft)">景旺电子 +6.30% · 沪电股份 +6.03% · 生益科技 +5.16%</div>
+      <div class="note" style="margin-top:7px">深南电路 +3.84%，胜宏科技 +0.11%，是今日AI硬件样本中最强组。</div>
+      <div class="bar"><i style="width:92%"></i></div>
+    </div>
+    <div class="card ai span3">
+      <div class="title">MLCC</div>
+      <div class="kpi" style="background:rgba(50,215,176,.10)"><div class="v pos">+3.79%</div><div class="l">3股样本均值</div></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--soft)">火炬电子 +6.26% · 风华高科 +2.98% · 三环集团 +2.14%</div>
+      <div class="note" style="margin-top:7px">被动元件/陶瓷材料表现偏强，需继续观察量能能否延续。</div>
+      <div class="bar"><i style="width:79%"></i></div>
+    </div>
+    <div class="card ai span3">
+      <div class="title">先进封装</div>
+      <div class="kpi" style="background:rgba(83,200,255,.07)"><div class="v pos">+0.08%</div><div class="l">5股样本均值</div></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--soft)">通富微电 +1.16% · 甬矽电子 +0.42% · 华天科技 +0.40%</div>
+      <div class="note" style="margin-top:7px">长电科技 −1.14%，晶方科技 −0.46%，整体强于指数但弱于PCB/液冷。</div>
+      <div class="bar"><i style="width:52%"></i></div>
+    </div>
+    <div class="card ai span3">
+      <div class="title">上游材料</div>
+      <div class="kpi" style="background:rgba(255,91,107,.06)"><div class="v neg">−1.16%</div><div class="l">4股样本均值</div></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--soft)">雅克科技 +0.09% · 鼎龙股份 −0.83% · 江丰电子 −0.94%</div>
+      <div class="note" style="margin-top:7px">安集科技 −2.95%；材料端今日明显弱于设备与PCB。</div>
+      <div class="bar"><i style="width:41%;background:linear-gradient(90deg,var(--red),var(--orange))"></i></div>
+    </div>
+    <div class="card ai span3">
+      <div class="title">AI服务器 / 液冷</div>
+      <div class="kpi" style="background:rgba(50,215,176,.09)"><div class="v pos">+0.82%</div><div class="l">服务器6股样本</div></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--soft)">液冷样本：同飞 +6.22% · 高澜 +3.78% · 申菱 +3.58% · 英维克 +2.25%</div>
+      <div class="note" style="margin-top:7px">服务器端紫光股份 +2.19%，浪潮信息 +1.69%，工业富联 +1.14%。</div>
+      <div class="bar"><i style="width:62%"></i></div>
+    </div>
+  </div>
+
+  <div class="section">📈 AI产业链代表性个股收盘表现</div>
+  <div class="grid">
+    <div class="card span6">
+      <div class="title">光通信 / 存储 / PCB / CCL</div>
+      <table>
+        <thead><tr><th>方向</th><th>代码</th><th>公司</th><th>收盘</th><th>涨跌幅</th><th>成交额</th></tr></thead>
+        <tbody>
+          <tr><td>CPO</td><td class="code">300502</td><td class="name">新易盛</td><td class="num">442.00</td><td class="num pos">+6.76%</td><td class="num">207.93亿</td></tr>
+          <tr><td>CPO</td><td class="code">300308</td><td class="name">中际旭创</td><td class="num">943.00</td><td class="num pos">+4.29%</td><td class="num">266.86亿</td></tr>
+          <tr><td>CPO</td><td class="code">300394</td><td class="name">天孚通信</td><td class="num">273.08</td><td class="num neg">−1.15%</td><td class="num">140.56亿</td></tr>
+          <tr><td>存储</td><td class="code">001309</td><td class="name">德明利</td><td class="num">415.12</td><td class="num pos">+4.28%</td><td class="num">62.08亿</td></tr>
+          <tr><td>存储</td><td class="code">688525</td><td class="name">佰维存储</td><td class="num">238.96</td><td class="num pos">+1.83%</td><td class="num">41.83亿</td></tr>
+          <tr><td>PCB</td><td class="code">603228</td><td class="name">景旺电子</td><td class="num">94.84</td><td class="num pos">+6.30%</td><td class="num">41.12亿</td></tr>
+          <tr><td>PCB/CCL</td><td class="code">600183</td><td class="name">生益科技</td><td class="num">132.80</td><td class="num pos">+5.16%</td><td class="num">87.23亿</td></tr>
+          <tr><td>PCB</td><td class="code">002463</td><td class="name">沪电股份</td><td class="num">121.21</td><td class="num pos">+6.03%</td><td class="num">59.52亿</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card span6">
+      <div class="title">设备 / 先进封装 / 液冷</div>
+      <table>
+        <thead><tr><th>方向</th><th>代码</th><th>公司</th><th>收盘</th><th>涨跌幅</th><th>成交额</th></tr></thead>
+        <tbody>
+          <tr><td>设备</td><td class="code">688082</td><td class="name">盛美上海</td><td class="num">301.10</td><td class="num pos">+2.07%</td><td class="num">16.40亿</td></tr>
+          <tr><td>设备</td><td class="code">002371</td><td class="name">北方华创</td><td class="num">714.43</td><td class="num pos">+0.26%</td><td class="num">41.54亿</td></tr>
+          <tr><td>设备</td><td class="code">688120</td><td class="name">华海清科</td><td class="num">271.70</td><td class="num neg">−3.14%</td><td class="num">21.88亿</td></tr>
+          <tr><td>先进封装</td><td class="code">002156</td><td class="name">通富微电</td><td class="num">63.88</td><td class="num pos">+1.16%</td><td class="num">62.37亿</td></tr>
+          <tr><td>液冷</td><td class="code">300990</td><td class="name">同飞股份</td><td class="num">73.13</td><td class="num pos">+6.22%</td><td class="num">5.56亿</td></tr>
+          <tr><td>液冷</td><td class="code">300499</td><td class="name">高澜股份</td><td class="num">28.26</td><td class="num pos">+3.78%</td><td class="num">4.64亿</td></tr>
+          <tr><td>液冷</td><td class="code">301018</td><td class="name">申菱环境</td><td class="num">89.60</td><td class="num pos">+3.58%</td><td class="num">13.08亿</td></tr>
+          <tr><td>服务器</td><td class="code">000938</td><td class="name">紫光股份</td><td class="num">36.44</td><td class="num pos">+2.19%</td><td class="num">55.10亿</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">🔎 盘面拆解</div>
+  <div class="grid">
+    <div class="card span6">
+      <div class="title">今日确认的三条线索</div>
+      <div class="news"><span class="tag">01</span><span class="head">算力硬件继续活跃，但内部强弱分化</span><div class="desc">新易盛、中际旭创明显走强；天孚通信、长芯博创回落，说明资金更偏向有业绩/订单可见度的龙头与强势标的，而不是板块无差别扩散。</div></div>
+      <div class="news"><span class="tag">02</span><span class="head">PCB/CCL是最强硬件映射</span><div class="desc">景旺电子、沪电股份、生益科技、深南电路同步上涨，样本均值约+4.29%，强于CPO、存储和设备组。</div></div>
+      <div class="news"><span class="tag">03</span><span class="head">液冷/服务器保持中期强势特征</span><div class="desc">同飞股份、高澜股份、申菱环境、英维克上涨；浪潮信息、紫光股份、工业富联收涨，AI基础设施链条仍有相对收益。</div></div>
+    </div>
+    <div class="card span6">
+      <div class="title">需要警惕的信号</div>
+      <div class="callout" style="margin-bottom:11px"><b>量能：</b>成交额降至约1.88万亿元，较前日缩量约2001亿元。缩量反弹说明抛压阶段性减轻，但尚不足以证明增量资金全面回流。</div>
+      <div class="callout" style="margin-bottom:11px"><b>情绪：</b>全市场超过2800只个股下跌，涨停与跌停并存且最高仅3板，短线仍处于结构性轮动，不宜将少数强势股外推为全面牛市。</div>
+      <div class="callout"><b>分化：</b>半导体设备与上游材料样本明显弱于PCB、MLCC和液冷；产业链景气叙事并未消失，但交易重心正在快速轮动。</div>
+    </div>
+  </div>
+
+  <div class="section">🗞️ 盘面消息与数据出处</div>
+  <div class="card">
+    <div class="news"><span class="tag">收盘</span><span class="head">指数与成交数据</span><div class="desc">同花顺收盘快讯给出上证指数3905.20点（+0.04%）、深证成指14094.17点（+0.87%）、创业板指3545.58点（+1.43%）；财联社盘面直播给出沪深两市成交额约1.88万亿元、较前一日缩量约2001亿元。</div></div>
+    <div class="news"><span class="tag">盘面</span><span class="head">算力硬件、贵金属、锂矿走强</span><div class="desc">央广网/凤凰财经午评与公开快讯显示，算力硬件股盘中走强，瑞斯康达、星网锐捷涨停，融捷股份涨停，贵金属方向活跃。</div></div>
+    <div class="news"><span class="tag">生态</span><span class="head">医药、疫苗与生物方向仍被市场关注</span><div class="desc">当日公开收评及连板复盘将芯片、算力、通信、黄金、疫苗概念列为主线题材；不同统计口径下收盘涨停家数约54—55家，本文采用55家、跌停13家、封板率76.4%的收盘统计口径，并标注统计差异。</div></div>
+    <div class="news"><span class="tag">来源</span><span class="head">公开链接</span><div class="desc">深交所市场数据： https://www.szse.cn/market/index/index.html · 同花顺收盘快讯：https://yuanchuang.10jqka.com.cn/20260821/c679170324.shtml · 央广网午评：https://finance.cnr.cn/gundong/20260821/t20260821_527785144.shtml · 财联社盘面直播：https://www.cls.cn/subject/1103 · 连板网复盘：https://lianban.net/</div></div>
+  </div>
+
+  <div class="foot">本报告为盘后信息整理与产业链样本跟踪，数据来自公开渠道，个股涨跌幅及成交额以收盘行情接口为准。市场有风险，本文不构成任何投资建议或买卖承诺。<br><span class="warn">重点提示：缩量反弹 + 个股普跌 + AI硬件内部轮动，是今日最重要的盘面组合。</span></div>
+</div>
+</body>
+</html>
