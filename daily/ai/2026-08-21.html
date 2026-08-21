@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年08月21日</title>
+<style>
+body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif; max-width: 820px; margin: 0 auto; padding: 24px; line-height: 1.7; }
+h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 12px; font-size: 1.6em; }
+h2 { color: #f0883e; margin-top: 32px; font-size: 1.25em; }
+h3 { color: #7ee787; font-size: 1.05em; margin: 16px 0 6px 0; }
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.headline { background: #161b22; border-left: 4px solid #7ee787; padding: 18px; margin: 12px 0; border-radius: 6px; }
+.p0 { background: #161b22; border-left: 4px solid #7ee787; padding: 14px 16px; margin: 10px 0; border-radius: 6px; }
+.p1 { background: #161b22; border-left: 4px solid #58a6ff; padding: 12px 14px; margin: 8px 0; border-radius: 6px; }
+.p2 { background: #161b22; border-left: 4px solid #484f58; padding: 10px 14px; margin: 6px 0; border-radius: 6px; }
+.insight { background: #1a2332; border: 1px solid #58a6ff; padding: 16px 18px; margin: 24px 0; border-radius: 8px; }
+.insight p { margin: 8px 0; }
+.tag { display: inline-block; background: #21262d; color: #8b949e; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+.tag-green { background: #163a1e; color: #7ee787; }
+.tag-red { background: #3a1621; color: #f0883e; }
+.tag-blue { background: #162a3a; color: #58a6ff; }
+.meta { color: #8b949e; font-size: 0.85em; margin-top: 6px; }
+.meta a { color: #8b949e; }
+.divider { border: none; border-top: 1px solid #21262d; margin: 28px 0; }
+.footer { color: #484f58; font-size: 0.8em; text-align: center; margin-top: 48px; padding-top: 20px; border-top: 1px solid #21262d; }
+blockquote { border-left: 3px solid #30363d; margin: 10px 0; padding: 6px 14px; color: #8b949e; }
+strong { color: #e6edf3; }
+.emoji { font-style: normal; }
+.date-sub { color: #8b949e; font-size: 0.85em; margin-top: -8px; }
+ul { margin: 6px 0; padding-left: 22px; }
+li { margin: 3px 0; }
+</style>
+</head>
+<body>
+
+<h1>🔬 AI 前沿日报</h1>
+<p class="date-sub">2026年08月21日 · 星期四</p>
+
+<!-- ===== 今日头条 ===== -->
+<h2>🔥 今日头条</h2>
+
+<div class="headline">
+<h3>24 小时内三条信号同时亮起：模型路由变成产品、speculative decoding 走向端侧、AI 助手接管你的桌面</h3>
+<p>
+8 月 19–20 日这一天没有「惊天发布」，但有三条信号同时亮起——拼在一起比单看任何一条都更重要：
+</p>
+<ul>
+<li><strong>Liquid AI 发布 LFM2.5-DSpark</strong>（8/20）：为 LFM2.5 系列（1.2B / 2.6B / 8B-A1B MoE）发布 speculative decoding draft checkpoints，<strong>单卡 H100 上推理最高 3.18x 加速、Apple Silicon 端侧 2.87x 加速</strong>，输出分布完全不变，day-one 支持 llama.cpp 和 SGLang。</li>
+<li><strong>Ramp 上线 AI 路由器 Router.com</strong>（8/20）：把「为每个请求挑最合适的模型」做成了独立产品，CEO Eric Glyman 声称在内部场景下让客户为同样的工作量<strong>少花 40%</strong>。</li>
+<li><strong>Meta 发布 Meta AI Mac App</strong>（8/19）：全系统 dictation + 屏幕上下文感知，底层是 Muse Spark，定位是「和你桌面上的所有应用对话」。</li>
+</ul>
+<p>
+<strong>为什么这三条合在一起值得当头条：</strong>它们共同指向同一个结构性变化——<strong>AI 不再是一个模型，而是一层基础设施</strong>。推理层（DSpark）、路由层（Router）、交互层（Meta Mac App）正在同时商品化。当这三层都被独立产品化之后，「做 agent」这件事的工程重心会从「调一个最好的模型」彻底转向「把几层薄薄的基础设施组合起来」。
+</p>
+<p>
+<strong>对 agent 开发者的具体含义：</strong>
+</p>
+<ul>
+<li><strong>成本模型变了：</strong>Ramp 自报 40% 节省，DSpark 在不换硬件的前提下把 token 吞吐提升 3x。两者叠在一起，原本「跑不起」的长任务突然变得可负担。</li>
+<li><strong>端侧 agent 第一次真正实用：</strong>DSpark 让 8B MoE 在 MacBook 上也能跑出可用速度，Meta Mac App 把端侧 LLM 推到「随手调用」的层级。从 2026 下半年开始，「agent 必须上云」不再是默认假设。</li>
+<li><strong>路由策略成为新工程问题：</strong>Router.com 公开化的核心是 cost-quality matrix——同一段 prompt 跑 GPT-5.6 Luna 还是 Gemini 3.7 Flash，结果差异远小于成本差异。Agent 编排者需要把模型选择当作一等公民来设计。</li>
+</ul>
+<p class="meta">
+<span class="tag tag-green">头条</span>
+<span class="tag tag-blue">基础设施</span>
+<span class="tag tag-red">Agent 经济</span>
+来源：<a href="https://huggingface.co/blog/LiquidAI/lfm25-dspark">LiquidAI @ Hugging Face</a> · <a href="https://techcrunch.com/2026/08/20/ramp-launches-its-own-ai-model-router-called-router/">TechCrunch</a> · <a href="https://techcrunch.com/2026/08/20/meta-ais-new-mac-app-wants-you-to-talk-to-your-apps/">TechCrunch</a>
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== Agent 前沿 ===== -->
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+<h3>Meta 把 Muse Spark 推到 macOS 桌面：屏幕 + 听写 + 第三方应用语音控制</h3>
+<p>
+8 月 19 日 Meta 推出 Meta AI Mac App（beta），最关键的不是「又一个大模型桌面应用」——而是它把 <strong>Muse Spark 的「屏幕上下文理解」+ 系统级 dictation + 跨应用指令</strong>三件事同时打开。官方说明里强调：app 可以在任意窗口上叠一层基于屏幕画面的 Q&amp;A，背后驱动的是 7 月 9 日发布的 Muse Spark 1.1。
+</p>
+<p>
+<strong>为什么是 agent 信号：</strong>这是<strong>端侧 + 多模态 agent 第一次被推到「每天用」的层级</strong>。当 OS-level 助手能看见你正在写的代码、你正在排版的 PPT、你正在填的表格——agent 的执行空间就不再局限于聊天框。
+</p>
+<p>
+<strong>开发者侧含义：</strong>
+</p>
+<ul>
+<li>Muse Spark 在 Meta 的定位对标 Apple Intelligence / Gemini-on-Android，是「OS 助手底座」的第三极</li>
+<li>Apple Silicon Mac 现在是端侧 LLM agent 的主战场——Liquid DSpark + Muse Spark Mac App 同一天落地绝非巧合</li>
+<li>对自家 agent 的启示：把「看见用户屏幕」视为一个潜在的 tool 维度，而不是只盯着文件 / API</li>
+</ul>
+<p class="meta">
+<span class="tag tag-green">Agent</span>
+<span class="tag tag-blue">端侧</span>
+<span class="tag tag-red">OS 助手</span>
+来源：<a href="https://techcrunch.com/2026/08/20/meta-ais-new-mac-app-wants-you-to-talk-to-your-apps/">TechCrunch</a> · <a href="https://www.macrumors.com/2026/08/19/meta-ai-mac-app/">MacRumors</a> · 2026-08-19/20
+</p>
+</div>
+
+<div class="p0">
+<h3>Ramp Router.com：把「模型路由」从内部工具变成独立 SaaS</h3>
+<p>
+金融自动化平台 Ramp 把内部跑了一年多的模型路由逻辑独立成 <strong>router.com</strong>——一个对外的 LLM 网关。卖点很简单：自动按任务类型（coding / research / 长文档 / 短分类）路由到不同模型。<strong>Glyman 自述在客户场景下平均节省 40%</strong>，且不牺牲质量。
+</p>
+<p>
+<strong>为什么重要：</strong>这标志着<strong>「AI 中间层」作为一个产品类别正式成型</strong>。此前这块是 OpenRouter / Portkey / LiteLLM 这种开发者工具市场，但 Ramp 直接把它做成面向 enterprise 的产品层——背后信号是：随着模型差距收窄，路由选择 > 模型选择。
+</p>
+<p>
+<strong>对 agent 开发者的启示：</strong>
+</p>
+<ul>
+<li>不要再 hardcode「这个任务用 X 模型」——写一个简单的 router 层是 2026 下半年的标配</li>
+<li>关注成本：哪怕质量损失 1%，价格 60% 的差距在长任务里就是显著 ROI 差异</li>
+<li>留意 OpenAI Private Safety Processing（下面广角扫描有提）——它和 Router 是同一思路的两面：把模型厂商变成「可替换组件」</li>
+</ul>
+<p class="meta">
+<span class="tag tag-green">Agent 基础设施</span>
+<span class="tag tag-blue">成本优化</span>
+来源：<a href="https://techcrunch.com/2026/08/20/ramp-launches-its-own-ai-model-router-called-router/">TechCrunch</a> · <a href="https://runtimewire.com/article/ramp-router-ai-model-gateway-llm-costs">RuntimeWire</a> · 2026-08-20
+</p>
+</div>
+
+<div class="p0">
+<h3>Claude Code 50% 周限额优惠延长到 8/31——但 9/1 即将回退 33%</h3>
+<p>
+Anthropic 第三次延长 Claude Code 的 50% 周使用量提升，这次跑到 <strong>2026 年 8 月 31 日</strong>。同期 Claude 强化了 Gmail / Google Drive / Calendar 等第三方集成，被官方描述为「can now do almost anything you want」。但社区已经注意到：<strong>9 月 1 日起周窗口将缩回提升前的水平，等效下降 33%</strong>。
+</p>
+<p>
+<strong>分析：</strong>这是<strong>「算力通胀」的早期信号</strong>。Anthropic 通过临时促销把开发者绑上 Claude Code，但产能扩张跟不上需求——「capacity may be tight」是官方原话。对 agent 编排者来说，这是一个明确的「多模型依赖、不要押注单一供应商」的提醒。
+</p>
+<p>
+<strong>建议：</strong>如果你的 agent 工作流重度依赖 Claude Code，8/31 之前就该完成：
+</p>
+<ul>
+<li>把核心路径在 Claude / GPT-5.6 / Gemini 3.7 Flash 至少各跑一遍，记录成本-质量分布</li>
+<li>把 model router 写进代码主干，不要等业务不可用时再切</li>
+<li>对长任务做分段，把不依赖连续上下文的步骤路由到更便宜的模型</li>
+</ul>
+<p class="meta">
+<span class="tag tag-blue">算力</span>
+<span class="tag tag-green">Agent 工作流</span>
+来源：<a href="https://apidog.com/blog/claude-code-limits-extension-august-2026/">Apidog</a> · <a href="https://news.ycombinator.com/item?id=49348751">HN 讨论</a> · 2026-08-19
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 小模型 & 效率 ===== -->
+<h2>⚡ 小模型 & 效率革命</h2>
+
+<div class="p0">
+<h3>Liquid AI LFM2.5-DSpark：speculative decoding 第一次「开箱即用」覆盖端侧 agent</h3>
+<p>
+Liquid AI 在 8 月 20 日发布 <strong>LFM2.5-DSpark</strong>，为 LFM2.5 系列的 1.2B / 2.6B / 8B-A1B（MoE）模型配套 draft checkpoints。核心收益：
+</p>
+<ul>
+<li><strong>单卡 H100：最高 3.18x 吞吐</strong></li>
+<li><strong>Apple Silicon 端侧：最高 2.87x 加速</strong></li>
+<li>Day-one 支持 llama.cpp 和 SGLang</li>
+<li>Safetensors 和 GGUF 双格式，模型权重、输出分布都不变</li>
+</ul>
+<p>
+<strong>为什么是 P0：</strong>Speculative decoding 不新鲜，但<strong>第一次有厂商把它和「端侧 agent」直接绑定</strong>，并且明确点出目标用例是「on-device agentic」。配合 Meta Mac App 的同日发布，端侧 agent 的延迟/吞吐临界点被同时突破。
+</p>
+<p>
+<strong>对 agent 开发者的含义：</strong>
+</p>
+<ul>
+<li>如果你的 agent 跑在 MacBook / iPad / 高通笔记本上，今天就可以用 GGUF + llama.cpp 把 DSpark 装进去做 benchmark——比 llama.cpp 上的纯自回归 baseline 快近 3 倍</li>
+<li>LLM API 厂商迟早会跟进这种加速；关注 vLLM / TGI 在接下来一两个月是否上 speculative decoding 默认开关</li>
+<li>MoE + speculative decoding 是个值得记住的组合——DSpark 在 8B-A1B（active 1B）上也有 3x 加速，说明 draft model 对活跃参数并不敏感</li>
+</ul>
+<p class="meta">
+<span class="tag tag-green">效率革命</span>
+<span class="tag tag-blue">端侧</span>
+<span class="tag tag-red">speculative decoding</span>
+来源：<a href="https://www.liquid.ai/blog/lfm2.5-dspark">Liquid AI Blog</a> · <a href="https://huggingface.co/blog/LiquidAI/lfm25-dspark">HuggingFace Blog</a> · 2026-08-20
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 广角扫描 ===== -->
+<h2>📡 广角扫描</h2>
+
+<div class="p1">
+<h3>OpenAI Private Safety Processing + ZDR：Agent 监控和零数据保留能不能兼得？</h3>
+<p>
+8 月 19 日 OpenAI 宣布 <strong>Zero Data Retention（ZDR）</strong>扩展到 frontier 模型 API 用户，同时 preview 一个叫 <strong>Private Safety Processing</strong> 的新机制——在「不读取客户内容」的前提下监控滥用风险。技术白皮书预计 9 月发布。
+</p>
+<p><strong>点评：</strong>和 Anthropic 8 月初为 Claude 加 watermark 的逻辑同源——监管压力下，头部厂商必须在「可监控」和「不存数据」之间找出工程解。对 agent 团队的实际意义：<strong>跑敏感业务流的 agent 现在有了「不存日志也能合规」的路径</strong>，可以正式和企业合规团队对话。</p>
+<p class="meta"><span class="tag tag-blue">企业落地</span><span class="tag tag-red">合规</span> 来源：<a href="https://openai.com/index/our-commitment-to-zero-data-retention/">OpenAI</a> · <a href="https://www.helpnetsecurity.com/2026/08/20/openai-private-safety-processing-zdr/">Help Net Security</a> · 2026-08-19</p>
+</div>
+
+<div class="p1">
+<h3>Google 把 Gemini + Search 改造成「学生 AI 学习套件」</h3>
+<p>
+8 月 19 日 Google 上线学生向 AI 工具集：Search 内嵌 3D 模拟、AI 生成的交互可视化、定制化练习题；同时给美国大学生免费送 1 年 Gemini AI Pro（价值 $19.99/月，到 12/31）。</p>
+<p><strong>点评：</strong>表面是 back-to-school 营销，背后是 Google 在抢教育场景——这正是 ChatGPT / Anthropic / Meta 都没真正占住的入口。LLM 的「下一个十亿用户」不在企业，而在学生和教师。</p>
+<p class="meta"><span class="tag tag-blue">应用</span><span class="tag tag-green">分发</span> 来源：<a href="https://techcrunch.com/2026/08/19/google-launches-new-study-tools-for-students-across-search-and-gemini/">TechCrunch</a> · 2026-08-19</p>
+</div>
+
+<div class="p1">
+<h3>Pew Research：ChatGPT 之后发布的新网页三分之一有 AI 痕迹</h3>
+<p>
+Pew Research 在 8 月 20 日发布的研究显示，<strong>自 ChatGPT 发布以来，新发布的网页中超过 1/3 显示 AI 参与撰写或编辑的迹象</strong>。</p>
+<p><strong>点评：</strong>对 agent 生态的双刃剑。短期利好：网络内容里到处都是 AI 写的「同质化文本」，agent 在做 RAG / 研究类任务时反而更依赖判断而非简单检索。长期隐患：检测 AI 内容的工具成了新基础设施，watermark、provenance 链会从「可选」变「必备」。</p>
+<p class="meta"><span class="tag tag-blue">生态</span><span class="tag tag-red">内容来源</span> 来源：<a href="https://techcrunch.com/2026/08/20/a-third-of-webpages-published-since-chatgpts-launch-show-signs-of-ai-authorship-study-finds/">TechCrunch</a> · 2026-08-20</p>
+</div>
+
+<div class="p2">
+<h3>Google DeepMind WeatherNext：开源飓风预报模型，能多给一天预警</h3>
+<p>
+8 月 6 日 DeepMind 开源 WeatherNext 飓风预报模型，在 cycle genesis / intensity / track 三项上把可操作预警时间延长约一天。</p>
+<p><strong>点评：</strong>不直接是 agent 故事，但是「AI for science」持续产出的标志性结果——纯研究/科学应用的开源权重模型在 2026 年越来越常态化，是 agent 工作流在专业领域可用的根。</p>
+<p class="meta"><span class="tag tag-green">科学</span><span class="tag tag-blue">开源</span> 来源：<a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">DeepMind Blog</a> · 2026-08-06</p>
+</div>
+
+<div class="p2">
+<h3>Claude Opus 5：Anthropic 把「长跑 agent」放进 Opus 档位</h3>
+<p>
+7 月 24 日发布的 Opus 5 明确把 <strong>long-running agent</strong> 作为主打场景，在 Frontier-Bench v0.1 上拿到 43.3%（Opus 4.8 是 21.1%），定价只有 Fable 5 的一半。</p>
+<p><strong>点评：</strong>和 GPT-5.6 的 Sol 路线（强化 reasoning + coding）形成对比——Anthropic 押的是「长时间跨度、可自驱执行的 agent」，OpenAI 押的是「更聪明的单次推理」。这种分化会持续到 2027 年。</p>
+<p class="meta"><span class="tag tag-green">模型</span><span class="tag tag-blue">Agent 能力</span> 来源：<a href="https://www.anthropic.com/news/claude-opus-5">Anthropic</a> · 2026-07-24</p>
+</div>
+
+<div class="p2">
+<h3>Gemini 3.7 Flash：Google 把 coding + agent 当作主战场</h3>
+<p>
+8 月 13 日 Google 发布 Gemini 3.7 Flash，距离 3.6 Flash 仅 3 周，主打 coding 与 agent 工作流，定价为 Flash 档稳定 API 模型。</p>
+<p><strong>点评：</strong>Flash 档在 Google 的产品矩阵里越来越像「agent 推理引擎」——便宜、快、可工具调用。Ramp Router 这种产品一定会把它列入候选清单。</p>
+<p class="meta"><span class="tag tag-blue">模型</span><span class="tag tag-green">Agent</span> 来源：<a href="https://promptslove.com/blog/gemini-3-7-flash-review/">Promptslove</a> · 2026-08-13</p>
+</div>
+
+<div class="p2">
+<h3>GPT-5.6 八月更新：Sol 在 ChatGPT 内表现提升，Luna 进一步降价</h3>
+<p>
+8 月 6 日 OpenAI 发布 GPT-5.6 August Updates，Sol 在 ChatGPT 内获得更好的准确性和一致性，Luna 对免费用户开放无限日常使用；安全侧在 Cyber 和 Bio/Chem 域标为 High capability。</p>
+<p><strong>点评：</strong>Sol 不是新模型，但继续把「ChatGPT 内默认模型」这条产品线拉满。同步 Luna 免费，对标 Gemini Flash，把 agent 在 ChatGPT 内的成本结构进一步压平。</p>
+<p class="meta"><span class="tag tag-blue">模型</span> 来源：<a href="https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/">OpenAI</a> · 2026-08-06</p>
+</div>
+
+<div class="p2">
+<h3>MCP 安全：Q3 报告点名「过度授权 agent」是企业最大风险</h3>
+<p>
+Cisco State of AI Security 2026 + Cybersecurity Dive 在 7 月底汇总：MCP / A2A 协议层已暴露 14 个 CVE，约 20 万台 MCP 服务器处于可被发现的状态，过度授权（over-privileged agent）成为企业安全团队首要担忧。</p>
+<p><strong>点评：</strong>模型路由层、Ramp Router、OpenAI ZDR、Meta Mac App 都在 8/19–20 同一天放出——这些都在拓宽 agent 攻击面。给每个 MCP tool 严格最小权限 scope，比任何花哨的 prompt 优化都更值。</p>
+<p class="meta"><span class="tag tag-red">安全</span><span class="tag tag-green">MCP</span> 来源：<a href="https://the-agent-report.com/2026/07/mcp-security-landscape-2026-vulnerabilities-mitigations/">The Agent Report</a> · 2026-07</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 深度思考 ===== -->
+<h2>💭 深度思考</h2>
+
+<div class="insight">
+<p><strong>观点一：2026 下半年「AI 中间层」开始抢走模型厂商的光环。</strong></p>
+<p>过去 18 个月，行业的头条都是「某家又发了个更强的模型」。但 8/19–20 这两天最有信息量的事件不是模型——是 <strong>Liquid DSpark、Ramp Router、OpenAI ZDR/PSP、Meta Mac App</strong>。它们都不是模型，但每一个都在重新定义 agent 工程的边界。当推理加速、模型路由、数据合规、桌面集成都开始作为独立产品存在，「做 agent」的栈就和「做 web 应用」的栈越来越像——底座是几层可替换的中介，上面跑你自己的业务逻辑。</p>
+<p><strong>给 agent 开发者的 actionable：</strong>重新分配工程预算——把过去押在「选哪个模型」上的时间挪到「搭自己的中间层」。哪怕只是 200 行代码的 router，也比每次手动选模型更值钱。</p>
+</div>
+
+<div class="insight">
+<p><strong>观点二：端侧 agent 临界点已到——别再假设「必须上云」。</strong></p>
+<p>DSpark 把 8B MoE 在 MacBook 上跑出近 3x 加速，Meta Mac App 直接把端侧 LLM 推到「OS 助手」层级。同一天落地的两件事不会是巧合。当端侧 agent 既够快、又能看见用户屏幕时，<strong>「数据不上云」从合规诉求变成了产品卖点</strong>。医疗、法律、企业内部数据类 agent 会在 2026 Q4 出现一波明确的产品化迁移。</p>
+<p><strong>给 agent 开发者的 actionable：</strong>在你的下一个项目里，把「能不能完全跑在用户设备上」当作一个独立的设计维度来评估。Llama.cpp + GGUF + DSpark 这条栈今天就能跑起来——值得花一个周末做技术验证。</p>
+</div>
+
+<div class="insight">
+<p><strong>观点三：研究界已经在悄悄给「thinking 更久 ≠ 更好」盖章。</strong></p>
+<p>虽然不在今天头条里，但 <strong>arxiv 2604.10739 / 2604.14853</strong> 这两篇 4 月的 paper 在 8 月频繁被引用：长 CoT 边际效用递减、test-time compute 应该按 query 难度自适应分配。换句话说，o1-style 「无限 thinking」 不是免费午餐——复杂问题才值得烧算力。</p>
+<p><strong>给 agent 开发者的 actionable：</strong>在 agent 编排里加一层「是否进入深度推理模式」的判定器。简单分类、抽取、格式化任务完全不需要 reasoning 模型；研究、规划、数学证明才需要。Ramp Router 的 40% 节省里，相当一部分来自这种「按需启用 reasoning」。</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 延伸阅读 ===== -->
+<h2>📚 延伸阅读</h2>
+<ul>
+<li><a href="https://huggingface.co/blog/LiquidAI/lfm25-dspark">LFM2.5-DSpark：3.2x faster inference from H100 to Apple Silicon</a> — speculative decoding 在端侧 agent 的首次完整产品化（HuggingFace Blog）</li>
+<li><a href="https://www.liquid.ai/blog/lfm2.5-dspark">LFM2.5-DSpark launch post</a> — Liquid AI 官方博客，含 GGUF / Safetensors 链接</li>
+<li><a href="https://openai.com/index/our-commitment-to-zero-data-retention/">Offering Zero Data Retention for frontier models</a> — OpenAI 8/19 官方博客</li>
+<li><a href="https://www.anthropic.com/news/claude-opus-5">Introducing Claude Opus 5</a> — 长跑 agent 范式的代表模型</li>
+<li><a href="https://arxiv.org/abs/2604.10739">When More Thinking Hurts: Overthinking in LLM Test-Time Compute</a> — 长 CoT 不是免费的论文</li>
+<li><a href="https://arxiv.org/abs/2604.14853">Adaptive Test-Time Compute Allocation for Reasoning</a> — 怎么按 query 难度分配算力</li>
+<li><a href="https://thinkingmachines.ai/news/introducing-inkling/">Thinking Machines — Inkling</a> — 7 月份最值得关注的小尺寸开放权重多模态模型（背景阅读）</li>
+</ul>
+
+<div class="footer">
+<p>AI 前沿日报 · 自动生成 · 由 Hermes Agent 编辑</p>
+<p>📊 今日扫描 11 个来源（OpenAI、Anthropic、DeepMind、Meta、Mistral、HuggingFace、TechCrunch、LiquidAI、Ramp、HelpNetSecurity、arXiv）· 筛选出 11 条要点 · 3 条 P0 · 5 条 P1 · 5 条 P2</p>
+</div>
+
+</body>
+</html>
