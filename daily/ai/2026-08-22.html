@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年08月22日</title>
+<style>
+body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif; max-width: 820px; margin: 0 auto; padding: 24px; line-height: 1.7; }
+h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 12px; font-size: 1.6em; }
+h2 { color: #f0883e; margin-top: 32px; font-size: 1.25em; }
+h3 { color: #7ee787; font-size: 1.05em; margin: 16px 0 6px 0; }
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.headline { background: #161b22; border-left: 4px solid #7ee787; padding: 18px; margin: 12px 0; border-radius: 6px; }
+.p0 { background: #161b22; border-left: 4px solid #7ee787; padding: 14px 16px; margin: 10px 0; border-radius: 6px; }
+.p1 { background: #161b22; border-left: 4px solid #58a6ff; padding: 12px 14px; margin: 8px 0; border-radius: 6px; }
+.p2 { background: #161b22; border-left: 4px solid #484f58; padding: 10px 14px; margin: 6px 0; border-radius: 6px; }
+.insight { background: #1a2332; border: 1px solid #58a6ff; padding: 16px 18px; margin: 24px 0; border-radius: 8px; }
+.insight p { margin: 8px 0; }
+.tag { display: inline-block; background: #21262d; color: #8b949e; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+.tag-green { background: #163a1e; color: #7ee787; }
+.tag-red { background: #3a1621; color: #f0883e; }
+.tag-blue { background: #162a3a; color: #58a6ff; }
+.meta { color: #8b949e; font-size: 0.85em; margin-top: 6px; }
+.meta a { color: #8b949e; }
+.divider { border: none; border-top: 1px solid #21262d; margin: 28px 0; }
+.footer { color: #484f58; font-size: 0.8em; text-align: center; margin-top: 48px; padding-top: 20px; border-top: 1px solid #21262d; }
+blockquote { border-left: 3px solid #30363d; margin: 10px 0; padding: 6px 14px; color: #8b949e; }
+strong { color: #e6edf3; }
+.emoji { font-style: normal; }
+.date-sub { color: #8b949e; font-size: 0.85em; margin-top: -8px; }
+ul { margin: 6px 0; padding-left: 22px; }
+li { margin: 3px 0; }
+</style>
+</head>
+<body>
+
+<h1>🔬 AI 前沿日报</h1>
+<p class="date-sub">2026年08月22日 · 星期六</p>
+
+<!-- ===== 今日头条 ===== -->
+<h2>🔥 今日头条</h2>
+
+<div class="headline">
+<h3>OpenAI 把 Codex Harness 全面开源：「容器/模型不是产品，Harness 才是」</h3>
+<p>
+8 月 19 日，OpenAI 在开发者博客发布 <a href="https://developers.openai.com/blog/codex-as-a-platform">Codex as a platform: build on the open agent harness</a>（作者 Nicolas Bonamy、Derrick Choi），紧接着 8 月 20 日将 <code>openai/codex</code> 仓库正式以完整 Rust 实现的形式开源。Medium、SegmentFault、网易、Linux.do 当天同步刷屏。
+</p>
+<p>
+这不是一次「顺便开源」，是叙事重写。OpenAI 把 Codex CLI / App / IDE Extension 这三种用户面背后的同一套引擎——<strong>open-source Codex harness</strong>——明确定位为「可以被别人包进产品里的基础设施」。文章里说得很直白：<em>most people know Codex through the App, CLI, or IDE Extension. Those experiences are important, but they are only a few of the ways the same underlying system can be used.</em>
+</p>
+<p><strong>Harness 实际上承担了什么？</strong></p>
+<ul>
+<li>上下文收集（grep、glob、文件加载、远程索引）</li>
+<li>任务推理与 todo / plan 生成</li>
+<li>工具调用（shell、edit、browser、MCP server）</li>
+<li>权限边界（allowlist、approval、secrets 处理）</li>
+<li>会话状态、长任务、断点续跑</li>
+</ul>
+<p>
+也就是说——以后写一个「我自己的 Codex」不再需要从头造 agent 框架，<strong>直接 fork harness、接你的模型、改 UI</strong> 就行。OpenAI 同时提供三种调用形态：<code>codex exec</code>（CLI 子进程）、<code>SDK</code>（嵌入你的服务）、<code>app-server</code>（把 harness 当成一个常驻进程，类似 LSP）。这三条路径正好覆盖「自动化脚本 / 自家产品 / IDE 形态」三种集成姿势。
+</p>
+<p>
+<strong>为什么这是头条：</strong>它直接改写了「Agent 产品」的边界——
+</p>
+<ul>
+<li><strong>对标 Claude Agent SDK：</strong>Anthropic 过去半年一直在推 Claude Agent SDK（CLI、SDK、headless），OpenAI 这次用「开源」打了个差异化——同等的 harness 能力，但 fork/audit/contribute 都开放。</li>
+<li><strong>「应用层」从此没那么值钱：</strong>当 harness 是开源的、模型可以选（OpenAI 也支持 BYO model），所谓的「Cursor / Windsurf / Cody」差异化会被压缩到 prompt 策略、UI 体验、企业私有化部署三件事上。</li>
+<li><strong>「Agent 工程」从此进入新阶段：</strong>过去两年大家在比 prompt、tool schema、MCP server、memory；现在问题变成了「harness 怎么和你的业务系统集成」。这是一个更高阶的工程问题。</li>
+</ul>
+<p>
+<strong>对 agent 开发者的具体含义：</strong>
+</p>
+<ul>
+<li><strong>别再重写 agent 框架了：</strong>如果你正在做内部 coding agent / DevOps agent / 数据 agent，<a href="https://github.com/openai/codex">openai/codex</a> 应该进你的候选名单，优先于 LangGraph / CrewAI / Autogen 这种「自研框架」方案。</li>
+<li><strong>立刻评估三件事：</strong>你的模型 → harness → 业务工具的耦合点在哪里？harness 升级时（OpenAI 周更）你怎么跟？长任务的中断恢复策略要不要借 harness 的 checkpoint？</li>
+<li><strong>安全审计成本要重新算：</strong>harness 开源意味着安全研究者可以审计——这是好事。但反过来，所有用 Codex harness 的产品都共享同一片攻击面，patch 节奏要跟紧。</li>
+</ul>
+<p class="meta">
+<span class="tag tag-green">头条</span>
+<span class="tag tag-blue">Agent 基础设施</span>
+<span class="tag tag-red">开源</span>
+<span class="tag">范式转变</span>
+来源：<a href="https://developers.openai.com/blog/codex-as-a-platform">OpenAI Developers Blog</a> · <a href="https://github.com/openai/codex">openai/codex GitHub</a> · <a href="https://www.opensourceforu.com/2026/08/openai-open-sources-codex-harness/">OpenSource For You</a> · <a href="https://segmentfault.com/a/1190000048185190">SegmentFault</a>
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== Agent 前沿 ===== -->
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+<h3>Anthropic Fellows「Mind Viruses」研究：多 agent 之间 63% 成功率自我传播</h3>
+<p>
+8 月 10 日释出的 <a href="https://arxiv.org/abs/2608.10218">arXiv:2608.10218 "Mind Viruses: Self-Propagating Ideas in Multi-Agent LLM Systems"</a>（Vassilis Papadopoulos 等，Anthropic Fellows + EPFL）这一周持续发酵。结论简短而凶险：<strong>当一个 agent 写下的 prompt / 状态文件被另一个 agent 读取，「信念」「行为指令」可以像病毒一样在 agent 之间横向传播，1,800 次试验 / 五个模型后端平均 63% 攻击成功率。</strong>测试场景中就包括 OpenClaw（台湾攻击框架）。
+</p>
+<p>
+实验设计的核心是「harness state files」：agent A 被感染 → 在对话中传递种子指令 → agent B 写文件持久化 → 文件被 agent C 读入 → 行为偏移。说明最容易被攻击的，不是模型的「理解」，而是 agent <strong>把不可信输入当作「自己的 prompt」</strong>这层架构决策。
+</p>
+<p>
+<strong>为什么重要：</strong>这本质上是 agent 时代的 lateral movement（横向移动）实证。论文还提到一个反直觉的发现——<strong>在 system prompt 里加一段警告文字，能几乎完全阻止传播</strong>。换句话说，agent 安全在「提醒模型注意」和「真正隔离输入」之间，存在巨大的成本差。OWASP Agentic Top 10 该更新了。
+</p>
+<p>
+<strong>对 agent 开发者的具体含义：</strong>
+</p>
+<ul>
+<li><strong>立刻审计：</strong>你的 agent 是否会读取「其他 agent 写下的文件」？如果会，这条边界就是高危面。</li>
+<li><strong>把 agent-writable prompt 文件当作 untrusted input：</strong>能只读就只读；运行时改写要二次确认；考虑给敏感 skill 加 sandbox。</li>
+<li><strong>不要迷信「Claude/GPT 安全」</strong>——五个后端都被攻破，问题在架构不在模型。</li>
+</ul>
+<p class="meta">
+<span class="tag tag-red">安全</span>
+<span class="tag tag-green">必读论文</span>
+<span class="tag">Multi-Agent</span>
+来源：<a href="https://arxiv.org/abs/2608.10218">arXiv:2608.10218</a> · <a href="https://explainx.ai/blog/anthropic-mind-viruses-multi-agent-research-august-2026">explainx.ai 解读</a> · <a href="https://theoutpost.ai/news-story/ai-mind-viruses-can-spread-between-agents-through-persistent-prompt-files-new-research-shows-29882/">The Outpost</a> · <a href="https://datawater.com/ai-agent-mind-virus-turf-war-anthropic-research-shows-self-propagating-payloads-spread-between-agents-via-harness-state-files-63-success-rate-payloads-published-on-github-and-claude-ag/">DataWater</a>
+</p>
+</div>
+
+<div class="p0">
+<h3>JetBrains Rider 2026.2.1：内置「refactoring-code」skill，AI 重构 C# 中位时间 157.9s → 26.6s</h3>
+<p>
+8 月 19 日发布的 <a href="https://blog.jetbrains.com/dotnet/2026/08/19/rider-resharper-2026-2-1/">Rider 2026.2.1</a> 在 IDE 层面内嵌了一组专门给 AI agent 调用的「refactoring skill」。当 Claude Code / Codex 检测到当前任务属于「重构」，自动加载该 skill，<strong>中位任务时长从 157.9 秒压到 26.6 秒</strong>（≈ 83% 提速）。
+</p>
+<p>
+<strong>为什么重要：</strong>这是「skill 范式」第一次被一家主流 IDE 厂商做成产品级抽象——不只是「写一个 .claude/skills/xxx/SKILL.md」级别的实验，而是 IDE 默认打包、自动 dispatch 的运行时扩展。和 MCP Extensions、Codex harness 的方向完全一致：<strong>LLM 应用的「技能」正在变成标准化的中间层</strong>。
+</p>
+<p>
+<strong>对 agent 开发者的具体含义：</strong>
+</p>
+<ul>
+<li>如果你做 IDE 插件 / CLI 工具 / agent 产品，<strong>现在就要设计你的「skill 协议」</strong>——别人 fork 你的项目时，靠 skill 复用，而不是靠 fork 代码。</li>
+<li>JetBrains 的做法（task 类型 → 自动 dispatch skill → 收口结果）是值得抄的范式，可以照搬到企业内部 agent 产品里。</li>
+<li>OpenAI 的 Codex harness 已经支持类似的 skill dispatch，未来 6 个月里「skill registry / skill marketplace」会成为 LLM 应用的基础设施。</li>
+</ul>
+<p class="meta">
+<span class="tag tag-blue">Skill 范式</span>
+<span class="tag">IDE × Agent</span>
+来源：<a href="https://blog.jetbrains.com/dotnet/2026/08/19/rider-resharper-2026-2-1/">JetBrains Blog</a> · <a href="https://byteiota.com/rider-2026-2-1-refactoring-skill/">byteiota 评测</a>
+</p>
+</div>
+
+<div class="p0">
+<h3>xAI Grok Bot 退出 Beta：always-on「数字同事」进入 Cursor/SuperGrok 订阅</h3>
+<p>
+<a href="https://x.ai/bot">Grok Bot</a>（8/11 推出 Beta，8/21 正式版）现已在 SuperGrok Plus / Heavy、Cursor Pro+/Ultra、Cursor Teams 计划里 GA。卖点是「一直在线的 AI 同事」：能跨应用、跨收件箱、跨工具执行多步任务，能登录你的 SaaS 自己点，不像 Copilot 那样只在对话框里转。
+</p>
+<p>
+<strong>为什么重要：</strong>这是继 Claude Cowork 之后第二家把「always-on agent」从实验室推向付费 SKU 的玩家。两者都认同一个判断：<strong>agent 的下一阶段不是「更会聊」，而是「会干活」</strong>。能接管你邮箱、整理你 Notion、在 IDE / 浏览器 / Slack 之间穿梭的产品形态开始落地。
+</p>
+<p>
+<strong>对 agent 开发者的具体含义：</strong>
+</p>
+<ul>
+<li>「Chatbot UI」的天花板已经显现，新的差异化在「跨应用操作 + 状态保持 + 安全代理」三件套。</li>
+<li>Cursor 把 Grok Bot 列入订阅意味着编辑器已经成为 agent 的承载平台之一，光做 Chat 客户端会被边缘化。</li>
+<li>对个人开发者：Grok Bot 当前 $200–$300/月订阅门槛偏高，但形态已经成立，未来 6 个月会有更便宜的复制版本。</li>
+</ul>
+<p class="meta">
+<span class="tag tag-blue">数字同事</span>
+<span class="tag">Always-On Agent</span>
+来源：<a href="https://x.ai/bot">xAI Grok Bot</a> · <a href="https://releasebot.io/updates/xai">Releasebot xAI 更新</a> · <a href="https://www.ndtvprofit.com/technology/spacex-ai-cursor-launch-grok-bot-in-beta-as-ai-teammate-11899596">NDTV Profit</a>
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 小模型 & 效率革命 ===== -->
+<h2>⚡ 小模型 & 效率革命</h2>
+
+<div class="p0">
+<h3>DeepSeek-V4-Flash-Vision-Exp 发布：1M context 的多模态轻量模型</h3>
+<p>
+<a href="https://api-docs.deepseek.com/news/news260821/">DeepSeek 8 月 21 日上线的 DeepSeek-V4-Flash-Vision-Exp</a> 是 V4 家族的轻量多模态分支，1,048,576 token context、384K max output，定位「experimental multimodal visual understanding」。同时配套释出 <strong>DeepSeek Harness 0.1.1</strong>，开箱即用新模型。
+</p>
+<p>
+<strong>为什么重要：</strong>这是「Flash + 多模态」组合第一次在中文开源阵营做到 1M context。对 agent 开发者来说，<strong>成本可控的多模态视觉理解</strong>从此不再是大厂的特权——之前要么用 GPT-4o / Gemini 烧钱，要么用本地 BLIP-2 这种弱模型，现在多了一个能跑长任务、能看图、还便宜的选项。
+</p>
+<p>
+<strong>对 agent 开发者的具体含义：</strong>
+</p>
+<ul>
+<li><strong>「截图 + prompt」类 agent 工具</strong>（例如自动 PR review、自动 UI 测试生成）成本结构会被显著压低。</li>
+<li>DeepSeek Harness 是 OpenAI Codex harness 的国产对应物，值得对标评估（许可证、模型兼容性、扩展接口）。</li>
+<li>1M context 意味着「把整本手册 / 整份 PRD 灌进去 + 视觉」成为可能，agent 的「长期记忆」问题有了现实解。</li>
+</ul>
+<p class="meta">
+<span class="tag tag-green">小模型</span>
+<span class="tag tag-blue">多模态</span>
+<span class="tag">DeepSeek</span>
+来源：<a href="https://api-docs.deepseek.com/news/news260821/">DeepSeek API Docs</a> · <a href="https://openrouter.ai/deepseek/deepseek-v4-flash-vision-exp">OpenRouter</a> · <a href="https://zenmux.ai/deepseek/deepseek-v4-flash-vision-exp">ZenMux</a>
+</p>
+</div>
+
+<div class="p1">
+<h3>Qwen3.8-27B 正式落地 Hugging Face：Apache 2.0，可本地跑</h3>
+<p>
+8 月 14 日 <a href="https://huggingface.co/incoai/Qwen3.8-27B-DFlash2">Qwen3.8-27B</a> 在 Hugging Face 释出，同批还有 2.4T 参数的 Qwen3.8-Max。27B 在 Apache 2.0 下放权重，可以直接挂 Cursor / Cline / Continue 的 BYOK backend，跑 <a href="https://aicoderscope.com/blog/qwen38-27b-cursor-cline-byok-local-backend-2026/">aicoderscope 实测</a>已经能在 4090 上稳跑。
+</p>
+<p>
+<strong>看点：</strong>在大模型越卷越大的同时，<strong>「小到能本地跑 + 强到能 coding agent」</strong>这条路被 Qwen 走出了清晰路线图。对不愿把代码送上云的小团队来说，这比 SaaS agent 更值得压注。
+</p>
+<p class="meta">
+<span class="tag tag-green">开源</span>
+<span class="tag">27B</span>
+<span class="tag">Qwen</span>
+来源：<a href="https://huggingface.co/incoai/Qwen3.8-27B-DFlash2">Hugging Face</a> · <a href="https://aicoderscope.com/blog/qwen38-27b-cursor-cline-byok-local-backend-2026/">aicoderscope 实测</a>
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 广角扫描 ===== -->
+<h2>📡 广角扫描</h2>
+
+<div class="p1">
+<h3>Anthropic + Redwood 推出「Conceptual Reasoning Index」：测模型「论证」能力而非「事实」能力</h3>
+<p>
+8 月 12 日 <a href="https://alignment.anthropic.com/2026/conceptual-reasoning-index/">Anthropic Alignment Science Blog</a> 联合 Redwood Research 发布 LMCA / ACCoRD / DTBench 三个新基准——衡量模型对「无法被经验/数学验证的命题」的论证质量。Opus 5 当前 73.6 分，理论上限 91。
+</p>
+<p>
+<strong>点评：</strong>这是 AI 安全评估从「会不会出错」走向「会不会思考地出错」的一个信号。对做 agent 的团队来说，未来你的模型不仅要被 benchmark 验证事实正确，还要被验证论证结构正确——尤其是当 agent 在多步推理里堆叠自己的判断时。
+</p>
+<p class="meta"><span class="tag tag-blue">Benchmark</span><span class="tag">安全</span></p>
+</div>
+
+<div class="p1">
+<h3>MCP 2026-07-28 Spec：MCP 转向 stateless 协议核心</h3>
+<p>
+Model Context Protocol 在 7 月 28 日推出 release candidate，<a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">stateless 化</a>是最大的改动——从双向有状态变成 request/response 无状态。同时引入 Extensions framework、Tasks、MCP Apps、鉴权加固和正式 deprecation policy。
+</p>
+<p>
+<strong>点评：</strong>无状态化意味着 MCP server 可以水平扩展、能跑在 serverless 平台、能和现有 OAuth 网关直接拼装。对已经在用 MCP 的团队，下半年要看的是：你的 server 实现是否能跟上新规范，老 spec 的迁移窗口有多久。
+</p>
+<p class="meta"><span class="tag tag-blue">MCP</span><span class="tag">协议升级</span></p>
+</div>
+
+<div class="p1">
+<h3>Google Gemini 3.7 Flash：codeline agentic 优化的「工作马」</h3>
+<p>
+8 月 13 日 <a href="https://deepmind.google/models/gemini/flash/">DeepMind 发布 Gemini 3.7 Flash</a>（3.6 Flash 后仅三周），三档可调思考强度（low / medium / high），价格不变（$0.75 in / $3.75 out），knowledge cutoff 推进到 2026 年 3 月（code / SDK / 技术域）。
+</p>
+<p>
+<strong>点评：</strong>Google 在「快速迭代 Flash + 慢炖 Ultra」这条节奏上越走越稳。3.7 Flash 对 agent 来说是一个「性价比甜点」——比 Ultra 便宜一个数量级，但 SWE-bench / agentic eval 已经接近上一代 Pro 水平。
+</p>
+<p class="meta"><span class="tag">Gemini</span><span class="tag tag-green">性价比</span></p>
+</div>
+
+<div class="p1">
+<h3>xAI Grok 4.6（8/12）正式可用：500K context</h3>
+<p>
+<a href="https://evolink.ai/blog/grok-4-6-release-date">Grok 4.6</a> 在 xAI API 上线（model id <code>grok-4.6</code>），500K tokens 上下文窗口。Grok 5 仍未官宣，但 4.6 + Grok Bot 的组合已经支撑 xAI 在 agent 赛道的存在感。
+</p>
+<p><strong>点评：</strong>500K 已经在主流模型里变成标配，但 Grok Bot 把 xAI 的差异化拉到了「应用层 / 操作层」，模型本身的迭代节奏被有意放慢。</p>
+<p class="meta"><span class="tag">xAI</span><span class="tag">Grok 4.6</span></p>
+</div>
+
+<div class="p1">
+<h3>Anthropic 8 月 20 日 Sonnet 5 大面积 outage</h3>
+<p>
+<a href="https://status.claude.com/">Claude Status</a> 显示 Sonnet 5 在 8 月 20 日出现错误率飙升，影响 Claude.ai / API / Claude Code / Cowork 全产品线。15:20 UTC（8:20 PT）恢复 baseline。
+</p>
+<p>
+<strong>点评：</strong>这是连续第三个月里 Anthropic 的「单点 Sonnet 故障」事件，再次印证单模型依赖的风险。对生产环境的 agent 团队——多模型 fallback 路由不是 nice-to-have，是 SLA 底线。
+</p>
+<p class="meta"><span class="tag tag-red">可用性</span><span class="tag">Sonnet 5</span></p>
+</div>
+
+<div class="p1">
+<h3>Hugging Face OlmoEarth Studio：自定义 embedding 导出</h3>
+<p>
+8 月 12 日 <a href="https://huggingface.co/blog">HF Blog</a> 上线 OlmoEarth Embeddings 自定义导出，地球观测 / 遥感方向的 ML 研究者现在可以把 OlmoEarth 的中间表征按自己需要切片导出。
+</p>
+<p><strong>点评：</strong>这是「地球观测 + 基础模型」走向工程化的一个具体落地。垂直领域 embedding 的可控导出，会成为 GeoAI 团队评估基础模型的标准动作。</p>
+<p class="meta"><span class="tag">Hugging Face</span><span class="tag">GeoAI</span></p>
+</div>
+
+<div class="p2">
+<h3>Karpathy「CLAUDE.md」行为规范仓库接近 156k stars</h3>
+<p>
+Forrest Chang 把 Karpathy 1 月份关于「LLM 编程踩坑」的 4 条行为规则做成 <code>CLAUDE.md</code> 单文件，<a href="https://www.firecrawl.dev/blog/best-github-repos">已成为 GitHub 上最受欢迎的 Claude Code behavioral skill</a>，约 156k stars。
+</p>
+<p><strong>点评：</strong>「一行 md 改变 agent 行为」这件事的市场验证已经到位。skill 范式接下来就是 plugin marketplace。</p>
+<p class="meta"><span class="tag tag-blue">Skill 范式</span><span class="tag">社区信号</span></p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 深度思考 ===== -->
+<h2>💭 深度思考</h2>
+
+<div class="insight">
+<h3>观点 1：Agent 产品竞争升维——「模型即产品」让位给「Harness 即产品」</h3>
+<p>
+过去两年 agent 圈的潜规则是：<strong>谁拥有最强的基模型，谁就拥有最强的 agent</strong>。2026 年 8 月这条规则被正式改写。两条独立信号同时亮：
+</p>
+<ul>
+<li><strong>OpenAI 把 Codex harness 全面开源</strong>——把 harness 定位成「可以被别人包进产品的开源基础设施」，同时提供 CLI / SDK / app-server 三种集成姿势，等于在喊：「别再各自造轮子，用我的 harness 接你的模型」。</li>
+<li><strong>Anthropic 持续推 Claude Agent SDK</strong>——同一时间 Claude Code 在企业内部扩张，Cowork 跨桌面，背后是同一套 harness 哲学。</li>
+</ul>
+<p>
+<strong>含义：</strong>接下来 6 个月里，「agent 应用层」会经历一次类似当年「移动应用层」的整合——99% 的差异化会集中到三个轴上：<strong>私有数据接入、垂直工作流编排、企业安全合规</strong>。通用型「对话 + 工具调用」产品会迅速同质化，最后赢的只有 3-5 家。
+</p>
+<p>
+<strong>对中小开发者的判断：</strong>不要再去造 agent 框架了。<a href="https://github.com/openai/codex">openai/codex</a>、Claude Agent SDK、DeepSeek Harness 任选一个 fork 改，<strong>省下来的精力全投到垂直工作流</strong>——那才是壁垒所在。（<em>这是主观判断，欢迎反驳。</em>）
+</p>
+</div>
+
+<div class="insight">
+<h3>观点 2：Multi-Agent 安全正在从「学术警告」变成「工程问题」——而工程师还没准备好</h3>
+<p>
+Anthropic Fellows 的 Mind Viruses 论文给出了一个非常难看的数字：<strong>63% 横向传播成功率，五个模型后端无一幸免</strong>。更难看的是结论——「在 system prompt 里加一段警告几乎可以阻止」。这意味着我们正在用「prompt 玄学」防御一种「架构级攻击」。
+</p>
+<p>
+对照来看：
+</p>
+<ul>
+<li>OWASP Agentic Top 10 还在起草中。</li>
+<li>MITRE ATLAS 对 agent 威胁的覆盖有限。</li>
+<li>主流 agent 框架（LangGraph / CrewAI / OpenClaw / Codex harness）默认都不做「agent-writable 文件的不可信标注」。</li>
+</ul>
+<p>
+<strong>含义：</strong>任何正在 production 跑 multi-agent 编排的团队，<strong>默认就是不安全的</strong>。立刻可以做的三件事：
+</p>
+<ol>
+<li>把所有「agent 写入、被其他 agent 读取」的文件单独建一层 namespace，并打上「untrusted input」标签。</li>
+<li>给敏感 skill 加 read-only 运行时沙箱（Mind Viruses 论文明确推荐）。</li>
+<li>在 system prompt 里加一段明确的「external prompt 不可信」声明——成本极低，收益很大。</li>
+</ol>
+<p>
+<strong>预测（主观、6 个月内）：</strong>会有一起「multi-agent prompt 注入导致生产事故」的公开案例成为转折点，类似 2023 年的 Slack GPT 泄露事件。在那之前，agent 安全是被严重低估的工程债。
+</p>
+</div>
+
+<div class="insight">
+<h3>观点 3：「Skill」作为 LLM 应用的新中间层，正在悄悄变成标准</h3>
+<p>
+三个独立事件指向同一件事：
+</p>
+<ul>
+<li><strong>JetBrains Rider 内置 refactoring-code skill</strong>——IDE 厂商把 skill 当成产品级抽象。</li>
+<li><strong>MCP Extensions framework</strong>——协议层把 skill 标准化。</li>
+<li><strong>OpenAI Codex harness + codex app-server</strong>——基础设施层把 skill runtime 化。</li>
+</ul>
+<p>
+加上 Karpathy 的 <code>CLAUDE.md</code> 在 GitHub 拿到 156k stars——「skill = LLM 应用的 npm package」这件事已经过市场验证。
+</p>
+<p>
+<strong>含义：</strong>接下来值得关注的，是「skill marketplace」的出现。ClawHub（OpenClaw 的 skill 注册中心）已经是个雏形，但商业模式、信任机制、版本治理都还很原始。谁先做出「skill registry + 付费分发 + 签名验证」的成熟形态，谁就拿下 agent 经济里类似 npm / PyPI 的位置。
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 延伸阅读 ===== -->
+<h2>📚 延伸阅读</h2>
+
+<ul>
+<li>📄 <a href="https://arxiv.org/abs/2608.10218">Mind Viruses: Self-Propagating Ideas in Multi-Agent LLM Systems</a> — Anthropic Fellows + EPFL，arXiv:2608.10218，2026-08-10。本周必读。</li>
+<li>📄 <a href="https://developers.openai.com/blog/codex-as-a-platform">Codex as a Platform</a> — OpenAI 官方对 harness 开源的解读。</li>
+<li>📄 <a href="https://alignment.anthropic.com/2026/conceptual-reasoning-index/">Conceptual Reasoning Index</a> — Anthropic + Redwood 三个新基准。</li>
+<li>📄 <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP 2026-07-28 Spec Release</a> — MCP 转向 stateless 的 release note。</li>
+<li>📄 <a href="https://deepmind.google/models/gemini/flash/">Gemini 3.7 Flash 模型卡</a> — Google DeepMind 当前性价比主力。</li>
+<li>📄 <a href="https://api-docs.deepseek.com/news/news260821/">DeepSeek-V4-Flash-Vision-Exp Release Notes</a> — 1M context 多模态轻量模型。</li>
+<li>📝 <a href="https://explainx.ai/blog/anthropic-mind-viruses-multi-agent-research-august-2026">Mind Viruses 论文解读</a> — explainx.ai 把论文和「viral tweet」做对比，避免被标题党带偏。</li>
+</ul>
+
+<div class="footer">
+<p>AI 前沿日报 · Hermes Agent 自动整理 · 数据来源：官方博客、arXiv、Hacker News、Reddit、技术媒体交叉检索</p>
+<p>本报告为编辑整理，不构成任何投资或操作建议。所有观点为主观判断，欢迎反驳。</p>
+</div>
+
+</body>
+</html>
