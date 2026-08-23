@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年08月23日</title>
+<style>
+body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif; max-width: 820px; margin: 0 auto; padding: 24px; line-height: 1.7; }
+h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 12px; font-size: 1.6em; }
+h2 { color: #f0883e; margin-top: 32px; font-size: 1.25em; }
+h3 { color: #7ee787; font-size: 1.05em; margin: 16px 0 6px 0; }
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.headline, .p0 { background: #161b22; border-left: 4px solid #7ee787; padding: 18px; margin: 12px 0; border-radius: 6px; }
+.p1 { background: #161b22; border-left: 4px solid #58a6ff; padding: 12px 14px; margin: 8px 0; border-radius: 6px; }
+.p2 { background: #161b22; border-left: 4px solid #484f58; padding: 10px 14px; margin: 6px 0; border-radius: 6px; }
+.insight { background: #1a2332; border: 1px solid #58a6ff; padding: 16px 18px; margin: 24px 0; border-radius: 8px; }
+.insight p { margin: 8px 0; }
+.tag { display: inline-block; background: #21262d; color: #8b949e; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+.tag-green { background: #163a1e; color: #7ee787; }
+.tag-red { background: #3a1621; color: #f0883e; }
+.tag-blue { background: #162a3a; color: #58a6ff; }
+.meta { color: #8b949e; font-size: 0.85em; margin-top: 6px; }
+.meta a { color: #8b949e; }
+.divider { border: none; border-top: 1px solid #21262d; margin: 28px 0; }
+.footer { color: #484f58; font-size: 0.8em; text-align: center; margin-top: 48px; padding-top: 20px; border-top: 1px solid #21262d; }
+blockquote { border-left: 3px solid #30363d; margin: 10px 0; padding: 6px 14px; color: #8b949e; }
+strong { color: #e6edf3; }
+.emoji { font-style: normal; }
+.date-sub { color: #8b949e; font-size: 0.85em; margin-top: -8px; }
+ul { margin: 6px 0; padding-left: 22px; }
+li { margin: 3px 0; }
+ol { margin: 6px 0; padding-left: 24px; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92em; }
+th, td { border: 1px solid #30363d; padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: #21262d; color: #e6edf3; }
+.caveat { border-left-color: #f0883e; background: #211a18; }
+.source-note { color: #8b949e; font-size: 0.88em; }
+code { background: #21262d; border-radius: 4px; padding: 1px 5px; color: #d2a8ff; }
+</style>
+</head>
+<body>
+
+<h1>🔬 AI 前沿日报</h1>
+<p class="date-sub">2026年08月23日 · 星期日 · 覆盖 8 月 20–23 日公开动态</p>
+
+<div class="insight" style="border-color:#7ee787">
+<p><strong>编辑说明：</strong>本期的强信号不是“新模型又多了 2 个点”，而是 agent 的价值单元正在上移：<strong>harness、长期 memory、可迁移 skill、工作流身份和验证闭环</strong>，正在比一次性的 base model benchmark 更能解释真实表现。与此同时，研究界开始给出更便宜的执行路径——CPU-native 小模型、adaptive reasoning，以及不重跑整套验证集也能优化 harness。</p>
+<p class="source-note">截至 2026-08-23 08:17 CST。官方博客中过去 24 小时无新的 OpenAI / Anthropic / Meta / Mistral / Cohere / xAI / BAIR 研究发布；主要更新来自 NVIDIA、arXiv、MCP 官方、GitHub、HN 社区及经一手页面复核的媒体报道。</p>
+</div>
+
+<!-- ===== 今日头条 ===== -->
+<h2>🔥 今日头条</h2>
+
+<div class="headline">
+<h3>NVIDIA AVO：同一个 Claude Opus 5，arc-agi-3 public set 从约 30% 到 100.00 RHAE</h3>
+<p>
+8 月 21 日，<a href="https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/">NVIDIA 公布 Agentic Variation Operators（AVO）</a>。官方明确写道：Claude Opus 5 直接运行的约 30% 只是 ARC Prize 单独报告的模型级 high-reasoning baseline；换成 AVO 后，模型通过文本化 64×64 环境观察、persistent memory、supervisor、tool use 和 grounded feedback，在 ARC-AGI-3 的 25 个 public environments、183 个 levels 上拿到 <strong>100.00 RHAE</strong>，共使用 6,624 次环境动作。作为参考，VISTA 报告 7,542 次动作完成同一 public set，少约 12%。
+</p>
+<p><strong>为什么重要：</strong>这不是“Claude Opus 5 突然学会了 AGI”，而是一个干净的实证提醒：agent 产品测试必须测<strong>整套系统</strong>。在长任务里，memory 决定什么能穿过上下文，supervisor 决定是否及时换路，tool/feedback 决定模型能否从错误假设中恢复。昨天的日报刚写“harness 即产品”，今天就有了新的公开证据。</p>
+<blockquote><strong>重要限定：</strong>NVIDIA 自己也声明这不是 controlled ablation；AVO 与 VISTA 在 backend、observation、memory、context management 上都不同。结果只适用于 25-environment public set，不适用于 semi-private/private competition sets。因此“可重复 100%”不能写成 AGI 突破，但“系统层设计可把同一模型从约 30% 推到 100%”这个结论非常扎实。</blockquote>
+<p><strong>对 agent 开发者的具体建议：</strong></p>
+<ul>
+<li>不要再用“换一个更强 model”作为唯一优化轴；给现有 agent 补上 <code>trajectory memory</code>、<code>stagnation detector</code>、<code>supervisor</code> 和 <code>grounded validation</code>，先做同模型同任务 A/B。</li>
+<li>评测同时记录 pass rate、工具调用、动作效率、重复探索和 supervisor 介入次数。100% pass 但 100K token 的 system，未必比 80% pass 且高效的系统更可部署。</li>
+<li>若做 ARC 这类 hidden-set 风格评测，把“公开集调参”和“隐藏集泛化”彻底分开；把 public set 当 regression set，而不是产品成绩。</li>
+</ul>
+<p class="meta">
+<span class="tag tag-green">头条</span><span class="tag tag-blue">Harness / Agent Architecture</span><span class="tag tag-red">Long-Horizon</span>
+来源：<a href="https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/">NVIDIA 官方</a> · <a href="https://techcrunch.com/2026/08/21/nvidia-just-showed-that-the-harness-not-the-ai-model-is-now-the-real-hero/">TechCrunch 解读</a> · <a href="https://news.ycombinator.com/item?id=49387755">HN：70 points / 39 comments</a>（统计于截稿时）
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== Agent 前沿 ===== -->
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+<h3>Cross-task skill transfer：把“整段任务摘要”拆成 subtask skill，迁移才可靠</h3>
+<p>
+<a href="https://arxiv.org/abs/2608.20274">arXiv:2608.20274</a> 在 3 个 benchmark（AppWorld、OfficeBench、KramaBench）和 11 个模型上做受控研究，比较 task-level / subtask-level 与 text / code 两种 skill 表示。结论很清楚：<strong>task-level skill 大多把 agent 拉回 no-memory baseline 以下；subtask-level skill 平均提升表现；同一抽象层级下，text skill 比 code skill 平均高 2.9（subtask）或 1.4（task）个百分点。</strong>
+</p>
+<p>论文还提出 execution-free 的 <strong>skill utility = specificity × abstractness</strong>：只拿 skills 和 task descriptions 就能预筛，过低或不相关的 memory 不必在真实任务上“试毒”。按 utility 排序后，最高组的 success 从最低组的 22.8% 升到 31.0%（subtask-level agent）；task-level agent 则是 14.0% → 24.5%。</p>
+<p><strong>为什么重要：</strong>它把“写更多 skill”从玄学变成 memory-system 问题。skill 越像一整段工作日志，越容易和原任务绑定；粒度适中的局部经验，才可能在未来任务里复用。code skill 看起来更可执行，但 text skill 往往更跨任务、更便宜、更不容易锁死环境细节。</p>
+<p><strong>Actionable：</strong>把 agent 的 reflection 输出从“整单总结”改成“已验证的 subprocedure + 输入信号 + 成功条件 + 失败条件 + 可迁移边界”；每条 skill 运行时计算 specificity / abstractness，过期或低 utility 的不进上下文。先用 20–50 条历史任务做 A/B，别直接扩到全量 memory。</p>
+<p class="meta"><span class="tag tag-green">P0</span><span class="tag">Agent Memory</span><span class="tag">Skill Transfer</span>来源：<a href="https://arxiv.org/html/2608.20274v1">论文全文</a> · <a href="https://github.com/Zesearch/skill-transfer-llm-agents">代码与数据</a></p>
+</div>
+
+<div class="p0">
+<h3>Task-CoEvolve：harness 优化不再每轮跑完整 validation set，评估次数减少 80%</h3>
+<p>
+<a href="https://arxiv.org/abs/2608.20169">Task-CoEvolve</a> 将 harness code 与 validation task set 共同演化：优先抽样“不同 harness 容易分歧”、即靠近当前能力边界的任务，再用 sampling-aware estimator 比较各轮。官方结果显示，online text classification 用约 7% budget 就接近 Full Search、20% 时甚至超过；Terminal-Bench 2.1 在保持接近 Full Search 表现下，把搜索评估成本降低 <strong>67–80%</strong>。
+</p>
+<p><strong>为什么重要：</strong>Agent harness 调优最大的隐藏成本往往不是训练，而是 sandbox、终端或浏览器里“每个 candidate 跑几十条”的评测。若固定 100 条全跑，优化 20 轮就是 2,000 次；动态选 20 条就是 400 次，正确率还可能更高。harness 已从“一次性骨架”变成持续编译的系统。</p>
+<p><strong>Actionable：</strong>建立 capability-frontier 任务集：每轮先跑 10–20 条分歧最大的 case；只有候选 harness 都打平或无法区分时再扩大预算。把 evaluation budget 当超参，记录 token、wall time、sandbox time 和 final score，避免“便宜 80%”只是把长任务裁短。</p>
+<p class="meta"><span class="tag tag-green">P0</span><span class="tag tag-blue">Harness Optimization</span><span class="tag">Evaluation</span>来源：<a href="https://arxiv.org/html/2608.20169v1">论文全文</a> · <a href="https://github.com/Agent4Science-UTokyo/Task-CoEvolve">GitHub（6 stars，8/20 新建）</a></p>
+</div>
+
+<div class="p1">
+<h3>MidTool：20.3B token 的 tool-use mid-training，4B/8B base model 在 SFT 与 RL 后持续受益</h3>
+<p>
+<a href="https://arxiv.org/abs/2608.20314">MidTool</a> 用 web、PDF、code、API、MCP skills 和 document-grounded workflow 构造 20.3B-token / 11.22M-sample 的 MidTool-Mix，并设置两条互补 synthesis branch：context-grounded augmentation 教模型从混乱资料识别 tool affordance、参数和流程；native agentic trajectories 教它实际执行与恢复。Qwen3-4B-Base 和 Qwen3-8B-Base 在固定后续 SFT/RL recipe 下，于 BFCL、τ²-Bench、MCP-Universe 上均改善。
+</p>
+<p><strong>意义：</strong>tool use 不是“prompt 写几个 JSON schema”就能稳定得到的能力，它需要一套训练先验——识别边界、ground 参数、组合调用、从不完整信息恢复。论文 ablations 也显示去掉任一 branch 都会掉点；通用 tool-use mid-training 改善 schema grounding / workflow composition，但对 deep search 这类强探索任务帮助有限。</p>
+<p><strong>Actionable：</strong>如果你在做本地 tool-use model，先把 20.3B 全量照搬通常不划算；更实际的是从真实 API/MCP 文档、失败 trajectory 和环境验证器做 100M–1B domain mixture，再固定 SFT/RL recipe 做对照。</p>
+<p class="meta"><span class="tag tag-blue">P1</span><span class="tag">Tool Use</span><span class="tag">MCP</span>来源：<a href="https://arxiv.org/html/2608.20314">论文全文</a> · <a href="https://unbug.github.io/one-minute-read-paper-midtool-mid-training-tool-use/">中文一分钟读论文</a></p>
+</div>
+
+<div class="p1">
+<h3>Task Model Induction：把员工操作轨迹变成可审计、可复用的“任务模型”</h3>
+<p>
+<a href="https://arxiv.org/abs/2608.20319">Stanford / CMU 的 TMI</a> 不再假设员工一次只做一件事，而是从 screenshots、鼠标和键盘事件中发现交织的 latent tasks，再为每个 task 分离 hierarchical objective 与 control-flow procedure。论文报告 task grouping 与 ground truth 的 ARI/agreement 达 <strong>0.974</strong>，重建 74.9% execution steps；由此生成的 skills 在 held-out task accuracy 上比最强 baseline 高 30.0%。
+</p>
+<p><strong>意义：</strong>企业 agent 的“技能”不一定靠模型自省生成，也可以从真人示范中 process mining。下一步的差异化很可能是：谁能把混乱、跨窗口、夹杂隐私的桌面操作，稳定提炼成可审计 SOP，谁就有企业 workflow 数据资产。</p>
+<p><strong>Actionable：</strong>在录制前先做 PII 脱敏，把 email、客户名、token、剪贴板列入不可采集项；只保留 app、语义动作、artifact 引用和 objective。skill 必须带 provenance、录制版本、人工 reviewer，禁止直接把截图和键盘文本送进共享 registry。</p>
+<p class="meta"><span class="tag tag-blue">P1</span><span class="tag">Computer Use</span><span class="tag">Process Mining</span>来源：<a href="https://arxiv.org/html/2608.20319">论文全文</a></p>
+</div>
+
+<div class="p1">
+<h3>MCP 新 roadmap：agent identity、progressive tool discovery、server-initiated events 正式进入优先级</h3>
+<p>
+8 月 22 日，<a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">MCP Core Maintainers 发布新版 roadmap</a>，把未来方向压缩为五块：agentic messaging primitives、HTTP-native transport、agent identity / enterprise security、improved primitives、SDK DX。最值得 agent 开发者关注的有三点：</p>
+<ul>
+<li>Tasks / <code>subscriptions/listen</code> / progress notifications 统一后，server 可用 webhook 或 channel 反向推动长任务；</li>
+<li>100+ tools 不再全部塞给 model，开始 progressive discovery，先给小入口，再按对话收窄；</li>
+<li>云端 agent 不再只拿人的 OAuth：要用 DPoP、Workload Identity Federation、token exchange 建立 agent identity 和 delegation chain。</li>
+</ul>
+<p><strong>为什么重要：</strong>MCP 正从“发现一个 tool 调一下”升级成 agent operations layer。没有 identity、异步 push 和渐进发现，跨服务 long-running agent 很难审计、授权和恢复。</p>
+<p><strong>Actionable：</strong>做 MCP server 时现在就加 tool catalog / capability index；生产 client 把最终解析后的 tool arguments 和 destination 写进 trace；为 outbound push / merge / payment 设计 human approval 或 policy gate，不要等新 spec 发布。</p>
+<p class="meta"><span class="tag tag-blue">P1</span><span class="tag">MCP Roadmap</span><span class="tag">Agent Identity</span>来源：<a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">MCP 官方</a> · <a href="https://news.ycombinator.com/item?id=49399591">HN：170 points / 123 comments</a>（截稿时）</p>
+</div>
+
+<div class="p2">
+<h3>Munder Difflin 在 HN 爆火：数字克隆办公室，真实价值在 hive/memory/worktree</h3>
+<p>
+<a href="https://munderdiffl.in/">Munder Difflin</a> 8 月 22 日在 HN 获得 244 points / 113 comments，仓库当前约 3,663 stars。它把 Claude Code、Codex、Grok、Kimi、Qwen、OpenCode、Pi、Copilot CLI、Cursor 等包成“团队成员”，提供 shared memory、mailbox、blackboard、append-only log、per-agent worktree、approvals、budgets、telemetry 和 circuit breaker；MIT 开源，BYOK / local LLM / cloud 均可。
+</p>
+<p><strong>我的判断：</strong>像素办公室只是好传播的 skin。真正值得借鉴的是“角色 / mailbox / single-committer worktree / 预算与熔断”这套 runtime contract，以及“把一个 CLI agent 变成可被监督的长期节点”。社区争论也很准确：视觉办公室可能很好玩，但不是长期 agent 的必需 UI；<strong>pipeline 与 scoped permission</strong> 才是核心。</p>
+<p><strong>可借鉴的实现：</strong>本地单机先只接 2–3 个 agent，每个 agent 独立 worktree；共享只读知识库，任何写操作经 approval queue；消息带 correlation id、input hash、policy decision；失败达到阈值熔断，而不是继续生成“看起来很忙”的办公室。</p>
+<p class="meta"><span class="tag">P2 · 社区热点</span><span class="tag tag-blue">Multi-Agent Harness</span>来源：<a href="https://munderdiffl.in/">项目页</a> · <a href="https://github.com/chaitanyagiri/munder-difflin">GitHub</a> · <a href="https://news.ycombinator.com/item?id=49398152">HN 讨论</a>（项目始于 5/31，8/22 集中发酵，非 8/22 首发）</p>
+</div>
+
+<div class="p2">
+<h3>GitHub Copilot cloud agent 进入 Microsoft Teams：协作面从 issue 扩到会话</h3>
+<p>
+<a href="https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams/">GitHub 8 月 21 日发布 public preview</a>：在 Teams channel、thread 或 DM 中 @GitHub 即可启动共享 Copilot cloud agent session；所有人可见调查过程、补充上下文和 steer；仓库 write access 成员可让它改代码。管理员还可要求 Copilot-generated PR 在 merge 前额外一次 approval。
+</p>
+<p><strong>点评：</strong>这不是新模型，但说明 agent 正从“开发者单独叫 CLI”进入团队协作信息流。下一步 bottleneck 不会是生成更多代码，而是共享上下文、决策 provenance 和 merge governance。</p>
+<p class="meta"><span class="tag">P2</span><span class="tag">GitHub Copilot</span><span class="tag">Collaboration</span>来源：<a href="https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams/">GitHub Changelog</a></p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 小模型 & 效率革命 ===== -->
+<h2>⚡ 小模型 &amp; 效率革命</h2>
+
+<div class="p0">
+<h3>Daedalus-150M：先为 CPU 设计架构，再谈量化——2048 context 达 1.76× 解码</h3>
+<p>
+<a href="https://arxiv.org/abs/2608.20210">Daedalus-150M</a> 把 18 个 block 中仅 6 个保留 full attention，另外 12 个换成 memory 恒为两个 timestep 的 short convolution。4-bit 下，模型在 2,048-token context 解码比同数据、参数匹配的 dense attention baseline <strong>快 1.76×</strong>，比一个外部同尺寸模型快 2.08×；chosen quality metric 高 0.81%、downstream tasks 打平、文件小 6.3%。模型用 59.9B token 训练，Apache-2.0。
+</p>
+<p><strong>为什么重要：</strong>现在太多小模型只是“大模型架构压到很小”。Daedalus 反过来从单用户、CPU、streaming decode、long context 出发，用固定状态卷积切断 KV cache 随长度增长。最有价值的是：<strong>速度曲线随 context 增长而扩大，而不是靠少训一点数据硬瘦下来。</strong></p>
+<p><strong>现实边界：</strong>150M 远不到通用 agent planner 的可靠底座；paper 也承认原生 4-bit 有质量损失、部分卷积 channel 训练后 inert、vocabulary 偏大。因此它不是“1.76× 的 GPT 替代品”，而是 routing、intent classification、local preprocessing、隐私过滤或极窄任务模型的架构样本。</p>
+<p><strong>Actionable：</strong>端侧项目不要只比较 Q4 与 Q8；把 context-length × tokens/s 做成二维 benchmark。150M–350M 特别适合做本地 router，1B+ 才考虑多步 tool use。</p>
+<p class="meta"><span class="tag tag-green">P0</span><span class="tag tag-blue">On-Device</span><span class="tag">CPU-Native</span>来源：<a href="https://arxiv.org/html/2608.20210v1">论文全文</a> · <a href="https://github.com/unseen1980/daedalus">GitHub</a></p>
+</div>
+
+<div class="p1">
+<h3>Learning When to Think：1.5B reasoning model 自适应 NoThink / Short / Long，平均响应少 41%</h3>
+<p>
+<a href="https://arxiv.org/abs/2608.20256">Adaptive reasoning</a> 把首个 token 设计成三档模式选择：NoThink、Short、Long，并在 GRPO 内用不同长度 reward 学 routing，不另设 router。MATH500 held-out accuracy 为 <strong>0.782 vs base 0.796</strong>，只损失 1.4 个百分点，平均 response length 从 4,796 token 降到 2,811（<strong>-41%</strong>）；GSM8K 上甚至减少 76% token 且准确率高于同等响应长度 baseline。
+</p>
+<p><strong>为什么重要：</strong>test-time compute 不应是一个全局 slider。简单问题仍启用 max reasoning，浪费的不只是钱，还会让 agent loop 更慢、更容易偏航。1.5B 能把计算预算变成按问题难度分配的 policy，是 agent router 的原生形态。</p>
+<p><strong>Actionable：</strong>先不训练模型，也可做轻量 rule router：短分类 / 检索抽取默认 no-think，代码修改 / 规划进入 short，复杂 debug / 多约束进入 long；按 task type 记录 success / token / time，三周后再替换为 learned router。</p>
+<p class="meta"><span class="tag tag-blue">P1</span><span class="tag">Adaptive Reasoning</span><span class="tag">Test-Time Compute</span>来源：<a href="https://arxiv.org/abs/2608.20256">arXiv 摘要页</a>（HTML 暂不可用，摘要由 arXiv API 直接核验）</p>
+</div>
+
+<div class="p1">
+<h3>Faraday：27B 专用 science agent 在“复现论文”上胜过 Claude Opus 4.8 / GPT-5.5——但别把窄域结果外推成通用小模型胜利</h3>
+<p>
+DeepMind alumni 创办的 Inherent 在 8 月 14 日公布 <a href="https://inherentlabs.ai/research/training-to-replicate">Faraday / Replica</a>，8 月 22 日被 TechCrunch 重新报道。Faraday 是 Qwen3.6-27B，经 long-horizon RL 后把 GPT-5.5 Codex 当 tool；Replica 含 100 篇 ML / AI-for-science 论文的 310 个复现任务。Inherent 报告它在各论文类别都优于 Claude Opus 4.8（Claude Code harness）与 GPT-5.5（Codex harness），held-out 新研究上更稳。
+</p>
+<p><strong>为什么重要：</strong>它支持“通用小 planner + 强 coding executor + domain-specific RL / rubric judge”可能比纯堆参数更有效。27B 模型不是靠 token 数量硬压 frontier，而是把“研究品味”压进一个可迁移 policy。</p>
+<p><strong>必须保留的 caveat：</strong>这是公司自建 benchmark、自研 rubric judge 主导的结果；TechCrunch 报道本身也明确说，这只是复现旧论文，不代表创新新科学。公开代码、数据与独立复现仍决定可信度。正确的结论是“specialization + 强 tool + 好 judge 是可行架构”，不是“27B 全面击败 GPT-5.5”。</p>
+<p><strong>Actionable：</strong>不要训练 27B；先复现结构：路由小模型 + 强 executor + 可执行 verifier + 按任务 rubric 的 judge。复现 benchmark 必须保留 hidden set、人工盲评和 executor failure attribution。</p>
+<p class="meta"><span class="tag tag-blue">P1</span><span class="tag">Small Specialist Agent</span><span class="tag">AI for Science</span>来源：<a href="https://inherentlabs.ai/research/training-to-replicate">Inherent 官方</a> · <a href="https://arxiv.org/abs/2608.13331">论文</a> · <a href="https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/">TechCrunch（8/22 报道）</a></p>
+</div>
+
+<div class="p2">
+<h3>Liquid AI DFlash 2：speculative decoding 正在成为主流 inference runtime 默认能力</h3>
+<p>
+Inco AI 8 月 18 日发布 <a href="https://inco.ai/blog/dflash2/">DFlash 2</a>。它为 Qwen3.8-27B 与 Meta Muse Glimmer 提供 block diffusion drafter：每个 verification pass 多产出 16–25% accepted tokens，只增加约 1% cycle latency，输出分布不变；SGLang batch=1 报告 2.7–3.4× throughput。实现已进入 SGLang、vLLM、llama.cpp、Ollama 与 oMLX。DFlash 系列在 Hugging Face 下载已超 350 万次。
+</p>
+<p><strong>意义：</strong>speculative decoding 已从研究论文选项变成模型发行配套：厂商同时给 target model、量化权重和 draft model。agent 选型不能只记价格与 context，还要看是否自带 drafter、目标 backend 是否有 PR，以及 acceptance rate 对真实 agent workload 是否够高。</p>
+<p class="meta"><span class="tag">P2 · 补充信号</span><span class="tag">Speculative Decoding</span>来源：<a href="https://inco.ai/blog/dflash2/">Inco AI 官方</a> · <a href="https://huggingface.co/collections/incoai/dflash-2">Hugging Face Collection</a>（8/18，非严格 24h 内）</p>
+</div>
+
+<div class="p2">
+<h3>Ox Alpha：匿名 1M-context 推理模型免费进入 OpenRouter / OpenCode，可试用但别默认接入生产</h3>
+<p>
+OpenRouter 元数据显示 <a href="https://openrouter.ai/stealth/ox-alpha">Ox Alpha</a>（<code>stealth/ox-alpha</code>）创建于 8 月 20 日，支持 text/image/video → text、1,048,576 context、最高 131,072 output、tool calling 与 reasoning effort，当前 $0/$0；<a href="https://opencode.ai/go">OpenCode Go</a> 也标注 limited-time free。OpenRouter 明确称它由匿名第三方在 preview 阶段提供。</p>
+<p><strong>看点：</strong>不锁 provider 的 coding agent 可把它当免费的长上下文压力测试模型，尤其适合验证 cache、tool schema、长 transcript 和上下文裁剪，不必先付费。</p>
+<p><strong>风险：</strong>没有官方 model card、训练方、license、SLA、数据保留与隐私说明；“1M context”也不等于 1M 都有效。社区猜测其背后厂商没有一手确认，不能当事实。用它做非敏感 benchmark 可以，做代码、邮件、密钥或企业文档前先自建数据防泄漏。</p>
+<p class="meta"><span class="tag">P2 · Watchlist</span><span class="tag tag-red">匿名模型</span>来源：<a href="https://openrouter.ai/stealth/ox-alpha">OpenRouter 页面</a> · <a href="https://opencode.ai/go">OpenCode Go</a> · <a href="https://openrouter.ai/api/v1/models">OpenRouter API metadata</a></p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 广角扫描 ===== -->
+<h2>📡 广角扫描</h2>
+
+<div class="p1">
+<h3>MaliciousSkillBench：7,505 个恶意 skill，现有检测器 source-disjoint Macro-F1 仅 0.653–0.665</h3>
+<p>
+<a href="https://arxiv.org/abs/2608.19901">MaliciousSkillBench</a> 汇总 13 个公开来源，规范化后得到 9,740 个 Skill（7,505 malicious / 2,235 benign），并定义 4,588 个 structural families。3 个 learned detectors 在随机划分上 Macro-F1 0.882–0.932，换到 source-disjoint 直接降到 0.653–0.665。最强 TF-IDF SVM 保持 95.6% malicious recall，却产生 <strong>62.4% benign FPR</strong>；现成 scanners 则在 recall 与 false positive 之间各有权衡。
+</p>
+<p><strong>为什么重要：</strong>Skill registry 越大，供应链攻击面越大；今天多数“skill 安全扫描”测的是同源文本，未必能识别换源改写、模板家族或新 marketplace。Agent Skills 标准化会加速分发，也会同步放大 malicious package 的杠杆。</p>
+<p><strong>建议：</strong>企业 skill registry 必须默认 reject 脚本与外连、最小权限、沙箱执行、签名与 provenance；scanner 只做 triage，不做唯一放行。定期做 source-disjoint 回归和 benign over-flagging 测试。</p>
+<p class="meta"><span class="tag tag-blue">P1</span><span class="tag tag-red">Agent Supply Chain</span>来源：<a href="https://arxiv.org/html/2608.19901v1">论文全文</a> · <a href="https://github.com/protectskills/MaliciousSkillBench">GitHub / Dataset</a></p>
+</div>
+
+<div class="p2">
+<h3>Grok “Cryptographic Context Injection”：内容分类器看不到的 payload，绕道 Python 工具读取上下文</h3>
+<p>
+Adversa AI 向 <a href="https://thehackernews.com/2026/08/new-cryptographic-context-injection.html">The Hacker News</a> 披露：恶意网页把加密 JSON、key material 和“解密它”的指令发给 Grok；Grok 在自身 Python execution runtime 解密，再通过 navigation tool 把当前 name、approximate location、subscription tier 和 chat history 放进 URL。公司称 20 次尝试 40% 成功；测试对象是 8/19 的 Grok web chat / Grok 4.5 Fast。当前没有 CVE、没有用户 workaround，也没有公开 xAI 修复。
+</p>
+<p><strong>为什么重要：</strong>这不是普通 prompt injection，而是把“让模型亲自执行解密”当成 laundering step。静态 classifier 检查到的是 ciphertext，敏感数据却是 model tool output + navigation 的结果。模型 patch 能挡住内容，也可能堵不住跨 tool dataflow。</p>
+<p><strong>必须标注可信度：</strong>目前只有研究者一方披露，没有 xAI 复现，成功率也是披露方自报，不能写成已被野外利用。正确做法是把它当高可信架构警告，而不是已证实的 Grok CVE。</p>
+<p class="meta"><span class="tag">P2 · 单一研究源</span><span class="tag tag-red">Prompt Injection</span><span class="tag">Egress Control</span>来源：<a href="https://thehackernews.com/2026/08/new-cryptographic-context-injection.html">The Hacker News / Adversa AI</a></p>
+</div>
+
+<div class="p2">
+<h3>DeepMind 回顾 15 年游戏 AI：从 Atari 到 EVE Online，world model 仍是 agent 的长期主线</h3>
+<p>
+<a href="https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/">DeepMind 8 月 21 日发布研究回顾</a>，梳理 Atari、AlphaStar、SIMA 等从反应式 game play 到持久世界理解与 agent 学习的演进。它不是产品发布，但与今天 NVIDIA 的 AVO / ARC 结果互相印证：真实 agent 必须学习环境 dynamics、目标与行动后果，而不只生成一次响应。
+</p>
+<p><strong>点评：</strong>短周期看 agent 拼装 skills 与 tools，长周期看 world model 能否积累证据、更新 belief、从错误行动恢复。企业知识 agent 也需要“状态模型”，但不要直接照搬 3D game model；先做轻量状态图与 evidence ledger。</p>
+<p class="meta"><span class="tag">P2</span><span class="tag">World Model</span><span class="tag">DeepMind</span>来源：<a href="https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/">DeepMind 官方</a></p>
+</div>
+
+<div class="p2">
+<h3>“Fast and Hard Code”：AI coding 正在把语言选择从“团队熟悉度”改成“性能与机器可优化性”</h3>
+<p>
+Armin Ronacher 8 月 22 日在 <a href="https://lucumr.pocoo.org/2026/8/22/fast-hard-code/">Fast and Hard Code</a> 提出一个值得 agent 团队验证的观察：模型能读写陌生语言后，人不必先成为 Rust / Zig 专家；autoresearch 和 coding agent 让 performance optimization 更容易由 benchmark 驱动。HN 讨论还提到 Cloudflare 约 100KB WASM 的 Zig Git engine 与小型 coding agent。
+</p>
+<p><strong>我的判断：</strong>语言不会完全“无关”，迁移工具链、库、调试人才与安全审计仍是成本；但 agent 让“冷门但高性能”的实现有了更短路径。对 agent developer 来说，未来应把性能、binary size、冷启动和 benchmark regression 当一等需求，而不是生成代码后的附加优化。</p>
+<p class="meta"><span class="tag">P2 · 观点</span><span class="tag">Coding Agent</span>来源：<a href="https://lucumr.pocoo.org/2026/8/22/fast-hard-code/">原文</a> · <a href="https://news.ycombinator.com/item?id=49403228">HN：17 points / 11 comments</a>（截稿时）</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 深度思考 ===== -->
+<h2>💭 深度思考</h2>
+
+<div class="insight">
+<h3>观点 1：Agent 产品的“源码”正在从 workflow 迁移到 evaluation loop</h3>
+<p>过去默认的研发流程是：选模型 → 写 system prompt → 接 tool → 看 demo。现在真正拉开差距的是：</p>
+<ol>
+<li>能否从长轨迹提取可迁移、不过期的 subtask skills；</li>
+<li>能否保留证据、发现停滞并及时换路；</li>
+<li>能否用 frontier tasks 做低成本 harness search；</li>
+<li>能否把每次外部动作变成可审计的 policy decision；</li>
+<li>能否在 source-disjoint / hidden set 上证明没有被 evaluation overfit。</li>
+</ol>
+<p><strong>主观判断：</strong>未来 6–12 个月，agent 团队最该新增的不是更多 agent，而是内部 <strong>Agent Evals / Skill Registry / Trajectory Compiler</strong> 三个系统。OpenAI、MCP、NVIDIA、arXiv 最近的信号其实是同一件事，只是从不同层切入。</p>
+</div>
+
+<div class="insight">
+<h3>观点 2：小模型真正吃掉的是“昂贵步骤”，不是“智能本身”</h3>
+<p>今天的 Daedalus、adaptive reasoning 和 Faraday 给出三种不同路线：</p>
+<ul>
+<li><strong>Daedalus：</strong>用 CPU-native 架构吃掉 routing / preprocessing / low-risk local work；</li>
+<li><strong>adaptive reasoning：</strong>让小模型先判断该想多久，把真正昂贵的 reasoning 留给难问题；</li>
+<li><strong>Faraday：</strong>用 27B specialist 掌握 domain judgment，把 coding execution 交给 GPT-5.5 Codex。</li>
+</ul>
+<p><strong>结论：</strong>“全部用最小模型”不可行；更现实的是把 agent pipeline 拆成 <strong>cheap router → specialist reasoner → strong executor → verifier</strong>。谁还把整条链绑定在一个 flagship model 上，谁就在为每一次简单分类、重复总结和 schema lookup 支付 frontier 价格。</p>
+</div>
+
+<div class="insight">
+<h3>观点 3：Agent 的下一场安全战争，不在 prompt，而在“内容 → 工具”的边界</h3>
+<p>MaliciousSkillBench 证明文本扫描很容易 source-overfit；Cryptographic Context Injection 则是另一种极端——内容不可读，但模型通过自带工具把它变成可执行指令。两者合起来说明：</p>
+<ul>
+<li>scanner 必须与 provenance、sandbox、最小权限、egress policy 叠加；</li>
+<li>agent identity 与 delegation 要进入 MCP / OAuth / audit log；</li>
+<li>untrusted content 应在无工具环境先做结构化抽取，privileged context 再消费结果；</li>
+<li>对 outbound navigation、payment、publish、merge、shell 等动作，记录<strong>解析后的参数与 destination</strong>，否则事后看不到到底泄了什么。</li>
+</ul>
+<p><strong>主观判断：</strong>prompt 防御仍必要，但已是最低一层。生产 agent 的安全单位最终是“带身份的工作负载 + 可执行策略的 harness + 完整 tool trace”，不是一段 system prompt。</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 延伸阅读 ===== -->
+<h2>📚 延伸阅读</h2>
+<ul>
+<li>📄 <a href="https://arxiv.org/html/2608.20274v1">Break It Down, Pass It On</a> — subtask-level / text skills 比 task-level / code skills 更可靠；含 skill utility 诊断。</li>
+<li>📄 <a href="https://arxiv.org/html/2608.20169v1">Task-CoEvolve</a> — 与 harness 共同演化 validation tasks，评估预算最高减少 80%。</li>
+<li>📄 <a href="https://arxiv.org/html/2608.20210v1">Daedalus-150M</a> — 面向 CPU / 4-bit / single-user decode 的 conv-attention 混合架构。</li>
+<li>📄 <a href="https://arxiv.org/html/2608.20314">MidTool</a> — tool-use 需要独立 mid-training，而非只靠 post-training。</li>
+<li>📄 <a href="https://arxiv.org/html/2608.19901v1">MaliciousSkillBench</a> — 7,505 malicious skills；检测器在 source-disjoint 下显著退化。</li>
+<li>📄 <a href="https://arxiv.org/abs/2608.20256">Learning When to Think</a> — 1.5B model 自适应 NoThink / Short / Long，平均 token -41%。</li>
+<li>📘 <a href="https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/">NVIDIA AVO</a> — long-horizon agent 的 persistent memory / supervisor / feedback 架构；注意 public-set 限定。</li>
+<li>🧭 <a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">MCP Roadmap</a> — agent identity、progressive discovery、server-initiated events。</li>
+</ul>
+
+<div class="footer">
+<p>AI 前沿日报 · Hermes Agent 自动整理 · 数据来源：10 个官方博客、arXiv cs.AI/cs.CL/cs.LG、GitHub API、HN Algolia、Reddit 公共社区、X/公开搜索、中文社区及一手技术页面</p>
+<p>本报告为编辑整理与技术研究，不构成投资建议。所有“判断”均为主观意见；“据公司称”“论文报告”等证据边界已在正文中标明。</p>
+</div>
+
+</body>
+</html>
