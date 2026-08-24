@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘 & A股映射早报 | 2026年8月24日</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d28;
+    --border: #2a2d3a;
+    --text: #e1e4ed;
+    --sub: #8890a4;
+    --red: #f5555a;
+    --green: #26a69a;
+    --blue: #5b9cf5;
+    --accent: #7c5cfc;
+    --gold: #f0b429;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px 16px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; font-weight: 700; }
+  .date { color: var(--sub); font-size: 0.85rem; margin-bottom: 20px; }
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .section h2 {
+    font-size: 1.05rem; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .section h2 .icon { font-size: 1.2rem; }
+  .index-row {
+    display: flex; justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(42,45,58,0.5);
+    font-size: 0.92rem; align-items: center;
+  }
+  .index-row:last-child { border-bottom: none; }
+  .idx-name { color: var(--sub); flex: 1; }
+  .idx-price { font-weight: 600; min-width: 90px; text-align: right; }
+  .idx-change { font-weight: 600; min-width: 70px; text-align: right; }
+  .idx-note { font-size: 0.78rem; color: var(--sub); margin-left: 8px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .flat { color: var(--sub); }
+  .gold-up { color: var(--gold); }
+  .stock-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .stock-table th {
+    text-align: left; color: var(--sub); font-weight: 500;
+    padding: 6px 8px; border-bottom: 1px solid var(--border);
+    font-size: 0.8rem;
+  }
+  .stock-table td {
+    padding: 7px 8px; border-bottom: 1px solid rgba(42,45,58,0.4);
+  }
+  .stock-table tr:last-child td { border-bottom: none; }
+  .stock-symbol { font-weight: 600; color: var(--blue); }
+  .stock-name { color: var(--sub); font-size: 0.8rem; }
+  .tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 600; margin-right: 4px;
+  }
+  .tag-red { background: rgba(245,85,90,0.15); color: var(--red); }
+  .tag-green { background: rgba(38,166,154,0.15); color: var(--green); }
+  .tag-blue { background: rgba(91,156,245,0.15); color: var(--blue); }
+  .tag-accent { background: rgba(124,92,252,0.15); color: var(--accent); }
+  .tag-gold { background: rgba(240,180,41,0.15); color: var(--gold); }
+  .news-item {
+    padding: 8px 0; font-size: 0.9rem;
+    border-bottom: 1px solid rgba(42,45,58,0.35);
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-dot { color: var(--accent); margin-right: 6px; }
+  .map-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(42,45,58,0.35);
+    font-size: 0.88rem;
+  }
+  .map-item:last-child { border-bottom: none; }
+  .map-arrow { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+  .disclaimer {
+    margin-top: 20px; font-size: 0.75rem;
+    color: var(--sub); text-align: center; padding: 10px;
+  }
+  hr { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+  .highlight-box {
+    background: rgba(124,92,252,0.08);
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px; border-radius: 0 8px 8px 0;
+    font-size: 0.88rem; margin-top: 10px;
+  }
+  .summary-point {
+    display: flex; gap: 8px; padding: 5px 0; font-size: 0.9rem;
+  }
+  .summary-num { color: var(--accent); font-weight: 700; min-width: 20px; }
+  h3 { font-size: 0.88rem; color: var(--sub); margin: 4px 0 8px 0; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<h1>🌐 AI产业链美股收盘 &amp; A股映射早报</h1>
+<div class="date">2026年8月24日（周一）｜ 覆盖8月21日（周五）美股收盘 + 周末AI动态</div>
+
+<!-- ========== 核心摘要 ========== -->
+<div class="section">
+  <h2><span class="icon">🎯</span>核心摘要</h2>
+  <div class="summary-point">
+    <span class="summary-num">1.</span>
+    <span>美股周五<b style="color:var(--green)">全线反弹</b>：道指+0.98%领涨，纳指+0.43%<b>结束五连跌</b>，标普+0.43%；但<b style="color:var(--red)">周线仍录得下跌</b>。情绪主导：伊朗制裁+霍尔木兹航运风险推动金价突破5月中旬高位，资金涌入避险资产</span>
+  </div>
+  <div class="summary-point">
+    <span class="summary-num">2.</span>
+    <span><b style="color:var(--accent)">NVDA周末放深水炸弹</b>：彭博8/22报道英伟达已通知客户AI芯片价格<b>普涨15%+</b>（HBM/存储成本驱动）；叠加黄仁勋8/23台北快闪，<b>财报前(8/27)预期管理窗口打开</b>，AI链定价权再验证</span>
+  </div>
+  <div class="summary-point">
+    <span class="summary-num">3.</span>
+    <span>AI芯片内部分化：<b style="color:var(--green)">AVGO/NXPI涨超1%</b>，<b style="color:var(--red)">ARM/INTC跌超2%</b>；TSM高位震荡。TSLA领涨科技股。NVDA周末显示~$214.72，盘后稳态</span>
+  </div>
+  <div class="summary-point">
+    <span class="summary-num">4.</span>
+    <span>避险资产<b style="color:var(--gold)">集体爆发</b>：现货黄金+2.5%突破5月高位，现货白银+2.87%；哈莫尼黄金+6%、埃氏金业+7%、南方铜业+8.7%<b>创收盘历史新高</b>。银行股跟涨</span>
+  </div>
+  <div class="summary-point">
+    <span class="summary-num">5.</span>
+    <span>A股映射：<b style="color:var(--accent)">存储/PCB/光模块成本压力 vs 自主可控溢价</b>，黄金白银股映射（赤峰黄金/山东黄金/银泰黄金），银行板块跟涨；周一关注<b>国产算力+黄金+有色</b>三线共振</span>
+  </div>
+</div>
+
+<!-- ========== 市场总览 ========== -->
+<div class="section">
+  <h2><span class="icon">📊</span>美股三大指数（8月21日收盘）</h2>
+  <div class="index-row">
+    <span class="idx-name">道琼斯工业</span>
+    <span class="idx-price">—</span>
+    <span class="idx-change up">+0.98%</span>
+    <span class="idx-note">领涨，银行/贵金属贡献</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">标普500</span>
+    <span class="idx-price">—</span>
+    <span class="idx-change up">+0.43%</span>
+    <span class="idx-note">板块轮动，价值跑赢成长</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">纳斯达克综合</span>
+    <span class="idx-price">—</span>
+    <span class="idx-change up">+0.43%</span>
+    <span class="idx-note">结束五连跌</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">费城半导体 SOX</span>
+    <span class="idx-price flat">—</span>
+    <span class="idx-change flat">分化</span>
+    <span class="idx-note">AVGO/NXPI涨，ARM/INTC跌</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">10年美债收益率</span>
+    <span class="idx-price">~4.7%</span>
+    <span class="idx-change up">走高</span>
+    <span class="idx-note">通胀预期+地缘溢价</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">现货黄金</span>
+    <span class="idx-price">—</span>
+    <span class="idx-change gold-up">+2.5%↑</span>
+    <span class="idx-note">5月中旬以来最高</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">现货白银</span>
+    <span class="idx-price">—</span>
+    <span class="idx-change gold-up">+2.87%↑</span>
+    <span class="idx-note">金银比修复中</span>
+  </div>
+</div>
+
+<!-- ========== AI产业链核心 ========== -->
+<div class="section">
+  <h2><span class="icon">🧠</span>AI产业链核心个股</h2>
+
+  <h3>🔧 算力芯片 &amp; 设计</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>收盘</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">NVDA</td>
+      <td class="stock-name">英伟达</td>
+      <td>~$214.7</td>
+      <td class="down">小幅承压</td>
+      <td><span class="tag tag-red">8/22涨价15%+</span><span class="tag tag-blue">黄仁勋8/23台北快闪</span></td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">AMD</td>
+      <td class="stock-name">超威半导体</td>
+      <td>—</td>
+      <td class="flat">震荡</td>
+      <td>Baird $1250目标价仍生效</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">AVGO</td>
+      <td class="stock-name">博通</td>
+      <td>—</td>
+      <td class="up">+1%+</td>
+      <td><span class="tag tag-green">AI ASIC放量</span></td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">INTC</td>
+      <td class="stock-name">英特尔</td>
+      <td>—</td>
+      <td class="down">-2%+</td>
+      <td>晶圆代工业务持续承压</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">TSM</td>
+      <td class="stock-name">台积电</td>
+      <td>—</td>
+      <td class="flat">高位震荡</td>
+      <td>黄仁勋来访台北供应链</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">ARM</td>
+      <td class="stock-name">Arm Holdings</td>
+      <td>—</td>
+      <td class="down">-2%+</td>
+      <td>AI CPU短期获利回吐</td>
+    </tr>
+  </table>
+
+  <h3 style="margin-top:14px;">💾 存储 &amp; HBM（涨价主线）</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>收盘</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">MU</td>
+      <td class="stock-name">美光科技</td>
+      <td>—</td>
+      <td class="up">景气延续</td>
+      <td><span class="tag tag-green">HBM成本推动NVDA涨价</span></td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">SANM</td>
+      <td class="stock-name">SanDisk</td>
+      <td>—</td>
+      <td class="up">跟涨</td>
+      <td>存储涨价向终端传导</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">NXPI</td>
+      <td class="stock-name">恩智浦</td>
+      <td>—</td>
+      <td class="up">+1%+</td>
+      <td>汽车+AI边缘受益</td>
+    </tr>
+  </table>
+
+  <h3 style="margin-top:14px;">☁️ AI软件 &amp; 应用</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>收盘</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">PLTR</td>
+      <td class="stock-name">Palantir</td>
+      <td>—</td>
+      <td class="flat">震荡</td>
+      <td>政府AI订单维持</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">SMCI</td>
+      <td class="stock-name">超微电脑</td>
+      <td>—</td>
+      <td class="flat">跟涨</td>
+      <td>AI服务器订单维持</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">CRWD</td>
+      <td class="stock-name">CrowdStrike</td>
+      <td>—</td>
+      <td class="flat">跟涨</td>
+      <td>网络安全板块</td>
+    </tr>
+  </table>
+
+  <h3 style="margin-top:14px;">🏢 科技巨头 (Magnificent 7)</h3>
+  <div style="font-size:0.88rem; color:var(--sub);">
+    <b style="color:var(--green)">TSLA</b>领涨科技股（Robotaxi/FSD预期发酵）；AAPL·MSFT·GOOGL·AMZN·META — 大盘回暖跟随反弹。<b>META</b>受AI Capex+Reality Labs亏损压制仍处震荡；NVDA-Q2财报8/27登场，<b>市场进入预期博弈关键窗口</b>。
+  </div>
+</div>
+
+<!-- ========== 盘后 & 周末动态 ========== -->
+<div class="section">
+  <h2><span class="icon">🌙</span>盘后 &amp; 周末关键动态</h2>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>🔴 NVDA宣布AI芯片价格普涨15%+（彭博8/22）</strong>：因存储芯片（HBM/DRAM）成本飙升，英伟达已通知大客户，搭载AI芯片的服务器价格将普涨超15%。<b>定价权强化信号明确</b>，AI产业链利润分配格局有望重构——存储/PCB/光模块成本压力上升，<b>国产替代窗口同步打开</b>
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>🔴 黄仁勋8/23台北快闪</strong>：财报前（8/27）现身台北后迅速离台，疑与台积电3nm/2nm产能及CoWoS-L封装扩产协调有关。<b>供应链层面信号偏积极</b>，利好CPO/液冷/PCB外溢
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>🟡 伊朗制裁+霍尔木兹航运风险升级</strong>：地缘溢价推动油价与避险资产齐涨。现货黄金突破5月中旬高位，白银同步走强；<b>银行/矿业股</b>成为周五美股领涨主线
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>🟢 矿业股创收盘新高</strong>：哈莫尼黄金+6%、埃氏金业+7%、南方铜业+8.7%创历史新高；康菲石油亦逼近2022年11月以来收盘纪录。<b>资源股定价权回归</b>，受益通胀+地缘双重逻辑
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>🟡 NVDA Q2财报倒计时（8/27周三盘后）</strong>：市场预期EPS ~$2.08、营收~$91B；财报前NVDA"涨价+台北快闪"组合拳，<b>意在锁定供应链与价格预期</b>。若业绩超预期+指引乐观，AI链有望迎新一轮催化
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>🟢 美债收益率走高但风险偏好回暖</strong>：10年期收益率维持~4.7%，周五成长股与价值股同步反弹，<b>显示资金在"利率高位+地缘避险+AI财报"三角中寻找平衡</b>
+  </div>
+</div>
+
+<!-- ========== A股映射 ========== -->
+<div class="section">
+  <h2><span class="icon">🇨🇳</span>A股映射分析</h2>
+
+  <div style="font-size:0.85rem; color:var(--sub); margin-bottom:10px;">
+    📌 A股周一（8/25）策略：美股"AI芯片涨价+地缘避险"双主线发酵，<b>国产算力自主可控 + 黄金有色 + 存储涨价</b>三线共振。NVDA涨价=成本压力倒逼国产替代；避险升温=有色黄金股映射；HBM/存储涨价=国产存储链跟涨。
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>🔧 国产AI芯片/算力（寒武纪·海光信息·景嘉微·龙芯中科）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">NVDA涨价15%+ = 国产AI芯片性价比凸显：海外芯片提价将直接拉大国产替代价差空间。<b>寒武纪</b>思元590在DeepSeek-V4推理端适配加速；<b>海光信息</b>深算系列DCU受益国产算力订单落地；<b>景嘉微</b>JM9 GPU打开图形/AI推理双市场</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>💾 存储/HBM（兆易创新·北京君正·澜起科技·长鑫存储链）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">NVDA涨价核心驱动就是HBM/存储成本飙升——<b>直接验证存储链涨价逻辑</b>。美光/SK海力士涨价向国内传导，<b>兆易创新</b>NOR Flash/MCU价格回升，<b>北京君正</b>车规存储受益，<b>澜起科技</b>DDR5接口芯片配套AMD/Intel新平台放量</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>🥇 黄金/白银/有色（赤峰黄金·山东黄金·银泰黄金·紫金矿业）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">美股避险资产集体爆发（金+2.5%、银+2.87%、南方铜业+8.7%创新高），<b>A股黄金白银股周一有望映射跟涨</b>。<b>赤峰黄金/山东黄金/银泰黄金</b>为黄金主线核心标的；<b>紫金矿业/江西铜业</b>受益铜价新高；<b>兴业银锡/银泰资源</b>白银弹性更大</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>🏦 银行/高股息（工行·农行·招行·中信银行）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">美股银行板块周五领涨道指（利率高位+避险情绪双驱动），<b>A股银行板块周一有望跟涨</b>。在利率上行+避险升温环境中，<b>高股息+低估值国有大行</b>作为防御主线吸引力提升；招行/宁波银行等优质股份行弹性更大</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>💡 光模块/CPO（中际旭创·新易盛·天孚通信·德科立）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">黄仁勋台北快闪+台积电CoWoS-L扩产 = CPO/光模块供应链利好。<b>1.6T光模块</b>需求确定性不变，<b>中际旭创</b>800G/1.6T出货占比领先；<b>天孚通信</b>CPO纯度高，<b>新易盛</b>绑定北美CSP客户。短期关注NVDA财报前情绪催化</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>🏭 AI服务器/液冷（工业富联·中科曙光·浪潮信息·英维克）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">NVDA涨价15%+验证AI服务器"卖铲人"议价权。<b>工业富联</b>AI服务器代工龙头；<b>英维克</b>液冷温控确定性最高（800V HVDC架构升级）；<b>科华数据</b>UPS/HVDC配套NVDA Rubin平台；<b>欧陆通</b>电源弹性大</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>📋 PCB/覆铜板（沪电股份·胜宏科技·生益科技·深南电路）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">NVDA涨价带动PCB/覆铜板成本上行但订单同步放量。<b>沪电股份</b>AI服务器PCB龙头，<b>胜宏科技</b>HDI/FPC深度受益Rubin平台；<b>生益科技</b>M6以上覆铜板持续放量。NVDA 8/27财报若超预期，PCB板块情绪有望再次点燃</span>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>💡 策略参考：</strong>周末两大信号主导周一A股主线：<b>① NVDA涨价15%+（彭博8/22）+ 黄仁勋台北快闪（8/23）</b> = AI产业链定价权再验证，<b>国产算力+存储链+PCB/光模块</b>三线受益；<b>② 伊朗制裁+霍尔木兹航运风险升级</b> = 金银铜铝大宗品跟涨美股，<b>黄金白银股+银行板块</b>周一有望高开。<br><br>
+    <b>周一主线建议</b>：①聚焦<b>黄金/白银/铜</b>映射（赤峰黄金/银泰黄金/紫金矿业），避险溢价至少持续一周；②关注<b>存储/HBM涨价链</b>（兆易创新/澜起科技/北京君正），NVDA涨价传导验证；③逢回调布局<b>国产算力自主可控</b>（寒武纪/海光信息），NVDA财报(8/27)前为时间窗口；④防御方向关注<b>高股息银行</b>（工行/招行/中信银行）。中报披露高峰临近（8月底），<b>优先布局业绩预增+订单兑现确定性方向</b>。
+  </div>
+</div>
+
+<hr>
+<div class="disclaimer">
+  ⚠️ 以上内容基于公开数据整理，仅供参考，不构成投资建议。市场有风险，投资需谨慎。<br>
+  数据来源：Reuters、CNBC、Barron's、Bloomberg、Yahoo Finance、24/7 Wall St、雪球、新浪财经、华尔街日报、彭博社等 | 生成时间：2026-08-24
+</div>
+
+</body>
+</html>
