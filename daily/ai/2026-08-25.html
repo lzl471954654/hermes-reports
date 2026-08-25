@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年08月25日</title>
+<style>
+body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif; max-width: 820px; margin: 0 auto; padding: 24px; line-height: 1.7; }
+h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 12px; font-size: 1.6em; }
+h2 { color: #f0883e; margin-top: 32px; font-size: 1.25em; }
+h3 { color: #7ee787; font-size: 1.05em; margin: 16px 0 6px 0; }
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.headline, .p0 { background: #161b22; border-left: 4px solid #7ee787; padding: 18px; margin: 12px 0; border-radius: 6px; }
+.p1 { background: #161b22; border-left: 4px solid #58a6ff; padding: 12px 14px; margin: 8px 0; border-radius: 6px; }
+.p2 { background: #161b22; border-left: 4px solid #484f58; padding: 10px 14px; margin: 6px 0; border-radius: 6px; }
+.insight { background: #1a2332; border: 1px solid #58a6ff; padding: 16px 18px; margin: 24px 0; border-radius: 8px; }
+.insight p { margin: 8px 0; }
+.tag { display: inline-block; background: #21262d; color: #8b949e; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+.tag-green { background: #163a1e; color: #7ee787; }
+.tag-red { background: #3a1621; color: #f0883e; }
+.tag-blue { background: #162a3a; color: #58a6ff; }
+.meta { color: #8b949e; font-size: 0.85em; margin-top: 6px; }
+.meta a { color: #8b949e; }
+.divider { border: none; border-top: 1px solid #21262d; margin: 28px 0; }
+.footer { color: #484f58; font-size: 0.8em; text-align: center; margin-top: 48px; padding-top: 20px; border-top: 1px solid #21262d; }
+blockquote { border-left: 3px solid #30363d; margin: 10px 0; padding: 6px 14px; color: #8b949e; }
+strong { color: #e6edf3; }
+.emoji { font-style: normal; }
+.date-sub { color: #8b949e; font-size: 0.85em; margin-top: -8px; }
+ul { margin: 6px 0; padding-left: 22px; }
+li { margin: 3px 0; }
+ol { margin: 6px 0; padding-left: 24px; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92em; }
+th, td { border: 1px solid #30363d; padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: #21262d; color: #e6edf3; }
+.source-note { color: #8b949e; font-size: 0.88em; }
+code { background: #21262d; border-radius: 4px; padding: 1px 5px; color: #d2a8ff; }
+</style>
+</head>
+<body>
+
+<h1>🔬 AI 前沿日报</h1>
+<p class="date-sub">2026年08月25日 · 星期二 · 覆盖 8 月 18–25 日公开动态</p>
+
+<div class="insight">
+<p><strong>今日主线：</strong>过去一周最值得反复读的动态，都不来自更大的 base model——而是更小、更便宜、更"会调用工具"的<strong>系统层创新</strong>。Mistral 用 5 个文件操作工具把检索从"一次性"变成"循环"，Inherent Faraday 用更小模型在科研复现上击败 GPT-5.5 / Claude Fable 5，Liquid AI 用 QAD + DSpark 把 2.6B 小模型做到 3× 推理加速且不掉点。Agent 时代的胜负手，正在从"模型大小"滑向"harness、工具集、压缩策略"。</p>
+<p class="source-note">搜索覆盖 10+ 官方博客、arXiv、GitHub、Hacker News、Reddit、中文社区共约 30 个查询；Brave 搜索抽取 URL 被服务端限流，正文未逐条核读，故部分技术细节来自第三方一手报道而非官方原文。</p>
+</div>
+
+<!-- ===== 今日头条 ===== -->
+<h2>🔥 今日头条</h2>
+
+<div class="headline">
+<h3>Mistral Agentic Search：5 个文件操作工具，把 RAG 从"一次性召回"变成"循环导航"</h3>
+<p>
+8 月 20 日，<a href="https://mistral.ai/news/agentic-search/">Mistral 发布 Agentic Search</a>——不是新模型，是一层<strong>model-agnostic 的检索层</strong>：模型拿到 5 个工具（<code>search</code> / <code>open</code> / <code>navigate</code> / <code>read</code> / <code>grep</code>），可以在已建好的 index 里像 shell 用户那样来回翻文档。官方与第三方复测的 benchmark 跃迁如下：
+</p>
+<table>
+<tr><th>Benchmark</th><th>One-shot RAG</th><th>Agentic Search</th></tr>
+<tr><td>FinanceBench</td><td>26.7%</td><td><strong>86.0%</strong>（≈ 3.2×）</td></tr>
+<tr><td>OfficeQA Pro</td><td>6.3%</td><td><strong>51.9%</strong>（≈ 8.2×）</td></tr>
+</table>
+<p>
+ablation 数据更狠：<strong>仅加 navigation 工具</strong>（open / navigate / read / grep），Mistral Medium 3.5 再 +8.7 pp、GLM-5.2 再 +6.7 pp。也就是说——从"返回 top-k chunk 喂给模型"升级到"给模型一只能在文件系统里翻东西的手"，几乎不需要重训模型，不需要换更强的 base，单这一层改造就能把企业文档问答打到接近"专门做 research agent"的水准。
+</p>
+<p>
+<strong>为什么是头条：</strong>过去 24 个月，agent 圈最大的共识是"工具调用 + 多步推理"。但落到企业内部落地，绝大多数 retrieval-augmented system 仍然是一次性拼 context。Mistral 这一刀切在所有人都在装糊涂的位置——RAG 不是没空间，是<strong>没人把"循环"这个维度打开</strong>。
+</p>
+<p>
+<strong>对 agent 开发者的具体含义：</strong>
+</p>
+<ul>
+<li><strong>如果你做企业 RAG</strong>：今天的优先级不再只是"换更强的 embedding / rerank"，而是 <strong>给你的模型一只 grep 的手</strong>。哪怕只接文件系统级的 5 个工具，FinanceBench 这种长文档问答也能从 26.7% 直接到 86%——这个杠杆远超升级到 GPT-5.6。</li>
+<li><strong>model-agnostic 是关键</strong>：Mistral 明确说 Agentic Search 不绑模型，Mistral Medium 3.5、GLM-5.2 都可。这意味着你可以保留现有 base，把这层当作中间件接入——风险最低、收益最确定。</li>
+<li><strong>Agent 设计的范式信号</strong>：5 个工具对应 5 个最小动作（找、打开、跳转、读、过滤），几乎是 IDE 给开发者的能力子集。下一个 agent 框架如果不能把"工具 = 真实环境能力子集"做明白，就会显得很玩具。</li>
+<li><strong>可对照 MCP</strong>：MCP 的 Tasks / Triggers / Skills 是 agent ↔ 外部服务的协议层；Mistral Agentic Search 是 agent ↔ <em>自家文档</em> 的协议层。两条线同向——把"工具"当成一等公民设计，而不是 prompt 里的字符串。</li>
+</ul>
+<p class="meta">
+<span class="tag tag-green">头条</span>
+<span class="tag tag-blue">Agent 基础设施</span>
+<span class="tag">model-agnostic</span>
+<span class="tag">企业落地</span>
+来源：<a href="https://mistral.ai/news/agentic-search/">Mistral 官方博客</a> · <a href="https://aireiter.com/blog/mistral-agentic-search-guide">aireiter.com 解读</a> · <a href="https://sakutto.ai/en/articles/mistral-agentic-search">sakutto.ai ablation 分析</a>
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== Agent 前沿 ===== -->
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+<h3>Inherent Faraday：DeepMind 校友的小模型 agent，在科研复现基准上击败 GPT-5.5 / Claude Fable 5</h3>
+<p>
+8 月 22 日，伦敦 startup <a href="https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/">Inherent 公布 Faraday</a>——一个由 DeepMind 校友创办、主打"独立复现已发表科研论文"的 agent。团队声称 Faraday 在 research-replication benchmark 上超过了 Anthropic 和 OpenAI 的更大模型，方法的核心不是更大的 base model，而是<strong>不让模型直接知道答案，让它从论文开始自己跑实验</strong>。
+</p>
+<p>
+<strong>为什么重要：</strong>这是"小而专"路线在 2026 下半年的又一次胜利信号。Faraday 强调的是"流程正确"——读论文、设计实验、执行、对比结果——而不是"参数多"。这与昨天的头条 Mistral Agentic Search（工具化检索）以及 NVIDIA AVO（harness 决定分数）是同一根趋势线：<strong>agent 产品的胜负手不是模型大小</strong>。
+</p>
+<p>
+<strong>对 agent 开发者的启示：</strong>如果你的产品场景容许"按任务拆分 + 多次工具调用"，在 base model 上不必一味追新。设计一个能<strong>逼模型走完闭环</strong>（不允许看答案 → 必须复现 → 对照 ground truth）的 harness，往往比换模型 ROI 更高。
+</p>
+<p class="meta">
+<span class="tag tag-green">P0</span>
+<span class="tag">DeepMind 校友</span>
+<span class="tag">小模型胜出</span>
+<span class="tag">科研复现</span>
+来源：<a href="https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/">TechCrunch</a> · <a href="https://creati.ai/ai-news/2026-08-22/inherent-says-its-faraday-ai-agent-beat-anthropic-and-openai-at-replicating-research/">creati.ai</a> · <a href="https://mezha.net/eng/bukvy/372ff79f_inherent_claims_faraday/">Mezha</a>
+</p>
+</div>
+
+<div class="p0">
+<h3>Ox Alpha 隐身模型上线 OpenRouter：1M context、免费、主打 coding + 持续 agent 工作负载</h3>
+<p>
+8 月 21–22 日，一个名为 <a href="https://openrouter.ai/stealth/ox-alpha">Ox Alpha</a> 的匿名 reasoning model 出现在 OpenRouter 的 stealth 频道上。规格非常激进：1,048,576 token context、131,072 max output、多模态输入（文本 / 图 / 视频入，文本出），定位是 "reasoning model designed for coding, sustained agentic work, and production workloads"，<strong>当前 0$/M token（免费）</strong>。来源神秘，社区在猜是哪个实验室放出来的烟雾弹。
+</p>
+<p>
+<strong>为什么重要：</strong>这不只是"又一个 coding 模型"——它意味着 1M context + free + reasoning 已经能作为商品出现在 routing 层。对 agent 开发者来说，"用一个超长 context 模型做持续 agent 任务"这件事在 2026 下半年的成本结构已经被打穿。
+</p>
+<p>
+<strong>对 agent 开发者的启示：</strong>
+</p>
+<ul>
+<li>如果你的 agent 需要"长会话 / 多文件 / 长任务状态"，1M context 已经不再是 frontier 实验室特权——今天就有一个 free 选项让你跑端到端 pilot。</li>
+<li><strong>风险点</strong>：stealth + free = 不可预测的 SLA、随时下架、可能在 prompt 上有隐藏 policy 过滤。用在 demo / 内部评估可以，但别绑生产。</li>
+<li>趋势信号："cheap long-context" 是 2026 H2 agent 产品的新一轮差异化战场。</li>
+</ul>
+<p class="meta">
+<span class="tag tag-green">P0</span>
+<span class="tag tag-blue">长 context</span>
+<span class="tag">免费试用</span>
+<span class="tag">实验用</span>
+来源：<a href="https://openrouter.ai/stealth/ox-alpha">OpenRouter</a> · <a href="https://techcrunch.com/2026/08/23/whos-behind-the-new-stealth-model-ox-alpha/">TechCrunch</a> · <a href="https://www.oxalpha.wiki/">oxalpha.wiki</a>
+</p>
+</div>
+
+<div class="p0">
+<h3>Cursor 3.16.17 暗藏 CLI bridge：外部脚本可"接管"桌面 AI agent 对话</h3>
+<p>
+8 月 22–23 日，<a href="https://runtimewire.com/article/cursor-built-a-hidden-terminal-command-for-steering-its-desktop-ai-agents">RuntimeWire 报道 Cursor 桌面版内置了一个隐藏命令行桥</a>——外部脚本可发现并 <strong>steer 已经在 Cursor 桌面里跑的 AI agent 会话</strong>。这个能力是 Cursor 3.16.17 引入但未公开文档化的，给开发者留了一条"用 CLI 控制 IDE 内 agent"的后门。
+</p>
+<p>
+<strong>为什么重要：</strong>这是一个被低估的<strong>信号</strong>——IDE agent 不再是"孤岛"。未来工作流会变成：agent 在 Cursor 内跑、人在终端里监督、CI 在后台调；这等于把 agent 接入 Unix 哲学（<code>everything is a file / everything is a CLI</code>）。
+</p>
+<p>
+<strong>对 agent 开发者的启示：</strong>如果你做 IDE / 编辑器插件或 CLI 工具，<strong>把 agent 暴露成一个可以被人或脚本 steer 的 endpoint</strong>，比做一个全 GUI agent 更能进入现有 dev workflow。今天的 Cursor 这条命令就是这种思路的早期证据。
+</p>
+<p class="meta">
+<span class="tag tag-green">P0</span>
+<span class="tag">IDE agent</span>
+<span class="tag">CLI 可控</span>
+<span class="tag">Unix 哲学</span>
+来源：<a href="https://runtimewire.com/article/cursor-built-a-hidden-terminal-command-for-steering-its-desktop-ai-agents">RuntimeWire</a> · <a href="https://news.ycombinator.com/item?id=49348049">HN 讨论</a>
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 小模型 & 效率 ===== -->
+<h2>⚡ 小模型 & 效率革命</h2>
+
+<div class="p0">
+<h3>Liquid AI 双发：QAD 量化感知蒸馏 + DSpark 投机解码，2.6B 模型接近 BF16 质量、3× 速度</h3>
+<p>
+8 月 19–20 日，Liquid AI 连续两天发布两条效率侧创新：
+</p>
+<ul>
+<li><strong>8-19 <a href="https://huggingface.co/blog/LiquidAI/qad">LFM2.5 Q4_0 + Quantization-Aware Distillation（QAD）</a></strong>：发布 4 个 4-bit checkpoint（LFM2.5-230M / 350M / 1.2B-Instruct / 2.6B），用 QAD 把"高精度 teacher → 量化 student"作为训练目标，<strong>保留 97% BF16 质量</strong>，且维持原生 Q4_0 的低内存和高吞吐（GGUF 兼容）。</li>
+<li><strong>8-20 <a href="https://www.unite.ai/liquid-ai-ships-lfm2-5-dspark-for-up-to-3-2x-faster-inference/">LFM2.5-DSpark 投机解码 draft 模型</a></strong>：3 个 draft checkpoint，单 H100 <strong>3.18×</strong> 加速、MacBook（Apple silicon）<strong>2.87×</strong> 加速，<strong>输出与基线 greedy 完全一致</strong>，兼容 SGLang 和 llama.cpp。</li>
+</ul>
+<p>
+<strong>为什么重要：</strong>这两条创新放在一起才是完整的效率故事——QAD 解决"量化掉多少质量"，DSpark 解决"解码能多快"。QAD 是 2026 年值得认真跟踪的技术路线：<strong>把量化从"训练后的近似"变成"训练目标的一部分"</strong>。
+</p>
+<p>
+<strong>对 agent 开发者的启示：</strong>
+</p>
+<ul>
+<li><strong>2.6B-DSpark + QAD</strong> 几乎是 2026 H2 端侧 agent 的标配候选：单机、4-bit、3× 解码速度、零精度损失。</li>
+<li><strong>如果你做 LoRA / 蒸馏</strong>：把"目标 = 量化模型在硬件上跑得多好"写进 loss，而不是后处理，能避免 vanilla PTQ 的精度悬崖。</li>
+<li><strong>DSpark draft 模型与主模型分开发布</strong>，意味着 Liquid AI 在押注"draft 模型可分离市场"——以后可能看到专门卖 draft checkpoint 的服务商。</li>
+</ul>
+<p class="meta">
+<span class="tag tag-green">P0</span>
+<span class="tag tag-blue">效率</span>
+<span class="tag">QAD 量化</span>
+<span class="tag">投机解码</span>
+<span class="tag">端侧可用</span>
+来源：<a href="https://huggingface.co/blog/LiquidAI/qad">Liquid AI Hugging Face 博客</a> · <a href="https://www.unite.ai/liquid-ai-ships-lfm2-5-dspark-for-up-to-3-2x-faster-inference/">Unite.ai</a> · <a href="https://theagenttimes.com/articles/liquid-ai-ships-4-bit-quantized-models-claiming-97-of-bf16-q-7f78b9ab">theagenttimes</a>
+</p>
+</div>
+
+<div class="p0">
+<h3>Sander Dieleman 长文综述：连续扩散语言模型（continuous DLMs）终于追平离散方法</h3>
+<p>
+8 月 24 日，DeepMind 研究科学家 <a href="https://sander.ai/2026/08/24/continuous-dlms.html">Sander Dieleman 发表 44 分钟长文</a>，系统综述 continuous diffusion language models 的进展。回顾 2023 年 Plaid-1B 时代，连续方法训练效率比离散低 64×；到 2026 年的 LangFlow（arXiv:2604.11748）、CoDAR、ELF，连续 DLM 已经在语言建模上 <strong>追平甚至略胜</strong> 离散 diffusion。核心突破：连续空间 embedding + 末端再用 shared-weight 网络映射回 token。
+</p>
+<p>
+<strong>为什么重要：</strong>这是 Dieleman 级别的研究者第一次公开表态"连续扩散 LLM 可用"——意味着 DLMs 不再只是图像/视频的领地，<strong>文本生成可能在 2027 年迎来范式切换</strong>。对 agent 来说，diffusion-style 生成的并行解码可能从根本上改变"长输出延迟"的问题。
+</p>
+<p>
+<strong>对 agent 开发者的启示：</strong>短期不用动（连续 DLM 还没成熟到 prod），但跟踪两条线——<a href="https://arxiv.org/abs/2604.11748">LangFlow</a>、<a href="https://arxiv.org/abs/2603.02547">CoDAR</a>。如果哪一天这两条线的 model weights 开源，agent harness 的"stream 输出"会被改写。
+</p>
+<p class="meta">
+<span class="tag tag-green">P0</span>
+<span class="tag">范式跟踪</span>
+<span class="tag">连续扩散</span>
+<span class="tag">并行解码</span>
+来源：<a href="https://sander.ai/2026/08/24/continuous-dlms.html">sander.ai 长文</a> · <a href="https://arxiv.org/abs/2604.11748">LangFlow</a> · <a href="https://arxiv.org/abs/2603.02547">CoDAR</a>
+</p>
+</div>
+
+<div class="p1">
+<h3>Meta Muse Glimmer 30B：Meta 首个开源"agentic"模型，Apache 2.0，主打本地 agent 工作流</h3>
+<p>
+8 月 10 日，Meta Superintelligence Labs 发布 <a href="https://huggingface.co/meta-models/Muse-Glimmer-30B">Muse Glimmer 30B</a>——30B dense multimodal 模型，蒸馏自 Muse Spark，专门为"在 PC/Mac 上跑多步 agent 工作流"设计，<strong>Apache 2.0</strong>。这是 Meta 第一次把"agent"二字写进开源模型卡。
+</p>
+<p>
+<strong>对 agent 开发者的含义：</strong>如果你今天要选一个本地可跑的 agent base model，Meta Muse Glimmer 30B 是一个新的可选项，比 Mistral、Qwen 系列更明确地喊出 "agentic" 定位。需要持续关注的是其 instruction-following / tool-call 的实际表现——Apache 2.0 利好商用。
+</p>
+<p class="meta">
+<span class="tag tag-blue">开源</span>
+<span class="tag">Apache 2.0</span>
+<span class="tag">agentic</span>
+来源：<a href="https://huggingface.co/meta-models/Muse-Glimmer-30B">Hugging Face</a> · <a href="https://www.runlocalai.co/models/muse-glimmer">RunLocalAI</a>
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 广角扫描 ===== -->
+<h2>📡 广角扫描</h2>
+
+<div class="p1">
+<h3>OpenAI 一周 4 发：AI Futures / CodeAI / ChatGPT Teens / Zero Data Retention</h3>
+<p>
+8 月 18–20 日，OpenAI 在公司、产品、隐私三条线连发四个动态：
+</p>
+<ul>
+<li><strong>8-18 <a href="https://openai.com/index/chatgpt-for-teens/">ChatGPT for Teens</a></strong>：13–17 岁专用版，自动限制自残、性与浪漫、拟人化关系内容，附带家长控制与学习模式。NYT、Bloomberg 同日报道。</li>
+<li><strong>8-18 <a href="https://openai.com/index/partnering-with-codeai/">与 CodeAI 合作 K-12 AI 素养</a></strong>：多年合作，把 AI 素养课带进美国中学。背景数据：84% 学生用 AI，但只有 16% 在学校学过。</li>
+<li><strong>8-19 <a href="https://witho2.com/news/openai-now-lets-enterprises-keep-ai-data-private-with-safety-still-on">Zero Data Retention 拓展到 frontier models</a> + <strong>Private Safety Processing 预览</strong></strong>：企业可保持 prompts/responses 不入库，同时保留安全监控；监控由独立子系统执行，OpenAI 人员不接触原始内容。</li>
+<li><strong>8-20 <a href="https://openai.com/index/introducing-ai-futures/">"AI Futures" 博客上线</a></strong>：新设 Strategic Futures 团队，首篇 Dean Ball 撰文——"AI 时代最大的长期风险是<em>权力集中</em>"。配 OpenAI Foundation $250M 基金。</li>
+</ul>
+<p>
+<strong>一句话点评：</strong>OpenAI 在用"产品线 → 监管线 → 思想线"三路并进的方式把自己变成"AI 时代的公共机构叙事"——这是 company strategy 而不是单纯 product launch。
+</p>
+<p class="meta">来源：<a href="https://openai.com/news/">OpenAI News 索引</a> · <a href="https://www.nytimes.com/2026/08/18/technology/chatgpt-for-teens-openai.html">NYT</a> · <a href="https://www.bloomberg.com/news/articles/2026-08-18/openai-s-new-chatgpt-for-teens-has-safety-and-study-features">Bloomberg</a></p>
+</div>
+
+<div class="p1">
+<h3>ChatGPT Ads 今天上线欧洲 31 国（含德法意西），但<strong>不</strong>做个性化</h3>
+<p>
+8 月 18 日 OpenAI 公告、<strong>8 月 24 日（昨日）正式在欧洲 31 个市场上线</strong> ChatGPT Ads。覆盖德国、法国、西班牙、意大利、波兰、瑞典、挪威、丹麦、爱尔兰、荷兰、奥地利等。明确说明：不基于用户 chat 内容做个性化，广告与回答在 slot 上分离。
+</p>
+<p>
+<strong>对 agent 生态的含义：</strong>广告业务进入欧洲，意味着 OpenAI 在为下一代 agent 产品（Agentic Browser、Operator 等）建立 LTV 模型；同时"不做个性化"是对 EU 监管的提前让步——agent 产品里"行为数据"敏感度极高，这个边界信号值得所有做 agent 商业化的团队关注。
+</p>
+<p class="meta">来源：<a href="https://digiday.com/marketing/openais-ads-business-hits-europe-at-the-six-month-mark/">Digiday</a> · <a href="https://www.notebookcheck.net/ChatGPT-ads-hit-Europe-on-Monday-but-not-the-personalized-kind.1375456.0.html">Notebookcheck</a></p>
+</div>
+
+<div class="p1">
+<h3>DeepMind × EVE Online：把"23 年玩家共建的宇宙"作为长期 agent 研究场</h3>
+<p>
+8 月 21 日，<a href="https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/">DeepMind 公布与 CCP Games 的 EVE 系列合作</a>。DeepMind 把 EVE Online（持续运行 23 年、玩家驱动的经济与战争沙盒）、EVE Vanguard（FPS 视角）和 EVE Frontier（Smart Assemblies 可编程）作为长期 horizon planning 和持续 agent 的研究场。
+</p>
+<p>
+<strong>一句话点评：</strong>"不重置的世界"是 long-horizon agent 的稀缺训练场——DeepMind 把研究焦点从 Atari / StarCraft 这种 episodic 环境正式搬到 persistent world 上。
+</p>
+<p class="meta">来源：<a href="https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/">DeepMind 官方博客</a></p>
+</div>
+
+<div class="p1">
+<h3>Mistral Shieldstral（8-4）：3B 安全分类器，匹配 7× 体量 guardrail</h3>
+<p>
+<a href="https://mistral.ai/news/shieldstral/">Mistral Shieldstral 1.0</a>，3B 多模态（文 + 图）安全分类器，<strong>Apache 2.0</strong>。把内容审核从"固定 taxonomy 分类"重写为"用自然语言策略问答"——policy 在推理时传入、不重训；统一处理 prompt / response / 拒绝检测。Mistral 官方称可与 7× 体量 guardrail 模型匹敌。
+</p>
+<p>
+<strong>对 agent 开发者的含义：</strong>做 to-B / to-G 项目的 guard layer，从"固化的分类模型"换成"policy-as-input"的设计，可以<strong>同一套模型服务欧盟、美国、亚洲的不同合规要求</strong>——这是被低估的合规工程杠杆。
+</p>
+<p class="meta">来源：<a href="https://docs.mistral.ai/models/shieldstral-1-0">Mistral Docs</a> · <a href="https://www.unite.ai/mistrals-shieldstral-packs-policy-adaptive-safety-screening-into-3b-parameters/">Unite.ai</a></p>
+</div>
+
+<div class="p1">
+<h3>DeepMind WeatherNext Cyclones 开源（8-6）：台风路径多给 1 天预警</h3>
+<p>
+<a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">DeepMind 开源 WeatherNext 2 + WeatherNext Cyclones</a>（Nature 同期）。对台风路径、强度、大小的预报提前量提升约 1 天，与现有气象局系统并行可用。
+</p>
+<p>
+<strong>一句话点评：</strong>"科学 AI 模型权重 + 代码开源"这条线 DeepMind 已经走得很熟——这次开源直接进 disaster response 决策支持，影响是真实人命的。
+</p>
+<p class="meta">来源：<a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">DeepMind 官方博客</a></p>
+</div>
+
+<div class="p1">
+<h3>Alibaba Wan3.0（8-24）：30 秒视频模型，闭源、价格战 Veo</h3>
+<p>
+<a href="https://thenextweb.com/news/alibaba-wan3-video-model-after-share-sale">Alibaba 公布 Wan3.0</a>，30 秒 1080p 视频生成、支持从 PDF / slides 解析生成、定价低于 Google Veo。<strong>注意：闭源 weights</strong>（Wan 系列最后一次开源是 2025-07 的 Wan2.2）。
+</p>
+<p>
+<strong>对 agent 开发者的含义：</strong>中国大厂视频模型正在切到 "API-only + 价格战"路径，与开源社区分流——做 agent 视频能力时要重新评估稳定性 / 价格 / 可控性。
+</p>
+<p class="meta">来源：<a href="https://wan.video/">Wan AI 官网</a> · <a href="https://fal.ai/wan-3">fal.ai</a></p>
+</div>
+
+<div class="p2">
+<h3>Codex 20M 用户 + 用量"银行重置"事件（8-24）</h3>
+<p>OpenAI Codex 突破 2000 万用户，Tibo 公开承认 images + compaction 等功能吃掉过多配额，决定对所有付费 Codex 用户 <strong>硬重置用量</strong>。这是产品工程教训：Agent harness 里的"压缩 / 后台任务 / 多模态"非常吃 quota，需要单独的 budgeting。</p>
+<p class="meta">来源：<a href="https://explainx.ai/blog/openai-codex-20-million-users-banked-reset-august-2026">explainx.ai</a></p>
+</div>
+
+<div class="p2">
+<h3>MCP 2026-07-28 规范进入 RC（8 月初）</h3>
+<p>MCP 2026-07-28 spec 发布 RC（Cloudflare 8-6 详述），全面切到 stateless transport；<strong>上一版（1.x）进入维护模式</strong>，仅发安全补丁。<strong>如果你的 server 还没迁，现在 pin <code>mcp>=1.28,&lt;2</code> 是不丢兼容性的最快路径</strong>。</p>
+<p class="meta">来源：<a href="https://blog.cloudflare.com/mcp-v2/">Cloudflare 博客</a> · <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/">MCP 官方</a></p>
+</div>
+
+<div class="p2">
+<h3>Agent Skills 跨平台标准（Anthropic / Claude Code / Codex / OpenAI API 已支持）</h3>
+<p>Anthropic 的 Agent Skills 规范已经成为 platform-agnostic 标准，Claude Code、Codex、OpenAI API、插件系统、CI 都已经支持。Skills 是 "instruction + metadata + resources" 的模块化能力包，文件系统级复用。落地示例见 <a href="https://yisusvii.github.io/posts/claude-code-codex-skills-devops-sre-cloud-2026/">SRE/DevOps Azure Terraform 合规 skill</a>（8-15）。</p>
+<p class="meta">来源：<a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Claude 平台文档</a> · <a href="https://github.com/anthropics/skills">anthropics/skills</a></p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 深度思考 ===== -->
+<h2>💭 深度思考</h2>
+
+<div class="insight">
+<h3>三条看似无关的动态，指向同一个判断：2026 H2 agent 产品的胜负手是<strong>系统层</strong>，不是 base model</h3>
+<p>
+今天梳理这一周内容时，三条独立线索指向同一处：
+</p>
+<ol>
+<li><strong>Mistral Agentic Search</strong>：换掉 5 个工具就让 FinanceBench 26.7% → 86%，base model 可以不变。</li>
+<li><strong>Inherent Faraday</strong>：更小的模型击败 GPT-5.5 / Claude Fable 5，靠的是"强制走完整闭环"的 harness。</li>
+<li><strong>NVIDIA AVO（前一天日报）</strong>：同一个 Claude Opus 5 在 ARC-AGI-3 public set 上从 ~30% 飙到 100 RHAE，靠的也是 harness + memory + supervisor + tool feedback。</li>
+</ol>
+<p>
+这是同一个判断的三个独立验证：<strong>agent 时代的真正瓶颈不在模型，在 harness</strong>。
+</p>
+<p>
+<strong>对个人 / 团队的具体建议：</strong>
+</p>
+<ul>
+<li><strong>如果你在选 base model</strong>：保持当前供应商即可，不必追新。把精力放到 harness 设计：memory、tool surface、supervisor、grounded feedback 这四件事。</li>
+<li><strong>如果你在做 evaluation</strong>：评估一个 agent 产品的真实能力，必须测整套系统；用 base model 单独跑 score 会严重低估或高估产品表现。</li>
+<li><strong>如果你是 SaaS / 企业 IT 决策者</strong>：评估供应商时，第一问题从"你们用什么模型"改成"<strong>你们的 harness 在我的任务上有多高的复现稳定性</strong>"。这才是 to-B agent 真正能定价的部分。</li>
+<li><strong>被低估的方向</strong>：<em>agent evaluation infrastructure</em>（复现 agent 行为、给 harness 打分的能力）正在变成新瓶颈——这块还没有明显的赢家。</li>
+</ul>
+</div>
+
+<div class="insight">
+<h3>"小而专 + 长 context + free/cheap" 是 2026 H2 agent 商业化的新差异化坐标</h3>
+<p>
+本周几个事件合并起来看：
+</p>
+<ul>
+<li>Liquid AI LFM2.5 2.6B + QAD + DSpark：3× 速度、97% 质量、4-bit 显存</li>
+<li>Meta Muse Glimmer 30B 开源：Apache 2.0、明确打 agentic</li>
+<li>Ox Alpha 隐身模型：1M context、free</li>
+<li>Faraday：更小模型胜出</li>
+</ul>
+<p>
+<strong>这意味着</strong>：把"必须用 frontier 模型才能做 agent"的论点正在崩塌。SaaS agent 产品如果还停留在"我们背后是 GPT-5.6"，将面对三条来自小模型 / 长 context / 私有优化方向的挤压。
+</p>
+<p>
+<strong>对产品 / 投资人：</strong>关注"小模型 + 强 harness + 行业数据闭环"的组合。这条线已经在 Faraday、Shopify Sidekick 类、Verdent AI 等公司上看到雏形。判断一个 agent 公司技术壁垒，问两个问题：（1）你的 harness 有没有可量化的内部 benchmark；（2）你的小模型 / 蒸馏管线有没有 ownership。
+</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== 延伸阅读 ===== -->
+<h2>📚 延伸阅读</h2>
+
+<ul>
+<li><a href="https://mistral.ai/news/agentic-search/">Mistral Agentic Search</a> · <a href="https://mistral.ai/news/shieldstral/">Mistral Shieldstral</a> · <a href="https://docs.mistral.ai/models/ocr-4-1">Mistral OCR 4.1</a></li>
+<li><a href="https://huggingface.co/blog/LiquidAI/qad">Liquid AI QAD on Hugging Face</a> · <a href="https://www.liquid.ai/blog/qad">Liquid AI 官方博客</a></li>
+<li><a href="https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/">DeepMind × EVE Online</a> · <a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">WeatherNext Cyclones</a></li>
+<li><a href="https://openai.com/index/introducing-ai-futures/">OpenAI AI Futures</a> · <a href="https://openai.com/index/chatgpt-for-teens/">ChatGPT for Teens</a> · <a href="https://openai.com/index/partnering-with-codeai/">CodeAI 合作</a></li>
+<li><a href="https://huggingface.co/meta-models/Muse-Glimmer-30B">Meta Muse Glimmer 30B</a></li>
+<li><a href="https://sander.ai/2026/08/24/continuous-dlms.html">Sander Dieleman: Continuous DLMs</a> · <a href="https://arxiv.org/abs/2604.11748">LangFlow</a> · <a href="https://arxiv.org/abs/2603.02547">CoDAR</a></li>
+<li><a href="https://blog.cloudflare.com/mcp-v2/">Cloudflare: MCP v2</a> · <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Claude Agent Skills</a></li>
+<li><a href="https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/">TechCrunch: Inherent Faraday</a></li>
+<li><a href="https://github.com/NousResearch/hermes-agent">Nous Research Hermes Agent</a>（自进化 agent 范式参考实现）</li>
+</ul>
+
+<div class="footer">
+<p>本期覆盖 8 月 18–25 日公开动态 · 搜索 30+ 来源 · 筛选 18 条深度条目 · 主笔：AI 前沿日报 cron job</p>
+<p>上一篇：<a href="https://reports.dns-cloudflare.com/daily/ai/2026-08-24.html">2026-08-24</a> · 下一篇将覆盖 8 月 25–26 日动态</p>
+</div>
+
+</body>
+</html>
