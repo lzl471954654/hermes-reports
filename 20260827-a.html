@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>A股盘后总结 · AI产业链深度版 | 2026年8月27日</title>
+<style>
+:root{
+  --bg:#090d14;--panel:#111823;--panel2:#151e2b;--line:#273346;--text:#e6edf7;
+  --muted:#93a1b5;--dim:#68778c;--red:#ff5b66;--green:#39d98a;--cyan:#43d9ff;
+  --purple:#b792ff;--orange:#ffb454;--yellow:#f5d35c;--blue:#6da8ff;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{
+  margin:0;background:radial-gradient(circle at 20% -10%,rgba(67,217,255,.08),transparent 34%),var(--bg);
+  color:var(--text);font:14px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+}a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:auto;padding:28px 22px 48px}
+.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:18px;padding:30px 32px;background:linear-gradient(135deg,rgba(20,31,47,.96),rgba(12,17,27,.98));box-shadow:0 18px 50px rgba(0,0,0,.25)}
+.hero:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-80px;top:-160px;background:rgba(67,217,255,.08);filter:blur(4px)}
+.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:30px;line-height:1.25;margin:8px 0}.hero p{margin:4px 0;color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.badge{border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:rgba(255,255,255,.035);font-size:11px;color:var(--muted)}
+.section{margin-top:26px}.section h2{font-size:19px;margin:0 0 14px;padding-left:12px;border-left:3px solid var(--cyan)}
+.section h2.chain{border-color:var(--purple)}.section h2.warn{border-color:var(--orange)}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.card{border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,var(--panel2),var(--panel));padding:16px;min-width:0}
+.span2{grid-column:span 2}.span3{grid-column:span 3}.span4{grid-column:span 4}.span6{grid-column:span 6}
+.k{font-size:11px;color:var(--muted);letter-spacing:.04em}.v{font-size:25px;font-weight:750;font-variant-numeric:tabular-nums;margin:3px 0}.sub{font-size:12px;color:var(--muted)}.up{color:var(--red)}.down{color:var(--green)}.neutral{color:var(--orange)}
+.callout{padding:17px 19px;border:1px solid rgba(67,217,255,.24);border-radius:12px;background:rgba(67,217,255,.055);font-size:14px}.callout strong{color:var(--cyan)}
+.callout ul{margin:8px 0 0;padding-left:19px}.callout li{margin:5px 0}
+.metricbar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.metric{border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.018);padding:12px}.metric b{display:block;font-size:17px;margin-top:2px}
+.bar{height:9px;background:#202b3b;border-radius:99px;overflow:hidden;margin-top:9px}.bar span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--red),#ff9b69)}
+.bar.green span{background:linear-gradient(90deg,var(--green),#6ce0aa)}
+.chain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.chain-card{border:1px solid var(--line);border-radius:13px;background:var(--panel);padding:18px;position:relative;overflow:hidden}
+.chain-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--rank,var(--blue))}.chain-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.chain-head h3{margin:0;font-size:16px}.chain-avg{font-size:23px;font-weight:750;text-align:right;white-space:nowrap}.chain-avg small{display:block;font-size:10px;color:var(--muted);font-weight:500}
+.breadth{font-size:11px;color:var(--muted);margin:7px 0 10px}.stocks{font-size:12px;line-height:1.75}.stocks b{font-weight:600}.read{margin:10px 0 0;padding-top:9px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.rank{font-size:11px;color:var(--dim);margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:13px}.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px}th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{color:var(--muted);font-size:11px;font-weight:600;background:rgba(255,255,255,.025)}tbody tr:hover{background:rgba(255,255,255,.025)}tbody tr:last-child td{border-bottom:0}.num{text-align:right;font-variant-numeric:tabular-nums}
+.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.insight{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--panel)}.insight h3{font-size:14px;margin:0 0 6px}.insight p{font-size:12px;color:var(--muted);margin:0}.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;background:rgba(109,168,255,.12);color:var(--blue);margin-right:5px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:13px 15px;margin-top:14px}summary{cursor:pointer;color:var(--cyan);font-weight:650}.method{font-size:12px;color:var(--muted);margin-top:10px}.method ol{margin-bottom:0;padding-left:20px}.source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.source-list a{padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--panel);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.risk{border:1px solid rgba(255,180,84,.25);border-radius:12px;padding:15px 17px;background:rgba(255,180,84,.055);font-size:12px;color:var(--muted)}
+.footer{border-top:1px solid var(--line);margin-top:30px;padding-top:18px;color:var(--dim);font-size:11px;text-align:center}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.span3,.span4,.span6{grid-column:span 2}.chain-grid,.insights{grid-template-columns:1fr}.source-list{grid-template-columns:1fr}.metricbar{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.wrap{padding:14px 10px 32px}.hero{padding:22px 18px}.hero h1{font-size:23px}.grid{grid-template-columns:1fr}.span2,.span3,.span4,.span6{grid-column:span 1}.metricbar{grid-template-columns:1fr 1fr}.chain-head{display:block}.chain-avg {text-align:left;margin-top:7px}.v{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">AFTER-MARKET INTELLIGENCE · CLOSE DATA</div>
+    <h1>A股盘后总结 · AI产业链深度版</h1>
+    <p>2026年8月27日（周四）｜沪深收盘数据 15:00 CST｜AI硬件八方向拆解</p>
+    <div class="badges">
+      <span class="badge">光通信 / CPO</span><span class="badge">存储 / HBM</span><span class="badge">半导体设备</span>
+      <span class="badge">PCB / CCL</span><span class="badge">MLCC</span><span class="badge">先进封装</span>
+      <span class="badge">上游材料</span><span class="badge">AI服务器 / 液冷</span>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>盘面核心结论</h2>
+    <div class="callout">
+      <strong>英伟达财报催化，AI硬件全线普涨。</strong> 隔夜英伟达Q2财报收入467亿美元、超预期且+55%同比，叠加Rubin规模化出货预期，A股今日以"硬强软弱"风格全面进攻：上证+1.13%、深证+1.50%、创业板+1.71%、<strong class="up">科创50大涨+3.77%</strong>，两市成交额合计约2.13万亿元，较昨日1.81万亿元放量约3164亿元（+17.5%）。
+      <ul>
+        <li>AI链<strong class="up">八个方向全数收红</strong>：存储/HBM均值<strong class="up">+5.62%</strong>领跑（澜起科技涨停），光通信/CPO均值<strong class="up">+5.39%</strong>（长飞光纤涨停），PCB+4.59%、MLCC+4.53%、上游材料+4.05%、服务器液冷+3.77%、先进封装+3.53%、半导体设备+2.82%。</li>
+        <li>样本内59只AI代表股<strong class="up">全部上涨</strong>，无一翻绿；这是近一个月来AI链最干净的"普涨"日。</li>
+        <li>两个炸板信号需观察：<strong class="up">生益科技</strong>盘中触及涨停143.01元后回落收+8.43%；中际旭创、新易盛等核心CPO收盘涨幅低于上午均价。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>指数与市场温度</h2>
+    <div class="grid">
+      <div class="card span2"><div class="k">上证指数</div><div class="v up">3,956.57</div><div class="sub up">▲ 1.13% · 3,909.31–3,958.03</div></div>
+      <div class="card span2"><div class="k">深证成指</div><div class="v up">14,048.88</div><div class="sub up">▲ 1.50% · 成交额 11,157.00亿元</div></div>
+      <div class="card span2"><div class="k">创业板指</div><div class="v up">3,473.36</div><div class="sub up">▲ 1.71% · 早盘冲高后维持</div></div>
+      <div class="card span2"><div class="k">科创50</div><div class="v up">1,693.48</div><div class="sub up">▲ 3.77% · 主要宽基中领涨</div></div>
+      <div class="card span2"><div class="k">北证50</div><div class="v up">1,074.96</div><div class="sub up">▲ 0.65%</div></div>
+      <div class="card span2"><div class="k">沪深成交额</div><div class="v">2.13万亿</div><div class="sub up">▲ 约3,164亿元 · 放量约17.5%</div></div>
+      <div class="card span3"><div class="k">个股涨跌</div><div class="v up">近全红</div><div class="sub">AI样本内59只全部上涨；东财SSE接口显示个股上涨结构显著强于8/26</div></div>
+      <div class="card span3"><div class="k">市场广度</div><div class="v up">强势普涨</div><div class="sub">早盘+午后两段共振，无明显冲高回落；收盘价普遍高于上午均价</div></div>
+    </div>
+    <div class="metricbar">
+      <div class="metric"><span>上证/深证</span><b class="up">+1.13%/+1.50%</b><div class="bar"><span style="width:75%"></span></div></div>
+      <div class="metric"><span>科创50超额</span><b class="up">+2.64pct</b><div class="bar"><span style="width:90%"></span></div></div>
+      <div class="metric"><span>AI样本59只均值</span><b class="up">+4.27%</b><div class="bar"><span style="width:78%"></span></div></div>
+      <div class="metric"><span>AI样本中位数</span><b class="up">+4.59%</b><div class="bar"><span style="width:82%"></span></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>风格与热点：英伟达引爆，AI硬件全面占优</h2>
+    <div class="insights">
+      <div class="insight"><h3><span class="tag">最强宽基</span>科创50 +3.77%</h3><p>取得相对沪指2.64pct超额，半导体设备、CPO芯片与HBM链条共振；科创板代表的核心硬件标的成为本轮催化最直接受益方。</p></div>
+      <div class="insight"><h3><span class="tag">市场主线</span>AI硬件全线普涨</h3>
+        <p>光通信（CPO/光纤）、存储/HBM、PCB/CCL、MLCC、液冷电源均录得+3.5%以上均值涨幅；样本59只AI股<strong class="up">100%上涨</strong>，无差别性进攻，区别仅在强度而非方向。</p></div>
+      <div class="insight"><h3><span class="tag">催化来源</span>英伟达财报</h3>
+        <p>盘后英伟达Q2营收467亿美元、同比+55%、超预期；Rubin平台规模化出货+800G/1.6T光模块需求翻倍成为市场主要叙事，叠加DIGITIMES报道2027年三大DRAM原厂产能已售罄。</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="chain">AI产业链八方向收盘温度</h2>
+    <div class="chain-grid">
+
+      <div class="chain-card" style="--rank:var(--red)">
+        <div class="chain-head"><div><span class="rank">01</span><h3>存储 / HBM</h3></div><div class="chain-avg up">+5.62%<small>等权均值 · 7涨 / 0跌</small></div></div>
+        <div class="breadth">样本中位数 +6.05%，澜起科技涨停封板</div>
+        <div class="stocks">
+          <b class="up">澜起科技 +10.06%</b>（221.22，涨停） · <b class="up">北京君正 +6.37%</b>（140.48）<br>
+          <b class="up">国科微 +6.08%</b>（171.09） · <b class="up">江波龙 +6.05%</b>（386.25）<br>
+          兆易创新 +4.76% · 深科技 +4.47% · 国民技术 +1.54%
+        </div>
+        <div class="read"><strong>解读：</strong>板块均值与中位数双双超过+5%，澜起科技独立封板最强；存储链从昨日弱势一跃成为今日最强方向，与DIGITIMES报道2027年DRAM产能售罄、HBM4量产提速形成共振。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--orange)">
+        <div class="chain-head"><div><span class="rank">02</span><h3>光通信 / CPO</h3></div><div class="chain-avg up">+5.39%<small>等权均值 · 12涨 / 0跌</small></div></div>
+        <div class="breadth">样本中位数 +5.21%，光纤板块大幅强于CPO模块</div>
+        <div class="stocks">
+          <b class="up">长飞光纤 +10.01%</b>（426.82，涨停） · <b class="up">亨通光电 +9.98%</b>（71.30）<br>
+          <b class="up">中天科技 +8.00%</b>（36.08） · <b class="up">仕佳光子 +6.44%</b>（159.14）<br>
+          太辰光 +6.11% · 天孚通信 +5.36% · 光迅科技 +5.06%<br>
+          罗博特科 +4.39% · 剑桥科技 +3.85% · 新易盛 +2.59%<br>
+          中际旭创 +1.79% · 华工科技 +1.06%
+        </div>
+        <div class="read"><strong>解读：</strong>"光纤光缆>光芯片>光模块"自上而下强度递减，长飞光纤、亨通光电两只龙头涨停，中天科技大涨8%；核心CPO三剑客涨幅回落至+1.79%~+2.59%，反映"光模块兑现、光纤补涨"的轮动节奏。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--yellow)">
+        <div class="chain-head"><div><span class="rank">03</span><h3>PCB / CCL</h3></div><div class="chain-avg up">+4.59%<small>等权均值 · 7涨 / 0跌</small></div></div>
+        <div class="breadth">样本中位数 +4.59%，CCL与PCB普涨</div>
+        <div class="stocks">
+          <b class="up">生益科技 +8.43%</b>（140.97，盘中触涨停炸板） · <b class="up">胜宏科技 +5.45%</b>（263.05）<br>
+          <b class="up">深南电路 +4.91%</b>（365.10） · <b class="up">华正新材 +4.59%</b>（183.39）<br>
+          东山精密 +3.21% · 环旭电子 +3.18% · 沪电股份 +2.35%
+        </div>
+        <div class="read"><strong>解读：</strong>沪电股份、深南电路已公布半年报高景气数据，今日继续与生益科技同向进攻；生益科技盘中触及涨停143.01后回落，<strong>炸板</strong>是关键观察点。整体而言PCB/CCL不再是设备之后跟随者，而是与设备同步上行。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--blue)">
+        <div class="chain-head"><div><span class="rank">04</span><h3>MLCC / 被动元件</h3></div><div class="chain-avg up">+4.53%<small>等权均值 · 4涨 / 0跌</small></div></div>
+        <div class="breadth">样本中位数 +4.56%，从昨日最弱一跃进入强方向</div>
+        <div class="stocks">
+          <b class="up">风华高科 +6.08%</b>（54.11） · <b class="up">火炬电子 +5.62%</b>（47.96）<br>
+          三环集团 +3.49% · 顺络电子 +2.92%
+        </div>
+        <div class="read"><strong>解读：</strong>8月26日MLCC组合还是八方向中广度最弱（0涨4跌），今日整体逆转且全部收红；AI服务器/交换机对高容值MLCC的需求逻辑被市场重新定价。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--purple)">
+        <div class="chain-head"><div><span class="rank">05</span><h3>上游材料</h3></div><div class="chain-avg up">+4.05%<small>等权均值 · 7涨 / 0跌</small></div></div>
+        <div class="breadth">样本中位数 +3.93%，雅克科技领涨</div>
+        <div class="stocks">
+          <b class="up">雅克科技 +6.42%</b>（143.91） · <b class="up">江丰电子 +5.22%</b>（248.18）<br>
+          上海新阳 +4.75% · 南大光电 +3.93% · 鼎龙股份 +3.89%<br>
+          彤程新材 +3.21% · 菲利华 +0.95%
+        </div>
+        <div class="read"><strong>解读：</strong>覆盖靶材（江丰）、前驱体（雅克/南大）、光刻胶（彤程）、CMP抛光（鼎龙）全谱系，跟随晶圆制造端景气；菲利华涨幅最小，半导体材料内部仍有结构差异。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--cyan)">
+        <div class="chain-head"><div><span class="rank">06</span><h3>AI服务器 / 液冷 / 电源</h3></div><div class="chain-avg up">+3.77%<small>等权均值 · 11涨 / 0跌</small></div></div>
+        <div class="breadth">样本中位数 +3.70%，液冷电源强势</div>
+        <div class="stocks">
+          <b class="up">英维克 +6.28%</b>（65.97） · <b class="up">浪潮信息 +6.07%</b>（78.27）<br>
+          <b class="up">高澜股份 +5.53%</b>（31.50） · <b class="up">工业富联 +5.43%</b>（63.86）<br>
+          紫光股份 +4.38% · 麦格米特 +3.70% · 欧陆通 +3.40%<br>
+          中科曙光 +2.72% · 共进股份 +1.90% · 光环新网 +1.14%<br>
+          佳力图 +0.90%
+        </div>
+        <div class="read"><strong>解读：</strong>液冷（英维克、高澜）领涨、AI服务器整机（浪潮、工业富联、紫光）紧跟；佳力图、光环新网涨幅最小但仍翻红，整体普涨格局明显。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--green)">
+        <div class="chain-head"><div><span class="rank">07</span><h3>先进封装</h3></div><div class="chain-avg up">+3.53%<small>等权均值 · 4涨 / 0跌</small></div></div>
+        <div class="breadth">样本中位数 +3.55%，跟随硬件主升浪</div>
+        <div class="stocks">
+          <b class="up">通富微电 +4.05%</b>（63.73） · <b class="up">长电科技 +3.97%</b>（76.54）<br>
+          华天科技 +3.12% · 大港股份 +2.97%
+        </div>
+        <div class="read"><strong>解读：</strong>封测方向整体跟涨但强度低于设备和PCB；通富、长电两只龙头涨幅接近。仍需观察Chiplet/HBM封装实际订单的边际催化。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--dim)">
+        <div class="chain-head"><div><span class="rank">08</span><h3>半导体设备</h3></div><div class="chain-avg up">+2.82%<small>等权均值 · 8涨 / 0跌</small></div></div>
+        <div class="breadth">样本中位数 +2.56%，昨日最强方向今日垫底</div>
+        <div class="stocks">
+          <b class="up">精测电子 +5.32%</b>（221.80） · <b class="up">盛美上海 +4.25%</b>（307.01）<br>
+          <b class="up">中科飞测 +3.23%</b>（373.71） · <b class="up">拓荆科技 +2.65%</b>（693.00）<br>
+          北方华创 +2.47% · 中微公司 +2.16% · 华海清科 +1.87%<br>
+          芯源微 +0.58%
+        </div>
+        <div class="read"><strong>解读：</strong>虽排末位但仍录得+2.82%等权与+2.56%中位数，全员翻红；相对而言被光通信和PCB抢走了"最强"标签，但绝对强度仍然扎实。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>AI链强弱排名（固定代表组合）</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>排名</th><th>方向</th><th class="num">等权涨跌</th><th class="num">中位数</th><th class="num">上涨数</th><th class="num">下跌数</th><th>价格信号</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>存储 / HBM</td><td class="num up">+5.62%</td><td class="num up">+6.05%</td><td class="num up">7</td><td class="num">0</td><td>最强，澜起涨停</td></tr>
+          <tr><td>2</td><td>光通信 / CPO</td><td class="num up">+5.39%</td><td class="num up">+5.21%</td><td class="num up">12</td><td class="num">0</td><td>光纤光缆强于光模块</td></tr>
+          <tr><td>3</td><td>PCB / CCL</td><td class="num up">+4.59%</td><td class="num up">+4.59%</td><td class="num up">7</td><td class="num">0</td><td>生益科技炸板需观察</td></tr>
+          <tr><td>4</td><td>MLCC / 被动元件</td><td class="num up">+4.53%</td><td class="num up">+4.56%</td><td class="num up">4</td><td class="num">0</td><td>从昨日最弱翻盘</td></tr>
+          <tr><td>5</td><td>上游材料</td><td class="num up">+4.05%</td><td class="num up">+3.93%</td><td class="num up">7</td><td class="num">0</td><td>材料谱系全面跟涨</td></tr>
+          <tr><td>6</td><td>服务器 / 液冷 / 电源</td><td class="num up">+3.77%</td><td class="num up">+3.70%</td><td class="num up">11</td><td class="num">0</td><td>液冷电源强于整机</td></tr>
+          <tr><td>7</td><td>先进封装</td><td class="num up">+3.53%</td><td class="num up">+3.55%</td><td class="num up">4</td><td class="num">0</td><td>跟随主升、强度中等</td></tr>
+          <tr><td>8</td><td>半导体设备</td><td class="num up">+2.82%</td><td class="num up">+2.56%</td><td class="num up">8</td><td class="num">0</td><td>昨日第一、今日垫底</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="method">注：组合涨跌为当日固定样本的简单等权平均，不是官方行业指数；上涨/下跌数按样本内计算。今日AI链八个方向全部翻红，是近一个月罕见的"普涨"行情。</p>
+  </section>
+
+  <section class="section">
+    <h2>关键个股与基本面校验</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>方向</th><th>公司</th><th>代码</th><th class="num">收盘价（元）</th><th class="num">涨跌幅</th><th>事实 / 观察</th></tr></thead>
+        <tbody>
+          <tr><td>存储/HBM</td><td>澜起科技</td><td>688008</td><td class="num">221.22</td><td class="num up">+10.06%</td><td>存储样本封板涨停；HBM/DDR5接口芯片</td></tr>
+          <tr><td>光通信/CPO</td><td>长飞光纤</td><td>601869</td><td class="num">426.82</td><td class="num up">+10.01%</td><td>收盘涨停；光纤光缆龙头</td></tr>
+          <tr><td>光通信/CPO</td><td>亨通光电</td><td>600487</td><td class="num">71.30</td><td class="num up">+9.98%</td><td>几乎涨停；海洋+光纤双轮</td></tr>
+          <tr><td>PCB/CCL</td><td>生益科技</td><td>600183</td><td class="num">140.97</td><td class="num up">+8.43%</td><td>盘中触涨停143.01后炸板回落</td></tr>
+          <tr><td>光通信/CPO</td><td>中天科技</td><td>600522</td><td class="num">36.08</td><td class="num up">+8.00%</td><td>光纤+海缆双线；盘中创新高</td></tr>
+          <tr><td>上游材料</td><td>雅克科技</td><td>002409</td><td class="num">143.91</td><td class="num up">+6.42%</td><td>前驱体龙头；半导体材料组合第一</td></tr>
+          <tr><td>服务器/液冷</td><td>英维克</td><td>002837</td><td class="num">65.97</td><td class="num up">+6.28%</td><td>液冷样本领涨</td></tr>
+          <tr><td>服务器</td><td>浪潮信息</td><td>000977</td><td class="num">78.27</td><td class="num up">+6.07%</td><td>AI服务器整机样本第一</td></tr>
+          <tr><td>设备</td><td>精测电子</td><td>300567</td><td class="num">221.80</td><td class="num up">+5.32%</td><td>检测设备；半导体设备样本第一</td></tr>
+          <tr><td>光模块</td><td>中际旭创</td><td>300308</td><td class="num">866.12</td><td class="num up">+1.79%</td><td>CPO三剑客涨幅最小，但绝对涨幅仍为正</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="method">公开报道显示，英伟达2026财年Q2营收467亿美元、+55%同比、超分析师461亿美元预期；Rubin平台规模化出货+1.6T光模块需求翻倍成为光通信链主要叙事；DIGITIMES数据显示三大DRAM原厂2027年产能已售罄，强化存储/HBM紧缺逻辑。</p>
+  </section>
+
+  <section class="section">
+    <h2 class="warn">下一交易日观察清单</h2>
+    <div class="insights">
+      <div class="insight"><h3>① 成交额持续性</h3><p>今日沪深成交约2.13万亿元，较前日放量约17.5%。指数涨幅+成交量同步放大，是强势行情的基础；明日是否维持1.9万亿+量级是反弹质量的关键验证。</p></div>
+      <div class="insight"><h3>② 炸板与分化</h3><p>生益科技盘中涨停炸板、中际旭创/新易盛涨幅低于均值，需观察核心CPO龙头能否在次日补涨；若龙头走弱，光纤光缆和PCB强度能否接力。</p></div>
+      <div class="insight"><h3>③ 风格扩散</h3><p>今日AI样本59只100%收红，强度普涨但内部分层清晰：存储/HBM>光通信>PCB>MLCC>材料>液冷>封测>设备。观察次日是否延续"光通信强、设备次之"的排序，或重新轮动到设备。</p></div>
+    </div>
+  </section>
+
+  <details>
+    <summary>数据口径、计算方法与风险说明</summary>
+    <div class="method">
+      <ol>
+        <li>指数、个股收盘价与涨跌幅由新浪行情接口（hq.sinajs.cn）和东方财富接口（push2.eastmoney.com）交叉核验；时间戳为2026-08-27 15:19-15:20 CST。</li>
+        <li>AI链使用59只固定代表样本，按当日收盘涨跌幅做简单等权统计；不同机构行业分类和成分股不同，结果不能与官方行业指数直接比较。</li>
+        <li>成交额由东方财富接口获取上证指数（1,010,226,573,954.6元）与深证成指（1,115,700,225,234.2元）相加得约21,259亿元；上个交易日合计约1.81万亿元，放量约3,164亿元。</li>
+        <li>科创50沪深A股的"全红"判断基于AI链59只样本，无关全市场A股票数；新浪行情接口列出沪深A股涨幅排行前列均≥+15%，与今日强势普涨结构一致。</li>
+        <li>涨幅为A股价格信号，不代表未来表现；本报告为公开数据复盘，不构成买卖、收益承诺或个性化投资建议。</li>
+      </ol>
+    </div>
+  </details>
+
+  <section class="section">
+    <h2>主要来源</h2>
+    <div class="source-list">
+      <a href="https://hq.sinajs.cn/list=sh000001,sh000688,sz399001,sz399006,sz399317" target="_blank" rel="noopener">新浪行情：宽基指数实时数据</a>
+      <a href="https://push2.eastmoney.com/api/qt/stock/get?secid=1.000001,1.000688,0.399001,0.399006,0.899050" target="_blank" rel="noopener">东方财富：宽基指数行情与成交</a>
+      <a href="https://hq.sinajs.cn/list=sh688008,sh601869,sh600487,sh600183,sh601728,sz300308,sz300502,sz300394" target="_blank" rel="noopener">新浪行情：AI链核心个股</a>
+      <a href="https://push2.eastmoney.com/api/qt/clist/get?fid=f3&pn=1&pz=50&fs=m:90+t:2" target="_blank" rel="noopener">东方财富：A股涨幅排行</a>
+      <a href="https://vip.stock.finance.sina.com.cn/mkt/" target="_blank" rel="noopener">新浪财经：A股行情中心</a>
+      <a href="https://www.cls.cn/telegraph" target="_blank" rel="noopener">财联社：英伟达财报与AI产业链新闻</a>
+      <a href="https://www.digitimes.com/news/" target="_blank" rel="noopener">DIGITIMES：DRAM产能与HBM产业链</a>
+      <a href="https://finance.sina.com.cn/stock/usstock/" target="_blank" rel="noopener">新浪财经：英伟达（NVDA）盘后财报数据</a>
+    </div>
+  </section>
+
+  <div class="risk"><strong>风险提示：</strong>今日市场全线上涨且AI链59只样本100%收红，是一个月来最干净的普涨日；但单日涨幅过快可能引发短期获利了结，生益科技炸板已提示分化迹象。强势并不等于持续，本报告为公开数据复盘，不构成投资建议。</div>
+
+  <footer class="footer">A股盘后总结 · AI产业链深度版 · 生成于 2026-08-27 15:20 CST · Powered by Hermes Agent</footer>
+</div>
+</body>
+</html>
