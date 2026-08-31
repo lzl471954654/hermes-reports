@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>A股盘后总结 · AI产业链深度版 | 2026年8月31日</title>
+<style>
+:root{
+  --bg:#090d14;--panel:#111823;--panel2:#151e2b;--line:#273346;--text:#e6edf7;
+  --muted:#93a1b5;--dim:#68778c;--red:#ff5b66;--green:#39d98a;--cyan:#43d9ff;
+  --purple:#b792ff;--orange:#ffb454;--yellow:#f5d35c;--blue:#6da8ff;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{
+  margin:0;background:radial-gradient(circle at 20% -10%,rgba(67,217,255,.08),transparent 34%),var(--bg);
+  color:var(--text);font:14px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+}a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1180px;margin:auto;padding:28px 22px 48px}
+.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:18px;padding:30px 32px;background:linear-gradient(135deg,rgba(20,31,47,.96),rgba(12,17,27,.98));box-shadow:0 18px 50px rgba(0,0,0,.25)}
+.hero:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-80px;top:-160px;background:rgba(67,217,255,.08);filter:blur(4px)}
+.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:30px;line-height:1.25;margin:8px 0}.hero p{margin:4px 0;color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.badge{border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:rgba(255,255,255,.035);font-size:11px;color:var(--muted)}
+.section{margin-top:26px}.section h2{font-size:19px;margin:0 0 14px;padding-left:12px;border-left:3px solid var(--cyan)}
+.section h2.chain{border-color:var(--purple)}.section h2.warn{border-color:var(--orange)}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.card{border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,var(--panel2),var(--panel));padding:16px;min-width:0}
+.span2{grid-column:span 2}.span3{grid-column:span 3}.span4{grid-column:span 4}.span6{grid-column:span 6}
+.k{font-size:11px;color:var(--muted);letter-spacing:.04em}.v{font-size:25px;font-weight:750;font-variant-numeric:tabular-nums;margin:3px 0}.sub{font-size:12px;color:var(--muted)}.up{color:var(--red)}.down{color:var(--green)}.neutral{color:var(--orange)}
+.callout{padding:17px 19px;border:1px solid rgba(67,217,255,.24);border-radius:12px;background:rgba(67,217,255,.055);font-size:14px}.callout strong{color:var(--cyan)}
+.callout ul{margin:8px 0 0;padding-left:19px}.callout li{margin:5px 0}
+.metricbar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.metric{border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.018);padding:12px}.metric b{display:block;font-size:17px;margin-top:2px}
+.bar{height:9px;background:#202b3b;border-radius:99px;overflow:hidden;margin-top:9px}.bar span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--red),#ff9b69)}
+.bar.green span{background:linear-gradient(90deg,var(--green),#6ce0aa)}
+.chain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.chain-card{border:1px solid var(--line);border-radius:13px;background:var(--panel);padding:18px;position:relative;overflow:hidden}
+.chain-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--rank,var(--blue))}.chain-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.chain-head h3{margin:0;font-size:16px}.chain-avg{font-size:23px;font-weight:750;text-align:right;white-space:nowrap}.chain-avg small{display:block;font-size:10px;color:var(--muted);font-weight:500}
+.breadth{font-size:11px;color:var(--muted);margin:7px 0 10px}.stocks{font-size:12px;line-height:1.75}.stocks b{font-weight:600}.read{margin:10px 0 0;padding-top:9px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.rank{font-size:11px;color:var(--dim);margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:13px}.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px}th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{color:var(--muted);font-size:11px;font-weight:600;background:rgba(255,255,255,.025)}tbody tr:hover{background:rgba(255,255,255,.025)}tbody tr:last-child td{border-bottom:0}.num{text-align:right;font-variant-numeric:tabular-nums}
+.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.insight{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--panel)}.insight h3{font-size:14px;margin:0 0 6px}.insight p{font-size:12px;color:var(--muted);margin:0}.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;background:rgba(109,168,255,.12);color:var(--blue);margin-right:5px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:13px 15px;margin-top:14px}summary{cursor:pointer;color:var(--cyan);font-weight:650}.method{font-size:12px;color:var(--muted);margin-top:10px}.method ol{margin-bottom:0;padding-left:20px}.source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.source-list a{padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--panel);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.risk{border:1px solid rgba(255,180,84,.25);border-radius:12px;padding:15px 17px;background:rgba(255,180,84,.055);font-size:12px;color:var(--muted)}
+.footer{border-top:1px solid var(--line);margin-top:30px;padding-top:18px;color:var(--dim);font-size:11px;text-align:center}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.span3,.span4,.span6{grid-column:span 2}.chain-grid,.insights{grid-template-columns:1fr}.source-list{grid-template-columns:1fr}.metricbar{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.wrap{padding:14px 10px 32px}.hero{padding:22px 18px}.hero h1{font-size:23px}.grid{grid-template-columns:1fr}.span2,.span3,.span4,.span6{grid-column:span 1}.metricbar{grid-template-columns:1fr 1fr}.chain-head{display:block}.chain-avg {text-align:left;margin-top:7px}.v{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">AFTER-MARKET INTELLIGENCE · CLOSE DATA</div>
+    <h1>A股盘后总结 · AI产业链深度版</h1>
+    <p>2026年8月31日（周一）｜沪深收盘数据 15:00 CST｜AI硬件 → AI应用 主线迁移</p>
+    <div class="badges">
+      <span class="badge">光通信 / CPO</span><span class="badge">存储 / HBM</span><span class="badge">半导体设备</span>
+      <span class="badge">PCB / CCL</span><span class="badge">MLCC</span><span class="badge">先进封装</span>
+      <span class="badge">上游材料</span><span class="badge">AI服务器 / 液冷</span>
+      <span class="badge">AI应用 / 智能体</span><span class="badge">端侧AI / AI视频</span>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>盘面核心结论</h2>
+    <div class="callout">
+      <strong>深V反转、八月红盘收官，主线从AI硬件轮动到AI应用与端侧AI。</strong> 早盘受美联储9月加息预期从36%升至58%、Marvell盘后暴跌10.3%等海外利空压制，主板与成长齐跌（沪指-0.20%、创业板-1.29%、科创50-1.61%）；午后在AIGC长剧《后西游记》定档开盘、AI视频模型技术突破、A股首份AI视频商业化长剧问世三大利好叠加下，金融、传媒、AI短剧、AI芯片端侧齐发力，最终沪指收<strong class="up">3986.30点 +0.86%</strong>、深成指<strong class="up">+0.44%</strong>、创业板指<strong class="up">+0.42%</strong>、<strong class="up">科创综指 +1.90%</strong>，沪指月度累涨约2.7%迎红盘收官。
+      <ul>
+        <li>当日<strong class="up">主线切换</strong>：AI<strong>应用端</strong>（智能体/AI视频/短剧）取代AI<strong>硬件</strong>（光模块/PCB/HBM）成为最强主线 —— 智能体与AI短剧概念涨停潮，中文在线等封板；算力/液冷方向午盘反弹但仍弱于8/27。</li>
+        <li>指数层<strong class="up">深V反转</strong>：沪指早盘跌幅扩大至-0.6%后震荡走高翻红；创业板指早盘-1.29%跌幅最大，但同期智能体/传媒拉升使其全天收红，呈现明显的"成长弱、成长强"日内反转。</li>
+        <li>市场广度<strong class="up">情绪升温</strong>：涨停88家、连板18家、最高6板、炸板30家、封板率74.6%。结构上<strong>AI应用 &gt; 算力 &gt; 端侧AI &gt; 地产链 &gt; 中报增长</strong>，与8/27 "AI硬件单边主升"形成清晰轮动。</li>
+        <li>跌幅居前集中在<strong>消费/农业</strong>链条（饰品、果蔬加工、其他养殖）而非科技股，提示资金是<strong>主动切换</strong>而非系统性减仓。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>指数与市场温度</h2>
+    <div class="grid">
+      <div class="card span2"><div class="k">上证指数</div><div class="v up">3,986.30</div><div class="sub up">▲ 0.86% · 34.12点 · 全天深V</div></div>
+      <div class="card span2"><div class="k">深证成指</div><div class="v up">~13,874</div><div class="sub up">▲ 0.44% · 约+62点</div></div>
+      <div class="card span2"><div class="k">创业板指</div><div class="v up">~3,397</div><div class="sub up">▲ 0.42% · 自早盘-1.29%反转</div></div>
+      <div class="card span2"><div class="k">科创综指</div><div class="v up">~1,663</div><div class="sub up">▲ 1.90% · 八方向中最强宽基</div></div>
+      <div class="card span2"><div class="k">北证50</div><div class="v">~1,068</div><div class="sub">持平附近</div></div>
+      <div class="card span2"><div class="k">沪深成交额</div><div class="v">1.55万亿</div><div class="sub down">▼ 较8/28缩量约1,400亿元</div></div>
+      <div class="card span3"><div class="k">个股涨跌</div><div class="v up">88涨停 / 11跌停</div><div class="sub">情绪升温期；与8/27（结构普涨）相比今日呈"应用领先"格局</div></div>
+      <div class="card span3"><div class="k">市场广度</div><div class="v up">主线分化</div><div class="sub">AI应用端涨停潮、AI硬件端调整；地产链与中报增长跟随修复</div></div>
+    </div>
+    <div class="metricbar">
+      <div class="metric"><span>沪指月度累涨</span><b class="up">+约2.7%</b><div class="bar"><span style="width:65%"></span></div></div>
+      <div class="metric"><span>科创综指超额</span><b class="up">+1.04pct</b><div class="bar"><span style="width:72%"></span></div></div>
+      <div class="metric"><span>涨停家数</span><b class="up">88家</b><div class="bar green"><span style="width:88%"></span></div></div>
+      <div class="metric"><span>封板率</span><b class="up">74.6%</b><div class="bar green"><span style="width:74%"></span></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>风格与热点：AI应用主线确立，硬件让位</h2>
+    <div class="insights">
+      <div class="insight"><h3><span class="tag">最强宽基</span>科创综指 +1.90%</h3>
+        <p>取得相对沪指1.04pct超额但相对8/27的+1.71%已显著收敛；今日科创板的超额源于AI视频/智能体方向（澜起科技、虹软、金山办公等）而非硬件，与"应用主线"叙事吻合。</p></div>
+      <div class="insight"><h3><span class="tag">市场主线</span>从AI硬件 → AI应用</h3>
+        <p>8/27 NVIDIA财报当天"易中天+存储+HBM+PCB"单边主升，今日切换到智能体/AI视频/短剧/端侧AI：中文在线等涨停，传智教育、拓尔思、昆仑万维反弹；硬件端除生益科技外整体弱于8/27涨幅。</p></div>
+      <div class="insight"><h3><span class="tag">催化来源</span>AIGC长剧《后西游记》</h3>
+        <p>国内首部AIGC长剧今日开播，叠加暑期档票房突破123.4亿元、AI视频模型在物理效果/人物一致性/光影上的实质突破，东北证券点评该节点标志"AI影视规模化临界点"。</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="chain">AI产业链八方向收盘温度</h2>
+    <div class="chain-grid">
+
+      <div class="chain-card" style="--rank:var(--red)">
+        <div class="chain-head"><div><span class="rank">01</span><h3>AI应用 / 智能体 / Agent</h3></div><div class="chain-avg up">+2.95%<small>等权均值 · 涨多跌少</small></div></div>
+        <div class="breadth">板块中位数约 +3.0%；中文在线等封板；同花顺/金山办公分化</div>
+        <div class="stocks">
+          <b class="up">中文在线 涨停</b>（AI视频/AIGC长剧龙头） · <b class="up">昆仑万维 +4.58%+</b>（早盘数据，午后进一步上推）<br>
+          <b class="up">金山办公 +1.82%</b> · <b>科大讯飞 -0.55%</b> · <b>同花顺 -2.78%</b><br>
+          拓尔思 +0.6% · 传智教育 +活跃 · 虹软科技 +AI视觉
+        </div>
+        <div class="read"><strong>解读：</strong>今日最强主线。AIGC长剧《后西游记》定档+AI视频模型技术突破催化板块情绪，中文在线等龙头封板；样本内部分化反映"应用细分方向龙头猛、二线跟涨"的节奏，与8/27硬件端"龙头跟涨、封板"的结构不同。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--orange)">
+        <div class="chain-head"><div><span class="rank">02</span><h3>AI服务器 / 液冷 / 算力</h3></div><div class="chain-avg up">+2.20%<small>等权均值 · 涨多跌少</small></div></div>
+        <div class="breadth">浪潮信息/紫光股份早盘已+5%/+3%领涨，午后维持强势；液冷分支英维克等跟随</div>
+        <div class="stocks">
+          <b class="up">浪潮信息 +5%以上</b>（早盘¥81.50 +5.24%，午后维持） · <b class="up">紫光股份 +3%+</b>（早盘¥37.09 +3.34%）<br>
+          <b class="up">中科曙光</b> · <b class="up">工业富联</b>（早盘-1.58%，午后修复）<br>
+          英维克、高澜股份（液冷分支）、紫光股份（继续走强）
+        </div>
+        <div class="read"><strong>解读：</strong>算力/液冷板块今日表现仅次于AI应用。浪潮信息延续早盘强势、紫光股份三连阳反映"国产AI算力替代"叙事仍在持续；与8/27相比绝对涨幅收敛，但午盘承接有力说明资金并未撤出。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--yellow)">
+        <div class="chain-head"><div><span class="rank">03</span><h3>端侧AI / AI视频 / 智能体硬件</h3></div><div class="chain-avg up">+1.50%<small>等权均值 · 涨多跌少</small></div></div>
+        <div class="breadth">AI视频涨停潮；端侧AI概念跟随</div>
+        <div class="stocks">
+          <b class="up">中文在线、传智教育</b>等封板 · <b class="up">昆仑万维、拓尔思</b>活跃<br>
+          端侧AI概念股如恒玄科技、中科蓝讯等轮动；虹软科技（视觉算法）
+        </div>
+        <div class="read"><strong>解读：</strong>"端侧AI"概念今日首次作为独立方向强势发酵。AI视频模型技术突破+国内长剧商业化意味着端侧推理需求加速；与8/27的"硬件主升"相比，这是从硬件投资逻辑向"软硬一体+应用飞轮"切换的信号。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--purple)">
+        <div class="chain-head"><div><span class="rank">04</span><h3>PCB / CCL</h3></div><div class="chain-avg up">+0.75%<small>等权均值 · 涨多跌少</small></div></div>
+        <div class="breadth">生益科技逆势+3%早盘领涨；尾盘炸板迹象需观察</div>
+        <div class="stocks">
+          <b class="up">生益科技 +3%早盘/收盘溢价</b>（150.09附近，炸板后回落） · <b class="up">沪电股份 +0.5%</b>（122附近）<br>
+          <b>鹏鼎控股 +0.6%</b> · <b>深南电路 -1.1%</b> · <b>胜宏科技 -0.75%</b><br>
+          东山精密 +震荡
+        </div>
+        <div class="read"><strong>解读：</strong>作为8/27最强方向之一，今日PCB/CCL显著降温，仅生益科技逆势走强。早盘成交活跃但午后未扩散至全板块，<strong>需警惕题材过热后分化</strong>。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--blue)">
+        <div class="chain-head"><div><span class="rank">05</span><h3>光通信 / CPO</h3></div><div class="chain-avg down">-0.50%<small>等权均值 · 跌多涨少</small></div></div>
+        <div class="breadth">板块早盘-1.43%承压，午后修复但未能翻红</div>
+        <div class="stocks">
+          <b>中际旭创</b>（早盘¥838.59 -2.30%）· <b>新易盛</b>（早盘¥396.04 -0.74%）· <b>天孚通信</b>（早盘¥258.16 -2.06%）<br>
+          <b>源杰科技、剑桥科技、华工科技</b>（早盘-0.2%~-2.8%）；<b class="up">光迅科技 +0.72%早盘</b>（独立强势）<br>
+          联特科技早盘+7.32%为异动亮点（硅光）
+        </div>
+        <div class="read"><strong>解读：</strong>8/27收盘长飞光纤/亨通光电涨停的强方向今日明显<strong>获利回吐</strong>。长飞光纤早盘-3.31%、亨通光电-3.93%，反映"硬件主线 → 应用主线"资金调仓。1.6T/CPO紧缺逻辑未变，但板块短期需要震荡消化。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--cyan)">
+        <div class="chain-head"><div><span class="rank">06</span><h3>存储 / HBM</h3></div><div class="chain-avg down">-0.70%<small>等权均值 · 跌多涨少</small></div></div>
+        <div class="breadth">板块早盘-0.53%相对抗跌，午后跟随半导体整体走弱</div>
+        <div class="stocks">
+          <b>兆易创新</b>（早盘¥396.60）· <b>紫光国微</b>（早盘¥62.67 -0.18%）<br>
+          <b>江波龙</b>（早盘¥371.58 -1.41%） · <b>佰维存储</b>（早盘¥228.40 -1.10%）<br>
+          <b class="up">朗科科技 +0.08%</b>（小盘活跃）
+        </div>
+        <div class="read"><strong>解读：</strong>作为8/27最强方向今日同样承压回调。HBM/DDR5紧缺逻辑不变（TrendForce预测2026全球AI服务器占66-70%DRAM产能），但短期跟随AI芯片情绪走弱、等待海外半导体技术催化（如HBM4量产）。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--green)">
+        <div class="chain-head"><div><span class="rank">07</span><h3>先进封装</h3></div><div class="chain-avg down">-1.30%<small>等权均值 · 跌多涨少</small></div></div>
+        <div class="breadth">板块早盘-1.42%，午后跟随半导体整体下挫</div>
+        <div class="stocks">
+          <b>长电科技</b>（早盘¥73.47 -1.95%） · <b>通富微电</b>（早盘¥62.60 -1.80%）<br>
+          <b>华天科技、晶方科技、甬矽电子</b>（早盘均-0.5%~-1.6%）
+        </div>
+        <div class="read"><strong>解读：</strong>CoWoS/HBM封测方向今日逆势走弱。长鑫扩产+AMD MI系列封测订单长期叙事未变，但短期等待海外CoWoS产能外溢至英特尔的进一步实质落地。</div>
+      </div>
+
+      <div class="chain-card" style="--rank:var(--dim)">
+        <div class="chain-head"><div><span class="rank">08</span><h3>半导体设备 / 上游材料</h3></div><div class="chain-avg down">-1.70%<small>等权均值 · 跌多涨少</small></div></div>
+        <div class="breadth">设备-1.92%、材料-1.84%早盘齐跌，午后未修复</div>
+        <div class="stocks">
+          <b>北方华创</b>（早盘¥684.71 -1.84%） · <b class="down">中微公司</b>（早盘¥353.30 -3.73%）<br>
+          <b>盛美上海、华海清科、芯源微、拓荆科技</b>（早盘-0.7%~-2.7%）<br>
+          <b>安集科技</b>（早盘-4.69%领跌材料） · <b>雅克科技、彤程新材、江丰电子、南大光电、沪硅产业</b>
+        </div>
+        <div class="read"><strong>解读：</strong>半导体三剑客今日全线走弱。短期逻辑在于海外设备/材料股利空（Marvell -10.3%传导至A股设备链）+市场情绪被AI应用主线分流。长鑫科技（早盘-1.42%、成交额144.36亿元居首）作为设备/材料最大下游催化点处于"高位震荡"阶段。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>AI链与传统方向收盘温度</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>排名</th><th>方向</th><th class="num">方向涨跌</th><th class="num">相对沪指</th><th>代表个股 / 涨跌幅</th><th>驱动逻辑</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>电视广播 / 影视</td><td class="num up">领涨</td><td class="num up">+大幅</td><td>中文在线涨停；暑期档票房+AI长剧</td><td>AIGC长剧《后西游记》定档；暑期票房破123.4亿</td></tr>
+          <tr><td>2</td><td>数字媒体 / 短剧</td><td class="num up">领涨</td><td class="num up">+大幅</td><td>中文在线；AI视频/AIGC概念</td><td>AI视频模型技术临界点（东北证券）</td></tr>
+          <tr><td>3</td><td>AI应用 / 智能体</td><td class="num up">+2.95%</td><td class="num up">+2.09pct</td><td>昆仑万维 +4.58%；同花顺 -2.78%</td><td>软硬一体、应用飞轮</td></tr>
+          <tr><td>4</td><td>端侧AI / AI视频</td><td class="num up">+1.50%</td><td class="num up">+0.64pct</td><td>端侧AI概念股+恒玄/中科蓝讯</td><td>端侧推理需求加速</td></tr>
+          <tr><td>5</td><td>AI服务器 / 液冷</td><td class="num up">+2.20%</td><td class="num up">+1.34pct</td><td>浪潮信息 +5%+；英维克</td><td>国产算力替代叙事</td></tr>
+          <tr><td>6</td><td>PCB / CCL</td><td class="num up">+0.75%</td><td class="num down">-0.11pct</td><td>生益科技 +3%早盘</td><td>8/27龙头继续高位震荡</td></tr>
+          <tr><td>7</td><td>光通信 / CPO</td><td class="num down">-0.50%</td><td class="num down">-1.36pct</td><td>中际旭创/新易盛承压；联特+7.32%</td><td>硬件主线获利回吐</td></tr>
+          <tr><td>8</td><td>存储 / HBM</td><td class="num down">-0.70%</td><td class="num down">-1.56pct</td><td>江波龙 -1.41%；兆易震荡</td><td>跟随半导体情绪，HBM4待催化</td></tr>
+          <tr><td>9</td><td>先进封装</td><td class="num down">-1.30%</td><td class="num down">-2.16pct</td><td>长电科技 -1.95%；通富 -1.80%</td><td>CoWoS订单等待实质外溢</td></tr>
+          <tr><td>10</td><td>半导体设备 / 材料</td><td class="num down">-1.70%</td><td class="num down">-2.56pct</td><td>中微 -3.73%；安集 -4.69%</td><td>海外设备股传导 + 资金分流</td></tr>
+          <tr><td>11</td><td>MLCC / 被动元件</td><td class="num down">约-1.5%</td><td class="num down">-2.4pct</td><td>风华高科 -4.36%；洁美 +1.60%</td><td>AI服务器需求未被重新定价</td></tr>
+          <tr><td>12</td><td>饰品 / 消费 / 农业</td><td class="num down">跌幅居前</td><td class="num down">-大幅</td><td>消费整体走弱（宏观防御）</td><td>8月业绩期防御退潮</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="method">注：方向涨跌为该方向等权代表样本均值；不构成官方行业指数。"传统消费/农业"跌幅居前是今日资金切换到AI应用的"非科技内"反差信号，需要在下一交易日观察持续性。</p>
+  </section>
+
+  <section class="section">
+    <h2>关键个股与基本面校验</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>方向</th><th>公司</th><th>代码</th><th class="num">早盘价（元）</th><th class="num">早盘涨幅</th><th>事实 / 收盘观察</th></tr></thead>
+        <tbody>
+          <tr><td>AI应用</td><td>中文在线</td><td>300364</td><td class="num">—</td><td class="num up">涨停</td><td>AIGC长剧龙头；国内首部AI长剧《后西游记》8/31开播</td></tr>
+          <tr><td>AI应用</td><td>昆仑万维</td><td>300418</td><td class="num">42.25</td><td class="num up">+4.58%</td><td>AI应用端早盘领涨，午后维持强势</td></tr>
+          <tr><td>AI服务器</td><td>浪潮信息</td><td>000977</td><td class="num">81.50</td><td class="num up">+5.24%</td><td>AI服务器整机龙头早盘强势封板，午后维持</td></tr>
+          <tr><td>AI服务器</td><td>紫光股份</td><td>000938</td><td class="num">37.09</td><td class="num up">+3.34%</td><td>AI算力链早盘领涨</td></tr>
+          <tr><td>先进光电</td><td>联特科技</td><td>688195</td><td class="num">195.36</td><td class="num up">+7.32%</td><td>硅光板块异动，午后维持强势</td></tr>
+          <tr><td>PCB</td><td>生益科技</td><td>600183</td><td class="num">150.09</td><td class="num up">+3.05%</td><td>CCL龙头逆势走强，但板块未扩散</td></tr>
+          <tr><td>机器人</td><td>禾川科技</td><td>688320</td><td class="num">34.90</td><td class="num up">+4.33%</td><td>人形机器人早盘异动，AI+机器人融合叙事</td></tr>
+          <tr><td>光模块</td><td>中际旭创</td><td>300308</td><td class="num">838.59</td><td class="num down">-2.30%</td><td>板块龙头早盘调整，需观察收盘修复</td></tr>
+          <tr><td>半导体设备</td><td>中微公司</td><td>688012</td><td class="num">353.30</td><td class="num down">-3.73%</td><td>设备股早盘领跌</td></tr>
+          <tr><td>半导体材料</td><td>安集科技</td><td>688019</td><td class="num">231.80</td><td class="num down">-4.69%</td><td>材料板块早盘跌幅最大</td></tr>
+          <tr><td>MLCC</td><td>风华高科</td><td>000636</td><td class="num">53.03</td><td class="num down">-4.36%</td><td>MLCC板块调整，未跟随AI服务器走强</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="method">所列早盘价为早盘收盘（11:30 CST）数据，用于反映日内方向性；午盘后指数整体反转、当日收盘价及尾盘走势涉及更高频接口未能完整采样，个股收盘价以方向判断为准而非精确数值。海外端，美国科技板块分化（英伟达盘后-4%、Marvell -10.3%但亚马逊+4%、谷歌+1%）今日未对A股AI链产生决定性传导，主因是AI应用主线接力上涨。</p>
+  </section>
+
+  <section class="section">
+    <h2>8月月线收官与年度叙事</h2>
+    <div class="insights">
+      <div class="insight"><h3>① 月线结构</h3><p>8月三大指数月度累涨约+2.7%（沪）/ +1.5%（深成）/ +0.8%（创业板），实现<strong>红盘收官</strong>。8/27 NVIDIA财报催化+8/31 AIGC长剧催化构成全月最强的两轮进攻，全月AI链硬件→应用的轮动清晰。</p></div>
+      <div class="insight"><h3>② 主线轨迹</h3><p>8月初"国产算力替代"叙事 → 8/27 NVIDIA财报"AI硬件单边主升" → 8/31 "AI应用/AIGC商业化"确认。从硬件投资逻辑切换到<strong>应用商业化兑现</strong>是8月最重要的叙事变化。</p></div>
+      <div class="insight"><h3>③ 9月展望窗口</h3><p>9月关键事件：美联储9月议息（市场押注58%概率加息）、长鑫存储IPO进展、NVIDIA Rubin Ultra路线、AIGC长剧商业化反馈。重点关注<strong>端侧AI/AIGC应用</strong>是否成为9月新主线，硬件端是否在分歧中完成换手。</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="warn">下一交易日观察清单</h2>
+    <div class="insights">
+      <div class="insight"><h3>① AI应用主线持续性</h3><p>中文在线等涨停能否在次日维持、AIGC长剧《后西游记》是否能形成"AI视频→IP→估值重估"的传导，是9月新主线确立的关键验证。</p></div>
+      <div class="insight"><h3>② 硬件端分歧换手</h3><p>中际旭创、新易盛、生益科技等核心龙头今日调整，次日若企稳回升则硬件主线延续震荡上行；若继续走弱则需要警惕<strong>整体估值修正</strong>。</p></div>
+      <div class="insight"><h3>③ 成交额与风格切换</h3><p>今日成交额约1.55万亿元较8/28缩量约1,400亿，深V反转需要量能跟进才能延续；尤其关注金融股是否在9月美联储议息前继续带动主板走强。</p></div>
+    </div>
+  </section>
+
+  <details>
+    <summary>数据口径、计算方法与风险说明</summary>
+    <div class="method">
+      <ol>
+        <li>指数收盘、个股涨跌停结构、板块涨跌幅来自公开报道（每经、东方财富、新浪财经、同花顺、韭研公社及Lianban复盘）。</li>
+        <li>AI链方向涨跌幅使用早盘收盘（11:30 CST）固定代表样本等权统计，作为<strong>日内方向参考</strong>；当日最终收盘价未实时复核，方向判断优于精确数值。</li>
+        <li>沪指最终收盘 3986.30 点（+0.86%、+34.12点）、深证成指+0.44%、创业板指+0.42%、科创综指+1.90%为多源公开新闻交叉验证。</li>
+        <li>市场广度（涨停88家、连板18家、最高6板、跌停11家、封板率74.6%、炸板30家）来自Lianban（lianban.net/days/2026-08-31）收评复盘。</li>
+        <li>"AI应用/智能体"涨幅领先来自多源报道（金融数据中心、新浪财经、东方财富网）一致表述，与早盘数据交叉验证。</li>
+        <li>本报告基于公开数据复盘，不构成买卖建议或收益承诺；市场有风险，决策需谨慎。</li>
+      </ol>
+    </div>
+  </details>
+
+  <section class="section">
+    <h2>主要来源</h2>
+    <div class="source-list">
+      <a href="https://finance.sina.com.cn/tob/2026-08-31/doc-iniqexut7361863.shtml" target="_blank" rel="noopener">新浪财经：A股八月红盘收官传媒涨停潮</a>
+      <a href="https://www.nbd.com.cn/articles/2026-08-31/4567249.html" target="_blank" rel="noopener">每日经济新闻：A股收评短剧概念涨停潮</a>
+      <a href="https://stock.jrj.com.cn/2026/08/31150858299123.shtml" target="_blank" rel="noopener">金融界：A股收评AI芯片/短剧涨停</a>
+      <a href="https://finance.eastmoney.com/a/202608313860059889.html" target="_blank" rel="noopener">东方财富：A股收盘AI应用持续上涨</a>
+      <a href="https://lianban.net/days/2026-08-31.html" target="_blank" rel="noopener">Lianban：8月31日A股复盘数据</a>
+      <a href="https://finance.sina.com.cn/jjxw/2026-08-31/doc-iniqetnr7901180.shtml" target="_blank" rel="noopener">新浪：AI短剧与智能体领跑上涨</a>
+      <a href="https://wap.eastmoney.com/a/202608313859909566.html" target="_blank" rel="noopener">东方财富：《后西游记》定档AI视频技术突破</a>
+      <a href="https://www.jiuyangongshe.com/a/20aagn2lugm" target="_blank" rel="noopener">韭研公社：8月31日盘前纪要</a>
+      <a href="https://www.jiuyangongshe.com/a/3fq7zz5xszh" target="_blank" rel="noopener">韭研公社：8月31日早八点消息</a>
+      <a href="https://reports.dns-cloudflare.com/a-morning/2026-08-31.html" target="_blank" rel="noopener">本cron：8月31日早盘收盘总结</a>
+    </div>
+  </section>
+
+  <div class="risk"><strong>风险提示：</strong>今日主线从AI硬件切换到AI应用，标志着8月投资逻辑的切换，但单日深V反转+涨停潮往往伴随次日分化。9月初美联储议息+长鑫IPO进展是重大不确定性来源，半导体三剑客今日集体走弱是否带动整体AI硬件调整需要观察。本报告为公开数据复盘，不构成投资建议。</div>
+
+  <footer class="footer">A股盘后总结 · AI产业链深度版 · 生成于 2026-08-31 · Powered by Hermes Agent</footer>
+</div>
+</body>
+</html>
