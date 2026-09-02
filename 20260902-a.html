@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026年9月2日</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --bg-card-hover: #1c2333;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-secondary: #8b949e;
+    --accent-green: #3fb950;
+    --accent-red: #f85149;
+    --accent-blue: #58a6ff;
+    --accent-cyan: #39d2c0;
+    --accent-purple: #bc8cff;
+    --accent-orange: #d2991d;
+    --gold: #e3b341;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-red), var(--accent-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .header .date {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .header .subtitle {
+    color: var(--accent-orange);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  /* Market Overview */
+  .overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .index-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    transition: all 0.2s;
+  }
+  .index-card:hover { background: var(--bg-card-hover); border-color: var(--accent-blue); }
+  .index-card .name {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .index-card .value {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 6px 0;
+  }
+  .index-card .change {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .index-card.down .value { color: var(--accent-green); }
+  .index-card.down .change { color: var(--accent-green); }
+  .index-card.up .value { color: var(--accent-red); }
+  .index-card.up .change { color: var(--accent-red); }
+  .index-card .note {
+    color: var(--text-secondary);
+    font-size: 11px;
+    margin-top: 6px;
+  }
+
+  /* Stats */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .stat-card .label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .stat-card .value {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .stat-card.green .value { color: var(--accent-green); }
+  .stat-card.red .value { color: var(--accent-red); }
+
+  /* Section */
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 32px 0 16px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent-blue);
+    color: var(--text);
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 16px 0 10px;
+    color: var(--accent-cyan);
+  }
+
+  /* Summary Box */
+  .summary-box {
+    background: linear-gradient(135deg, var(--bg-card) 0%, #1a1f2a 100%);
+    border: 1px solid var(--accent-orange);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .summary-box h3 {
+    color: var(--accent-orange);
+    margin-bottom: 12px;
+  }
+  .summary-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  .summary-box li {
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border);
+    color: var(--text);
+  }
+  .summary-box li:last-child { border-bottom: none; }
+  .summary-box .kw {
+    color: var(--accent-cyan);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  /* Sector Cards */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .sector-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    transition: all 0.2s;
+  }
+  .sector-card:hover { background: var(--bg-card-hover); border-color: var(--accent-cyan); }
+  .sector-card .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .sector-card .head h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .sector-card .pct {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .sector-card.up .pct { color: var(--accent-red); }
+  .sector-card.down .pct { color: var(--accent-green); }
+  .sector-card .desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .sector-card .leaders {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .sector-card .leaders span {
+    color: var(--accent-cyan);
+    margin-right: 6px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    background: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 13px;
+  }
+  thead {
+    background: #1c2333;
+  }
+  th, td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+  tr:hover { background: rgba(56, 139, 253, 0.05); }
+  tr:last-child td { border-bottom: none; }
+  .up-text { color: var(--accent-red); }
+  .down-text { color: var(--accent-green); }
+  .neutral-text { color: var(--text-secondary); }
+
+  /* Two-column movers */
+  .movers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  @media (max-width: 768px) { .movers { grid-template-columns: 1fr; } }
+  .mover-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .mover-card h3 {
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+  .mover-card.gain h3 { color: var(--accent-red); }
+  .mover-card.lose h3 { color: var(--accent-green); }
+  .mover-card table { font-size: 12px; }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    margin-right: 4px;
+  }
+  .tag-cpo { background: #1a2a3a; color: var(--accent-cyan); border: 1px solid #2a4a5a; }
+  .tag-storage { background: #2a1a3a; color: var(--accent-purple); border: 1px solid #4a2a5a; }
+  .tag-pcb { background: #3a2a1a; color: var(--accent-orange); border: 1px solid #5a4a2a; }
+  .tag-equip { background: #1a3a1a; color: var(--accent-green); border: 1px solid #2a5a2a; }
+  .tag-pack { background: #3a1a1a; color: var(--accent-red); border: 1px solid #5a2a2a; }
+  .tag-mlcc { background: #2a2a1a; color: var(--gold); border: 1px solid #4a4a2a; }
+
+  /* Footer */
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .disclaimer {
+    background: rgba(210, 153, 29, 0.08);
+    border-left: 3px solid var(--accent-orange);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 20px 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  /* Watch section */
+  .watch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .watch-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .watch-item .name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .watch-item .sector {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+  .watch-item .reason {
+    font-size: 12px;
+    margin-top: 6px;
+    color: var(--accent-cyan);
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📉 A股盘后总结 · AI产业链深度版</h1>
+  <div class="date">2026年9月2日 星期三 · 数据源：Yahoo Finance v8 API + 公开资讯</div>
+  <div class="subtitle">⚠️ 集体下挫 · 美股科技领跌拖累 · AI硬件链深度杀估值 · 光通信/光纤逆势走强</div>
+</div>
+
+<!-- ============ 大盘指数 ============ -->
+<h2>📊 大盘指数</h2>
+<div class="overview">
+  <div class="index-card down">
+    <div class="name">上证指数</div>
+    <div class="value">3947.26</div>
+    <div class="change">▼ -0.79% （-31.42）</div>
+    <div class="note">午盘参考 / 较昨日3979.89失守</div>
+  </div>
+  <div class="index-card down">
+    <div class="name">深证成指</div>
+    <div class="value">13635.33</div>
+    <div class="change">▼ -2.21%</div>
+    <div class="note">成长股杀估值重灾区</div>
+  </div>
+  <div class="index-card down">
+    <div class="name">创业板指</div>
+    <div class="value">3319.39</div>
+    <div class="change">▼ -2.90%</div>
+    <div class="note">跌穿半年线 · 算力/CPO拖累</div>
+  </div>
+  <div class="index-card down">
+    <div class="name">科创50</div>
+    <div class="value">1625.81</div>
+    <div class="change">▼ -1.32%</div>
+    <div class="note">连续两日走弱 · 半导体拖累</div>
+  </div>
+</div>
+
+<!-- ============ 市场广度 ============ -->
+<h2>📈 市场广度</h2>
+<div class="stats">
+  <div class="stat-card red">
+    <div class="label">上涨个股</div>
+    <div class="value">859 只</div>
+  </div>
+  <div class="stat-card green">
+    <div class="label">下跌个股</div>
+    <div class="value">4,483 只</div>
+  </div>
+  <div class="stat-card red">
+    <div class="label">涨停</div>
+    <div class="value">43 只</div>
+  </div>
+  <div class="stat-card green">
+    <div class="label">跌停</div>
+    <div class="value">10 只</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">沪深成交额</div>
+    <div class="value" style="color:var(--accent-cyan);">1.91 万亿</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">较昨日</div>
+    <div class="value" style="color:var(--accent-orange);">+805 亿</div>
+  </div>
+</div>
+
+<!-- ============ 核心观点 ============ -->
+<h2>🎯 核心观点</h2>
+<div class="summary-box">
+  <h3>今日盘面三句话</h3>
+  <ul>
+    <li><span class="kw">① 外部冲击：</span>隔夜美股科技板块集体杀跌（科技ETF -1.53%、半导体ETF -2.10%），叠加油价上行与美债收益率走高，<b>纳指 -1.03%</b>，全球风险资产共振走弱。</li>
+    <li><span class="kw">② 内部结构：</span>A股呈现"<b>沪弱深弱</b>"格局，创业板跌近3%领跌，AI硬件链（CPO/存储/PCB/封装）成为杀估值重灾区；<b>光通信光纤</b>（长飞+2.47%、亨通+1.41%）与<b>算力龙头</b>（浪潮+1.11%）逆势抗跌。</li>
+    <li><span class="kw">③ 资金行为：</span>避险资金涌入防御板块（红利/电力/银行），AI应用方向（同花顺-3.11%、金山办公-2.64%）高位兑现压力突出，<b>"先跌为敬"</b>格局延续。</li>
+  </ul>
+</div>
+
+<!-- ============ AI子板块表现 ============ -->
+<h2>🤖 AI产业链子板块表现</h2>
+<div class="sector-grid">
+  <div class="sector-card up">
+    <div class="head"><h4>📡 光通信/光纤出海</h4><span class="pct">+0.63%</span></div>
+    <div class="desc">全球海底光缆/出海需求支撑，逻辑独立于美股科技</div>
+    <div class="leaders"><span>领涨：</span>长飞光纤 +2.47%、亨通光电 +1.41%</div>
+  </div>
+  <div class="sector-card down">
+    <div class="head"><h4>📦 PCB/封装基板</h4><span class="pct">-0.83%</span></div>
+    <div class="desc">板块分化，龙头抗跌，跟风标的大跌</div>
+    <div class="leaders"><span>抗跌：</span>生益科技 +1.87%、景旺电子 +0.76%</div>
+  </div>
+  <div class="sector-card down">
+    <div class="head"><h4>🖥️ 算力/AI服务器</h4><span class="pct">-0.74%</span></div>
+    <div class="desc">国产替代核心龙头分化，工业富联/浪潮相对抗跌</div>
+    <div class="leaders"><span>抗跌：</span>浪潮信息 +1.11%</div>
+  </div>
+  <div class="sector-card down">
+    <div class="head"><h4>💻 AI应用/Agent</h4><span class="pct">-2.24%</span></div>
+    <div class="desc">前期高位股集中兑现，杀估值压力最大</div>
+    <div class="leaders"><span>领跌：</span>同花顺 -3.11%、金山办公 -2.64%</div>
+  </div>
+  <div class="sector-card down">
+    <div class="head"><h4>💡 光模块/CPO</h4><span class="pct">-3.92%</span></div>
+    <div class="desc">美股NVDA/O拖累，与费城半导体高度联动</div>
+    <div class="leaders"><span>领跌：</span>新易盛 -4.92%、天孚通信 -4.46%</div>
+  </div>
+  <div class="sector-card down">
+    <div class="head"><h4>🔧 半导体上游设备</h4><span class="pct">-0.70%</span></div>
+    <div class="desc">国产替代核心装备逆势红盘，体现硬科技韧性</div>
+    <div class="leaders"><span>抗跌：</span>拓荆科技 +0.13%、芯源微 +0.11%</div>
+  </div>
+  <div class="sector-card down">
+    <div class="head"><h4>💾 存储/HBM</h4><span class="pct">约 -2.5%</span></div>
+    <div class="desc">Q3存储涨价斜率放缓，美股存储链同步走弱</div>
+    <div class="leaders"><span>承压：</span>兆易创新/澜起科技/德明利承压</div>
+  </div>
+  <div class="sector-card down">
+    <div class="head"><h4>🏭 先进封装/封测</h4><span class="pct">约 -1.5%</span></div>
+    <div class="desc">长电/通富/华天承压，板块跟随半导体调整</div>
+    <div class="leaders"><span>观察：</span>长电科技、通富微电、华天科技</div>
+  </div>
+  <div class="sector-card down">
+    <div class="head"><h4>⚡ MLCC/被动元件</h4><span class="pct">约 -1.8%</span></div>
+    <div class="desc">AI服务器需求支撑中长期，但短期跟随调整</div>
+    <div class="leaders"><span>抗跌：</span>洁美科技 +0.57%；承压：风华高科 -4.57%</div>
+  </div>
+  <div class="sector-card down">
+    <div class="head"><h4>❄️ AI服务器/液冷</h4><span class="pct">约 -1.2%</span></div>
+    <div class="desc">液冷主题分化，英维克/高澜与算力节奏一致</div>
+    <div class="leaders"><span>观察：</span>英维克、申菱环境、高澜股份、银轮股份</div>
+  </div>
+</div>
+
+<!-- ============ 个股涨跌榜 ============ -->
+<h2>🔺🔻 AI产业链 涨跌榜</h2>
+<div class="movers">
+  <div class="mover-card gain">
+    <h3>🔺 涨幅榜 Top 9</h3>
+    <table>
+      <thead><tr><th>股票</th><th>板块</th><th class="num">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td>长飞光纤</td><td><span class="tag tag-cpo">光通信</span></td><td class="num up-text">+2.47%</td></tr>
+        <tr><td>生益科技</td><td><span class="tag tag-pcb">PCB/基板</span></td><td class="num up-text">+1.87%</td></tr>
+        <tr><td>亨通光电</td><td><span class="tag tag-cpo">光通信</span></td><td class="num up-text">+1.41%</td></tr>
+        <tr><td>浪潮信息</td><td><span class="tag tag-cpo">算力/服务器</span></td><td class="num up-text">+1.11%</td></tr>
+        <tr><td>景旺电子</td><td><span class="tag tag-pcb">高速互联</span></td><td class="num up-text">+0.76%</td></tr>
+        <tr><td>洁美科技</td><td><span class="tag tag-mlcc">MLCC</span></td><td class="num up-text">+0.57%</td></tr>
+        <tr><td>立讯精密</td><td><span class="tag tag-cpo">高速互联</span></td><td class="num up-text">+0.23%</td></tr>
+        <tr><td>拓荆科技</td><td><span class="tag tag-equip">半导体设备</span></td><td class="num up-text">+0.13%</td></tr>
+        <tr><td>芯源微</td><td><span class="tag tag-equip">半导体设备</span></td><td class="num up-text">+0.11%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mover-card lose">
+    <h3>🔻 跌幅榜 Top 10</h3>
+    <table>
+      <thead><tr><th>股票</th><th>板块</th><th class="num">涨跌幅</th></tr></thead>
+      <tbody>
+        <tr><td>新易盛</td><td><span class="tag tag-cpo">光模块/CPO</span></td><td class="num down-text">-4.92%</td></tr>
+        <tr><td>风华高科</td><td><span class="tag tag-mlcc">MLCC</span></td><td class="num down-text">-4.57%</td></tr>
+        <tr><td>天孚通信</td><td><span class="tag tag-cpo">光模块/CPO</span></td><td class="num down-text">-4.46%</td></tr>
+        <tr><td>中际旭创</td><td><span class="tag tag-cpo">光模块/CPO</span></td><td class="num down-text">-4.22%</td></tr>
+        <tr><td>光迅科技</td><td><span class="tag tag-cpo">光模块/CPO</span></td><td class="num down-text">-4.01%</td></tr>
+        <tr><td>士兰微</td><td><span class="tag tag-equip">半导体晶圆</span></td><td class="num down-text">-3.46%</td></tr>
+        <tr><td>同花顺</td><td><span class="tag tag-cpo">AI应用</span></td><td class="num down-text">-3.11%</td></tr>
+        <tr><td>仕佳光子</td><td><span class="tag tag-cpo">先进光电</span></td><td class="num down-text">-2.67%</td></tr>
+        <tr><td>麦捷科技</td><td><span class="tag tag-mlcc">MLCC</span></td><td class="num down-text">-2.64%</td></tr>
+        <tr><td>金山办公</td><td><span class="tag tag-cpo">AI应用</span></td><td class="num down-text">-2.64%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ 关键观察 ============ -->
+<h2>🔍 关键观察与逻辑</h2>
+
+<h3>1. 美股传导 vs 内生逻辑</h3>
+<div class="summary-box">
+  <ul>
+    <li><span class="kw">强联动：</span>CPO/光模块、半导体设备、存储链与费城半导体（SOX）高度同步，今日跌幅榜前五中四席为光模块。</li>
+    <li><span class="kw">独立逻辑：</span>光通信/光纤出海（长飞、亨通）受益全球AI数据中心海底光缆建设，与美股科技脱钩，成为今日唯一正收益AI子板块。</li>
+    <li><span class="kw">国产替代溢价：</span>拓荆、芯源微、生益科技逆势红盘，硬科技自主可控逻辑在调整中体现溢价。</li>
+  </ul>
+</div>
+
+<h3>2. Q3存储涨价斜率放缓信号</h3>
+<div class="summary-box">
+  <ul>
+    <li><span class="kw">逻辑变化：</span>TrendForce数据显示Q3 DRAM/HBM合约价涨幅明显收窄，DDR5涨幅从Q2的两位数降至个位数。</li>
+    <li><span class="kw">受益方向：</span>AI推理侧需求承接，但<b>涨价弹性</b>边际减弱，存储/HBM板块从"<b>涨价驱动</b>"切换至"<b>出货量驱动</b>"。</li>
+    <li><span class="kw">关注标：</span>兆易创新、澜起科技、德明利、佰维存储、江波龙——等待Q3业绩+10月涨价窗口验证。</li>
+  </ul>
+</div>
+
+<h3>3. AI硬件估值消化 vs 中长期景气</h3>
+<div class="summary-box">
+  <ul>
+    <li><span class="kw">短期：</span>CPO板块PE-TTM仍在35-50x区间高位（参考一季报后中际旭创PE约30x、天孚约35x），叠加Q3英伟达新平台节奏未明，<b>杀估值</b>仍在进行中。</li>
+    <li><span class="kw">中期：</span>2026年CPO市场规模机构预期260亿美元（同比+57%），国产算力芯片出货量预计翻倍，<b>先进封装/液冷/上游材料</b>三大方向高景气延续。</li>
+    <li><span class="kw">节奏判断：</span>调整后再平衡是机会，<b>不建议左侧抢反弹</b>，等待SOX止跌+NVDA企稳信号。</li>
+  </ul>
+</div>
+
+<h3>4. 防御 vs 进攻 切换信号</h3>
+<div class="summary-box">
+  <ul>
+    <li><span class="kw">防御抗跌：</span>红利（银行/电力）、必选消费、黄金股逆势走强。</li>
+    <li><span class="kw">AI分化：</span>国产替代核心装备（拓荆/芯源微/生益）相对抗跌；前期抱团股（CPO/AI应用）领跌。</li>
+    <li><span class="kw">配置思路：</span>利用调整优化持仓结构——保留国产替代+液冷+先进封装核心仓位，<b>逢反弹减仓</b>前期高位AI应用股。</li>
+  </ul>
+</div>
+
+<!-- ============ 跟踪名单 ============ -->
+<h2>📋 重点跟踪名单（明日观察）</h2>
+<div class="watch-grid">
+  <div class="watch-item">
+    <div class="name">中际旭创 / 新易盛 / 天孚通信</div>
+    <div class="sector">CPO三剑客</div>
+    <div class="reason">观察：SOX止跌 + NVDA企稳信号；调整充分度（-15%以上）</div>
+  </div>
+  <div class="watch-item">
+    <div class="name">工业富联 / 浪潮信息</div>
+    <div class="sector">AI服务器龙头</div>
+    <div class="reason">观察：海外大客户订单 + GB系列配套节奏</div>
+  </div>
+  <div class="watch-item">
+    <div class="name">兆易创新 / 澜起科技</div>
+    <div class="sector">存储/HBM</div>
+    <div class="reason">观察：Q3业绩验证 + DDR5/HBM涨价斜率</div>
+  </div>
+  <div class="watch-item">
+    <div class="name">长电科技 / 通富微电</div>
+    <div class="sector">先进封装</div>
+    <div class="reason">观察：稼动率 + 2.5D/3D封装订单</div>
+  </div>
+  <div class="watch-item">
+    <div class="name">胜宏科技 / 沪电股份 / 生益科技</div>
+    <div class="sector">PCB/CCL</div>
+    <div class="reason">观察：英伟达LPU/Feynman配套 + 高阶基板放量</div>
+  </div>
+  <div class="watch-item">
+    <div class="name">英维克 / 高澜股份 / 申菱环境</div>
+    <div class="sector">液冷</div>
+    <div class="reason">观察：英伟达NPN Tier1认证落地 + GB200 NVL72液冷订单</div>
+  </div>
+  <div class="watch-item">
+    <div class="name">北方华创 / 拓荆科技 / 芯源微</div>
+    <div class="sector">半导体设备</div>
+    <div class="reason">观察：国产化订单 + 存储/CIS扩产周期</div>
+  </div>
+  <div class="watch-item">
+    <div class="name">风华高科 / 三环集团 / 国瓷材料</div>
+    <div class="sector">MLCC/材料</div>
+    <div class="reason">观察：AI服务器X7R涨价传导 + 高端陶瓷材料突破</div>
+  </div>
+</div>
+
+<!-- ============ 明日关注 ============ -->
+<h2>📅 明日关注</h2>
+<div class="summary-box">
+  <h3>三个关键变量</h3>
+  <ul>
+    <li><span class="kw">① 美股节奏：</span>今晚美股科技股能否企稳——SOX指数、NVDA、台积电ADR是核心观测点。</li>
+    <li><span class="kw">② 流动性：</span>成交额能否维持1.8万亿以上，过度缩量会加剧分化。</li>
+    <li><span class="kw">③ 政策面：</span>关注工信部/发改委是否释放科技产业利好对冲调整。</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+⚠️ <b>风险提示：</b>本文为基于公开数据的客观盘面梳理与产业链逻辑跟踪，不构成任何买入/卖出建议。AI板块估值仍处历史高位，对美股科技股、利率、油价、汇率敏感度极高，请结合自身风险承受能力独立决策。
+</div>
+
+<footer>
+  <p>📊 A股盘后总结 · AI产业链深度版 · 2026年9月2日</p>
+  <p>本报告由 Hermes Agent 自动生成 · 数据基于公开资讯综合整理 · 仅供研究参考</p>
+</footer>
+
+</body>
+</html>
