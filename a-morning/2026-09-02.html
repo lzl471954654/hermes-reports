@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股早盘收盘总结 · AI产业链 · 2026-09-02 上午</title>
+<style>
+:root {
+    --up: #e74c3c;
+    --down: #27ae60;
+    --flat: #7f8c8d;
+    --bg: #0f1115;
+    --card: #1a1d23;
+    --card-hover: #23262d;
+    --border: #2a2e36;
+    --text: #e8e8e8;
+    --text-mute: #95a5a6;
+    --accent: #4a90e2;
+    --accent-2: #f39c12;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+header {
+    background: linear-gradient(135deg, #6e1a1a 0%, #a82c2c 100%);
+    padding: 30px 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+header .meta {
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+}
+header .subtitle {
+    margin-top: 12px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.9);
+}
+.idx-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.idx-card {
+    background: var(--card);
+    padding: 16px;
+    border-radius: 10px;
+    border-left: 4px solid var(--flat);
+    transition: transform 0.2s;
+}
+.idx-card:hover {
+    transform: translateY(-2px);
+    background: var(--card-hover);
+}
+.idx-card.up { border-left-color: var(--up); }
+.idx-card.down { border-left-color: var(--down); }
+.idx-name { font-size: 14px; color: var(--text-mute); margin-bottom: 6px; }
+.idx-price { font-size: 22px; font-weight: 600; }
+.idx-chg { font-size: 14px; margin-top: 4px; }
+.up { color: var(--up); }
+.down { color: var(--down); }
+.flat { color: var(--flat); }
+.arr { font-size: 11px; }
+
+.summary-box {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+}
+.summary-box h3 {
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: var(--accent);
+}
+.summary-box ul {
+    list-style: none;
+    padding: 0;
+}
+.summary-box li {
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border);
+}
+.summary-box li:last-child { border-bottom: none; }
+.summary-box .kw {
+    color: var(--accent-2);
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.forecast {
+    background: linear-gradient(135deg, #3d2818 0%, #1a1d23 100%);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #6e4a3a;
+}
+.forecast h2 {
+    color: #f39c12;
+    margin-bottom: 16px;
+    font-size: 22px;
+}
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+.forecast-card {
+    background: rgba(255,255,255,0.03);
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-2);
+}
+.forecast-card h4 {
+    color: var(--accent-2);
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+.forecast-card p {
+    color: var(--text-mute);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.sector {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+}
+.sector-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+.sector-head h2 {
+    font-size: 19px;
+    flex: 0 0 auto;
+}
+.sector-head .avg {
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.05);
+}
+.sector-head .count {
+    font-size: 12px;
+    color: var(--text-mute);
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+.table th, .table td {
+    padding: 10px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+.table th {
+    color: var(--text-mute);
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.table th.num { text-align: right; }
+.table tr:hover { background: rgba(255,255,255,0.02); }
+.table .name { font-weight: 500; }
+.table .name-sub { color: var(--text-mute); font-size: 12px; }
+.table .err { color: var(--text-mute); font-style: italic; }
+.comment {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--text-mute);
+}
+.comment .kw { color: var(--accent-2); font-weight: 600; margin-right: 4px; }
+
+.cxmt-special {
+    background: linear-gradient(135deg, #3d2818 0%, #1a1d23 100%);
+    border: 2px solid #f39c12;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+}
+.cxmt-special h2 {
+    color: #f39c12;
+    margin-bottom: 16px;
+    font-size: 22px;
+}
+.cxmt-intro {
+    background: rgba(243, 156, 18, 0.08);
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border-left: 3px solid #f39c12;
+    font-size: 14px;
+    line-height: 1.7;
+}
+.cxmt-list {
+    list-style: none;
+    padding: 0;
+}
+.cxmt-list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 14px;
+}
+.cxmt-list li:last-child { border-bottom: none; }
+.cxmt-list b { color: #f39c12; }
+
+.top-movers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+    .top-movers { grid-template-columns: 1fr; }
+}
+.mover-card {
+    background: var(--card);
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid var(--border);
+}
+.mover-card h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.mover-card.gain h3 { color: var(--up); }
+.mover-card.lose h3 { color: var(--down); }
+
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-mute);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.disclaimer {
+    background: rgba(231, 76, 60, 0.08);
+    border-left: 3px solid #e74c3c;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: var(--text-mute);
+}
+</style>
+</head>
+<body>
+<header>
+    <h1>📉 A股早盘收盘总结 · AI产业链深度版</h1>
+    <div class="meta">2026年09月02日 星期三 · 上午收盘 · 数据源: Yahoo Finance v8 API + 公开资讯</div>
+    <div class="subtitle">⚠️ 早盘全线下挫 · 沪指跌破3950 · AI硬件链集体杀跌 · 关注午后是否有政策/外围催化</div>
+</header>
+
+<div class="idx-grid">
+    <div class="idx-card down">
+        <div class="idx-name">上证指数</div>
+        <div class="idx-price">3947.26</div>
+        <div class="idx-chg"><span class="arr">▼</span> -0.98%</div>
+    </div>
+    <div class="idx-card down">
+        <div class="idx-name">深证成指</div>
+        <div class="idx-price">13635.33</div>
+        <div class="idx-chg"><span class="arr">▼</span> -2.71%</div>
+    </div>
+    <div class="idx-card down">
+        <div class="idx-name">创业板指</div>
+        <div class="idx-price">3319.39</div>
+        <div class="idx-chg"><span class="arr">▼</span> -2.18%</div>
+    </div>
+    <div class="idx-card down">
+        <div class="idx-name">科创50</div>
+        <div class="idx-price">1625.81</div>
+        <div class="idx-chg"><span class="arr">▼</span> -1.32%</div>
+    </div>
+</div>
+
+<div class="summary-box">
+    <h3>📌 早盘核心要点</h3>
+    <ul>
+        <li><span class="kw">指数风格：</span>沪指跌0.98%失守3950，深证成指领跌-2.71%，三大指数全线下挫，<b>AI硬件链集体杀跌</b>，"指数-科技股"双杀格局。</li>
+        <li><span class="kw">市场广度：</span>AI产业链 70 只监测标的中 <b>9</b> 涨 / <b>61</b> 跌 / <b>0</b> 平，AI方向普跌且跌幅普遍较深。
+
+</li>
+        <li><span class="kw">最强方向：</span>光通信 (+0.63%)、封装基板和PCB (-0.83%)、算力/AI服务器 (-0.74%)</li>
+        <li><span class="kw">最弱方向：</span>AI应用/Agent (-2.24%)、光模块/CPO (-3.92%)、半导体上游设备 (-0.70%)</li>
+        <li><span class="kw">资金风格：</span>早盘避险情绪升温，AI硬件板块放量下挫；防御性板块（红利、电力、必选消费）相对抗跌。光通信/光纤光缆逆势走强（长飞+2.47%、亨通+1.41%），算力服务器龙头分化（浪潮+1.11%、生益科技+1.87%红盘）。</li>
+        <li><span class="kw">风格切换：</span>AI硬件杀估值，<b>光通信/光纤出海</b>+<b>算力龙头</b>+<b>国产替代核心装备</b>（拓荆/芯源微红盘）成为局部避风港。</li>
+    </ul>
+</div>
+
+<div class="top-movers">
+    <div class="mover-card gain">
+        <h3>🔺 AI链涨幅榜 Top 10</h3>
+        <table class="table">
+            <thead><tr><th>股票</th><th>板块</th><th class="num">现价</th><th class="num">涨跌幅</th></tr></thead>
+            <tbody>
+            <tr>
+                <td class="name">长飞光纤</td>
+                <td class="name-sub">光通信</td>
+                <td class="num">409.90</td>
+                <td class="num up">+2.47%</td>
+            </tr>
+            <tr>
+                <td class="name">生益科技</td>
+                <td class="name-sub">封装基板和PCB</td>
+                <td class="num">147.12</td>
+                <td class="num up">+1.87%</td>
+            </tr>
+            <tr>
+                <td class="name">亨通光电</td>
+                <td class="name-sub">光通信</td>
+                <td class="num">68.29</td>
+                <td class="num up">+1.41%</td>
+            </tr>
+            <tr>
+                <td class="name">浪潮信息</td>
+                <td class="name-sub">算力/AI服务器</td>
+                <td class="num">86.55</td>
+                <td class="num up">+1.11%</td>
+            </tr>
+            <tr>
+                <td class="name">景旺电子</td>
+                <td class="name-sub">高速互联</td>
+                <td class="num">89.98</td>
+                <td class="num up">+0.76%</td>
+            </tr>
+            <tr>
+                <td class="name">洁美科技</td>
+                <td class="name-sub">MLCC/被动元件</td>
+                <td class="num">63.58</td>
+                <td class="num up">+0.57%</td>
+            </tr>
+            <tr>
+                <td class="name">立讯精密</td>
+                <td class="name-sub">高速互联</td>
+                <td class="num">57.05</td>
+                <td class="num up">+0.23%</td>
+            </tr>
+            <tr>
+                <td class="name">拓荆科技</td>
+                <td class="name-sub">半导体上游设备</td>
+                <td class="num">651.34</td>
+                <td class="num up">+0.13%</td>
+            </tr>
+            <tr>
+                <td class="name">芯源微</td>
+                <td class="name-sub">半导体上游设备</td>
+                <td class="num">342.39</td>
+                <td class="num up">+0.11%</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="mover-card lose">
+        <h3>🔻 AI链跌幅榜 Top 10</h3>
+        <table class="table">
+            <thead><tr><th>股票</th><th>板块</th><th class="num">现价</th><th class="num">涨跌幅</th></tr></thead>
+            <tbody>
+            <tr>
+                <td class="name">新易盛</td>
+                <td class="name-sub">光模块/CPO</td>
+                <td class="num">383.00</td>
+                <td class="num down">-4.92%</td>
+            </tr>
+            <tr>
+                <td class="name">风华高科</td>
+                <td class="name-sub">MLCC/被动元件</td>
+                <td class="num">49.50</td>
+                <td class="num down">-4.57%</td>
+            </tr>
+            <tr>
+                <td class="name">天孚通信</td>
+                <td class="name-sub">光模块/CPO</td>
+                <td class="num">240.54</td>
+                <td class="num down">-4.46%</td>
+            </tr>
+            <tr>
+                <td class="name">中际旭创</td>
+                <td class="name-sub">光模块/CPO</td>
+                <td class="num">823.04</td>
+                <td class="num down">-4.22%</td>
+            </tr>
+            <tr>
+                <td class="name">光迅科技</td>
+                <td class="name-sub">光模块/CPO</td>
+                <td class="num">173.48</td>
+                <td class="num down">-4.01%</td>
+            </tr>
+            <tr>
+                <td class="name">士兰微</td>
+                <td class="name-sub">半导体晶圆制造</td>
+                <td class="num">31.23</td>
+                <td class="num down">-3.46%</td>
+            </tr>
+            <tr>
+                <td class="name">同花顺</td>
+                <td class="name-sub">AI应用/Agent</td>
+                <td class="num">219.96</td>
+                <td class="num down">-3.11%</td>
+            </tr>
+            <tr>
+                <td class="name">仕佳光子</td>
+                <td class="name-sub">先进光电集成</td>
+                <td class="num">146.76</td>
+                <td class="num down">-2.67%</td>
+            </tr>
+            <tr>
+                <td class="name">麦捷科技</td>
+                <td class="name-sub">MLCC/被动元件</td>
+                <td class="num">19.57</td>
+                <td class="num down">-2.64%</td>
+            </tr>
+            <tr>
+                <td class="name">金山办公</td>
+                <td class="name-sub">AI应用/Agent</td>
+                <td class="num">240.83</td>
+                <td class="num down">-2.64%</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="forecast">
+    <h2>🔮 下午走势预判</h2>
+
+    <div class="forecast-grid">
+        <div class="forecast-card">
+            <h4>📈 大盘方向预判</h4>
+            <p>早盘沪指跌0.98%失守3950，深成指跌2.71%、创业板跌2.18%、科创50跌1.32%，<b>四大指数全线走弱</b>。午后大盘概率分布：<br/>
+            • <b>惯性下探 50%</b>：若13:00开盘后承接不足，沪指可能测试 3920 缺口支撑<br/>
+            • <b>弱势震荡 30%</b>：在 3920-3950 区间窄幅整理，等待消息面<br/>
+            • <b>技术性反抽 20%</b>：尾盘出现资金回流科技股，缩小跌幅<br/>
+            重点关注<b>沪指 3920 缺口支撑</b>与<b>创业板 3300 整数关</b>。</p>
+        </div>
+        <div class="forecast-card">
+            <h4>🤖 AI产业链午后展望</h4>
+            <p>早盘AI硬件链 <b>集体杀跌</b>（光模块-3.92%、高速互联-0.41%、半导体设备-0.70%），恐慌情绪集中释放。<b>午后观察三个信号</b>：<br/>
+            • <b>光通信/光纤</b>（长飞+2.47%、亨通+1.41%）能否延续强势<br/>
+            • <b>算力龙头</b>（浪潮+1.11%、生益+1.87%）是否带动板块修复<br/>
+            • <b>拓荆/芯源微</b>等国产替代核心装备能否守住红盘成为多头旗帜<br/>
+            应用端（AI Agent/同花顺、科大讯飞、昆仑万维）全线下挫显示<b>情绪面整体偏弱</b>，午后修复需观察北向资金动向。</p>
+        </div>
+        <div class="forecast-card">
+            <h4>🎯 关键点位</h4>
+            <p>• <b>沪指</b>：支撑 3920 / 阻力 3950-3960<br/>
+            • <b>深成指</b>：支撑 13500 / 阻力 13700<br/>
+            • <b>创业板指</b>：支撑 3300 / 阻力 3350<br/>
+            • <b>科创50</b>：支撑 1610 / 阻力 1640<br/>
+            • 关注 <b>13:00 开盘</b>与<b>14:30 尾盘抢筹</b>两个窗口</p>
+        </div>
+        <div class="forecast-card">
+            <h4>⚠️ 风险提示</h4>
+            <p>1) <b>光模块集体重挫</b>：中际旭创-4.22%、新易盛-4.92%、天孚-4.46%、剑桥-1.97%，需警惕AI光模块景气拐点预期升温；<br/>
+            2) <b>半导体设备分化</b>：拓荆+0.13%、芯源微+0.11%勉强红盘，但中微-1.28%、北方华创-0.90%走弱，午后若不能翻红可能拖累板块；<br/>
+            3) <b>AI应用/Agent 普跌</b>：同花顺-3.11%、金山办公-2.64%，情绪面走弱；<br/>
+            4) <b>外围不确定性</b>：昨夜美债收益率跳水后纳指拉升，今日亚太市场情绪仍偏弱，需防美股夜盘回踩传导。</p>
+        </div>
+        <div class="forecast-card">
+            <h4>💡 操作建议</h4>
+            <p>• <b>防御</b>：AI硬件高估值标的继续回避，等待右侧信号<br/>
+            • <b>关注</b>：低估值+业绩兑现的<b>光通信出海</b>（长飞/亨通）+<b>算力龙头</b>（浪潮/生益）<br/>
+            • <b>跟踪</b>：长鑫存储上游产业链左侧布局机会（江丰/南大/雅克/北方华创/长电）<br/>
+            • <b>回避</b>：高位纯题材股、放量破位的硬件龙头<br/>
+            <i>声明：以上不构成任何投资建议，市场有风险，决策需谨慎。</i></p>
+        </div>
+        <div class="forecast-card">
+            <h4>📰 午间要闻关注</h4>
+            <p>• 央行/财政部公开市场操作与流动性投放<br/>
+            • 长鑫存储 IPO 进展及月度招标公告<br/>
+            • 海外光模块/半导体龙头盘前表现（英伟达/Ciena/Lumentum）<br/>
+            • 国务院/工信部半导体&算力相关政策<br/>
+            • 港股科技股午后表现对A股指引<br/>
+            • 北向资金午后流向（早盘若流出则需警惕）</p>
+        </div>
+    </div>
+</div>
+
+<h2 style="margin: 24px 0 16px; color: var(--accent);">🔬 AI产业链 15 大方向逐项分析</h2>
+
+<section class="sector" id="光模块/CPO">
+        <div class="sector-head">
+            <h2>🔆 光模块/CPO</h2>
+            <span class="avg down">板块均价 -3.92%</span>
+            <span class="count">5 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">中际旭创</td>
+        <td class="num">823.04</td>
+        <td class="num down"><span class="arr">▼</span> -4.22%</td>
+        <td class="num">848.00</td>
+        <td class="num">814.06</td>
+    </tr><tr>
+        <td class="name">新易盛</td>
+        <td class="num">383.00</td>
+        <td class="num down"><span class="arr">▼</span> -4.92%</td>
+        <td class="num">395.00</td>
+        <td class="num">378.56</td>
+    </tr><tr>
+        <td class="name">天孚通信</td>
+        <td class="num">240.54</td>
+        <td class="num down"><span class="arr">▼</span> -4.46%</td>
+        <td class="num">248.60</td>
+        <td class="num">237.80</td>
+    </tr><tr>
+        <td class="name">剑桥科技</td>
+        <td class="num">180.89</td>
+        <td class="num down"><span class="arr">▼</span> -1.97%</td>
+        <td class="num">187.50</td>
+        <td class="num">179.28</td>
+    </tr><tr>
+        <td class="name">光迅科技</td>
+        <td class="num">173.48</td>
+        <td class="num down"><span class="arr">▼</span> -4.01%</td>
+        <td class="num">178.00</td>
+        <td class="num">170.76</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>剑桥科技(-1.97%), 光迅科技(-4.01%), 中际旭创(-4.22%)<br/>
+            <span class="kw">领跌：</span>中际旭创(-4.22%), 天孚通信(-4.46%), 新易盛(-4.92%)
+        </p>
+    </section>
+<section class="sector" id="光通信">
+        <div class="sector-head">
+            <h2>🌐 光通信</h2>
+            <span class="avg up">板块均价 +0.63%</span>
+            <span class="count">5 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">烽火通信</td>
+        <td class="num">40.60</td>
+        <td class="num down"><span class="arr">▼</span> -0.34%</td>
+        <td class="num">40.96</td>
+        <td class="num">39.86</td>
+    </tr><tr>
+        <td class="name">长飞光纤</td>
+        <td class="num">409.90</td>
+        <td class="num up"><span class="arr">▲</span> +2.47%</td>
+        <td class="num">413.68</td>
+        <td class="num">389.00</td>
+    </tr><tr>
+        <td class="name">亨通光电</td>
+        <td class="num">68.29</td>
+        <td class="num up"><span class="arr">▲</span> +1.41%</td>
+        <td class="num">68.77</td>
+        <td class="num">64.19</td>
+    </tr><tr>
+        <td class="name">中天科技</td>
+        <td class="num">33.87</td>
+        <td class="num down"><span class="arr">▼</span> -0.41%</td>
+        <td class="num">34.10</td>
+        <td class="num">33.01</td>
+    </tr><tr>
+        <td class="name">特发信息</td>
+        <td class="num">15.66</td>
+        <td class="num flat"><span class="arr">·</span> +0.00%</td>
+        <td class="num">15.74</td>
+        <td class="num">15.31</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>长飞光纤(+2.47%), 亨通光电(+1.41%), 特发信息(+0.00%)<br/>
+            <span class="kw">领跌：</span>特发信息(+0.00%), 烽火通信(-0.34%), 中天科技(-0.41%)
+        </p>
+    </section>
+<section class="sector" id="高速互联">
+        <div class="sector-head">
+            <h2>🔗 高速互联</h2>
+            <span class="avg down">板块均价 -0.41%</span>
+            <span class="count">5 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">立讯精密</td>
+        <td class="num">57.05</td>
+        <td class="num up"><span class="arr">▲</span> +0.23%</td>
+        <td class="num">57.90</td>
+        <td class="num">56.41</td>
+    </tr><tr>
+        <td class="name">鹏鼎控股</td>
+        <td class="num">86.96</td>
+        <td class="num down"><span class="arr">▼</span> -1.43%</td>
+        <td class="num">87.67</td>
+        <td class="num">85.71</td>
+    </tr><tr>
+        <td class="name">沪电股份</td>
+        <td class="num">119.68</td>
+        <td class="num down"><span class="arr">▼</span> -0.86%</td>
+        <td class="num">120.56</td>
+        <td class="num">118.10</td>
+    </tr><tr>
+        <td class="name">深南电路</td>
+        <td class="num">351.69</td>
+        <td class="num down"><span class="arr">▼</span> -0.75%</td>
+        <td class="num">353.81</td>
+        <td class="num">345.01</td>
+    </tr><tr>
+        <td class="name">景旺电子</td>
+        <td class="num">89.98</td>
+        <td class="num up"><span class="arr">▲</span> +0.76%</td>
+        <td class="num">90.46</td>
+        <td class="num">87.50</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>景旺电子(+0.76%), 立讯精密(+0.23%), 深南电路(-0.75%)<br/>
+            <span class="kw">领跌：</span>深南电路(-0.75%), 沪电股份(-0.86%), 鹏鼎控股(-1.43%)
+        </p>
+    </section>
+<section class="sector" id="先进光电集成">
+        <div class="sector-head">
+            <h2>💠 先进光电集成</h2>
+            <span class="avg down">板块均价 -1.72%</span>
+            <span class="count">4 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">华工科技</td>
+        <td class="num">99.62</td>
+        <td class="num down"><span class="arr">▼</span> -1.88%</td>
+        <td class="num">101.00</td>
+        <td class="num">98.54</td>
+    </tr><tr>
+        <td class="name">联特科技</td>
+        <td class="num">186.10</td>
+        <td class="num down"><span class="arr">▼</span> -1.19%</td>
+        <td class="num">193.26</td>
+        <td class="num">181.78</td>
+    </tr><tr>
+        <td class="name">源杰科技</td>
+        <td class="num">1464.87</td>
+        <td class="num down"><span class="arr">▼</span> -1.16%</td>
+        <td class="num">1487.24</td>
+        <td class="num">1440.03</td>
+    </tr><tr>
+        <td class="name">仕佳光子</td>
+        <td class="num">146.76</td>
+        <td class="num down"><span class="arr">▼</span> -2.67%</td>
+        <td class="num">149.39</td>
+        <td class="num">144.02</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>源杰科技(-1.16%), 联特科技(-1.19%), 华工科技(-1.88%)<br/>
+            <span class="kw">领跌：</span>联特科技(-1.19%), 华工科技(-1.88%), 仕佳光子(-2.67%)
+        </p>
+    </section>
+<section class="sector" id="算力/AI服务器">
+        <div class="sector-head">
+            <h2>🖥️ 算力/AI服务器</h2>
+            <span class="avg down">板块均价 -0.74%</span>
+            <span class="count">5 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">中科曙光</td>
+        <td class="num">85.79</td>
+        <td class="num down"><span class="arr">▼</span> -1.02%</td>
+        <td class="num">86.26</td>
+        <td class="num">84.81</td>
+    </tr><tr>
+        <td class="name">浪潮信息</td>
+        <td class="num">86.55</td>
+        <td class="num up"><span class="arr">▲</span> +1.11%</td>
+        <td class="num">87.50</td>
+        <td class="num">84.80</td>
+    </tr><tr>
+        <td class="name">工业富联</td>
+        <td class="num">62.11</td>
+        <td class="num down"><span class="arr">▼</span> -1.32%</td>
+        <td class="num">62.38</td>
+        <td class="num">61.40</td>
+    </tr><tr>
+        <td class="name">紫光股份</td>
+        <td class="num">38.29</td>
+        <td class="num down"><span class="arr">▼</span> -0.08%</td>
+        <td class="num">38.71</td>
+        <td class="num">37.65</td>
+    </tr><tr>
+        <td class="name">拓维信息</td>
+        <td class="num">25.64</td>
+        <td class="num down"><span class="arr">▼</span> -2.40%</td>
+        <td class="num">25.90</td>
+        <td class="num">25.43</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>浪潮信息(+1.11%), 紫光股份(-0.08%), 中科曙光(-1.02%)<br/>
+            <span class="kw">领跌：</span>中科曙光(-1.02%), 工业富联(-1.32%), 拓维信息(-2.40%)
+        </p>
+    </section>
+<section class="sector" id="封装基板和PCB">
+        <div class="sector-head">
+            <h2>🧩 封装基板和PCB</h2>
+            <span class="avg down">板块均价 -0.83%</span>
+            <span class="count">5 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">深南电路</td>
+        <td class="num">351.69</td>
+        <td class="num down"><span class="arr">▼</span> -0.75%</td>
+        <td class="num">353.81</td>
+        <td class="num">345.01</td>
+    </tr><tr>
+        <td class="name">沪电股份</td>
+        <td class="num">119.68</td>
+        <td class="num down"><span class="arr">▼</span> -0.86%</td>
+        <td class="num">120.56</td>
+        <td class="num">118.10</td>
+    </tr><tr>
+        <td class="name">生益科技</td>
+        <td class="num">147.12</td>
+        <td class="num up"><span class="arr">▲</span> +1.87%</td>
+        <td class="num">149.23</td>
+        <td class="num">138.99</td>
+    </tr><tr>
+        <td class="name">兴森科技</td>
+        <td class="num">33.93</td>
+        <td class="num down"><span class="arr">▼</span> -1.79%</td>
+        <td class="num">34.40</td>
+        <td class="num">33.39</td>
+    </tr><tr>
+        <td class="name">胜宏科技</td>
+        <td class="num">226.91</td>
+        <td class="num down"><span class="arr">▼</span> -2.61%</td>
+        <td class="num">231.33</td>
+        <td class="num">224.04</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>生益科技(+1.87%), 深南电路(-0.75%), 沪电股份(-0.86%)<br/>
+            <span class="kw">领跌：</span>沪电股份(-0.86%), 兴森科技(-1.79%), 胜宏科技(-2.61%)
+        </p>
+    </section>
+<section class="sector" id="半导体晶圆制造">
+        <div class="sector-head">
+            <h2>🔬 半导体晶圆制造</h2>
+            <span class="avg down">板块均价 -2.44%</span>
+            <span class="count">4 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">中芯国际</td>
+        <td class="num">123.63</td>
+        <td class="num down"><span class="arr">▼</span> -1.97%</td>
+        <td class="num">124.58</td>
+        <td class="num">122.00</td>
+    </tr><tr>
+        <td class="name">华虹公司</td>
+        <td class="num">244.00</td>
+        <td class="num down"><span class="arr">▼</span> -2.53%</td>
+        <td class="num">249.58</td>
+        <td class="num">240.86</td>
+    </tr><tr>
+        <td class="name">士兰微</td>
+        <td class="num">31.23</td>
+        <td class="num down"><span class="arr">▼</span> -3.46%</td>
+        <td class="num">31.67</td>
+        <td class="num">30.86</td>
+    </tr><tr>
+        <td class="name">三安光电</td>
+        <td class="num">12.71</td>
+        <td class="num down"><span class="arr">▼</span> -1.78%</td>
+        <td class="num">12.85</td>
+        <td class="num">12.58</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>三安光电(-1.78%), 中芯国际(-1.97%), 华虹公司(-2.53%)<br/>
+            <span class="kw">领跌：</span>中芯国际(-1.97%), 华虹公司(-2.53%), 士兰微(-3.46%)
+        </p>
+    </section>
+<section class="sector" id="半导体上游设备">
+        <div class="sector-head">
+            <h2>⚙️ 半导体上游设备</h2>
+            <span class="avg down">板块均价 -0.70%</span>
+            <span class="count">6 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">北方华创</td>
+        <td class="num">661.71</td>
+        <td class="num down"><span class="arr">▼</span> -0.90%</td>
+        <td class="num">664.00</td>
+        <td class="num">650.20</td>
+    </tr><tr>
+        <td class="name">中微公司</td>
+        <td class="num">346.04</td>
+        <td class="num down"><span class="arr">▼</span> -1.28%</td>
+        <td class="num">348.47</td>
+        <td class="num">341.30</td>
+    </tr><tr>
+        <td class="name">盛美上海</td>
+        <td class="num">283.04</td>
+        <td class="num down"><span class="arr">▼</span> -0.62%</td>
+        <td class="num">286.88</td>
+        <td class="num">278.00</td>
+    </tr><tr>
+        <td class="name">拓荆科技</td>
+        <td class="num">651.34</td>
+        <td class="num up"><span class="arr">▲</span> +0.13%</td>
+        <td class="num">654.58</td>
+        <td class="num">636.01</td>
+    </tr><tr>
+        <td class="name">华海清科</td>
+        <td class="num">249.66</td>
+        <td class="num down"><span class="arr">▼</span> -1.66%</td>
+        <td class="num">253.50</td>
+        <td class="num">245.00</td>
+    </tr><tr>
+        <td class="name">芯源微</td>
+        <td class="num">342.39</td>
+        <td class="num up"><span class="arr">▲</span> +0.11%</td>
+        <td class="num">346.99</td>
+        <td class="num">331.00</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>拓荆科技(+0.13%), 芯源微(+0.11%), 盛美上海(-0.62%)<br/>
+            <span class="kw">领跌：</span>北方华创(-0.90%), 中微公司(-1.28%), 华海清科(-1.66%)
+        </p>
+    </section>
+<section class="sector" id="半导体上游原材料">
+        <div class="sector-head">
+            <h2>🧪 半导体上游原材料</h2>
+            <span class="avg down">板块均价 -1.43%</span>
+            <span class="count">7 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">沪硅产业</td>
+        <td class="num">23.62</td>
+        <td class="num down"><span class="arr">▼</span> -1.95%</td>
+        <td class="num">24.00</td>
+        <td class="num">23.36</td>
+    </tr><tr>
+        <td class="name">江丰电子</td>
+        <td class="num">224.99</td>
+        <td class="num down"><span class="arr">▼</span> -1.67%</td>
+        <td class="num">226.99</td>
+        <td class="num">221.00</td>
+    </tr><tr>
+        <td class="name">南大光电</td>
+        <td class="num">52.79</td>
+        <td class="num down"><span class="arr">▼</span> -1.77%</td>
+        <td class="num">53.23</td>
+        <td class="num">52.37</td>
+    </tr><tr>
+        <td class="name">雅克科技</td>
+        <td class="num">131.29</td>
+        <td class="num down"><span class="arr">▼</span> -2.19%</td>
+        <td class="num">133.22</td>
+        <td class="num">129.64</td>
+    </tr><tr>
+        <td class="name">彤程新材</td>
+        <td class="num">60.30</td>
+        <td class="num down"><span class="arr">▼</span> -0.68%</td>
+        <td class="num">60.96</td>
+        <td class="num">59.47</td>
+    </tr><tr>
+        <td class="name">安集科技</td>
+        <td class="num">225.35</td>
+        <td class="num down"><span class="arr">▼</span> -0.74%</td>
+        <td class="num">226.35</td>
+        <td class="num">220.22</td>
+    </tr><tr>
+        <td class="name">清溢光电</td>
+        <td class="num">9.71</td>
+        <td class="num down"><span class="arr">▼</span> -1.02%</td>
+        <td class="num">9.79</td>
+        <td class="num">9.60</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>彤程新材(-0.68%), 安集科技(-0.74%), 清溢光电(-1.02%)<br/>
+            <span class="kw">领跌：</span>南大光电(-1.77%), 沪硅产业(-1.95%), 雅克科技(-2.19%)
+        </p>
+    </section>
+<section class="sector" id="先进封装">
+        <div class="sector-head">
+            <h2>📦 先进封装</h2>
+            <span class="avg down">板块均价 -2.02%</span>
+            <span class="count">5 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">长电科技</td>
+        <td class="num">71.74</td>
+        <td class="num down"><span class="arr">▼</span> -2.11%</td>
+        <td class="num">72.49</td>
+        <td class="num">71.01</td>
+    </tr><tr>
+        <td class="name">通富微电</td>
+        <td class="num">60.29</td>
+        <td class="num down"><span class="arr">▼</span> -1.78%</td>
+        <td class="num">60.79</td>
+        <td class="num">59.54</td>
+    </tr><tr>
+        <td class="name">华天科技</td>
+        <td class="num">16.16</td>
+        <td class="num down"><span class="arr">▼</span> -2.18%</td>
+        <td class="num">16.37</td>
+        <td class="num">15.95</td>
+    </tr><tr>
+        <td class="name">晶方科技</td>
+        <td class="num">29.45</td>
+        <td class="num down"><span class="arr">▼</span> -2.03%</td>
+        <td class="num">29.80</td>
+        <td class="num">29.16</td>
+    </tr><tr>
+        <td class="name">甬矽电子</td>
+        <td class="num">60.10</td>
+        <td class="num down"><span class="arr">▼</span> -2.02%</td>
+        <td class="num">60.50</td>
+        <td class="num">58.90</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>通富微电(-1.78%), 甬矽电子(-2.02%), 晶方科技(-2.03%)<br/>
+            <span class="kw">领跌：</span>晶方科技(-2.03%), 长电科技(-2.11%), 华天科技(-2.18%)
+        </p>
+    </section>
+<section class="sector" id="存储/HBM">
+        <div class="sector-head">
+            <h2>💾 存储/HBM</h2>
+            <span class="avg down">板块均价 -1.04%</span>
+            <span class="count">5 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">兆易创新</td>
+        <td class="num">392.67</td>
+        <td class="num down"><span class="arr">▼</span> -0.08%</td>
+        <td class="num">395.95</td>
+        <td class="num">387.45</td>
+    </tr><tr>
+        <td class="name">紫光国微</td>
+        <td class="num">62.86</td>
+        <td class="num down"><span class="arr">▼</span> -0.77%</td>
+        <td class="num">63.03</td>
+        <td class="num">62.35</td>
+    </tr><tr>
+        <td class="name">江波龙</td>
+        <td class="num">363.73</td>
+        <td class="num down"><span class="arr">▼</span> -1.48%</td>
+        <td class="num">366.99</td>
+        <td class="num">360.74</td>
+    </tr><tr>
+        <td class="name">佰维存储</td>
+        <td class="num">223.72</td>
+        <td class="num down"><span class="arr">▼</span> -1.75%</td>
+        <td class="num">225.90</td>
+        <td class="num">221.33</td>
+    </tr><tr>
+        <td class="name">朗科科技</td>
+        <td class="num">39.03</td>
+        <td class="num down"><span class="arr">▼</span> -1.14%</td>
+        <td class="num">39.24</td>
+        <td class="num">38.52</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>兆易创新(-0.08%), 紫光国微(-0.77%), 朗科科技(-1.14%)<br/>
+            <span class="kw">领跌：</span>朗科科技(-1.14%), 江波龙(-1.48%), 佰维存储(-1.75%)
+        </p>
+    </section>
+<section class="sector" id="MLCC/被动元件">
+        <div class="sector-head">
+            <h2>🔋 MLCC/被动元件</h2>
+            <span class="avg down">板块均价 -1.79%</span>
+            <span class="count">5 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">三环集团</td>
+        <td class="num">108.77</td>
+        <td class="num down"><span class="arr">▼</span> -0.41%</td>
+        <td class="num">109.42</td>
+        <td class="num">106.10</td>
+    </tr><tr>
+        <td class="name">风华高科</td>
+        <td class="num">49.50</td>
+        <td class="num down"><span class="arr">▼</span> -4.57%</td>
+        <td class="num">51.30</td>
+        <td class="num">48.87</td>
+    </tr><tr>
+        <td class="name">洁美科技</td>
+        <td class="num">63.58</td>
+        <td class="num up"><span class="arr">▲</span> +0.57%</td>
+        <td class="num">63.88</td>
+        <td class="num">61.58</td>
+    </tr><tr>
+        <td class="name">顺络电子</td>
+        <td class="num">45.62</td>
+        <td class="num down"><span class="arr">▼</span> -1.89%</td>
+        <td class="num">46.40</td>
+        <td class="num">45.10</td>
+    </tr><tr>
+        <td class="name">麦捷科技</td>
+        <td class="num">19.57</td>
+        <td class="num down"><span class="arr">▼</span> -2.64%</td>
+        <td class="num">19.92</td>
+        <td class="num">19.35</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>洁美科技(+0.57%), 三环集团(-0.41%), 顺络电子(-1.89%)<br/>
+            <span class="kw">领跌：</span>顺络电子(-1.89%), 麦捷科技(-2.64%), 风华高科(-4.57%)
+        </p>
+    </section>
+<section class="sector" id="AI应用/Agent">
+        <div class="sector-head">
+            <h2>🤖 AI应用/Agent</h2>
+            <span class="avg down">板块均价 -2.24%</span>
+            <span class="count">5 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">同花顺</td>
+        <td class="num">219.96</td>
+        <td class="num down"><span class="arr">▼</span> -3.11%</td>
+        <td class="num">225.20</td>
+        <td class="num">218.10</td>
+    </tr><tr>
+        <td class="name">金山办公</td>
+        <td class="num">240.83</td>
+        <td class="num down"><span class="arr">▼</span> -2.64%</td>
+        <td class="num">246.00</td>
+        <td class="num">240.00</td>
+    </tr><tr>
+        <td class="name">科大讯飞</td>
+        <td class="num">39.65</td>
+        <td class="num down"><span class="arr">▼</span> -1.42%</td>
+        <td class="num">39.99</td>
+        <td class="num">39.42</td>
+    </tr><tr>
+        <td class="name">拓尔思</td>
+        <td class="num">13.74</td>
+        <td class="num down"><span class="arr">▼</span> -2.07%</td>
+        <td class="num">14.13</td>
+        <td class="num">13.59</td>
+    </tr><tr>
+        <td class="name">昆仑万维</td>
+        <td class="num">45.05</td>
+        <td class="num down"><span class="arr">▼</span> -1.94%</td>
+        <td class="num">45.70</td>
+        <td class="num">44.01</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>科大讯飞(-1.42%), 昆仑万维(-1.94%), 拓尔思(-2.07%)<br/>
+            <span class="kw">领跌：</span>拓尔思(-2.07%), 金山办公(-2.64%), 同花顺(-3.11%)
+        </p>
+    </section>
+<section class="sector" id="机器人">
+        <div class="sector-head">
+            <h2>🦾 机器人</h2>
+            <span class="avg down">板块均价 -1.34%</span>
+            <span class="count">5 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">汇川技术</td>
+        <td class="num">60.39</td>
+        <td class="num down"><span class="arr">▼</span> -0.92%</td>
+        <td class="num">60.89</td>
+        <td class="num">59.86</td>
+    </tr><tr>
+        <td class="name">埃斯顿</td>
+        <td class="num">30.56</td>
+        <td class="num down"><span class="arr">▼</span> -1.45%</td>
+        <td class="num">30.88</td>
+        <td class="num">30.14</td>
+    </tr><tr>
+        <td class="name">绿的谐波</td>
+        <td class="num">288.77</td>
+        <td class="num down"><span class="arr">▼</span> -0.43%</td>
+        <td class="num">290.20</td>
+        <td class="num">283.50</td>
+    </tr><tr>
+        <td class="name">拓斯达</td>
+        <td class="num">35.06</td>
+        <td class="num down"><span class="arr">▼</span> -2.64%</td>
+        <td class="num">37.37</td>
+        <td class="num">34.66</td>
+    </tr><tr>
+        <td class="name">禾川科技</td>
+        <td class="num">33.53</td>
+        <td class="num down"><span class="arr">▼</span> -1.24%</td>
+        <td class="num">34.05</td>
+        <td class="num">33.18</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>绿的谐波(-0.43%), 汇川技术(-0.92%), 禾川科技(-1.24%)<br/>
+            <span class="kw">领跌：</span>禾川科技(-1.24%), 埃斯顿(-1.45%), 拓斯达(-2.64%)
+        </p>
+    </section>
+<section class="sector" id="长鑫存储上游">
+        <div class="sector-head">
+            <h2>🏭 长鑫存储上游</h2>
+            <span class="avg down">板块均价 -1.61%</span>
+            <span class="count">7 只</span>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+        <td class="name">深科技</td>
+        <td class="num">35.82</td>
+        <td class="num down"><span class="arr">▼</span> -1.94%</td>
+        <td class="num">35.97</td>
+        <td class="num">35.35</td>
+    </tr><tr>
+        <td class="name">江丰电子</td>
+        <td class="num">224.99</td>
+        <td class="num down"><span class="arr">▼</span> -1.67%</td>
+        <td class="num">226.99</td>
+        <td class="num">221.00</td>
+    </tr><tr>
+        <td class="name">南大光电</td>
+        <td class="num">52.79</td>
+        <td class="num down"><span class="arr">▼</span> -1.77%</td>
+        <td class="num">53.23</td>
+        <td class="num">52.37</td>
+    </tr><tr>
+        <td class="name">彤程新材</td>
+        <td class="num">60.30</td>
+        <td class="num down"><span class="arr">▼</span> -0.68%</td>
+        <td class="num">60.96</td>
+        <td class="num">59.47</td>
+    </tr><tr>
+        <td class="name">雅克科技</td>
+        <td class="num">131.29</td>
+        <td class="num down"><span class="arr">▼</span> -2.19%</td>
+        <td class="num">133.22</td>
+        <td class="num">129.64</td>
+    </tr><tr>
+        <td class="name">北方华创</td>
+        <td class="num">661.71</td>
+        <td class="num down"><span class="arr">▼</span> -0.90%</td>
+        <td class="num">664.00</td>
+        <td class="num">650.20</td>
+    </tr><tr>
+        <td class="name">长电科技</td>
+        <td class="num">71.74</td>
+        <td class="num down"><span class="arr">▼</span> -2.11%</td>
+        <td class="num">72.49</td>
+        <td class="num">71.01</td>
+    </tr>
+            </tbody>
+        </table>
+        <p class="comment">
+            <span class="kw">领涨：</span>彤程新材(-0.68%), 北方华创(-0.90%), 江丰电子(-1.67%)<br/>
+            <span class="kw">领跌：</span>深科技(-1.94%), 长电科技(-2.11%), 雅克科技(-2.19%)
+        </p>
+    </section>
+<div class="cxmt-special">
+    <h2>🏭 长鑫存储上游产业链 · 重点专项</h2>
+    <div class="cxmt-intro">
+        <b>长鑫存储（CXMT）</b>是国内 DRAM 龙头，2026年6月 IPO 受理，拟融资 295 亿元用于设备扩产。
+        招股书披露计划：2026年底 12英寸晶圆月产能达 <b>15万片</b>，90% 切换至 DDR5/LPDDR5X，HBM3 同步量产。
+        据中信证券测算，其中约 200 亿元将用于设备采购，将持续显著拉动半导体设备与材料需求。
+        上游覆盖 <b>设备（前道 5 大类）</b>、<b>前驱体/电子化学品</b>、<b>光刻胶配套</b>、<b>硅片原材料</b>、<b>电子特气</b>、<b>金属靶材</b>、<b>湿电子化学品</b> 等环节。
+    </div>
+
+    <h3 style="color:#f39c12; font-size:16px; margin-bottom:10px;">核心 7 大标的 · 早盘表现</h3>
+    <table class="table">
+        <thead>
+            <tr><th class="name">股票</th><th class="num">现价</th><th class="num">涨跌幅</th><th class="num">最高</th><th class="num">最低</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+        <td class="name">深科技</td>
+        <td class="num">35.82</td>
+        <td class="num down"><span class="arr">▼</span> -1.94%</td>
+        <td class="num">35.97</td>
+        <td class="num">35.35</td>
+    </tr><tr>
+        <td class="name">江丰电子</td>
+        <td class="num">224.99</td>
+        <td class="num down"><span class="arr">▼</span> -1.67%</td>
+        <td class="num">226.99</td>
+        <td class="num">221.00</td>
+    </tr><tr>
+        <td class="name">南大光电</td>
+        <td class="num">52.79</td>
+        <td class="num down"><span class="arr">▼</span> -1.77%</td>
+        <td class="num">53.23</td>
+        <td class="num">52.37</td>
+    </tr><tr>
+        <td class="name">彤程新材</td>
+        <td class="num">60.30</td>
+        <td class="num down"><span class="arr">▼</span> -0.68%</td>
+        <td class="num">60.96</td>
+        <td class="num">59.47</td>
+    </tr><tr>
+        <td class="name">雅克科技</td>
+        <td class="num">131.29</td>
+        <td class="num down"><span class="arr">▼</span> -2.19%</td>
+        <td class="num">133.22</td>
+        <td class="num">129.64</td>
+    </tr><tr>
+        <td class="name">北方华创</td>
+        <td class="num">661.71</td>
+        <td class="num down"><span class="arr">▼</span> -0.90%</td>
+        <td class="num">664.00</td>
+        <td class="num">650.20</td>
+    </tr><tr>
+        <td class="name">长电科技</td>
+        <td class="num">71.74</td>
+        <td class="num down"><span class="arr">▼</span> -2.11%</td>
+        <td class="num">72.49</td>
+        <td class="num">71.01</td>
+    </tr>
+        </tbody>
+    </table>
+    <p class="comment" style="margin-top:10px;">
+        <span class="kw">板块均价：</span><b class="down">-1.61%</b> · 7 只核心标的平均下跌但分化明显（深科技-1.94%、北方华创-0.90%相对抗跌，江丰电子-1.67%、雅克科技-2.19%、长电科技-2.11%跌幅居前）
+    </p>
+
+    <h3 style="color:#f39c12; font-size:16px; margin: 18px 0 10px;">📋 关联受益标的（基于公开研报+招股书梳理）</h3>
+    <ul class="cxmt-list">
+        <li><b>鼎龙股份</b> — KrF光刻胶通过长鑫全流程验证，2026年6月获近千加仑量产订单</li><li><b>华特气体</b> — 电子特气龙头，长鑫存储前5大供应商之一</li><li><b>精智达</b> — 存储器测试设备核心供应商，与长鑫紧密合作，2025年获相关订单</li><li><b>中科飞测</b> — 量检测设备已通过长鑫存储验证</li><li><b>金宏气体</b> — 电子气体导入长鑫存储产业链，进入前五大供应商</li><li><b>广信材料</b> — 封装光刻胶配套长鑫下游封测链路</li><li><b>立昂微</b> — 8/12寸硅片双布局，长鑫成熟产线主力供货</li><li><b>神工股份</b> — 硅片单晶硅原材料，配套长鑫硅片厂</li>
+    </ul>
+
+    <h3 style="color:#f39c12; font-size:16px; margin: 18px 0 10px;">🧭 板块点评</h3>
+    <p style="font-size:14px; line-height:1.8; color: var(--text-mute);">
+        早盘长鑫存储上游板块平均下跌 <b>-1.61%</b>，与大盘科技股同步调整，但相比昨日（-3.57%）跌幅已明显收窄。
+        北方华创（-0.90%）、彤程新材（-0.68%）、深科技（-1.94%）作为刻蚀/光刻胶/封装设备核心标的相对抗跌，
+        江丰电子（-1.67%）、雅克科技（-2.19%）、南大光电（-1.77%）等前驱体/靶材标的跌幅居前但已较昨日显著缓解。
+        长鑫存储作为国产 DRAM 龙头，<b>2026Q2 营收同比+716%、全球份额跃升至第四位</b>（Counterpoint 数据），
+        长期投资逻辑未变，<b>短期调整或是分批布局窗口</b>。
+        建议跟踪 IPO 节奏+月度招标公告作为催化窗口。
+    </p>
+</div>
+
+<div class="disclaimer">
+    <b>⚖️ 免责声明：</b>本报告由 AI 自动生成，仅用于内部研究与信息整理，<b>不构成任何形式的投资建议</b>。
+    所有数据来源于 Yahoo Finance 公开 API 及公开网络资讯，可能存在延迟或错误。
+    投资者应独立判断，盈亏自负。市场有风险，投资需谨慎。
+</div>
+
+<footer>
+    <p>📡 数据源: Yahoo Finance v8 Finance Chart API · 公开网络资讯</p>
+    <p>⏱️ 生成时间: 2026-09-02 12:00 CST · 适用于 A 股交易日 11:35 早盘收盘</p>
+    <p>🔗 完整链接: https://reports.dns-cloudflare.com/a-morning/2026-09-02.html</p>
+    <p style="margin-top:8px;">© Hermes Agent 自动报告 · 仅供研究参考</p>
+</footer>
+
+</body>
+</html>
