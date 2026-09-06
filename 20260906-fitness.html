@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏋️ 健身&饮食日报 — 2026-09-06</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0d1b2a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    padding: 16px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.4em;
+    color: #4fc3f7;
+    text-align: center;
+    margin-bottom: 6px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1b3a4b;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 0.82em;
+    color: #78909c;
+    margin-bottom: 18px;
+  }
+  .era-banner {
+    background: linear-gradient(135deg, #1b3a4b 0%, #0d2540 100%);
+    border: 1px solid #4fc3f7;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    font-size: 0.88em;
+    color: #b3e5fc;
+    text-align: center;
+    line-height: 1.7;
+  }
+  .era-banner strong { color: #4fc3f7; }
+  .era-banner .em { color: #ffd54f; font-weight: 600; }
+  h2 {
+    font-size: 1.1em;
+    color: #4fc3f7;
+    margin: 22px 0 10px;
+    padding-left: 10px;
+    border-left: 3px solid #4fc3f7;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .card {
+    background: #122439;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    border: 1px solid #1b3a4b;
+  }
+  .card .num { font-size: 1.7em; font-weight: 700; color: #4fc3f7; line-height: 1.1; }
+  .card .label { font-size: 0.75em; color: #78909c; margin-top: 4px; }
+  .card.muted .num { color: #607d8b; }
+  .card.warn { border-color: #5d4037; }
+  .card.warn .num { color: #ff8a65; }
+  .card.good { border-color: #1b5e20; }
+  .card.good .num { color: #66bb6a; }
+  .card.special { border-color: #4fc3f7; background: linear-gradient(135deg, #122439 0%, #1b3a4b 100%); }
+  .card.special .num { color: #ffd54f; }
+  .weekly-summary {
+    background: #0f2030;
+    border: 1px solid #2a4a5a;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  .weekly-summary h2 { margin-top: 0; }
+  .weekly-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+    margin: 8px 0;
+  }
+  .weekly-table th, .weekly-table td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid #1b3a4b;
+  }
+  .weekly-table th {
+    color: #4fc3f7;
+    font-weight: 600;
+    font-size: 0.85em;
+  }
+  .weekly-table td { color: #b0bec5; }
+  .weekly-table .num-cell { color: #ff8a65; font-weight: 600; text-align: right; }
+  .weekly-table .label-cell { color: #81d4fa; }
+  .person {
+    background: #122439;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid #1b3a4b;
+  }
+  .person-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1b3a4b;
+  }
+  .avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.15em; font-weight: 700; color: #fff;
+    flex-shrink: 0;
+  }
+  .person-name { font-size: 1.05em; color: #81d4fa; font-weight: 600; }
+  .person-sub { font-size: 0.78em; color: #78909c; margin-top: 2px; }
+  .sub-section { margin: 12px 0; }
+  .sub-label {
+    font-size: 0.85em;
+    color: #4fc3f7;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .no-data {
+    color: #607d8b;
+    font-style: italic;
+    font-size: 0.88em;
+    padding: 4px 0;
+  }
+  .stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 6px 0;
+  }
+  .stat-tag {
+    background: #1b3a4b;
+    color: #81d4fa;
+    padding: 3px 10px;
+    border-radius: 14px;
+    font-size: 0.78em;
+  }
+  .stat-tag.warn { background: #4a2c1a; color: #ffab91; }
+  .stat-tag.muted { background: #1a2530; color: #607d8b; }
+  .eval {
+    background: #0a1828;
+    border-left: 3px solid #4fc3f7;
+    padding: 10px 12px;
+    margin: 10px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88em;
+    color: #b0bec5;
+    line-height: 1.65;
+  }
+  .tip {
+    background: #0a1f15;
+    border: 1px solid #2e5d3f;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    color: #a5d6a7;
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+  .tip strong { color: #81c784; }
+  .reminder {
+    background: #142a3a;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 20px 0;
+    border: 1px solid #2a4a5a;
+  }
+  .reminder h2 { margin-top: 0; }
+  .reminder p { font-size: 0.88em; color: #b0bec5; margin: 6px 0; line-height: 1.65; }
+  .reminder ul { padding-left: 20px; margin: 8px 0; }
+  .reminder li { font-size: 0.88em; color: #b0bec5; margin-bottom: 5px; }
+  .completeness {
+    background: #0d1b2a;
+    border: 1px dashed #2a4a5a;
+    border-radius: 10px;
+    padding: 14px;
+    margin-top: 20px;
+    font-size: 0.82em;
+    color: #78909c;
+  }
+  .completeness h3 {
+    color: #81d4fa;
+    font-size: 0.95em;
+    margin-bottom: 8px;
+  }
+  .completeness p { margin: 4px 0; }
+  .footer {
+    font-size: 0.72em;
+    color: #455a64;
+    text-align: center;
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px solid #1b3a4b;
+  }
+  .small { font-size: 0.82em; color: #78909c; }
+  .diff-row {
+    font-size: 0.78em;
+    color: #78909c;
+    margin-top: 4px;
+  }
+  .diff-up { color: #ff8a65; }
+  @media (max-width: 400px) {
+    body { padding: 10px; }
+    h1 { font-size: 1.25em; }
+    .cards { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🏋️ 健身&饮食日报</h1>
+<div class="subtitle">2026 年 9 月 6 日 · 星期日 · 周度视角第 6 天 · <span style="color:#ffd54f;">首份周报</span> · Hermes Agent 自动生成</div>
+
+<div class="era-banner">
+  🌿 <strong>周度视角第 6 天</strong> · 今天是从「逐日倒计时」切换到「周度累计」的<strong class="em">视角转换日</strong><br>
+  本周区间：<strong>9/1 – 9/6（6 天）</strong> · 距窗口日 9/30 还有 <strong>24 天</strong>
+</div>
+
+<!-- 周度汇总 -->
+<div class="weekly-summary">
+  <h2>📊 本周汇总（9/1 – 9/6）</h2>
+  <table class="weekly-table">
+    <thead>
+      <tr>
+        <th>成员</th>
+        <th style="text-align:right;">本周训练</th>
+        <th style="text-align:right;">本周饮食记录</th>
+        <th style="text-align:right;">当前空白</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label-cell">🦍 智林 lzl</td>
+        <td class="num-cell">0 次</td>
+        <td class="num-cell">0 条</td>
+        <td class="num-cell">训练 68 天 · 饮食 34 天</td>
+      </tr>
+      <tr>
+        <td class="label-cell">🍳 Monkiki</td>
+        <td class="num-cell">0 次</td>
+        <td class="num-cell">0 条</td>
+        <td class="num-cell">48 天（6 周 + 6 天）</td>
+      </tr>
+      <tr>
+        <td class="label-cell">🐔 Ckddd</td>
+        <td class="num-cell">0 次</td>
+        <td class="num-cell">0 条</td>
+        <td class="num-cell">60 天（8 周 + 4 天）</td>
+      </tr>
+      <tr>
+        <td class="label-cell">📦 本周合计</td>
+        <td class="num-cell">0 次</td>
+        <td class="num-cell">0 条</td>
+        <td class="num-cell" style="color:#607d8b;">—</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="small" style="margin-top:8px;">
+    本周（9/1–9/6）三人合计：<strong style="color:#ff8a65;">0 次训练</strong> · <strong style="color:#ff8a65;">0 条饮食记录</strong> · <strong style="color:#ff8a65;">0 条体重记录</strong>。<br>
+    距上次集体活动（7/6 Monkiki "no fitness today"）已 <strong>62 天</strong>。
+  </p>
+</div>
+
+<!-- 今日概览 -->
+<h2>📊 今日概览</h2>
+<div class="cards">
+  <div class="card muted">
+    <div class="num">0/3</div>
+    <div class="label">👥 今日打卡</div>
+  </div>
+  <div class="card muted">
+    <div class="num">0</div>
+    <div class="label">🏋️ 今日训练</div>
+  </div>
+  <div class="card muted">
+    <div class="num">—</div>
+    <div class="label">🔥 最高消耗</div>
+  </div>
+  <div class="card muted">
+    <div class="num">N/A</div>
+    <div class="label">⚠️ 缺口警告</div>
+  </div>
+  <div class="card warn">
+    <div class="num">68</div>
+    <div class="label">📅 lzl 训练空白 (天)</div>
+  </div>
+  <div class="card warn">
+    <div class="num">60</div>
+    <div class="label">📅 ckddd 空白 (天)</div>
+  </div>
+  <div class="card special">
+    <div class="num">6</div>
+    <div class="label">📆 本周已过 (天)</div>
+  </div>
+  <div class="card special">
+    <div class="num">24</div>
+    <div class="label">🪟 距窗口日 (天)</div>
+  </div>
+</div>
+
+<!-- lzl 分区 -->
+<div class="person">
+  <div class="person-header">
+    <div class="avatar" style="background:#1565c0;">Z</div>
+    <div>
+      <div class="person-name">智林 lzl</div>
+      <div class="person-sub">185cm · 93.5kg · BMI ~27.3 · BMR ~2,300 kcal/天</div>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">🍽️ 饮食</div>
+    <div class="no-data">今日暂无有效记录</div>
+    <div class="stat-row">
+      <span class="stat-tag warn">饮食空白 34 天</span>
+      <span class="stat-tag">4 周 + 6 天</span>
+      <span class="stat-tag muted">最近 2026-08-03</span>
+    </div>
+    <div class="diff-row">较 9/5：<span class="diff-up">+1 天</span> · 本周 0 条</div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">🏋️ 训练</div>
+    <div class="no-data">今日暂无有效记录</div>
+    <div class="stat-row">
+      <span class="stat-tag warn">训练空白 68 天</span>
+      <span class="stat-tag warn">9 周 + 5 天</span>
+      <span class="stat-tag muted">最近 2026-06-30（肩训 52min）</span>
+    </div>
+    <div class="diff-row">较 9/5：<span class="diff-up">+1 天</span> · 距 70 天整数还差 <strong>2 天</strong></div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">📊 身体状态</div>
+    <div class="small">
+      体重 93.5kg（最近 8/3，已 34 天未复测）· 目标：逆转脂肪肝 · 减重目标进行中
+    </div>
+  </div>
+
+  <div class="eval">
+    <strong>9 周 + 5 天。</strong>今天的日报有一个新的职能——它同时也是首份周报。从今天起，日级倒计时的「距离上次 X 天」会被周度累计的「本周 X = 0」吸收。你的训练空白 68 天/饮食空白 34 天进入本周累计，统计呈现为：「<strong>9/1–9/6 lzl 训练 0 次 · 饮食 0 条</strong>」。这两个零不会刺痛，只是周报的客观数字。从 9/7（周一）开始，新的 7 天区间开启——9/1–9/6 这段会被锁进历史。下一份日报不再是「首份周报」，而是普通的一份「次份日报」。🌱
+  </div>
+
+  <div class="tip">
+    💡 <strong>下周（9/7–9/13）的最小重启动作</strong>：<strong>1 次力量训练</strong>（哪怕 30 分钟）+ <strong>1 顿饭的记录</strong>（哪怕只是数字）。下一份周报（9/13）的 lzl 区块会从「全零」变成「训练 1 · 饮食 1」——这就是非零的第一步。
+  </div>
+</div>
+
+<!-- Monkiki 分区 -->
+<div class="person">
+  <div class="person-header">
+    <div class="avatar" style="background:#ef6c00;">M</div>
+    <div>
+      <div class="person-name">Monkiki</div>
+      <div class="person-sub">170cm · ~70kg · BMI 24.2 · 目标 65–67.5kg</div>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">🍽️ 饮食</div>
+    <div class="no-data">今日暂无有效记录</div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">🏋️ 训练</div>
+    <div class="no-data">今日暂无有效记录</div>
+    <div class="stat-row">
+      <span class="stat-tag warn">空白 48 天</span>
+      <span class="stat-tag warn">6 周 + 6 天</span>
+      <span class="stat-tag muted">最近 2026-07-20</span>
+    </div>
+    <div class="diff-row">较 9/5：<span class="diff-up">+1 天</span> · 距 7 周整数还差 <strong>1 天</strong>（明天 9/7 进入 7 周 + 0）</div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">📊 身体状态</div>
+    <div class="small">
+      体重 ~70kg · 已 48 天未自报秤数 · 目标 65–67.5kg · 上次训练 64min / 345kcal
+    </div>
+  </div>
+
+  <div class="eval">
+    6 周 + 6 天。<strong>明天（9/7）进入 7 周 + 0</strong>——但今天之后，这个数字不再以「周 + x」形式被每天强调，而是被收进「本周训练/体重 = 未记录」一句话里。这是好消息：从明天起，「距离上次 X 天」不再以日级计数方式出现在日报里，而是以<strong>周度未记录</strong>的形式存在。新周（9/7–9/13）的 Monkiki 区块将以「本周体重 = 未记录」开头——你有一整周时间把它改写成「本周体重 = 67.8kg」。🍃
+  </div>
+
+  <div class="tip">
+    💡 <strong>下周最小动作</strong>：<strong>站上秤一次</strong>。67.5kg 还是 70.5kg 都行——新周报里只要有一个数字，就不再是「未记录」。同时：<strong>1 次爬坡有氧 30 分钟</strong>（你 7/20 之前的固定搭配），心率稳在 145–155 即可。
+  </div>
+</div>
+
+<!-- Ckddd 分区 -->
+<div class="person">
+  <div class="person-header">
+    <div class="avatar" style="background:#6a1b9a;">C</div>
+    <div>
+      <div class="person-name">Ckddd</div>
+      <div class="person-sub">~64kg · 体脂 ~14.6%（2 月 InBody）· 目标增肌</div>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">🍽️ 饮食</div>
+    <div class="no-data">今日暂无有效记录</div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">🏋️ 训练</div>
+    <div class="no-data">今日暂无有效记录</div>
+    <div class="stat-row">
+      <span class="stat-tag warn">空白 60 天</span>
+      <span class="stat-tag warn">8 周 + 4 天</span>
+      <span class="stat-tag muted">最近 2026-07-08</span>
+    </div>
+    <div class="diff-row">较 9/5：<span class="diff-up">+1 天</span> · 距 9 周整数还差 <strong>3 天</strong>（9/9 进入 9 周 + 0）</div>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-label">📊 身体状态</div>
+    <div class="small">
+      体重 ~64kg（7/1 自报）· 体脂 ~14.6%（2 月 InBody，距今 6+ 个月）· 肌肉量 53.4kg · 骨量偏低（建议补钙+维 D+负重）
+    </div>
+  </div>
+
+  <div class="eval">
+    <strong>8 周 + 4 天。</strong>三人里最长的空白。今天是首份周报，你的页面以「<strong>本周训练 0 · 饮食 0 · 体重未记录</strong>」呈现——这三个零会保留进 9/6 周报的历史快照里。从 9/7 开始新周区间，<strong>9/9（周三）</strong>那条「9 周 + 0」线会在日级计数里自然跨过（你不需要做什么，它只是日历的事）。InBody 数据从 2 月到现在已经 <strong>6 个半月</strong>没动——下周可以做一件简单的事：<strong>预约一次体测</strong>，骨量那条线拖了快 2 个月。🐢
+  </div>
+
+  <div class="tip">
+    💡 <strong>下周最小动作</strong>：<strong>1 次上肢训练</strong>（胸 + 二头 + 肩膀是你 7/3 的固定组合）+ <strong>早餐一个鸡蛋 + 20g 乳清蛋白</strong>（7/7 开局组合的复用）。下周日（9/13）周报的 ckddd 区块会是「训练 1 · 饮食 ≥2 条」，跨过本周的零。
+  </div>
+</div>
+
+<!-- 群内提醒 -->
+<div class="reminder">
+  <h2>📢 群内提醒</h2>
+  <p><strong>今天是 2026-09-06（周日），周度视角日报第 6 天 · 首份周报日。</strong></p>
+
+  <p><strong>本周（9/1–9/6）合计：0 次训练 / 0 条饮食记录 / 0 条体重记录</strong>——连续 6 天归零。这一页已经成为历史快照，不会再被改写。从明天（9/7，周一）起，<strong>进入全新的 7 天区间（9/7–9/13）</strong>，所有空白数重新开始累计。</p>
+
+  <p><strong>关键节点预告：</strong></p>
+  <ul>
+    <li>🔄 <strong>视角切换正式生效</strong>：从今天起，日报聚焦「当日新增」+「本周累计」，不再以「距离上次 X 天」作为心理节点</li>
+    <li>📊 <strong>下一份日报：9/7（周一）</strong>——开启新周区间（9/7–9/13）。任何今晚/明早出现的当日记录会进入新周的累计统计</li>
+    <li>📅 <strong>下一份周报：9/13（周日）</strong>——统计 9/7–9/13 三人合计。如果新周内 0 训练，那将是「连续 2 周全零」；如果至少有 1 次训练，那本周报会写下第一笔非零</li>
+    <li>🪟 <strong>窗口日仍为 9/30</strong>——距今 24 天，跨过 9 月整整一个月</li>
+    <li>🦴 <strong>ckddd 待办</strong>：骨量偏低提醒从 7/8 挂到现在 60 天，建议下周预约一次 InBody 体测</li>
+    <li>⚖️ <strong>lzl 待办</strong>：体重 34 天未复测，目标 85kg 以下</li>
+  </ul>
+
+  <p><strong>今天的数字快照（首份周报快照 · 永久保留）：</strong></p>
+  <ul>
+    <li>lzl：训练空白 <strong>68 天（9 周 + 5 天）</strong> · 饮食空白 <strong>34 天（4 周 + 6 天）</strong></li>
+    <li>monkiki：综合空白 <strong>48 天（6 周 + 6 天）</strong> · 明天跨入 7 周整数</li>
+    <li>ckddd：综合空白 <strong>60 天（8 周 + 4 天）</strong> · 三人最长</li>
+    <li>本周合计：训练 <strong>0</strong> · 饮食 <strong>0</strong> · 体重 <strong>0</strong></li>
+  </ul>
+
+  <p>下一份日报：<strong>9/7（周一）</strong>——新周区间（9/7–9/13）首日。🌱</p>
+</div>
+
+<!-- 数据完整度 -->
+<div class="completeness">
+  <h3>📋 数据完整度</h3>
+  <p>· 本地 md 文件：lzl ✅ / monkiki ✅ / ckddd ✅ — 三份文件均无今天（2026-09-06）的记录（最近条目分别为 2026-08-03 / 2026-07-20 / 2026-07-08）</p>
+  <p>· Discord #fitness 频道：本次未读取实时消息（session_search 工具在本 cron 会话中不可用）；最近一条健身相关消息停留在 2026-07-06（Monkiki: "no fitness today"），9/1–9/6 连续 6 天频道零健身活动</p>
+  <p>· 历史数据完整保留，所有热量/蛋白质/消耗均为估算，误差 ±15–20%</p>
+  <p>· 三人空白：lzl 34 天饮食 / 68 天训练 · monkiki 48 天（6 周 + 6 天）· ckddd 60 天（8 周 + 4 天）</p>
+  <p>· 报告链接：<a href="https://reports.dns-cloudflare.com/20260906-fitness.html" style="color:#4fc3f7;">https://reports.dns-cloudflare.com/20260906-fitness.html</a>（GitHub Pages）</p>
+  <p>· 生成时间：2026-09-06 23:00 CST（cron · fitness-daily · 周度视角第 6 天 · 首份周报日）</p>
+</div>
+
+<div class="footer">
+  Generated by Hermes Agent · 周度视角日报 + 首份周报 · 仅记录事实，不制造焦虑<br>
+  必要时咨询专业医生 · 本报告所有数据估算可能存在 ±15–20% 误差
+</div>
+
+</body>
+</html>
