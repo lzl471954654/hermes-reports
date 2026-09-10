@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大A盘后总结 · AI产业链深度版 | 2026-09-10</title>
+<style>
+  :root{
+    --bg:#0b0e14;
+    --bg2:#11151c;
+    --bg3:#161b25;
+    --border:#222a36;
+    --text:#e6e8eb;
+    --text2:#a4abb6;
+    --text3:#6b7280;
+    --accent:#3b82f6;
+    --green:#10b981;
+    --red:#ef4444;
+    --yellow:#f59e0b;
+    --purple:#a855f7;
+    --cyan:#06b6d4;
+    --grad:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:24px 20px 60px}
+  .hero{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%);border:1px solid #2a3650;border-radius:16px;padding:28px 32px;margin-bottom:20px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-50%;right:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(139,92,246,0.15) 0%,transparent 70%);pointer-events:none}
+  .tag-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  .tag{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(59,130,246,0.15);color:#7eb6ff;border:1px solid rgba(59,130,246,0.3);border-radius:6px;font-size:12px;font-weight:500}
+  .tag.green{background:rgba(16,185,129,0.12);color:#34d399;border-color:rgba(16,185,129,0.3)}
+  .tag.purple{background:rgba(168,85,247,0.15);color:#c4b5fd;border-color:rgba(168,85,247,0.3)}
+  .tag.yellow{background:rgba(245,158,11,0.12);color:#fbbf24;border-color:rgba(245,158,11,0.3)}
+  h1{font-size:26px;font-weight:700;letter-spacing:-0.5px;margin-bottom:6px}
+  .sub{color:var(--text2);font-size:14px}
+  .sub strong{color:var(--text)}
+  .divider{height:1px;background:var(--border);margin:20px 0}
+  .summary-box{background:rgba(59,130,246,0.06);border-left:3px solid var(--accent);padding:14px 18px;border-radius:6px;margin-top:16px}
+  .summary-box .label{color:var(--accent);font-size:12px;font-weight:600;margin-bottom:6px;letter-spacing:0.5px}
+  .summary-box .txt{font-size:15px;line-height:1.75}
+  .section{margin-top:28px}
+  .section h2{font-size:18px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .section h2 .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--grad);border-radius:6px;font-size:13px;font-weight:700;color:#fff}
+  .idx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+  .idx-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;transition:transform 0.15s}
+  .idx-card:hover{transform:translateY(-2px);border-color:#3b475c}
+  .idx-card .name{color:var(--text2);font-size:13px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+  .idx-card .code{color:var(--text3);font-size:11px;font-family:"SF Mono",Consolas,monospace}
+  .idx-card .val{font-size:24px;font-weight:700;margin-bottom:4px;font-variant-numeric:tabular-nums}
+  .idx-card .chg{font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+  .up{color:var(--green)}
+  .down{color:var(--red)}
+  .flat{color:var(--text3)}
+  .arrow{display:inline-block;margin-right:3px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
+  .panel{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:18px}
+  .panel h3{font-size:15px;font-weight:600;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+  .panel h3 .badge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:4px}
+  .badge.hot{background:rgba(239,68,68,0.15);color:#fca5a5}
+  .badge.cold{background:rgba(107,114,128,0.2);color:#9ca3af}
+  .badge.up{background:rgba(16,185,129,0.15);color:#6ee7b7}
+  .panel ul{list-style:none}
+  .panel li{padding:8px 0;border-bottom:1px dashed #1f2734;font-size:13.5px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .panel li:last-child{border-bottom:none}
+  .panel li .nm{color:var(--text);font-weight:500}
+  .panel li .meta{color:var(--text3);font-size:11px;font-family:"SF Mono",Consolas,monospace}
+  .panel li .pct{font-weight:600;font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .chain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .chain-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:18px;position:relative;overflow:hidden}
+  .chain-card::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent)}
+  .chain-card.green::before{background:var(--green)}
+  .chain-card.red::before{background:var(--red)}
+  .chain-card.purple::before{background:var(--purple)}
+  .chain-card.cyan::before{background:var(--cyan)}
+  .chain-card.yellow::before{background:var(--yellow)}
+  .chain-card .head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+  .chain-card .name{font-size:15px;font-weight:600;line-height:1.4;flex:1}
+  .chain-card .perf{font-size:13px;font-weight:600;padding:3px 8px;border-radius:5px;white-space:nowrap;margin-left:10px}
+  .perf.up{background:rgba(16,185,129,0.15);color:#6ee7b7}
+  .perf.down{background:rgba(239,68,68,0.15);color:#fca5a5}
+  .perf.flat{background:rgba(107,114,128,0.2);color:#9ca3af}
+  .chain-card .desc{color:var(--text2);font-size:12.5px;margin-bottom:10px;line-height:1.6}
+  .chain-card .stocks{font-size:12px;color:var(--text3);border-top:1px solid var(--border);padding-top:8px;margin-top:8px;line-height:1.7}
+  .chain-card .stocks strong{color:var(--text2);font-weight:500}
+  .stock-row{font-family:"SF Mono",Consolas,monospace;font-size:12px;color:var(--text2)}
+  .stock-row .tag-nm{display:inline-block;min-width:88px;color:var(--text)}
+  .catalyst{background:rgba(168,85,247,0.06);border:1px solid rgba(168,85,247,0.25);border-radius:10px;padding:16px 20px;margin-top:14px}
+  .catalyst .ct{color:#c4b5fd;font-size:13px;font-weight:600;margin-bottom:8px;letter-spacing:0.4px}
+  .catalyst ul{margin-left:20px;color:var(--text);font-size:13.5px;line-height:1.8}
+  .risk{background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.25);border-radius:10px;padding:16px 20px;margin-top:14px}
+  .risk .lb{color:#fbbf24;font-size:13px;font-weight:600;margin-bottom:8px}
+  .risk ul{margin-left:20px;color:var(--text2);font-size:13px;line-height:1.8}
+  .footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);text-align:center;color:var(--text3);font-size:12px}
+  .footer .row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+  .footer .pill{padding:3px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;font-size:11px}
+  .mobile-meta{display:none;font-size:11px;color:var(--text3);text-align:center;margin-top:6px}
+  @media (max-width:640px){
+    .wrap{padding:16px 12px 40px}
+    .hero{padding:20px 18px}
+    h1{font-size:20px}
+    .idx-card .val{font-size:20px}
+    .mobile-meta{display:block}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="tag-row">
+      <span class="tag">📅 2026-09-10 周四</span>
+      <span class="tag green">🤖 AI产业链深度版</span>
+      <span class="tag purple">盘后总结</span>
+      <span class="tag yellow">⚠ 盘中数据·收盘价以交易所公告为准</span>
+    </div>
+    <h1>大A盘后总结 · AI产业链深度版</h1>
+    <p class="sub">缩量分化·<strong>覆铜板/银行逆势抗跌</strong>·华为麒麟9050 Pro重塑芯片叙事</p>
+
+    <div class="summary-box">
+      <div class="label">▎今日核心结论</div>
+      <div class="txt">
+        A股全天弱势震荡，<strong style="color:#fca5a5">近4300只个股下跌、半日成交缩量1170亿至1.09万亿</strong>，情绪退潮（涨停34家/炸板21家、仅最高4板）；结构上<strong style="color:#34d399">银行+覆铜板走出独立行情</strong>——南京银行等5家城商行盘中创历史新高，超声电子/金安国纪/宝鼎科技覆铜板股涨停；<strong style="color:#c4b5fd">华为发布麒麟9050 Pro"史上最强"高性能芯片</strong>，叠加盛科通信48亿加码高端交换芯片，国产算力链再获叙事支撑；前期高位的AI服务器/光模块/半导体设备需警惕反弹减仓。
+      </div>
+    </div>
+  </div>
+
+  <!-- 三大指数 -->
+  <div class="section">
+    <h2><span class="num">1</span> 三大指数 & 成交</h2>
+    <div class="idx-grid">
+      <div class="idx-card">
+        <div class="name"><span>上证指数</span><span class="code">000001.SH</span></div>
+        <div class="val">3,93X.X</div>
+        <div class="chg down"><span class="arrow">▼</span>盘中弱势震荡</div>
+      </div>
+      <div class="idx-card">
+        <div class="name"><span>深证成指</span><span class="code">399001.SZ</span></div>
+        <div class="val">半日收跌</div>
+        <div class="chg down"><span class="arrow">▼</span>-0.55%（半日）</div>
+      </div>
+      <div class="idx-card">
+        <div class="name"><span>创业板指</span><span class="code">399006.SZ</span></div>
+        <div class="val">盘中翻绿</div>
+        <div class="chg down"><span class="arrow">▼</span>高开后转弱</div>
+      </div>
+      <div class="idx-card">
+        <div class="name"><span>科创50</span><span class="code">000688.SH</span></div>
+        <div class="val">弱市震荡</div>
+        <div class="chg down"><span class="arrow">▼</span>跟随主板</div>
+      </div>
+      <div class="idx-card">
+        <div class="name"><span>两市成交</span><span class="code">半日1.09万亿</span></div>
+        <div class="val">1.09<span style="font-size:14px;color:var(--text2);font-weight:400"> 万亿</span></div>
+        <div class="chg flat">较前日同期 -1170 亿</div>
+      </div>
+      <div class="idx-card">
+        <div class="name"><span>个股涨跌</span><span class="code">14:18快照</span></div>
+        <div class="val" style="color:#fca5a5">↓ 4300<span style="font-size:14px;font-weight:400"> 只</span></div>
+        <div class="chg down">涨停34 / 连板10 / 最高4板 / 炸板21</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 板块概览 -->
+  <div class="section">
+    <h2><span class="num">2</span> 板块涨跌 · 一览</h2>
+    <div class="grid2">
+      <div class="panel">
+        <h3>领涨板块 <span class="badge up">逆势抗跌</span></h3>
+        <ul>
+          <li><span class="nm">城商行 / 银行</span><span class="meta">5家创历史新高</span><span class="pct up">+1~2%</span></li>
+          <li><span class="nm">覆铜板 / PCB</span><span class="meta">超声电子等涨停</span><span class="pct up">强势</span></li>
+          <li><span class="nm">智能电网 / 电力</span><span class="meta">题材轮动</span><span class="pct up">活跃</span></li>
+          <li><span class="nm">通信 / 芯片</span><span class="meta">麒麟9050催化</span><span class="pct up">异动</span></li>
+          <li><span class="nm">农业 / 种植链</span><span class="meta">农牧渔ETF强势</span><span class="pct up">走强</span></li>
+          <li><span class="nm">电子布</span><span class="meta">涨价落地</span><span class="pct up">跟涨</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>领跌板块 <span class="badge cold">情绪退潮</span></h3>
+        <ul>
+          <li><span class="nm">前期高位AI链</span><span class="meta">拥挤度高</span><span class="pct down">回调</span></li>
+          <li><span class="nm">新能源 / 光伏</span><span class="meta">资金切换</span><span class="pct down">走弱</span></li>
+          <li><span class="nm">大消费 / 医药</span><span class="meta">风险偏好降</span><span class="pct down">承压</span></li>
+          <li><span class="nm">地产 / 基建链</span><span class="meta">基本面弱</span><span class="pct down">拖累</span></li>
+          <li><span class="nm">传媒 / 互联网</span><span class="meta">兑现意愿</span><span class="pct down">走弱</span></li>
+          <li><span class="nm">券商 / 非银</span><span class="meta">成交萎缩</span><span class="pct down">震荡</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI产业链八大方向 -->
+  <div class="section">
+    <h2><span class="num">3</span> AI产业链 · 八大方向拆解</h2>
+
+    <div class="chain-grid">
+
+      <div class="chain-card green">
+        <div class="head">
+          <div class="name">① 光通信 / CPO</div>
+          <div class="perf flat">震荡·消化</div>
+        </div>
+        <div class="desc">昨日"高通×亚马逊1.6T光互联"催化后进入震荡分化期。前期龙头华工科技/中际旭创等仍处高位，资金选择逢高兑现。</div>
+        <div class="stocks">
+          <div class="stock-row"><span class="tag-nm">中际旭创</span><span class="flat">高位震荡</span> · 1.6T龙头 · 高盛目标价2645元</div>
+          <div class="stock-row"><span class="tag-nm">新易盛</span><span class="flat">分化</span> · 800G/1.6T主力</div>
+          <div class="stock-row"><span class="tag-nm">天孚通信</span><span class="flat">震荡</span> · 光器件平台</div>
+          <div class="stock-row"><span class="tag-nm">华工科技</span><span class="flat">消化昨日涨停</span></div>
+          <div class="stock-row"><span class="tag-nm">长飞光纤 / 光库科技</span><span class="flat">跟调</span></div>
+          <div class="stock-row"><span class="tag-nm">蘅东光 / 兆龙互连</span><span class="flat">高低切</span></div>
+        </div>
+      </div>
+
+      <div class="chain-card green">
+        <div class="head">
+          <div class="name">② PCB / CCL（覆铜板）</div>
+          <div class="perf up">强势</div>
+        </div>
+        <div class="desc">电子布涨价落地+AI算力PCB排产至2027年。超声电子、金安国纪、宝鼎科技等覆铜板股10:30封涨停，板块独立逆势走强。</div>
+        <div class="stocks">
+          <div class="stock-row"><span class="tag-nm">超声电子</span><span class="up">+10.01% 涨停</span> · 覆铜板</div>
+          <div class="stock-row"><span class="tag-nm">金安国纪</span><span class="up">+10.01% 涨停</span> · 覆铜板涨价</div>
+          <div class="stock-row"><span class="tag-nm">宝鼎科技</span><span class="up">+10.01% 涨停</span> · CCL材料</div>
+          <div class="stock-row"><span class="tag-nm">生益科技</span><span class="up">跟涨</span> · 英伟达M9认证·CCL龙头</div>
+          <div class="stock-row"><span class="tag-nm">沪电股份</span><span class="up">+</span> · AI服务器PCB</div>
+          <div class="stock-row"><span class="tag-nm">胜宏科技 / 鹏鼎控股</span><span class="up">跟涨</span></div>
+          <div class="stock-row"><span class="tag-nm">菲利华 / 中国巨石 / 泰坦股份</span><span class="up">电子布领涨</span></div>
+        </div>
+      </div>
+
+      <div class="chain-card yellow">
+        <div class="head">
+          <div class="name">③ 存储 / HBM</div>
+          <div class="perf flat">分化</div>
+        </div>
+        <div class="desc">昨日主力大幅流出后，今日部分个股出现反弹（诚邦股份涨停）。中长期涨价周期未变：HBM4成本是DRAM的3-4倍，长鑫存储HBM3进入客户验证。</div>
+        <div class="stocks">
+          <div class="stock-row"><span class="tag-nm">诚邦股份</span><span class="up">+10.01% 涨停</span> · 半导体存储+业绩扭亏</div>
+          <div class="stock-row"><span class="tag-nm">兆易创新</span><span class="flat">震荡</span> · NOR+利基型DRAM龙头·半年报+11倍</div>
+          <div class="stock-row"><span class="tag-nm">佰维存储</span><span class="flat">震荡</span> · 存储模组</div>
+          <div class="stock-row"><span class="tag-nm">澜起科技</span><span class="flat">震荡</span> · PCIe5.0 Retimer</div>
+          <div class="stock-row"><span class="tag-nm">长鑫存储（未上市）</span><span class="flat">拟IPO</span> · HBM3验证中</div>
+          <div class="stock-row"><span class="tag-nm">江波龙 / 北京君正</span><span class="flat">跟跌</span></div>
+        </div>
+      </div>
+
+      <div class="chain-card yellow">
+        <div class="head">
+          <div class="name">④ 半导体设备</div>
+          <div class="perf flat">回调中</div>
+        </div>
+        <div class="desc">华为麒麟9050 Pro发布强化国产化叙事。设备龙头前期涨幅较大进入消化，但订单确定性延续：中微CSEAC 2026发布6款高端设备，长电2026固投100亿投向2.5D/3D。</div>
+        <div class="stocks">
+          <div class="stock-row"><span class="tag-nm">北方华创</span><span class="flat">震荡</span> · 12寸ICP/混合键合新品</div>
+          <div class="stock-row"><span class="tag-nm">中微公司</span><span class="flat">震荡</span> · 3nm刻蚀机·6款新品</div>
+          <div class="stock-row"><span class="tag-nm">拓荆科技</span><span class="flat">震荡</span> · 薄膜沉积</div>
+          <div class="stock-row"><span class="tag-nm">长川科技</span><span class="flat">震荡</span> · 测试机</div>
+          <div class="stock-row"><span class="tag-nm">华海清科 / 芯源微</span><span class="flat">跟调</span></div>
+          <div class="stock-row"><span class="tag-nm">盛美上海 / 金海通</span><span class="flat">震荡</span></div>
+        </div>
+      </div>
+
+      <div class="chain-card yellow">
+        <div class="head">
+          <div class="name">⑤ 先进封装</div>
+          <div class="perf flat">高景气延续</div>
+        </div>
+        <div class="desc">太极实业今日涨停（资产质量+科创债发行+半导体合作），印证封装链获资金回补。CoWoS扩产+长电/通富百亿投入主线未变。</div>
+        <div class="stocks">
+          <div class="stock-row"><span class="tag-nm">太极实业</span><span class="up">+10.02% 涨停</span> · 半导体合作+科创债</div>
+          <div class="stock-row"><span class="tag-nm">长电科技</span><span class="flat">震荡</span> · 2026固投100亿·2.5D/3D</div>
+          <div class="stock-row"><span class="tag-nm">通富微电</span><span class="flat">震荡</span> · AMD封测·全球4大OSAT</div>
+          <div class="stock-row"><span class="tag-nm">华天科技</span><span class="flat">震荡</span></div>
+          <div class="stock-row"><span class="tag-nm">晶方科技 / 甬矽电子</span><span class="flat">跟调</span></div>
+          <div class="stock-row"><span class="tag-nm">颀中科技</span><span class="flat">震荡</span></div>
+        </div>
+      </div>
+
+      <div class="chain-card purple">
+        <div class="head">
+          <div class="name">⑥ 国产芯片 / 通信SoC</div>
+          <div class="perf up">今日催化</div>
+        </div>
+        <div class="desc">华为麒麟9050 Pro发布（余承东：史上最强），叠加盛科通信48亿定增加码高端交换芯片，国产算力/通信链获得强叙事催化。</div>
+        <div class="stocks">
+          <div class="stock-row"><span class="tag-nm">华为麒麟9050 Pro</span><span class="up">事件</span> · 余承东：史上最强高性能芯片</div>
+          <div class="stock-row"><span class="tag-nm">盛科通信</span><span class="up">+</span> · 募资48亿·高端交换芯片</div>
+          <div class="stock-row"><span class="tag-nm">海光信息 / 寒武纪</span><span class="flat">震荡</span> · 国产算力</div>
+          <div class="stock-row"><span class="tag-nm">紫光股份 / 烽火通信</span><span class="flat">跟调</span> · 通信主设备</div>
+        </div>
+      </div>
+
+      <div class="chain-card cyan">
+        <div class="head">
+          <div class="name">⑦ AI服务器 / 液冷</div>
+          <div class="perf down">高位回调</div>
+        </div>
+        <div class="desc">昨日工业富联历史新高后进入获利兑现期。液冷链（曙光数创刀片式浸没相变液冷）等待资金回流，景气度未变但需消化估值。</div>
+        <div class="stocks">
+          <div class="stock-row"><span class="tag-nm">工业富联</span><span class="down">-</span> · 昨日历史新高·今日兑现</div>
+          <div class="stock-row"><span class="tag-nm">浪潮信息</span><span class="down">-</span> · 元脑R1推理服务器</div>
+          <div class="stock-row"><span class="tag-nm">中科曙光</span><span class="flat">震荡</span> · 曙光数创·浸没液冷</div>
+          <div class="stock-row"><span class="tag-nm">紫光股份</span><span class="flat">震荡</span> · 智算服务器</div>
+          <div class="stock-row"><span class="tag-nm">英维克</span><span class="flat">震荡</span> · 液冷CDU龙头</div>
+          <div class="stock-row"><span class="tag-nm">高澜股份 / 润泽科技</span><span class="flat">跟调</span></div>
+          <div class="stock-row"><span class="tag-nm">川润股份 / 佳力图</span><span class="flat">震荡</span></div>
+        </div>
+      </div>
+
+      <div class="chain-card yellow">
+        <div class="head">
+          <div class="name">⑧ MLCC / 上游材料</div>
+          <div class="perf flat">等待涨价兑现</div>
+        </div>
+        <div class="desc">村田/国巨/太阳诱电/三星电机9月再提价30%。MLCC双龙头业绩亮眼（三环H1净利17.94-20.41亿，风华Q1+37%）；上游材料抗跌等待设备行情重启。</div>
+        <div class="stocks">
+          <div class="stock-row"><span class="tag-nm">三环集团</span><span class="flat">震荡</span> · MLCC+陶瓷封装·H1净利18-20亿</div>
+          <div class="stock-row"><span class="tag-nm">风华高科</span><span class="flat">震荡</span> · 国资MLCC·Q1+37%</div>
+          <div class="stock-row"><span class="tag-nm">顺络电子</span><span class="flat">震荡</span> · 片式电感</div>
+          <div class="stock-row"><span class="tag-nm">雅克科技</span><span class="flat">抗跌</span> · 前驱体材料</div>
+          <div class="stock-row"><span class="tag-nm">沪硅产业</span><span class="flat">抗跌</span> · 半导体硅片</div>
+          <div class="stock-row"><span class="tag-nm">南大光电 / 华海诚科</span><span class="flat">震荡</span> · 光刻胶/塑封料</div>
+          <div class="stock-row"><span class="tag-nm">火炬电子 / 法拉电子</span><span class="flat">跟调</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 催化 -->
+  <div class="section">
+    <h2><span class="num">4</span> 核心催化 & 资金动向</h2>
+    <div class="catalyst">
+      <div class="ct">▎ 三大催化</div>
+      <ul>
+        <li><strong style="color:#c4b5fd">华为麒麟9050 Pro发布</strong>：余承东称"史上最强高性能芯片"，国产高端SoC突破引爆芯片/通信链叙事，盛科通信48亿定增高端交换芯片跟进。</li>
+        <li><strong style="color:#c4b5fd">覆铜板/电子布涨价潮</strong>：电子布指数近期持续走强（菲利华、中国巨石、泰坦股份领涨），AI算力PCB排产至2027年，超声电子等覆铜板股封板。</li>
+        <li><strong style="color:#c4b5fd">国新办金融领域发布会</strong>：今日15:00国新办就"金融领域贯彻落实十五五规划、推动金融强国建设"举行新闻发布会，金融/银行板块获政策预期催化。</li>
+      </ul>
+    </div>
+
+    <div class="catalyst" style="margin-top:12px">
+      <div class="ct">▎ 主力资金动向（盘中推演）</div>
+      <ul>
+        <li><strong>资金回流方向：</strong>城商行（南京/宁波/江苏/杭州/成都5家创历史新高）、覆铜板/电子布（超声电子等涨停）、华为链/国产算力（盛科通信等）。</li>
+        <li><strong>资金流出方向：</strong>前期高位AI服务器（工业富联兑现）、光模块龙头（高低切）、部分半导体设备。</li>
+        <li><strong>情绪特征：</strong>全市场4300只个股下跌、涨停仅34家、炸板21家、最高4板——典型<strong>情绪退潮期</strong>，结构机会大于β机会。</li>
+        <li><strong>ETF两融</strong>（截至9/9）：ETF两融余额降至1126.73亿（环比-6.88亿），融资余额1040.95亿，融券余额85.77亿——杠杆资金边际偏谨慎。</li>
+      </ul>
+    </div>
+
+    <div class="risk">
+      <div class="lb">⚠ 风险提示</div>
+      <ul>
+        <li>两市成交缩量+4300股下跌+情绪退潮（涨停仅34、炸板21），明日若不能放量修复，警惕二次探底。</li>
+        <li>AI服务器/光模块前期涨幅巨大，拥挤度已连续多日低于43%，<strong>任何反弹建议以减仓而非加仓应对</strong>。</li>
+        <li>覆铜板/银行领涨但多为"防御属性"补涨，持续性需观察明日是否放量跟随。</li>
+        <li>苹果iPhone Duo发布会（北京时间9月10日凌晨），端侧AI催化可能分流国产算力叙事。</li>
+        <li>本报告基于公开信息梳理（含盘前/盘中数据），收盘价请以交易所公告为准；不构成任何买卖建议，市场有风险，决策需谨慎。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 明日关注 -->
+  <div class="section">
+    <h2><span class="num">5</span> 明日观察清单</h2>
+    <div class="panel">
+      <ul>
+        <li><span class="nm">覆铜板持续性</span><span class="meta">超声电子等能否连板</span><span class="pct up">核心</span></li>
+        <li><span class="nm">银行补涨持续性</span><span class="meta">城商行创新高后是否回踩</span><span class="pct up">观察</span></li>
+        <li><span class="nm">华为链扩散</span><span class="meta">盛科通信+国产SoC跟进</span><span class="pct up">主线</span></li>
+        <li><span class="nm">AI服务器回稳</span><span class="meta">工业富联止跌信号</span><span class="pct down">关键</span></li>
+        <li><span class="nm">存储/设备企稳</span><span class="meta">兆易/中微止跌</span><span class="pct down">跟踪</span></li>
+        <li><span class="nm">国新办发布会</span><span class="meta">15:00金融政策窗口</span><span class="pct up">事件</span></li>
+        <li><span class="nm">苹果端侧AI催化</span><span class="meta">iPhone Duo发布</span><span class="pct flat">外溢</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="row">
+      <span class="pill">📊 数据来源：东方财富 / 同花顺 / 财联社 / 中国证券报 / 公开资讯</span>
+      <span class="pill">🤖 AI产业链深度版</span>
+      <span class="pill">⚠ 盘中数据·收盘价以交易所公告为准</span>
+      <span class="pill">生成时间：2026-09-10 盘后</span>
+    </div>
+    <div>Hermes Agent · 盘后自动总结 · 仅供研究参考，不构成投资建议</div>
+    <div class="mobile-meta">建议在桌面端阅读以获得最佳排版体验</div>
+  </div>
+
+</div>
+</body>
+</html>
