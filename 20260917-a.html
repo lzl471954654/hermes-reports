@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-09-17</title>
+<style>
+  :root{
+    --bg:#0d1117; --card:#161b22; --card2:#1c2333; --border:#292f3a;
+    --text:#e6edf3; --muted:#8b949e; --up:#f85149; --down:#3fb950;
+    --accent:#58a6ff; --gold:#d29922; --purple:#bc8cff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.65;padding:24px 16px}
+  .wrap{max-width:1080px;margin:0 auto}
+  .up{color:var(--up)} .down{color:var(--down)} .muted{color:var(--muted)}
+  header{border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:22px}
+  .kicker{font-size:13px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:6px}
+  h1{font-size:26px;font-weight:700}
+  h1 .date{color:var(--muted);font-size:16px;font-weight:400;margin-left:10px}
+  .subtitle{color:var(--muted);font-size:14px;margin-top:8px}
+  h2{font-size:19px;margin:30px 0 14px;padding-left:10px;border-left:3px solid var(--accent)}
+  h3{font-size:15px;margin:14px 0 8px;color:var(--purple)}
+  .grid{display:grid;gap:12px}
+  .idx-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+  .idx-name{font-size:13px;color:var(--muted)}
+  .idx-val{font-size:22px;font-weight:700;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+  .idx-chg{font-size:13px;font-weight:600}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{color:var(--muted);font-weight:600;text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);white-space:nowrap}
+  td{padding:9px 10px;border-bottom:1px solid #21262d;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:10px;margin-right:6px;background:var(--card2);border:1px solid var(--border)}
+  .tag.hot{color:var(--up);border-color:rgba(248,81,73,.4)}
+  .tag.cold{color:var(--down);border-color:rgba(63,185,80,.4)}
+  .bar-cell{min-width:130px}
+  .bar{height:8px;border-radius:4px;background:#30363d;position:relative;overflow:hidden;margin-top:5px}
+  .bar i{position:absolute;top:0;bottom:0;border-radius:4px}
+  .bar i.up{left:50%;background:var(--up)}
+  .bar i.down{right:50%;background:var(--down)}
+  .note{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:8px;padding:14px 16px;margin:12px 0;font-size:14px;color:#d6deeb}
+  .summary{background:linear-gradient(135deg,#161b22,#1a2233);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:16px 0}
+  .summary ul{margin-left:18px}
+  .summary li{margin:6px 0;font-size:14.5px}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:720px){.cols{grid-template-columns:1fr}}
+  footer{margin-top:34px;padding-top:14px;border-top:1px solid var(--border);color:var(--muted);font-size:12px}
+  .sec-title{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .sec-title .muted{font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">A-SHARE DAILY · AI SUPPLY CHAIN</div>
+  <h1>A股盘后总结 · AI产业链深度版 <span class="date">2026年9月17日 周四</span></h1>
+  <div class="subtitle">隔夜美联储时隔三年多重启加息，贵金属重挫、AI硬件链高位获利回吐，资金切向低位方向</div>
+</header>
+
+<h2>一、指数总览</h2>
+<div class="grid idx-grid">
+  <div class="card"><div class="idx-name">上证指数</div><div class="idx-val">3875.60</div><div class="idx-chg down">-0.41%　-16.00</div></div>
+  <div class="card"><div class="idx-name">深证成指</div><div class="idx-val">13409.91</div><div class="idx-chg down">-0.33%　-44.83</div></div>
+  <div class="card"><div class="idx-name">创业板指</div><div class="idx-val">3298.31</div><div class="idx-chg down">-0.40%　-13.16</div></div>
+  <div class="card"><div class="idx-name">科创50</div><div class="idx-val">1606.29</div><div class="idx-chg down">-0.61%　-9.90</div></div>
+  <div class="card"><div class="idx-name">中证1000</div><div class="idx-val">7548.82</div><div class="idx-chg down">-0.51%</div></div>
+  <div class="card"><div class="idx-name">北证50</div><div class="idx-val">1026.00</div><div class="idx-chg down">-1.37%</div></div>
+  <div class="card"><div class="idx-name">恒生指数</div><div class="idx-val">24559.03</div><div class="idx-chg down">-0.63%</div></div>
+  <div class="card"><div class="idx-name">恒生科技</div><div class="idx-val">4302.81</div><div class="idx-chg down">-0.52%</div></div>
+</div>
+
+<div class="note" style="border-left-color:var(--accent)">
+  <b>量能与广度：</b>沪深两市成交约 <b>1.82万亿元</b>（沪市约8688亿 / 深市约9544亿）。沪市上涨1062家/下跌1205家，深市上涨1466家/下跌1389家，两市涨跌家数接近均衡（涨约2528 / 跌约2594）。创业板指盘中一度冲高至3351.42（+1.2%）后午后回落，指数呈「低开→冲高→回落」的倒N形走势。
+</div>
+
+<h2>二、隔夜宏观：美联储重启加息，风险资产普震</h2>
+<div class="summary">
+<ul>
+  <li><b>加息落地：</b>北京时间9月17日凌晨，美联储将联邦基金利率目标区间上调25个基点至 <b>3.75%–4.00%</b>，为2023年7月以来首次加息，基本符合市场预期；声明强调通胀压力与地缘冲突推升能源价格。</li>
+  <li><b>美股高开低走：</b>道指 <b class="down">-1.21%</b>（-631点，收51461.90）、标普500 <b class="down">-0.45%</b>、纳指 <b class="down">-0.01%</b>（尾盘基本收复）。</li>
+  <li><b>金银跳水：</b>加息后贵金属重挫，今日A股白银 <b class="down">-6.00%</b>、贵金属 <b class="down">-5.35%</b>、黄金 <b class="down">-5.15%</b>，为全市场跌幅榜前三；铜、稀土、铅锌等有色同步走弱。</li>
+  <li><b>对A股影响：</b>指数冲击有限（低开后一度翻红），但压制风险偏好——高位AI硬件链成为主要减仓对象，低位价值/消费方向获得避险性再平衡。</li>
+</ul>
+</div>
+
+<h2>三、AI产业链全景 <span class="muted">（板块涨跌幅 · 主力资金 · 代表个股）</span></h2>
+<table>
+<tr><th>方向</th><th>板块表现</th><th class="bar-cell">涨跌幅</th><th>主力资金</th><th>代表个股（收盘涨跌幅）</th></tr>
+<tr>
+  <td><b>光通信 / CPO</b></td>
+  <td>光通信模块 <span class="down num">-0.48%</span><br>CPO概念 <span class="down num">-0.44%</span></td>
+  <td class="bar-cell"><span class="down num">-0.44%~-0.48%</span><div class="bar"><i class="down" style="width:4.8%"></i></div></td>
+  <td class="num down">合计流出约-66.5亿</td>
+  <td>中际旭创 <span class="down num">-1.30%</span>｜新易盛 <span class="up num">+0.15%</span>｜天孚通信 <span class="up num">+3.41%</span>｜太辰光 <span class="up num">+4.65%</span>｜亨通光电 <span class="up num">+4.72%</span></td>
+</tr>
+<tr>
+  <td><b>存储 / HBM</b></td>
+  <td>存储芯片 <span class="down num">-0.74%</span></td>
+  <td class="bar-cell"><span class="down num">-0.74%</span><div class="bar"><i class="down" style="width:7.4%"></i></div></td>
+  <td class="num down">-103.6亿（全场最大失血）</td>
+  <td>兆易创新 <span class="down num">-0.87%</span>｜江波龙 <span class="down num">-1.14%</span>｜香农芯创 <span class="down num">-1.23%</span>｜澜起科技 <span class="down num">-2.78%</span></td>
+</tr>
+<tr>
+  <td><b>半导体设备</b></td>
+  <td>行业板块 <span class="up num">+0.41%</span>（链内最强）</td>
+  <td class="bar-cell"><span class="up num">+0.41%</span><div class="bar"><i class="up" style="width:4.1%"></i></div></td>
+  <td class="num up">+2.8亿</td>
+  <td>微导纳米 <span class="up num">+8.31%</span>｜中科飞测 <span class="up num">+6.13%</span>｜拓荆科技 <span class="up num">+2.13%</span>｜北方华创 <span class="up num">+0.39%</span>｜盛美上海 <span class="down num">-1.30%</span></td>
+</tr>
+<tr>
+  <td><b>PCB / CCL</b></td>
+  <td>印制电路板 <span class="down num">-2.41%</span><br>元件行业 <span class="down num">-2.25%</span></td>
+  <td class="bar-cell"><span class="down num">-2.41%（链内最弱）</span><div class="bar"><i class="down" style="width:24%"></i></div></td>
+  <td class="num down">PCB -63.0亿 / 元件 -81.0亿</td>
+  <td>生益科技 <span class="down num">-5.47%</span>｜沪电股份 <span class="down num">-3.38%</span>｜胜宏科技 <span class="down num">-3.24%</span>｜深南电路 <span class="down num">-2.25%</span>｜华正新材 <span class="down num">-9.45%</span>｜南亚新材 <span class="down num">-8.43%</span></td>
+</tr>
+<tr>
+  <td><b>MLCC / 被动元件</b></td>
+  <td>MLCC <span class="down num">-1.96%</span><br>被动元件 <span class="down num">-1.83%</span></td>
+  <td class="bar-cell"><span class="down num">-1.83%~-1.96%</span><div class="bar"><i class="down" style="width:19.6%"></i></div></td>
+  <td class="num down">MLCC -32.1亿 / 被动 -18.0亿</td>
+  <td>三环集团 <span class="down num">-1.44%</span>｜风华高科 <span class="down num">-3.29%</span></td>
+</tr>
+<tr>
+  <td><b>先进封装</b></td>
+  <td>先进封装 <span class="down num">-0.14%</span>（相对抗跌）</td>
+  <td class="bar-cell"><span class="down num">-0.14%</span><div class="bar"><i class="down" style="width:1.4%"></i></div></td>
+  <td class="num up">+0.8亿</td>
+  <td>长电科技 <span class="down num">-2.59%</span>｜通富微电 <span class="down num">-1.52%</span>｜华天科技 <span class="down num">-2.73%</span>｜中芯国际 <span class="down num">-1.89%</span></td>
+</tr>
+<tr>
+  <td><b>上游材料</b></td>
+  <td>半导体材料 <span class="down num">-0.34%</span><br>电子化学品 <span class="down num">-1.08%</span></td>
+  <td class="bar-cell"><span class="down num">-0.34%~-1.08%</span><div class="bar"><i class="down" style="width:10.8%"></i></div></td>
+  <td class="num down">材料 -24.6亿</td>
+  <td>涨停：先导基电 <span class="up num">+10.01%</span>、中晶科技 <span class="up num">+9.99%</span>；新恒汇 <span class="up num">+8.95%</span>｜中船特气 <span class="down num">-4.11%</span>｜华海诚科 <span class="down num">-3.23%</span></td>
+</tr>
+<tr>
+  <td><b>AI服务器 / 液冷</b></td>
+  <td>液冷服务器 <span class="up num">+0.07%</span><br>算力概念 <span class="up num">+0.12%</span></td>
+  <td class="bar-cell"><span class="up num">+0.07%~+0.12%</span><div class="bar"><i class="up" style="width:1.2%"></i></div></td>
+  <td class="num up">算力 +17.8亿<br><span class="down">液冷 -32.6亿</span></td>
+  <td>同飞股份 <span class="up num">+7.22%</span>｜工业富联 <span class="down num">-1.70%</span>｜浪潮信息 <span class="down num">-1.88%</span>｜中科曙光 <span class="down num">-0.74%</span>｜英维克 <span class="down num">-0.45%</span></td>
+</tr>
+<tr>
+  <td><b>算力芯片 / 其他</b></td>
+  <td>光学光电子 <span class="up num">+0.90%</span>｜AIGC <span class="up num">+0.93%</span>｜机器人执行器 <span class="up num">+1.47%</span></td>
+  <td class="bar-cell"><span class="up num">分化</span><div class="bar"><i class="up" style="width:6%"></i></div></td>
+  <td class="num up">面板 +20.2亿<br><span class="down">半导体行业 -47.5亿</span></td>
+  <td>寒武纪 <span class="down num">-2.64%</span>｜海光信息 <span class="down num">-1.31%</span>｜京东方A <span class="up num">+5.50%</span>｜TCL科技 <span class="up num">+1.47%</span></td>
+</tr>
+</table>
+
+<h2>四、AI链个股涨跌榜 <span class="muted">（截取自上述板块成员）</span></h2>
+<div class="cols">
+  <div class="card">
+    <h3 class="up">▲ 领涨</h3>
+    <table>
+      <tr><td>集智股份（液冷）</td><td class="num up">+10.52%</td></tr>
+      <tr><td>沃顿科技（液冷）</td><td class="num up">+10.02%</td></tr>
+      <tr><td>先导基电（半导体材料）</td><td class="num up">+10.01%</td></tr>
+      <tr><td>中晶科技（半导体材料）</td><td class="num up">+9.99%</td></tr>
+      <tr><td>新恒汇（材料/封测）</td><td class="num up">+8.95%</td></tr>
+      <tr><td>微导纳米（设备）</td><td class="num up">+8.31%</td></tr>
+      <tr><td>同飞股份（液冷）</td><td class="num up">+7.22%</td></tr>
+      <tr><td>金海通（设备）</td><td class="num up">+6.69%</td></tr>
+      <tr><td>光智科技（光通信）</td><td class="num up">+6.25%</td></tr>
+      <tr><td>中科飞测（设备）</td><td class="num up">+6.13%</td></tr>
+      <tr><td>京东方A（面板）</td><td class="num up">+5.50%</td></tr>
+      <tr><td>亨通光电（光通信）</td><td class="num up">+4.72%</td></tr>
+      <tr><td>太辰光（光通信）</td><td class="num up">+4.65%</td></tr>
+      <tr><td>天孚通信（光器件）</td><td class="num up">+3.41%</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3 class="down">▼ 领跌</h3>
+    <table>
+      <tr><td>华正新材（CCL）</td><td class="num down">-9.45%</td></tr>
+      <tr><td>南亚新材（CCL）</td><td class="num down">-8.43%</td></tr>
+      <tr><td>威尔高（PCB）</td><td class="num down">-7.90%</td></tr>
+      <tr><td>骏亚科技（PCB）</td><td class="num down">-6.48%</td></tr>
+      <tr><td>生益科技（CCL）</td><td class="num down">-5.47%</td></tr>
+      <tr><td>中船特气（电子特气）</td><td class="num down">-4.11%</td></tr>
+      <tr><td>风华高科（MLCC）</td><td class="num down">-3.29%</td></tr>
+      <tr><td>沪电股份（PCB）</td><td class="num down">-3.38%</td></tr>
+      <tr><td>胜宏科技（PCB）</td><td class="num down">-3.24%</td></tr>
+      <tr><td>华海诚科（封装材料）</td><td class="num down">-3.23%</td></tr>
+      <tr><td>寒武纪（算力芯片）</td><td class="num down">-2.64%</td></tr>
+      <tr><td>澜起科技（内存接口）</td><td class="num down">-2.78%</td></tr>
+      <tr><td>华天科技（封测）</td><td class="num down">-2.73%</td></tr>
+      <tr><td>中芯国际（代工）</td><td class="num down">-1.89%</td></tr>
+    </table>
+  </div>
+</div>
+
+<h2>五、盘面解读</h2>
+<div class="summary">
+<ul>
+  <li><b>主线逻辑：加息冲击 → 高位AI硬件获利回吐。</b>PCB/CCL（-2.41%）与存储（主力流出103.6亿）是今日AI链的失血重心，直接承接昨夜美联储加息后的风险偏好收缩；昨日大涨的半导体、CPO概念亦普遍缩圈回踩。</li>
+  <li><b>链内分化而非普跌：</b>半导体设备（+0.41%、主力净流入）与液冷/算力（微红）显示资金并未撤离AI叙事，而是在链内做「从硬件制造端向设备端/温控端」的轮动；上游材料端两只涨停（先导基电、中晶科技）说明国产替代细分仍有独立行情。</li>
+  <li><b>光通信结构性行情：</b>龙头中际旭创收跌1.3%，但天孚通信、太辰光、亨通光电等光器件/光纤光缆方向逆势走强，光链内部的价差交易明显。</li>
+  <li><b>全市场再平衡：</b>种业（+5%~+7.9%）、视频媒体（+6.58%）、跨境电商、快递、航运、医疗研发外包（+1.98%、主力+13.4亿）、玻纤、汽车等低位方向放量补涨，属于典型的避险+高低切换，而非AI叙事终结。</li>
+  <li><b>存储中期逻辑未破：</b>三星存储报价涨超30%（9/15）的涨价周期背景未变，今日属于两连阳后的技术性兑现，主力单日大幅流出后需观察能否快速缩量企稳。</li>
+</ul>
+</div>
+
+<div class="note">
+  <b>后市关注：</b>① 美联储加息后的后续指引（年内是否续加）对成长股估值的持续压制；② 存储链（HBM/模组）能否在主力大幅流出后企稳；③ PCB/CCL高位筹码的消化进度；④ 半导体设备/材料在订单周期与国产替代下的相对强势能否延续；⑤ 面板（京东方A +5.5%）等低位泛科技方向的补涨持续性。
+</div>
+
+<footer>
+  数据来源：交易所行情（腾讯/东方财富接口，收盘快照）及公开市场资讯 · 指数与板块数据为2026-09-17收盘口径；主力资金为东方财富口径，仅供参考。<br>
+  本报告由 AI 自动生成，仅为市场信息整理与复盘，不构成任何投资建议。市场有风险，投资需谨慎。
+</footer>
+
+</div>
+</body>
+</html>
