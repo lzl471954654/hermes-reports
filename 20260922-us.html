@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026年9月22日</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d28;
+    --border: #2a2d3a;
+    --text: #e1e4ed;
+    --sub: #8890a4;
+    --red: #f5555a;
+    --green: #26a69a;
+    --blue: #5b9cf5;
+    --accent: #7c5cfc;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px 16px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .date { color: var(--sub); font-size: 0.85rem; margin-bottom: 20px; }
+
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .section h2 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .section h2 .icon { font-size: 1.2rem; }
+
+  .index-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(42,45,58,0.5);
+    font-size: 0.92rem;
+  }
+  .index-row:last-child { border-bottom: none; }
+  .idx-name { color: var(--sub); }
+  .idx-change { font-weight: 600; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .flat { color: var(--sub); }
+
+  .stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  .stock-table th {
+    text-align: left;
+    color: var(--sub);
+    font-weight: 500;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.8rem;
+  }
+  .stock-table td {
+    padding: 7px 8px;
+    border-bottom: 1px solid rgba(42,45,58,0.4);
+  }
+  .stock-table tr:last-child td { border-bottom: none; }
+  .stock-symbol { font-weight: 600; color: var(--blue); }
+  .stock-name { color: var(--sub); font-size: 0.8rem; }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .tag-red { background: rgba(245,85,90,0.15); color: var(--red); }
+  .tag-green { background: rgba(38,166,154,0.15); color: var(--green); }
+  .tag-blue { background: rgba(91,156,245,0.15); color: var(--blue); }
+  .tag-accent { background: rgba(124,92,252,0.15); color: var(--accent); }
+
+  .news-item {
+    padding: 6px 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(42,45,58,0.35);
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-dot { color: var(--accent); margin-right: 6px; }
+
+  .map-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(42,45,58,0.35);
+    font-size: 0.88rem;
+  }
+  .map-item:last-child { border-bottom: none; }
+  .map-arrow { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer {
+    margin-top: 20px;
+    font-size: 0.75rem;
+    color: var(--sub);
+    text-align: center;
+    padding: 10px;
+  }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+
+  .highlight-box {
+    background: rgba(124,92,252,0.08);
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    margin-top: 10px;
+  }
+
+  .summary-point {
+    display: flex;
+    gap: 8px;
+    padding: 5px 0;
+    font-size: 0.9rem;
+  }
+  .summary-num { color: var(--accent); font-weight: 700; min-width: 20px; }
+</style>
+</head>
+<body>
+
+<h1>🌐 AI产业链美股收盘 &amp; A股映射早报</h1>
+<div class="date">2026年9月22日（周二）｜ 覆盖9月21日（周一）美股收盘</div>
+
+<!-- ========== 市场总览 ========== -->
+<div class="section">
+  <h2><span class="icon">📊</span>美股三大指数</h2>
+  <div class="index-row">
+    <span class="idx-name">纳斯达克综合</span>
+    <span>—</span>
+    <span class="idx-change up">+2.3%</span>
+    <span style="font-size:0.78rem; color:var(--sub)">收盘创历史新高（超越6月2日高点）</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">标普500</span>
+    <span>≈7,833</span>
+    <span class="idx-change up">+1.5%</span>
+    <span style="font-size:0.78rem; color:var(--sub)">8月初以来最佳单日，距8/13高点仅0.4%</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">道琼斯工业</span>
+    <span>≈52,044</span>
+    <span class="idx-change up">+0.7%</span>
+    <span style="font-size:0.78rem; color:var(--sub)">涨超360点（上周-1.7%三连阴后反弹）</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">费城半导体 SOX</span>
+    <span>—</span>
+    <span class="idx-change up">+4.3%</span>
+    <span style="font-size:0.78rem; color:var(--sub)">五连阳，SOXX基金涨近5%</span>
+  </div>
+  <div class="highlight-box">
+    <strong>📈 市场判断：</strong>上周"科技大佬AI放缓论 + 美联储加息（三年来首次）"双重压制后，周一情绪剧烈反转——油价暴跌（布油-3.4%至$100.34，四连跌累计-9.5%）压低10Y美债至4.96%（-5bp），成长股估值压力骤释；叠加Meta Muse引爆"AI Agent拉动算力需求"新叙事，纳指、标普单日涨幅均创8月初以来之最，AI交易全面回归。
+  </div>
+</div>
+
+<!-- ========== AI产业链核心 ========== -->
+<div class="section">
+  <h2><span class="icon">🧠</span>AI产业链核心个股</h2>
+
+  <h3 style="font-size:0.88rem; color:var(--sub); margin:4px 0 8px 0;">🔧 算力芯片 &amp; 设计</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">AMD</td>
+      <td class="stock-name">超威半导体</td>
+      <td class="up">+10%</td>
+      <td><span class="tag tag-green">市值首破$1万亿</span>收盘历史新高</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">ARM</td>
+      <td class="stock-name">Arm控股</td>
+      <td class="up">+17%</td>
+      <td>纳指表现最佳之一，CPU叙事受益</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">INTC</td>
+      <td class="stock-name">英特尔</td>
+      <td class="up">+12%</td>
+      <td>云端CPU需求逻辑强化</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">NVDA</td>
+      <td class="stock-name">英伟达</td>
+      <td class="up">+2%</td>
+      <td><span class="tag tag-blue">特习会聚焦对华$300亿机会</span></td>
+    </tr>
+  </table>
+
+  <h3 style="font-size:0.88rem; color:var(--sub); margin:14px 0 8px 0;">💾 存储 &amp; 内存</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">MU</td>
+      <td class="stock-name">美光科技</td>
+      <td class="up">+3%</td>
+      <td>DRAM ETF涨3.5%；三星韩股+5%</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">005930.KS</td>
+      <td class="stock-name">三星电子</td>
+      <td class="up">+5%</td>
+      <td>存储涨价周期共振</td>
+    </tr>
+  </table>
+
+  <h3 style="font-size:0.88rem; color:var(--sub); margin:14px 0 8px 0;">🏢 科技巨头 (Magnificent 7)</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">META</td>
+      <td class="stock-name">Meta平台</td>
+      <td class="up">+11.4%</td>
+      <td><span class="tag tag-accent">Muse AI登顶App Store</span>单日市值+$2000亿，2025年4月以来最佳；Citi目标价$800</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol" colspan="2" style="color:var(--sub)">MSFT · GOOGL · AMZN · AAPL · TSLA</td>
+      <td class="up">齐涨</td>
+      <td>七大巨头全线收高</td>
+    </tr>
+  </table>
+
+  <div style="font-size:0.85rem; color:var(--sub); margin-top:10px;">
+    其他：Moderna +12%；派拉蒙天舞、华纳兄弟探索 +10%+（合并获州总检察长放行）；能源板块 <span class="down">-2.5%</span> 领跌标普（油价重挫）。
+  </div>
+</div>
+
+<!-- ========== 盘后动态 ========== -->
+<div class="section">
+  <h2><span class="icon">🌙</span>盘后 &amp; 关键动态</h2>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>隔夜期货高位整理</strong>：标普期货+0.04%、纳指期货+0.31%、道指期货-0.03%，无获利了结迹象；比特币+6%报$86,400（盘中破$87,000，1月以来新高），加密概念情绪外溢
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>油价崩了</strong>：布伦特-3.4%报$100.34（盘中跌破$100，9月9日以来首次），WTI -4.5%报$95.78。触发点：特朗普称"可能"本周联大期间会见伊朗总统佩泽希齐扬，霍尔木兹海峡复航预期+彭博卫星图显示沙特油轮装载放量
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>Meta Muse效应</strong>：上线10天登顶美国App Store免费榜。彭博/Bloomberg核心逻辑——AI Agent不仅吃GPU还大量消耗云端CPU，AMD/英特尔/ARM逻辑重估；有分析师将2030年芯片市场TAM从$2.7万亿上调至$3.2万亿
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>特习会倒计时</strong>：习主席9/23-25对美国事访问（跳过联大一般性辩论直飞华盛顿），9/24双边会晤。市场聚焦英伟达对华出口松绑的"$300亿机会"；黄仁勋称芯片销量可能翻倍。另：华为宣布明年推出两款新AI芯片
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>本周财报清淡</strong>：AutoZone、KB Home（周二盘前），Costco、Synnex、BlackBerry（周四）。AI权重股无财报，关注联大期间地缘头条驱动
+  </div>
+</div>
+
+<!-- ========== A股映射 ========== -->
+<div class="section">
+  <h2><span class="icon">🇨🇳</span>A股映射分析</h2>
+
+  <div style="font-size:0.85rem; color:var(--sub); margin-bottom:10px;">
+    ℹ️ A股昨日（9/21）：沪指+0.97%高开高走，深成指+0.65%，超4500股上涨、成交逾2万亿——但领涨的是医药生物、房地产、油服，<strong>算力链并未主攻</strong>。美股隔夜AI大涨的映射在今天（9/22）才集中兑现。
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>光模块/CPO（中际旭创·新易盛·天孚通信）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">费半+4.3%五连阳、AMD破万亿 → 算力景气叙事重启，光模块为A股算力情绪旗手，关注高开后量能配合度。</span>
+    </div>
+  </div>
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>存储芯片（兆易创新·江波龙·佰维存储·香农芯创）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">美光+3%、三星+5%、DRAM ETF+3.5% → 全球存储涨价周期共振最直接的A股承接方向，长鑫科技概念亦有联动弹性。</span>
+    </div>
+  </div>
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>服务器/PCB/液冷（工业富联·沪电股份·胜宏科技·英维克）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">AI Agent推理需求逻辑（CPU+GPU双吃）强化 → 算力硬件链受益于"需求超预期"叙事修复。</span>
+    </div>
+  </div>
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>AMD链/国产算力（通富微电·寒武纪·海光信息）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">通富微电为AMD封测主力直接受益；特习会+华为两款新AI芯片官宣 → 中美博弈双面预期：出口松绑利好供应链，自主可控逻辑并行不悖。</span>
+    </div>
+  </div>
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>端侧AI/AI应用</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">Meta Muse爆火验证C端AI Agent入口价值 → 关注AI应用、AI终端（眼镜/玩具/手机PC）题材的映射炒作。</span>
+    </div>
+  </div>
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>油价下跌传导（航空·物流·化工）</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">布油四连跌-9.5% → 成本端利好航空/物流；注意昨日A股领涨的油服工程板块（准油股份等）今日或承压回吐。</span>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>💡 策略参考：</strong>美股AI交易强势回归，A股算力链今日大概率高开兑现映射，首选存储（涨价周期）与光模块（情绪旗手）。两点克制：①美联储加息周期未完、10Y逼近5%，AI情绪反转快——上周"AI放缓论"引发的暴跌殷鉴不远，高开追涨性价比一般，关注回踩确认；②9/24特习会是本周最大变量，中美缓和若超预期，出口链+苹果链或接力算力成为新主线。仓位上建议把昨日医药/地产的获利盘留一部分应对轮动。
+  </div>
+</div>
+
+<hr>
+<div class="disclaimer">
+  ⚠️ 以上内容基于公开数据整理，仅供参考，不构成投资建议。市场有风险，投资需谨慎。<br>
+  数据来源：Bloomberg、NBC News、Investopedia/Yahoo Finance、Zacks、TradingEconomics、界面/人民财讯 等 | 生成时间：2026-09-22
+</div>
+
+</body>
+</html>
