@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-09-24</title>
+<style>
+  :root{
+    --bg:#0d1117; --card:#161b22; --card2:#1c2330; --border:#2d333b;
+    --text:#e6edf3; --muted:#8b949e; --up:#f8514f; --down:#3fb950; --flat:#8b949e;
+    --accent:#58a6ff; --gold:#d29922; --purple:#bc8cff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;padding:24px 16px;}
+  .wrap{max-width:1080px;margin:0 auto;}
+  header{border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:22px;}
+  h1{font-size:26px;letter-spacing:1px;}
+  h1 .hl{color:var(--accent);}
+  .meta{color:var(--muted);font-size:13px;margin-top:6px;}
+  .tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{font-size:12px;padding:3px 10px;border:1px solid var(--border);border-radius:12px;color:var(--muted);background:var(--card);}
+  h2{font-size:19px;margin:26px 0 12px;padding-left:10px;border-left:4px solid var(--accent);}
+  h3{font-size:15px;margin:0 0 8px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:14px;}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th{color:var(--muted);font-weight:500;text-align:right;padding:7px 8px;border-bottom:1px solid var(--border);white-space:nowrap;}
+  td{padding:7px 8px;text-align:right;border-bottom:1px solid rgba(45,51,59,.5);white-space:nowrap;}
+  th:first-child,td:first-child{text-align:left;}
+  tr:last-child td{border-bottom:none;}
+  .up{color:var(--up);} .down{color:var(--down);} .flat{color:var(--flat);}
+  .idx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;}
+  .idx{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+  .idx .name{font-size:13px;color:var(--muted);}
+  .idx .val{font-size:20px;font-weight:600;margin-top:2px;}
+  .idx .pct{font-size:13px;margin-top:2px;}
+  .bar{height:10px;border-radius:5px;background:var(--down);position:relative;margin:10px 0 6px;overflow:hidden;}
+  .bar .fill{position:absolute;left:0;top:0;bottom:0;background:var(--up);}
+  .note{color:var(--muted);font-size:13px;}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:760px){.cols{grid-template-columns:1fr;}}
+  .sector-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;}
+  .badge{font-size:12px;padding:2px 9px;border-radius:10px;border:1px solid var(--border);}
+  .b-up{color:var(--up);border-color:rgba(248,81,79,.4);}
+  .b-down{color:var(--down);border-color:rgba(63,185,80,.4);}
+  .b-flat{color:var(--muted);border-color:rgba(139,148,158,.4);}
+  ul{padding-left:20px;}
+  li{margin:6px 0;}
+  li::marker{color:var(--accent);}
+  .kpi{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
+  .kpi div{flex:1;min-width:120px;background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;text-align:center;}
+  .kpi .v{font-size:18px;font-weight:600;}
+  .kpi .l{font-size:12px;color:var(--muted);}
+  footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;}
+  .hot{color:var(--gold);}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:10px;}
+  .warn{background:rgba(210,153,34,.08);border:1px solid rgba(210,153,34,.3);border-radius:8px;padding:10px 14px;color:var(--gold);font-size:13px;margin:10px 0;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>📊 A股盘后总结 <span class="hl">· AI产业链深度版</span></h1>
+  <div class="meta">2026年9月24日 星期四 · 中秋节前最后一个交易日 · 收盘综合（沪指 -1.22% 失守3900点）｜推送时间：2026-09-24 收盘后（自动化）｜本报告为 2026-09-24 完整交易日收盘盘后数据</div>
+  <div class="tags">
+    <span class="tag">光通信/CPO</span><span class="tag">存储/HBM</span><span class="tag">半导体设备</span>
+    <span class="tag">PCB/CCL</span><span class="tag">MLCC</span><span class="tag">先进封装</span>
+    <span class="tag">上游材料</span><span class="tag">AI服务器/液冷</span>
+  </div>
+</header>
+
+<div class="warn">
+⚠️ <b>节前效应 + 924行情两周年</b>：今日（9-24）是中秋假期前最后交易日，叠加 2024 年 9·24 新政两周年时点；盘面整体呈现普跌缩量格局，AI 链同步承压但未现系统性风险。
+</div>
+
+<div class="card">
+  <h3>⚡ 核心结论</h3>
+  <ul>
+    <li><b>沪指失守3900点，节前普跌缩量：</b>上证指数收 <b>3888.37 点，跌 1.22%（-48.15 点）</b>，盘中触及日内低 3888.37；最高 3930.50；沪市成交 <b>7836.13 亿元</b>，全市场半日成交 1.07 万亿（较前同期缩量 914 亿），呈现典型节前缩量震荡。</li>
+    <li><b>"绿盘主导"格局：</b>全市场<b>涨跌比 1120 : 4306</b>，<b>赚钱效应仅 20.64%</b>，超 4300 只个股下跌；弱势格局贯穿早盘低开低走、午后缩量横盘，节前落袋为安情绪明显。</li>
+    <li><b>AI 链全线承压，PCB 板块集中"挤泡沫"：</b>印制电路板（PCB）板块今日进入跌幅榜前三，<b>热门股密集发布异动公告</b>（澳弘电子等多家发布交易异常波动及风险提示）；AI 应用/算力/光模块/存储同步回调，前期高位股普遍回吐，板块从"接力补涨"切换至"防御性降温"。</li>
+    <li><b>防御与冷门板块逆势：</b><b>林业、风电零部件、焦炭加工</b>成为今日少数涨幅居前行业；<b>医疗研发外包、PCB、贵金属</b>则进入跌幅榜前三。资金明显从高估值科技切换至冷门防御板块。</li>
+    <li><b>流动性护航：</b>央行节前净投放 <b>2000 亿元</b>资金面呵护明显；市场静待中秋假期期间外围变量（美国 8 月 PCE 物价指数等）落地。</li>
+  </ul>
+</div>
+
+<h2>一、指数与市场全景</h2>
+<div class="idx-grid">
+  <div class="idx"><div class="name">上证指数</div><div class="val">3888.37</div><div class="pct down">-1.22% (-48.15 点)</div></div>
+  <div class="idx"><div class="name">深证成指</div><div class="val">承压</div><div class="pct down">半日 -1.74%（参考）</div></div>
+  <div class="idx"><div class="name">创业板指</div><div class="val">承压</div><div class="pct down">半日 -1.84%（参考）</div></div>
+  <div class="idx"><div class="name">科创50</div><div class="val">承压</div><div class="pct down">科技权重承压较深</div></div>
+  <div class="idx"><div class="name">沪深两市成交</div><div class="val">半日 1.07 万亿</div><div class="pct flat">较前日同期缩量 914 亿</div></div>
+  <div class="idx"><div class="name">沪市成交</div><div class="val">7836.13 亿元</div><div class="pct flat">全市场缩量震荡</div></div>
+  <div class="idx"><div class="name">涨跌家数</div><div class="val">1120 : 4306</div><div class="pct down">绿盘主导</div></div>
+  <div class="idx"><div class="name">赚钱效应</div><div class="val">20.64%</div><div class="pct down">近八成个股下跌</div></div>
+</div>
+
+<div class="card" style="margin-top:14px;">
+  <h3>市场宽度</h3>
+  <div class="bar"><div class="fill" style="width:20.64%"></div></div>
+  <div class="note">上涨 <span class="down">1120 家（20.64%）</span> vs 下跌 <span class="up">4306 家（≈77.5%）</span> · 沪指日 K 失守 3900 点整数位</div>
+  <div class="kpi">
+    <div><div class="v down">-1.22%</div><div class="l">沪指（失守3900）</div></div>
+    <div><div class="v">1.07 万亿</div><div class="l">半日成交（缩量914亿）</div></div>
+    <div><div class="v down">20.64%</div><div class="l">赚钱效应</div></div>
+    <div><div class="v">+2000 亿</div><div class="l">央行净投放</div></div>
+  </div>
+  <p class="note" style="margin-top:10px;">盘面结构：今日三大指数集体低开（沪指开 3925.32 较昨收 3936.52 直接跳空低开），全天弱势震荡下行；早盘房地产、PCB 概念领跌（超声电子、逸豪新材、华丽家族跌停、华远控股跌停），午后无明显反扑，尾盘小幅缩量横盘。<b>PCB 板块进入跌幅榜前三</b>，前期热门股集中释放风险信号。</p>
+</div>
+
+<h2>二、9月24日 行业板块涨跌榜</h2>
+<div class="cols">
+<div class="card">
+  <h3>📈 涨幅居前行业</h3>
+  <table>
+    <tr><th>板块</th><th>代码</th><th>表现</th></tr>
+    <tr><td>林业</td><td>884004</td><td class="up">逆势领涨</td></tr>
+    <tr><td>风电零部件</td><td>884308</td><td class="up">涨幅居前</td></tr>
+    <tr><td>焦炭加工</td><td>884015</td><td class="up">涨幅居前</td></tr>
+  </table>
+  <p class="note" style="margin-top:8px;">资金在科技主线降温后切换至<b>冷门防御板块</b>，林业/风电/焦炭成为少数避风港。属于节前资金"高切低"典型操作。</p>
+</div>
+
+<div class="card">
+  <h3>📉 跌幅居前行业</h3>
+  <table>
+    <tr><th>板块</th><th>代码</th><th>表现</th></tr>
+    <tr><td>医疗研发外包</td><td>884244</td><td class="down">跌幅居前</td></tr>
+    <tr><td><b>印制电路板（PCB）</b></td><td>884092</td><td class="down">概念走弱</td></tr>
+    <tr><td>贵金属</td><td>881169</td><td class="down">跌幅居前</td></tr>
+  </table>
+  <p class="note" style="margin-top:8px;"><b>PCB 板块进入跌幅榜前三</b>：超声电子、逸豪新材等个股显著下挫；澳弘电子等热门股密集发布<b>交易异常波动暨风险提示公告</b>。贵金属走弱或与今日美元/美债收益率波动相关。房地产板块同步调整（华丽家族跌停、华远控股盘中跌停）。</p>
+</div>
+</div>
+
+<h2>三、AI 产业链方向明细</h2>
+<p class="sub">9月24日 AI 链整体处于"集体降温"阶段，PCB 板块领跌释放前期过热风险；其他 AI 子板块同步承压但未现系统性风险。以下按方向逐一梳理。</p>
+
+<div class="cols">
+<div class="card">
+  <div class="sector-head"><h3>🔌 光通信 / 光模块 / CPO</h3><span class="badge b-down">板块同步走弱</span></div>
+  <table>
+    <tr><th>方向观察</th><th>状态</th></tr>
+    <tr><td>板块整体</td><td class="down">随大盘承压回调</td></tr>
+    <tr><td>中际旭创 / 新易盛</td><td class="down">前期高位回吐</td></tr>
+    <tr><td>天孚通信 / 华工科技</td><td class="down">板块性调整</td></tr>
+    <tr><td>1.6T / CPO 产业逻辑</td><td class="flat">中期景气未变</td></tr>
+  </table>
+  <p class="note" style="margin-top:5px;">光模块/光通信今日未进入跌幅榜前三，但板块整体跟随大盘走弱，前期高位股普遍出现回吐。Scale-Up CPO（1:11.5）的中期产业逻辑仍未变化，节后关注企稳信号。</p>
+</div>
+
+<div class="card">
+  <div class="sector-head"><h3>💾 存储 / HBM / 国产存储</h3><span class="badge b-down">板块同步承压</span></div>
+  <table>
+    <tr><th>方向观察</th><th>状态</th></tr>
+    <tr><td>板块整体</td><td class="down">随大盘调整</td></tr>
+    <tr><td>兆易创新 / 澜起科技</td><td class="down">高位回吐</td></tr>
+    <tr><td>长鑫科技 / 佰维存储</td><td class="down">板块性回调</td></tr>
+    <tr><td>HBM 国产化 / 扩产</td><td class="flat">长线催化未变</td></tr>
+  </table>
+  <p class="note" style="margin-top:5px;">存储板块今日跟随大盘走弱，22 日主力抱团的兆易/长鑫/瑞芯微等出现资金获利了结迹象。<b>长鑫存储扩产 + HBM 国产化 + DDR5 渗透</b>的中长期逻辑不变，节后关注龙头企稳节奏。</p>
+</div>
+
+<div class="card">
+  <div class="sector-head"><h3>🧰 半导体设备 / 国产替代</h3><span class="badge b-down">板块同步走弱</span></div>
+  <table>
+    <tr><th>方向观察</th><th>状态</th></tr>
+    <tr><td>北方华创 / 中微公司</td><td class="down">板块性回调</td></tr>
+    <tr><td>拓荆科技 / 沪硅产业</td><td class="down">跟随调整</td></tr>
+    <tr><td>中国长城 / 海光信息</td><td class="down">高位回吐</td></tr>
+    <tr><td>大基金三期 + 国产替代</td><td class="flat">景气延续</td></tr>
+  </table>
+  <p class="note" style="margin-top:5px;">半导体设备板块今日同步承压，但国产替代主线（北方华创/中微/沪硅产业）的订单饱满度未变。<b>大基金三期 2026 年投放节奏 + AI 算力需求</b>共同支撑设备国产化逻辑，关注节后量能能否重新放大。</p>
+</div>
+
+<div class="card">
+  <div class="sector-head"><h3>🟩 PCB / CCL / 覆铜板</h3><span class="badge b-down">⚠️ 板块领跌</span></div>
+  <table>
+    <tr><th>方向观察</th><th>状态</th></tr>
+    <tr><td><b>印制电路板板块</b></td><td class="down">跌幅榜前三</td></tr>
+    <tr><td>超声电子 / 逸豪新材</td><td class="down">显著下挫</td></tr>
+    <tr><td>澳弘电子等</td><td class="down">发布风险提示公告</td></tr>
+    <tr><td>沪电股份 / 胜宏科技</td><td class="down">高位回吐</td></tr>
+  </table>
+  <p class="note" style="margin-top:5px;"><b>今日 AI 链最大风险点：</b>PCB 板块进入跌幅榜前三，前期热门股密集发布<b>交易异常波动暨风险提示公告</b>（澳弘电子等公告指出"PCB 行业受宏观产业政策、上游原材料供给、下游终端需求等多重外部因素叠加影响"）。AI 服务器高多层/高频高速 PCB 的景气仍在，但<b>短线获利盘集中释放</b>，需警惕高位股继续回调。</p>
+</div>
+
+<div class="card">
+  <div class="sector-head"><h3>🧱 MLCC / 被动元件</h3><span class="badge b-down">板块同步承压</span></div>
+  <table>
+    <tr><th>方向观察</th><th>状态</th></tr>
+    <tr><td>华瓷股份（前 6 连板）</td><td class="down">高位获利兑现</td></tr>
+    <tr><td>三环集团 / 风华高科</td><td class="down">板块性回调</td></tr>
+    <tr><td>国瓷材料 / 洁美科技</td><td class="down">跟随调整</td></tr>
+    <tr><td>涨价 + AI 用量倍增</td><td class="flat">中期逻辑未变</td></tr>
+  </table>
+  <p class="note" style="margin-top:5px;">MLCC 板块在前日华瓷股份 6 连板高潮后，今日板块同步走弱。被动元件"涨价 + AI 服务器单机用量倍增"的中期逻辑未变，但短线需等待龙头企稳。</p>
+</div>
+
+<div class="card">
+  <div class="sector-head"><h3>📦 先进封装 / 封测</h3><span class="badge b-down">板块同步承压</span></div>
+  <table>
+    <tr><th>方向观察</th><th>状态</th></tr>
+    <tr><td>通富微电 / 长电科技</td><td class="down">板块性回调</td></tr>
+    <tr><td>颀中科技 / 晶方科技</td><td class="down">跟随调整</td></tr>
+    <tr><td>甬矽电子 / 汇成股份</td><td class="down">同步走弱</td></tr>
+    <tr><td>AMD/长鑫订单预期</td><td class="flat">订单饱满度未变</td></tr>
+  </table>
+  <p class="note" style="margin-top:5px;">封测板块今日整体跟随大盘走弱。AMD MI 系列 + 长鑫存储 + 国产 AI 芯片封测订单的中期景气未变，但短线跟随市场情绪降温。<b>节后关注</b>龙头能否率先企稳反弹。</p>
+</div>
+
+<div class="card">
+  <div class="sector-head"><h3>⚗️ 上游材料 / 半导体材料</h3><span class="badge b-down">板块同步走弱</span></div>
+  <table>
+    <tr><th>方向观察</th><th>状态</th></tr>
+    <tr><td>宏和科技 / 菲利华</td><td class="down">电子布高位回吐</td></tr>
+    <tr><td>雅克科技 / 鼎龙股份</td><td class="down">跟随调整</td></tr>
+    <tr><td>江丰电子 / 安集科技</td><td class="down">抛光液/靶材承压</td></tr>
+    <tr><td>光刻胶（彤程/南大）</td><td class="down">回吐前期涨幅</td></tr>
+  </table>
+  <p class="note" style="margin-top:5px;">材料板块 22 日刚获主力大幅净流入（宏和科技净流入 12.48 亿登榜），今日即跟随 PCB 板块同步回吐，呈现"涨得快、调得急"的过山车行情。短线建议观望，等待板块企稳。</p>
+</div>
+
+<div class="card">
+  <div class="sector-head"><h3>🖥️ AI 服务器 / 液冷 / 算力 / AI 应用</h3><span class="badge b-down">板块同步承压</span></div>
+  <table>
+    <tr><th>方向观察</th><th>状态</th></tr>
+    <tr><td>工业富联 / 中科曙光</td><td class="down">板块性回调</td></tr>
+    <tr><td>浪潮信息 / 紫光股份</td><td class="down">跟随调整</td></tr>
+    <tr><td>液冷（同飞 / 申菱）</td><td class="down">算力降温同步承压</td></tr>
+    <tr><td>AI 应用（传媒/营销）</td><td class="down">前期高位兑现</td></tr>
+  </table>
+  <p class="note" style="margin-top:5px;">AI 服务器/液冷/算力今日跟随大盘同步走弱，前期热门的传媒/AI 应用方向（22 日内蒙新华 5 连板、新华文轩 3 连板等）出现集中获利兑现。DeepSeek/国产 GPU 产业化的中期催化未变，节后关注龙头承接量。</p>
+</div>
+</div>
+
+<h2>四、9月24日 风险提示信号</h2>
+<div class="card">
+  <table>
+    <tr><th>信号类型</th><th>涉及个股/板块</th><th>说明</th></tr>
+    <tr><td><span class="up">交易异常波动</span></td><td>澳弘电子（605058）等 PCB 股</td><td>多家 PCB 热门股发布<b>交易异常波动暨风险提示公告</b>，提示 PCB 行业受多重外部因素影响</td></tr>
+    <tr><td><span class="up">跌停/大幅下挫</span></td><td>华丽家族（房地产）、华远控股（房地产）</td><td>房地产板块同步调整，盘中触及跌停</td></tr>
+    <tr><td><span class="up">板块领跌</span></td><td>印制电路板（PCB 884092）</td><td>PCB 板块进入跌幅榜前三，前期过热风险集中释放</td></tr>
+    <tr><td><span class="down">板块领涨</span></td><td>林业、风电零部件、焦炭加工</td><td>冷门防御板块逆势，资金高切低特征明显</td></tr>
+  </table>
+  <p class="note" style="margin-top:8px;">今日<b>"高切低"</b>特征突出：资金从前期高位的 AI 链（PCB/MLCC/算力/AI 应用）切换至冷门防御板块（林业/风电/焦炭）。节前最后一天，机构资金调仓与落袋为安情绪共振。</p>
+</div>
+
+<h2>五、消息面与催化</h2>
+<div class="card">
+  <ul>
+    <li><b>央行净投放 2000 亿元：</b>9·24 央行公开市场操作净释放 2000 亿元资金，中秋假期前流动性呵护明显，为市场提供短期流动性缓冲。</li>
+    <li><b>924 行情两周年（2024-09-24 → 2026-09-24）：</b>两年前的"924 新政"（一行一局一会三掌门同台、潘功胜/李云泽/吴清集体发声）开启上一轮牛市；今日作为两周年时点，市场情绪面相对敏感，叠加节前效应形成普跌缩量格局。</li>
+    <li><b>中美高层互动窗口（持续催化）：</b>9 月 23–25 日习近平主席对美国进行国事访问，今日（9-24）为访问第二日，半导体/AI 出口管制相关表态将持续影响国产替代板块情绪面。</li>
+    <li><b>PCB 板块风险集中释放：</b>多家 PCB 热门股发布异动公告，提示行业受宏观政策、原材料、终端需求多重因素影响；前期过热风险释放符合节前调仓特征。</li>
+    <li><b>外围变量待落地（中秋假期期间）：</b>本周美国 8 月 PCE 物价指数（市场关注度最高的通胀指标）若公布，数据偏高将压缩科技股估值，数据温和则给科技股续命——节后开盘的首个交易方向有较大不确定性。</li>
+    <li><b>节前因素：</b>中秋假期（9-25 至 9-27）休市，部分短线资金"落袋为安"，板块轮动与"高切低"特征明显；A50 期指早盘小跌 0.36% 已预示今日低开。</li>
+  </ul>
+</div>
+
+<h2>六、后市关注</h2>
+<div class="card">
+  <ul>
+    <li><b>中秋假期期间外围变量：</b>重点关注美国 8 月 PCE 物价指数（核心通胀）、美联储官员表态、美股科技股走势（英伟达/AMD/光通信双雄），任何重大变量都将放大节后开盘波动。</li>
+    <li><b>量能恢复节奏：</b>今日半日成交 1.07 万亿，较前同期缩量 914 亿；节后首日成交能否重新放大至 2 万亿+ 水平，是 AI 链能否重启轮动的关键。</li>
+    <li><b>PCB/MLCC 高位股消化进度：</b>关注龙头企稳信号；上游电子布/填料能否接力，MLCC 涨价与 AI 服务器单机用量倍增的持续性是关键。</li>
+    <li><b>存储/HBM 中期催化：</b>长鑫扩产落地节奏、HBM 国产突破、DDR5 渗透率与兆易/澜起/香农芯创等龙头的承接量——长线逻辑未变。</li>
+    <li><b>AI 应用端（DeepSeek/国产 GPU）：</b>DeepSeek 严文韬任 CFO 后续催化、摩尔线程/沐曦股份/燧原科技 IPO 节奏、金山办公/拓尔思/昆仑万维等 AI 应用龙头节后承接量。</li>
+    <li><b>算力/液冷：</b>海光信息/中科曙光/工业富联/浪潮信息以及液冷（同飞/申菱）的承接量，英伟达 GB200/GB300 出货节奏与国产替代加速。</li>
+    <li><b>风格切换：</b>AI 链从"高位接力"切换至"集体降温 + 高切低"阶段；节前防御板块（林业/风电/焦炭）的持续性待观察；PCB 风险释放后是否孕育新的低吸机会。</li>
+  </ul>
+</div>
+
+<footer>
+  <p>数据来源：新浪财经（9-24 收盘快讯）、同花顺财经（10jqka）、央广财经（cnr.cn）、东方财富、知乎复盘、21 财经、华尔街见闻、雪球、淘股吧、新浪财经（9-22 收评 + 9-23 头条）、QQ 财经（央行净投放）。</p>
+  <p style="margin-top:6px;"><b>数据说明：</b>上证指数收盘点位（3888.37/-1.22%）、沪市成交（7836.13 亿）、半日成交（1.07 万亿/缩量 914 亿）、涨跌家数比（1120:4306）、赚钱效应（20.64%）、PCB 板块跌幅前三、央行净投放 2000 亿均为公开收盘统计口径；深成指/创业板指/科创 50 全日具体收盘点位未在已收集来源中明确披露，本报告标注为"承压/参考"以避免估算。涨停/连板为收盘后公开统计口径，最终成交及收盘数据以交易所行情软件为准。</p>
+  <p style="margin-top:6px;">本报告由 AI 自动汇总公开数据生成，仅供信息参考，不构成任何投资建议。市场有风险，投资需谨慎。</p>
+  <p style="margin-top:6px;">生成时间：2026-09-24 收盘后 (UTC+8) · A股盘后总结 · AI 产业链深度版 · 基于 2026-09-24 完整交易日收盘数据</p>
+</footer>
+
+</div>
+</body>
+</html>
