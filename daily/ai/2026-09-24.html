@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年9月24日</title>
+<style>
+  body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; max-width: 820px; margin: 0 auto; padding: 24px; line-height: 1.7; }
+  h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 12px; font-size: 1.9em; }
+  h2 { color: #f0883e; margin-top: 36px; font-size: 1.5em; border-left: 4px solid #f0883e; padding-left: 12px; }
+  h3 { color: #7ee787; font-size: 1.15em; margin-top: 20px; }
+  a { color: #58a6ff; text-decoration: none; border-bottom: 1px dotted #58a6ff44; }
+  a:hover { border-bottom-style: solid; }
+  .headline, .p0 { background: #161b22; border-left: 4px solid #7ee787; padding: 16px 18px; margin: 14px 0; border-radius: 8px; }
+  .p1, .p2 { background: #161b22; padding: 14px 18px; margin: 10px 0; border-radius: 8px; }
+  .p1 { border-left: 4px solid #58a6ff; }
+  .p2 { border-left: 4px solid #484f58; }
+  .insight { background: #1a2332; border: 1px solid #58a6ff; padding: 18px 20px; margin: 22px 0; border-radius: 10px; }
+  .insight h3 { margin-top: 0; color: #79c0ff; }
+  .takeaway { background: #1f1b16; border-left: 3px solid #f0883e; padding: 12px 16px; margin: 14px 0; border-radius: 6px; font-size: 0.95em; }
+  .takeaway strong { color: #f0883e; }
+  .tag { display: inline-block; background: #21262d; color: #8b949e; padding: 3px 9px; border-radius: 12px; font-size: 0.78em; margin-right: 6px; margin-bottom: 4px; }
+  .tag.p0 { background: #1c3320; color: #7ee787; }
+  .tag.p1 { background: #1a2438; color: #58a6ff; }
+  .tag.p2 { background: #21262d; color: #8b949e; }
+  .meta { color: #6e7681; font-size: 0.85em; margin-bottom: 8px; }
+  .meta strong { color: #8b949e; }
+  .divider { border: none; border-top: 1px solid #21262d; margin: 30px 0; }
+  .footer { color: #484f58; font-size: 0.82em; text-align: center; margin-top: 48px; padding-top: 20px; border-top: 1px solid #21262d; }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  code { background: #161b22; padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Monaco, Consolas, monospace; font-size: 0.88em; color: #79c0ff; }
+  strong { color: #f0f6fc; }
+  .why { color: #8b949e; font-style: italic; }
+</style>
+</head>
+<body>
+
+<h1>🔥 AI 前沿日报 — 2026年9月24日</h1>
+<p class="meta">
+  <strong>今日覆盖</strong> · OpenAI · Anthropic · TypeSafe AI · Google DeepMind · Hugging Face · Tencent · 阶跃星辰 · GitHub Trending · arXiv · 主流 AI 媒体共 <strong>10 个来源</strong><br>
+  <strong>筛选入库</strong> · P0 头条 1 条 · Agent 4 条 · 效率/小模型 2 条 · 广角扫描 4 条 · 深度思考 2 条<br>
+  <strong>核心主题</strong> · Sora API 关闭 + Google AX 分布式 Agent Runtime + Jev 决策模型 + Gemini agentic video + Bartowski 量化新范式
+</p>
+
+<hr class="divider">
+
+<h2>🔥 今日头条</h2>
+
+<div class="headline">
+  <h3>Sora API 今天正式关闭 + Anthropic 公布 30,000 agents 度量报告：Agent 经济进入「运维时代」</h3>
+  <p class="meta">
+    <span class="tag p0">P0 头条</span>
+    <span class="tag">OpenAI</span><span class="tag">Anthropic</span>
+    <span class="tag">agent economy</span><span class="tag">运维</span>
+  </p>
+  <p><strong>今天（9/24）发生了一件小事 + 一件大事，但串在一起看就是 AI agent 行业的分水岭</strong>：</p>
+  <ul>
+    <li><strong>小事</strong>：OpenAI Sora API 在 <strong>今天 9/24 正式关闭</strong>（来源：<a href="https://kingy.ai/blog/sora-api-shutdown-september-24-export-alternatives/">Kingy AI</a>）。所有现存用户必须在今天前迁移出视频生成工作流——这是 OpenAI 第一次主动<strong>关闭</strong>一个曾经主推的生成式 API，姿态信号很强：钱不花在跑不出差异化的地方了。</li>
+    <li><strong>大事</strong>：Anthropic 在 9/17 公布了一份《<a href="https://www.anthropic.com/institute/measuring-pace-of-ai-development">Measuring the pace of AI development</a>》度量报告，里面最炸裂的数字是：<strong>Anthropic 内部同时有约 30,000 个 agent 在跑研发任务</strong>，Claude 主导 26% 的 R&D 工作，月审 10 亿次决策，monitor 会拦截 1/47,000 的高风险动作。</li>
+  </ul>
+  <p><strong>为什么这两件事要放一起看</strong>：</p>
+  <p class="why">OpenAI 关掉 Sora 的同时，Anthropic 正在公开承认自家 1/4 的 R&D 是 agent 在干——这不是巧合，是行业从「抢着出模型」转向「抢着运营 agent 集群」。当 AI 公司自己都承认 agent 已成为生产力主体时，研发预算、营销预算、风控预算会同步往「agent 基础设施」倾斜。</p>
+  <p><strong>对 agent 开发者的启示</strong>：</p>
+  <ul>
+    <li><strong>API 生命周期管理</strong>：把 Sora 当成案例——你设计的 agent 系统里，依赖外部 API 时必须有「API 突然下架」的 fallback 路径。今天起重新审视关键链路上的供应商依赖。</li>
+    <li><strong>集群运营是新工种</strong>：30,000 个 agent + 1/47,000 拦截率 = <strong>agent 运维</strong>（monitor / overseer / safety compute）正式成为独立岗位类别。你如果是独立开发者，应该学会写 agent monitor；你如果是技术管理者，应该开始设 agent ops 角色。</li>
+    <li><strong>6% 是分水岭</strong>：Anthropic 把 6% 算力分配给安全研究——这是行业首个<strong>可验证</strong>的安全算力披露指标。建议你自己设 agent 时也留出 5-10% 算力预算给 sanity check / 验证回路，否则幻觉会越积越多。</li>
+  </ul>
+</div>
+
+<hr class="divider">
+
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+  <h3>Google AX：GitHub Trending 第一的分布式 Agent Runtime（9/22 发布）</h3>
+  <p class="meta">
+    <span class="tag p0">P0</span>
+    <span class="tag">Google</span><span class="tag">agent runtime</span>
+    <span class="tag">开源</span><span class="tag">分布式</span>
+  </p>
+  <p><strong>发生了什么</strong>：Google 在 9/22 开源了 <strong>AX (Agent Executor)</strong>，定位是「开源分布式 agent 运行时标准」。9/23 即登顶 GitHub trending AI agent 分类（<a href="https://gittrend.io/trending/ai-agent">gittrend.io</a>），累计 8.5k stars，其中 1.6k 是近一周新增。</p>
+  <p>AX 的核心特性：</p>
+  <ul>
+    <li><strong>Durable event log</strong>——agent 执行轨迹持久化，进程崩了能续</li>
+    <li><strong>Resumable streams</strong>——长链路 agent 中断后可恢复，不是从头跑</li>
+    <li><strong>Trajectory forking</strong>——同一起点可以分叉出不同探索路径</li>
+    <li><strong>Isolated actors</strong>——gVisor 沙箱隔离，agent 跑代码不会污染宿主机</li>
+  </ul>
+  <p><strong>为什么重要</strong>：之前的 agent 框架（LangGraph、CrewAI、AutoGen）都在<strong>编排层</strong>竞争，AX 直接下沉到<strong>运行时层</strong>——而且是 Google 自家出品，等于官方背书「agent 是分布式系统」的范式。这条赛道一旦被 Google 拿走，整个 agent infra 创业公司都得让路。</p>
+  <p><strong>对 agent 开发者的启示</strong>：</p>
+  <ul>
+    <li><strong>先看再选</strong>：如果你的 agent 任务超过 5 分钟或者涉及长上下文，立刻去 <a href="https://github.com/google/ax">github.com/google/ax</a> 看 README——durable log 解决了困扰所有长任务 agent 的「崩溃恢复」问题。</li>
+    <li><strong>路线选择</strong>：如果要上生产，AX vs Agyn vs Dapr Agents 三选一，看 codepick.dev 那篇比较文；要做 demo prototype 还是 LangGraph 更快。</li>
+  </ul>
+</div>
+
+<div class="p0">
+  <h3>Jev (TypeSafe AI) System One 决策模型持续发酵：独立基准测试「6/7 缺陷捕获」</h3>
+  <p class="meta">
+    <span class="tag p0">P0</span>
+    <span class="tag">TypeSafe AI</span><span class="tag">decision model</span>
+    <span class="tag">RLCD</span><span class="tag">新范式</span>
+  </p>
+  <p><strong>发生了什么</strong>：9/15 发布、这两天（9/22-24）仍在持续刷屏的 <strong>Jev</strong>——TypeSafe AI（前 OpenAI 研究员 Diogo Almeida 创业项目）的「System One 决策模型」。不是 LLM，是返回结构化决策（choice / score / noul）的非自回归模型。9/23 出现了第一个独立基准测试（<a href="https://www.karmactive.com/typesafe-jev-ai-decision-model-explainer-193x-speed/">karmactive.com</a>）。</p>
+  <p>关键数据：</p>
+  <ul>
+    <li><strong>速度</strong>：比标准 LLM 快 <strong>193×</strong>，延迟 33ms 级</li>
+    <li><strong>价格</strong>：$0.042 / M tokens（比 GPT-4o-mini 还便宜一个数量级）</li>
+    <li><strong>幻觉</strong>：因为 schema 预先定义 valid outputs，<strong>结构上不可能 hallucinate 类型错误</strong></li>
+    <li><strong>训练方法</strong>：RLCD（Reinforcement Learning from Calibrated Data），不是 RLHF</li>
+    <li><strong>独立测试</strong>：<a href="https://huggingface.co/blog/dylantom2012/i-benchmarked-jev-against-open-cpu-only-stacks-it">dylantom2012</a> 用 Claude Code 跑了 1 天对比开源 CPU 栈，Jev 在多数任务赢 0.6 分；<a href="https://www.orcarouter.ai/blog/jev-typesafe-system-one-what-we-know">TrueStandard</a> 用它做 agent 安全审查，<strong>7 个故意植入的缺陷里抓到了 6 个</strong></li>
+  </ul>
+  <p><strong>为什么重要</strong>：这是 LLM 之后第一次有团队敢公开宣称「我们做的是机器原生智能，不做语言模型」。如果独立基准测试持续验证，agent 架构会从「全栈 LLM」走向「LLM 做规划 + System One 做局部决策」的两层架构——前者负责推理，后者负责分类/评分/选择，速度和成本差两个数量级。</p>
+  <p><strong>对 agent 开发者的启示</strong>：</p>
+  <ul>
+    <li><strong>立刻能用的场景</strong>：你的 agent 里所有「二选一 / 多分类 / 评分 / 是非判断」的环节，<strong>都可以替换成 Jev 类 System One 模型</strong>，省成本 10×，速度快 100×。</li>
+    <li><strong>代码扫描</strong>：is-malicious 这种「用 Jev 扫代码是否藏恶意行为」的用例已经开源（<a href="https://github.com/Nedomas/awesome-jev-2">awesome-jev-2</a>），可以拼到你 CI/CD 里做 PR 前置扫描。</li>
+  </ul>
+</div>
+
+<div class="p1">
+  <h3>DeepMind Gemini Agentic Video Understanding：长视频成本暴降 66%</h3>
+  <p class="meta">
+    <span class="tag p1">P1</span>
+    <span class="tag">Google</span><span class="tag">DeepMind</span><span class="tag">multimodal</span><span class="tag">效率</span>
+  </p>
+  <p>9/1 发布但本周（9/22-24）讨论热度持续走高。DeepMind 给 Gemini 3.7/3.6 Flash 和 3.5 Flash-Lite 加了 <strong>agentic video understanding</strong>——模型自己决定看哪段、什么帧率、走音频还是画面（<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/">Google blog</a>）。</p>
+  <p><strong>关键数字</strong>：token 消耗 ↓88%，API 成本 ↓66%，accuracy 提升。免费层用户立刻可用。</p>
+  <p class="why">意义不只是「视频便宜了」，而是范式示范：<strong>multimodal 也开始 agent 化</strong>。模型主动决定 sampling 策略，而不是被动按 1 FPS 喂数据。下一个被这样重做的会是 audio、image、3D。</p>
+</div>
+
+<div class="p1">
+  <h3>ChromaFlow 论文：orchestration 反而会拖累 agent 性能</h3>
+  <p class="meta">
+    <span class="tag p1">P1</span>
+    <span class="tag">arXiv</span><span class="tag">multi-agent</span><span class="tag">反共识</span>
+  </p>
+  <p>arXiv 出现一篇新论文 <a href="https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-maths-problem-that-stumped-humans-for-decades">ChromaFlow</a>（引用在 ai-deep-signal.com 出现），核心发现：在 tool-augmented agents 里，<strong>orchestration 越多不一定越好</strong>——更复杂的调度反而会让任务表现变差、operational noise 变多。</p>
+  <p class="why">这跟「multi-agent 越多越好」的市场叙事相反，但符合一线工程师的体感：很多场景下单 LLM + 清晰 prompt 比 5 个 agent 互相传话更稳。给当下 multi-agent 狂热打个「冷静针」。</p>
+</div>
+
+<hr class="divider">
+
+<h2>⚡ 小模型 & 效率革命</h2>
+
+<div class="p0">
+  <h3>Bartowski 推出 Per-tensor Layout Maps：GGUF 量化从「一刀切」走向「按张量精度画像」</h3>
+  <p class="meta">
+    <span class="tag p0">P0</span>
+    <span class="tag">Hugging Face</span><span class="tag">GGUF</span>
+    <span class="tag">quantization</span><span class="tag">本地部署</span>
+  </p>
+  <p><strong>发生了什么</strong>：Hugging Face 上 Bartowski 9/10 发了一篇长文 <a href="https://huggingface.co/blog/bartowski/per-tensor-layout-maps-for-gguf-quantization">Per-tensor layout maps for GGUF quantization</a>，9/22-24 持续刷屏。核心改动：以前 GGUF 量化时所有张量用同一组规则（Q4_K_M 就是 Q4_K_M），现在 Bartowski 给每个模型算出每个张量的 sensitivity 排名，然后<strong>把精度预算向敏感张量倾斜</strong>。</p>
+  <p>具体发现：</p>
+  <ul>
+    <li><strong>attention_v / attention_output / ffn_up / ssm_out</strong> 是最敏感的张量，每 bit 误差都会被放大</li>
+    <li><strong>小 attention projection</strong> 对精度极敏感（同 bit 下损失大于其他模块）</li>
+    <li>Bartowski 用 solver 跑出来的 recipe 头对头 KLD 不一定赢手工 layout——意味着<strong>未来量化工具会从「按经验」转向「按数据画像」</strong></li>
+  </ul>
+  <p><strong>为什么重要</strong>：Q4_K_M 已经统治本地 LLM 部署 2 年了，现在是第一次有人系统地拆解「为什么同样的 Q4 在不同模型上效果差异那么大」。下一步是 llama.cpp 直接吃这些 layout map 自动出文件，对所有跑 7B-70B 本地模型的人都是免费提升。</p>
+  <p><strong>对 agent 开发者的启示</strong>：</p>
+  <ul>
+    <li>如果你跑本地 Qwen3.8-27B、MiniCPM5-2B、Llama 类模型，重新下载 bartowski 9/10 之后用新 layout 出品的 GGUF，同等显存下质量更高。</li>
+    <li>关注 bartowski1182 GitHub，下次出 Llama 4 GGUF 时直接选「per-tensor layout」版本。</li>
+  </ul>
+</div>
+
+<div class="p1">
+  <h3>阶跃星辰 Step 5 Preview：开源旗舰单任务成本仅 Opus 5 的 1/8</h3>
+  <p class="meta">
+    <span class="tag p1">P1</span>
+    <span class="tag">阶跃星辰</span><span class="tag">国产大模型</span>
+    <span class="tag">MoE 600B/27B</span><span class="tag">开源</span>
+  </p>
+  <p>9/18 发布的 Step 5 Preview（<a href="https://www.leiphone.com/category/industrynews/yU1FPmKgLcs3SWmO.html">雷峰网</a>、<a href="https://www.ithome.com/1/004/705.htm">IT之家</a>），MoE 600B/27B 激活，在 Artificial Analysis Intelligence Index 上<strong>跻身全球开源前三</strong>，追平 Kimi K3，逼近 GLM-5.3 与 Opus 5。</p>
+  <p>最炸裂的是单任务成本——<strong>仅 Opus 5 的 1/8</strong>。在 output 价格上压到行业中位数 30% 以下。</p>
+  <p class="why">国产模型不再是「开源但弱」的处境——Step 5 Preview 这条路证明了「开源 + 便宜 + 接近 Opus 5 水平」可以三全。下一次 agent 部署的成本基准可能不是 GPT-6 Sol 而是 Step 5。</p>
+</div>
+
+<hr class="divider">
+
+<h2>📡 广角扫描</h2>
+
+<div class="p2">
+  <h3>OpenAI DevDay 2026 倒计时 5 天（9/29 SF）</h3>
+  <p class="meta">
+    <span class="tag p2">P2</span>
+    <span class="tag">OpenAI</span><span class="tag">DevDay</span>
+  </p>
+  <p>Fort Mason SF，<a href="https://devday.openai.com/">免费 keynote livestream</a>。Forbes 9/21 透露 <strong>OpenAI 计划推出「Managed Agents」</strong>——服务化的 agent 平台，对标 Anthropic / Google Cloud 的 agent runtime。一旦发布，所有自建 agent 基础设施的「护城河」会被重估（<a href="https://www.forbes.com/sites/jonmarkman/2026/09/21/openai-plans-to-introduce-managed-agents-at-devday-2026/">Forbes</a>）。</p>
+</div>
+
+<div class="p2">
+  <h3>Tencent Hy4 Preview：770B MoE 模型上线 Novita AI</h3>
+  <p class="meta">
+    <span class="tag p2">P2</span>
+    <span class="tag">Tencent</span><span class="tag">MoE</span><span class="tag">$0.834/M</span>
+  </p>
+  <p>9/20 上架 Novita AI（<a href="https://blogs.novita.ai/tencent-hy4-preview-on-novita-ai/">Novita</a>）：770B 参数 MoE，1M context，64K max output，<strong>$0.834/$2.501 per M tokens</strong>——比 Opus 5.5 便宜 80%。又一次国产大模型价格屠夫。</p>
+</div>
+
+<div class="p2">
+  <h3>Qwen3.8-LiveTranslate：60 语言同传，2.3 秒延迟</h3>
+  <p class="meta">
+    <span class="tag p2">P2</span>
+    <span class="tag">Alibaba</span><span class="tag">translation</span><span class="tag">real-time</span>
+  </p>
+  <p>9/19 发布的实时翻译模型（<a href="https://dev.to/klukyanov/best-ollama-models-for-coding-writing-and-medicine-september-2026-4a89">dev.to 整理</a>），60 输入语言，2.3 秒滞后，API only 无开源权重。对实时会议/直播 agent 是关键基建。</p>
+</div>
+
+<div class="p2">
+  <h3>OpenAI GPT-Live-1：9/10 上线，专为实时语音设计</h3>
+  <p class="meta">
+    <span class="tag p2">P2</span>
+    <span class="tag">OpenAI</span><span class="tag">real-time</span><span class="tag">voice</span>
+  </p>
+  <p>OpenAI 9/10 推出的实时语音模型（<a href="https://llm-stats.com/models/gpt-live-1">llm-stats</a>），跟 Qwen3.8-LiveTranslate 正面竞争 voice agent 市场。</p>
+</div>
+
+<hr class="divider">
+
+<div class="insight">
+  <h3>💭 深度思考</h3>
+
+  <p><strong>洞察 1 · 2026 Q3 的真正主题不是「更大的模型」，是「更便宜的 agent 运营」</strong></p>
+  <p>把过去一周的事件串起来：Opus 5.5 降价 20-60%、GPT-6 Sol/Luna 腰斩、Step 5 Preview 1/8 Opus 5 成本、Tencent Hy4 0.8× Opus、Jev 比 LLM 便宜 100×、AX 把运行时开源、Anthropic 公开 30,000 agents 内部运营数字——这些全指向一件事：</p>
+  <p class="why">模型层的差异化在缩小，<strong>agent 层的运营成本</strong>变成主战场。谁能用更便宜的算力跑更多 agent，谁就能占领下一个季度的市场份额。这也是为什么 Jev 这种「非 LLM 决策模型」会突然冒头——不是 LLM 不够好，是 LLM 太贵了。</p>
+
+  <p><strong>洞察 2 · 给 agent 开发者的 3 条 actionable 建议</strong></p>
+  <ul>
+    <li><strong>路由架构重做</strong>：2026 Q4 起，agent 系统默认架构应该是「Opus 5.5 / GPT-6 Astra + Step 5 Preview + Jev 类决策模型 + 本地 GGUF SLM」的四层路由。强模型做规划（<5% 调用）、开源旗舰做主要推理（~50%）、System One 做分类评分（~30%）、本地 SLM 做 hot path（~15%）。</li>
+    <li><strong>把 agent monitor 当一等公民</strong>：Anthropic 的 1/47,000 拦截率 + ChromaFlow 的 orchestration 噪声警告说明：agent 多了之后，<strong>monitor / verifier / safety check 的代码量会超过 agent 本身</strong>。现在写 agent 时同步写监控。</li>
+    <li><strong>关注 9/29 OpenAI DevDay</strong>：Managed Agents 一旦发布，所有自建 agent infra 的估值会被重估。先想清楚如果 OpenAI Agent Service 收费 $0.05 / agent-hour，你会切换还是留下——这个决策决定了你接下来 6 个月的技术债。</li>
+  </ul>
+</div>
+
+<hr class="divider">
+
+<h2>📚 延伸阅读</h2>
+<ul>
+  <li><a href="https://www.anthropic.com/institute/measuring-pace-of-ai-development">Anthropic: Measuring the pace of AI development inside frontier labs</a> — 30,000 agents 数据来源</li>
+  <li><a href="https://www.anthropic.com/claude-opus-5-5">Anthropic: Introducing Claude Opus 5.5</a> — 9/22 旗舰发布</li>
+  <li><a href="https://openai.com/index/gpt-6-astra/">OpenAI: GPT-6 Astra & Sol/Luna</a> — 9/3-22 模型矩阵</li>
+  <li><a href="https://github.com/google/ax">google/ax</a> — 分布式 agent runtime</li>
+  <li><a href="https://huggingface.co/blog/bartowski/per-tensor-layout-maps-for-gguf-quantization">Bartowski: Per-tensor layout maps for GGUF quantization</a></li>
+  <li><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe AI: Introducing System One Models & Jev</a></li>
+  <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/">Google: Introducing agentic video understanding with Gemini</a></li>
+  <li><a href="https://kingy.ai/blog/sora-api-shutdown-september-24-export-alternatives/">Sora API 关闭说明</a></li>
+  <li><a href="https://github.com/yaojiejia/agents-radar/issues/142">arXiv AI Research Digest 2026-09-16</a></li>
+  <li><a href="https://huggingface.co/blog/bartowski/per-tensor-layout-maps-for-gguf-quantization">Hugging Face Bartowski 量化长文</a></li>
+</ul>
+
+<div class="footer">
+  <p>📡 数据采集 · 2026-09-24 CST · 来源：OpenAI / Anthropic / Google / Hugging Face / arXiv / GitHub Trending / 主流 AI 媒体<br>
+  🛠 由 Hermes Agent 自动生成 · 反馈 / 调研请求：回复日报消息说「调研一下 XXX」</p>
+</div>
+
+</body>
+</html>
