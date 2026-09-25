@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-09-24</title>
+<style>
+:root{
+  --bg:#0a0e1a;
+  --bg2:#111827;
+  --bg3:#1a2238;
+  --border:#1f2937;
+  --text:#e5e7eb;
+  --text2:#9ca3af;
+  --text3:#6b7280;
+  --accent:#3b82f6;
+  --green:#10b981;
+  --red:#ef4444;
+  --yellow:#f59e0b;
+  --purple:#a855f7;
+  --cyan:#06b6d4;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  padding:20px;
+  max-width:1100px;
+  margin:0 auto;
+}
+.header{
+  background:linear-gradient(135deg,#1e3a8a 0%,#312e81 100%);
+  border-radius:12px;
+  padding:24px;
+  margin-bottom:20px;
+  border:1px solid var(--border);
+}
+.header h1{
+  font-size:24px;
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.header .subtitle{
+  color:var(--text2);
+  font-size:14px;
+}
+.badge{
+  display:inline-block;
+  background:var(--red);
+  color:#fff;
+  padding:3px 10px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:600;
+  margin-left:8px;
+}
+.section{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:16px;
+}
+.section-title{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+.alert{
+  background:rgba(245,158,11,.1);
+  border-left:3px solid var(--yellow);
+  padding:12px 16px;
+  border-radius:6px;
+  margin-bottom:16px;
+  font-size:14px;
+  color:var(--text);
+}
+.alert strong{color:var(--yellow)}
+.index-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  margin-top:12px;
+}
+.index-card{
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:14px;
+}
+.index-card .name{
+  font-size:13px;
+  color:var(--text2);
+  margin-bottom:6px;
+}
+.index-card .value{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:4px;
+}
+.index-card .change{
+  font-size:13px;
+  font-weight:600;
+}
+.green{color:var(--green)}
+.red{color:var(--red)}
+.neutral{color:var(--text2)}
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+@media(max-width:768px){
+  .two-col{grid-template-columns:1fr}
+}
+.panel{
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:14px;
+}
+.panel-title{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+.panel.gain{border-left:3px solid var(--green)}
+.panel.lose{border-left:3px solid var(--red)}
+.panel ul{
+  list-style:none;
+  padding:0;
+}
+.panel li{
+  padding:5px 0;
+  font-size:13px;
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px dashed rgba(255,255,255,.05);
+}
+.panel li:last-child{border-bottom:none}
+.ai-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:10px;
+}
+.ai-card{
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:12px;
+  transition:.2s;
+}
+.ai-card:hover{border-color:var(--accent)}
+.ai-card .head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
+.ai-card .seg{
+  font-size:13px;
+  font-weight:600;
+  color:var(--cyan);
+}
+.ai-card .trend{
+  font-size:11px;
+  padding:2px 8px;
+  border-radius:10px;
+  font-weight:600;
+}
+.trend.down{background:rgba(239,68,68,.15);color:var(--red)}
+.trend.up{background:rgba(16,185,129,.15);color:var(--green)}
+.trend.flat{background:rgba(156,163,175,.15);color:var(--text2)}
+.ai-card .stocks{
+  font-size:12px;
+  color:var(--text2);
+}
+.stock-row{
+  display:flex;
+  justify-content:space-between;
+  padding:3px 0;
+  font-size:12px;
+}
+.news-item{
+  padding:10px 0;
+  border-bottom:1px dashed rgba(255,255,255,.08);
+}
+.news-item:last-child{border-bottom:none}
+.news-item .time{
+  color:var(--text3);
+  font-size:11px;
+  margin-right:8px;
+}
+.news-item .tag{
+  display:inline-block;
+  font-size:10px;
+  padding:2px 6px;
+  border-radius:4px;
+  margin-right:6px;
+  font-weight:600;
+}
+.tag-hot{background:rgba(239,68,68,.2);color:var(--red)}
+.tag-ai{background:rgba(168,85,247,.2);color:var(--purple)}
+.tag-warn{background:rgba(245,158,11,.2);color:var(--yellow)}
+.tag-info{background:rgba(59,130,246,.2);color:var(--accent)}
+.summary-box{
+  background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(168,85,247,.08));
+  border:1px solid var(--accent);
+  border-radius:8px;
+  padding:16px;
+  margin-bottom:14px;
+}
+.summary-box p{
+  margin-bottom:8px;
+  font-size:14px;
+}
+.summary-box p:last-child{margin-bottom:0}
+.data-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:8px;
+  font-size:13px;
+}
+.data-table th{
+  text-align:left;
+  padding:8px;
+  background:var(--bg3);
+  color:var(--text2);
+  font-weight:600;
+  border-bottom:1px solid var(--border);
+}
+.data-table td{
+  padding:8px;
+  border-bottom:1px solid var(--border);
+}
+.footer{
+  text-align:center;
+  color:var(--text3);
+  font-size:12px;
+  padding:20px 0 10px;
+  border-top:1px solid var(--border);
+  margin-top:20px;
+}
+.callout{
+  background:rgba(168,85,247,.08);
+  border-left:3px solid var(--purple);
+  padding:12px 16px;
+  border-radius:6px;
+  margin:10px 0;
+  font-size:13px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 A股盘后总结 · AI产业链深度版 <span class="badge">中秋休市</span></h1>
+  <div class="subtitle">报告日期：2026年9月24日（周三）｜ 数据来源：东方财富、中新经纬、同花顺、雪球</div>
+</div>
+
+<div class="alert">
+  <strong>⏰ 节假日提示：</strong>今日（9月25日）为中秋节，A股<strong>休市</strong>。本报告基于<strong>9月24日（节前最后一个交易日）</strong>数据生成。下周一（9月28日）正常开市。
+</div>
+
+<div class="section">
+  <div class="section-title">📈 三大指数（9/24收盘）</div>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">上证指数</div>
+      <div class="value">3,888.37</div>
+      <div class="change red">▼ 1.22% · -48.07</div>
+      <div class="change neutral" style="font-weight:400;font-size:12px">成交7836.13亿</div>
+    </div>
+    <div class="index-card">
+      <div class="name">深证成指</div>
+      <div class="value">13,316.97</div>
+      <div class="change red">▼ 2.34% · -319.10</div>
+      <div class="change neutral" style="font-weight:400;font-size:12px">成交8697.44亿</div>
+    </div>
+    <div class="index-card">
+      <div class="name">创业板指</div>
+      <div class="value">—</div>
+      <div class="change red">▼ 2.68%</div>
+      <div class="change neutral" style="font-weight:400;font-size:12px">成长股承压</div>
+    </div>
+    <div class="index-card">
+      <div class="name">两市成交</div>
+      <div class="value">1.67万亿</div>
+      <div class="change red">▼ 缩量</div>
+      <div class="change neutral" style="font-weight:400;font-size:12px">超4300股下跌</div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:14px">
+    <strong>盘面特征：</strong>典型节前避险出逃行情，三大指数集体低开低走。沪指失守3900点关口，深成指、创业板跌幅更深。金融板块（银行、券商、保险）盘中拉升护盘，但难掩个股普跌格局。
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🧭 板块表现</div>
+  <div class="two-col">
+    <div class="panel gain">
+      <div class="panel-title">🟢 涨幅居前</div>
+      <ul>
+        <li><span>风电设备</span><span class="green">吉鑫科技涨停 / 威力传动+11%</span></li>
+        <li><span>油气 / 煤炭</span><span class="green">高股息防御</span></li>
+        <li><span>银行</span><span class="green">护盘主力</span></li>
+        <li><span>教育</span><span class="green">逆势活跃</span></li>
+        <li><span>福建本地股</span><span class="green">尾盘异动拉升</span></li>
+      </ul>
+    </div>
+    <div class="panel lose">
+      <div class="panel-title">🔴 跌幅居前</div>
+      <ul>
+        <li><span>贵金属 / 黄金股</span><span class="red">重挫</span></li>
+        <li><span>CPO / 光通信</span><span class="red">全面承压</span></li>
+        <li><span>半导体 / 光刻胶</span><span class="red">跌幅居前</span></li>
+        <li><span>存储芯片</span><span class="red">板块下行</span></li>
+        <li><span>电子元器件 / 通信设备</span><span class="red">普跌</span></li>
+        <li><span>医药 / 房地产</span><span class="red">震荡调整</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🔥 AI产业链全景（9/24）</div>
+  <div class="ai-grid">
+
+    <div class="ai-card">
+      <div class="head">
+        <span class="seg">光通信 / CPO</span>
+        <span class="trend down">▼ 重挫</span>
+      </div>
+      <div class="stocks">
+        <div class="stock-row"><span>中际旭创</span><span class="red">-2.89% · 168.69亿</span></div>
+        <div class="stock-row"><span>新易盛</span><span class="red">≈-5% · 100亿+</span></div>
+        <div class="stock-row"><span>天孚通信</span><span class="red">承压回调</span></div>
+        <div class="stock-row"><span>光迅科技</span><span class="red">板块杀跌</span></div>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="head">
+        <span class="seg">存储 / HBM</span>
+        <span class="trend down">▼ 弱势</span>
+      </div>
+      <div class="stocks">
+        <div class="stock-row"><span>兆易创新</span><span class="red">-3.75% · 87.69亿</span></div>
+        <div class="stock-row"><span>澜起科技</span><span class="red">承压</span></div>
+        <div class="stock-row"><span>佰维存储</span><span class="red">跟随下跌</span></div>
+        <div class="stock-row"><span>长鑫存储概念</span><span class="red">全线走弱</span></div>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="head">
+        <span class="seg">半导体设备</span>
+        <span class="trend down">▼ 调整</span>
+      </div>
+      <div class="stocks">
+        <div class="stock-row"><span>北方华创</span><span class="red">板块回调</span></div>
+        <div class="stock-row"><span>中微公司</span><span class="red">跟随调整</span></div>
+        <div class="stock-row"><span>拓荆科技</span><span class="red">下挫</span></div>
+        <div class="stock-row"><span>富创精密</span><span class="red">同步杀跌</span></div>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="head">
+        <span class="seg">PCB / CCL</span>
+        <span class="trend down">▼ 跟跌</span>
+      </div>
+      <div class="stocks">
+        <div class="stock-row"><span>胜宏科技</span><span class="red">承压</span></div>
+        <div class="stock-row"><span>沪电股份</span><span class="red">下行</span></div>
+        <div class="stock-row"><span>生益科技</span><span class="red">板块弱势</span></div>
+        <div class="stock-row"><span>深南电路</span><span class="red">同步回调</span></div>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="head">
+        <span class="seg">先进封装</span>
+        <span class="trend down">▼ 震荡</span>
+      </div>
+      <div class="stocks">
+        <div class="stock-row"><span>长电科技</span><span class="red">板块跟随</span></div>
+        <div class="stock-row"><span>通富微电</span><span class="red">承压</span></div>
+        <div class="stock-row"><span>华天科技</span><span class="red">弱势</span></div>
+        <div class="stock-row"><span>芯原股份</span><span class="red">下行</span></div>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="head">
+        <span class="seg">MLCC / 上游材料</span>
+        <span class="trend flat">— 观望</span>
+      </div>
+      <div class="stocks">
+        <div class="stock-row"><span>风华高科</span><span class="neutral">窄幅震荡</span></div>
+        <div class="stock-row"><span>三环集团</span><span class="neutral">跟随大势</span></div>
+        <div class="stock-row"><span>铂科新材</span><span class="neutral">观望情绪浓</span></div>
+        <div class="stock-row"><span>江丰电子</span><span class="neutral">中性</span></div>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="head">
+        <span class="seg">AI服务器 / 液冷</span>
+        <span class="trend down">▼ 调整</span>
+      </div>
+      <div class="stocks">
+        <div class="stock-row"><span>工业富联</span><span class="red">承压</span></div>
+        <div class="stock-row"><span>浪潮信息</span><span class="red">跟随调整</span></div>
+        <div class="stock-row"><span>中科曙光</span><span class="red">弱势</span></div>
+        <div class="stock-row"><span>英维克 / 液冷</span><span class="red">同步下行</span></div>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="head">
+        <span class="seg">AI算力芯片</span>
+        <span class="trend down">▼ 回调</span>
+      </div>
+      <div class="stocks">
+        <div class="stock-row"><span>寒武纪</span><span class="red">跟随杀跌</span></div>
+        <div class="stock-row"><span>海光信息</span><span class="red">板块弱势</span></div>
+        <div class="stock-row"><span>中芯国际</span><span class="red">承压</span></div>
+        <div class="stock-row"><span>源杰科技</span><span class="red">高位股风险释放</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <strong>📌 AI产业链资金观察：</strong>9/24市场呈现"<strong>高低切+节前避险</strong>"双重逻辑，前期高位的CPO、光模块龙头（"易中天"组合）继续杀跌，存储龙头兆易创新放量大跌3.75%。即便英伟达Q2财报炸裂（营收962亿+ Q3指引1080亿），A股算力链仍呈现"<strong>业绩强、股价弱</strong>"的背离格局。
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">📰 关键消息面</div>
+
+  <div class="news-item">
+    <span class="tag tag-hot">重磅</span>
+    <span class="time">9/24</span>
+    <strong>英伟达二季度炸裂，Q3指引1080亿美元</strong>：营收962.21亿美元超预期（市场预期920亿），下季度营收指引1080亿；宣布<strong>每年升级全栈AI系统</strong>，Rubin架构切换至HBM4，Feynman平台2028年推出。
+  </div>
+
+  <div class="news-item">
+    <span class="tag tag-ai">AI</span>
+    <span class="time">9/24</span>
+    <strong>英伟达129.3亿美元全资收购Hugging Face</strong>：黄仁勋承诺平台"永久保持中立"，但市场仍担忧AI生态进一步集中，AI算力链条承压。
+  </div>
+
+  <div class="news-item">
+    <span class="tag tag-ai">HBM</span>
+    <span class="time">9/24</span>
+    <strong>英伟达计划自研HBM Base Die</strong>：2027下半年试产，标志其在HBM供应链的垂直整合进一步深化，三星/SK海力士垄断格局面临重塑。
+  </div>
+
+  <div class="news-item">
+    <span class="tag tag-warn">警示</span>
+    <span class="time">9/22</span>
+    <strong>Anthropic/OpenAI呼吁"放慢前沿模型开发"</strong>：Dario Amodei发声后，Sam Altman与马斯克先后表示认同，市场担忧AI算力需求降温，<strong>亚洲存储股集体承压</strong>，SK海力士、海力士、三星电子大跌。
+  </div>
+
+  <div class="news-item">
+    <span class="tag tag-info">机器人</span>
+    <span class="time">9/23</span>
+    <strong>马斯克央视财经专访</strong>：大胆预测<strong>"10年内或不到10年，人形机器人至少10亿台；未来15年或许达到100亿台；未来20年…"</strong>宇树科技等相关概念股短期获提振，但板块已显疲态。
+  </div>
+
+  <div class="news-item">
+    <span class="tag tag-warn">盘面</span>
+    <span class="time">9/24</span>
+    <strong>"业绩强、股价弱"持续演绎</strong>：21财经观察，光模块等方向业绩较强，股价却持续承压；部分半导体设备公司业绩兑现良好但股价仍调整。三季度是A股<strong>下一年产业变化定价的开始</strong>。
+  </div>
+
+  <div class="news-item">
+    <span class="tag tag-info">资金</span>
+    <span class="time">9/24</span>
+    <strong>霍尔木兹海峡冲突扰动全球科技</strong>：地缘风险升温，半导体设备ETF招商逆势吸金，机构逢低布局国产替代主线。
+  </div>
+
+  <div class="news-item">
+    <span class="tag tag-info">合并</span>
+    <span class="time">9/23</span>
+    <strong>中金公司吸收合并东兴证券、信达证券获批</strong>：上交所决定受理东兴证券A股股票主动终止上市申请，券业整合提速。
+  </div>
+
+</div>
+
+<div class="section">
+  <div class="section-title">🧠 投研视角</div>
+  <div class="summary-box">
+    <p><strong>核心矛盾：</strong>9月24日是中秋节前最后一个交易日，节前避险情绪主导，AI产业链全线承压并非基本面问题，而是<strong>流动性折价+情绪杀跌</strong>。</p>
+    <p><strong>资金信号：</strong>两市成交1.67万亿但超4300股下跌，呈现"放量普跌"格局。中际旭创（168.69亿）、兆易创新（87.69亿）成交居前，主板资金对AI算力龙头<strong>仍有承接</strong>，并非全面离场。</p>
+    <p><strong>产业逻辑：</strong>英伟达Rubin架构2026年切换至HBM4，2028年Feynman平台——AI算力<strong>硬件迭代周期仍未结束</strong>。但Anthropic/OpenAI的"减速论"扰动短期情绪，需观察Q3财报窗口期产业链业绩兑现度。</p>
+    <p><strong>配置建议：</strong>节后（9月28日起）关注两个方向：①<strong>超跌反弹</strong>：CPO/存储龙头（易中天、兆易）若企稳可博短线；②<strong>国产替代</strong>：半导体设备（北方华创、中微）、先进封装（长电、通富）的资金面韧性优于算力链。</p>
+  </div>
+</div>
+
+<div class="footer">
+  ⚠️ 本报告基于公开数据整理，仅供研究参考，不构成任何投资建议。<br>
+  A股投资有风险，入市需谨慎。｜ 数据截至 2026-09-24 收盘 · 今日中秋节休市
+</div>
+
+</body>
+</html>
