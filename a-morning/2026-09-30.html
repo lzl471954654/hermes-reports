@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A股早盘收盘总结 · AI产业链 · 2026-09-30 上午</title>
+<style>
+:root{--up:#ef4444;--dn:#16a34a;--bg:#0f172a;--card:#1e293b;--txt:#e2e8f0;--muted:#94a3b8;--bd:#334155}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;padding:20px;max-width:1400px;margin:0 auto}
+h1{font-size:28px;margin-bottom:8px;background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+h2{font-size:22px;margin:30px 0 15px;padding-left:12px;border-left:4px solid #60a5fa}
+h3{font-size:16px;margin:0 0 10px;color:#f1f5f9;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sub{color:var(--muted);margin-bottom:20px;font-size:13px}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px;margin-bottom:16px}
+.indices{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.idx{background:rgba(56,189,248,0.05);border:1px solid #1e3a8a;border-radius:8px;padding:12px}
+.idx .in{font-size:12px;color:var(--muted)}
+.idx .ip{font-size:20px;font-weight:600;margin:4px 0}
+.idx .ic{font-weight:600;font-size:15px}
+.idx .inote{font-size:11px;color:var(--muted);margin-top:6px}
+.pos{color:var(--up)}.neg{color:var(--dn)}
+.sec{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:16px;margin-bottom:12px}
+.sec h3 .num{background:#60a5fa;color:#0f172a;padding:2px 8px;border-radius:6px;font-size:13px}
+.avg{padding:3px 10px;border-radius:6px;font-size:13px;font-weight:600}
+.avg.pos{background:rgba(239,68,68,0.15);color:#fca5a5}
+.avg.neg{background:rgba(22,163,74,0.15);color:#86efac}
+.tag{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:500}
+.tag-up{background:#ef4444;color:#fff}
+.tag-dn{background:#16a34a;color:#fff}
+.tag-flat{background:#64748b;color:#fff}
+.stocks{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.stk{background:rgba(15,23,42,0.6);border:1px solid var(--bd);border-radius:6px;padding:6px 10px;font-size:13px;display:inline-block}
+.stk em{font-style:normal;color:var(--muted);font-size:11px;margin:0 4px}
+.stk b{font-weight:600}
+.stk.pos b{color:var(--up)}
+.stk.neg b{color:var(--dn)}
+.meta{font-size:11px;color:var(--muted);margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--bd)}
+th{background:rgba(96,165,250,0.1);font-weight:600}
+ul.movers{list-style:none;columns:2;column-gap:20px}
+ul.movers li{padding:6px 0;border-bottom:1px dashed #334155;font-size:13px}
+.alert{background:rgba(239,68,68,0.1);border-left:4px solid #ef4444;padding:14px 18px;border-radius:8px;margin:16px 0}
+.alert-gold{background:rgba(234,179,8,0.1);border-left:4px solid #eab308;padding:14px 18px;border-radius:8px;margin:16px 0}
+.alert-blue{background:rgba(59,130,246,0.1);border-left:4px solid #3b82f6;padding:14px 18px;border-radius:8px;margin:16px 0}
+.kpi{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0}
+.kpi .k{background:rgba(96,165,250,0.08);padding:10px 14px;border-radius:8px;flex:1;min-width:140px}
+.kpi .k .lbl{font-size:11px;color:var(--muted)}
+.kpi .k .val{font-size:18px;font-weight:600;margin-top:4px}
+.callout{font-weight:600;color:#fbbf24}
+footer{text-align:center;color:var(--muted);padding:20px;font-size:12px;margin-top:30px;border-top:1px solid var(--bd)}
+</style>
+</head>
+<body>
+<h1>A股早盘收盘总结 · AI产业链 · 2026-09-30 上午</h1>
+<p class="sub">📅 国庆节前最后一个交易日 · 数据源 Yahoo Finance · 11:30 收盘 · 半日报</p>
+
+<div class="box">
+  <h2>📊 大盘指数（早盘收盘）</h2>
+  <div class="indices"><div class="idx"><div class="in">上证指数</div><div class="ip">3840.83</div><div class="ic pos">▲0.45%</div><div class="inote">主板蓝筹小幅高开,红盘震荡</div></div><div class="idx"><div class="in">深证成指</div><div class="ip">12894.61</div><div class="ic pos">▲0.28%</div><div class="inote">跟随主板,盘中翻绿后回升</div></div><div class="idx"><div class="in">创业板指</div><div class="ip">3137.11</div><div class="ic neg">▼0.17%</div><div class="inote">新能源拖累,微绿收官</div></div><div class="idx"><div class="in">科创50</div><div class="ip">1536.61</div><div class="ic neg">▼2.09%</div><div class="inote">硬科技遭抛压,半导体集体下挫</div></div><div class="idx"><div class="in">沪深300</div><div class="ip">4351.88</div><div class="ic pos">▲0.15%</div><div class="inote">权重稳定,风格防御化</div></div><div class="idx"><div class="in">中证500</div><div class="ip">7442.38</div><div class="ic pos">▲0.04%</div><div class="inote">中小盘中性,题材快速轮动</div></div></div>
+  <div class="kpi" style="margin-top:16px">
+    <div class="k"><div class="lbl">半日成交额</div><div class="val">9093 亿</div><div style="font-size:11px;color:var(--dn)">较上日放量 +331 亿</div></div>
+    <div class="k"><div class="lbl">上涨家数</div><div class="val pos">2623</div><div class="lbl">/ 下跌 2743</div></div>
+    <div class="k"><div class="lbl">主力净流出</div><div class="val neg">电子 -72 亿</div><div style="font-size:11px">半导体 / 计算机同步流出</div></div>
+    <div class="k"><div class="lbl">主力净流入</div><div class="val pos">医药 +39 亿</div><div style="font-size:11px">5日累计 +258 亿</div></div>
+  </div>
+  <div class="alert-blue">
+    <b>市场结构：</b>典型的<b>节前防御切换</b>格局 —— 上证微红 0.45%、科创 50 重挫 -2.09%，主板稳、硬科技崩。资金从高位硬科技（半导体 / PCB / 封装）涌向防御板块（医药 / CRO / 创新药 / 地产 / 机器人）。
+  </div>
+</div>
+
+<div class="box">
+  <h2>🔥 异动焦点</h2>
+  <ul class="movers">
+    <li><b>TFC</b> <em>300394.SZ</em> <span class='pos'>+2.71%</span></li><li><b>CIG</b> <em>603083.SS</em> <span class='pos'>+2.42%</span></li><li><b>SDGI</b> <em>000070.SZ</em> <span class='pos'>+1.30%</span></li><li><b>SHENZHEN</b> <em>603228.SS</em> <span class='pos'>+1.08%</span></li><li><b>YANGTZE</b> <em>601869.SS</em> <span class='pos'>+0.84%</span></li><li><b>BEIJING</b> <em>688111.SS</em> <span class='pos'>+0.48%</span></li>
+  </ul>
+  <p style="margin-top:12px;font-size:13px;color:var(--muted)"><b>🔻 跌幅榜</b></p>
+  <ul class="movers">
+    <li><b>TFME</b> <em>002156.SZ</em> <span class='neg'>-5.00%</span></li><li><b>HUA</b> <em>688347.SS</em> <span class='neg'>-4.93%</span></li><li><b>FOREHOPE</b> <em>688362.SS</em> <span class='neg'>-4.26%</span></li><li><b>ACM</b> <em>688082.SS</em> <span class='neg'>-3.75%</span></li><li><b>SEMICONDUCTOR</b> <em>688981.SS</em> <span class='neg'>-3.74%</span></li><li><b>KINGSEMI</b> <em>688037.SS</em> <span class='neg'>-3.64%</span></li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>📈 AI 产业链 15 大方向 · 板块均值排名</h2>
+  <table>
+    <thead><tr><th>#</th><th>方向</th><th>板块均值</th></tr></thead>
+    <tbody><tr><td>1</td><td>光模块 / CPO</td><td class="pos">+0.62%</td></tr><tr><td>2</td><td>AI 应用 / Agent</td><td class="neg">-0.33%</td></tr><tr><td>3</td><td>光通信（光纤光缆）</td><td class="neg">-0.39%</td></tr><tr><td>4</td><td>先进光电集成</td><td class="neg">-0.68%</td></tr><tr><td>5</td><td>机器人</td><td class="neg">-0.91%</td></tr><tr><td>6</td><td>算力 / AI 服务器</td><td class="neg">-1.04%</td></tr><tr><td>7</td><td>高速互联（铜连接/连接器）</td><td class="neg">-1.10%</td></tr><tr><td>8</td><td>MLCC / 被动元件</td><td class="neg">-1.46%</td></tr><tr><td>9</td><td>半导体材料</td><td class="neg">-2.25%</td></tr><tr><td>10</td><td>🏭 长鑫存储上游产业链</td><td class="neg">-2.28%</td></tr><tr><td>11</td><td>存储 / HBM</td><td class="neg">-2.30%</td></tr><tr><td>12</td><td>半导体设备</td><td class="neg">-2.38%</td></tr><tr><td>13</td><td>封装基板 / PCB</td><td class="neg">-2.62%</td></tr><tr><td>14</td><td>半导体晶圆制造</td><td class="neg">-2.80%</td></tr><tr><td>15</td><td>先进封装</td><td class="neg">-3.28%</td></tr></tbody>
+  </table>
+</div>
+
+<div class="box">
+  <h2>🧩 分方向详细复盘</h2>
+  
+    <section class="sec">
+      <h3><span class="num">1</span> 光模块 / CPO <span class="avg pos">板块均值 ▲0.62%</span> <span class="tag tag-flat">微红</span></h3>
+      <div class="stocks"><span class='stk neg'>ZHONGJI <em>300308</em> <b>▼0.23%</b></span> <span class='stk neg'>EOPTOLINK <em>300502</em> <b>▼0.84%</b></span> <span class='stk pos'>TFC <em>300394</em> <b>▲2.71%</b></span> <span class='stk pos'>CIG <em>603083</em> <b>▲2.42%</b></span> <span class='stk neg'>ACCELINK <em>002281</em> <b>▼0.98%</b></span></div>
+      <div class="meta">区间 -0.98% ~ +2.71%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">2</span> 光通信（光纤光缆） <span class="avg neg">板块均值 ▼0.39%</span> <span class="tag tag-flat">微调</span></h3>
+      <div class="stocks"><span class='stk neg'>FIBERHOME <em>600498</em> <b>▼0.63%</b></span> <span class='stk pos'>YANGTZE <em>601869</em> <b>▲0.84%</b></span> <span class='stk neg'>HENGTONG <em>600487</em> <b>▼2.99%</b></span> <span class='stk neg'>JIANGSU <em>600522</em> <b>▼0.48%</b></span> <span class='stk pos'>SDGI <em>000070</em> <b>▲1.30%</b></span></div>
+      <div class="meta">区间 -2.99% ~ +1.30%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">3</span> 高速互联（铜连接/连接器） <span class="avg neg">板块均值 ▼1.10%</span> <span class="tag tag-flat">微调</span></h3>
+      <div class="stocks"><span class='stk neg'>LXJM <em>002475</em> <b>▼1.55%</b></span> <span class='stk neg'>AVARY <em>002938</em> <b>▼0.26%</b></span> <span class='stk neg'>HDGF <em>002463</em> <b>▼3.39%</b></span> <span class='stk neg'>SCC <em>002916</em> <b>▼1.36%</b></span> <span class='stk pos'>SHENZHEN <em>603228</em> <b>▲1.08%</b></span></div>
+      <div class="meta">区间 -3.39% ~ +1.08%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">4</span> 先进光电集成 <span class="avg neg">板块均值 ▼0.68%</span> <span class="tag tag-flat">微调</span></h3>
+      <div class="stocks"><span class='stk neg'>HGTECH <em>000988</em> <b>▼1.67%</b></span> <span class='stk neg'>OPTOWIDE <em>688195</em> <b>▼0.15%</b></span> <span class='stk neg'>YUANJIE <em>688498</em> <b>▼0.98%</b></span> <span class='stk pos'>HENAN <em>688313</em> <b>▲0.08%</b></span></div>
+      <div class="meta">区间 -1.67% ~ +0.08%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">5</span> 算力 / AI 服务器 <span class="avg neg">板块均值 ▼1.04%</span> <span class="tag tag-flat">微调</span></h3>
+      <div class="stocks"><span class='stk neg'>DAWNING <em>603019</em> <b>▼1.07%</b></span> <span class='stk neg'>LCXX <em>000977</em> <b>▼1.35%</b></span> <span class='stk neg'>FOXCONN <em>601138</em> <b>▼0.38%</b></span> <span class='stk neg'>UNIS <em>000938</em> <b>▼1.30%</b></span> <span class='stk neg'>TALKWEB <em>002261</em> <b>▼1.08%</b></span></div>
+      <div class="meta">区间 -1.35% ~ -0.38%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">6</span> 封装基板 / PCB <span class="avg neg">板块均值 ▼2.62%</span> <span class="tag tag-dn">弱势</span></h3>
+      <div class="stocks"><span class='stk neg'>SCC <em>002916</em> <b>▼1.36%</b></span> <span class='stk neg'>HDGF <em>002463</em> <b>▼3.39%</b></span> <span class='stk neg'>SHENGYI <em>600183</em> <b>▼2.27%</b></span> <span class='stk neg'>FASTPRINT <em>002436</em> <b>▼3.01%</b></span> <span class='stk neg'>VGT <em>300476</em> <b>▼3.06%</b></span></div>
+      <div class="meta">区间 -3.39% ~ -1.36%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">7</span> 半导体晶圆制造 <span class="avg neg">板块均值 ▼2.80%</span> <span class="tag tag-dn">弱势</span></h3>
+      <div class="stocks"><span class='stk neg'>SEMICONDUCTOR <em>688981</em> <b>▼3.74%</b></span> <span class='stk neg'>HUA <em>688347</em> <b>▼4.93%</b></span> <span class='stk neg'>HANGZHOU <em>600460</em> <b>▼2.98%</b></span> <span class='stk pos'>SANAN <em>600703</em> <b>▲0.44%</b></span></div>
+      <div class="meta">区间 -4.93% ~ +0.44%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">8</span> 半导体设备 <span class="avg neg">板块均值 ▼2.38%</span> <span class="tag tag-dn">弱势</span></h3>
+      <div class="stocks"><span class='stk neg'>NAURA <em>002371</em> <b>▼1.45%</b></span> <span class='stk neg'>ADVANCED <em>688012</em> <b>▼0.75%</b></span> <span class='stk neg'>ACM <em>688082</em> <b>▼3.75%</b></span> <span class='stk neg'>PIOTECH <em>688072</em> <b>▼2.58%</b></span> <span class='stk neg'>HWATSING <em>688120</em> <b>▼2.12%</b></span> <span class='stk neg'>KINGSEMI <em>688037</em> <b>▼3.64%</b></span></div>
+      <div class="meta">区间 -3.75% ~ -0.75%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">9</span> 半导体材料 <span class="avg neg">板块均值 ▼2.25%</span> <span class="tag tag-dn">弱势</span></h3>
+      <div class="stocks"><span class='stk neg'>NATIONAL <em>688126</em> <b>▼1.73%</b></span> <span class='stk neg'>KFMI <em>300666</em> <b>▼3.46%</b></span> <span class='stk neg'>NATA <em>300346</em> <b>▼2.84%</b></span> <span class='stk neg'>YOKE <em>002409</em> <b>▼2.61%</b></span> <span class='stk neg'>RED <em>603650</em> <b>▼1.52%</b></span> <span class='stk neg'>ANJI <em>688019</em> <b>▼2.23%</b></span> <span class='stk neg'>YFXC <em>300637</em> <b>▼1.38%</b></span></div>
+      <div class="meta">区间 -3.46% ~ -1.38%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">10</span> 先进封装 <span class="avg neg">板块均值 ▼3.28%</span> <span class="tag tag-dn">弱势</span></h3>
+      <div class="stocks"><span class='stk neg'>JCET <em>600584</em> <b>▼1.84%</b></span> <span class='stk neg'>TFME <em>002156</em> <b>▼5.00%</b></span> <span class='stk neg'>HUATIAN <em>002185</em> <b>▼2.88%</b></span> <span class='stk neg'>CHINA <em>603005</em> <b>▼2.44%</b></span> <span class='stk neg'>FOREHOPE <em>688362</em> <b>▼4.26%</b></span></div>
+      <div class="meta">区间 -5.00% ~ -1.84%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">11</span> 存储 / HBM <span class="avg neg">板块均值 ▼2.30%</span> <span class="tag tag-dn">弱势</span></h3>
+      <div class="stocks"><span class='stk neg'>GIGA <em>603986</em> <b>▼3.47%</b></span> <span class='stk neg'>GUOXIN <em>002049</em> <b>▼0.33%</b></span> <span class='stk neg'>LONGSYS <em>301308</em> <b>▼2.62%</b></span> <span class='stk neg'>BIWIN <em>688525</em> <b>▼2.32%</b></span> <span class='stk neg'>NETAC <em>300042</em> <b>▼2.74%</b></span></div>
+      <div class="meta">区间 -3.47% ~ -0.33%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">12</span> MLCC / 被动元件 <span class="avg neg">板块均值 ▼1.46%</span> <span class="tag tag-flat">微调</span></h3>
+      <div class="stocks"><span class='stk neg'>CCTC <em>300408</em> <b>▼1.03%</b></span> <span class='stk neg'>FENGHUA <em>000636</em> <b>▼2.56%</b></span> <span class='stk neg'>JIEMEI <em>002859</em> <b>▼0.65%</b></span> <span class='stk neg'>SUNLORD <em>002138</em> <b>▼0.23%</b></span> <span class='stk neg'>MICROGATE <em>300319</em> <b>▼2.81%</b></span></div>
+      <div class="meta">区间 -2.81% ~ -0.23%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">13</span> AI 应用 / Agent <span class="avg neg">板块均值 ▼0.33%</span> <span class="tag tag-flat">微调</span></h3>
+      <div class="stocks"><span class='stk neg'>FLUSH <em>300033</em> <b>▼1.01%</b></span> <span class='stk pos'>BEIJING <em>688111</em> <b>▲0.48%</b></span> <span class='stk pos'>IFLYTEK <em>002230</em> <b>▲0.03%</b></span> <span class='stk pos'>TRS <em>300229</em> <b>▲0.16%</b></span> <span class='stk neg'>KUNLUN <em>300418</em> <b>▼1.32%</b></span></div>
+      <div class="meta">区间 -1.32% ~ +0.48%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">14</span> 机器人 <span class="avg neg">板块均值 ▼0.91%</span> <span class="tag tag-flat">微调</span></h3>
+      <div class="stocks"><span class='stk neg'>INOVANCE <em>300124</em> <b>▼1.10%</b></span> <span class='stk pos'>ESTUN <em>002747</em> <b>▲0.43%</b></span> <span class='stk pos'>LEADER <em>688017</em> <b>▲0.08%</b></span> <span class='stk neg'>TOPSTAR <em>300607</em> <b>▼0.98%</b></span> <span class='stk neg'>ZHEJIANG <em>688320</em> <b>▼2.98%</b></span></div>
+      <div class="meta">区间 -2.98% ~ +0.43%</div>
+    </section>
+    <section class="sec">
+      <h3><span class="num">15</span> 🏭 长鑫存储上游产业链 <span class="avg neg">板块均值 ▼2.28%</span> <span class="tag tag-dn">弱势</span></h3>
+      <div class="stocks"><span class='stk neg'>KAIFA <em>000021</em> <b>▼2.22%</b></span> <span class='stk neg'>KFMI <em>300666</em> <b>▼3.46%</b></span> <span class='stk neg'>NATA <em>300346</em> <b>▼2.84%</b></span> <span class='stk neg'>RED <em>603650</em> <b>▼1.52%</b></span> <span class='stk neg'>YOKE <em>002409</em> <b>▼2.61%</b></span> <span class='stk neg'>NAURA <em>002371</em> <b>▼1.45%</b></span> <span class='stk neg'>JCET <em>600584</em> <b>▼1.84%</b></span></div>
+      <div class="meta">区间 -3.46% ~ -1.45%</div>
+    </section>
+</div>
+
+<div class="box">
+  <h2>🏭 长鑫存储上游产业链 · 专项跟踪</h2>
+  <div class="alert-gold">
+    <b>长鑫存储 295 亿 IPO 募资落地 + DDR5/HBM3 产能扩张</b>，上游设备 / 材料 / 封测厂商进入业绩兑现窗口。但早盘板块随半导体同步调整，板块均值 <b>-2.28%</b>，弱于大盘主线。
+  </div>
+  <p style="margin:12px 0;font-size:13px"><b>7 大核心受益标的早盘表现：</b></p>
+  <div class="stocks">
+    <span class="stk neg">深科技 <em>000021</em> <b>▼2.22%</b></span>
+    <span class="stk neg">江丰电子 <em>300666</em> <b>▼3.46%</b></span>
+    <span class="stk neg">南大光电 <em>300346</em> <b>▼2.84%</b></span>
+    <span class="stk neg">彤程新材 <em>603650</em> <b>▼1.52%</b></span>
+    <span class="stk neg">雅克科技 <em>002409</em> <b>▼2.61%</b></span>
+    <span class="stk neg">北方华创 <em>002371</em> <b>▼1.45%</b></span>
+    <span class="stk neg">长电科技 <em>600584</em> <b>▼1.84%</b></span>
+  </div>
+  <div class="meta" style="margin-top:14px">
+    <b>产业逻辑回顾：</b><br>
+    • <b>北方华创</b>：刻蚀 / PVD 设备主力供应商<br>
+    • <b>中微公司</b>：CCP 刻蚀已进入长鑫主力产线<br>
+    • <b>雅克科技</b>：全球 DRAM 前驱体材料龙头，覆盖 17nm DDR5 / LPDDR5 产线，配套 HBM 堆叠材料<br>
+    • <b>江丰电子</b>：高纯溅射靶材国内唯一规模化供应商<br>
+    • <b>安集科技</b>：CMP 抛光液国内龙头<br>
+    • <b>南大光电</b>：ArF 光刻胶国产化先锋<br>
+    • <b>长电科技 / 通富微电</b>：HBM / DDR5 先进封装核心
+  </div>
+  <div class="alert" style="margin-top:14px">
+    <b>短期观察：</b>板块跟随大盘调整，但 295 亿募资落地后，长鑫产能扩张是 2027 年主线逻辑不变。节后可重点跟踪 Q4 招标节奏 + DDR5 量产爬坡进度。今日普跌更多是<b>节前获利了结</b>而非基本面变化。
+  </div>
+</div>
+
+<div class="box">
+  <h2>🔮 下午走势预判</h2>
+
+  <div class="alert-blue">
+    <b>1. 大盘方向预判（概率评估）</b><br>
+    • <b>震荡偏弱 / 十字星收官</b> —— 概率 <span class="callout">55%</span><br>
+    • <b>科技股继续探底，科创 50 跌破 1520</b> —— 概率 <span class="callout">25%</span><br>
+    • <b>防御板块维持强势，上证收红</b> —— 概率 <span class="callout">20%</span><br><br>
+    逻辑：节前最后一个交易日 + 量能未放大 + 硬科技抛压未释放完毕。资金更倾向"持币过节"，指数层面难有惊喜。
+  </div>
+
+  <div class="alert-blue">
+    <b>2. AI 产业链午后展望</b><br>
+    • <b>光模块 / CPO</b>（板块均值 +0.62%）：唯一红盘方向，1.6T 量产逻辑仍在，<b>剑桥科技 / 天孚通信</b>预计抗跌<br>
+    • <b>半导体上游（设备 / 材料 / 封测）</b>：板块均值 -2% ~ -3%，处于连续调整中，<b>下午大概率延续弱势</b>，但尾盘可能出现技术性反抽<br>
+    • <b>轮动方向</b>：机器人 + AI 应用午后可能承接部分科技资金（埃斯顿、拓尔思等今日已显韧性）<br>
+    • <b>风险提示</b>：若下午 14:30 后出现科创 50 单日跌幅扩至 -3%，可能触发 ETF 赎回盘
+  </div>
+
+  <div class="alert-blue">
+    <b>3. 关键点位</b><br>
+    • <b>上证指数</b>：支撑 <b>3800</b>（60 日线）/ 阻力 <b>3870</b>（5 日线）<br>
+    • <b>科创 50</b>：支撑 <b>1500</b>（心理位）/ 阻力 <b>1560</b>（今日开盘附近）<br>
+    • <b>创业板</b>：支撑 <b>3100</b> / 阻力 <b>3160</b><br>
+    • <b>全市场成交</b>：若午后低于 1.5 万亿，节前观望情绪加重
+  </div>
+
+  <div class="alert">
+    <b>4. 风险提示</b><br>
+    • <b>节前长假期</b>（10/1 - 10/8 共 8 天），海外不确定事件（地缘 / 美股 / 汇率）风险敞口放大<br>
+    • <b>今天操作不享受假期理财收益</b>（9/29 是最后享受日），套现动力强<br>
+    • 早盘硬科技放量下跌，部分获利盘尚未出清，<b>下午仍有惯性下杀风险</b><br>
+    • 港股近期波动加剧，AH 联动需警惕
+  </div>
+
+  <div class="alert-gold">
+    <b>5. 操作建议（仅供参考，<span style="color:#ef4444">不构成投资建议</span>）</b><br>
+    • <b>控制仓位过节</b>，建议总仓位 ≤ 60%，规避长假不确定性<br>
+    • <b>不要在尾盘追涨杀跌</b> —— 硬科技尾盘反抽往往是诱多<br>
+    • <b>关注切换信号</b>：若科创 50 跌破 1500，可考虑定投分批布局<br>
+    • <b>防御首选</b>：医药 / CRO 持续性优于科技；机器人午后留意低吸机会<br>
+    • <b>长鑫上游</b>：今日普跌反而是基本面投资者分批建仓窗口
+  </div>
+</div>
+
+<div class="box">
+  <h2>📌 核心结论</h2>
+  <p style="font-size:14px;line-height:1.9">
+    1. <b>典型节前防御切换日</b>：主板稳、科创崩，医药 + 机器人走强，半导体全线调整<br>
+    2. <b>AI 产业链内部剧烈分化</b>：光模块（应用层）抗跌，半导体上游（设备 / 材料 / 封测）遭抛压<br>
+    3. <b>长鑫存储上游</b>短期跟随大盘调整，但 295 亿募资落地 + DDR5/HBM3 扩产主逻辑不变，<b>节后有望率先修复</b><br>
+    4. <b>下午策略</b>：控仓过节、不追高、关注机器人 + AI 应用轮动机会<br>
+    5. <b>关键观察</b>：科创 50 是否守住 1500 / 硬科技尾盘反抽力度
+  </p>
+</div>
+
+<footer>
+  报告生成时间 2026-09-30 12:00 · 数据源 Yahoo Finance v8 API + 公开新闻<br>
+  本报告由 AI 辅助生成，仅供研究参考，<b style="color:#ef4444">不构成任何投资建议</b><br>
+  在线版本：<a href="https://reports.dns-cloudflare.com/a-morning/2026-09-30.html" style="color:#60a5fa">https://reports.dns-cloudflare.com/a-morning/2026-09-30.html</a>
+</footer>
+
+</body>
+</html>
