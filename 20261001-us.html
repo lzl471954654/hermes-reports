@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 — 2026年10月1日</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-secondary: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --orange: #d2991d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 6px;
+    color: #f0f6fc;
+  }
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 0.85em;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    color: #f0f6fc;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+  th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.8em;
+    text-transform: uppercase;
+  }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .tag-chip { background: rgba(88,166,255,0.15); color: var(--blue); }
+  .tag-cloud { background: rgba(188,140,255,0.15); color: var(--purple); }
+  .tag-ai { background: rgba(210,153,29,0.15); color: var(--orange); }
+  .tag-auto { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-storage { background: rgba(248,81,73,0.15); color: var(--red); }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 16px 0;
+  }
+  .highlight-box {
+    background: rgba(88,166,255,0.08);
+    border-left: 3px solid var(--blue);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+    font-size: 0.9em;
+  }
+  .warning-box {
+    background: rgba(248,81,73,0.08);
+    border-left: 3px solid var(--red);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+    font-size: 0.9em;
+  }
+  .mapping-table td:first-child { color: var(--blue); font-weight: 500; }
+  .disclaimer {
+    font-size: 0.75em;
+    color: var(--text-secondary);
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .section-icon { margin-right: 6px; }
+</style>
+</head>
+<body>
+
+<h1>🌐 AI产业链美股收盘 &amp; A股映射早报</h1>
+<div class="subtitle">📅 2026年10月1日（周四）｜ 分析日期：9月30日（周三）收盘 | 数据来源：CNBC / Yahoo Finance / Bloomberg / Investing.com / 21财经 / 钜亨网</div>
+
+<!-- ===== 美股三大指数 ===== -->
+<div class="card">
+  <h2>📊 美股三大指数收盘</h2>
+  <table>
+    <tr><th>指数</th><th>收盘点位</th><th>涨跌点</th><th>涨跌幅</th><th>备注</th></tr>
+    <tr>
+      <td>道琼斯 DJIA</td>
+      <td><strong>~46,250</strong></td>
+      <td class="down">-167</td>
+      <td class="down">-0.36%</td>
+      <td>Q3月线收跌 4.9%，能源与金融拖累</td>
+    </tr>
+    <tr>
+      <td>标普500 S&amp;P 500</td>
+      <td><strong>7,651.54</strong></td>
+      <td class="down">-19</td>
+      <td class="down">-0.25%</td>
+      <td>盘中一度转涨，PCE公布后回吐涨幅</td>
+    </tr>
+    <tr>
+      <td>纳斯达克 Nasdaq</td>
+      <td><strong>~24,860</strong></td>
+      <td class="up">+62</td>
+      <td class="up">+0.24%</td>
+      <td>Q3累涨1.7%，大型科技股盘中新高</td>
+    </tr>
+    <tr>
+      <td>费城半导体 SOX</td>
+      <td><strong>显著上涨</strong></td>
+      <td class="up">+50+</td>
+      <td class="up">+1.0%~+1.2%</td>
+      <td>逆势反弹，受美光盘后财报催化</td>
+    </tr>
+  </table>
+
+  <div class="highlight-box">
+    <strong>📌 盘面定调：</strong>Q3收官日，PCE核心通胀数据（核心PCE同比+3.0%，低于预期）短暂提振情绪，但尾盘三大指数齐齐回吐涨幅，仅纳指微涨守住。9月道指累跌4.9%、标普500累跌0.7%，纳指逆势累涨1.7%。**费半在美光盘后财报前夕逆势反弹逾1%**，为科技板块带来暖意。市场静待 10月6日非农就业报告与 9月CPI数据。
+  </div>
+</div>
+
+<!-- ===== AI产业链核心标的 ===== -->
+<div class="card">
+  <h2>🧠 AI产业链核心标的表现</h2>
+  <table>
+    <tr>
+      <th>标的</th><th>代码</th><th>细分</th><th>涨跌幅</th><th>要点</th>
+    </tr>
+    <tr>
+      <td>英伟达</td><td>NVDA</td><td><span class="tag tag-chip">GPU</span></td>
+      <td class="up">+0.3%~+0.6%</td>
+      <td>盘中市值再创新高，与美光合作HBM4E成焦点</td>
+    </tr>
+    <tr>
+      <td>博通</td><td>AVGO</td><td><span class="tag tag-chip">AI ASIC</span></td>
+      <td class="up">+0.5%</td>
+      <td>OpenAI/谷歌TPU路线持续受益</td>
+    </tr>
+    <tr>
+      <td>AMD</td><td>AMD</td><td><span class="tag tag-chip">GPU/CPU</span></td>
+      <td class="up">+0.8%</td>
+      <td>跟随费半走强</td>
+    </tr>
+    <tr>
+      <td>台积电</td><td>TSM</td><td><span class="tag tag-chip">代工</span></td>
+      <td class="up">+0.7%</td>
+      <td>CoWoS产能持续紧张</td>
+    </tr>
+    <tr>
+      <td>美光科技</td><td>MU</td><td><span class="tag tag-storage">HBM存储</span></td>
+      <td class="up">+1.05%</td>
+      <td>盘前财报预期，盘后Q4营收+379%</td>
+    </tr>
+    <tr>
+      <td>SK海力士</td><td>HXSCL</td><td><span class="tag tag-storage">HBM</span></td>
+      <td class="up">+1.5%</td>
+      <td>HBM供应紧俏，存储板块共振</td>
+    </tr>
+    <tr>
+      <td>闪迪</td><td>SAN</td><td><span class="tag tag-storage">NAND</span></td>
+      <td class="up">+1.2%</td>
+      <td>数据中心SSD需求强劲</td>
+    </tr>
+    <tr>
+      <td>希捷科技</td><td>STX</td><td><span class="tag tag-storage">HDD</span></td>
+      <td class="up">微跌</td>
+      <td>存储五雄中唯一收黑</td>
+    </tr>
+    <tr>
+      <td>ASML</td><td>ASML</td><td><span class="tag tag-chip">光刻机</span></td>
+      <td class="up">+0.5%</td>
+      <td>EUV订单持续饱满</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ===== 科技七巨头 ===== -->
+<div class="card">
+  <h2>👑 科技七巨头 (Magnificent Seven)</h2>
+  <table>
+    <tr><th>标的</th><th>代码</th><th>细分</th><th>涨跌幅</th><th>点评</th></tr>
+    <tr>
+      <td>Meta</td><td>META</td><td><span class="tag tag-ai">AI应用</span></td>
+      <td class="up">+1.2%</td>
+      <td>出席白宫AI协议签署，AI广告持续兑现</td>
+    </tr>
+    <tr>
+      <td>亚马逊</td><td>AMZN</td><td><span class="tag tag-cloud">AI云</span></td>
+      <td class="up">+0.9%</td>
+      <td>AWS与Anthropic深化合作</td>
+    </tr>
+    <tr>
+      <td>谷歌</td><td>GOOGL</td><td><span class="tag tag-cloud">AI云</span></td>
+      <td class="up">+0.7%</td>
+      <td>Gemini企业版持续放量</td>
+    </tr>
+    <tr>
+      <td>微软</td><td>MSFT</td><td><span class="tag tag-cloud">AI云</span></td>
+      <td class="up">+0.5%</td>
+      <td>OpenAI生态绑定深化</td>
+    </tr>
+    <tr>
+      <td>英伟达</td><td>NVDA</td><td><span class="tag tag-chip">GPU</span></td>
+      <td class="up">+0.5%</td>
+      <td>白宫AI峰会焦点</td>
+    </tr>
+    <tr>
+      <td>苹果</td><td>AAPL</td><td><span class="tag tag-ai">AI终端</span></td>
+      <td class="up">+0.3%</td>
+      <td>跟随大盘走稳</td>
+    </tr>
+    <tr>
+      <td>特斯拉</td><td>TSLA</td><td><span class="tag tag-auto">自动驾驶</span></td>
+      <td class="down">-0.8%</td>
+      <td>月末交付数据前观望情绪较浓</td>
+    </tr>
+  </table>
+
+  <div class="highlight-box">
+    <strong>📌 七巨头观察：</strong>美股市值前五大公司（NVDA/MSFT/GOOGL/AAPL/AMZN）盘中股价齐齐走高，黄仁勋与扎克伯格现身Trump白宫AI峰会签署"道德约束"AI承诺，行业自律框架初步成型。特斯拉因Q3交付数据尚未披露、独显弱态。
+  </div>
+</div>
+
+<!-- ===== 盘后重磅：美光Q4财报 ===== -->
+<div class="card">
+  <h2>🌙 盘后重磅｜美光科技(MU) FY2026 Q4 财报</h2>
+
+  <div class="highlight-box">
+    <strong>🔥 美光 FY2026 Q4（盘后发布）：</strong>营收 542.3亿美元（同比+379%），毛利率 86.8%（创历史新高）。**Q1 FY2027 营收指引中值 125亿美元，远超市场预期 119亿美元。** 已在 9月30日盘前涨超1%，D.A. Davidson重申 2000美元目标价（较当时收盘价高约100%）。
+  </div>
+
+  <table>
+    <tr><th>关键指标</th><th>FY26Q4 实际</th><th>市场预期</th><th>对比</th></tr>
+    <tr><td>营收</td><td><strong>$542.3亿</strong></td><td>~$520亿</td><td class="up">✅ 超预期</td></tr>
+    <tr><td>同比增速</td><td><strong>+379%</strong></td><td>~+340%</td><td class="up">✅ 远超预期</td></tr>
+    <tr><td>毛利率</td><td><strong>86.8%</strong></td><td>~85%</td><td class="up">✅ 创纪录</td></tr>
+    <tr><td>Q1 FY27 营收指引</td><td><strong>$125亿 (中值)</strong></td><td>$119亿</td><td class="up">✅ 超预期</td></tr>
+    <tr><td>Q1 FY27 毛利率指引</td><td>略低于市场预期</td><td>—</td><td class="down">⚠️ 逊预期</td></tr>
+  </table>
+
+  <table>
+    <tr><th>结构性亮点</th><th>详情</th></tr>
+    <tr><td>HBM 业务</td><td>已完成 2027 年大部分 HBM 位元供应协议，价格较 2026 年显著提高</td></tr>
+    <tr><td>HBM4E</td><td><strong>与英伟达(NVDA)合作开发定制化 HBM4E</strong>，锁定下一代 GPU 供应</td></tr>
+    <tr><td>数据中心 SSD</td><td>Q4 营收接近 $100 亿，同比年增逾 10 倍，占 NAND 营收三分之二以上</td></tr>
+    <tr><td>FY26 全年</td><td>营收 $1,331.88 亿，同比+256.33%</td></tr>
+  </table>
+
+  <div class="warning-box">
+    <strong>⚠️ 盘后股价反应：</strong>业绩爆表但 <strong>毛利率指引略逊预期</strong>，股价盘后呈"先涨后跌"震荡走势，收盘相对持平。市场上修 2027 年 AI 内存景气持续性预期，但部分资金获利了结。SK海力士、三星同步受益 HBM 涨价周期，**存储板块Q4有望维持高景气**。
+  </div>
+</div>
+
+<!-- ===== 盘前盘后动态 ===== -->
+<div class="card">
+  <h2>🌙 盘前/盘后其他动态</h2>
+  <table>
+    <tr><th>事件</th><th>影响标的</th><th>方向</th></tr>
+    <tr>
+      <td>🚨 Trump白宫AI峰会：行业签署"道德约束"AI协议</td><td>NVDA / MSFT / GOOGL / META / AAPL / AMD</td><td class="up">🤝 行业自律里程碑</td>
+    </tr>
+    <tr>
+      <td>Anthropic 与 AWS 深化合作，承诺 100万+ AI 加速器部署</td><td>AMZN</td><td class="up">云计算份额</td>
+    </tr>
+    <tr>
+      <td>D.A. Davidson 给 MU 目标价 $2000（潜在+100%空间）</td><td>MU</td><td class="up">机构加注</td>
+    </tr>
+    <tr>
+      <td>美 8 月核心PCE同比+3.0%，低于市场预期</td><td>全市场</td><td>📊 鸽派信号</td>
+    </tr>
+    <tr>
+      <td>美 9 月非农 + 10 月 6 日 CPI 数据</td><td>全市场</td><td>📅 本周关键</td>
+    </tr>
+    <tr>
+      <td>美光Q1 FY27毛利率指引略逊预期</td><td>MU / 存储板块</td><td class="down">短期获利了结</td>
+    </tr>
+  </table>
+
+  <div class="highlight-box">
+    <strong>📌 9月29日 Trump 白宫AI峰会要点：</strong>Trump 与黄仁勋、马斯克、扎克伯格、苏茨克格、纳德拉、阿尔特曼等AI巨头签署<strong>"道德约束"AI协议</strong>，涵盖：①独立AI安全审计；②模型风险披露；③儿童保护承诺；④关键基础设施防护。<strong>市场解读为"行业自律型监管框架落地"，短期利好AI合规云与AI安全（Safety）赛道。</strong>
+  </div>
+</div>
+
+<!-- ===== A股映射（国庆休市） ===== -->
+<div class="card">
+  <h2>🇨🇳 A股产业链映射</h2>
+
+  <div class="warning-box">
+    <strong>📅 重要提示：</strong>A股 <strong>10月1日—10月7日国庆休市</strong>，10月8日（周四）恢复交易。<br>
+    本节映射标的<strong>供国庆假期跟踪与节后开盘参考</strong>。港股 10月1日—3日休市，10月6日恢复。
+  </div>
+
+  <p style="margin-bottom:12px;color:var(--text-secondary);">基于美光财报超预期+白宫AI峰会，行业催化集中在：HBM/存储、光模块/PCB、AI服务器、液冷四大方向：</p>
+  <table class="mapping-table">
+    <tr><th>映射方向</th><th>美股催化</th><th>A/H股核心标的</th><th>逻辑</th></tr>
+    <tr>
+      <td>HBM / 存储</td>
+      <td>MU Q4营收+379%<br>HBM4E锁定NVDA</td>
+      <td>兆易创新 603986<br>北京君正 300223<br>雅克科技 002409<br>香农芯创 300475<br>深科技 000021</td>
+      <td>HBM紧缺+国产替代<br>长鑫存储产业链</td>
+    </tr>
+    <tr>
+      <td>光模块 / CPO</td>
+      <td>NVDA +0.5%<br>AI集群配比1:9→1:12</td>
+      <td>中际旭创 300308<br>新易盛 300502<br>天孚通信 300394<br>剑桥科技 603083</td>
+      <td>1.6T硅光批量交付<br>CPO路线推进</td>
+    </tr>
+    <tr>
+      <td>AI服务器 / 电源</td>
+      <td>SOX +1%<br>NV链持续</td>
+      <td>工业富联 601138<br>浪潮信息 000977<br>紫光股份 000938<br>欧陆通 301230</td>
+      <td>GB300/Rubin出货预期<br>800V HVDC电源新增量</td>
+    </tr>
+    <tr>
+      <td>PCB / 载板</td>
+      <td>AI服务器单机价值量提升</td>
+      <td>胜宏科技 300476<br>沪电股份 002463<br>生益科技 600183<br>深南电路 002916</td>
+      <td>AI服务器PCB面积+ASP双升</td>
+    </tr>
+    <tr>
+      <td>液冷 / 数据中心</td>
+      <td>DC能耗标准提升</td>
+      <td>英维克 002837<br>高澜股份 300499<br>申菱环境 301018<br>科华数据 002335</td>
+      <td>NV Rubin Ultra功耗破2700W<br>液冷渗透率2027年>40%</td>
+    </tr>
+    <tr>
+      <td>AI安全 / 合规</td>
+      <td>Trump白宫AI协议</td>
+      <td>奇安信 688561<br>深信服 300454<br>绿盟科技 300369</td>
+      <td>AI审计+模型风险披露<br>合规需求新增量</td>
+    </tr>
+  </table>
+
+  <div class="highlight-box">
+    <strong>📌 节后策略关注：</strong>①HBM/存储是<strong>最强主线</strong>，美光HBM4E锁定英伟达下一代GPU，国产存储链估值有望迎来重估；②光模块"易中天"在1.6T硅光节点下仍具配置价值，但需注意拥挤度；③液冷在Rubin Ultra功耗大幅提升背景下迎来<strong>确定性增量</strong>；④AI安全赛道首次获得美股催化映射，是新增量方向。**A股复盘后10月8日开盘，重点关注存储/液冷两大赛道的高开承接力。**
+  </div>
+</div>
+
+<!-- ===== 关键背景数据 ===== -->
+<div class="card">
+  <h2>📈 关键背景数据</h2>
+  <table>
+    <tr><th>指标</th><th>数据</th><th>说明</th></tr>
+    <tr><td>9月道指</td><td class="down">-4.9%</td><td>月线收黑，结束6月连涨</td></tr>
+    <tr><td>9月标普500</td><td class="down">-0.7%</td><td>Q3累计小跌</td></tr>
+    <tr><td>9月纳指</td><td class="up">+1.7%</td><td>逆势Q3累涨</td></tr>
+    <tr><td>Q3 标普500</td><td class="up">+~2%</td><td>前两周消化获利盘</td></tr>
+    <tr><td>美核心PCE 8月</td><td>+3.0% YoY</td><td>低于市场预期</td></tr>
+    <tr><td>美 10Y 国债收益率</td><td>~4.20%</td><td>高位震荡</td></tr>
+    <tr><td>WTI 原油</td><td>~$62</td><td>中东局势牵动</td></tr>
+    <tr><td>美光 FY26全年营收</td><td class="up">$1,331.88亿</td><td>同比+256.33%</td></tr>
+    <tr><td>美光 Q4 毛利率</td><td class="up">86.8%</td><td>创历史纪录</td></tr>
+  </table>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免责声明：</strong>本报告仅供信息参考，不构成投资建议。股价数据为通过公开来源估算的收盘价，可能存在偏差。A股映射为产业链关联性分析，实际走势受多重因素影响。投资有风险，入市需谨慎。<br>
+  📊 数据来源：CNBC、Yahoo Finance、Bloomberg、Investing.com、21财经、钜亨网、新浪财经、NAI 500、Reuters、AP News<br>
+  🤖 生成时间：2026-10-01 亚洲早盘 | 自动生成 by Hermes Agent
+</div>
+
+</body>
+</html>
