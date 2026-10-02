@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026.10.02</title>
+<style>
+  :root{
+    --bg:#0b1020;
+    --bg2:#11182d;
+    --panel:#161e3a;
+    --line:#243056;
+    --text:#e6ecf5;
+    --muted:#8a96b3;
+    --accent:#5eead4;
+    --accent2:#7dd3fc;
+    --up:#ef4444;        /* A股惯例：涨红 */
+    --down:#22c55e;      /* 跌绿 */
+    --flat:#94a3b8;
+    --warn:#fbbf24;
+    --purple:#a78bfa;
+    --pink:#f472b6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:24px 18px 60px}
+  header{
+    background:linear-gradient(135deg,#0f1834 0%, #1a2454 100%);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:22px 24px;
+    margin-bottom:20px;
+    position:relative;
+    overflow:hidden;
+  }
+  header::before{content:"";position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(94,234,212,0.18),transparent 70%);}
+  h1{font-size:24px;letter-spacing:.5px;margin-bottom:6px}
+  .sub{color:var(--muted);font-size:13px}
+  .pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;background:rgba(94,234,212,.15);color:var(--accent);border:1px solid rgba(94,234,212,.3);margin-left:8px;vertical-align:middle}
+  .pill.warn{background:rgba(251,191,36,.12);color:var(--warn);border-color:rgba(251,191,36,.3)}
+  .pill.purple{background:rgba(167,139,250,.12);color:var(--purple);border-color:rgba(167,139,250,.3)}
+
+  .alert{
+    background:rgba(251,191,36,.08);
+    border:1px solid rgba(251,191,36,.35);
+    color:var(--warn);
+    padding:12px 16px;
+    border-radius:10px;
+    margin-bottom:18px;
+    font-size:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .alert::before{content:"⚠";font-size:18px}
+
+  section{margin-top:22px}
+  h3.title{
+    font-size:16px;
+    color:var(--accent);
+    margin-bottom:12px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:8px;
+  }
+  h3.title::before{content:"";width:4px;height:16px;background:var(--accent);border-radius:2px}
+
+  .grid{display:grid;gap:14px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:780px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px;
+    transition:.2s;
+  }
+  .card:hover{border-color:var(--accent2);transform:translateY(-1px)}
+  .idx-name{color:var(--muted);font-size:13px;margin-bottom:6px}
+  .idx-val{font-size:22px;font-weight:700;letter-spacing:.3px}
+  .idx-chg{font-size:13px;margin-top:4px}
+  .up{color:var(--up)}
+  .down{color:var(--down)}
+  .flat{color:var(--flat)}
+
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+  @media(max-width:780px){.stat-row{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .stat-l{color:var(--muted);font-size:12px}
+  .stat-v{font-size:16px;font-weight:600;margin-top:3px}
+
+  table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  th,td{padding:11px 12px;text-align:left;font-size:13.5px;border-bottom:1px solid var(--line)}
+  th{background:var(--bg2);color:var(--muted);font-weight:500;font-size:12.5px;letter-spacing:.5px}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:rgba(125,211,252,.05)}
+  .tag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:11.5px;background:rgba(125,211,252,.1);color:var(--accent2);margin-right:4px}
+  .tag.ai{background:rgba(167,139,250,.12);color:var(--purple)}
+  .tag.hbm{background:rgba(244,114,182,.12);color:var(--pink)}
+  .tag.pcb{background:rgba(94,234,212,.12);color:var(--accent)}
+
+  .ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:780px){.ai-grid{grid-template-columns:1fr}}
+  .ai-card{
+    background:linear-gradient(135deg,var(--panel) 0%,var(--bg2) 100%);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px;
+  }
+  .ai-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+  .ai-title{font-weight:600;font-size:15px;color:var(--accent2)}
+  .ai-tag{font-size:11px;color:var(--muted);padding:2px 8px;background:rgba(255,255,255,.04);border-radius:6px}
+  .ai-bullets{margin-top:8px}
+  .ai-bullets li{list-style:none;padding-left:18px;position:relative;font-size:13.5px;margin-bottom:6px;color:#cbd5e1}
+  .ai-bullets li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+  .ai-name{font-weight:600;color:#f1f5f9}
+  .ai-stocks{margin-top:8px;font-size:12.5px;color:var(--muted)}
+  .ai-stocks span{color:var(--accent);margin-right:8px}
+
+  .conclusion-box{
+    background:linear-gradient(135deg,rgba(94,234,212,.08),rgba(125,211,252,.05));
+    border:1px solid rgba(94,234,212,.3);
+    border-radius:12px;
+    padding:18px;
+    font-size:14.5px;
+    line-height:1.8;
+  }
+  .conclusion-box strong{color:var(--accent)}
+
+  .risk-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  @media(max-width:780px){.risk-list{grid-template-columns:1fr}}
+  .risk-item{
+    background:rgba(239,68,68,.05);
+    border-left:3px solid var(--up);
+    padding:10px 14px;
+    border-radius:6px;
+    font-size:13.5px;
+    color:#cbd5e1;
+  }
+
+  .timeline{position:relative;padding-left:20px;border-left:2px solid var(--line);margin-top:10px}
+  .tl-item{position:relative;padding-bottom:14px}
+  .tl-item::before{content:"";position:absolute;left:-25px;top:6px;width:10px;height:10px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 3px rgba(94,234,212,.2)}
+  .tl-date{color:var(--accent2);font-size:12.5px;font-weight:600}
+  .tl-text{font-size:13.5px;color:#cbd5e1;margin-top:3px}
+
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:12px}
+  footer a{color:var(--accent2);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>📊 A股盘后总结 · AI产业链深度版
+      <span class="pill warn">国庆休市</span>
+      <span class="pill purple">AI深度版</span>
+    </h1>
+    <div class="sub">报告日期：2026年10月2日（周四） · 数据基准：2026年9月30日（节前最后一个交易日） · 下次开市：10月8日</div>
+  </header>
+
+  <div class="alert">
+    国庆·中秋双节休市进行中（10月1日—10月7日），今日A股无交易，本期报告以<strong>9月30日节前收盘</strong>为基准，并对假期外围变量做跟踪。
+  </div>
+
+  <!-- 核心指数 -->
+  <section>
+    <h3 class="title">一、节前收盘（9月30日）核心指数</h3>
+    <div class="grid g4">
+        <div class="card">
+          <div class="idx-name">上证综指</div>
+          <div class="idx-val">3,842.19</div>
+          <div class="idx-chg up">▲ +0.31% (+11.74)</div>
+        </div>
+        <div class="card">
+          <div class="idx-name">深证成指</div>
+          <div class="idx-val">12,887.62</div>
+          <div class="idx-chg down">▼ -0.11% (-14.33)</div>
+        </div>
+        <div class="card">
+          <div class="idx-name">创业板指</div>
+          <div class="idx-val">—</div>
+          <div class="idx-chg down">▼ -0.23%</div>
+        </div>
+        <div class="card">
+          <div class="idx-name">科创50</div>
+          <div class="idx-val">—</div>
+          <div class="idx-chg down">▼ -2.51%</div>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-l">全市场涨跌家数</div><div class="stat-v down">超2,800只走低</div></div>
+        <div class="stat"><div class="stat-l">两市成交</div><div class="stat-v">约 1.55 万亿（节前缩量）</div></div>
+        <div class="stat"><div class="stat-l">北向资金</div><div class="stat-v down">净流出（避险为主）</div></div>
+        <div class="stat"><div class="stat-l">市场风格</div><div class="stat-v">结构分化、防御为主</div></div>
+      </div>
+  </section>
+
+  <!-- 核心结论 -->
+  <section>
+    <h3 class="title">二、核心结论</h3>
+    <div class="conclusion-box">
+      ① <strong>节前沪指勉强收红，但科创50大跌2.51%</strong>——科技成长明显承压，主板蓝筹抗跌，市场避险为主、节前兑现情绪升温；<br>
+      ② <strong>AI硬件链在9月已完成"高位震荡+业绩兑现"</strong>两条腿， CPO/光模块、PCB/CCL、存储/HBM、液冷的高景气仍未破坏，但估值消化压力大，节后或呈分化；<br>
+      ③ <strong>假期变量需要警惕</strong>——美股、港股假期照常交易，海外科技股回调、英伟达/AMD业绩预期修正、地缘扰动都可能成为10月8日跳空缺口来源，<strong>建议节后首日不追高、先看量能</strong>。
+    </div>
+  </section>
+
+  <!-- AI产业链七大方向 -->
+  <section>
+    <h3 class="title">三、AI产业链 · 七大方向深度跟踪</h3>
+
+    <div class="ai-grid">
+
+      <div class="ai-card">
+        <div class="ai-head">
+          <div class="ai-title">1️⃣ 光通信 / CPO</div>
+          <div class="ai-tag">高景气延续</div>
+        </div>
+        <ul class="ai-bullets">
+          <li><span class="ai-name">行业逻辑：</span>2026年为CPO产业化元年，1.6T模块进入英伟达GB200/GB300供应链验证。</li>
+          <li><span class="ai-name">节前表现：</span>9月板块累计涨幅居前，"易中天"为代表的中军标的持续创新高。</li>
+          <li><span class="ai-name">关键节点：</span>Meta/谷歌1.6T订单招标、OFC 2026新品发布。</li>
+        </ul>
+        <div class="ai-stocks"><span>核心标的：</span>中际旭创 · 新易盛 · 天孚通信 · 剑桥科技 · 环旭电子</div>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-head">
+          <div class="ai-title">2️⃣ 存储 / HBM</div>
+          <div class="ai-tag">国产替代加速</div>
+        </div>
+        <ul class="ai-bullets">
+          <li><span class="ai-name">行业逻辑：</span>SK海力士/三星HBM4量产，2026—2028年产能售罄；长鑫存储7月启动科创板IPO募资295亿。</li>
+          <li><span class="ai-name">节前表现：</span>国产存储链整体跟随海外HBM周期波动，HBM封测端景气度高。</li>
+          <li><span class="ai-name">关键节点：</span>长江存储三期投产、长鑫存储IPO过会节奏、DDR5现货价。</li>
+        </ul>
+        <div class="ai-stocks"><span>核心标的：</span>兆易创新 · 澜起科技 · 深科技 · 北京君正 · 雅克科技</div>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-head">
+          <div class="ai-title">3️⃣ 半导体设备</div>
+          <div class="ai-tag">订单兑现期</div>
+        </div>
+        <ul class="ai-bullets">
+          <li><span class="ai-name">行业逻辑：</span>国产化率持续提升，刻蚀/薄膜沉积/量测设备进入主流晶圆厂主线。</li>
+          <li><span class="ai-name">节前表现：</span>科创50大跌2.51%，设备股受高估值与海外限制双重压力，短线回踩明显。</li>
+          <li><span class="ai-name">关键节点：</span>中芯/长鑫Q4招标节奏、海外出口管制新规。</li>
+        </ul>
+        <div class="ai-stocks"><span>核心标的：</span>北方华创 · 中微公司 · 拓荆科技 · 华海清科 · 精测电子</div>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-head">
+          <div class="ai-title">4️⃣ PCB / CCL</div>
+          <div class="ai-tag">量价齐升</div>
+        </div>
+        <ul class="ai-bullets">
+          <li><span class="ai-name">行业逻辑：</span>AI服务器需求推动高多层PCB、M6/M7级CCL满产扩产，松下CCL 9月最高涨30%。</li>
+          <li><span class="ai-name">节前表现：</span>9月29日PCB板块集体爆发，多股涨停，行业景气周期延至2027年。</li>
+          <li><span class="ai-name">关键节点：</span>M8级别CCL国产化进度、AI整机厂BOM份额变化。</li>
+        </ul>
+        <div class="ai-stocks"><span>核心标的：</span>沪电股份 · 胜宏科技 · 生益科技 · 南亚新材 · 深南电路</div>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-head">
+          <div class="ai-title">5️⃣ MLCC / 被动元件</div>
+          <div class="ai-tag">结构性机会</div>
+        </div>
+        <ul class="ai-bullets">
+          <li><span class="ai-name">行业逻辑：</span>AI服务器对车规级、小尺寸高容值MLCC需求拉动，结构性涨价。</li>
+          <li><span class="ai-name">节前表现：</span>板块整体震荡，消费电子端需求仍偏弱。</li>
+          <li><span class="ai-name">关键节点：</span>村田/三星电机稼动率、AI服务器BBU模块需求。</li>
+        </ul>
+        <div class="ai-stocks"><span>核心标的：</span>三环集团 · 风华高科 · 洁美科技 · 顺络电子</div>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-head">
+          <div class="ai-title">6️⃣ 先进封装</div>
+          <div class="ai-tag">HBM受益</div>
+        </div>
+        <ul class="ai-bullets">
+          <li><span class="ai-name">行业逻辑：</span>CoWoS产能2026年扩至月产8万片以上，国产封测链承接HBM/AI芯片订单。</li>
+          <li><span class="ai-name">节前表现：</span>板块跟随存储链波动，长电/通富等HBM封测业务持续放量。</li>
+          <li><span class="ai-name">关键节点：</span>台积电CoWoS-L产能分配、Chiplet互联标准。</li>
+        </ul>
+        <div class="ai-stocks"><span>核心标的：</span>长电科技 · 通富微电 · 甬矽电子 · 晶方科技</div>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-head">
+          <div class="ai-title">7️⃣ AI服务器 / 液冷</div>
+          <div class="ai-tag">订单加速</div>
+        </div>
+        <ul class="ai-bullets">
+          <li><span class="ai-name">行业逻辑：</span>GB200/Rubin机柜出货带动液冷渗透率突破50%，冷板式与浸没式并行。</li>
+          <li><span class="ai-name">节前表现：</span>液冷板块9月维持强势，整机厂与ODM订单兑现。</li>
+          <li><span class="ai-name">关键节点：</span>英伟达Q4交付节奏、国产液冷方案出海订单。</li>
+        </ul>
+        <div class="ai-stocks"><span>核心标的：</span>工业富联 · 中科曙光 · 浪潮信息 · 英维克 · 申菱环境 · 高澜股份</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 节前板块表现 -->
+  <section>
+    <h3 class="title">四、9月30日板块快照（节前）</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>板块方向</th>
+          <th>节前表现</th>
+          <th>驱动逻辑</th>
+          <th>代表方向</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tag">防御</span>创新药</td>
+          <td class="up">大幅走强</td>
+          <td>恒瑞授权诺和诺德HRS-1596（最高26亿美元）；阿斯利康入股Summit</td>
+          <td>恒瑞医药、百济神州</td>
+        </tr>
+        <tr>
+          <td><span class="tag ai">AI</span>光通信/CPO</td>
+          <td class="flat">高位震荡</td>
+          <td>1.6T订单催化兑现，估值消化</td>
+          <td>易中天（旭创/新易盛/天孚）</td>
+        </tr>
+        <tr>
+          <td><span class="tag pcb">AI</span>PCB/CCL</td>
+          <td class="up">延续强势</td>
+          <td>AI服务器满产 + 松下CCL涨价</td>
+          <td>沪电股份、生益科技</td>
+        </tr>
+        <tr>
+          <td><span class="tag ai">AI</span>液冷</td>
+          <td class="up">趋势上行</td>
+          <td>GB200/Rubin机柜出货兑现</td>
+          <td>英维克、工业富联</td>
+        </tr>
+        <tr>
+          <td><span class="tag hbm">AI</span>存储/HBM</td>
+          <td class="flat">分化</td>
+          <td>海外HBM4量产、国产IPO催化</td>
+          <td>兆易创新、深科技</td>
+        </tr>
+        <tr>
+          <td><span class="tag ai">AI</span>半导体设备</td>
+          <td class="down">调整</td>
+          <td>科创50拖累 + 出口管制担忧</td>
+          <td>北方华创、中微公司</td>
+        </tr>
+        <tr>
+          <td><span class="tag">周期</span>商业航天</td>
+          <td class="up">活跃</td>
+          <td>长征十号乙发射回收成功 + 政策预期</td>
+          <td>航天电子、航天发展</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 假期外围跟踪 -->
+  <section>
+    <h3 class="title">五、假期外围变量（10月1日—2日）</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">10月1日（周三）</div>
+        <div class="tl-text">美股、欧股、港股正常交易，关注美9月ISM制造业PMI、非农就业指引</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">10月2日（今日）</div>
+        <div class="tl-text">港股恒生科技、恒生指数开市，重点关注海外半导体/光通信龙头表现（如英伟达、台积电、SK海力士）</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">10月8日（下周四）</div>
+        <div class="tl-text">A股节后首日开盘——警惕外围传导造成的板块高开低走/低开低走</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 节后策略与风险 -->
+  <section>
+    <h3 class="title">六、节后策略与风险提示</h3>
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:18px">
+      <div>
+        <div style="font-weight:600;margin-bottom:8px;color:var(--accent2)">🎯 配置思路</div>
+        <ul style="list-style:none;padding-left:0;font-size:13.5px;line-height:1.9">
+          <li>① 持仓结构优化：CPO/PCB/液冷高估值标的适度降仓，保留底仓跟随趋势</li>
+          <li>② 关注低估值切换：半导体设备、存储模组节前调整后存在修复空间</li>
+          <li>③ 宽基打底：沪深300/中证A500定投节奏不破，控仓位60—70%</li>
+          <li>④ 节后首日<strong>看量能</strong>，无量反弹视为诱多，需谨慎</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-weight:600;margin-bottom:8px;color:var(--up)">⚠ 风险点</div>
+        <div class="risk-list">
+          <div class="risk-item">海外科技股假期回调，传导至10月3日开盘</div>
+          <div class="risk-item">AI链部分公司Q3业绩低于预期</div>
+          <div class="risk-item">美国出口管制升级 / 关税扰动</div>
+          <div class="risk-item">地缘事件冲击港股科技</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    📊 本报告由 Hermes 自动化生成 · 数据基准：2026.09.30 收盘 · 下次更新：2026.10.08 节后首日<br>
+    ⚠ 本报告仅作市场观察复盘，不构成任何投资建议；投资有风险，决策需谨慎。
+  </footer>
+
+</div>
+</body>
+</html>
