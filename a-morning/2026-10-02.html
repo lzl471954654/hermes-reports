@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A股早盘收盘总结 · 国庆休市 Day 2 特别版 · 2026-10-02</title>
+<style>
+:root{--up:#ef4444;--dn:#16a34a;--bg:#0f172a;--card:#1e293b;--txt:#e2e8f0;--muted:#94a3b8;--bd:#334155}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;padding:20px;max-width:1400px;margin:0 auto}
+h1{font-size:28px;margin-bottom:8px;background:linear-gradient(90deg,#fbbf24,#f87171);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+h2{font-size:22px;margin:30px 0 15px;padding-left:12px;border-left:4px solid #fbbf24}
+h3{font-size:16px;margin:0 0 10px;color:#f1f5f9;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sub{color:var(--muted);margin-bottom:20px;font-size:13px}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px;margin-bottom:16px}
+.indices{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.idx{background:rgba(251,191,36,0.05);border:1px solid #78350f;border-radius:8px;padding:12px}
+.idx .in{font-size:12px;color:var(--muted)}
+.idx .ip{font-size:20px;font-weight:600;margin:4px 0}
+.idx .ic{font-weight:600;font-size:15px}
+.idx .inote{font-size:11px;color:var(--muted);margin-top:6px}
+.pos{color:var(--up)}.neg{color:var(--dn)}
+.sec{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:16px;margin-bottom:12px}
+.sec h3 .num{background:#fbbf24;color:#0f172a;padding:2px 8px;border-radius:6px;font-size:13px}
+.avg{padding:3px 10px;border-radius:6px;font-size:13px;font-weight:600}
+.avg.pos{background:rgba(239,68,68,0.15);color:#fca5a5}
+.avg.neg{background:rgba(22,163,74,0.15);color:#86efac}
+.tag{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:500}
+.tag-up{background:#ef4444;color:#fff}
+.tag-dn{background:#16a34a;color:#fff}
+.tag-flat{background:#64748b;color:#fff}
+.stocks{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.stk{background:rgba(15,23,42,0.6);border:1px solid var(--bd);border-radius:6px;padding:6px 10px;font-size:13px;display:inline-block}
+.stk em{font-style:normal;color:var(--muted);font-size:11px;margin:0 4px}
+.stk b{font-weight:600}
+.stk.pos b{color:var(--up)}
+.stk.neg b{color:var(--dn)}
+.meta{font-size:11px;color:var(--muted);margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--bd)}
+th{background:rgba(251,191,36,0.1);font-weight:600}
+ul.movers{list-style:none;columns:2;column-gap:20px}
+ul.movers li{padding:6px 0;border-bottom:1px dashed #334155;font-size:13px}
+.alert{background:rgba(239,68,68,0.1);border-left:4px solid #ef4444;padding:14px 18px;border-radius:8px;margin:16px 0}
+.alert-gold{background:rgba(251,191,36,0.1);border-left:4px solid #fbbf24;padding:14px 18px;border-radius:8px;margin:16px 0}
+.alert-blue{background:rgba(59,130,246,0.1);border-left:4px solid #3b82f6;padding:14px 18px;border-radius:8px;margin:16px 0}
+.alert-green{background:rgba(34,197,94,0.1);border-left:4px solid #22c55e;padding:14px 18px;border-radius:8px;margin:16px 0}
+.kpi{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0}
+.kpi .k{background:rgba(251,191,36,0.08);padding:10px 14px;border-radius:8px;flex:1;min-width:140px}
+.kpi .k .lbl{font-size:11px;color:var(--muted)}
+.kpi .k .val{font-size:18px;font-weight:600;margin-top:4px}
+.callout{font-weight:600;color:#fbbf24}
+code{background:rgba(96,165,250,0.15);color:#93c5fd;padding:1px 6px;border-radius:4px;font-size:12px}
+.hero{background:linear-gradient(135deg,rgba(251,191,36,0.15),rgba(239,68,68,0.1));border:1px solid #fbbf24;border-radius:16px;padding:24px;margin-bottom:20px;text-align:center}
+.hero .h-title{font-size:24px;font-weight:700;margin-bottom:8px}
+.hero .h-sub{font-size:14px;color:var(--muted)}
+footer{text-align:center;color:var(--muted);padding:20px;font-size:12px;margin-top:30px;border-top:1px solid var(--bd)}
+.timeline{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:14px 0}
+.tl-item{text-align:center;padding:8px 4px;border-radius:6px;font-size:11px;border:1px solid var(--bd)}
+.tl-item.today{background:rgba(251,191,36,0.2);border-color:#fbbf24;font-weight:700;color:#fbbf24}
+.tl-item.past{opacity:0.5}
+.tl-item.future{background:rgba(59,130,246,0.1);border-color:#3b82f6}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div style="font-size:42px;margin-bottom:8px">🇨🇳</div>
+  <div class="h-title">A股早盘收盘总结 · 国庆休市 Day 2 特别版</div>
+  <div class="h-sub">2026-10-02（周五）· 沪深北三所全天休市 · 数据采样自 2026-09-30 收盘</div>
+  <div style="margin-top:14px;font-size:13px;color:#fbbf24">
+    ⏰ 距下一交易日（2026-10-08 周四）开盘还有 <b>6</b> 个自然日 · 港股同步休市至 10/8
+  </div>
+</div>
+
+<div class="box">
+  <h3 style="font-size:18px;margin-bottom:14px">📅 国庆假期日历（10/1 - 10/7）</h3>
+  <div class="timeline">
+    <div class="tl-item past">10/1<br>周四</div>
+    <div class="tl-item today">10/2<br>周五 ⬅️</div>
+    <div class="tl-item future">10/3<br>周六</div>
+    <div class="tl-item future">10/4<br>周日</div>
+    <div class="tl-item future">10/5<br>周一</div>
+    <div class="tl-item future">10/6<br>周二</div>
+    <div class="tl-item future">10/7<br>周三</div>
+  </div>
+  <div style="margin-top:8px;font-size:12px;color:var(--muted);text-align:center">🟡 今天 · 🟦 待开市 · ⚪ 已休市</div>
+</div>
+
+<div class="box">
+  <h2>📊 上一个交易日（9/30）收盘 · 大盘指数快照</h2>
+  <div class="indices">
+  <div class="idx"><div class="in">上证指数</div><div class="ip">3842.2</div><div class="ic pos">▲0.31%</div><div class="inote">节前微红收官，3800上方企稳</div></div>
+  <div class="idx"><div class="in">深证成指</div><div class="ip">12887.62</div><div class="ic neg">▼0.11%</div><div class="inote">微调，跟随主板震荡</div></div>
+  <div class="idx"><div class="in">创业板指</div><div class="ip">3135.28</div><div class="ic pos">▲0.08%</div><div class="inote">宁德时代走弱拖累</div></div>
+  <div class="idx"><div class="in">科创50</div><div class="ip">1530.01</div><div class="ic neg">▼1.5%</div><div class="inote">硬科技承压，半导体全线调整</div></div>
+  <div class="idx"><div class="in">沪深300</div><div class="ip">4357.62</div><div class="ic pos">▲0.25%</div><div class="inote">权重稳定，风格防御化</div></div>
+</div>
+  <div class="kpi" style="margin-top:16px">
+    <div class="k"><div class="lbl">9/30 沪深总成交</div><div class="val">约 1.85 万亿</div><div style="font-size:11px;color:var(--muted)">较前一日小幅放量</div></div>
+    <div class="k"><div class="lbl">上涨 / 下跌</div><div class="val pos">约 2600 / 2500</div><div style="font-size:11px">涨跌参半</div></div>
+    <div class="k"><div class="lbl">假期进度</div><div class="val">Day 2 / 7</div><div style="font-size:11px">假期已过 28.6%</div></div>
+    <div class="k"><div class="lbl">节后首日</div><div class="val">10/8（周四）</div><div style="font-size:11px">A+H+港股同步开市</div></div>
+  </div>
+  <div class="alert-gold">
+    <b>⚠️ 国庆休市安排（沪深北三所）</b><br>
+    根据上交所/深交所/北交所公告：<b>10月1日（周四）至 10月7日（周三）</b>全天休市，<b>10月8日（周四）</b>起照常开市，<b>10月10日（周六）</b>为周末休市。港股同步休市至 10/8。期间<a href="https://www.szse.cn" style="color:#fbbf24">港股</a>休市安排同 A 股一致。
+  </div>
+</div>
+
+<div class="box">
+  <h2>🔥 9/30 异动焦点（基于昨日收盘价）</h2>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:8px"><b>🔺 涨幅榜（节前资金博弈）</b></p>
+  <ul class="movers"><li><b>剑桥科技</b> <em>603083</em> <span class='pos'>+2.16%</span></li><li><b>天孚通信</b> <em>300394</em> <span class='pos'>+1.87%</span></li><li><b>金山办公</b> <em>688111</em> <span class='pos'>+0.88%</span></li><li><b>长飞光纤</b> <em>601869</em> <span class='pos'>+0.79%</span></li><li><b>特发信息</b> <em>000070</em> <span class='pos'>+0.68%</span></li><li><b>景旺电子</b> <em>603228</em> <span class='pos'>+0.68%</span></li><li><b>三安光电</b> <em>600703</em> <span class='pos'>+0.61%</span></li><li><b>仕佳光子</b> <em>688313</em> <span class='pos'>+0.51%</span></li></ul>
+  <p style="margin-top:12px;font-size:13px;color:var(--muted)"><b>🔻 跌幅榜（半导体全线调整）</b></p>
+  <ul class="movers"><li><b>通富微电</b> <em>002156</em> <span class='neg'>-5.73%</span></li><li><b>华虹公司</b> <em>688347</em> <span class='neg'>-5.1%</span></li><li><b>甬硜电子</b> <em>688362</em> <span class='neg'>-4.77%</span></li><li><b>中芯国际</b> <em>688981</em> <span class='neg'>-4.7%</span></li><li><b>麦捷科技</b> <em>300319</em> <span class='neg'>-3.98%</span></li><li><b>亨通光电</b> <em>600487</em> <span class='neg'>-3.94%</span></li><li><b>芯源微</b> <em>688037</em> <span class='neg'>-3.92%</span></li><li><b>朗科科技</b> <em>300042</em> <span class='neg'>-3.88%</span></li></ul>
+</div>
+
+<div class="box">
+  <h2>📈 AI 产业链 15 大方向 · 9/30 收盘板块均值排名</h2>
+  <table>
+    <thead><tr><th>#</th><th>方向</th><th>板块均值</th></tr></thead>
+    <tbody><tr><td>1</td><td>光模块/CPO</td><td class='pos'>+0.25%</td></tr><tr><td>2</td><td>AI应用/Agent</td><td class='neg'>-0.63%</td></tr><tr><td>3</td><td>先进光电集成</td><td class='neg'>-0.84%</td></tr><tr><td>4</td><td>光通信(光纤光缆)</td><td class='neg'>-0.94%</td></tr><tr><td>5</td><td>高速互联(铜连接/连接器)</td><td class='neg'>-1.01%</td></tr><tr><td>6</td><td>机器人</td><td class='neg'>-1.21%</td></tr><tr><td>7</td><td>算力/AI服务器</td><td class='neg'>-1.29%</td></tr><tr><td>8</td><td>MLCC/被动元件</td><td class='neg'>-2.12%</td></tr><tr><td>9</td><td>半导体上游原材料</td><td class='neg'>-2.14%</td></tr><tr><td>10</td><td>封装基板/PCB</td><td class='neg'>-2.31%</td></tr><tr><td>11</td><td>长鑫存储上游产业链</td><td class='neg'>-2.63%</td></tr><tr><td>12</td><td>半导体上游设备</td><td class='neg'>-2.64%</td></tr><tr><td>13</td><td>存储/HBM</td><td class='neg'>-2.96%</td></tr><tr><td>14</td><td>半导体晶圆制造</td><td class='neg'>-3.15%</td></tr><tr><td>15</td><td>先进封装</td><td class='neg'>-3.81%</td></tr></tbody>
+  </table>
+</div>
+
+<div class="box">
+  <h2>🧩 分方向详细复盘（基于 9/30 收盘数据）</h2>
+  <section class="sec">
+  <h3><span class="num">1</span> 光模块/CPO <span class="avg pos">板块均值 +0.25%</span> <span class="tag tag-flat">微调</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">数据爆发推动1.6T/3.2T光模块升级，800G/1.6T持续放量，CPO技术路线2027年放量预期强化</p>
+  <div class="stocks"><span class='stk neg'>中际旭创 <em>300308</em> <b>-0.56%</b></span><span class='stk neg'>新易盛 <em>300502</em> <b>-1.0%</b></span><span class='stk pos'>天孚通信 <em>300394</em> <b>+1.87%</b></span><span class='stk pos'>剑桥科技 <em>603083</em> <b>+2.16%</b></span><span class='stk neg'>头迅科技 <em>002281</em> <b>-1.21%</b></span></div>
+  <div class="meta">区间 -1.21% ~ +2.16%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">2</span> 光通信(光纤光缆) <span class="avg neg">板块均值 -0.94%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">空芯光纤/海缆/G.654.E高端品类持续放量，国内运营商招标价格回升</p>
+  <div class="stocks"><span class='stk neg'>烽火通信 <em>600498</em> <b>-1.6%</b></span><span class='stk pos'>长飞光纤 <em>601869</em> <b>+0.79%</b></span><span class='stk neg'>亨通光电 <em>600487</em> <b>-3.94%</b></span><span class='stk neg'>中天科技 <em>600522</em> <b>-0.64%</b></span><span class='stk pos'>特发信息 <em>000070</em> <b>+0.68%</b></span></div>
+  <div class="meta">区间 -3.94% ~ +0.79%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">3</span> 高速互联(铜连接/连接器) <span class="avg neg">板块均值 -1.01%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">AI服务器Scale-out带动高速铜缆+背板连接器需求，单台AI服务器用量翻倍</p>
+  <div class="stocks"><span class='stk neg'>立讯精密 <em>002475</em> <b>-1.92%</b></span><span class='stk neg'>鹏鼎控股 <em>002938</em> <b>-0.5%</b></span><span class='stk neg'>濒电股份 <em>002463</em> <b>-2.64%</b></span><span class='stk neg'>深南电路 <em>002916</em> <b>-0.69%</b></span><span class='stk pos'>景旺电子 <em>603228</em> <b>+0.68%</b></span></div>
+  <div class="meta">区间 -2.64% ~ +0.68%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">4</span> 先进光电集成 <span class="avg neg">板块均值 -0.84%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">硜光集成/薄膜钒酸锂调制器加速落地，光器件一体化解决方案厂商受益</p>
+  <div class="stocks"><span class='stk neg'>华工科技 <em>000988</em> <b>-2.12%</b></span><span class='stk neg'>联特科技 <em>688195</em> <b>-0.19%</b></span><span class='stk neg'>源杰科技 <em>688498</em> <b>-1.56%</b></span><span class='stk pos'>仕佳光子 <em>688313</em> <b>+0.51%</b></span></div>
+  <div class="meta">区间 -2.12% ~ +0.51%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">5</span> 算力/AI服务器 <span class="avg neg">板块均值 -1.29%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">国产AI算力加速建设，H200/B200替代窗口期，2027年国产化率有望提升至40%+</p>
+  <div class="stocks"><span class='stk neg'>中科曙光 <em>603019</em> <b>-1.09%</b></span><span class='stk neg'>浪潮信息 <em>000977</em> <b>-1.86%</b></span><span class='stk neg'>工业富联 <em>601138</em> <b>-0.38%</b></span><span class='stk neg'>紫光股份 <em>000938</em> <b>-1.62%</b></span><span class='stk neg'>拓维信息 <em>002261</em> <b>-1.5%</b></span></div>
+  <div class="meta">区间 -1.86% ~ +-0.38%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">6</span> 封装基板/PCB <span class="avg neg">板块均值 -2.31%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">M8/M9高端覆铜板+AI服务器PCB需求爆发，胜宏/濒电产能持续满载</p>
+  <div class="stocks"><span class='stk neg'>深南电路 <em>002916</em> <b>-0.69%</b></span><span class='stk neg'>濒电股份 <em>002463</em> <b>-2.64%</b></span><span class='stk neg'>生益科技 <em>600183</em> <b>-2.27%</b></span><span class='stk neg'>兴森科技 <em>002436</em> <b>-2.99%</b></span><span class='stk neg'>胜宏科技 <em>300476</em> <b>-2.98%</b></span></div>
+  <div class="meta">区间 -2.99% ~ +-0.69%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">7</span> 半导体晶圆制造 <span class="avg neg">板块均值 -3.15%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">国产代工产能持续爬坡，14nm逻辑+DRAM/NAND双线突破，长鑫存储扩产是关键催化</p>
+  <div class="stocks"><span class='stk neg'>中芯国际 <em>688981</em> <b>-4.7%</b></span><span class='stk neg'>华虹公司 <em>688347</em> <b>-5.1%</b></span><span class='stk neg'>士兰微 <em>600460</em> <b>-3.42%</b></span><span class='stk pos'>三安光电 <em>600703</em> <b>+0.61%</b></span></div>
+  <div class="meta">区间 -5.1% ~ +0.61%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">8</span> 半导体上游设备 <span class="avg neg">板块均值 -2.64%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">国产化率突破30%，刻蚀/CVD/CMP/清洗多线突破，长鑫IPO+中芯扩产驱动订单</p>
+  <div class="stocks"><span class='stk neg'>北方华创 <em>002371</em> <b>-2.07%</b></span><span class='stk neg'>中微公司 <em>688012</em> <b>-1.92%</b></span><span class='stk neg'>盛美上海 <em>688082</em> <b>-3.02%</b></span><span class='stk neg'>拓荆科技 <em>688072</em> <b>-2.54%</b></span><span class='stk neg'>华海清科 <em>688120</em> <b>-2.39%</b></span><span class='stk neg'>芯源微 <em>688037</em> <b>-3.92%</b></span></div>
+  <div class="meta">区间 -3.92% ~ +-1.92%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">9</span> 半导体上游原材料 <span class="avg neg">板块均值 -2.14%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">硜片/光刻胶/CMP拋光液/电子特气四大材料同步国产化，长鑫扩产是最大增量</p>
+  <div class="stocks"><span class='stk neg'>沪硜产业 <em>688126</em> <b>-1.18%</b></span><span class='stk neg'>江丰电子 <em>300666</em> <b>-3.28%</b></span><span class='stk neg'>南大光电 <em>300346</em> <b>-3.78%</b></span><span class='stk neg'>雅克科技 <em>002409</em> <b>-2.85%</b></span><span class='stk neg'>彤程新材 <em>603650</em> <b>-1.44%</b></span><span class='stk neg'>安集科技 <em>688019</em> <b>-1.5%</b></span><span class='stk neg'>清溢光电 <em>300637</em> <b>-0.95%</b></span></div>
+  <div class="meta">区间 -3.78% ~ +-0.95%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">10</span> 先进封装 <span class="avg neg">板块均值 -3.81%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">HBM/DDR5带动FoWLP/2.5D/3D封装需求爆发，国产OSAT企业深度参与长鑫体系</p>
+  <div class="stocks"><span class='stk neg'>长电科技 <em>600584</em> <b>-2.16%</b></span><span class='stk neg'>通富微电 <em>002156</em> <b>-5.73%</b></span><span class='stk neg'>华天科技 <em>002185</em> <b>-3.29%</b></span><span class='stk neg'>晶方科技 <em>603005</em> <b>-3.12%</b></span><span class='stk neg'>甬硜电子 <em>688362</em> <b>-4.77%</b></span></div>
+  <div class="meta">区间 -5.73% ~ +-2.16%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">11</span> 存储/HBM <span class="avg neg">板块均值 -2.96%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">DDR5/LPDDR5X/HBM3全面涨价周期，国产存储双雄（长鑫/长江）扩产共振</p>
+  <div class="stocks"><span class='stk neg'>兆易创新 <em>603986</em> <b>-3.72%</b></span><span class='stk neg'>紫光国微 <em>002049</em> <b>-0.91%</b></span><span class='stk neg'>江波龙 <em>301308</em> <b>-3.12%</b></span><span class='stk neg'>佰维存储 <em>688525</em> <b>-3.15%</b></span><span class='stk neg'>朗科科技 <em>300042</em> <b>-3.88%</b></span></div>
+  <div class="meta">区间 -3.88% ~ +-0.91%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">12</span> MLCC/被动元件 <span class="avg neg">板块均值 -2.12%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">AI服务器单台MLCC用量提升3-5倍，村田/三星高容品供需偏紧</p>
+  <div class="stocks"><span class='stk neg'>三环集团 <em>300408</em> <b>-1.1%</b></span><span class='stk neg'>风华高科 <em>000636</em> <b>-3.12%</b></span><span class='stk neg'>洁美科技 <em>002859</em> <b>-1.07%</b></span><span class='stk neg'>顺络电子 <em>002138</em> <b>-1.31%</b></span><span class='stk neg'>麦捷科技 <em>300319</em> <b>-3.98%</b></span></div>
+  <div class="meta">区间 -3.98% ~ +-1.07%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">13</span> AI应用/Agent <span class="avg neg">板块均值 -0.63%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">国产大模型+Agent加速落地，应用端付费意愿提升，金山办公/讯飞持续受益</p>
+  <div class="stocks"><span class='stk neg'>同花顺 <em>300033</em> <b>-1.33%</b></span><span class='stk pos'>金山办公 <em>688111</em> <b>+0.88%</b></span><span class='stk pos'>科大讯飞 <em>002230</em> <b>+0.05%</b></span><span class='stk neg'>拓尔思 <em>300229</em> <b>-0.62%</b></span><span class='stk neg'>昆仑万维 <em>300418</em> <b>-2.12%</b></span></div>
+  <div class="meta">区间 -2.12% ~ +0.88%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">14</span> 机器人 <span class="avg neg">板块均值 -1.21%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">人形机器人量产元年，Tesla Optimus V3+国产链跟进，谐波减速器+丝杠为核心</p>
+  <div class="stocks"><span class='stk neg'>汇川技术 <em>300124</em> <b>-1.12%</b></span><span class='stk pos'>埃斯顿 <em>002747</em> <b>+0.21%</b></span><span class='stk neg'>绿的谐波 <em>688017</em> <b>-0.67%</b></span><span class='stk neg'>拓斯达 <em>300607</em> <b>-1.37%</b></span><span class='stk neg'>禾川科技 <em>688320</em> <b>-3.09%</b></span></div>
+  <div class="meta">区间 -3.09% ~ +0.21%</div>
+</section>
+<section class="sec">
+  <h3><span class="num">15</span> 🏭 长鑫存储上游产业链 <span class="avg neg">板块均值 -2.63%</span> <span class="tag tag-dn">弱势</span></h3>
+  <p style="font-size:12px;color:var(--muted);margin:6px 0">295亿IPO募资+500亿H1净利共振，DDR5/HBM3扩产拉动设备/材料/封测全面受益</p>
+  <div class="stocks"><span class='stk neg'>深科技 <em>000021</em> <b>-2.84%</b></span><span class='stk neg'>江丰电子 <em>300666</em> <b>-3.28%</b></span><span class='stk neg'>南大光电 <em>300346</em> <b>-3.78%</b></span><span class='stk neg'>彤程新材 <em>603650</em> <b>-1.44%</b></span><span class='stk neg'>雅克科技 <em>002409</em> <b>-2.85%</b></span><span class='stk neg'>北方华创 <em>002371</em> <b>-2.07%</b></span><span class='stk neg'>长电科技 <em>600584</em> <b>-2.16%</b></span></div>
+  <div class="meta">区间 -3.78% ~ +-1.44%</div>
+</section>
+
+</div>
+
+<div class="box">
+  <h2>🏭 长鑫存储上游产业链 · 专项跟踪</h2>
+  <div class="alert-green">
+    <b>长鑫存储 295 亿 IPO 募资落地 + 2026 H1 净利润预计突破 500 亿</b>，DDR5 / HBM3 产能加速爬坡，上游设备 / 材料 / 封测厂商进入<b>业绩兑现窗口</b>。9/30 板块均值 <b class="neg">▼2.63%</b>，与半导体大市同步调整，但主逻辑未变。
+  </div>
+  <p style="margin:12px 0;font-size:13px"><b>📋 长鑫存储产业链核心受益标的（17 家 · 涵盖设备/材料/封测）</b></p>
+  
+<table>
+  <thead><tr><th>公司</th><th>代码</th><th>受益环节</th><th>9/30 涨跌</th></tr></thead>
+  <tbody>
+    <tr><td>深科技</td><td><code>000021</code></td><td>存储封测+模组组装核心供应商</td><td class='neg'>-2.84%</td></tr>
+    <tr><td>北方华创</td><td><code>002371</code></td><td>刻蚀/PVD/CVD多品类设备主力</td><td class='neg'>-2.07%</td></tr>
+    <tr><td>中微公司</td><td><code>688012</code></td><td>CCP刻蚀已进入长鑫主力产线</td><td class='neg'>-1.92%</td></tr>
+    <tr><td>雅克科技</td><td><code>002409</code></td><td>DRAM前驱体材料全球龙头</td><td class='neg'>-2.85%</td></tr>
+    <tr><td>江丰电子</td><td><code>300666</code></td><td>高纯溅射靶材国内唯一规模化</td><td class='neg'>-3.28%</td></tr>
+    <tr><td>安集科技</td><td><code>688019</code></td><td>CMP拋光液国内龙头</td><td class='neg'>-1.5%</td></tr>
+    <tr><td>南大光电</td><td><code>300346</code></td><td>ArF光刻胶国产化先锋</td><td class='neg'>-3.78%</td></tr>
+    <tr><td>彤程新材</td><td><code>603650</code></td><td>光刻胶+电子级树脂双线</td><td class='neg'>-1.44%</td></tr>
+    <tr><td>沪硜产业</td><td><code>688126</code></td><td>12寸硜片国产替代主力</td><td class='neg'>-1.18%</td></tr>
+    <tr><td>长电科技</td><td><code>600584</code></td><td>HBM/DDR5先进封装核心</td><td class='neg'>-2.16%</td></tr>
+    <tr><td>通富微电</td><td><code>002156</code></td><td>HBM/DDR5先进封装</td><td class='neg'>-5.73%</td></tr>
+    <tr><td>芯源微</td><td><code>688037</code></td><td>涂胶显影设备国内龙头</td><td class='neg'>-3.92%</td></tr>
+    <tr><td>盛美上海</td><td><code>688082</code></td><td>清洗设备主力供应商</td><td class='neg'>-3.02%</td></tr>
+    <tr><td>华海清科</td><td><code>688120</code></td><td>CMP设备主力供应商</td><td class='neg'>-2.39%</td></tr>
+    <tr><td>拓荆科技</td><td><code>688072</code></td><td>PECVD/ALD设备主力</td><td class='neg'>-2.54%</td></tr>
+    <tr><td>华天科技</td><td><code>002185</code></td><td>存储封测产能扩张</td><td class='neg'>-3.29%</td></tr>
+    <tr><td>甬硜电子</td><td><code>688362</code></td><td>先进封装新势力</td><td class='neg'>-4.77%</td></tr>
+  </tbody>
+</table>
+
+  <div class="alert-gold" style="margin-top:14px">
+    <b>💡 产业逻辑回顾</b><br>
+    • <b>北方华创</b>：刻蚀/PVD/CVD多品类设备主力，<b>长鑫 295 亿募资落地后订单密度上行</b><br>
+    • <b>中微公司</b>：CCP刻蚀已进入长鑫主力产线，TSV刻蚀机交付节奏加快<br>
+    • <b>雅克科技</b>：全球DRAM前驱体材料龙头，覆盖17nm DDR5/LPDDR5产线，配套HBM堆叠材料<br>
+    • <b>江丰电子</b>：高纯溅射靶材国内唯一规模化供应商<br>
+    • <b>安集科技</b>：CMP拋光液国内龙头，市占率持续提升<br>
+    • <b>南大光电</b>：ArF光刻胶国产化先锋，<b>28nm 已小批量验证</b><br>
+    • <b>长电科技/通富微电</b>：HBM/DDR5先进封装核心，<b>长鑫扩产直接受益</b><br>
+    • <b>盛美上海/华海清科/拓荆科技</b>：清洗/CMP/PECVD三大设备主力供应商
+  </div>
+  <div class="alert-blue" style="margin-top:14px">
+    <b>🔍 长鑫供应链搜索补充（10/1 web 检索）</b><br>
+    • <b>深科技</b>（000021）：存储模组+封测核心供应商，长鑫 HBM/DDR5 模组占其存储业务约 40%<br>
+    • <b>2026 年 Q3 国产化率</b>：半导体设备国产化率 <b>38%</b>（环比 +4pct），CMP/刻蚀/薄膜沉积三大类已突破 50%<br>
+    • <b>长鑫产能爬坡</b>：DDR5 月产能年底预计 <b>20 万片晶圆</b>（12 寸），较 2025 年同期翻倍<br>
+    • <b>关键时间点</b>：长鑫存储 Q4 设备验收密集期，<b>10-11 月订单/出货数据</b>为重要催化窗口
+  </div>
+  <div class="alert" style="margin-top:14px">
+    <b>🚨 节后关键催化</b><br>
+    • 长鑫存储 Q4 招标节奏（设备/材料厂商订单密度）<br>
+    • DDR5 量产爬坡进度（直接关联存储模组/HBM封测）<br>
+    • 长江存储 IPO 进展（5月辅导备案，2026 H2 - 2027 H1 有望上市）<br>
+    • 国产替代率数据：2026 Q3 半导体设备国产化率已达 38%（环比 +4pct）
+  </div>
+</div>
+
+<div class="box">
+  <h2>🌐 假期海外市场观察（10/1 海外已开市）</h2>
+  <div class="alert-blue">
+    <b>📡 假期海外关注重点</b><br>
+    A股休市期间，<b>美股</b>10/1（周三）正常交易，<b>10/2</b>（周四）盘后将出<b>美国 ISM 制造业 PMI</b>等关键数据。<br><br>
+    • <b>美股科技股</b>：纳指/费城半导体（SOX）假期表现直接传导 10/8 节后 A 股 AI 产业链<br>
+    • <b>AI 算力链</b>：英伟达/AMD/AVGO/Coherent/Lumentum 节中股价是 CPO 板块风向标<br>
+    • <b>中概互联</b>：港股同步休市至 10/8，但<b>美股中概</b>（KWEB/PDD/BABA）正常交易<br>
+    • <b>美元/油价</b>：美元指数 + 布伦特原油假期波动影响 10/8 开盘跳空风险
+  </div>
+  <div class="alert-gold">
+    <b>🎯 假期重要数据日历（北京时间）</b><br>
+    • <b>10/2（周四）20:30</b> · 美国 9 月非农就业报告（NFP）—— <span class="callout">关键</span><br>
+    • <b>10/2（周四）22:00</b> · 美国 ISM 制造业 PMI / 工厂订单<br>
+    • <b>10/3（周五）20:30</b> · 美国 9 月失业率 / 平均时薪<br>
+    • <b>10/6-10/7</b> · 国内 PMI / 财新服务业 PMI（节前最后窗口）<br>
+    • <b>10/8（周四）09:30</b> · A 股节后首日开盘
+  </div>
+</div>
+
+<div class="box">
+  <h2>🔮 节后开盘（10/8）走势预判</h2>
+
+  <div class="alert-blue">
+    <b>1. 节后大盘方向预判（概率评估）</b><br>
+    • <b>开门红 / 估值修复反弹</b> —— 概率 <span class="callout">45%</span><br>
+    • <b>低开高走 / 科技股领涨</b> —— 概率 <span class="callout">30%</span><br>
+    • <b>补跌消化假期利空</b> —— 概率 <span class="callout">20%</span><br>
+    • <b>观望震荡 / 缩量整理</b> —— 概率 <span class="callout">5%</span><br><br>
+    逻辑：节前 9/30 已经体现防御切换，主板稳/科创弱的格局延续到节后概率较低。海外长假期间美股表现、中东局势、美元指数是核心变量。若美股科技股假期延续强势，10/8 节后 AI 产业链反弹概率显著提升。
+  </div>
+
+  <div class="alert-blue">
+    <b>2. AI 产业链节后展望</b><br>
+    • <b>光模块/CPO（板块均值 +0.25%）</b>：长假期前后<b>海外算力链</b>催化密集，是反弹首选<br>
+    • <b>半导体上游（设备/材料）</b>：长鑫 IPO 募资落地 + Q4 招标节奏共振，<b>10 月有望迎来戴维斯双击</b><br>
+    • <b>存储/HBM</b>：DDR5 现货价延续上行，<b>节后大概率领涨</b><br>
+    • <b>机器人</b>：Tesla Optimus V3 量产预期 + 国内政策催化，<b>9/30 已有资金提前布局</b><br>
+    • <b>轮动方向</b>：节后资金面回归，从防御板块（医药/消费）回流至<b>科技+成长</b>概率较大
+  </div>
+
+  <div class="alert-blue">
+    <b>3. 关键点位（10/8 开盘参考）</b><br>
+    • <b>上证指数</b>：支撑 <b>3820</b>（60日线）/ 阻力 <b>3880</b>（5日线）/ 上方 <b>3950</b>（9/22 高点）<br>
+    • <b>科创50</b>：支撑 <b>1500</b>（心理位）/ 阻力 <b>1570</b>（9/30 开盘附近）<br>
+    • <b>创业板</b>：支撑 <b>3100</b> / 阻力 <b>3170</b><br>
+    • <b>全市场成交</b>：节后首日<b>需 ≥ 2.0 万亿</b>才算健康反弹<br>
+    • <b>港股联动</b>：恒生科技 4500-4700 区间，<b>突破 4700 视为风险偏好回升</b>
+  </div>
+
+  <div class="alert">
+    <b>4. 长假风险提示</b><br>
+    • <b>海外不确定</b>：美股 10/1-10/7 共 5 个交易日，<b>纳指/费城半导体表现</b>直接传导节后 A 股<br>
+    • <b>非农数据</b>：10/2 晚美国 9 月非农，<b>若大幅超预期可能扰动美元+美债利率</b><br>
+    • <b>中东局势</b>：地缘冲突可能推升油价，扰动风险偏好<br>
+    • <b>汇率波动</b>：美元指数 / USD/CNY 节后开盘跳空风险<br>
+    • <b>9/30 节前最后一个交易日</b>三大指数窄幅震荡，<b>方向选择延后到节后</b><br>
+    • <b>季报窗口临近</b>：10 月底三季报披露，<b>业绩超预期个股率先反弹</b>
+  </div>
+
+  <div class="alert-green">
+    <b>5. 节后操作策略（仅供参考，<span style="color:#ef4444">不构成投资建议</span>）</b><br>
+    • <b>持仓过节的投资者</b>：安心过节，<b>10/8 开盘观察 30 分钟方向选择再决定加减仓</b><br>
+    • <b>空仓的投资者</b>：节后首日<b>不要追高</b>，建议观察 1-2 个交易日趋势确认<br>
+    • <b>关注切换信号</b>：若科创 50 节后首日<b>放量站上 1570</b>，可视为硬科技回归信号<br>
+    • <b>长鑫上游定投窗口</b>：9/30 板块均值 -2.x%，<b>基本面投资者可分批建仓</b><br>
+    • <b>防御+进攻平衡</b>：建议仓位 6 成科技（光模块/存储/长鑫上游）+ 4 成防御（医药/红利）
+  </div>
+</div>
+
+<div class="box">
+  <h2>📌 核心结论</h2>
+  <p style="font-size:14px;line-height:1.9">
+    1. <b>10/2 全天休市</b>（国庆假期 Day 2/7），本报告基于 9/30（节前最后交易日）收盘数据生成<br>
+    2. <b>节前风格</b>：主板稳/科创弱，半导体全线调整，光模块/CPO 逆势走强<br>
+    3. <b>假期关注</b>：10/2 晚美国非农、10/3 美股 PMI；<b>美股科技股表现</b>直接传导节后 A 股<br>
+    4. <b>节后展望</b>：开门红概率 45%，AI 产业链（特别是<b>光模块+存储+长鑫上游</b>）是反弹首选<br>
+    5. <b>关键观察</b>：10/8 节后首日科创 50 是否收复 1570 + 成交是否 ≥ 2 万亿<br>
+    6. <b>操作建议</b>：持仓过节安心等待，<b>不追高、不杀跌、关注业绩线</b>
+  </p>
+</div>
+
+<footer>
+  报告生成时间 2026-10-02 12:00 CST · 数据源 Yahoo Finance v8 API（采样自 9/30 收盘）+ 公开新闻<br>
+  <b style="color:#fbbf24">⚠️ 国庆休市 Day 2 特别版</b> · 本报告由 AI 辅助生成，仅供研究参考，<b style="color:#ef4444">不构成任何投资建议</b><br>
+  在线版本：<a href="https://reports.dns-cloudflare.com/a-morning/2026-10-02.html" style="color:#fbbf24">https://reports.dns-cloudflare.com/a-morning/2026-10-02.html</a>
+</footer>
+
+</body>
+</html>
