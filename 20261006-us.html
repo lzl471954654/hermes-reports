@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026年10月6日</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d28;
+    --border: #2a2d3a;
+    --text: #e1e4ed;
+    --sub: #8890a4;
+    --red: #f5555a;
+    --green: #26a69a;
+    --blue: #5b9cf5;
+    --accent: #7c5cfc;
+    --yellow: #f5b840;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px 16px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; font-weight: 700; }
+  .date { color: var(--sub); font-size: 0.85rem; margin-bottom: 20px; }
+
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .section h2 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .section h2 .icon { font-size: 1.2rem; }
+  h3 { font-size: 0.92rem; color: var(--sub); margin: 12px 0 6px 0; }
+
+  .index-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(42,45,58,0.5);
+    font-size: 0.92rem;
+    align-items: center;
+  }
+  .index-row:last-child { border-bottom: none; }
+  .idx-name { color: var(--sub); flex: 1; }
+  .idx-val { font-weight: 600; width: 100px; text-align: right; }
+  .idx-change { font-weight: 600; width: 90px; text-align: right; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .flat { color: var(--sub); }
+  .note { font-size: 0.78rem; color: var(--sub); margin-left: 8px; }
+
+  .stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+  }
+  .stock-table th {
+    text-align: left;
+    color: var(--sub);
+    font-weight: 500;
+    padding: 6px 6px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.78rem;
+  }
+  .stock-table td {
+    padding: 6px 6px;
+    border-bottom: 1px solid rgba(42,45,58,0.4);
+  }
+  .stock-table tr:last-child td { border-bottom: none; }
+  .stock-symbol { font-weight: 600; color: var(--blue); }
+  .stock-name { color: var(--sub); font-size: 0.78rem; }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+  .tag-red { background: rgba(245,85,90,0.15); color: var(--red); }
+  .tag-green { background: rgba(38,166,154,0.15); color: var(--green); }
+  .tag-blue { background: rgba(91,156,245,0.15); color: var(--blue); }
+  .tag-accent { background: rgba(124,92,252,0.15); color: var(--accent); }
+  .tag-yellow { background: rgba(245,184,64,0.15); color: var(--yellow); }
+
+  .news-item {
+    padding: 7px 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(42,45,58,0.35);
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-dot { color: var(--accent); margin-right: 6px; }
+
+  .map-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(42,45,58,0.35);
+    font-size: 0.88rem;
+  }
+  .map-item:last-child { border-bottom: none; }
+  .map-arrow { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer {
+    margin-top: 20px;
+    font-size: 0.75rem;
+    color: var(--sub);
+    text-align: center;
+    padding: 10px;
+  }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+
+  .highlight-box {
+    background: rgba(124,92,252,0.08);
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    margin-top: 10px;
+  }
+  .highlight-green {
+    background: rgba(38,166,154,0.08);
+    border-left: 3px solid var(--green);
+  }
+
+  .summary-point {
+    display: flex;
+    gap: 8px;
+    padding: 5px 0;
+    font-size: 0.9rem;
+  }
+  .summary-num { color: var(--accent); font-weight: 700; min-width: 20px; }
+</style>
+</head>
+<body>
+
+<h1>🌐 AI产业链美股收盘 &amp; A股映射早报</h1>
+<div class="date">2026年10月6日（周二）｜ 覆盖10月5日（周一）美股收盘</div>
+
+<!-- ========== 一句话总结 ========== -->
+<div class="section highlight-green">
+  <h2><span class="icon">⚡</span>核心判断</h2>
+  <div class="summary-point"><span class="summary-num">①</span><span>纳指收涨1.05% <strong>创历史新高</strong>27,477点，英伟达+2.1%刷新历史最高，市值冲至<strong>$5.76万亿</strong>逼近6万亿大关</span></div>
+  <div class="summary-point"><span class="summary-num">②</span><span>10月2日非农仅+2.9万→Fed 10月加息概率从70%骤降至<strong>24%</strong>，AI资本开支+降息预期共振</span></div>
+  <div class="summary-point"><span class="summary-num">③</span><span>中概金龙指数+1.71%，阿里+4%、万国数据+7%、小马智行+3%；A股映射重点关注<strong>算力芯片+IDC+智能驾驶</strong></span></div>
+</div>
+
+<!-- ========== 市场总览 ========== -->
+<div class="section">
+  <h2><span class="icon">📊</span>美股三大指数</h2>
+  <div class="index-row">
+    <span class="idx-name">纳斯达克综合</span>
+    <span class="idx-val">27,477.31</span>
+    <span class="idx-change up">+1.05%</span>
+    <span class="note">🔥 创历史新高</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">标普500</span>
+    <span class="idx-val">7,773.95</span>
+    <span class="idx-change up">+0.66%</span>
+    <span class="note">距8/13历史高点约0.3%</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">道琼斯工业</span>
+    <span class="idx-val">51,267.90</span>
+    <span class="idx-change up">+0.18%</span>
+    <span class="note">—</span>
+  </div>
+  <div class="index-row">
+    <span class="idx-name">纳斯达克金龙 HXC</span>
+    <span class="idx-val">—</span>
+    <span class="idx-change up">+1.71%</span>
+    <span class="note">中概股普涨</span>
+  </div>
+
+  <div style="font-size:0.85rem; color:var(--sub); margin-top:10px;">
+    📈 11/10 板块收涨：材料 +1.22% / 通信服务 +1.14% / 必需消费 -0.16%<br>
+    涨跌家数比 1.7:1｜成交量 168亿股（20日均173亿，<span class="tag tag-yellow">偏轻</span>）｜VIX 回落到14.8区间
+  </div>
+</div>
+
+<!-- ========== AI产业链核心 ========== -->
+<div class="section">
+  <h2><span class="icon">🧠</span>AI产业链核心个股</h2>
+
+  <h3>🔧 算力芯片 &amp; 设计</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">NVDA</td>
+      <td class="stock-name">英伟达</td>
+      <td class="up">+2.1%</td>
+      <td><span class="tag tag-green">🔥 历史新高</span>市值 <strong>$5.76万亿</strong>，逼近$6万亿</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">AMD</td>
+      <td class="up">↑</td>
+      <td>跟随英伟达上涨，HBM/EPYC需求拉动</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">AVGO</td>
+      <td class="up">↑</td>
+      <td>定制ASIC + Tomahawk 6 交换机订单饱满</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">TSM</td>
+      <td class="up">↑</td>
+      <td>台积电Q3业绩临近，AI先进制程产能吃紧</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">CBRS</td>
+      <td class="up">+9%</td>
+      <td><span class="tag tag-accent">Sam Altman背书</span>OpenAI"亲密合作伙伴"，高速推理核心受益</td>
+    </tr>
+  </table>
+
+  <h3>💾 存储 &amp; HBM</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">MU</td>
+      <td class="up">↑</td>
+      <td>HBM3e 量产出货，2027产能已被预订一空</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">SANM</td>
+      <td class="up">↑</td>
+      <td>AI服务器ODM订单加速</td>
+    </tr>
+  </table>
+
+  <h3>☁️ AI软件 &amp; 应用层</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">MSFT</td>
+      <td class="up">+1.5%</td>
+      <td>Azure AI业务持续放量</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">META</td>
+      <td class="up">+2%</td>
+      <td>Capex指引上修，Llama推理需求强</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">GOOGL</td>
+      <td class="up">↑</td>
+      <td>Gemini Enterprise 加速商业化</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">AMZN</td>
+      <td class="up">↑</td>
+      <td>AWS AI基础设施订单超预期</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">TSLA</td>
+      <td class="up">+2%</td>
+      <td>FSD/Dojo叙事回暖</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">PLTR</td>
+      <td class="up">↑</td>
+      <td>国防AI合同延续</td>
+    </tr>
+  </table>
+
+  <h3>🇨🇳 中概股龙头</h3>
+  <table class="stock-table">
+    <tr><th>代码</th><th>名称</th><th>涨跌</th><th>备注</th></tr>
+    <tr>
+      <td class="stock-symbol">BABA</td>
+      <td class="up">+4%</td>
+      <td><span class="tag tag-green">AI云+电商双驱动</span></td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">GDS</td>
+      <td class="up">+7%</td>
+      <td><span class="tag tag-accent">IDC出海概念</span>东南亚产能加速</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">PONY</td>
+      <td class="up">+3%</td>
+      <td>小马智行Robotaxi商业化进展</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">BIDU</td>
+      <td class="up">+2%</td>
+      <td>文心系列迭代 &amp; 自动驾驶</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">JD</td>
+      <td class="up">+2%</td>
+      <td>京东物流+AI供应链</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">NIO</td>
+      <td class="up">+2%</td>
+      <td>蔚来10月销量预期</td>
+    </tr>
+    <tr>
+      <td class="stock-symbol">PDD</td>
+      <td class="up">+3%</td>
+      <td>海外Temu持续扩张</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ========== 盘后 & 主题 ========== -->
+<div class="section">
+  <h2><span class="icon">🌙</span>盘后 &amp; 主题动态</h2>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>非农骤冷 → 降息叙事重启</strong>：10/2公布9月非农仅+2.9万（远低于预期），CME FedWatch显示10月加息概率从一周前70%骤降至<strong>24%</strong>，科技股估值压制解除
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>英伟达市值逼近$6万亿</strong>：周一+2.1%收历史新高，市值突破$5.76万亿。Wedbush预计10月底前有望触及$6T；公司上月宣布$1,500亿股票回购（史上最大）
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>Sam Altman亲自"站台"Cerebras</strong>：在社交媒体公开称其为OpenAI"<strong>亲密合作伙伴</strong>"，"在速度前沿密切协作"，CBRS单日+9%
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>施耐德电气$226亿收购PTC</strong>：法国工业巨头溢价收购工业软件PTC，PTC单日<strong>+33%</strong>，RXO被C.H. Robinson$58亿收购+22%
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>Q3财报季下周开启</strong>：摩根大通、富国银行等大型银行打头阵，LSEG数据：S&P 500 盈利同比预期<strong>+30%</strong>，AI相关股票是主要拉动力
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>油价回落</strong>：中东原油出口增加+G7承诺增产承诺，WTI承压，科技股风险偏好修复
+  </div>
+  <div class="news-item">
+    <span class="news-dot">●</span>
+    <strong>Anthropic/OpenAI/Google/Meta</strong>高管出席<strong>纽约市议会AI听证</strong>，围绕AI安全与监管作证，监管风险短期关注
+  </div>
+</div>
+
+<!-- ========== A股映射 ========== -->
+<div class="section">
+  <h2><span class="icon">🇨🇳</span>A股映射分析</h2>
+
+  <div style="font-size:0.85rem; color:var(--sub); margin-bottom:10px;">
+    💡 美股AI全线新高+中概强势，A股10月7日（周三）开盘情绪面整体偏暖。重点跟踪以下产业链映射。
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>算力芯片：寒武纪、海光信息、龙芯中科</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">NVDA逼近$6T市值+Cerebras被Altman背书 → <strong>国产替代叙事</strong>强化。短期关注国产AI ASIC/GPU供应链能否延续Q3业绩兑现行情。</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>服务器/ODM：工业富联、中科曙光、紫光股份</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">SANM/MU走强+MSFT Azure扩张 → AI服务器订单能见度延伸至2027，国内白牌供应链最先受益。</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>IDC/算力租赁：润泽科技、奥飞数据、鸿博股份</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">中概GDS大涨映射国内IDC龙头，叠加PTC施耐德收购强化<strong>"AI+传统行业"</strong>改造逻辑。</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>光模块/CPO：中际旭创、新易盛、天孚通信</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">英伟达Blackwell + 1.6T光模块放量节奏未变，北美大客户订单预期延续，是美股AI向A股传导最直接的弹性标的。</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>液冷/电源：英维克、申菱环境</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">GB200 NVL72机柜功率密度提升 → 液冷从"可选"变"必选"，国内温控供应链Q4订单有望超预期。</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>智能驾驶：德赛西威、中科创达</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">PONY+3%、TSLA+2%映射 → 国内Robotaxi/VLA方案商，关注10月小鹏/华为/小马智行新车型与运营进展。</span>
+    </div>
+  </div>
+
+  <div class="map-item">
+    <span class="map-arrow">→</span>
+    <div>
+      <strong>中概互联网：港股阿里、京东、拼多多</strong><br>
+      <span style="color:var(--sub); font-size:0.82rem;">美股BABA+4%、JD+2%、PDD+3%映射 → 港股科技10月7日开盘情绪支撑；港股流动性与汇率联动需关注。</span>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>📌 今日策略参考：</strong>①美股AI再创新高，A股节后开盘风险偏好修复概率较大；②核心看<strong>算力硬件（光模块+服务器+液冷）</strong>延续业绩兑现逻辑；③港股科技龙头（阿里、京东）受美股映射情绪面偏多；④关注10月8日国内CPI/PPI数据及本周多家国内AI公司新模型发布节奏，可能强化或打断本轮情绪。
+  </div>
+</div>
+
+<hr>
+<div class="disclaimer">
+  ⚠️ 以上内容基于公开数据整理，仅供参考，不构成投资建议。市场有风险，投资需谨慎。<br>
+  数据来源：Reuters / CNBC / Bloomberg / Straits Times / 财联社 / 新浪财经 | 生成时间：2026-10-06
+</div>
+
+</body>
+</html>
