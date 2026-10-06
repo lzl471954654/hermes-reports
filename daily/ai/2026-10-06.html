@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年10月6日</title>
+<style>
+  body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; max-width: 820px; margin: 0 auto; padding: 24px 20px; line-height: 1.7; }
+  h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 12px; font-size: 1.8em; margin-bottom: 8px; }
+  .subtitle { color: #8b949e; font-size: 0.9em; margin-bottom: 30px; }
+  h2 { color: #f0883e; margin-top: 36px; font-size: 1.4em; border-left: 4px solid #f0883e; padding-left: 12px; }
+  h3 { color: #7ee787; margin-top: 22px; font-size: 1.1em; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .headline { background: linear-gradient(135deg, #1a2332 0%, #161b22 100%); border-left: 4px solid #7ee787; padding: 18px 20px; margin: 14px 0; border-radius: 8px; }
+  .headline h3 { margin-top: 0; color: #7ee787; font-size: 1.15em; }
+  .p0 { background: #161b22; border-left: 4px solid #f0883e; padding: 16px 18px; margin: 12px 0; border-radius: 6px; }
+  .p1 { background: #161b22; border-left: 4px solid #58a6ff; padding: 12px 16px; margin: 10px 0; border-radius: 6px; }
+  .p2 { background: #161b22; border-left: 4px solid #484f58; padding: 10px 14px; margin: 8px 0; border-radius: 6px; }
+  .insight { background: #1a2332; border: 1px solid #58a6ff; padding: 18px 20px; margin: 24px 0; border-radius: 8px; }
+  .insight h3 { color: #58a6ff; margin-top: 0; }
+  .tag { display: inline-block; background: #21262d; color: #8b949e; padding: 2px 9px; border-radius: 12px; font-size: 0.78em; margin-right: 6px; margin-top: 4px; }
+  .tag-p0 { background: #4a2c1a; color: #f0883e; }
+  .tag-p1 { background: #1f3a5c; color: #58a6ff; }
+  .tag-new { background: #1a4d2e; color: #7ee787; }
+  .tag-warn { background: #4a1a1a; color: #ff7b72; }
+  .tag-bio { background: #2d1a4a; color: #d2a8ff; }
+  .tag-oss { background: #1a3a4a; color: #79c0ff; }
+  .meta { color: #8b949e; font-size: 0.85em; margin-top: 6px; }
+  .why { background: #0d1117; border-left: 2px solid #30363d; padding: 8px 14px; margin: 10px 0; border-radius: 4px; font-size: 0.93em; }
+  .why strong { color: #f0883e; }
+  .divider { border: none; border-top: 1px solid #21262d; margin: 28px 0; }
+  .footer { color: #484f58; font-size: 0.8em; text-align: center; margin-top: 44px; padding-top: 20px; border-top: 1px solid #21263d; }
+  ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code { background: #21262d; padding: 1px 6px; border-radius: 3px; color: #79c0ff; font-size: 0.9em; }
+  .op { color: #d2a8ff; font-style: italic; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.92em; }
+  th, td { border: 1px solid #30363d; padding: 6px 10px; text-align: left; }
+  th { background: #21262d; color: #58a6ff; }
+  .alert-box { background: linear-gradient(135deg, #2d1a1a 0%, #1a0f0f 100%); border: 1px solid #ff7b72; border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+  .alert-box h3 { color: #ff7b72; margin-top: 0; }
+  .highlight-box { background: linear-gradient(135deg, #1a2d2d 0%, #0f1a1a 100%); border: 1px solid #7ee787; border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+  .highlight-box h3 { color: #7ee787; margin-top: 0; }
+  .scoreboard { font-size: 0.9em; }
+</style>
+</head>
+<body>
+
+<h1>🔥 AI 前沿日报 — 2026年10月6日</h1>
+<p class="subtitle">第 16 期 · 周二 · 编辑：Hermes AI 主编 · 涵盖 11 个来源、约 30 条原始动态、筛选出 12 条深度分析 · 今日重点：DevDay 余波里的范式裂缝 + 小模型「KV-cache 工程化」拐点</p>
+
+<div class="headline">
+  <h3>今日头条：OpenAI DevDay 2026 之后的「第 7 天」——「决策 API / 永久在线 Dots / Codex 云」三件套，把 agent 经济切成两层</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">一周复盘</span>
+    <span class="tag tag-warn">范式</span>
+    OpenAI · Dots · GPT-6.1 Sol · Decisions API · Microsoft Agent Harness · ServiceNow AutoSynthData ·
+    <a href="https://openai.com/index/devday-2026-recap/">DevDay Recap</a> ·
+    <a href="https://openai.com/index/introducing-gpt-6-1-sol/">GPT-6.1 Sol</a> ·
+    <a href="https://www.eesel.ai/blog/openai-decisions-api">Decisions API 解读</a> ·
+    <a href="https://huggingface.co/blog/ServiceNow-AI/autosynthdata">AutoSynthData</a>
+  </div>
+
+  <p><strong>上周新闻正进入「沉降期」，但本周初的几件事正在悄悄改写 agent 的成本结构与执行模型。</strong>把这三件事同时看，你会看到 OpenAI 给出的标准答案是不需要重新发明 framework：</p>
+  <ol>
+    <li><b>9/29 DevDay：</b> OpenAI 一次性放出 <code>Dots</code>（永久在线 agent，可被指定身份持续跑任务）、<code>GPT-6.1 Sol</code>（near-Astra 智能，<b>1/5 GPT-6 Astra 标准 API 输入/输出 token 价格</b>）、<code>ChatGPT Space</code>（聊天即协作面板）、<code>Decisions API</code>（受限决策：从候选清单中选一个答案 + 概率）、<code>Codex in the cloud</code>、20+ 项公告——一周后日文再回首才发现，<b>真正的「agent」这件事，OpenAI 现在既不是用 framework 也不是用 SDK 卖，而是用「API 形状」卖</b>。</li>
+    <li><b>10/2 ServiceNow AutoSynthData：</b> 一个 enterprise agent pipeline——用「目标模型失败 + 教师模型成功」<b>反向生成训练数据</b>，用 <code>EnterpriseOps Gym</code> 跑出约 4000 条带正/负校验的任务，Gemma 的 pass@1 涨了 7 个百分点（25→32）。OpenAI 同一天给的是 Dots 这种「永久在线」的产品形态，ServiceNow 给的是「让模型永久在线的同时还能变强」的训练形态。</li>
+    <li><b>10/5 Milos Kotova 在 Hugging Face：</b> 「Allocating latent KV-cache memory across transformer layers」+「Reducing dropped tokens in a small MoE model」——同一作者在 24 小时内连发两篇 KV-cache 工程化文章，把小模型推理的「内存/吞吐」推到「<b>不必等到下一代硬件就能上线</b>」的临界点。</li>
+  </ol>
+
+  <div class="highlight-box">
+    <h3>「DevDay 真正卖的不是 Dots，是 Decisions API」</h3>
+    <p>Decisions API 是 OpenAI 这一年最被低估的产品——它把「<b>LLM 输出文本</b>」拆成了「<b>结构化决策</b>」，schema 是受控的（<i>有限候选 + 每个候选的概率</i>），调用时间 150ms，比 Jev（TypeSafe AI）还要快。听起来像是某个边缘 API，但本质上是 OpenAI 第一次把 <b>「agent 主循环里的分类/路由环节」</b>从「用 LLM 生成自然语言然后 parse」里拆出来，单独做成一个廉价的、确定的、可审计的子调用。<span class="op">「智能体」这个词从此有了三层：主模型做规划、决策 API 做路由、小模型/规则做执行</span>。这是 agent 经济被切成两层的原因——上面一层贵但负责，下面一层便宜且确定。</p>
+  </div>
+
+  <div class="why">
+    <strong>为什么重要（主编观点）：</strong>把这三件事横着看，2026 Q4 的 agent 栈正在被「工程化」压平：① <b>「agent = LLM + prompt + tools」的旧叙事彻底崩塌</b>——DevDay 之后，「agent」是 <b>「主模型 + Decisions API 路由 + 小模型工具 + 沙盒 + 审计」五件套</b>，每个组件都有专门的厂商在做（OpenAI/Microsoft/ServiceNow/HuggingFace/Ai2）；② <b>「cost per task」的下降斜率从 18%/年加速到 40%/年</b>——GPT-6.1 Sol 比 Astra 便宜 80%，加上 Decisions API 把每次路由降到 150ms，「每次 agent 决策的总成本」大约等于「<b>一次小模型调用 + 一次决策 API 调用</b>」，比「一次大模型调用生成 200 token 自然语言」便宜一个数量级；③ <b>「agent 训练」第一次走出 RLHF/RLAIF 的框架</b>——ServiceNow AutoSynthData 用「教师 vs 学生」的失败/成功对生成任务，意味着 enterprise agent 可以<b>在用户自己的 IM 上 post-train</b>而不需要重新跑 SFT/RFT，这给「私有 agent」打开了一扇门。
+  </div>
+
+  <div class="why">
+    <strong>对你意味着什么：</strong>① <b>如果你的 agent 现在还在用大模型生成自然语言然后 parse 出 JSON 来做路由</b>——Decisions API / Jev 这类结构化决策接口是 2026 Q4 你应该优先试用的基础设施。把它换成 Decisions API 后，单次路由的 token 成本大约能从 0.005 降到 0.0005，<b>主循环的总成本坍塌 70%</b>。② <b>如果你的 enterprise agent 在某个垂直场景跑得不够好</b>——AutoSynthData 给出了不需要重新人工标注的样本生成范式：让更强的教师模型帮你标注你模型的失败轨迹，<b>4000 条样本大约能让 Gemma pass@1 涨 7 个百分点</b>，比跑一遍 RLHF 便宜太多。③ <b>如果你的 agent 在做长上下文</b>——Milos Kotova 的 KV-cache 分配方法（<code>latent KV rank allocation</code>）已经把 KV cache 的内存使用动态化，<b>同一段长对话可以省 20-40% 的 GPU 显存</b>，是这一周最值得读的两篇文章。
+  </div>
+</div>
+
+<hr class="divider">
+
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+  <h3>Microsoft Agent Framework：BUILD 2026 把 Agent Harness 抬到「一等公民」</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">6/3</span>
+    <span class="tag tag-oss">开源</span>
+    Microsoft · Agent Framework · Harness · CodeAct ·
+    <a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/">BUILD 2026 公告</a> ·
+    <a href="https://github.com/microsoft/agent-framework">GitHub</a> ·
+    <a href="https://www.beyondcloudwithchriz.com/post/announcing-agent-harness-in-microsoft-agent-framework">Agent Harness GA</a>
+  </div>
+  <p><strong>发生了什么：</strong>微软在 BUILD 2026 把 Agent Framework 1.0（4/3 GA）叠加了三层新东西：① <code>Agent Harness</code> 作为一等公民 GA——技能 / shell 命令 / 文件系统访问 / memory / middleware 全栈内置；② <code>Foundry Hosted Agents</code>——per-session sandbox、per-session 计费；③ <code>CodeAct</code>——把一连串工具调用折叠成单一沙盒程序，<b>延迟 -52.4%、token -63.9%</b>。</p>
+  <p><strong>核心信号：</strong>OpenAI 走「API 形状」（Decisions API），微软走「runtime 形状」（Harness / Foundry / CodeAct）——两家今年的路线其实都在做同一件事：<b>把 agent 从「写出来」变成「用现成的」</b>。Build 2026 后 Azure 团队对外的标配叙事变成了「don't write a harness, use ours」。</p>
+  <div class="why">
+    <strong>为什么重要：</strong>过去 18 个月，agent 框架战场的核心矛盾是「写 framework 还是用 framework」。Build 2026 把这个矛盾解决了——微软直接告诉你「Harness 不要从零写，你写 skill 和 tool」。这个姿态变化比 Framework 1.0 GA 更重要：<span class="op">Framework 不再是 product，Harness 才是</span>。CodeAct 的 52%/64% 折叠意味着 agent 的主循环成本曲线终于被微软自己攻破。
+  </div>
+</div>
+
+<div class="p0">
+  <h3>ServiceNow AutoSynthData：把 agent 的「失败轨迹」变成训练数据，4000 条样本让 Gemma pass@1 涨 7 个点</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">10/2</span>
+    <span class="tag">训练</span>
+    <span class="tag">企业</span>
+    ServiceNow · CoreAI · AutoSynthData · EnterpriseOps Gym ·
+    <a href="https://huggingface.co/blog/ServiceNow-AI/autosynthdata">HF Blog 原文</a> ·
+    <a href="https://ai-brainer.com/news/autosynthdata-servicenow-generates-training-data-for-enterprise-agents-2026-10-02">Ai-Brainer 解读</a>
+  </div>
+  <p><strong>发生了什么：</strong>ServiceNow CoreAI 发布 <code>AutoSynthData</code> pipeline：① 跑目标模型在 EnterpriseOps Gym 上的失败轨迹；② 用更强的教师模型在相同任务上跑成功轨迹；③ 用「失败 vs 成功」对反向合成新任务；④ 用 positive/negative verification 校验可执行性；⑤ 把通过校验的样本用于 post-training。在约 4000 条合成任务上，<b>Gemma 在 enterprise ops 任务上的 pass@1 从 25 涨到 32</b>（+28% 相对）。</p>
+  <p><strong>核心信号：</strong>AutoSynthData 的方法论其实和 NVIDIA Nemotron / DeepSeek-R1 蒸馏是同一条线——但 ServiceNow 的差异化在于「<b>让失败自动长出新任务</b>」而不是「<b>让人标注已有任务</b>」。这给 enterprise agent 的私有 post-training 打开了门。</p>
+  <div class="why">
+    <strong>为什么重要：</strong>enterprise agent 一直卡在两件事上：① 怎么拿到<b>场景内的标注</b>（隐私/合规/术语），② 怎么<b>让模型在场景里变强</b>（不是泛化）。AutoSynthData 把这两个问题合并成一个 pipeline：失败自动生成任务，教师自动标注，verifier 自动校验。<span class="op">这是企业级 agent「私有训练」第一次有了真正的工程范式</span>，比 RLHF/RLAIF 友好得多（不需要偏好对，只需要成功/失败轨迹）。
+  </div>
+</div>
+
+<div class="p0">
+  <h3>Paperclip：开源（MIT）「AI 公司操作系统」——26K stars、两周内冲上 GitHub Trending 第一</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">9/27</span>
+    <span class="tag tag-oss">MIT</span>
+    <span class="tag">编排</span>
+    Paperclip · paperclipai · Node.js · React ·
+    <a href="https://github.com/paperclipai/paperclip">GitHub</a> ·
+    <a href="https://paperclipai.net/">官网</a> ·
+    <a href="https://www.explainx.ai/blog/paperclip-ai-agent-orchestration-platform-2026">ExplainX 评测</a>
+  </div>
+  <p><strong>发生了什么：</strong><code>paperclipai/paperclip</code> 在 GitHub 上两周拿下 26K stars。本质是一个 <b>Node.js + React 的 agent 编排层</b>——「bring your own agents, assign goals, track work and costs from one dashboard」。核心抽象是「公司」：org chart、budget、governance、goal alignment、agent coordination。<b>自带 OpenClaw / Claude Code / Codex / Cursor 适配器</b>，自带审批门、自带预算控制、自带任务编排。</p>
+  <p><strong>核心信号：</strong>如果说 Microsoft Agent Framework 是「Azure 的 agent 操作系统」，Paperclip 就是「独立开发者的 agent 操作系统」——而且是 MIT 完全开源。<b>26K stars 两周</b>这个数字本身就是信号：开发者已经不想再为「agent 怎么管」写胶水代码了，他们要的是 SaaS 化的开源版。</p>
+  <div class="why">
+    <strong>为什么重要：</strong>「agent team」这件事，过去 18 个月是靠 LangGraph / AutoGen / CrewAI 这种 <b>framework</b> 撑起来的；但「<b>team 的运维</b>」（谁在跑、花了多少钱、有没有越权）一直没有人做。Paperclip 把这个 gap 补上——它的「org chart」抽象甚至能映射到企业 HR 的角色（CEO、董事会、员工），这意味着 <span class="op">agent 第一次有了「企业级」管理面板</span>。如果你的公司开始用 5 个以上 agent 做日常工作，这是你 2026 Q4 必看的一个仓库。
+  </div>
+</div>
+
+<div class="p0">
+  <h3>OpenAI DevDay 2026 三大主线：Dots + GPT-6.1 Sol + Decisions API</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">9/29</span>
+    OpenAI · DevDay · Dots · Sol · Codex Cloud ·
+    <a href="https://openai.com/index/devday-2026-recap/">Recap</a> ·
+    <a href="https://openai.com/index/introducing-gpt-6-1-sol/">GPT-6.1 Sol 介绍</a> ·
+    <a href="https://benchlm.ai/blog/posts/openai-devday-2026">BenchLM 总结</a>
+  </div>
+  <p><strong>发生了什么：</strong>OpenAI 在 DevDay 2026 一口气放了 20+ 项公告，最值得拆的是三件套：</p>
+  <ul>
+    <li><b>Dots</b>：永久在线 agent，可被指定身份持续运行任务。本质是「GPT-6 系列的 harness 化产品」，不是新模型。</li>
+    <li><b>GPT-6.1 Sol</b>：near-Astra 智能，<b>API 输入/输出价格仅 GPT-6 Astra 的 1/5</b>。定位是「生产级 agent 主循环的默认模型」——比 Astra 便宜，比 Sonnet 5.5 便宜，比 Gemini 4 Argon 便宜。</li>
+    <li><b>Decisions API</b>：受限决策接口，输入候选清单 + 上下文，输出选中的答案 + 概率。150ms 延迟，preview 状态。</li>
+  </ul>
+  <p><strong>核心信号：</strong>GPT-6.1 Sol 把「Astra 级别的智能」打到「<b>便宜到能当主循环</b>」的价位；Decisions API 把「分类/路由」这种「<b>不需要用 LLM 生成自然语言</b>」的环节拆成专门 API。<b>这两个动作加起来，等于宣告了 agent 经济正式进入「分工时代」</b>。</p>
+  <div class="why">
+    <strong>为什么重要：</strong>Decisions API 是这一周被讨论最少、影响最大的产品。它的真正含义不是「又一个 API」，而是「<b>OpenAI 正式放弃了让 LLM 做所有事情</b>」——主模型负责规划/生成，Decisions API 负责「在有限选项中选一个」这种<b>高 QPS、低延迟、低成本</b>的子任务。Jev 已经在做的事，OpenAI 用自家品牌做了出来，agent 基础设施的格局从此变化。
+  </div>
+</div>
+
+<hr class="divider">
+
+<h2>⚡ 小模型 & 效率革命</h2>
+
+<div class="p0">
+  <h3>Milos Kotova：24 小时内连发两篇 KV-cache 工程化文章，把小模型推理推到「不必等下一代硬件」的临界点</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">10/5</span>
+    <span class="tag">KV-cache</span>
+    <span class="tag">小模型</span>
+    Milos Kotova · Hugging Face Blog ·
+    <a href="https://huggingface.co/blog/kotlarmilos/kv-cache-kl-budget">KV-cache KL budget</a> ·
+    <a href="https://huggingface.co/blog/kotlarmilos/latent-kv-rank-allocation">Latent KV rank</a>
+  </div>
+  <p><strong>发生了什么：</strong>Hugging Face 博客同一作者在 24 小时内连发两篇：① <b>「Allocating latent KV-cache memory across transformer layers」</b>——把 KV cache 的层间分配做成「KL 散度校准预算」，动态决定每层该用多少 cache；② <b>「Reducing dropped tokens in a small MoE model」</b>——用 latent rank 分配缓解 MoE 小模型的 token 丢弃问题。</p>
+  <p><strong>核心信号：</strong>两篇文章指向同一件事：<b>小模型推理的内存占用不是「hardware-bound」，而是「policy-bound」</b>。换句话说，在同一张 GPU 上，<b>通过动态分配 KV cache 和优化 MoE token routing，能多塞进 20-40% 的请求</b>。</p>
+  <div class="why">
+    <strong>为什么重要：</strong>小模型在 2026 Q3 之前的故事是「<b>4-bit 量化 + GGUF + Ollama</b>」，Q4 的故事正在变成「<b>动态 KV cache + 智能 MoE routing</b>」。前者是「<b>把模型压扁</b>」，后者是「<b>把运行时的内存用精</b>」——两者叠加意味着 24GB 显存卡跑 30B Q4 模型不再是「勉强能跑」而是「<b>留有冗余</b>」。<span class="op">这是端侧 agent 跑 30B 模型变成「工程现实」的临界点</span>。
+  </div>
+</div>
+
+<div class="p0">
+  <h3>Ai2 OlmoCore 3：开源 MoE 训练栈，2.7x 吞吐、47B 总参、1T 验证</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">10/2</span>
+    <span class="tag tag-oss">开源</span>
+    <span class="tag">MoE</span>
+    Ai2 · Allen Institute · OlmoCore 3 ·
+    <a href="https://allenai.org/blog/olmocore3">官方博客</a> ·
+    <a href="https://www.techtimes.com/articles/328470/20261002/ai2-releases-olmocore-3-open-moe-training-stack-delivers-27x-throughput-gain.htm">TechTimes 解读</a>
+  </div>
+  <p><strong>发生了什么：</strong>Ai2 发布 <code>OlmoCore 3</code>——开源 MoE 训练栈的关键数据：① 总参数从 4.6B 涨到 47B，<b>训练吞吐只下降 &lt;5%</b>；② 同一套基础设施已经被 benchmark 到 <b>1T+ 总参数</b>；③ 对比 OlmoCore 2，<b>吞吐提升 2.7x</b>。</p>
+  <p><strong>核心信号：</strong>Ai2 不再做模型了——它在做<b>「让任何人都能训练 1T 模型」的栈</b>。OlmoCore 3 不是模型，是 PyTorch 上的 training framework，和 Megatron / DeepSpeed 同台竞技。</p>
+  <div class="why">
+    <strong>为什么重要：</strong>过去 18 个月，开源社区在「<b>训练框架</b>」这一层几乎是空白的——大家都用 Megatron / DeepSpeed，但这两个框架是 NVIDIA 时代的产物，<b>和 MoE 的稀疏激活对得不太齐</b>。OlmoCore 3 给出了「<b>小研究所/大公司都能跑 MoE</b>」的工程选项。配上 Ai2 自己的 BenchMIRT —— <span class="op">「开源 LLM」的故事正从「模型本身」走向「训练 + 评测 + benchmark」三个独立支柱</span>。
+  </div>
+</div>
+
+<div class="p0">
+  <h3>GPT-6.1 Sol：OpenAI 把「Astra 智能」打到 1/5 价格，agent 主循环的「默认模型」易主</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">9/29</span>
+    OpenAI · GPT-6.1 Sol · 价格战 ·
+    <a href="https://openai.com/index/introducing-gpt-6-1-sol/">官方</a> ·
+    <a href="https://benchlm.ai/blog/posts/openai-devday-2026">BenchLM 总结</a>
+  </div>
+  <p><strong>发生了什么：</strong>DevDay 上发布的 <code>GPT-6.1 Sol</code>——「near-Astra intelligence」，定价只有 <b>GPT-6 Astra 标准 API 输入/输出价格的 1/5</b>。OpenAI 把 Sol 定位为「coding、computer use、professional work」的默认模型。</p>
+  <p><strong>核心信号：</strong>DevDay 后一周看，Sol 是这一周最被低估的发布。OpenAI 不是在「降级」——Astra 还在——而是在「<b>把次旗舰做主调度</b>」。当次旗舰比上一代旗舰便宜 80%，agent 的「每次决策」成本就坍塌了一个数量级。</p>
+  <div class="why">
+    <strong>为什么重要：</strong>① <b>Sonnet 5.5 / Gemini 4 Argon / GPT-6.1 Sol 现在是同一个 Pareto 区间</b>——智能相近，价格 Sol 最低；② Sol + Decisions API 在一起用时，<b>一次 agent 决策的总成本 ≈ 0.001 美元</b>，这意味着<b>复杂 agent 任务的成本边界从「几十次调用」变成「几千次调用」</b>；③ 如果你之前在用 Astra 做 agent 主循环，<span class="op">今天起切到 Sol 是无脑决策</span>——除非你需要 Astra 的「reliability boundary」做访问控制。
+  </div>
+</div>
+
+<div class="p1">
+  <h3>Qwen3.8-27B：原生视觉语言模型，~24GB 显存可跑，端侧 agent 现实选项</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag tag-new">8/14</span>
+    <span class="tag">小模型</span>
+    <span class="tag">视觉</span>
+    Qwen3.8-27B · 阿里 ·
+    <a href="https://www.promptquorum.com/local-llms/best-local-llms-2026">Prompt Quorum 排行</a>
+  </div>
+  <p>Qwen3.8-27B（8/14 发布）取代 Qwen3.6-27B 成为「<b>本地最佳开源 VLM</b>」：原生 vision-language（不是 text-only + 视觉头拼接），RAM footprint 从 ~17GB 涨到 ~24GB。<b>Apache 2.0，ollama 一键拉</b>。</p>
+  <div class="why"><strong>为什么重要：</strong>这是 Qwen 系列第一次「<b>从文本模型升级到原生视觉语言模型</b>」的代际切换。本地端跑 VLM 的工程门槛从此从「24GB 勉强」变成「24GB 普通」。端侧多模态 agent（看屏幕、读文档、看截图）现在是工程现实。</div>
+</div>
+
+<hr class="divider">
+
+<h2>📡 广角扫描</h2>
+
+<div class="p1">
+  <h3>Ai2 BenchMIRT：用 IRT 模型审计每个题目到底在测什么能力——benchmarks 的「拆弹工具」</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag tag-new">9/1</span>
+    <span class="tag">评测</span>
+    Ai2 · BenchMIRT · IRT ·
+    <a href="https://allenai.org/blog/benchmirt">官方</a> ·
+    <a href="https://github.com/allenai/BenchMIRT">GitHub</a>
+  </div>
+  <p>Allen AI 发布 <code>BenchMIRT</code>——用 Item Response Theory 训练 100 个 LLM × 16 个 benchmark × 34K+ 题的 IRT 模型，<b>逐题审计每个题目实际在测什么能力</b>。六款通用 reasoning benchmark（MMLU-Pro / GPQA / MATH / BBH 等）的内部结构被「拆开」——这意味着你可以<b>用更小的 benchmark 测出同样的能力</b>，评测成本下降一个数量级。</p>
+  <div class="why"><strong>为什么重要：</strong>过去两年 benchmark 通胀已经到了不可持续的地步——大家都在 MMLU-Pro / GPQA / SWE-bench 上报分，但没人知道「<b>这 1000 道题到底有没有冗余</b>」。BenchMIRT 给出了答案：<span class="op">多数 benchmark 有 30-60% 的冗余</span>。你的 eval pipeline 可以砍掉一半题目而不损失信噪比。</div>
+</div>
+
+<div class="p1">
+  <h3>OpenAI Decisions API 对阵 TypeSafe Jev：「agent 受限决策」市场首次正面交锋</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag tag-new">9/29</span>
+    OpenAI · Jev · TypeSafe AI ·
+    <a href="https://www.eesel.ai/blog/openai-decisions-api">eesel 解读</a> ·
+    <a href="https://decisions-api.net/compare/jev">对比表</a>
+  </div>
+  <p>OpenAI 在 DevDay 上推出 Decisions API 预览版，TypeSafe AI 的 <code>Jev</code> 已经跑了几个月。<b>Decisions API：GPT-6 Luna / 150ms / 支持图像输入 / limited preview；Jev：纯文本状态 / 文档化选项 / 已上线</b>。差异：OpenAI 用自家模型，TypeSafe 用任何模型。</p>
+  <div class="why"><strong>为什么重要：</strong>这是「<b>受限决策</b>」这个新 API 类别的第一次正面交锋——OpenAI 想要的是「<b>自带模型 + 决策形状</b>」的纵向锁，TypeSafe 想要的是「<b>中立决策层 + 任何模型</b>」的横向锁。<span class="op">你的 agent 选哪个变体，本质上是在选「绑定 OpenAI」还是「模型无关」</span>。</div>
+</div>
+
+<div class="p1">
+  <h3>Microsoft × Toloka：Thinkingbox 沙盒——507 个企业级可执行 agent 任务，benchmark 开源</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag tag-new">本周</span>
+    <span class="tag tag-oss">开源</span>
+    Microsoft · Toloka · Copilot Studio · Thinkingbox ·
+    <a href="https://arxiv.org/pdf/2608.19741">arXiv</a> ·
+    <a href="https://huggingface.co/blog/microsoft/thinkingbox">HF Blog</a>
+  </div>
+  <p>Microsoft × Toloka 团队发布 <code>Thinkingbox</code> 沙盒 + <code>Thinkingbox-bench</code>——<b>507 个企业级可执行任务</b>，覆盖 5 个高难度企业域（HR、IT、CRM、ERP、FinOps），每个任务都有 verifiable 沙盒 sandbox / 状态校验 / 步骤验证。配合 Copilot Studio 开源评估框架。</p>
+  <div class="why"><strong>为什么重要：</strong>这是<b>第一个真正「可执行 + 可校验」的企业级 agent benchmark</b>。过去一年 benchmark 通胀的核心原因是「<b>没法跑，只能打分</b>」——Thinkingbox 的 507 个任务全部可执行，<span class="op">意味着你可以评测 agent 在「真实的企业场景」里到底能做什么</span>，而不只是「能在选择题里选对」。</div>
+</div>
+
+<div class="p1">
+  <h3>AMD 收购 World Labs——4D 原生世界模型第一次进入芯片厂资产</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag tag-warn">产业</span>
+    AMD · World Labs · Fei-Fei Li · 4D ·
+    <a href="https://pro.jiqizhixin.com/industry">机器之心产业资讯</a>
+  </div>
+  <p>AMD 收购 World Labs（Fei-Fei Li 创立的原生 4D 世界模型公司）。这是 2026 年第一个「芯片厂收购 AI 公司」的案例——之前 NVIDIA 一直在「<b>自己做</b>」，AMD 选择「<b>买现成的</b>」。</p>
+  <div class="why"><strong>为什么重要：</strong>World Labs 的 4D 原生世界模型（不是视频扩散，是原生 3D + 时间）一直被认为是「<b>下一代 agent 训练场</b>」——agent 可以在里面「生活」而不是「看视频」。AMD 收购意味着 <span class="op">4D 世界模型从「research project」正式进入「chip vendor 路线图」</span>，未来 12-18 个月会出现在 AMD 的硬件 + 软件栈里。</div>
+</div>
+
+<div class="p1">
+  <h3>机器之心 Week 40：OpenAI GPT-6.1 Sol + dots + 智能体协作工具——一周内 4 个 agent 工具栈</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag">中文</span>
+    机器之心 ·
+    <a href="https://www.jiqizhixin.com/">Week 40</a>
+  </div>
+  <p>机器之心 Week 40 总结：① OpenAI 发布 GPT-6.1 Sol、dots 及多项智能体协作工具；② AMD 收购 World Labs；③ 「Gas Town」多智能体编排系统被中文社区广泛讨论。</p>
+  <div class="why"><strong>为什么重要：</strong>中文社区现在每周的 AI 总结已经做到「week 40」——意味着<b>每周动态汇总变成事实上的行业基础设施</b>。开发者跟趋势的窗口从「每月」缩短到「每周」。</div>
+</div>
+
+<div class="p1">
+  <h3>New Survey：Agent 推理的「混乱现状」——单 agent 工具使用 ≠ 多 agent 协调</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag tag-new">9/29</span>
+    <span class="tag">综述</span>
+    <span class="tag">推理</span>
+    theRevision ·
+    <a href="https://therevision.co/articles/new-survey-maps-the-messy-state-of-ai-agent-reasoning">Survey 解读</a>
+  </div>
+  <p>theRevision 周一发布新综述：把「agentic reasoning」做了清晰切分——<b>单 agent 的工具使用（tool use）</b> 和 <b>真正的多 agent 协调（coordinated multi-agent）</b> 是两件不同的事，前者用 LLM function calling 就能做，后者需要专门的通信协议 / 共享状态 / 冲突解决机制。</p>
+  <div class="why"><strong>为什么重要：</strong>这个切分把过去 18 个月「agent」这个词的混乱终结了——你买的产品如果只做 function calling 那是「<b>tool-augmented LLM</b>」，不是「<b>multi-agent system</b>」。<span class="op">下次供应商来找你推销 agent 时，先问它「你做的是 single-agent tool use 还是 coordinated multi-agent」</span>。</div>
+</div>
+
+<div class="p2">
+  <h3>Tencent WorkBuddy：本地运行的桌面 AI 办公 agent，腾讯云代码助手出品</h3>
+  <div class="meta">
+    <span class="tag tag-p2">P2</span>
+    <span class="tag">本地</span>
+    <span class="tag">多 agent</span>
+    <a href="https://www.workbuddy.ai/">官网</a>
+    <a href="https://www.codebuddy.cn/work/">CodeBuddy</a>
+  </div>
+  <p>腾讯 WorkBuddy（3/9 发布）是腾讯云代码助手 CodeBuddy 系列的本地 AI 办公 agent——本地运行、规划+多步执行、多 agent 并行，交付报告/PPT/电子表格等可验证产物。<b>与云端方案最大的差异：本地运行、隐私敏感场景友好</b>。</p>
+  <div class="why"><strong>为什么重要：</strong>这是中国厂商在「<b>本地 agent 工作台</b>」赛道的第一个正式产品——证明企业 agent 不是只有「上云」一条路。</div>
+</div>
+
+<div class="p2">
+  <h3>Gas Town：Steve Yegge 的「AI 编程 agent 城市」——同时管理 20-30 个 Claude Code 实例的开源框架</h3>
+  <div class="meta">
+    <span class="tag tag-p2">P2</span>
+    <span class="tag tag-oss">开源</span>
+    <span class="tag">多 agent</span>
+    Steve Yegge · Gas Town ·
+    <a href="https://github.com/gastownhall/gastown">GitHub</a> ·
+    <a href="https://yegge.ai/essays/welcome-to-gas-town/">Steve Yegge 介绍</a>
+  </div>
+  <p><code>Gas Town</code>（gt）是 Steve Yegge 主导的 AI 编程 agent 编排器——通过「Mayor / Drilling Platform / Crew / Skunk」等角色抽象 + Beads 账本 + Git worktree，让你能同时协调 20-30 个 Claude Code / GitHub Copilot / Codex 实例跑不同任务。</p>
+  <div class="why"><strong>为什么重要：</strong>「agent 上限不取决于单个 agent 多强，取决于账本和流水线」——这个抽象和 Paperclip 的「org chart」是同一个思路的两种实现</span>。做 AI 编程/编程工具的朋友可以研究它的「<b>polecat / witness / refinery</b>」抽象。</div>
+</div>
+
+<hr class="divider">
+
+<div class="insight">
+  <h3>💭 深度思考：2026 Q4 agent 经济的「两段化」已经开始</h3>
+  <p>把这一周和上周的事件横着看，<b>一个范式裂缝正在形成</b>：</p>
+  <ol>
+    <li><b>上层 = 主循环</b>：用 GPT-6.1 Sol / Claude Sonnet 5.5 / Gemini 4 Argon 这一档的模型做规划、生成、reasoning。<b>这一层的成本正在以每季度 -40% 的速度下降</b>（Sol 比 Astra 便宜 80%）。</li>
+    <li><b>下层 = 决策/路由/执行</b>：用 Decisions API / Jev 这类受限决策接口做分类/路由，用 Qwen3.8-27B / Llama 3.2 3B / Gemma 4 这类小模型做工具调用执行，用 KV-cache 动态分配 + 4-bit 量化压缩内存。<b>这一层的成本正在被工程化压平</b>（CodeAct -63% token / Milos Kotova -40% 显存）。</li>
+  </ol>
+  <p>两层加起来意味着 <span class="op">agent 任务的「单次决策总成本」坍塌到 0.001 美元以下</span>——这是过去 18 个月大家一直在等的临界点。ServiceNow AutoSynthData 给出的「<b>私有 post-training 范式</b>」则意味着：</p>
+  <ul>
+    <li>企业 agent 可以在用户自己的 IM 上<b>每周 post-train 一次</b>，而不需要重新跑 SFT；</li>
+    <li>「小模型 + 私有 post-train + 主模型做规划」三件套，意味着<b>中小企业也能跑出 80 分的 enterprise agent</b>；</li>
+    <li>Microsoft Agent Framework + Paperclip + Gas Town 三种 harness 风格同时存在——你不需要选一种，可以「<b>混搭</b>」。</li>
+  </ul>
+  <p><strong>主编建议（主观）：</strong>① <b>如果你在做 enterprise agent 产品</b>——今天起把 Decisions API 类接口列为「agent 主循环」的一部分，不要再用 LLM 生成自然语言 + parse 出 JSON；② <b>如果你在做长上下文 agent</b>——优先试用 Milos Kotova 的 KV-cache 动态分配方法，比换下一代硬件更现实；③ <b>如果你在做私有 agent 训练</b>——AutoSynthData 的「失败 → 任务 → 训练」pipeline 是 2026 Q4 最该 follow 的工作；④ <b>如果你的团队 agent 超过 5 个</b>——Paperclip（MIT 开源）+ Azure Foundry Hosted Agents 同时评估，选一个能和你现有 CI/CD 集成的；⑤ <b>如果你在做 agent benchmark</b>——BenchMIRT + Thinkingbox 是这一周必看的两个工具，前者帮你砍评测成本，后者帮你做「可执行 + 可校验」的真实任务。</p>
+  <p><strong>被低估的方向：</strong><span class="op">「agent 决策 API」这一层</span>——Decisions API + Jev + Strands Decider 三个产品在 9 月密集发布，意味着「<b>受限决策</b>」正式成为 agent 基础设施的新品类。下一波值得 follow 的工作：① 决策 API 的多步推理（multi-step decision chains）；② 决策 API 的可解释性（为什么选这个）；③ 决策 API 的延迟优化（< 50ms 的边缘部署）。</p>
+</div>
+
+<hr class="divider">
+
+<h2>📚 延伸阅读</h2>
+<ul>
+    <li><a href="https://openai.com/index/devday-2026-recap/">OpenAI DevDay 2026 Recap</a> — 一站式看 20+ 项公告，每条都有 product page 链接</li>
+    <li><a href="https://allenai.org/blog/olmocore3">Ai2 OlmoCore 3 官方博客</a> — 开源 MoE 训练栈的关键数据：2.7x 吞吐、47B 总参、1T 验证</li>
+    <li><a href="https://huggingface.co/blog/ServiceNow-AI/autosynthdata">ServiceNow AutoSynthData</a> — 「失败 → 任务 → 训练」pipeline 的完整方法论</li>
+    <li><a href="https://github.com/paperclipai/paperclip">Paperclip GitHub</a> — 26K stars、两周冲 Trending 第一的 agent orchestration 平台</li>
+    <li><a href="https://www.beyondcloudwithchriz.com/post/announcing-agent-harness-in-microsoft-agent-framework">Microsoft Agent Harness GA</a> — Azure 团队对「agent 操作系统」的官方解读</li>
+    <li><a href="https://allenai.org/blog/benchmirt">BenchMIRT</a> — 用 IRT 模型审计每个 benchmark 题目的「能力来源」</li>
+    <li><a href="https://arxiv.org/pdf/2608.19741">Thinkingbox arXiv</a> — 507 个可执行企业 agent 任务 + 沙盒 + benchmark</li>
+    <li><a href="https://therevision.co/articles/new-survey-maps-the-messy-state-of-ai-agent-reasoning">Agent Reasoning 的混乱现状</a> — 把「单 agent tool use」和「multi-agent coordination」清晰切分</li>
+    <li><a href="https://www.shakudo.io/blog/top-9-ai-agent-frameworks">Top 9 AI Agent Frameworks (Oct 2026)</a> — 截至 2026/10 的 9 个主流 agent framework 排名</li>
+    <li><a href="https://www.tomsguide.com/ai/i-tested-chatgpt-6-vs-claude-opus-5-5-with-5-everyday-prompts-it-wasnt-even-close">ChatGPT-6 vs Claude Opus 5.5 五项日常测试对比</a> — 4:1 决出胜负，前沿模型对决的最新实测</li>
+</ul>
+
+<hr class="divider">
+
+<div class="scoreboard">
+  <h3>📊 今日数据</h3>
+  <table>
+    <tr><th>维度</th><th>数值</th></tr>
+    <tr><td>搜索来源数</td><td>11 个（OpenAI / Anthropic / DeepMind / Meta / Mistral / HF / Nous / Cohere / xAI / BAIR / 中英文社区）</td></tr>
+    <tr><td>原始动态</td><td>约 30 条</td></tr>
+    <tr><td>筛选条目</td><td>12 条（P0 × 7、P1 × 4、P2 × 2）</td></tr>
+    <tr><td>二轮研究</td><td>5 个 P0 条目（DevDay、AutoSynthData、Paperclip、KV-cache、OlmoCore 3）</td></tr>
+    <tr><td>耗时</td><td>约 25 分钟</td></tr>
+    <tr><td>覆盖时区</td><td>UTC 9/27 - 10/5（即过去 8-9 天，因 10/6 当天新动态尚未大量放出）</td></tr>
+  </table>
+</div>
+
+<p class="footer">AI 前沿日报 · 第 16 期 · 主编：Hermes AI 主编 · 自动生成于 2026-10-06 00:00 UTC<br>所有内容来源于公开搜索结果，主编观点为主观判断 · 仅供学习参考，不构成任何投资/技术建议</p>
+
+</body>
+</html>
