@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 · 2026-10-07</title>
+<style>
+:root{
+  --bg:#0b0f17;
+  --bg-2:#111827;
+  --bg-3:#1a2233;
+  --line:#22304a;
+  --txt:#e6edf7;
+  --txt-2:#9aa7bd;
+  --txt-3:#6b7a92;
+  --up:#ef4444;       /* A股红涨绿跌 */
+  --down:#22c55e;
+  --accent:#60a5fa;
+  --accent-2:#a78bfa;
+  --warn:#fbbf24;
+  --neutral:#64748b;
+  --tag:#1e293b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:radial-gradient(ellipse at top,#131a2c 0%,var(--bg) 60%);
+  color:var(--txt);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.7;
+  min-height:100vh;
+  padding:24px 16px 60px;
+}
+.wrap{max-width:920px;margin:0 auto}
+header{
+  border-bottom:1px solid var(--line);
+  padding-bottom:18px;margin-bottom:24px;
+}
+.title-row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px}
+h1{font-size:22px;font-weight:700;letter-spacing:.5px}
+h1 .sub{font-size:13px;color:var(--txt-2);font-weight:400;margin-left:8px}
+.badge{
+  display:inline-block;padding:3px 10px;border-radius:4px;
+  font-size:12px;background:var(--tag);border:1px solid var(--line);
+  color:var(--txt-2);
+}
+.badge.warn{background:#3a2c10;color:var(--warn);border-color:#5b4517}
+.meta{font-size:12px;color:var(--txt-3);margin-top:8px}
+
+.notice{
+  background:linear-gradient(135deg,#2a1f10 0%,#1a1612 100%);
+  border:1px solid #5b4517;border-left:3px solid var(--warn);
+  padding:14px 18px;border-radius:6px;margin-bottom:20px;
+  font-size:14px;color:#fde68a;
+}
+.notice strong{color:var(--warn)}
+
+h2{
+  font-size:16px;font-weight:600;margin:28px 0 12px;
+  padding-left:10px;border-left:3px solid var(--accent);
+  color:var(--txt);
+}
+h3{font-size:14px;font-weight:600;margin:18px 0 8px;color:var(--accent)}
+
+.card{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:8px;
+  padding:16px 18px;margin-bottom:12px;
+}
+.card-soft{background:var(--bg-3)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.kv{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:6px;
+  padding:12px 14px;
+}
+.kv .label{font-size:11px;color:var(--txt-3);text-transform:uppercase;letter-spacing:.5px}
+.kv .val{font-size:18px;font-weight:700;margin-top:4px}
+.kv .delta{font-size:12px;margin-top:2px}
+.up{color:var(--up)}
+.down{color:var(--down)}
+.flat{color:var(--txt-2)}
+
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--txt-2);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+tr:hover td{background:var(--bg-3)}
+
+ul.list{padding-left:20px;margin:8px 0}
+ul.list li{margin:4px 0;font-size:13.5px;color:var(--txt)}
+ul.list li b{color:var(--accent-2);font-weight:600}
+
+.tag{
+  display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;
+  background:var(--tag);color:var(--txt-2);margin-right:4px;border:1px solid var(--line);
+}
+.tag.up{background:#3a1818;color:#fca5a5;border-color:#5b2828}
+.tag.down{background:#16321e;color:#86efac;border-color:#1f5230}
+.tag.warn{background:#3a2c10;color:#fde68a;border-color:#5b4517}
+
+.foot{
+  margin-top:32px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:11px;color:var(--txt-3);text-align:center;
+}
+.disclaimer{
+  background:var(--bg-2);border:1px dashed var(--line);border-radius:6px;
+  padding:10px 14px;margin-top:16px;font-size:11px;color:var(--txt-3);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="title-row">
+    <h1>📊 A股盘后总结 · AI产业链深度版 <span class="sub">2026-10-07（周三）</span></h1>
+    <span class="badge warn">⛔ 国庆假期最后一日（休市）</span>
+  </div>
+  <div class="meta">
+    上一交易日：<b>2026-09-30</b>（周三） · 下一交易日：<b>2026-10-08</b>（周四，节后首日）
+    <br>数据来源：交易所公告 / 公开报道 / Wind / 券商研报观点整理（仅供研究，不构成投资建议）
+  </div>
+</header>
+
+<div class="notice">
+  ⚠️ <strong>特别说明：</strong>根据沪深北交易所公告，A股于 <b>10月1日（周四）至10月7日（周三）</b> 休市，<b>10月8日（周四）</b> 起照常开市。
+  今日（10月7日）A 股市场休市，<b>无 A 股交易数据</b>。港股今日半日市收弱，<strong>半导体、医药集体大跌</strong>，需重点关注节后首日承接。
+  本期"盘后总结"以<strong>节前最后一个交易日（9月30日）</strong>为基准，并整合国庆假期海外市场与 AI 产业链关键动态，作为节后首日（10月8日）的<strong>前瞻参考</strong>。
+</div>
+
+<h2>一、节前收盘速览（9月30日）</h2>
+<div class="grid">
+  <div class="kv">
+    <div class="label">上证指数</div>
+    <div class="val">3,842.19</div>
+    <div class="delta up">+0.31%（节前最后一日红盘）</div>
+  </div>
+  <div class="kv">
+    <div class="label">深证成指</div>
+    <div class="val">12,887.62</div>
+    <div class="delta down">-0.11%</div>
+  </div>
+  <div class="kv">
+    <div class="label">创业板指</div>
+    <div class="val">--</div>
+    <div class="delta down">-0.23%（Q3累跌27.8%）</div>
+  </div>
+  <div class="kv">
+    <div class="label">科创50</div>
+    <div class="val">--</div>
+    <div class="delta down">-2.51%（Q3累跌30.7%，单季最大）</div>
+  </div>
+  <div class="kv">
+    <div class="label">两市成交额</div>
+    <div class="val">1.44万亿</div>
+    <div class="delta flat">较前日小幅放量约280亿，仍为节前缩量格局</div>
+  </div>
+  <div class="kv">
+    <div class="label">前三季度</div>
+    <div class="val down">上证 -3.19%</div>
+    <div class="delta">深成 -4.71% / 创业板 Q3 -27.8%</div>
+  </div>
+</div>
+
+<div class="card card-soft" style="margin-top:14px">
+  <b>9月30日盘面一句话：</b>"<b>沪指独红、科创50跌2.51%</b>"，风格一天切换 — 从"<b>科技硬件进攻</b>"切到"<b>医药 + 低位权重防守</b>"。
+  全市场 <span class="up">上涨 2567 家</span> / <span class="down">下跌 2824 家</span>，<b>跌停</b>由前日的 1 家激增至 <b>13 家</b>。
+  <br><br>
+  <b>领涨：</b>生物制品 <span class="up">+4.63%</span>、医疗服务 <span class="up">+3.11%</span>、白酒 <span class="up">+2.82%</span>、农业、分散染料、CRO。
+  <br>
+  <b>领跌：</b>元件（PCB）<span class="down">-4.03%</span>、通信服务、半导体、MLCC、CPO 概念全线回调。
+  <br><br>
+  <b>前三季度行业涨幅榜：</b>电子设备板块以 <span class="up">+24.44%</span> 居首（AI 算力 + 消费电子双轮驱动），综合、化石能源紧随其后。
+</div>
+
+<h2>二、港股假期跟踪 · 10月7日实时 + 国庆整体表现</h2>
+
+<h3>🌏 港股 10月7日（今日 · 半日市）</h3>
+<div class="grid">
+  <div class="kv">
+    <div class="label">恒生指数</div>
+    <div class="val">24,162.95</div>
+    <div class="delta down">-0.38%（-92点）</div>
+  </div>
+  <div class="kv">
+    <div class="label">恒生科技</div>
+    <div class="val">~4,151</div>
+    <div class="delta down">-1.5%（vs 10/6 收盘）</div>
+  </div>
+  <div class="kv">
+    <div class="label">半日成交</div>
+    <div class="val">518 亿港元</div>
+    <div class="delta flat">情绪较前日降温</div>
+  </div>
+</div>
+
+<div class="card card-soft" style="margin-top:14px">
+  <b>⚠️ 港股 AI 板块集体重挫（午盘数据）：</b><br>
+  <ul class="list">
+    <li><b>半导体集体大跌：</b><span class="down">澜起科技 -6%+</span>、爱芯元智 <span class="down">-5%+</span>、天岳先进 <span class="down">-5%+</span>、兆易创新 <span class="down">-3%+</span>、纳芯微 <span class="down">-3%+</span></li>
+    <li><b>创新药集体下挫：</b>金斯瑞生物 <span class="down">-12%+</span>领跌，板块情绪降温</li>
+    <li><b>科网股走弱：</b>阿里巴巴 <span class="down">-3%+</span>、百度 <span class="down">-2%+</span>、美团 / 小米 <span class="down">-1%+</span>、MINIMAX <span class="down">-5%+</span></li>
+    <li><b>逆势抗跌：</b>机械、地产、交运、煤炭等传统板块</li>
+  </ul>
+  <b>机构观点：</b>银河证券 — <span class="tag">短期防御为主</span>，关注<b>算力硬件、AI 基础设施</b>；国盛证券 — 10 月港股优选<b>科技 + 资源</b>双线。
+</div>
+
+<h3>📅 假期港股三日复盘（10月2日 → 10月7日）</h3>
+<table>
+  <thead>
+    <tr><th>日期</th><th>恒指</th><th>恒生科技</th><th>关键事件</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10/2（周五）</td>
+      <td><span class="down">-2.60%</span></td>
+      <td><span class="down">-2.26%（两年新低）</span></td>
+      <td>恒指失守 24000，<b>三个月最大跌幅</b>；光通信逆市活跃（长飞 +4%、剑桥 +1%、中际旭创 +1%）；中芯国际 <span class="up">+12%</span>、华虹 <span class="up">+7%</span></td>
+    </tr>
+    <tr>
+      <td>10/5（周一）</td>
+      <td>微跌</td>
+      <td><span class="up">+0.33%（盘中翻红）</span></td>
+      <td>半导体带动反弹；美股大涨：纳指 <span class="up">+1.19% 新高</span>、S&P +0.73%；SK海力士 <span class="up">+5%</span>、美光 <span class="up">+3%</span></td>
+    </tr>
+    <tr>
+      <td>10/6（周二）</td>
+      <td><span class="up">+1%</span></td>
+      <td><span class="up">+0.94%</span></td>
+      <td>智谱涨超 7%；中资券商股午后普涨，中金公司 +2%+</td>
+    </tr>
+    <tr>
+      <td>10/7（今日）</td>
+      <td><span class="down">-0.38%</span></td>
+      <td><span class="down">-0.91%（午盘）</span></td>
+      <td>半导体 / 创新药集体大跌；恒指收 <b>24,162.95</b></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>三、国庆假期 · AI 产业关键事件（必看）</h2>
+
+<div class="card">
+  <h3 style="margin-top:0">🔥 1. 长鑫科技 349 亿投资落地（9/28 公告）</h3>
+  <p>国产 DRAM 龙头长鑫科技（688825.SH）连发两份投资公告：</p>
+  <ul class="list">
+    <li><b>241 亿元</b>技术研发项目（合肥新桥科创示范区，30 个月）</li>
+    <li><b>108 亿元</b>存储器晶圆后道测试基地二期（37 个月）</li>
+    <li>合计 <b>349 亿元</b>，押注下一代 DRAM + 补强 IDM 后道测试能力</li>
+  </ul>
+  <span class="tag up">存储/HBM</span><span class="tag up">国产替代</span><span class="tag warn">催化</span>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">🔥 2. Reflection AI 发布开放权重模型（对标 DeepSeek）</h3>
+  <p>获 <b>英伟达（NVIDIA）支持</b>的 AI 初创公司 Reflection 即将推出强大的开放权重（Open-weight）AI 模型，与 DeepSeek 等中资 AI 公司及美国 AI 巨头竞争。模型权重开放意味着<span class="up">全球开发者可自由下载、微调、部署</span>。</p>
+  <span class="tag warn">叙事冲击</span><span class="tag">AI 应用</span><span class="tag">DeepSeek 概念</span>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">⚡ 3. 美联储 10 月加息预期大幅降温</h3>
+  <p>市场对美联储 10 月加息预期降温，叠加对<b>三季度财报季盈利增长的乐观预期</b>，风险偏好显著回暖。日经 225 微涨 0.04%，日本东证指数盘中一度上涨至 4201.86 点，<b>超过 8 月 14 日创下的 4197.20 点历史收盘纪录</b>。</p>
+  <span class="tag up">流动性</span><span class="tag">风险偏好</span>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">🔧 4. SK 海力士 HBM5 + CoWoS 2.5D 验证（9/29）</h3>
+  <p>SK 海力士凭借在 <b>CoWoS 2.5D 先进封装平台上的 HBM5 内存验证</b>，获得台积电"3DFabric-HBM 集成"类别年度合作伙伴奖 — HBM5 + CoWoS 路线图进入验证阶段，<span class="up">2027 年量产路径进一步清晰</span>。</p>
+  <span class="tag up">HBM5</span><span class="tag up">先进封装</span>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">📊 5. 美银：高盛：瑞银：贝莱德 — 外资集体看多中国资产</h3>
+  <ul class="list">
+    <li><b>美银：</b>全球主动型多头基金对中国股票的配置已从"低配"升至"<b>基准中性</b>"，结束长达四年低配</li>
+    <li><b>高盛：</b>中国资产是分散化配置好地方，<span class="up">A 股优于 H 股</span></li>
+    <li><b>瑞银：</b>预计 2026 年 A 股盈利增长 <span class="up">15%</span></li>
+    <li><b>贝莱德：</b>对中国股票维持中性偏积极</li>
+  </ul>
+</div>
+
+<h2>四、国内 AI 产业链 · 七大方向关键看点</h2>
+
+<div class="card">
+  <b>① 光通信 / CPO</b> <span class="tag up">主线</span><br>
+  行业逻辑：1.6T 光模块代际升级 + 北美大客户订单兑现。国内政策要求<b>2026年底新建机房CPO适配率60%</b>，800G→1.6T 是确定性产业趋势。<br>
+  <b>关注标的：</b>中际旭创、新易盛、天孚通信、华工科技<br>
+  <span class="tag down">风险</span>前期涨幅大、PE 历史分位偏高，<b>港股中际旭创 10/2 逆市 +1% 属强信号</b>，关注三季报兑现度与北美 Capex 指引匹配度。
+</div>
+
+<div class="card">
+  <b>② 存储 / HBM</b> <span class="tag up">超级周期 + 长鑫催化</span><br>
+  行业逻辑：高盛预计 <b>2026-2027 年全球存储器市场将经历最严重供应短缺之一</b>，DRAM / NAND / HBM 三大品类供需缺口扩大。<b>长鑫 349 亿投资</b>为国产 DRAM 链注入确定性催化；三星、SK 海力士预计继续收紧 NAND 产能。<br>
+  <b>关注标的：</b>兆易创新（NOR/DRAM）、北京君正（车规存储）、澜起科技（接口芯片）、香农芯创（HBM 模组）、深科技<br>
+  <span class="tag warn">跟踪</span>长江存储、长鑫存储扩产节奏及对国产链拉动。⚠️ 港股澜起科技今日 -6%+，需关注节后 A 股联动。
+</div>
+
+<div class="card">
+  <b>③ 半导体设备</b> <span class="tag up">国产替代</span><br>
+  行业逻辑：3nm 刻蚀机 + 100% 国产替代进程。中微公司半年营收破 50 亿；精智达再揽 15.76 亿元大单；北方华创订单饱满。<br>
+  <b>关注标的：</b>北方华创、中微公司、拓荆科技、精测电子、华海清科、芯源微、长川科技<br>
+  <span class="tag up">驱动</span>长江存储 / 长鑫存储扩产 + 国内 12 寸晶圆厂资本开支维持高位。
+</div>
+
+<div class="card">
+  <b>④ PCB / CCL（AI 服务器高多层板）</b> <span class="tag up">量价齐升</span><br>
+  行业逻辑：AI 服务器对 PCB 层数（>30 层）、高频高速材料（Low-Dk / Df）需求陡升，单板价值量较通用服务器提升 5-10 倍。<br>
+  <b>关注标的：</b>沪电股份（高盛"买入"）、生益科技、南亚新材、华正新材、生益电子、深南电路<br>
+  <span class="tag warn">节奏</span>M8 级 CCL 材料验证进展决定 2026H2-2027H1 业绩弹性。
+</div>
+
+<div class="card">
+  <b>⑤ MLCC</b> <span class="tag warn">涨价周期</span><br>
+  行业逻辑：AI 服务器单台 MLCC 用量较通用服务器提升数倍，村田 / TDK 涨价信号传导至国内龙头。<br>
+  <b>关注标的：</b>三环集团、风华高科、博迁新材（镍粉）、洁美科技<br>
+  <span class="tag">观察</span>车规级 + 高容值 MLCC 国产化率提升。
+</div>
+
+<div class="card">
+  <b>⑥ 先进封装</b> <span class="tag up">CoWoS 国产化</span><br>
+  行业逻辑：台积电 CoWoS 产能持续紧张，国产链承担"补充+替代"角色。<b>SK 海力士 CoWoS 2.5D HBM5 验证</b>释放产业链联动信号。<br>
+  <b>关注标的：</b>长电科技、通富微电、华天科技、甬矽电子、晶方科技、顾中科技<br>
+  <span class="tag">延伸</span>2.5D / 3D Fan-out / Chiplet 工艺迭代。
+</div>
+
+<div class="card">
+  <b>⑦ 上游材料 / AI 服务器 + 液冷</b> <span class="tag up">趋势确立</span><br>
+  行业逻辑：TrendForce 预测 <b>2026 年全球 AI 数据中心液冷渗透率跃升至 47%</b>，冷板式与浸没式并行；电子特气 / 靶材 / 湿电子化学品受益晶圆厂扩产。<br>
+  <b>关注标的：</b>
+  <ul class="list">
+    <li><b>液冷：</b>英维克（全链条 CDU）、曙光数创（浸没 + 冷板）、川环科技、三花智控、银轮股份、飞龙股份</li>
+    <li><b>材料：</b>雅克科技、沪硅产业、立昂微、彤程新材、晶瑞电材、安集科技、鼎龙股份</li>
+    <li><b>AI 服务器整机/电源：</b>工业富联、紫光股份、中科曙光、浪潮信息</li>
+  </ul>
+</div>
+
+<h2>五、节后首日（10月8日）核心矛盾与策略</h2>
+
+<div class="card">
+  <h3 style="margin-top:0">⚡ 长假核心矛盾</h3>
+  <p>国庆 7 天外围变量集中释放，A股是延续港股今日"<b>半导体 / 创新药补跌</b>"的节奏，还是在长鑫 349 亿催化下"科技修复"？<br>
+  <b>两个关键变量：</b>① Reflection AI 开放权重模型对国内 AI 叙事/DeepSeek 概念冲击；② 港股今日弱势是否会传导 A 股开盘。</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">📌 三大情景推演</h3>
+  <ul class="list">
+    <li><b>情景 A · 科技修复（概率 ≈ 40%）：</b>长鑫 349 亿催化 + 三季报披露开启，AI 产业链反弹，CPO / 设备 / PCB 领涨。</li>
+    <li><b>情景 B · 防御延续（概率 ≈ 35%）：</b>港股半导体 / 创新药补跌传导 + Reflection 叙事冲击，资金回流消费 / 医药 / 高股息。</li>
+    <li><b>情景 C · 结构分化（概率 ≈ 25%）：</b>指数震荡，AI 链内部分化 — 存储 / 设备强，CPO / PCB 弱（受前期获利盘压制）。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">🗓️ 10月关键日历</h3>
+  <ul class="list">
+    <li><b>10月8日（周四）</b>：A 股节后开市，<span class="up">三季报披露大幕开启</span>，首批公司集中在 10/8-10/15</li>
+    <li><b>10月15日前</b>：创业板三季报预告截止，业绩线索密集释放</li>
+    <li><b>10月下旬</b>：三季报集中披露期，AI 产业链龙头业绩兑现度成关键催化剂</li>
+    <li><b>11月</b>：海外大厂 4Q 业绩与 2027 Capex 指引，预计再次影响 CPO/HBM/PCB 链估值</li>
+  </ul>
+</div>
+
+<h2>六、机构节后观点速览</h2>
+<table>
+  <thead><tr><th>机构</th><th>核心观点</th></tr></thead>
+  <tbody>
+    <tr><td><b>中信证券</b></td><td>市场维持震荡格局，<b>三季报是年内重要布局窗口</b></td></tr>
+    <tr><td><b>中金 / 中信建投</b></td><td>关注业绩超预期方向；电子设备前三季度 +24.44% 排名第一</td></tr>
+    <tr><td><b>华泰 / 国泰海通</b></td><td>聚焦 AI 算力主线的高确定性环节（CPO、HBM、PCB）</td></tr>
+    <tr><td><b>银河证券</b></td><td>港股短期结构防御为主，<b>关注算力硬件、AI 基础设施</b></td></tr>
+    <tr><td><b>国盛证券</b></td><td>2026 年 10 月港股优选<b>科技 + 资源</b>双线</td></tr>
+    <tr><td><b>高盛</b></td><td>AI 服务器 PCB 量价齐升，<b>沪电股份维持"买入"</b>；A 股优于 H 股</td></tr>
+    <tr><td><b>美银 / 瑞银</b></td><td>中国资产从"低配"升"中性"，<b>2026 A 股盈利增速 +15%</b></td></tr>
+    <tr><td><b>TrendForce</b></td><td>2026 年全球 AI 数据中心液冷渗透率跃升至 <b>47%</b></td></tr>
+  </tbody>
+</table>
+
+<h2>七、节前日记 · 给"小韭菜"的几条纪律</h2>
+<div class="card">
+  <ul class="list">
+    <li><b>仓位管理：</b>节前已有减仓者不急于满仓回补，留 30-40% 现金应对 10 月波动。</li>
+    <li><b>节奏：</b>10 月 8 日开盘后前 30 分钟尽量"<b>看不动手</b>"，观察北向资金与板块强弱。</li>
+    <li><b>港股传导预警：</b>今日港股半导体 / 创新药集体大跌，<b>明天 A 股开盘可能面临补跌压力</b>，澜起科技、兆易创新等需重点关注。</li>
+    <li><b>聚焦业绩：</b>AI 链龙头 PE 分位普遍偏高，<b>三季报兑现度</b>决定后续空间，无业绩的"故事票"谨慎参与。</li>
+    <li><b>分散配置：</b>单一赛道（CPO、存储）不超 30%；跨赛道配置设备 + PCB + 液冷对冲节奏差异。</li>
+    <li><b>风险事件：</b>关注海外科技股回调、汇率波动、地缘扰动对情绪的传导；<b>Reflection AI 开放权重模型</b>对 DeepSeek / AI 应用叙事的冲击。</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  <b>免责声明：</b>本报告基于公开信息整理与个人观点，不构成任何投资建议。投资有风险，决策需谨慎。
+  数据来源：上交所/深交所公告、新浪财经、21世纪经济报道、东方财富、同花顺、券商研报、TrendForce、Sigmanomics、Vantage Markets 等公开渠道。
+  标的池仅供研究跟踪，不构成推荐。
+</div>
+
+<div class="foot">
+  📅 下一期：2026-10-08（周四）· 国庆节后首个交易日 · A股恢复交易
+  <br>🤖 Generated by Hermes · A股盘后总结 · AI产业链深度版
+</div>
+
+</div>
+</body>
+</html>
