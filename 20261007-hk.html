@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-10-07</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-secondary: #8b949e;
+    --red: #f85149;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --purple: #a371f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 1.8em;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .date { color: var(--text-secondary); font-size: 0.9em; margin-top: 6px; }
+  .header .tagline {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 1.1em;
+    margin-top: 8px;
+    padding: 6px 16px;
+    border: 1px solid var(--red);
+    border-radius: 20px;
+    display: inline-block;
+  }
+  .index-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .index-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .index-card .name { font-size: 0.85em; color: var(--text-secondary); }
+  .index-card .value { font-size: 1.8em; font-weight: 700; margin: 4px 0; }
+  .index-card .change { font-size: 1em; font-weight: 600; }
+  .index-card .highlow { font-size: 0.78em; color: var(--text-secondary); margin-top: 4px; }
+  .down { color: var(--red); }
+  .up { color: var(--green); }
+
+  .section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .section h2 {
+    font-size: 1.2em;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h2 .icon { font-size: 1.1em; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+  th {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+  }
+  tr:last-child td { border-bottom: none; }
+  .code { color: var(--text-secondary); font-size: 0.82em; font-family: monospace; }
+  .stock-name { font-weight: 600; }
+  .vol { color: var(--text-secondary); font-size: 0.85em; }
+  .arrow-down { color: var(--red); }
+  .arrow-up { color: var(--green); }
+
+  .insight-box {
+    background: rgba(88,166,255,0.06);
+    border: 1px solid rgba(88,166,255,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .insight-box h3 { font-size: 0.95em; margin-bottom: 8px; color: var(--blue); }
+  .insight-box p { color: var(--text-secondary); font-size: 0.9em; }
+
+  .footer {
+    text-align: center;
+    padding: 24px 0;
+    color: var(--text-secondary);
+    font-size: 0.82em;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+  .footer a { color: var(--blue); text-decoration: none; }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .tag-red { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-orange { background: rgba(210,153,29,0.15); color: var(--orange); }
+  .tag-blue { background: rgba(88,166,255,0.15); color: var(--blue); }
+
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .index-cards { grid-template-columns: 1fr; }
+    .section { padding: 16px; }
+    table { font-size: 0.78em; }
+    td, th { padding: 6px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>港股收盘总结 · AI产业链深度版</h1>
+  <div class="date">2026年10月7日 · 周二收盘（国庆假期后首个完整交易日）</div>
+  <div class="tagline">⚠ 半导体集体杀跌 · 互联网平台走弱 · AI应用承压</div>
+</div>
+
+<!-- ====== 指数概览 ====== -->
+<div class="index-cards">
+  <div class="index-card">
+    <div class="name">恒生指数 HSI</div>
+    <div class="value down">24,151.90</div>
+    <div class="change down">▼ 128.66 (-0.53%)</div>
+    <div class="highlow">全日震荡走低</div>
+  </div>
+  <div class="index-card">
+    <div class="name">恒生科技指数</div>
+    <div class="value down">4,184.74</div>
+    <div class="change down">▼ 38.34 (-0.91%)</div>
+    <div class="highlow">科技板块领跌</div>
+  </div>
+  <div class="index-card">
+    <div class="name">国企指数 HSCEI</div>
+    <div class="value down">~8,470</div>
+    <div class="change down">▼ -0.66%</div>
+    <div class="highlow">科网+内房分化</div>
+  </div>
+  <div class="index-card">
+    <div class="name">半日成交额</div>
+    <div class="value" style="color: var(--orange);">~518亿</div>
+    <div class="change" style="color: var(--orange);">港元</div>
+    <div class="highlow">较前日 981 亿明显缩量</div>
+  </div>
+</div>
+
+<!-- ====== 核心观点 ====== -->
+<div class="insight-box">
+  <h3>📊 今日核心观点</h3>
+  <p>
+    <strong>节后首日 AI 链遭遇"防御性减仓"，半导体板块全天承压。</strong>恒指小幅低开低走，恒科跌幅近 1%。板块呈典型"卖科技、买周期"轮动：半导体、医药生物、软件、造纸、传媒跌幅居前；机械、房地产、交运、煤炭逆势抗涨。AI 硬件端澜起科技跌近 8% 领跌，爱芯元智、纳芯微、晶合集成、兆易创新跌幅均在 4% 以上；澜起之外，澜起、晶合、兆易等模拟/存储标的同步承压，反映前期资金对 AI 算力链短期拥挤交易的获利兑现。科网平台端阿里巴巴跌超 3%、百度走弱、快手跟跌；MINIMAX 等 AI 应用股同步回调。金斯瑞生物单日重挫超 12%，反映医药板块同样遭遇高位资金出清。整体看，节后增量资金观望情绪浓，存量资金选择防御——这与银河证券"短期结构防御为主"的判断一致。
+  </p>
+</div>
+
+<!-- ====== 半导体制造/设计 ====== -->
+<div class="section">
+  <h2><span class="icon">🔴</span> 半导体制造 & 设计 —— 澜起领跌，模拟/存储全面承压</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>涨跌幅</th><th>成交/备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">澜起科技</span></td>
+        <td><span class="code">06809</span></td>
+        <td class="down"><strong>-7% ~ -8%</strong> <span class="tag tag-red">领跌</span></td>
+        <td class="vol">DDR5/AI 接口芯片龙头</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">爱芯元智</span></td>
+        <td><span class="code">00600</span></td>
+        <td class="down"><strong>-5%+</strong> <span class="tag tag-red">重挫</span></td>
+        <td class="vol">AI 视觉 SoC</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">纳芯微</span></td>
+        <td><span class="code">02676</span></td>
+        <td class="down"><strong>-4%+</strong></td>
+        <td class="vol">车规模拟芯片</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">晶合集成</span></td>
+        <td><span class="code">02249</span></td>
+        <td class="down"><strong>-4%+</strong></td>
+        <td class="vol">DDIC/代工</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">兆易创新</span></td>
+        <td><span class="code">03986</span></td>
+        <td class="down"><strong>-4%+</strong></td>
+        <td class="vol">NOR Flash/MCU 龙头</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">华虹宏力</span></td>
+        <td><span class="code">01347</span></td>
+        <td class="down"><strong>-2%+</strong></td>
+        <td class="vol">晶圆代工</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">江波龙</span></td>
+        <td><span class="code">03019</span></td>
+        <td class="down"><strong>-2%+</strong></td>
+        <td class="vol">存储模组</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">上海复旦</span></td>
+        <td><span class="code">01385</span></td>
+        <td class="down"><strong>-2%+</strong></td>
+        <td class="vol">FPGA/IC 卡</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">英诺赛科 / 君正 / 晶门</span></td>
+        <td><span class="code">02577 / 03223 / 02878</span></td>
+        <td class="down">集体跟跌</td>
+        <td class="vol">GaN / SoC / 显示驱动</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 半导体板块整体跌幅居前，澜起科技作为前期 DDR5/AI 接口龙头单日重挫近 8%，反映资金对"高拥挤度+高估值"组合的主动兑现。中芯国际未单独披露跌幅但板块联动走弱。值得注意的是机构对算力硬件中长期逻辑仍未改判——银河证券建议"关注算力硬件、AI 基础设施"，暗示本轮回调更像是节奏问题而非趋势反转。
+  </p>
+</div>
+
+<!-- ====== 互联网平台 ====== -->
+<div class="section">
+  <h2><span class="icon">🔴</span> 互联网平台 —— 大型科网股集体走弱</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>涨跌幅</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">阿里巴巴-W</span></td>
+        <td><span class="code">09988</span></td>
+        <td class="down"><strong>-3%+</strong> <span class="tag tag-red">领跌科网</span></td>
+        <td class="vol">云+电商+AI 投入</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">百度集团-W</span></td>
+        <td><span class="code">09888</span></td>
+        <td class="down">下跌</td>
+        <td class="vol">文心/Apollo</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">快手-W</span></td>
+        <td><span class="code">01024</span></td>
+        <td class="down">下跌</td>
+        <td class="vol">短视频/可灵 AI</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">腾讯控股</span></td>
+        <td><span class="code">00700</span></td>
+        <td class="down">微跌</td>
+        <td class="vol">混元/游戏基本盘</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">小米集团</span></td>
+        <td><span class="code">01810</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">手机/汽车/AIoT</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 科网平台股"跌多涨少"，阿里巴巴领跌，跌幅超 3%。市场对 DeepSeek 800 亿融资、Qwen3.8-27B 等国产大模型进展的短线催化被节前透支，节后资金选择获利兑现。腾讯/小米相对抗跌，反映游戏基本盘与硬件现金流的安全垫。
+  </p>
+</div>
+
+<!-- ====== AI应用 ====== -->
+<div class="section">
+  <h2><span class="icon">🟡</span> AI 应用 & 大模型 —— 双雄同步回调</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>涨跌幅</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">MINIMAX-WP</span></td>
+        <td><span class="code">00100</span></td>
+        <td class="down"><strong>-5%+</strong> <span class="tag tag-red">回调</span></td>
+        <td class="vol">大模型旗舰</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">智谱</span></td>
+        <td><span class="code">02513</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">GLM 系列</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">联想集团</span></td>
+        <td><span class="code">00992</span></td>
+        <td class="down">微跌</td>
+        <td class="vol">AI PC/AI 服务器</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">商汤-W</span></td>
+        <td><span class="code">00020</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">视觉 AI</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 MINIMAX 单日跌超 5%，反映节前累积涨幅的兑现压力。智谱、商汤等同样承压。联想因 AI 服务器订单可见度相对较好，跌幅有限。中长期看国产大模型调用量连续领跑全球 + DeepSeek 大额融资落地，AI 应用叙事底座未动摇。
+  </p>
+</div>
+
+<!-- ====== 算力/光通信 ====== -->
+<div class="section">
+  <h2><span class="icon">🟡</span> 算力 & 光通信 —— 板块整体走弱</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>涨跌幅</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">剑桥科技</span></td>
+        <td><span class="code">06166</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">光模块/数通</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">长飞光纤光缆</span></td>
+        <td><span class="code">06869</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">光纤光缆龙头</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">建滔积层板</span></td>
+        <td><span class="code">01888</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">PCB 上游</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">中际旭创</span></td>
+        <td><span class="code">03084</span></td>
+        <td class="down">微跌</td>
+        <td class="vol">800G 光模块</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 光通信/PCB 板块随大盘调整，前期 CPO 龙头普遍承压。光模块龙头中际旭创跌幅相对温和，反映海外大客户订单可见度仍在。机构持续看好算力硬件的全球需求增量，回调提供中期布局窗口。
+  </p>
+</div>
+
+<!-- ====== 防御板块 ====== -->
+<div class="section">
+  <h2><span class="icon">🟢</span> 防御板块 —— 蓝筹周期逆势抗跌</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>涨跌幅</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">潍柴动力</span></td>
+        <td><span class="code">02338</span></td>
+        <td class="up"><strong>涨幅居前</strong> <span class="tag tag-green">抗跌</span></td>
+        <td class="vol">恒指成分股涨幅前列</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">万洲国际</span></td>
+        <td><span class="code">00288</span></td>
+        <td class="up"><strong>涨幅居前</strong></td>
+        <td class="vol">恒指成分股涨幅前列</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">信义玻璃</span></td>
+        <td><span class="code">00868</span></td>
+        <td class="up"><strong>涨幅居前</strong></td>
+        <td class="vol">恒指成分股涨幅前列</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">房地产 / 交运 / 煤炭</span></td>
+        <td><span class="code">—</span></td>
+        <td class="up">板块普涨</td>
+        <td class="vol">防御轮动主线</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">机械 / 纺织服装</span></td>
+        <td><span class="code">—</span></td>
+        <td class="up">逆势抗跌</td>
+        <td class="vol">高股息+出口逻辑</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 恒指蓝筹潍柴动力、万洲国际、信义玻璃涨幅居前；房地产、交运、煤炭等高股息板块普涨。机械、纺织服装逆势抗跌，反映节后首日资金从高拥挤度的 AI 硬件轮动到低估值高分红防御品种。银河证券同样建议关注"低波红利"。
+  </p>
+</div>
+
+<!-- ====== 医药生物 ====== -->
+<div class="section">
+  <h2><span class="icon">🔴</span> 医药生物 —— 金斯瑞重挫，CRO/创新药跟跌</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>涨跌幅</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">金斯瑞生物科技</span></td>
+        <td><span class="code">01548</span></td>
+        <td class="down"><strong>-12%+</strong> <span class="tag tag-red">重挫</span></td>
+        <td class="vol">CGT/CDMO 龙头</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">药明康德 / 凯莱英</span></td>
+        <td><span class="code">02359 / 06821</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">CXO 板块</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">百济神州 / 信达生物</span></td>
+        <td><span class="code">06160 / 01801</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">创新药</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 隔夜美股医药板块暴跌拖累昨日表现亮眼的港股医药板块，金斯瑞生物单日跌超 12%。CRO/创新药前期涨幅集中，CXO 龙头全线跟跌。机构对创新药 CXO 中长期看好但短期同样提示结构防御。
+  </p>
+</div>
+
+<!-- ====== 板块资金流向 ====== -->
+<div class="section">
+  <h2><span class="icon">💰</span> 板块资金流向</h2>
+  <table>
+    <thead>
+      <tr><th>板块</th><th>方向</th><th>代表个股 / 逻辑</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>半导体</strong></td>
+        <td class="down">▼ 资金净流出</td>
+        <td>澜起、爱芯元智、纳芯微、晶合集成领跌，模拟/存储承压</td>
+      </tr>
+      <tr>
+        <td><strong>医药生物 / CRO</strong></td>
+        <td class="down">▼ 资金净流出</td>
+        <td>金斯瑞跌超 12%，隔夜美股医药股暴跌传导</td>
+      </tr>
+      <tr>
+        <td><strong>互联网平台</strong></td>
+        <td class="down">▼ 资金净流出</td>
+        <td>阿里跌超 3%，百度、快手跟跌</td>
+      </tr>
+      <tr>
+        <td><strong>软件 / 造纸 / 传媒</strong></td>
+        <td class="down">▼ 资金净流出</td>
+        <td>板块整体走弱</td>
+      </tr>
+      <tr>
+        <td><strong>房地产 / 交运 / 煤炭</strong></td>
+        <td class="up">▲ 资金净流入</td>
+        <td>高股息防御板块受青睐</td>
+      </tr>
+      <tr>
+        <td><strong>机械 / 纺织服装</strong></td>
+        <td class="up">▲ 资金净流入</td>
+        <td>出口+高股息逻辑</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 节后首日资金流向"卖科技、买周期"特征鲜明：AI 链（半导体+科网）集体遭遇减仓，高股息+防御板块（地产/交运/煤炭/机械）逆势吸金。市场半日成交 518 亿港元较前日 981 亿明显缩量，反映节后增量资金观望情绪浓。
+  </p>
+</div>
+
+<!-- ====== 小结 ====== -->
+<div class="section" style="border-color: rgba(248,81,73,0.3);">
+  <h2><span class="icon">📉</span> 今日总结 & 后市观察</h2>
+  <table>
+    <thead><tr><th>维度</th><th>观察</th></tr></thead>
+    <tbody>
+      <tr><td style="white-space:nowrap;font-weight:600;">市场情绪</td><td>防御为主。AI 链集体杀跌，节后资金选择获利兑现并切换至高股息防御板块。</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">跌得最狠</td><td>金斯瑞生物 <span class="down">-12%+</span>、澜起科技 <span class="down">-7%~-8%</span>、爱芯元智 <span class="down">-5%+</span>、MINIMAX <span class="down">-5%+</span></td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">逆势亮点</td><td>潍柴动力 / 万洲国际 / 信义玻璃 <span class="up">领涨蓝筹</span>，地产 / 交运 / 煤炭 <span class="up">板块普涨</span></td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">资金信号</td><td>半日成交 518 亿港元，较前日 981 亿明显缩量。南向资金数据待盘后披露。</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">机构观点</td><td>银河证券：港股短期结构防御为主，关注算力硬件、AI 基础设施、创新药及 CXO、低波红利；国盛证券：2026 年 10 月港股优选科技及资源板块。</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">后续关注</td><td>① 收盘南向资金流向 ② 美股科技股能否止跌 ③ 国产 AI 大模型（DeepSeek 800 亿融资）进展催化 ④ 中芯国际业绩窗口</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">策略提示</td><td>短期防御为主，AI 链仓位可适度兑现至高股息；中长期算力硬件+国产 AI 叙事未变，急跌反而是分批布局窗口。关注南向资金作为先行指标。</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  数据来源：港交所、同花顺、智通财经、格隆汇、新浪财经、每经网<br>
+  报告生成：Hermes Agent · cron 任务 · 2026-10-07 16:15 HKT<br>
+  📎 完整版：<a href="https://reports.dns-cloudflare.com/20261007-hk.html">reports.dns-cloudflare.com/20261007-hk.html</a><br>
+  ⚠ 本报告仅作市场观察记录，不构成任何投资建议。
+</div>
+
+</body>
+</html>
