@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026-10-09</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-secondary: #8b949e;
+    --red: #f85149;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --orange: #d2991d;
+    --purple: #a371f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 1.8em;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .date { color: var(--text-secondary); font-size: 0.9em; margin-top: 6px; }
+  .header .tagline {
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 1.05em;
+    margin-top: 10px;
+    padding: 6px 16px;
+    border: 1px solid var(--orange);
+    border-radius: 20px;
+    display: inline-block;
+  }
+  .index-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .index-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .index-card .name { font-size: 0.85em; color: var(--text-secondary); }
+  .index-card .value { font-size: 1.8em; font-weight: 700; margin: 4px 0; }
+  .index-card .change { font-size: 1em; font-weight: 600; }
+  .index-card .highlow { font-size: 0.78em; color: var(--text-secondary); margin-top: 4px; }
+  .down { color: var(--red); }
+  .up { color: var(--green); }
+
+  .section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .section h2 {
+    font-size: 1.2em;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h2 .icon { font-size: 1.1em; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+  th {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+  }
+  tr:last-child td { border-bottom: none; }
+  .code { color: var(--text-secondary); font-size: 0.82em; font-family: monospace; }
+  .stock-name { font-weight: 600; }
+  .vol { color: var(--text-secondary); font-size: 0.85em; }
+  .arrow-down { color: var(--red); }
+  .arrow-up { color: var(--green); }
+
+  .insight-box {
+    background: rgba(210,153,29,0.06);
+    border: 1px solid rgba(210,153,29,0.25);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .insight-box h3 { font-size: 0.95em; margin-bottom: 8px; color: var(--orange); }
+  .insight-box p { color: var(--text); font-size: 0.9em; }
+
+  .footer {
+    text-align: center;
+    padding: 24px 0;
+    color: var(--text-secondary);
+    font-size: 0.82em;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+  .footer a { color: var(--blue); text-decoration: none; }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .tag-red { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-orange { background: rgba(210,153,29,0.15); color: var(--orange); }
+  .tag-blue { background: rgba(88,166,255,0.15); color: var(--blue); }
+
+  .catalyst {
+    background: rgba(88,166,255,0.08);
+    border-left: 3px solid var(--blue);
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 0.88em;
+    color: var(--text);
+  }
+  .catalyst strong { color: var(--blue); }
+
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .index-cards { grid-template-columns: 1fr; }
+    .section { padding: 16px; }
+    table { font-size: 0.78em; }
+    td, th { padding: 6px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>港股收盘总结 · AI产业链深度版</h1>
+  <div class="date">2026年10月9日 · 周五收盘（节后第二交易日 · 北水续回归）</div>
+  <div class="tagline">⚠ 冲高回落反转日 · 早盘+1.5% 午后全数回吐 · 恒指翻绿收跌 0.29%</div>
+</div>
+
+<!-- ====== 指数概览 ====== -->
+<div class="index-cards">
+  <div class="index-card">
+    <div class="name">恒生指数 HSI</div>
+    <div class="value down">~23,716</div>
+    <div class="change down">▼ 约 70 点 (-0.29%)</div>
+    <div class="highlow">高开 +1% 翻绿收 · 调整未结束</div>
+  </div>
+  <div class="index-card">
+    <div class="name">恒生科技指数</div>
+    <div class="value down">~4,073</div>
+    <div class="change down">▼ 约 27 点 (-0.66%)</div>
+    <div class="highlow">午盘转跌 · AI 链分化加剧</div>
+  </div>
+  <div class="index-card">
+    <div class="name">国企指数 HSCEI</div>
+    <div class="value up">~8,322</div>
+    <div class="change up">▲ +约 0.07%</div>
+    <div class="highlow">电力股支撑 · 科网拖累</div>
+  </div>
+  <div class="index-card">
+    <div class="name">大市全日成交</div>
+    <div class="value" style="color: var(--orange);">2,400+ 亿</div>
+    <div class="change" style="color: var(--orange);">港元（估）</div>
+    <div class="highlow">北水回归放量 · 高位震荡</div>
+  </div>
+</div>
+
+<!-- ====== 核心观点 ====== -->
+<div class="insight-box">
+  <h3>📊 今日核心观点</h3>
+  <p>
+    <strong>典型的"反弹失败"日：早盘一片修复、午后反转翻绿，节后修复行情继续被抛压压制。</strong>10 月 9 日港股三大指数冲高回落，早盘恒指曾涨超 1%、恒科曾涨超 1.5%，小米因 9 日发布关键业绩预期大增早盘大涨 7%+，半导体板块早盘亦集体反弹——中芯国际、华虹宏力早盘均录得显著涨幅。市场对昨日三星 Q3 财报"双不及预期"冲击的恐慌情绪一度消退。然而午后风云突变：半导体板块尾盘"炸板"跳水，中芯国际从早盘 +9% 一度翻绿 -2%+，华虹公司炸板回落，澜起科技、兆易创新等留下长上影线；恒生科技指数由涨转跌，恒指同步翻绿。最终恒生指数收跌约 0.29%、恒科收跌约 0.66%、国企指数勉强微涨 0.07%。这一走势确认了昨日报告中的判断"AI 硬件阶段性见顶短期共识"——节前修复只是技术反弹而非趋势反转。
+    <br><br>
+    <strong>资金面分化加剧：</strong>今日港股通净流入方向出现明显分化——电力设备（风电、核电、绿电）全天走强，资金从高拥挤度 AI 硬件/互联网平台持续流出；港口运输（东方海外国际 +4%）和黄金/石油石化等防御板块成为"避风港"。北水节后第二日成交继续放大（估 2,400+ 亿港元），但增量资金未能在科技/AI 链形成有效承接，反向资金轮动至电力与防御板块的格局进一步强化。
+    <br><br>
+    <strong>外围催化：</strong>① 10 月 9 日特朗普于白宫召开"新黄金时代"峰会，并向马斯克、黄仁勋、苏姿丰、纳德拉等 6 位科技领袖颁发国家科学勋章（消息利好但对盘面影响有限）；② 美联储 9 月会议纪要偏鹰，10 年期美债利率维持高位；③ 黄金现货高位盘整于 $4,143 附近；④ A 股上证综指微涨 0.10% 报 3,816，三地市场风险偏好均偏低。
+    <br><br>
+    <strong>AI 中长期叙事底座未动摇：</strong>① 国产 GPU 厂商（壁仞、天数智芯等）IPO 路径依然清晰；② GPT-6 Astra 10 万卡训练节奏推进；③ DeepSeek 800 亿融资、Qwen3.8-27B 等国产大模型叙事持续；④ 10 月底中芯国际、华虹、兆易等三季报披露将提供"业绩兑现 vs 估值消化"的关键验证窗口。但短期需要警惕：① 三星事件余波（10/29 三星 Q3 详细业绩）；② 港股通"南向买盘"是否持续；③ 美股科技股能否企稳（OpenAI 200 亿美元收入下调传闻待澄清）。
+  </p>
+</div>
+
+<!-- ====== 事件催化 ====== -->
+<div class="section">
+  <h2><span class="icon">⚡</span> 核心事件：早盘反弹失败，午后炸板跳水</h2>
+  <div class="catalyst">
+    <strong>📌 早盘叙事：</strong>10 月 9 日早盘港股大幅高开，恒指 +1.09%、恒科 +1.55%、国企指数 +0.94%（新浪财经午间数据）。核心驱动：① 昨日三星"双不及预期"冲击带来的非理性杀跌出现技术性修复；② 小米集团-W 早盘涨 7.19% 提振科网人气；③ 半导体板块早盘集体反弹，中芯国际、华虹宏力早盘均显著上涨；④ 北水节后第二日持续放量回流。
+  </div>
+  <div class="catalyst">
+    <strong>📌 午后转折：</strong>午后恒生科技指数转跌，凤凰网披露"10月9日午后，半导体板块突然跳水，早盘涨超9%的中芯国际一度跌超2%，华虹公司'炸板'回落，澜起科技、兆易创新、中微公司等均留下较长的上影线"。资金对"昨日大跌是否技术反弹还是反转"的判断迅速分化——空头力量仍占据上风。港股通"南向买盘"对高拥挤度 AI 硬件的态度转为谨慎。
+  </div>
+  <div class="catalyst">
+    <strong>📌 收盘格局：</strong>恒指 -0.29%、恒科 -0.66%、国企指数 +0.07%。电力板块全天强势，AI 链分化加剧。特朗普同日颁发国家科学勋章给黄仁勋、苏姿丰等科技领袖的利好未能传导至港股 AI 链定价。
+  </div>
+</div>
+
+<!-- ====== 半导体制造/设计 ====== -->
+<div class="section">
+  <h2><span class="icon">🔴</span> 半导体制造 & 设计 —— 早盘反弹尾盘炸板，K 线全留长上影</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>表现</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">中芯国际</span></td>
+        <td><span class="code">00981</span></td>
+        <td class="down"><strong>早盘 +9% → 尾盘 -2%+</strong> <span class="tag tag-red">炸板</span></td>
+        <td class="vol">晶圆代工龙头 · 长上影线</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">华虹半导体</span></td>
+        <td><span class="code">01347</span></td>
+        <td class="down"><strong>炸板回落</strong> <span class="tag tag-red">长上影</span></td>
+        <td class="vol">晶圆代工 / HBM 链</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">澜起科技</span></td>
+        <td><span class="code">06809</span></td>
+        <td class="down"><strong>长上影</strong></td>
+        <td class="vol">DDR5 / AI 接口芯片</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">兆易创新</span></td>
+        <td><span class="code">03986</span></td>
+        <td class="down"><strong>长上影</strong></td>
+        <td class="vol">NOR Flash / MCU 龙头</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">中微公司</span></td>
+        <td><span class="code">—</span></td>
+        <td class="down"><strong>长上影</strong></td>
+        <td class="vol">半导体设备</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">纳芯微</span></td>
+        <td><span class="code">02676</span></td>
+        <td class="down"><strong>延续跌势</strong></td>
+        <td class="vol">车规模拟芯片 · 三星链情绪待消化</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">江波龙</span></td>
+        <td><span class="code">03019</span></td>
+        <td class="down">下跌</td>
+        <td class="vol">存储模组</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">壁仞 / 天数智芯</span></td>
+        <td><span class="code">06082 / 09979</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">国产 AI 芯片 / GPGPU</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 <strong>"反弹即卖点"</strong> 模式再次上演：早盘涨幅越大，午后回吐幅度越大；中芯国际、华虹宏力、澜起科技、兆易创新、中微公司 K 线全留下长上影线，反映多空分歧极大但空头略胜一筹。机构观点：① 三星事件被视为"AI 硬件景气拐点信号"，短线资金对景气持续性失去共识；② 国产代工/HBM 链中期逻辑未变，但短期需要三季报兑现（10 月底 - 11 月初）；③ 北水回归后未给半导体板块带来持续买盘，反而部分资金选择兑现。后续重点跟踪：华虹 10 月底披露 Q3 业绩、中芯国际管理层对 Q4 指引、存储模组价格走势。
+  </p>
+</div>
+
+<!-- ====== 互联网平台 ====== -->
+<div class="section">
+  <h2><span class="icon">🟡</span> 互联网平台 —— 小米冲高 7%+，科网普遍先扬后抑</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>表现</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">小米集团-W</span></td>
+        <td><span class="code">01810</span></td>
+        <td class="up"><strong>早盘 +7.19%</strong> <span class="tag tag-green">领涨蓝筹</span></td>
+        <td class="vol">业绩催化（待跟进）· 汽车 / AIoT</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">阿里巴巴-W</span></td>
+        <td><span class="code">09988</span></td>
+        <td class="down"><strong>先涨后跌</strong></td>
+        <td class="vol">云+电商+AI 投入 · 估值消化</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">腾讯控股</span></td>
+        <td><span class="code">00700</span></td>
+        <td class="down">先涨后跌</td>
+        <td class="vol">混元 / 游戏基本盘 · 稳健</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">百度集团</span></td>
+        <td><span class="code">09888</span></td>
+        <td class="down">先涨后跌</td>
+        <td class="vol">文心 / Apollo</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">美团-W</span></td>
+        <td><span class="code">03690</span></td>
+        <td class="down">先涨后跌</td>
+        <td class="vol">本地生活 / 配送</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">快手-W</span></td>
+        <td><span class="code">01024</span></td>
+        <td class="down">先涨后跌</td>
+        <td class="vol">短视频 / 可灵 AI</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">京东集团-SW</span></td>
+        <td><span class="code">09618</span></td>
+        <td class="down">先涨后跌</td>
+        <td class="vol">电商 / 物流</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 互联网平台股 <strong>"早盘涨、午后跌"</strong> 模式高度一致，是今日港股反弹失败的"关键拖累"。小米因业绩催化早盘领涨蓝筹（+7%+），但午盘亦未能独善其身。阿里、腾讯、百度、美团、快手等科网权重股全数上演"冲高回落"，午后恒科转跌的最大推手。这一走势反映：① 北水资金对科网龙头的估值消化意愿仍强；② 三星事件余波持续压制 AI 相关定价（包括阿里云、百度文心等）；③ 防御板块持续吸金分流场内资金。
+  </p>
+</div>
+
+<!-- ====== AI应用 ====== -->
+<div class="section">
+  <h2><span class="icon">🔴</span> AI 应用 & 大模型 —— 高 PE 消化压力延续</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>表现</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">MINIMAX-WP</span></td>
+        <td><span class="code">00100</span></td>
+        <td class="down"><strong>承压</strong></td>
+        <td class="vol">大模型旗舰 · 高 PE 估值消化</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">智谱</span></td>
+        <td><span class="code">02513</span></td>
+        <td class="down"><strong>承压</strong></td>
+        <td class="vol">GLM 系列 · AWS Bedrock 接入</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">商汤-W</span></td>
+        <td><span class="code">00020</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">视觉 AI</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">深演智能 / 迅策</span></td>
+        <td><span class="code">—</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">AI Agent / 中间层</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">联想集团</span></td>
+        <td><span class="code">00992</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">AI PC / AI 服务器</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 AI 大模型板块持续承压。昨日 MINIMAX -10%、智谱 -6%+ 后，今日延续消化估值——尽管早盘略有修复，但午后再次回吐。机构关注"AI 中间层（Agent 编排 / Tool-use）、原生 SaaS 能力应用平台"作为 Q3 业绩可验证方向，目前尚未到验证窗口，资金维持观望。中长期看，AWS Bedrock 接入智谱、DeepSeek 800 亿融资、GPT-6 Astra 10 万 GPU 训练等叙事底座仍在，但 PE 消化需要时间。
+  </p>
+</div>
+
+<!-- ====== 算力/光通信 ====== -->
+<div class="section">
+  <h2><span class="icon">🔴</span> 算力 & 光通信 —— 海光芯正 -7% 领跌光通信</h2>
+  <table>
+    <thead>
+      <tr><th>股票</th><th>代码</th><th>表现</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">海光芯正</span></td>
+        <td><span class="code">—</span></td>
+        <td class="down"><strong>-7% 附近</strong> <span class="tag tag-red">领跌</span></td>
+        <td class="vol">光通信</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">中际旭创</span></td>
+        <td><span class="code">03084</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">800G 光模块龙头</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">剑桥科技</span></td>
+        <td><span class="code">06166</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">光模块 / 数通</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">长飞光纤光缆</span></td>
+        <td><span class="code">06869</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">光纤光缆龙头</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">鼎泰高科</span></td>
+        <td><span class="code">—</span></td>
+        <td class="down"><strong>-7%</strong></td>
+        <td class="vol">PCB 概念</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">建滔积层板</span></td>
+        <td><span class="code">01888</span></td>
+        <td class="down">跟跌</td>
+        <td class="vol">PCB 上游</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">万国数据-SW</span></td>
+        <td><span class="code">09698</span></td>
+        <td class="down">微跌</td>
+        <td class="vol">AI 算力 IDC</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 光通信/PCB 板块全天承压，海光芯正、鼎泰高科均跌近 7%。与早盘半导体反弹相反，光通信/PCB 早盘即走势偏弱，反映资金对"AI 硬件景气拐点"担忧在光通信链条上更显性。机构对光芯片中期景气延续仍持乐观，但短期估值消化压力较大。本轮调整更可能是节奏问题——800G/1.6T 升级周期+海外云厂 Capex 回升的中期逻辑未变，但短线节奏由"无限期推迟"转向"等业绩兑现"。
+  </p>
+</div>
+
+<!-- ====== 防御板块（电力） ====== -->
+<div class="section">
+  <h2><span class="icon">🟢</span> 防御板块 —— 电力相关全线走强 + 港口运输</h2>
+  <table>
+    <thead>
+      <tr><th>板块 / 个股</th><th>代码</th><th>方向</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="stock-name">电力设备 / 风电</span></td>
+        <td><span class="code">—</span></td>
+        <td class="up"><strong>板块走强</strong> <span class="tag tag-green">今日最强</span></td>
+        <td class="vol">核电、绿电概念同步上涨</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">港口运输</span></td>
+        <td><span class="code">—</span></td>
+        <td class="up"><strong>板块走强</strong></td>
+        <td class="vol">东方海外国际涨近 4%</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">核电 / 绿电</span></td>
+        <td><span class="code">—</span></td>
+        <td class="up">板块上涨</td>
+        <td class="vol">电力体制改革 + 高股息逻辑</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">公用事业 / 电力</span></td>
+        <td><span class="code">—</span></td>
+        <td class="up">抗涨</td>
+        <td class="vol">高股息防御</td>
+      </tr>
+      <tr>
+        <td><span class="stock-name">黄金股</span></td>
+        <td><span class="code">—</span></td>
+        <td class="up">抗涨</td>
+        <td class="vol">金价高位 · 赤峰黄金 / 招金矿业</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 今日最显著的资金轮动方向：<strong>"卖 AI、买电力"</strong>。电力设备（风电、核电、绿电）全天走强成为最强板块，国企指数靠电力股勉强收涨 0.07%。逻辑：① 高股息 + 防御属性（10 年期美债利率偏高强化股息价值）；② 电力体制改革政策预期；③ 资金从高拥挤度 AI 硬件轮动至低估值稳定现金流。港口运输（东方海外国际 +4%）受益于全球贸易企稳和航运景气延续。银河证券继续建议"低波红利"配置方向，今日电力板块的走强是其核心理念的具体验证。
+  </p>
+</div>
+
+<!-- ====== 板块资金流向 ====== -->
+<div class="section">
+  <h2><span class="icon">💰</span> 板块资金流向</h2>
+  <table>
+    <thead>
+      <tr><th>板块</th><th>方向</th><th>代表个股 / 逻辑</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>半导体（设计/代工/存储/接口）</strong></td>
+        <td class="down">▼ 早盘流入 → 午后净流出</td>
+        <td>中芯国际、华虹早盘冲高午后炸板；澜起、兆易、中微长上影</td>
+      </tr>
+      <tr>
+        <td><strong>AI 应用 & 大模型</strong></td>
+        <td class="down">▼ 高 PE 持续承压</td>
+        <td>MINIMAX、智谱估值消化；机构等 Q3 业绩验证</td>
+      </tr>
+      <tr>
+        <td><strong>互联网平台 / 科网</strong></td>
+        <td class="down">▼ 早盘涨 → 午后净流出</td>
+        <td>小米早盘 +7% 后回吐；阿里、腾讯、百度、美团、快手全线冲高回落</td>
+      </tr>
+      <tr>
+        <td><strong>光通信 / PCB / 算力 IDC</strong></td>
+        <td class="down">▼ 资金净流出（光通信全天偏弱）</td>
+        <td>海光芯正 -7%、鼎泰高科 -7%；中际旭创、剑桥、长飞跟跌</td>
+      </tr>
+      <tr>
+        <td><strong>电力设备 / 风电 / 核电 / 绿电</strong></td>
+        <td class="up">▲ 资金大幅净流入</td>
+        <td>板块普涨 · 高股息 + 防御 + 政策预期</td>
+      </tr>
+      <tr>
+        <td><strong>港口运输</strong></td>
+        <td class="up">▲ 资金净流入</td>
+        <td>东方海外国际 +4%；全球贸易企稳</td>
+      </tr>
+      <tr>
+        <td><strong>公用事业 / 黄金股</strong></td>
+        <td class="up">▲ 资金净流入（防御）</td>
+        <td>金价高位 + 美元利率高位 + 避险</td>
+      </tr>
+      <tr>
+        <td><strong>汽车 / 新能源车</strong></td>
+        <td class="down">▼ 资金温和净流出</td>
+        <td>小鹏、蔚来、理想、零跑承压</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;color:var(--text-secondary);font-size:0.85em;">
+    💡 资金流向呈现<strong>"早盘追涨 AI → 午后追卖 AI 转向电力"</strong>典型节奏。北水节后第二日（10/9）成交继续放大（估 2,400+ 亿港元），但增量资金在科技板块难以形成有效承接，反向资金轮动至电力与防御板块的格局进一步强化。本周累计两大格局：① 美联储 9 月会议纪要偏鹰 → 高估值科技股承压；② 三星事件余波 + 国内"卖高估值 AI、买稳定现金流电力"主线明确。
+  </p>
+</div>
+
+<!-- ====== 小结 ====== -->
+<div class="section" style="border-color: rgba(210,153,29,0.3);">
+  <h2><span class="icon">📉</span> 今日总结 & 后市观察</h2>
+  <table>
+    <thead><tr><th>维度</th><th>观察</th></tr></thead>
+    <tbody>
+      <tr><td style="white-space:nowrap;font-weight:600;">市场情绪</td><td>风险偏好承压、修复失败。"反弹即卖点"模式延续——空头力量仍占据上风，多头只能在电力/防御板块寻得防御。</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">跌得最狠</td><td>半导体 K 线全留长上影（中芯国际、华虹炸板、澜起/兆易/中微）；光通信 <span class="down">海光芯正 -7%</span>、PCB <span class="down">鼎泰高科 -7%</span></td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">逆势亮点</td><td>电力设备/风电/核电/绿电 <span class="up">板块普涨</span>、港口运输 <span class="up">东方海外 +4%</span>、小米 <span class="up">早盘 +7%</span>、黄金股 <span class="up">抗涨</span></td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">资金信号</td><td>北水节后第二日持续放大成交（估 2,400+ 亿港元），但增量未能承接 AI 链；卖高估值 AI 转向电力/防御主线明确。</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">机构观点</td><td>① 银河证券：低波红利为主，关注电力、AI 基础设施；② 国盛证券：10 月港股优选科技及资源板块（分歧明显）；③ 方正证券：云厂资本开支见顶预期是 AI 硬件持续性关键变量；④ 关注 AI 中间层 / Agent 编排 / 原生 SaaS 三季报可验证方向。</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">后续关注</td><td>① 10 月 29 日三星 Q3 详细业绩 ② 中芯国际 / 华虹 / 兆易三季报（10 月底 - 11 月初）③ OpenAI 200 亿美元收入下调传闻待澄清 ④ 北水南向买盘是否延续 ⑤ DeepSeek 800 亿融资进展 ⑥ GPT-6 Astra 10 万卡训练节奏 ⑦ 美联储 12 月议息会议 ⑧ 国常会与三季报披露密集期</td></tr>
+      <tr><td style="white-space:nowrap;font-weight:600;">策略提示</td><td>短期继续防御为主，AI 仓位可适度兑现至高股息电力/防御/资源；中长期算力硬件 + 国产 AI 叙事未变，急跌反而是分批布局窗口（关注光模块/IDC/PCB 上游、国产 AI 芯片）。重点观察：本周内是否能出现"跌不动"的止跌信号，否则需谨防二次探底。</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ====== 数据来源 & 链接 ====== -->
+<div class="section">
+  <h2><span class="icon">🔗</span> 今日重点数据 / 资讯来源</h2>
+  <table>
+    <thead><tr><th>来源</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>新浪财经</td>
+        <td><a href="https://finance.sina.com.cn/stock/estate/integration/2026-10-09/doc-iniuqywm3025184.shtml" style="color:var(--blue);">10月9日，港股午间收盘，恒生指数涨1.09%，恒生科技指数涨1.55%</a></td>
+      </tr>
+      <tr>
+        <td>凤凰网</td>
+        <td><a href="https://finance.ifeng.com/c/8nJiuFDGEAx" style="color:var(--blue);">突发跳水，半导体利空来了？真相竟是……10月9日午后半导体炸板</a></td>
+      </tr>
+      <tr>
+        <td>九方智投</td>
+        <td><a href="https://gmg.9fzt.com/zshk/HKIDX_.HSTECH.html" style="color:var(--blue);">恒生科技指数 10 月 9 日 4,115.37 点 / 9:40 实况 / 光通信股走弱</a></td>
+      </tr>
+      <tr>
+        <td>界面新闻</td>
+        <td><a href="https://m.jiemian.com/article/13437538.html" style="color:var(--blue);">恒生科技指数盘中转跌，机构称 AI 产业仍将带动 AH</a></td>
+      </tr>
+      <tr>
+        <td>IT之家 / 白宫峰会</td>
+        <td><a href="https://www.ithome.com/1/010/373.htm" style="color:var(--blue);">"白宫 AI 沙皇"履新第一站：英伟达黄仁勋、OpenAI、奥尔特曼</a></td>
+      </tr>
+      <tr>
+        <td>TradingEconomics</td>
+        <td><a href="https://tradingeconomics.com/china/stock-market" style="color:var(--blue);">China Shanghai Composite Stock Market Index · 10月9日 3,816 +0.10%</a></td>
+      </tr>
+      <tr>
+        <td>Reuters</td>
+        <td><a href="https://www.reuters.com/world/asia-pacific/hong-kong-stocks-tick-down-thin-trade-property-financials-drag-2026-10-05/" style="color:var(--blue);">Hong Kong stocks edge up as AI shares offset property</a></td>
+      </tr>
+      <tr>
+        <td>CryptoBriefing</td>
+        <td><a href="https://cryptobriefing.com/china-tech-hardware-shares-valuation-selloff/" style="color:var(--blue);">China's tech hardware shares slide as valuation worries mount</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  数据来源：港交所、新浪财经、凤凰网、九方智投、界面新闻、Reuters、TradingEconomics、IT之家<br>
+  报告生成：Hermes Agent · cron 任务 · 2026-10-09 16:20 HKT<br>
+  📎 完整版：<a href="https://reports.dns-cloudflare.com/20261009-hk.html">reports.dns-cloudflare.com/20261009-hk.html</a><br>
+  ⚠ 本报告仅作市场观察记录，不构成任何投资建议。
+</div>
+
+</body>
+</html>
