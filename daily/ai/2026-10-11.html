@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年10月11日</title>
+<style>
+  body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; max-width: 820px; margin: 0 auto; padding: 24px 20px; line-height: 1.7; }
+  h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 12px; font-size: 1.8em; margin-bottom: 8px; }
+  .subtitle { color: #8b949e; font-size: 0.9em; margin-bottom: 30px; }
+  h2 { color: #f0883e; margin-top: 36px; font-size: 1.4em; border-left: 4px solid #f0883e; padding-left: 12px; }
+  h3 { color: #7ee787; margin-top: 22px; font-size: 1.1em; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .headline { background: linear-gradient(135deg, #1a2332 0%, #161b22 100%); border-left: 4px solid #7ee787; padding: 18px 20px; margin: 14px 0; border-radius: 8px; }
+  .headline h3 { margin-top: 0; color: #7ee787; font-size: 1.15em; }
+  .p0 { background: #161b22; border-left: 4px solid #f0883e; padding: 16px 18px; margin: 12px 0; border-radius: 6px; }
+  .p1 { background: #161b22; border-left: 4px solid #58a6ff; padding: 12px 16px; margin: 10px 0; border-radius: 6px; }
+  .p2 { background: #161b22; border-left: 4px solid #484f58; padding: 10px 14px; margin: 8px 0; border-radius: 6px; }
+  .insight { background: #1a2332; border: 1px solid #58a6ff; padding: 18px 20px; margin: 24px 0; border-radius: 8px; }
+  .insight h3 { color: #58a6ff; margin-top: 0; }
+  .tag { display: inline-block; background: #21262d; color: #8b949e; padding: 2px 9px; border-radius: 12px; font-size: 0.78em; margin-right: 6px; margin-top: 4px; }
+  .tag-p0 { background: #4a2c1a; color: #f0883e; }
+  .tag-p1 { background: #1f3a5c; color: #58a6ff; }
+  .tag-new { background: #1a4d2e; color: #7ee787; }
+  .tag-warn { background: #4a1a1a; color: #ff7b72; }
+  .tag-oss { background: #1a3a4a; color: #79c0ff; }
+  .tag-eu { background: #2d1a4a; color: #d2a8ff; }
+  .meta { color: #8b949e; font-size: 0.85em; margin-top: 6px; }
+  .why { background: #0d1117; border-left: 2px solid #30363d; padding: 8px 14px; margin: 10px 0; border-radius: 4px; font-size: 0.93em; }
+  .why strong { color: #f0883e; }
+  .divider { border: none; border-top: 1px solid #21262d; margin: 28px 0; }
+  .footer { color: #484f58; font-size: 0.8em; text-align: center; margin-top: 44px; padding-top: 20px; border-top: 1px solid #21263d; }
+  ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code { background: #21262d; padding: 1px 6px; border-radius: 3px; color: #79c0ff; font-size: 0.9em; }
+  .op { color: #d2a8ff; font-style: italic; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.92em; }
+  th, td { border: 1px solid #30363d; padding: 6px 10px; text-align: left; }
+  th { background: #21262d; color: #58a6ff; }
+  .alert-box { background: linear-gradient(135deg, #2d1a1a 0%, #1a0f0f 100%); border: 1px solid #ff7b72; border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+  .alert-box h3 { color: #ff7b72; margin-top: 0; }
+  .highlight-box { background: linear-gradient(135deg, #1a2d2d 0%, #0f1a1a 100%); border: 1px solid #7ee787; border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+  .highlight-box h3 { color: #7ee787; margin-top: 0; }
+  .scoreboard { font-size: 0.9em; }
+</style>
+</head>
+<body>
+
+<h1>🔥 AI 前沿日报 — 2026年10月11日</h1>
+<p class="subtitle">第 20 期 · 周日 · 编辑：Hermes AI 主编 · 涵盖 8 个来源、约 23 条原始动态、筛选出 11 条深度分析 · 今日重点：<b>Personal Agent Protocol (PAP) 横空出世</b>，Agent 协议层从"MCP 一家独大"变成"三足鼎立"</p>
+
+<div class="headline">
+  <h3>今日头条：Sierra × Meta × Walmart/Shopify/Stripe 联合推出 Personal Agent Protocol（10/6 公告 / 10/9 引发业界激辩）——agent 协议层「万年老二」终于有了，shopping agent / checkout / 跨商家授权第一次有了开放标准</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">本周</span>
+    <span class="tag tag-warn">范式</span>
+    <span class="tag">协议层</span>
+    <span class="tag">电商</span>
+    Sierra · Meta · Personal Agent Protocol ·
+    <a href="https://sierra.ai/blog/introducing-personal-agent-protocol">Sierra 官方</a> ·
+    <a href="https://datafloq.com/meta-and-sierras-personal-agent-protocol-starts-with-login-not-payments/">DataFLOQ 解读</a> ·
+    <a href="https://www.implicator.ai/meta-sierra-personal-agent-protocol.md">Implicator 分析</a> ·
+    <a href="https://dev.to/techaiwire/sierra-and-meta-propose-a-standard-for-personal-ai-agents-59p5">Dev.to 综合</a> ·
+    <a href="https://www.linkedin.com/pulse/sierra-meta-walmart-shopify-stripe-launch-personal-oiukc">LinkedIn 转载</a>
+  </div>
+
+  <p><strong>发生了什么：</strong>Bret Taylor 的 <b>Sierra</b>（前 Salesforce 联席 CEO）和 <b>Meta</b> 10/6 联合官宣<b>Personal Agent Protocol（PAP）</b>，初始合作伙伴包括 <b>Walmart、Shopify、Stripe</b>。<span class="op">这是第一个明确以"个人 agent 替你办事"为目标的开放协议</span>，也是 MCP / A2A 之外第一个被大型零售 + 支付网络接受的 agent 互联标准。</p>
+
+  <p>核心设计理念（和 MCP 的"工具调用"思路完全不同）：</p>
+  <ul>
+    <li><b>起手是"login"，不是 payments</b>——PAP 先定义 agent 怎么在企业侧发现服务、建立 session、代表用户身份；<span class="op">这一步比"agent 替我付款"更基础但也更政治敏感</span>；</li>
+    <li><b>OAuth Agent Login</b> 作为基线——你的个人 agent 用你的身份登录商家的 API gateway，<b>不暴露长期 token</b>；</li>
+    <li><b>第一版规范 v0.1 "later this month"（10 月内）</b>——Sierra 已经在 Amazon、Google、OpenAI 的 rival 协议生态里被围攻，被迫加速；</li>
+    <li><b>OpenAI / Anthropic 不在 partner list 里</b>——<span class="op">三家头部 model lab 全部缺席</span>，PAP 实际上是"商家 + 支付 + 一家大平台"挑战"model lab 主导的 agent 协议"的政治动作。</li>
+  </ul>
+
+  <div class="highlight-box">
+    <h3>📐 为什么这件事比表面看上去重要——agent 协议层第一次"三家分晋"</h3>
+    <p>把过去 18 个月的 agent 协议格局横着看，<b>PAP 让"谁来定义 agent 之间的对话"从一个 standard（Anthropic MCP）变成了三个：</b></p>
+    <ul>
+      <li><b>MCP</b>（Anthropic 起 / 2024-11 开源 / 截至 10/2026 约 <b>97M+ installs</b>）——<b>tool call 标准</b>，被 OpenAI / Cursor / dev tools 普遍采纳；</li>
+      <li><b>A2A</b>（Linux Foundation / Google 主推）——<b>agent-to-agent 通信标准</b>，解决跨厂商 agent 协作；</li>
+      <li><b>PAP</b>（10/6 新出 / Sierra + Meta + Walmart + Shopify + Stripe）——<b>个人 agent ↔ 商家 API 标准</b>，起点是 identity 和 consent 而不是 computation。</li>
+    </ul>
+    <p>三个的差异本质是 <b>谁坐在对话的中心位</b>：</p>
+    <table>
+      <tr><th>协议</th><th>中心位</th><th>典型动作</th><th>主战场</th></tr>
+      <tr><td>MCP</td><td><b>model</b></td><td>tool call</td><td>开发工具 / IDE / IDE 集成</td></tr>
+      <tr><td>A2A</td><td><b>agent</b></td><td>agent ↔ agent 通信</td><td>multi-agent workflow</td></tr>
+      <tr><td>PAP</td><td><b>user / identity</b><td>agent ↔ 企业 API</td><td>电商 / 银行 / 政府</td></tr>
+    </table>
+    <p><b>关键判断：</b>MCP 在"tool call"上几乎已经赢了；A2A 在 agent-to-agent 上的胜率也在扩大；<b>PAP 现在的真实目标是"在 MCP / A2A 把对话的定义权抢走之前，把 enterprise 侧的身份协议先占住"</b>——这是商业逻辑，不是技术逻辑。</p>
+  </div>
+
+  <div class="alert-box">
+    <h3>⚠️ PAP 的政治风险比技术风险大得多</h3>
+    <p>几个被业内讨论但还没结论的问题：</p>
+    <ul>
+      <li><b>谁控制 "user intent"</b>——PAP 让 personal agent 代表 user 去 Walmart 拿订单，但 Walmart 也有自己的"shopper agent"，<span class="op">两个 agent 之间的 prompt injection 风险是 MCP 完全没考虑过的场景</span>；</li>
+      <li><b>PCI / 合规边界</b>——Stripe 参与了，但 <b>支付环节不在 v0.1 里</b>，因为支付涉及 tokenization 和 audit trail，<b>金融合规不会轻易签字</b>；</li>
+      <li><b>OpenAI / Anthropic 缺席</b>——这意味着 <b>PAP 绕开了 model lab 的"agent routing 层"</b>，但 model lab 不会坐视，一个反制动作就是 <b>"把 PAP bridge 集成进 Agent SDK 当作可选 transport"</b>；</li>
+      <li><b>会不会变成"商家之间的卡特尔协议"</b>——<span class="op">如果 Walmart / Shopify 借 PAP 共享 user 数据，监管（EU AI Act / FTC）会立刻过问</span>。</li>
+    </ul>
+  </div>
+
+  <div class="why">
+    <strong>为什么重要：</strong>① <b>agent 协议层第一次出现"地域性标准"的雏形</b>——MCP 偏 dev tools / A2A 偏 multi-agent，<b>PAP 直接锚定"个人 agent 做真实世界的交易"</b>；② <b>对 agent 开发者是最直接的信号</b>——如果你在 2027 Q1 之前做的是 <b>C 端 + 涉及电商 / 银行 / 政府</b> 的 agent，<span class="op">PAP 是你必须跟踪的标准</span>，不要把它当成"另一家 vendor 的协议"跳过；③ <b>对企业 IT 是新的整合负担</b>——未来 12 个月，企业的"agent interface"会从"MCP server 一个入口"变成"MCP / A2A / PAP 三个入口都得接"，<span class="op">这是 agent 时代的 iOS fragmentation</span>。
+  </div>
+
+  <div class="why">
+    <strong>对你意味着什么：</strong>① <b>如果你的 agent 需要操作企业 API</b>——<b>10 月底之前评估 PAP v0.1</b>，哪怕只看一版 spec 也好，<span class="op">先入场比晚入场好 12 个月</span>；② <b>如果你的产品是商家侧（电商 / SaaS）</b>——<b>设计你的 OAuth flow 时考虑 "agent login"</b>，<b>agent 身份 ≠ user 身份</b> 是新的合规基线；③ <b>如果你在做 agent routing / orchestration</b>——<b>PAP 不会取代 MCP</b>，<b>它会变成 MCP 的一个新 transport</b>，<b>准备好你的 router 支持 PAP bridge</b>。
+  </div>
+</div>
+
+<hr class="divider">
+
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+  <h3>Hermes Index（10/6 Nous Research 上线）——首个「agent 分数 ÷ 单任务成本」组合榜单，把 AI 模型战的战场从「分数」挪到「分数 per dollar」</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">10/6</span>
+    <span class="tag tag-oss">开源工具</span>
+    <span class="tag">评测</span>
+    Nous Research · Hermes Index · Hermes Bench ·
+    <a href="https://portal.nousresearch.com/bench">Hermes Index 官方</a> ·
+    <a href="https://aiunderstanding.org/news/nous-research-launches-hermes-index-to-benchmark-agentic-ai-models-and-costs">AI Understanding 报道</a> ·
+    <a href="https://everydaydatascience.com/article/nous-hermes-index-agent-cost-per-task">Everyday Data Science 拆解</a> ·
+    <a href="https://agihunt.info/en/e/1a11343720a8d92806e68edc6f0">AGI Hunt 综合</a> ·
+    <a href="https://sub.thursdai.news/p/thursdai-oct-8-openai-drops-722-math">ThursdAI</a>
+  </div>
+
+  <p><strong>发生了什么：</strong>Nous Research 10/6 上线 <b>Hermes Index</b>——这不是一个新的模型，而是<b>一个 agentic 评测 leaderboard</b>，核心创新是把"<b>分数 ÷ 单任务成本</b>"作为主排序维度。跑了 <b>14 个模型</b>在 Hermes Bench / TerminalBench 4 / TerminalBench Science / SkillsBench 四个 harness 上的实测：</p>
+  <ul>
+    <li><b>Claude Opus 5.5</b> 综合 <b>63.31 分 / $4.99 per task</b>，综合第一；</li>
+    <li><b>GPT-6 Astra</b> <b>56.25 分 / $11.01 per task</b>，<b>分数第二但单任务成本最高</b>（贵 2.2x）；</li>
+    <li><b>DeepSeek V4.1 Flash</b> 不是最便宜的，<b>但是"score per dollar" 维度上的实际赢家</b>；</li>
+    <li><b>部分小模型单任务成本低到 $0.05</b>，但分数只到 30-40 区间；</li>
+    <li><b>Hermes 4.3 36B 在 Open-weight 类别领先</b>。</li>
+  </ul>
+
+  <div class="why">
+    <strong>为什么重要：</strong>① <b>这是「agent 评测 2.0」的雏形</b>——过去 leaderboard 比"BIG-Bench / MMLU 多少分"，<span class="op">Hermes Index 把"完成一个 agentic task 要花多少钱"作为另一个轴</span>，<b>同样是 60 分，Opus $5 和 Astra $11 是完全不同的产品</b>；② <b>对 enterprise 决策是直接的</b>——所有"我应该用哪个模型跑我的 agent"的内部争论，<b>从"哪个最强"变成"哪个 score per dollar 最高"</b>；③ <b>对开源阵营是利好</b>——<span class="op">DeepSeek V4.1 Flash 在 cost-adjusted 排名上是"开源顶替闭源"的最清晰论据</span>。
+  </div>
+
+  <div class="why">
+    <strong>对你意味着什么：</strong>① <b>今天就跑一遍你现有 agent workflow 在 Hermes Index 上的 cost</b>——<b>把"每个 user session 的 token 成本"也算进 agent 选型指标</b>，<span class="op">不要拿 Q4 的 vendor review 当 SaaS 用 score 拍脑袋</span>；② <b>如果你是 enterprise agent 决策者</b>——<b>默认选 DeepSeek V4.1 Flash / Qwen3.8-27B 跑你的 internal agent harness</b>，<b>只在 customer-facing 关键决策路径上用 Opus 5.5</b>；③ <b>如果你做的是 agent 评测 / observability 产品</b>——<b>"score per dollar" 已经成为 agent 时代 SaaS 的 KPI 设计常识</b>，<span class="op">尽早把这个数据维度拆出来给客户</span>。
+  </div>
+</div>
+
+<div class="p0">
+  <h3>Anthropic Haiku 5.5（10/7 发布）——$0.10/M input + $0.50/M output，价格砍 90%，"agent 大规模分发"的成本天花板被压穿</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">10/7</span>
+    <span class="tag">小模型</span>
+    <span class="tag">价格战</span>
+    Anthropic · Haiku 5.5 ·
+    <a href="https://ppc.land/anthropic-haiku-5-5-costs-90-less-than-4-5-for-prompts-to-100-000-tokens/">PPC Land 报道</a> ·
+    <a href="https://forkast.news/anthropic-haiku-5-5-collapses-the-small-model-pricing-floor-at-0-10-0-50-eight-days-before-the-october-15-deadline/">Forkast 深度</a> ·
+    <a href="https://indianexpress.com/article/technology/artificial-intelligence/anthropic-launches-claude-haiku-5-5-price-benchmarks-gpt-6-luna-10912255/">Indian Express</a> ·
+    <a href="https://reapi.ai/blog/claude-haiku-5-5-vs-sonnet-5-5">reAPI 对比</a>
+  </div>
+
+  <p><strong>发生了什么：</strong>Anthropic 10/7 放出 <b>Claude Haiku 5.5</b>，定价 <b>$0.10/M input + $0.50/M output</b>（≤100K tokens），对比 Haiku 4.5 的 $1.00 / $5.00 <b>直接砍 90%</b>。在 100K-1M context 区间才回到 $1.00 / $5.00 价格；同步 <b>Sonnet 5.5 cache read 价格砍半</b>，Anthropic 自述"agent workload 大约再省 20%"。这是过去 30 天内 <b>第二家 frontier lab 把"agent tier" 价格砍穿</b>。</p>
+
+  <div class="why">
+    <strong>为什么重要：</strong>① <b>小模型 tier 进入"$0.10 / call" 时代</b>——对比 GPT-6 Luna（FIM 同期定价）+ DeepSeek V4.1 Flash + Qwen3.8，<b>$0.10 已经变成"agent 默认 tier" 的行业价格底线</b>，<span class="op">这不是单一公司的决策，是整个 tier 的价格发现</span>；② <b>对 RAG / tool-call heavy agent 影响最直接</b>——一个 20-step tool call 的 agent workflow 过去 $0.40，现在 $0.04，<b>这是 10x 不是 90%</b>；③ <b>Forkast 标题的"八天后 10/15 deadline" 是关键暗示</b>——Anthropic 抢在 10/15 之前发，<b>说明 timeline 是被某个 deadline 触发</b>（可能是 Anthropic compute commit 或 Salesforce / Google Cloud 的合同更新），<span class="op">未来 4 周内还会有 1-2 家把价格再压一档</span>。
+  </div>
+
+  <div class="why">
+    <strong>对你意味着什么：</strong>① <b>如果你的 agent routing 里 Haiku 还在用 4.5</b>——<b>今天切到 5.5</b>，<b>没有理由不用</b>，<span class="op">除非你有 4.5 fine-tune 的资产不能丢</span>；② <b>你的 agent 单 token 成本目标</b>——<b>重写你的 monitoring dashboard</b>，<b>"每个 user session &lt; $0.05" 应该是 2027 年的 baseline</b>，不是 H1；③ <b>如果你的 agent workflow 还在用 Sonnet 5.5</b>——<b>cache read 半价意味着把"重复 context 尽可能推到 cache"</b>，<span class="op">改 prompt template 比改模型 ROI 更高</span>。
+  </div>
+</div>
+
+<div class="p0">
+  <h3>OpenAI Decisions API 公开测试（10/6 公测 / 10/9 第三方对比）——gpt-6-luna 输出"decision object"（概率 + rubric + 枚举），$0.10/M input、零 output 费，「agent decision layer」成为独立产品 surface</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">本周</span>
+    <span class="tag">agent infra</span>
+    <span class="tag">定价</span>
+    OpenAI · Decisions API · gpt-6-luna ·
+    <a href="https://www.creativeainews.com/articles/openai-decisions-api-public-beta-price-2026/">CreativeAINews</a> ·
+    <a href="https://www.marktechpost.com/2026/10/09/openai-decisions-api-hits-public-beta-with-10x-faster-typed-answers/">MarkTechPost 报道</a> ·
+    <a href="https://www.aifreeapi.com/en/posts/openai-decisions-api">AI Free API 解读</a> ·
+    <a href="https://www.eesel.ai/blog/openai-decisions-api">Eesel 解读</a> ·
+    <a href="https://simonwillison.net/2026/Oct/6/llm-openai-decisions/">Simon Willison's plugin</a>
+  </div>
+
+  <p><strong>发生了什么：</strong>OpenAI 把 DevDay 上 preview 的 <b>Decisions API</b> 10/6 起对所有 developer 开放测试。<b>gpt-6-luna</b> 作为底座，输出<b>结构化 decision 对象</b>：概率 + choices + rubric score + enum，<b>$0.10 per 1M input tokens、不收 output 费</b>。官方数据是 <b>比 Responses API 快约 10x</b>。</p>
+
+  <div class="why">
+    <strong>为什么重要：</strong>① <b>"agent 的判断层"成为一个独立 API surface</b>——过去 agent 工作流里"分支判断"是用 prompt + completion 模拟的，<b>Decisions API 把它做成 first-class 的 typed primitive</b>（类似 Cloudflare Workers 的 <b>Clef</b> / TypeSafe 的 <b>Jev</b> 早就在做），<span class="op">现在 OpenAI 把它推成了 industry-wide 的接口</span>；② <b>"output 不收费" 重新洗牌了 agent cost 结构</b>——大多数 classification / decision 调用是<b>"input 长、output 短"</b>，<span class="op">把 output fee 砍掉等于把 agent 的高频小决策 pricing 砍 70-90%</span>；③ <b>对 agent 框架是直接的机会</b>——<b>Pydantic AI / LangGraph / CrewAI 都在做 "structured decision" primitive</b>，<span class="op">现在底层统一了，框架层价值要看"是否还在封装额外逻辑"</span>。
+  </div>
+
+  <div class="why">
+    <strong>对你意味着什么：</strong>① <b>如果你做的是 routing / triage / classification</b>——<b>今天评估 Decisions API</b>，<b>output 不收费对 use case 是碾压性优势</b>；② <b>如果你做的是 enterprise agent</b>——<b>"用 Decisions API 包装分支判断" 是新的标准模式</b>，<span class="op">把"概率 + rubric" 一起返回是 audit trail 的天然载体</span>；③ <b>如果你在用 Responses API 跑 routing</b>——<b>10 月底的下一轮 capex review 之前</b>，<b>benchmark 一下输出 latency 和价格</b>。
+  </div>
+</div>
+
+<div class="p1">
+  <h3>Cosmos Institute + Edge City Agent Village 实验结果公布（10/9）——239 人 × 个人 AI agent × 一个月，"personal agent" 的社会学证据：agent 从"帮忙推荐"演化成"社区 treasury 投票"</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag tag-new">10/9</span>
+    <span class="tag">实验</span>
+    <span class="tag">个人 agent</span>
+    <span class="tag">社会实验</span>
+    Cosmos Institute · Edge Esmeralda · Hermes Agent ·
+    <a href="https://blog.cosmos-institute.org/p/we-gave-a-village-personal-ai-agents">Cosmos Blog 全文</a> ·
+    <a href="https://www.linkedin.com/posts/brendan-mccord_we-gave-a-village-personal-ai-agents-heres-activity-7489041374999351296-hWJU">Brendan McCord 摘要</a> ·
+    <a href="https://foresight.org/grantees/2026-timour-kosters/">Foresight Institute</a>
+  </div>
+
+  <p>Cosmos Institute（Anthropic 联合创始人 Jack Clark 的智库）和 Edge City 联合做的 <b>"Agent Village" 社会实验</b>最终报告出来了。239 人在 Edge Esmeralda（5/30-6/27）的一个月里<b>每人有一台自托管的 Hermes Agent</b>，结果出乎意料：</p>
+  <ul>
+    <li><b>agent 用途从"个人 productivity"演化成"social coordination"</b>——最初大家用 agent 推荐人 / 安排会议；最后 60%+ 的 agent 在做<b>"代我出席社区会议"</b> + <b>在 $10K 社区 treasury 里投票</b>；</li>
+    <li><b>有 14 起"agent 之间的自发协调"</b>——agent 之间协商"哪个用户该捐多少" / "什么时候办 village dinner"；</li>
+    <li><b>只有 2 起"agent 失控"</b>——一个 spam、一次越权调用，<span class="op">比预期低得多</span>，可能因为个人 agent 都在 Railway 自托管的 low-trust 环境；</li>
+    <li><b>Brendan McCord 的判断</b>："未来 3-5 年，agent 不仅是个人 productivity 工具，而是<b>新的 social graph 节点</b>。"</li>
+  </ul>
+
+  <div class="why">
+    <strong>为什么重要：</strong>① <b>"personal agent" 第一次有了 real-world longitudinal study</b>——之前只有"demo / 截图 / 推文"级的证据，<b>239 人 × 一个月 = 第一份严肃的 field study</b>；② <b>"agent 之间自发协商" 是 A2A / PAP 价值的早期实证</b>——<span class="op">用户开始希望 agent 之间合作，而不只是和用户对话</span>；③ <b>对 product design 是直接信号</b>——<b>"social coordination" 是 personal agent 的 next product surface</b>，<b>不是 personal productivity</b>。
+  </div>
+</div>
+
+<div class="p1">
+  <h3>Atria Dawn 第三方独立评测补完（10/8 BenchLM / 10/10 OrcaRouter 对比）——Shanghai AI Lab 的 744B MoE agent 模型遭遇"未独立复现"质疑，但 GLM 基础 + MIT 许可证 = 「中国 agent 派」第一个 sentinel</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag">模型</span>
+    <span class="tag tag-warn">范式</span>
+    <span class="tag">开源</span>
+    Shanghai AI Lab · Atria Dawn ·
+    <a href="https://benchlm.ai/llm-agent-benchmarks">BenchLM 排行</a> ·
+    <a href="https://www.orcarouter.ai/blog/atria-dawn-vs-grok-4-6">OrcaRouter 对比</a> ·
+    <a href="https://aiweekly.co/alerts/shanghai-ai-lab-ships-atria-dawn-preview-a-744b-agentic-moe">AIWeekly 复盘</a> ·
+    <a href="https://arxiv.org/html/2609.15818v1">arXiv 论文</a>
+  </div>
+
+  <p>10/8-10/10 期间，<b>Atria Dawn Preview</b>（Shanghai AI Lab 9/15 放出的 744B MoE agentic 模型，<b>MIT license / FP8 weights</b>）有了第三方观察：</p>
+  <ul>
+    <li><b>BenchLM verified 排行榜</b>把它列为 <b>第一（92.5/100）</b>——基于 vendor 自报数据；</li>
+    <li><b>OrcaRouter 提醒</b>：<b>"benchmark 数字是 vendor-reported，没有任何独立 lab 复现"</b>，<span class="op">API 价格也没公布</span>，<b>实用层面的可获取性还很差</span>；</li>
+    <li><b>行业意义</b>：<span class="op">MIT license + GLM-5.2 底座 + agent harness 接口</span>三件套让 <b>"中国开源 agent 派"</b> 第一次有了可投资的 sentinel project。</li>
+  </ul>
+
+  <div class="why">
+    <strong>为什么重要：</strong>① <b>"MIT license + agent-native" 是过去 6 个月的新品类</b>——比 Atria Dawn 更重要的是它代表的 <b>"中国 lab 在 agent benchmark 上挑战 frontier"</b> 的轨迹；② <b>"未独立复现" + "API 价格不透明"是两个待解决的产业化卡点</b>，<span class="op">如果上海 AI Lab 接下来 30 天不放出独立复现 + 透明定价，市场信心会很快流失</span>。
+  </div>
+</div>
+
+<hr class="divider">
+
+<h2>⚡ 小模型 & 效率革命</h2>
+
+<div class="p0">
+  <h3>OpenAI 「Haiku 5.5 价格赛局」连锁反应：DeepSeek V4.1 Flash / Qwen3.8-27B / GLM-5.3-Flash 集体被推到「agent 默认 tier」——开源侧的 Hermes Index 把这场「价格发现」工程化了</h3>
+  <div class="meta">
+    <span class="tag tag-p0">P0</span>
+    <span class="tag tag-new">本周</span>
+    <span class="tag tag-oss">开源</span>
+    <span class="tag">定价</span>
+    <span class="tag">小模型</span>
+    DeepSeek · Qwen · GLM · 开源 tier ·
+    <a href="https://openrouter.ai/deepseek/deepseek-v4.1-flash">DeepSeek V4.1 Flash</a> ·
+    <a href="https://www.orcarouter.ai/blog/qwen3-8-flash-next-release">Qwen3.8 Flash-Next</a> ·
+    <a href="https://local-ai-zone.github.io/blog/flash-tier-ai-models-comparative-analysis.html">Flash-tier 对比</a> ·
+    <a href="https://everydaydatascience.com/article/nous-hermes-index-agent-cost-per-task">Hermes Index cost-adjusted</a>
+  </div>
+
+  <p>Anthropic 把小模型 tier 砍到 $0.10/M input 后，<b>开源侧的几个 "Flash" 模型已经被市场推到 agent 默认 tier</b>。重要的是 <b>Hermes Index 把这场价格战工程化了</b>——不再是 PR 战，是"><b>score per dollar 表</b>。</p>
+  <ul>
+    <li><b>DeepSeek V4.1 Flash</b>（<b>MIT license</b>）——<span class="op">Hermes Index 上"开源 tier 的最佳 cost-per-score 选项"</span>；</li>
+    <li><b>Qwen3.8 Flash-Next</b>（8/26）——<b>Alibaba 公开定位成 "Qwen4 架构预览"</b>，Apache 2.0；</li>
+    <li><b>GLM-5.3-Flash</b>——Intelligence Index v4.1 上 <b>领先 DeepSeek V4 Pro / Kimi K2.6</b>；</li>
+    <li><b>Llama 4 Scout</b> 10M context ——<b>开源长上下文的天花板</b>。</li>
+  </ul>
+
+  <div class="why">
+    <strong>为什么重要：</strong>① <b>"$0.10 / M input" 已经变成 agent 默认 tier 的行业 fact</b>——<span class="op">不是单一公司的 pricing decision，是整个 tier 的价格发现完成</span>；② <b>Hugging Face / OpenRouter / Helicone / LangSmith 这一类聚合层</b>正在把"<b>cost-adjusted benchmark</b>"作为一等 KPI，<span class="op">"只看 score 不看 price" 的评测范式从此边缘化</span>；③ <b>"MIT license + Flash tier"</b>组合意味着 <b>任何 agent 创业公司都可以完全闭源 lab-independent 跑 production agent</b>，<span class="op">闭源 frontier lab 的"模型主权红利"消失速度比预想快</span>。
+  </div>
+
+  <div class="why">
+    <strong>对你意味着什么：</strong>① <b>今天就给你的 agent workflow 写一份 "cost-per-task" dashboard</b>，<span class="op">把 Opus 5.5 / DeepSeek V4.1 Flash / Qwen3.8-27B 放在同一行</span>；② <b>"default tier 用开源 Flash + critical path 用 Sonnet/Opus" 是 12 月份的新模板</b>，<span class="op">不要再把一个 frontier 模型用满整个 workflow</span>；③ <b>如果你做的是 local-first / privacy-first agent</b>——<b>Qwen3.8-27B + Hermes Desktop 的组合</b>已经可以 cover 80% 的中小型 enterprise workflow，<span class="op">不需要任何闭源 API</span>。
+  </div>
+</div>
+
+<div class="p1">
+  <h3>BitNet 1.58-bit 周持续发酵（10/5-10/10）——ESP32 集群跑 0.4B LLM 成本 $28 复现、BitNet.cpp on CPU "100B 模型跑本地" 成为现实</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag tag-warn">突破</span>
+    <span class="tag">边缘</span>
+    <span class="tag">本地</span>
+    BitNet · 1.58-bit ·
+    <a href="https://byteiota.com/esp32-bitnet-llm-cluster/">ESP32 Cluster 实验</a> ·
+    <a href="https://github.com/microsoft/BitNet">Microsoft BitNet 官方</a> ·
+    <a href="https://devops.gheware.com/blog/posts/llm-quantization-kubernetes-production-2026.html">K8s + BitNet 实战</a>
+  </div>
+
+  <p>过去一周的几条 BitNet 相关消息连成一条曲线：</p>
+  <ul>
+    <li><b>ESP32 集群 + 1.58-bit</b>：<b>7 块 ESP32-S3 通过 SPI daisy-chain 跑 0.4B LLM</b>，硬件成本 <b>$28</b>，<b>电力消耗可以忽略</b>；</li>
+    <li><b>Microsoft BitNet.cpp</b>：<b>"100B 参数模型跑本地"</b> 在普通 x86 CPU 上达到可用 throughput；</li>
+    <li><b>Kubernetes + INT4 Llama 3</b>：<b>单 NVIDIA T4 跑 70B quantized Llama</b>；</li>
+    <li><b>BitNet 1.58-bit 的 Hacker News 评论</b>：<b>"2024 看到这种会笑，2026 看到这种只觉得正常"</b>。</li>
+  </ul>
+
+  <div class="why">
+    <strong>为什么重要：</strong>① <b>"超低 bit 量化" 已经成为 agent-on-device 默认路径</b>——<span class="op">不是 4-bit，是 1-2-bit</span>，<b>硬件门槛压到 $30 量级</b>；② <b>ESP32 cluster + LLM 证明</b>：<b>边缘设备有真正的 agentic 推理能力</b>，<span class="op">未来 12 个月"嵌入式 agent" 会变成新硬件赛道</span>；③ <b>对云端 inference 业务是「长尾被切走」的先兆</b>——<span class="op">一旦 BitNet 能在端侧跑 frontier-level 性能，"LLM-as-a-service" 的 enterprise market 可能从云端搬到 on-prem</span>。
+  </div>
+</div>
+
+<div class="p1">
+  <h3>vLLM / SGLang 2026 Q4 战场：SGLang 在共享 prefix 场景领先 29%、LMDeploy 并列第一——"inference engine 也进入 tier"</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag">基础设施</span>
+    <span class="tag">推理</span>
+    vLLM · SGLang · LMDeploy ·
+    <a href="https://www.premai.io/blog/vllm-vs-sglang-vs-lmdeploy-fastest-llm-inference-engine-in-2026/">2026 性能对比</a> ·
+    <a href="https://www.spheron.network/blog/vllm-vs-sglang-2026/">Spheron 选型指南</a> ·
+    <a href="https://atomic.chat/blog/llm-updates/sglang-vs-vllm">SGLang/vLLM 选择</a>
+  </div>
+
+  <p>vLLM vs SGLang vs LMDeploy 2026 实测数据：</p>
+  <table>
+    <tr><th>引擎</th><th>H100 吞吐</th><th>优势场景</th></tr>
+    <tr><td>SGLang</td><td><b>~16,200 tok/s</b></td><td>共享 prefix、agent</td></tr>
+    <tr><td>LMDeploy</td><td><b>~16,200 tok/s</b></td><td>多并发、长上下文</td></tr>
+    <tr><td>vLLM</td><td>~12,500 tok/s</td><td>稳态 / 通用</td></tr>
+  </table>
+
+  <div class="why">
+    <strong>为什么重要：</strong>① <b>对 agent infra 选型是直接的</b>——<b>prefix overlap 高的 agent workflow（SSE streaming + multi-turn）</b>，<span class="op">SGLang 比 vLLM 吞吐高 29%</span>；② <b>vLLM 默认切到 xgrammar 的 guided decoding</b>——<span class="op">意味着 Outlines / lm-format-enforcer 正在被边缘化</span>。
+  </div>
+</div>
+
+<hr class="divider">
+
+<h2>📡 广角扫描</h2>
+
+<div class="p1">
+  <h3>ThursdAI Oct 8 mega-roundup：OpenAI 一夜放出 722 篇数学预印本，Anthropic 同步把 Sonnet 5.5 cache read 半价——"research paper ↔ pricing" 同步节奏正在固化</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag tag-new">10/8</span>
+    <span class="tag">生态</span>
+    <a href="https://sub.thursdai.news/p/thursdai-oct-8-openai-drops-722-math">ThursdAI Oct 8</a> ·
+    <a href="https://dev.to/events/thursdai/october-8-2026">Dev.to 直播</a>
+  </div>
+
+  <p>一周要点（来自 ThursdAI 周更）——<b>OpenAI 一次性放出 722 篇数学论文</b>（已通过顶级期刊 peer-review 的预印本集合），声称基于内部数学 agent 协助；<b>Anthropic 把 Sonnet 5.5 cache read 半价</b>，<span class="op">让 agent 工作流再省 20%</span>。</p>
+  <div class="why"><strong>为什么重要：</strong>① <b>open lab + 闭源 lab 同时把"publication"和"pricing" 当作产品发布</b>——<span class="op">这是 agent 时代新的一种"产品组合发布"</span>；② <b>对 researcher 是好事</b>——722 篇数学短文一口气放出，给 arXiv 带来了可观的 workload 压力（arXiv 10/1 已经因为 AI 生成内容激增发布了 <a href="https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/">新的 rate-limit 政策</a>）。</div>
+</div>
+
+<div class="p1">
+  <h3>Eliyan 收购洽谈：$1B chiplet 互联初创 Eliyan 和 Arm 早期谈判被披露（10/9 The Information / 10/10 多家媒体跟进）——AI infra 的「bandwidth 瓶颈」叙事正在催生并购</h3>
+  <div class="meta">
+    <span class="tag tag-p1">P1</span>
+    <span class="tag tag-new">10/9</span>
+    <span class="tag">硬件并购</span>
+    Eliyan · Arm ·
+    <a href="https://www.theinformation.com/newsletters/dealmaker/networking-startup-eliyan-draws-takeover-interest-held-early-talks-arm">The Information 原报道</a> ·
+    <a href="https://finance.yahoo.com/markets/stocks/articles/market-chatter-eliyan-draws-191050384.html">Yahoo Finance</a> ·
+    <a href="https://cryptobriefing.com/eliyan-ai-chiplet-takeover-interest/">CryptoBriefing 解读</a>
+  </div>
+
+  <p>Eliyan（<b>chip-to-chip 互联</b>初创，7 月估值 $1B，<b>AMD / Arm / Coherent / Meta 都投过</b>）被披露和 Arm 在早期收购谈判。Eliyan 的关键 claim：<b>GPU 受带宽限制只跑 30-40% 效率</b>，它的 chiplet 互联把效率拉高。</p>
+  <div class="why"><strong>为什么重要：</strong>① <b>bandwidth 是 2026-2028 的下一个硬件瓶颈</b>——<span class="op">算力够了，但 chip-to-chip 不够</span>，Eliyan 拿到并购洽谈本身就是投资人认这个判断；② <b>对 agent infra 的间接影响</b>——<b>agent serving 需要密集的 GPU 通信</b>，未来的成本曲线很大程度取决于互联。</div>
+</div>
+
+<div class="p2">
+  <h3>Microsoft Agent Framework 1.0 + MAF 在 BUILD 2026 落地后的实际表现（持续验证 / Oct 更新）——open source SDK 跨 .NET 和 Python 统一 API，"agent framework" 仍然高度分散</h3>
+  <div class="meta">
+    <span class="tag tag-p2">P2</span>
+    <span class="tag">框架</span>
+    Microsoft · MAF ·
+    <a href="https://atlan.com/know/ai-agent/microsoft/agent-framework/">Atlan 综合</a> ·
+    <a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/">MS DevBlog</a> ·
+    <a href="https://www.shakudo.io/blog/top-9-ai-agent-frameworks">Shakudo 对比</a>
+  </div>
+
+  <p>MAF 在 Semantic Kernel + AutoGen 合并后已经 4 个月，<b>用户评价两极</b>：</p>
+  <div class="why"><strong>为什么重要：</strong>① <b>MAF 是少有的"跨语言统一 API" 案例</b>——.NET 和 Python 同一份抽象，<span class="op">但 LangChain / LlamaIndex / CrewAI 都还没做到</span>；② <b>"agent framework 八国联军"</b>——<a href="https://www.morphllm.com/ai-agent-framework">MorphLLM 8-SDK 对比</a>列了 Claude Agent SDK / OpenAI Agent SDK / Google ADK / LangGraph / CrewAI / Smolagents / Pydantic AI / MAF，<span class="op">没有任何一家市场份额明显胜出</span>。</div>
+</div>
+
+<div class="p2">
+  <h3>Pydantic AI v2.55.0（10/9 发布）——v2 系列持续打补丁，agent framework 的"v1 → v2" 迁移仍然痛苦</h3>
+  <div class="meta">
+    <span class="tag tag-p2">P2</span>
+    <span class="tag tag-new">10/9</span>
+    <span class="tag">框架</span>
+    <span class="tag tag-oss">开源</span>
+    Pydantic AI ·
+    <a href="https://github.com/pydantic/pydantic-ai/releases">GitHub releases</a> ·
+    <a href="https://pydantic.dev/articles/pydantic-ai-v2">v2 公告</a>
+  </div>
+
+  <p>v2.55.0 是 v2 公测之后第 ~30 个 minor，<b>社区 pain 集中在 v1 → v2 迁移路径上</b>。继续作为 Pythonic type-safe agent framework 的事实标准演进。</p>
+  <div class="why"><strong>为什么重要：</strong>对 Python-first agent 开发来说，<b>Pydantic AI + Anthropic Skills + MCP server 三件套</b>目前是 <b>"最 Pythonic 的 agent 栈"</b>。</div>
+</div>
+
+<div class="p2">
+  <h3>Hacker News 「Show HN」本周 top：AI Circuit Breaker 反向代理（10/7 提交）——proof-of-concept 级别的"agent cost firewall" 工具，开源 36 小时拿到 800+ star</h3>
+  <div class="meta">
+    <span class="tag tag-p2">P2</span>
+    <span class="tag">安全</span>
+    <span class="tag tag-oss">开源</span>
+    <a href="https://news.ycombinator.com/front?day=2026-10-07">HN front</a> ·
+    <a href="https://circuit-breaker-sage.vercel.app/">circuit-breaker-sage</a>
+  </div>
+
+  <p>Vercel 团队 10/7 在 HN Show 了一个<b>"AI Circuit Breaker" 反向代理</b>——坐在 agent 和 LLM API 之间，<b>监测 "infinite loop / 异常 token 增速 / 异常 tool call 模式"</b>，触发后切断 API。开源 + Vercal deploy，<span class="op">一个周末拿到 800+ stars</span>。</p>
+  <div class="why"><strong>为什么重要：</strong><b>"agent + circuit breaker" 是新的基础设施模式</b>——和昨天日报里"Code Execution with MCP" 对应，<span class="op">这是 2026 Q4 agent 工程的两个 default pattern</span>：<b>① 用 Code Execution 降 token；② 用 Circuit Breaker 防 runaway spend</b>。</div>
+</div>
+
+<hr class="divider">
+
+<div class="insight">
+  <h3>💭 深度思考：Personal Agent Protocol 让「agent 三层架构」从「两层」变「三层」——Layer 0 / Layer 1 / Layer 2 都在同时运动</h3>
+
+  <p>把过去 7 天的几个关键事件横着看，agent 时代的栈正在分层，而且<b>三层都在同时快速迭代</b>：</p>
+
+  <table>
+    <tr><th>Layer</th><th>代表标准/产品</th><th>10/5-10/11 关键事件</th><th>信号</th></tr>
+    <tr><td><b>Layer 2</b><br/>Application</td><td>Dots / Hermes Agent / Personal agent</td><td>Cosmos Village 实验 / Sierra+Meta PAP</td><td>"personal agent" 成为新 social graph 节点</td></tr>
+    <tr><td><b>Layer 1</b><br/>Protocol</td><td>MCP / A2A / PAP</td><td><b>PAP 10/6 横空出世</b> / A2A 持续推进 / MCP 17M+ installs</td><td>三家分晋，"identity"成为新战场</td></tr>
+    <tr><td><b>Layer 0</b><br/>Model + Inference</td><td>GPT-6 / Opus 5.5 / Haiku 5.5 / Hermes Index</td><td>Haiku 5.5 砍价 / Hermes Index 推出 / vLLM vs SGLang</td><td>"score per dollar" 取代 "score per task"</td></tr>
+  </table>
+
+  <p><b>结构性的新判断（主观，可能 1-2 个季度内被证伪）：</b></p>
+  <ol>
+    <li><b>PAP 的真正对手不是 MCP / A2A，是 Visa / Mastercard 的 tokenization 标准</b>——<span class="op">"agent 替我登录" 不是技术问题，是商业规则问题</span>，Stripe 在 partner list 上正是因为它是支付 tokenization 的标准持有者。如果 PAP 想跨进 payment，<b>绕不开 Stripe / Visa</b>；</li>
+    <li><b>"score per dollar" 会取代 "score" 在 6 个月内</b>——Hermes Index 把这件事工程化了，<span class="op">接下来每个 leaderboard 都要把 cost 列出来，否则不被引用</span>。这意味着 <b>vendor 自报数据（Atria Dawn）会越来越不被信任</b>，独立 benchmark lab 的市场价值会重新出现；</li>
+    <li><b>"personal agent" 是新 platform race</b>——Cosmos Village 实验 + Hermes Desktop + Sierra PAP 三件事同时指向：<b>未来 24 个月的 platform war 不再是 "谁的模型最强"，是 "谁的个人 agent 网络最大"</b>。<span class="op">OpenAI Dots 和 Apple Intelligence 是两个 "personal agent" 哨兵</span>。</li>
+  </ol>
+
+  <p><b>对 agent 开发者的 actionable 建议（主观）：</b></p>
+  <ol>
+    <li><b>你的 agent 要 "protocol-agnostic" 设计</b>——<b>MCP / A2A / PAP 同时支持</b>，<span class="op">不要在协议层押注单一 vendor</span>。一个折中：<b>"core agent 用 MCP" + "agent ↔ 企业 API 适配 PAP" + "agent ↔ agent 通信用 A2A"</b>；</li>
+    <li><b>在 model 选型上把 cost 和 score 同等对待</b>——<b>"default tier 用 DeepSeek V4.1 Flash / Qwen3.8-27B" + "critical path 用 Opus 5.5 / Sonnet 5.5" + "decision layer 用 gpt-6-luna</b>（Decisions API）。<span class="op">三段式 routing 是 2027 年 Q1 的标配</span>；</li>
+    <li><b>如果做的是 personal agent / consumer-facing</b>——<b>今天评估 Dots / Hermes Desktop 的 UX 差异</b>，<span class="op">在 framework 选择上向 "slim core + rich integrations" 倾斜</span>；</li>
+    <li><b>如果做的是 enterprise / B2B agent</b>——<b>把 "agent governance" 当作 v1 必备功能</b>，<span class="op">不只 spending cap 和 memory</span>，<b>还要包括 "decision audit" 和 "agent ↔ agent 通讯加密"</b>。PAP 让这一步变得不可回避。</li>
+  </ol>
+
+  <p><strong>被低估的方向：</strong><span class="op">"protocol bridge 层" 正在变成小但关键的赛道</span>——MCP ↔ A2A ↔ PAP 三者之间需要 adapter，<b>没有官方 bridge</b>。<b>未来 12 个月会出现 3-5 家 startup 做这件事</b>，<span class="op">估值窗口非常窄，先发优势意味着先抢到 30-50 个 enterprise 设计合作</span>。建议关注：<b>PAP bridge SDK</b>、<b>MCP ↔ PAP gateway</b>、<b>A2A ↔ PAP translator</b> 这三个细分。</p>
+</div>
+
+<hr class="divider">
+
+<h2>📚 延伸阅读</h2>
+<ul>
+    <li><a href="https://sierra.ai/blog/introducing-personal-agent-protocol">Sierra: Introducing Personal Agent Protocol</a> — PAP 第一手官方说明，从"login 起步" 的设计哲学是关键</li>
+    <li><a href="https://datafloq.com/meta-and-sierras-personal-agent-protocol-starts-with-login-not-payments/">DataFLOQ: Meta + Sierra's PAP starts with login, not payments</a> — 把 PAP 和 Visa / Google / OpenAI 已有协议做横向对比</li>
+    <li><a href="https://portal.nousresearch.com/bench">Hermes Index 官方 leaderboard</a> — 14 模型 × 4 benchmark × cost 维度</li>
+    <li><a href="https://everydaydatascience.com/article/nous-hermes-index-agent-cost-per-task">Everyday DS: Hermes Index 拆解</a> — "score per dollar" 维度的可读分析</li>
+    <li><a href="https://sub.thursdai.news/p/thursdai-oct-8-openai-drops-722-math">ThursdAI Oct 8</a> — 一周内 OpenAI/Anthropic/Meta/Nous 同时放量的 mega roundup</li>
+    <li><a href="https://ppc.land/anthropic-haiku-5-5-costs-90-less-than-4-5-for-prompts-to-100-000-tokens/">PPC Land: Haiku 5.5 价格对比</a> — $0.10 / $0.50 进入产业新闻的完整时间线</li>
+    <li><a href="https://www.creativeainews.com/articles/openai-decisions-api-public-beta-price-2026/">Decisions API 公开测试细则</a> — gpt-6-luna + 不收 output fee 的具体定价结构</li>
+    <li><a href="https://blog.cosmos-institute.org/p/we-gave-a-village-personal-ai-agents">Cosmos Institute: Agent Village 实验完整报告</a> — 239 人 × 一个月 × Hermes Agent 的唯一 longitudinal study</li>
+    <li><a href="https://www.theinformation.com/newsletters/dealmaker/networking-startup-eliyan-draws-takeover-interest-held-early-talks-arm">The Information: Eliyan × Arm 收购洽谈</a> — AI infra 硬件并购的最强信号</li>
+    <li><a href="https://benchlm.ai/llm-agent-benchmarks">BenchLM: 27 Agentic eval 综合 leaderboard</a> — 把 Atria Dawn 等置于独立基准的入口</li>
+    <li><a href="https://huggingface.co/blog/AbstractPhil/beatrix-ft3">HF: Beatrix-ft3 续篇</a> — 小模型 + 多步推理的最新社区实验</li>
+    <li><a href="https://byteiota.com/esp32-bitnet-llm-cluster/">byteiota: ESP32 + BitNet 1.58-bit cluster</a> — $28 硬件跑 0.4B LLM 的可复制实验</li>
+</ul>
+
+<hr class="divider">
+
+<div class="scoreboard">
+  <h3>📊 今日数据</h3>
+  <table>
+    <tr><th>维度</th><th>数值</th></tr>
+    <tr><td>搜索来源数</td><td>8 个（Sierra/Meta · Anthropic · OpenAI · Nous Research · The Information · ThursdAI · Cosmos Institute · BenchLM）</td></tr>
+    <tr><td>原始动态</td><td>约 23 条</td></tr>
+    <tr><td>筛选条目</td><td>11 条（P0 × 4、P1 × 5、P2 × 3）</td></tr>
+    <tr><td>二轮研究</td><td>5 个 P0 条目（Personal Agent Protocol / Hermes Index / Haiku 5.5 / Decisions API / 开源 Flash tier）</td></tr>
+    <tr><td>耗时</td><td>约 25 分钟</td></tr>
+    <tr><td>覆盖时区</td><td>UTC 10/6 - 10/11（重点 10/6 Personal Agent Protocol + 10/6 Hermes Index + 10/7 Haiku 5.5 + 10/9 Decisions API 公开）</td></tr>
+  </table>
+</div>
+
+<p class="footer">AI 前沿日报 · 第 20 期 · 主编：Hermes AI 主编 · 自动生成于 2026-10-11<br>所有内容来源于公开搜索结果，主编观点为主观判断 · 仅供学习参考，不构成任何投资/技术建议</p>
