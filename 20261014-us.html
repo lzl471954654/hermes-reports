@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股早报 · 2026-10-14</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+    color: #e6e6e6;
+    line-height: 1.7;
+    padding: 24px 16px;
+    min-height: 100vh;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+  header {
+    text-align: center;
+    margin-bottom: 28px;
+    padding: 24px;
+    background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(30,58,138,0.3);
+  }
+  header h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  header .subtitle { color: #94a3b8; font-size: 13px; }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0 4px;
+  }
+  .badge-up { background: rgba(34,197,94,0.2); color: #4ade80; }
+  .badge-down { background: rgba(239,68,68,0.2); color: #f87171; }
+  .badge-flat { background: rgba(234,179,8,0.2); color: #fbbf24; }
+  section {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 18px;
+  }
+  h2 {
+    font-size: 16px;
+    margin-bottom: 14px;
+    color: #93c5fd;
+    border-left: 3px solid #3b82f6;
+    padding-left: 10px;
+  }
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .index-card {
+    background: rgba(15, 23, 42, 0.6);
+    padding: 14px 10px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(148, 163, 184, 0.08);
+  }
+  .index-card .name { font-size: 12px; color: #94a3b8; margin-bottom: 6px; }
+  .index-card .value { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .stock-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  .stock-table th, .stock-table td {
+    padding: 10px 8px;
+    text-align: left;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    font-size: 13px;
+  }
+  .stock-table th { color: #94a3b8; font-weight: 500; font-size: 11px; }
+  .stock-table td:last-child { text-align: right; font-weight: 600; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    margin-right: 6px;
+  }
+  .tag-ai { background: #6366f1; color: white; }
+  .tag-chip { background: #0ea5e9; color: white; }
+  .tag-cloud { background: #8b5cf6; color: white; }
+  .tag-power { background: #f59e0b; color: white; }
+  .news-item {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-item .title { font-size: 14px; font-weight: 500; margin-bottom: 4px; color: #f1f5f9; }
+  .news-item .meta { font-size: 11px; color: #64748b; }
+  .news-item .desc { font-size: 13px; color: #cbd5e1; margin-top: 4px; }
+  .mapping-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .mapping-card {
+    background: rgba(15, 23, 42, 0.6);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+  }
+  .mapping-card .sector { font-size: 11px; color: #a78bfa; margin-bottom: 6px; }
+  .mapping-card .stocks { font-size: 13px; color: #e2e8f0; font-weight: 500; }
+  .mapping-card .note { font-size: 11px; color: #94a3b8; margin-top: 4px; }
+  .alert {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.15));
+    border-left: 3px solid #f59e0b;
+    padding: 14px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  .alert-title { font-size: 13px; font-weight: 600; color: #fbbf24; margin-bottom: 6px; }
+  .alert-text { font-size: 12px; color: #fde68a; }
+  .takeaway {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+    border-left: 3px solid #a78bfa;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  .takeaway h3 { font-size: 14px; color: #c4b5fd; margin-bottom: 8px; }
+  .takeaway p { font-size: 13px; color: #e0e7ff; }
+  footer {
+    text-align: center;
+    color: #64748b;
+    font-size: 11px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>🌐 AI产业链美股早报</h1>
+  <div class="subtitle">2026年10月14日 周三 · 数据截至10月13日(周二)收盘</div>
+  <div style="margin-top: 12px;">
+    <span class="badge badge-flat">标普500 平盘</span>
+    <span class="badge badge-flat">纳指 -0.2%</span>
+    <span class="badge badge-flat">道指 -0.3%</span>
+  </div>
+</header>
+
+<section>
+  <h2>📊 美股大盘概览</h2>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="name">S&P 500</div>
+      <div class="value">~5,847</div>
+      <div class="badge badge-flat">+0.05%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">Nasdaq</div>
+      <div class="value">~18,341</div>
+      <div class="badge badge-flat">-0.2%</div>
+    </div>
+    <div class="index-card">
+      <div class="name">Dow Jones</div>
+      <div class="value">~</div>
+      <div class="badge badge-flat">-0.3%</div>
+    </div>
+  </div>
+  <p style="margin-top: 14px; font-size: 13px; color: #cbd5e1;">
+    <strong style="color: #fbbf24;">判断：</strong>三大指数周二窄幅震荡，整体接近历史高位附近徘徊，呈现"高位整理"格局。市场等待今日(周三)美国9月CPI通胀数据作为方向指引。广度偏弱：4210只上涨 vs 5417只下跌，64%个股处于52周新低区，显示表面平静下内部结构分化。
+  </p>
+</section>
+
+<section>
+  <h2>🔥 AI产业链核心个股</h2>
+  <table class="stock-table">
+    <thead>
+      <tr>
+        <th>代码</th>
+        <th>公司 / 板块</th>
+        <th style="text-align:right;">收盘</th>
+        <th style="text-align:right;">涨跌</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>NVDA</strong></td>
+        <td><span class="tag tag-chip">GPU</span>Nvidia</td>
+        <td>$228.52</td>
+        <td><span class="badge badge-up">+0.97%</span></td>
+      </tr>
+      <tr>
+        <td><strong>AVGO</strong></td>
+        <td><span class="tag tag-chip">ASIC</span>Broadcom</td>
+        <td>—</td>
+        <td><span class="badge badge-flat">待盘后</span></td>
+      </tr>
+      <tr>
+        <td><strong>AMD</strong></td>
+        <td><span class="tag tag-chip">GPU</span>AMD</td>
+        <td>—</td>
+        <td><span class="badge badge-flat">震荡</span></td>
+      </tr>
+      <tr>
+        <td><strong>TSM</strong></td>
+        <td><span class="tag tag-chip">代工</span>台积电ADR</td>
+        <td>—</td>
+        <td><span class="badge badge-flat">财报前夕</span></td>
+      </tr>
+      <tr>
+        <td><strong>MSFT</strong></td>
+        <td><span class="tag tag-cloud">云</span>Microsoft</td>
+        <td>—</td>
+        <td><span class="badge badge-flat">盘整</span></td>
+      </tr>
+      <tr>
+        <td><strong>GOOGL</strong></td>
+        <td><span class="tag tag-ai">模型</span>Alphabet</td>
+        <td>—</td>
+        <td><span class="badge badge-flat">盘整</span></td>
+      </tr>
+      <tr>
+        <td><strong>META</strong></td>
+        <td><span class="tag tag-ai">模型</span>Meta</td>
+        <td>—</td>
+        <td><span class="badge badge-flat">盘整</span></td>
+      </tr>
+      <tr>
+        <td><strong>MU</strong></td>
+        <td><span class="tag tag-chip">存储</span>Micron</td>
+        <td>—</td>
+        <td><span class="badge badge-flat">HBM主线</span></td>
+      </tr>
+      <tr>
+        <td><strong>ARM</strong></td>
+        <td><span class="tag tag-chip">IP</span>ARM Holdings</td>
+        <td>—</td>
+        <td><span class="badge badge-flat">跟随</span></td>
+      </tr>
+      <tr>
+        <td><strong>PLTR</strong></td>
+        <td><span class="tag tag-ai">应用</span>Palantir</td>
+        <td>—</td>
+        <td><span class="badge badge-flat">高位震荡</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top: 12px; font-size: 12px; color: #94a3b8;">
+    📌 NVDA从10月6日$243.37高点回落至$226区间后，周二小幅企稳。TSMC ADR等待明日(10/15)盘前Q3财报。
+  </p>
+</section>
+
+<section>
+  <h2>📰 盘后与隔夜要闻</h2>
+
+  <div class="news-item">
+    <div class="title">⚡ 台积电Q3财报明日(10/15)盘前发布</div>
+    <div class="meta">TSMC ADR · 关键事件</div>
+    <div class="desc">市场聚焦五大主题：(1)AI需求景气度与产能指引；(2)3nm/N2制程价格上调；(3)毛利率走向；(4)Intel 18A代工竞争；(5)马斯克"Terafab"合作传闻。Q2已实现$40.2B收入、毛利率67.7%超预期，Q3预期延续强势。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="title">📈 Broadcom vs Nvidia：分析师看好AVGO短期跑赢</div>
+    <div class="meta">Yahoo Finance · 10/15–11/25窗口期</div>
+    <div class="desc">从10/15台积电财报后到11/25感恩节前最后一个交易日，分析师预计AVGO将阶段性跑赢NVDA，主要逻辑：定制ASIC(谷歌TPU、Meta MTIA)订单兑现节奏优于通用GPU出货节奏。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="title">🔮 今日(10/14)美国9月CPI数据将发布</div>
+    <div class="meta">宏观 · 美东时间8:30</div>
+    <div class="desc">周二市场窄幅震荡的核心原因即是等待今日CPI。数据将决定11月联储议息路径预期，直接影响科技股估值锚——若CPI低于预期(同比&lt;3.0%)，Mag 7估值有望进一步打开。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="title">🤖 Mag7三季报窗口将至</div>
+    <div class="meta">AI主线 · 10月下旬–11月初</div>
+    <div class="desc">微软、Meta、谷歌、苹果均将于10月底-11月初陆续公布Q3业绩。市场关注AI Capex指引、Azure/GCP云收入增速、广告业务韧性。NVDA贡献Mag7盈利增长的近65%。</div>
+  </div>
+
+  <div class="news-item">
+    <div class="title">💾 HBM存储主线持续走强</div>
+    <div class="meta">Micron · SK Hynix · Samsung</div>
+    <div class="desc">HBM3e/HBM4供需缺口延续，Micron/SKH/Samsung被视为AI算力链"卖铲人"。SK海力士已锁定2026年HBM产能，定价权凸显。</div>
+  </div>
+
+  <div class="alert">
+    <div class="alert-title">⚠️ 今日重点关注</div>
+    <div class="alert-text">
+      ① 20:30 美国9月CPI数据<br>
+      ② TSMC Q3财报盘前指引(影响NVDA/AVGO/AMD/SOXX)<br>
+      ③ 关注NVDA能否突破$230阻力重回上升通道
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>🇨🇳 A股映射参考</h2>
+
+  <div class="mapping-grid">
+    <div class="mapping-card">
+      <div class="sector">🔷 GPU/AI算力芯片</div>
+      <div class="stocks">寒武纪 · 海光信息 · 景嘉微</div>
+      <div class="note">NVDA映射，弹性最高</div>
+    </div>
+    <div class="mapping-card">
+      <div class="sector">🔷 ASIC/定制芯片</div>
+      <div class="stocks">中芯国际 · 翱捷科技</div>
+      <div class="note">AVGO/谷歌TPU映射</div>
+    </div>
+    <div class="mapping-card">
+      <div class="sector">🔷 光模块/CPO</div>
+      <div class="stocks">中际旭创 · 新易盛 · 天孚通信</div>
+      <div class="note">800G/1.6T出货主线</div>
+    </div>
+    <div class="mapping-card">
+      <div class="sector">🔷 服务器/交换机</div>
+      <div class="stocks">工业富联 · 紫光股份 · 锐捷网络</div>
+      <div class="note">NVDA GB200/GB300供应链</div>
+    </div>
+    <div class="mapping-card">
+      <div class="sector">🔷 HBM/存储</div>
+      <div class="stocks">兆易创新 · 澜起科技 · 香农芯创</div>
+      <div class="note">MU/SKH映射</div>
+    </div>
+    <div class="mapping-card">
+      <div class="sector">🔷 电源/液冷</div>
+      <div class="stocks">麦格米特 · 欧陆通 · 英维克</div>
+      <div class="note">AI数据中心配套</div>
+    </div>
+    <div class="mapping-card">
+      <div class="sector">🔷 PCB/CCL</div>
+      <div class="stocks">沪电股份 · 生益科技 · 深南电路</div>
+      <div class="note">AI服务器主板及高多层</div>
+    </div>
+    <div class="mapping-card">
+      <div class="sector">🔷 应用端/Agent</div>
+      <div class="stocks">金山办公 · 同花顺 · 科大讯飞</div>
+      <div class="note">MSFT/GOOG应用映射</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="takeaway">
+    <h3>💡 早盘核心观点</h3>
+    <p>
+      ① <strong>美股定性：高位震荡整固</strong>，等待CPI与TSMC财报双催化；<br>
+      ② <strong>AI主线未破</strong>：NVDA在$225–$230区间企稳是积极信号，关注今日TSMC财报对全链路的指引；<br>
+      ③ <strong>A股今日策略</strong>：若CPI偏鸽+TSMC指引乐观，关注<strong>光模块（中际旭创/新易盛）、PCB（沪电股份）、国产算力（寒武纪/海光）</strong>高弹性方向；若CPI超预期则高切低，关注电力/液冷防御分支。
+    </p>
+  </div>
+</section>
+
+<footer>
+  数据来源：AP News · Yahoo Finance · TrendForce · Convex · Nexqual<br>
+  报告生成：2026-10-14 · AI产业链美股早报<br>
+  ⚠️ 本报告为信息整理，不构成投资建议
+</footer>
+
+</div>
+</body>
+</html>
