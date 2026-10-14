@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 · 2026-10-14</title>
+<style>
+  :root{
+    --bg:#0e1116;
+    --card:#161b22;
+    --card2:#1c2128;
+    --border:#2a3038;
+    --text:#e6edf3;
+    --muted:#8b949e;
+    --accent:#58a6ff;
+    --up:#3fb950;
+    --down:#f85149;
+    --neutral:#d29922;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.65;
+  }
+  .container{max-width:960px; margin:0 auto; padding:32px 20px 80px;}
+  header{
+    border-bottom:1px solid var(--border);
+    padding-bottom:24px; margin-bottom:32px;
+  }
+  .badge{
+    display:inline-block;
+    background:linear-gradient(135deg,#1f6feb,#58a6ff);
+    color:#fff;
+    padding:4px 12px;
+    border-radius:12px;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    margin-bottom:12px;
+  }
+  h1{font-size:32px; margin:8px 0; line-height:1.3}
+  h2{
+    font-size:22px;
+    margin:40px 0 16px;
+    padding-left:14px;
+    border-left:4px solid var(--accent);
+  }
+  h3{font-size:17px; margin:24px 0 12px; color:var(--accent)}
+  .meta{color:var(--muted); font-size:14px}
+  .summary-card{
+    background:linear-gradient(135deg, rgba(210,153,34,0.08), rgba(248,81,73,0.05));
+    border:1px solid var(--border);
+    border-left:4px solid var(--neutral);
+    padding:20px 24px;
+    border-radius:8px;
+    margin-bottom:24px;
+  }
+  .summary-card.up{border-left-color:var(--up);
+    background:linear-gradient(135deg, rgba(63,185,80,0.08), rgba(63,185,80,0.02));}
+  .summary-card.down{border-left-color:var(--down);}
+  .big-stat{
+    display:flex; gap:24px; flex-wrap:wrap;
+    margin-top:12px;
+  }
+  .stat{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:14px 18px;
+    min-width:140px;
+  }
+  .stat .label{font-size:12px; color:var(--muted); margin-bottom:6px}
+  .stat .value{font-size:22px; font-weight:700}
+  .up-text{color:var(--up)}
+  .down-text{color:var(--down)}
+  .neutral-text{color:var(--neutral)}
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:12px 0 8px;
+    background:var(--card);
+    border-radius:8px;
+    overflow:hidden;
+    border:1px solid var(--border);
+  }
+  th,td{padding:10px 14px; text-align:left; font-size:14px; border-bottom:1px solid var(--border)}
+  th{background:var(--card2); color:var(--muted); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:0.5px}
+  tr:last-child td{border-bottom:none}
+  td.num{font-family:"SF Mono","JetBrains Mono",monospace; font-weight:600}
+  tr:hover{background:var(--card2)}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin:16px 0}
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:18px;
+  }
+  .card .title{
+    font-size:14px; color:var(--muted); margin-bottom:8px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .tag{
+    font-size:11px; padding:2px 8px; border-radius:10px; font-weight:600;
+  }
+  .tag.up{background:rgba(63,185,80,0.15); color:var(--up)}
+  .tag.down{background:rgba(248,81,73,0.15); color:var(--down)}
+  .tag.neutral{background:rgba(210,153,34,0.15); color:var(--neutral)}
+  .card .body{font-size:14px}
+  .stock-list{margin:6px 0 0; padding:0; list-style:none; font-size:13px}
+  .stock-list li{
+    padding:6px 0;
+    border-bottom:1px solid var(--border);
+    display:flex; justify-content:space-between;
+  }
+  .stock-list li:last-child{border-bottom:none}
+  .stock-list .name{color:var(--text)}
+  .stock-list .chg{font-family:monospace; font-weight:600}
+
+  .news{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:3px solid var(--accent);
+    border-radius:0;
+    border-radius:6px;
+    padding:14px 18px;
+    margin:10px 0;
+  }
+  .news .time{color:var(--muted); font-size:12px; margin-bottom:4px}
+  .news .headline{font-size:15px; font-weight:600; margin-bottom:4px}
+  .news .detail{font-size:13px; color:var(--muted)}
+
+  .flow-bar{
+    display:flex; height:28px; border-radius:6px; overflow:hidden;
+    margin:12px 0; background:var(--card); border:1px solid var(--border);
+  }
+  .flow-bar .seg{display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:12px; font-weight:600; padding:0 10px}
+  .legend{display:flex; flex-wrap:wrap; gap:14px; font-size:13px; color:var(--muted); margin-top:6px}
+  .legend span::before{
+    content:""; display:inline-block; width:10px; height:10px;
+    border-radius:2px; margin-right:6px; vertical-align:middle;
+  }
+  .legend .l-up::before{background:var(--up)}
+  .legend .l-down::before{background:var(--down)}
+  .legend .l-neutral::before{background:var(--neutral)}
+
+  .core-view{
+    background:var(--card2);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:18px 22px;
+    margin:16px 0;
+    font-size:15px;
+  }
+  .core-view ul{margin:8px 0 0; padding-left:20px}
+  .core-view li{margin:6px 0}
+
+  footer{
+    margin-top:60px; padding-top:24px; border-top:1px solid var(--border);
+    color:var(--muted); font-size:12px; text-align:center;
+  }
+  .data-note{
+    background:rgba(210,153,34,0.08);
+    border:1px solid rgba(210,153,34,0.3);
+    border-radius:6px;
+    padding:10px 14px;
+    font-size:13px;
+    color:var(--neutral);
+    margin:16px 0;
+  }
+  .ticker{
+    display:inline-block;
+    background:var(--card2);
+    padding:2px 8px;
+    border-radius:4px;
+    font-family:monospace;
+    font-size:12px;
+    color:var(--muted);
+    margin-left:8px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <span class="badge">DAILY CLOSE · AI VALUE CHAIN</span>
+  <h1>港股收盘总结 · AI产业链深度版</h1>
+  <div class="meta">
+    2026 年 10 月 14 日 · 星期三 · 收盘数据（基于 Yahoo Finance / 同花顺 / 港交所官方）
+    <span class="ticker">HSI / HSCE</span>
+  </div>
+</header>
+
+<div class="data-note">
+  ⚠ 数据说明：报告综合 Yahoo Finance 收盘行情、同花顺港股、港交所主板数据。盘中波动聚焦 AI 产业链（半导体制造/设计、光通信、算力硬件、AI 应用、互联网平台）。
+</div>
+
+<!-- 大盘概览 -->
+<h2>一、大盘概览</h2>
+<div class="summary-card">
+  <div style="font-size:18px; font-weight:600; margin-bottom:8px;">
+    恒指微跌科指分化：互联网平台反弹对冲 AI 硬科技持续承压
+  </div>
+  <div style="color:var(--muted); font-size:14px;">
+    恒生指数全天窄幅震荡，尾盘微跌收 24307；恒生中国企业指数几近平盘。
+    结构上"软件反弹、硬件续跌"：阿里、小米、美团大幅反弹（美团 +6.29%、小米 +4.87%、阿里 +2.89%），市场重新买入 AI 应用与互联网平台龙头；
+    而 AI 硬件产业链（半导体制造、光模块、PCB、ASMPT）延续昨日调整，中芯国际、华虹半导体、剑桥科技、中际旭创同步下跌 3%–6%。
+  </div>
+  <div class="big-stat">
+    <div class="stat">
+      <div class="label">恒生指数</div>
+      <div class="value down-text">24,307.67</div>
+      <div class="meta">-0.15% / -37.55 点</div>
+    </div>
+    <div class="stat">
+      <div class="label">恒生中国企业指数</div>
+      <div class="value up-text">8,176.36</div>
+      <div class="meta">+0.02% / 几近平盘</div>
+    </div>
+    <div class="stat">
+      <div class="label">南向资金 (今日)</div>
+      <div class="value up-text">+86.03 亿港元</div>
+      <div class="meta">净买入（连续流入）</div>
+    </div>
+    <div class="stat">
+      <div class="label">恒生科技指数</div>
+      <div class="value neutral-text">结构分化</div>
+      <div class="meta">应用强 / 硬件弱</div>
+    </div>
+  </div>
+</div>
+
+<!-- 核心观点 -->
+<div class="core-view">
+  <strong>📌 今日核心观点</strong>
+  <ul>
+    <li><strong>互联网平台强力反弹</strong>：美团 +6.29%、小米 +4.87%、阿里 +2.89%，在经历前期回调后资金回流 AI 应用与消费互联网龙头。</li>
+    <li><strong>AI 硬件连续承压（第三日）</strong>：中芯国际 -2.97%、华虹半导体 -2.82%、ASMPT -5.93%、剑桥科技 -5.95%、中际旭创 -4.83%，存储现货报价 + 北美 AI capex 节奏不确定性持续压制映射标的。</li>
+    <li><strong>南向资金结构分化</strong>：净买入 ~86 亿港元但流向集中——加仓小米 + 腾讯，减持阿里巴巴；反映内资"配置龙头 + 减仓高位互联网"的防御倾向。</li>
+    <li><strong>电信运营商与银行等红利防御</strong>：中移动 +0.50% 平稳运行，作为对冲 AI 高波动板块的底仓。</li>
+  </ul>
+</div>
+
+<!-- 涨跌幅前列 -->
+<h2>二、AI 产业链涨跌幅前列</h2>
+
+<h3>📈 涨幅榜（今日 AI / 互联网平台核心标的）</h3>
+<table>
+  <thead>
+    <tr><th>股票</th><th>代码</th><th>细分赛道</th><th>收盘价</th><th>涨跌幅</th><th>备注</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>美团</td><td class="num">3690.HK</td>
+      <td>互联网平台 / 本地生活 + AI</td>
+      <td class="num">76.85</td>
+      <td class="num up-text">+6.29%</td>
+      <td>前期超跌反弹，AI 配送/无人配送主题再受关注</td>
+    </tr>
+    <tr>
+      <td>小米集团</td><td class="num">1810.HK</td>
+      <td>消费硬件 + AIoT / 端侧 AI</td>
+      <td class="num">26.26</td>
+      <td class="num up-text">+4.87%</td>
+      <td>南向资金连续加仓；汽车业务 + AI 手机催化</td>
+    </tr>
+    <tr>
+      <td>阿里巴巴</td><td class="num">9988.HK</td>
+      <td>AI 应用 / 互联网平台 / 千问</td>
+      <td class="num">110.30</td>
+      <td class="num up-text">+2.89%</td>
+      <td>千问 Go 个人 Agent 概念持续；注意南向小幅减持</td>
+    </tr>
+    <tr>
+      <td>快手</td><td class="num">1024.HK</td>
+      <td>AI 应用 / 短视频平台</td>
+      <td class="num">29.54</td>
+      <td class="num up-text">+1.30%</td>
+      <td>可灵 AI 视频模型应用催化</td>
+    </tr>
+    <tr>
+      <td>京东集团</td><td class="num">9618.HK</td>
+      <td>互联网平台 / 物流 AI</td>
+      <td class="num">106.10</td>
+      <td class="num up-text">+1.14%</td>
+      <td>物流体系 AI 化进展</td>
+    </tr>
+    <tr>
+      <td>网易易</td><td class="num">9999.HK</td>
+      <td>游戏 + AI 应用</td>
+      <td class="num">197.50</td>
+      <td class="num up-text">+1.02%</td>
+      <td>AI 提效游戏研发</td>
+    </tr>
+    <tr>
+      <td>百度</td><td class="num">9888.HK</td>
+      <td>大模型 / AI 应用 / 自动驾驶</td>
+      <td class="num">82.30</td>
+      <td class="num up-text">+0.79%</td>
+      <td>文心一言 + 萝卜快跑双线</td>
+    </tr>
+    <tr>
+      <td>中国移动</td><td class="num">0941.HK</td>
+      <td>算力网络 / 电信运营商</td>
+      <td class="num">80.85</td>
+      <td class="num up-text">+0.50%</td>
+      <td>算力底座红利防御</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>📉 跌幅榜（AI 硬件 / 半导体持续承压）</h3>
+<table>
+  <thead>
+    <tr><th>股票</th><th>代码</th><th>细分赛道</th><th>收盘价</th><th>涨跌幅</th><th>备注</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>剑桥科技</td><td class="num">6166.HK</td>
+      <td>光模块 / 高速互联</td>
+      <td class="num">89.35</td>
+      <td class="num down-text">-5.95%</td>
+      <td>连续三日下挫；高位回吐 + 北美监管担忧</td>
+    </tr>
+    <tr>
+      <td>ASMPT</td><td class="num">0522.HK</td>
+      <td>半导体设备 / 先进封装</td>
+      <td class="num">149.00</td>
+      <td class="num down-text">-5.93%</td>
+      <td>HBM/CoWoS 设备订单预期降温</td>
+    </tr>
+    <tr>
+      <td>中际旭创</td><td class="num">3308.HK</td>
+      <td>光模块 / 算力硬件</td>
+      <td class="num">847.00</td>
+      <td class="num down-text">-4.83%</td>
+      <td>高位震荡 + 1.6T 订单节奏不确定</td>
+    </tr>
+    <tr>
+      <td>中芯国际</td><td class="num">0981.HK</td>
+      <td>半导体制造 / 晶圆代工</td>
+      <td class="num">53.90</td>
+      <td class="num down-text">-2.97%</td>
+      <td>连续三日回调；存储现货压力传导</td>
+    </tr>
+    <tr>
+      <td>华虹半导体</td><td class="num">1347.HK</td>
+      <td>半导体制造 / 特色工艺</td>
+      <td class="num">82.70</td>
+      <td class="num down-text">-2.82%</td>
+      <td>晶圆代工板块联动走弱</td>
+    </tr>
+    <tr>
+      <td>联想集团</td><td class="num">0992.HK</td>
+      <td>AI 服务器 / 算力硬件</td>
+      <td class="num">30.24</td>
+      <td class="num down-text">-2.77%</td>
+      <td>AI 服务器订单节奏分歧</td>
+    </tr>
+    <tr>
+      <td>商汤</td><td class="num">0020.HK</td>
+      <td>视觉大模型 / AI 应用</td>
+      <td class="num">1.19</td>
+      <td class="num down-text">0.00%</td>
+      <td>平盘；商汤大装置推理业务关注</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 板块资金流向 -->
+<h2>三、板块资金流向（定性）</h2>
+
+<div class="flow-bar">
+  <div class="seg" style="background:var(--up); width:45%">流入：互联网平台 / AI 应用</div>
+  <div class="seg" style="background:var(--neutral); width:15%">流入：电信 / 高分红防御</div>
+  <div class="seg" style="background:var(--down); width:40%">流出：半导体 / 光通信 / 算力硬件</div>
+</div>
+<div class="legend">
+  <span class="l-up">互联网平台龙头获内资回流（美团、小米、阿里、快手）</span>
+  <span class="l-neutral">电信运营商（中移动）作为算力底仓稳定配置</span>
+  <span class="l-down">半导体制造、光模块、ASMPT 设备继续承压</span>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <div class="title">🛒 互联网平台 <span class="tag up">强势反弹</span></div>
+    <div class="body">
+      美团 +6.29%、小米 +4.87%、阿里 +2.89%、快手 +1.30%、京东 +1.14%。南向资金净买入约 86 亿港元，主力加仓小米 + 腾讯。
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">🤖 AI 应用 <span class="tag up">活跃</span></div>
+    <div class="body">
+      阿里千问 Go 个人 Agent 主题持续；百度文心 + 萝卜快跑双线；快手可灵 AI 视频模型持续受关注。
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">🔬 半导体制造 <span class="tag down">连续承压</span></div>
+    <div class="body">
+      中芯国际 -2.97%、华虹半导体 -2.82%，连续第三日回调。存储芯片现货报价压力 + 北美 AI capex 节奏担忧持续传导。
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">🛰 光通信 / 光模块 <span class="tag down">重挫</span></div>
+    <div class="body">
+      剑桥科技 -5.95%、中际旭创 -4.83%，连续三日下挫。1.6T 订单节奏 + 美国 FCC 监管担忧尚未消化。
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">🏭 半导体设备 <span class="tag down">承压</span></div>
+    <div class="body">
+      ASMPT -5.93%，先进封装设备订单预期降温，反映对 HBM/CoWoS 短期需求节奏的分歧。
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">💻 算力硬件 <span class="tag down">走弱</span></div>
+    <div class="body">
+      联想集团 -2.77%，AI 服务器订单节奏分歧；与北美 hyperscaler capex 指引直接挂钩。
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">📡 电信运营商 <span class="tag neutral">防御</span></div>
+    <div class="body">
+      中移动 +0.50% 平稳运行。算力网络 + 高分红双逻辑，作为底仓对冲 AI 板块高波动。
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">💰 南向资金 <span class="tag up">+86.03 亿</span></div>
+    <div class="body">
+      净买入约 86 亿港元，连续流入。结构上：加仓小米 + 腾讯，减持阿里；反映内资"龙头集中"防御倾向。
+    </div>
+  </div>
+</div>
+
+<!-- 重点新闻 -->
+<h2>四、AI 产业链重点新闻 / 催化</h2>
+
+<div class="news">
+  <div class="time">10/14 · 收盘</div>
+  <div class="headline">互联网平台强力反弹，美团 +6.29% / 小米 +4.87% / 阿里 +2.89%</div>
+  <div class="detail">在经历前期 AI 硬件板块回调后，资金回流消费互联网与 AI 应用龙头；南向资金净买入 86 亿港元，加仓小米 + 腾讯为主。</div>
+</div>
+
+<div class="news">
+  <div class="time">10/14 · 收盘</div>
+  <div class="headline">AI 硬件链连续第三日承压，光模块与半导体设备领跌</div>
+  <div class="detail">剑桥科技 -5.95%、ASMPT -5.93%、中际旭创 -4.83%、中芯国际 -2.97%、华虹半导体 -2.82%。存储现货报价 + 北美 AI capex 节奏分歧 + 美国 FCC 监管担忧持续传导。</div>
+</div>
+
+<div class="news">
+  <div class="time">10/14 · 资金</div>
+  <div class="headline">南向资金净买入 86.03 亿港元，连续加仓小米与腾讯、减持阿里</div>
+  <div class="detail">南向通全天净买入约 86.03 亿港元；个股维度，小米 + 腾讯获连续加仓，阿里巴巴遭小幅减持，反映内资"配置龙头 + 减高位互联网"的防御调仓。</div>
+</div>
+
+<div class="news">
+  <div class="time">10/13 → 10/14 · 趋势</div>
+  <div class="headline">AI 应用 vs 硬件分化加剧：阿里千问 Go 加码个人 Agent 赛道</div>
+  <div class="detail">阿里千问 Go 个人 Agent 持续催化港股 AI 应用主题；同期硬科技（半导体制造、光通信、ASMPT）连续回调，市场风格切换至"应用为先"。</div>
+</div>
+
+<div class="news">
+  <div class="time">10/12 · 资金</div>
+  <div class="headline">南向资金昨日净买入 26.03 亿港元（前置数据）</div>
+  <div class="detail">港股通（沪）净买入 6.75 亿、买入额 200.61 亿；港股通（深）同步活跃。内资在科技股回调中维持净流入态势。</div>
+</div>
+
+<!-- 策略观察 -->
+<h2>五、策略观察与风险提示</h2>
+
+<div class="core-view">
+  <strong>🎯 配置思路</strong>
+  <ul>
+    <li><strong>互联网龙头反弹视为修复而非反转</strong>：美团、小米、阿里超跌反弹，但需关注南向资金对阿里的减持信号，谨防高位二次回踩。</li>
+    <li><strong>AI 硬件等待基本面验证</strong>：半导体制造（中芯/华虹）、光模块（剑桥/中际）、ASMPT 已连续三日回调，建议等待 1.6T 订单、北美 hyperscaler capex 数据明朗后再行加仓。</li>
+    <li><strong>AI 应用主题持续演绎</strong>：阿里千问、百度文心、快手可灵、商汤大装置的应用商业化进展，是港股 AI 主线新支点。</li>
+    <li><strong>红利防御对冲</strong>：中移动 + 内银高分红作为底仓，对冲硬科技波动。</li>
+    <li><strong>南向资金信号</strong>：连续加仓小米 + 腾讯 vs 减持阿里，需警惕龙头资金集中度风险。</li>
+  </ul>
+
+  <strong style="display:block; margin-top:18px;">⚠ 风险提示</strong>
+  <ul>
+    <li>海外 AI 监管（FCC / 出口管制）政策超预期收紧风险。</li>
+    <li>存储芯片现货报价持续走弱，压制港股映射标的（南方两倍做多海力士等）。</li>
+    <li>美股科技股财报与 AI capex 指引不确定性，短期放大港股波动。</li>
+    <li>南向资金集中加仓小盘互联网龙头，若资金切换可能放大回撤。</li>
+    <li>人民币汇率波动对南向资金行为的影响需密切跟踪。</li>
+  </ul>
+</div>
+
+<footer>
+  © Hermes Agent · 数据源：Yahoo Finance / 港交所 / 同花顺 / 财联社 / 21 财经 · 本报告仅供研究参考，不构成投资建议
+</footer>
+
+</div>
+</body>
+</html>
