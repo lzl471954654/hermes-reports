@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 · 2026-10-15</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #0a0e14;
+    color: #e4e6eb;
+    line-height: 1.7;
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .header {
+    border-bottom: 2px solid #1f2937;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  .badge-today {
+    display: inline-block;
+    background: #dc2626;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 10px;
+    font-weight: 600;
+  }
+  .badge-down {
+    display: inline-block;
+    background: #7f1d1d;
+    color: #fca5a5;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    margin-left: 6px;
+  }
+
+  /* 大盘指数区 */
+  .indices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .index-card {
+    background: #131820;
+    border: 1px solid #1f2937;
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.2s;
+  }
+  .index-card:hover { border-color: #374151; }
+  .index-name { font-size: 13px; color: #9ca3af; margin-bottom: 6px; }
+  .index-value { font-size: 22px; font-weight: 700; }
+  .index-change { font-size: 13px; margin-top: 4px; }
+  .red { color: #ef4444; }
+  .green { color: #10b981; }
+  .gray { color: #6b7280; }
+
+  /* 核心结论 */
+  .conclusion {
+    background: linear-gradient(135deg, #1e1b4b 0%, #0c1428 100%);
+    border-left: 4px solid #7c3aed;
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin-bottom: 28px;
+  }
+  .conclusion h2 {
+    color: #c4b5fd;
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .conclusion p {
+    color: #d1d5db;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .conclusion .highlight {
+    color: #fbbf24;
+    font-weight: 600;
+  }
+
+  /* 板块表格 */
+  .section {
+    margin-bottom: 28px;
+  }
+  .section h2 {
+    font-size: 19px;
+    color: #00d4ff;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1f2937;
+    font-weight: 600;
+  }
+  .section h2 .icon { margin-right: 8px; }
+
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 14px;
+  }
+  .sector-card {
+    background: #131820;
+    border: 1px solid #1f2937;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .sector-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e4e6eb;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .tag-hot { background: #7f1d1d; color: #fca5a5; }
+  .tag-warm { background: #78350f; color: #fbbf24; }
+  .tag-cool { background: #1e3a8a; color: #93c5fd; }
+  .tag-down { background: #374151; color: #9ca3af; }
+
+  .stock-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #1f2937;
+    font-size: 13px;
+  }
+  .stock-row:last-child { border-bottom: none; }
+  .stock-name { color: #d1d5db; font-weight: 500; }
+  .stock-desc { color: #9ca3af; font-size: 12px; flex: 1; margin-left: 12px; }
+  .stock-change { font-weight: 600; min-width: 60px; text-align: right; }
+
+  /* 资讯流 */
+  .news-list {
+    background: #131820;
+    border: 1px solid #1f2937;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .news-item {
+    padding: 12px 0;
+    border-bottom: 1px dashed #1f2937;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-time {
+    color: #6b7280;
+    font-size: 11px;
+    margin-right: 8px;
+  }
+  .news-tag {
+    display: inline-block;
+    background: #1e3a8a;
+    color: #93c5fd;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    margin-right: 8px;
+    font-weight: 600;
+  }
+  .news-content { color: #d1d5db; font-size: 14px; }
+  .news-content strong { color: #fbbf24; }
+
+  /* 风控提示 */
+  .risk {
+    background: #1c1917;
+    border: 1px solid #44403c;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 24px;
+  }
+  .risk h3 {
+    color: #f59e0b;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .risk p {
+    color: #a8a29e;
+    font-size: 13px;
+  }
+
+  /* 明日看点 */
+  .outlook {
+    background: #0f172a;
+    border: 1px solid #1e40af;
+    border-radius: 8px;
+    padding: 18px 22px;
+  }
+  .outlook h2 {
+    color: #60a5fa !important;
+    border-bottom-color: #1e40af !important;
+  }
+  .outlook ul {
+    list-style: none;
+    padding: 0;
+  }
+  .outlook li {
+    color: #cbd5e1;
+    padding: 6px 0;
+    font-size: 14px;
+    padding-left: 20px;
+    position: relative;
+  }
+  .outlook li::before {
+    content: "▸";
+    color: #60a5fa;
+    position: absolute;
+    left: 0;
+  }
+
+  .footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid #1f2937;
+    color: #4b5563;
+    font-size: 12px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>📊 A股盘后总结 · AI产业链深度版
+      <span class="badge-today">2026-10-15 周四</span>
+    </h1>
+    <div class="subtitle">Hermes Cron · AI投研助手自动生成 · 数据基于公开资讯整理</div>
+  </div>
+
+  <!-- 大盘指数 -->
+  <div class="indices">
+    <div class="index-card">
+      <div class="index-name">上证指数</div>
+      <div class="index-value red">~3660</div>
+      <div class="index-change red">午盘跌近2% · 失守3700点</div>
+    </div>
+    <div class="index-card">
+      <div class="index-name">深证成指</div>
+      <div class="index-value red">11827.64</div>
+      <div class="index-change red">-282.95 · -2.34%</div>
+    </div>
+    <div class="index-card">
+      <div class="index-name">创业板指</div>
+      <div class="index-value red">~2450</div>
+      <div class="index-change red">跌超3.4%</div>
+    </div>
+    <div class="index-card">
+      <div class="index-name">科创综指</div>
+      <div class="index-value red">—</div>
+      <div class="index-change red">低开跌3.4%</div>
+    </div>
+    <div class="index-card">
+      <div class="index-name">全市成交</div>
+      <div class="index-value">~1.7万亿</div>
+      <div class="index-change gray">半日9818亿放量</div>
+    </div>
+    <div class="index-card">
+      <div class="index-name">下跌家数</div>
+      <div class="index-value red">5000+</div>
+      <div class="index-change red">超5000只个股飘绿</div>
+    </div>
+  </div>
+
+  <!-- 核心结论 -->
+  <div class="conclusion">
+    <h2>🎯 核心结论</h2>
+    <p>今日<span class="highlight">双创板迎来重挫</span>，上证午盘失守3700点，超5000只个股下跌，AI算力硬件板块（中际旭创、新易盛、天孚通信）午后集体跌超5%，前期高位股集中兑现利润。</p>
+    <p>但<span class="highlight">产业基本面未变</span>：沪电股份Q3业绩超预期（前三季度净利最低54.5亿）、致尚科技拿下PH 2027年5亿美元MPO订单、Marvell上调FY31目标至700-900亿美元，三大主线订单与景气度信号持续强化。</p>
+    <p>策略上，<span class="highlight">短期规避拥挤赛道的高位调整</span>，关注PCB/CCL、半导体设备的业绩驱动机会，以及光通信板块急跌后的修复窗口。</p>
+  </div>
+
+  <!-- AI产业链七大赛道 -->
+  <div class="section">
+    <h2><span class="icon">🧠</span>AI产业链七大赛道 · 资金与景气速览</h2>
+    <div class="sector-grid">
+
+      <div class="sector-card">
+        <div class="sector-title">光通信 / CPO <span class="tag tag-down">急跌回调</span></div>
+        <div class="stock-row"><span class="stock-name">中际旭创</span><span class="stock-desc">800G光模块龙头</span><span class="stock-change red">-5%+</span></div>
+        <div class="stock-row"><span class="stock-name">新易盛</span><span class="stock-desc">高速光模块</span><span class="stock-change red">-5%+</span></div>
+        <div class="stock-row"><span class="stock-name">天孚通信</span><span class="stock-desc">光器件平台</span><span class="stock-change red">-5%+</span></div>
+        <div class="stock-row"><span class="stock-name">致尚科技</span><span class="stock-desc">MPO跳线大单</span><span class="stock-change green">订单催化</span></div>
+      </div>
+
+      <div class="sector-card">
+        <div class="sector-title">PCB / CCL <span class="tag tag-warm">业绩驱动</span></div>
+        <div class="stock-row"><span class="stock-name">沪电股份</span><span class="stock-desc">224Gbps平台2026量产</span><span class="stock-change green">Q3超预期</span></div>
+        <div class="stock-row"><span class="stock-name">生益科技</span><span class="stock-desc">覆铜板龙头</span><span class="stock-change green">中报预增</span></div>
+        <div class="stock-row"><span class="stock-name">深南电路</span><span class="stock-desc">高端PCB</span><span class="stock-change green">中报预增</span></div>
+        <div class="stock-row"><span class="stock-name">胜伟策</span><span class="stock-desc">沪电子公司/车载</span><span class="stock-change green">放量</span></div>
+      </div>
+
+      <div class="sector-card">
+        <div class="sector-title">存储 / HBM <span class="tag tag-hot">超级周期</span></div>
+        <div class="stock-row"><span class="stock-name">兆易创新</span><span class="stock-desc">NOR Flash+MCU</span><span class="stock-change green">存储国产替代</span></div>
+        <div class="stock-row"><span class="stock-name">长鑫科技</span><span class="stock-desc">DRAM龙头(上市预期)</span><span class="stock-change green">拟上市</span></div>
+        <div class="stock-row"><span class="stock-name">澜起科技</span><span class="stock-desc">DDR5接口</span><span class="stock-change green">景气延续</span></div>
+        <div class="stock-row"><span class="stock-name">香农芯创</span><span class="stock-desc">存储分销</span><span class="stock-change gray">跟随</span></div>
+      </div>
+
+      <div class="sector-card">
+        <div class="sector-title">半导体设备 <span class="tag tag-warm">国产替代</span></div>
+        <div class="stock-row"><span class="stock-name">北方华创</span><span class="stock-desc">刻蚀/CVD龙头</span><span class="stock-change green">H1+5.05%</span></div>
+        <div class="stock-row"><span class="stock-name">中微公司</span><span class="stock-desc">刻蚀设备</span><span class="stock-change green">先进制程</span></div>
+        <div class="stock-row"><span class="stock-name">拓荆科技</span><span class="stock-desc">薄膜沉积</span><span class="stock-change green">PECVD放量</span></div>
+        <div class="stock-row"><span class="stock-name">华海清科</span><span class="stock-desc">CMP设备</span><span class="stock-change green">存储扩产受益</span></div>
+      </div>
+
+      <div class="sector-card">
+        <div class="sector-title">先进封装 <span class="tag tag-cool">估值合理</span></div>
+        <div class="stock-row"><span class="stock-name">长电科技</span><span class="stock-desc">封测龙头</span><span class="stock-change gray">跟随大市</span></div>
+        <div class="stock-row"><span class="stock-name">通富微电</span><span class="stock-desc">AMD代工</span><span class="stock-change gray">跟随大市</span></div>
+        <div class="stock-row"><span class="stock-name">甬矽电子</span><span class="stock-desc">先进封装新势力</span><span class="stock-change gray">跟随大市</span></div>
+        <div class="stock-row"><span class="stock-name">深科技</span><span class="stock-desc">存储封测</span><span class="stock-change gray">跟随大市</span></div>
+      </div>
+
+      <div class="sector-card">
+        <div class="sector-title">MLCC / 上游材料 <span class="tag tag-cool">估值修复</span></div>
+        <div class="stock-row"><span class="stock-name">风华高科</span><span class="stock-desc">MLCC国产化</span><span class="stock-change gray">等待催化</span></div>
+        <div class="stock-row"><span class="stock-name">三环集团</span><span class="stock-desc">陶瓷材料平台</span><span class="stock-change gray">跟随大市</span></div>
+        <div class="stock-row"><span class="stock-name">洁美科技</span><span class="stock-desc">纸质载带</span><span class="stock-change gray">跟随大市</span></div>
+        <div class="stock-row"><span class="stock-name">江丰电子</span><span class="stock-desc">靶材</span><span class="stock-change gray">跟随大市</span></div>
+      </div>
+
+      <div class="sector-card">
+        <div class="sector-title">AI服务器 / 液冷 <span class="tag tag-hot">拐点确立</span></div>
+        <div class="stock-row"><span class="stock-name">工业富联</span><span class="stock-desc">AI服务器代工</span><span class="stock-change red">杀跌</span></div>
+        <div class="stock-row"><span class="stock-name">中科曙光</span><span class="stock-desc">国产服务器</span><span class="stock-change red">杀跌</span></div>
+        <div class="stock-row"><span class="stock-name">英维克</span><span class="stock-desc">液冷全栈</span><span class="stock-change red">跟随</span></div>
+        <div class="stock-row"><span class="stock-name">高澜股份</span><span class="stock-desc">CDU/液冷板</span><span class="stock-change red">跟随</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 关键资讯流 -->
+  <div class="section">
+    <h2><span class="icon">📡</span>今日关键资讯流</h2>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="news-time">10-15</span>
+        <span class="news-tag">PCB</span>
+        <span class="news-content"><strong>沪电股份</strong> Q3盈利加速，前三季度净利润最低<strong>54.5亿元</strong>，AI驱动高端PCB量价齐升，224Gbps速率平台2026量产，胜伟策ADAS域控PCB单车价值量破1800元。</span>
+      </div>
+      <div class="news-item">
+        <span class="news-time">10-13</span>
+        <span class="news-tag">光通信</span>
+        <span class="news-content"><strong>致尚科技</strong>斩获PH客户2027年<strong>5亿美元MPO光纤跳线</strong>需求预测大单；<strong>Marvell</strong>投资者日上调FY31总营收目标至<strong>700-900亿美元</strong>，连接从机架内部向光纤过渡。</span>
+      </div>
+      <div class="news-item">
+        <span class="news-time">10-15</span>
+        <span class="news-tag">机器人</span>
+        <span class="news-content">三花智控拿下特斯拉<strong>6.85亿美元Optimus线性执行器</strong>订单传闻发酵，午后涨停，带动机器人板块集体拉升。</span>
+      </div>
+      <div class="news-item">
+        <span class="news-time">10-15</span>
+        <span class="news-tag">盘面</span>
+        <span class="news-content">风电设备板块杀跌，<strong>大金重工连续两日跌停</strong>，威力传动、新强联跌超10%；前期高位算力硬件股集中兑现。</span>
+      </div>
+      <div class="news-item">
+        <span class="news-time">10-13</span>
+        <span class="news-tag">宏观</span>
+        <span class="news-content">英特尔与博通CEO警告，<strong>对算力基础设施的需求仍将持续</strong>；A 股深V反弹，CPO/光通信/算力等硬科技午后走强。</span>
+      </div>
+      <div class="news-item">
+        <span class="news-time">10-14</span>
+        <span class="news-tag">存储</span>
+        <span class="news-content">美光市值首次跨过<strong>1万亿美元</strong>大关；存储芯片已占半导体总收入<strong>50%-55%</strong>，HBM超级周期延续，三星/铠侠/西部数据全面缩减55nm成熟闪存产能。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 明日看点 -->
+  <div class="section outlook">
+    <h2>🔭 明日看点</h2>
+    <ul>
+      <li>关注<strong>沪电股份</strong>Q3业绩预告后续股价反应，PCB/CCL板块能否成为避风港</li>
+      <li>光通信板块急跌后是否迎来修复，Marvell上调目标后的产业链订单兑现</li>
+      <li>长鑫科技上市进展，存储/HBM板块情绪传导</li>
+      <li>观察创业板能否企稳，前期杀跌的风电/新能源是否释放最后一波抛压</li>
+      <li>机器人板块持续性：三花智控订单落地后产业链扩散机会</li>
+    </ul>
+  </div>
+
+  <!-- 风控提示 -->
+  <div class="risk">
+    <h3>⚠️ 风控提示</h3>
+    <p>本报告基于公开资讯整理，不构成投资建议。市场短期波动放大，注意控制仓位、分散配置。AI产业链部分标的年内涨幅较大，存在获利兑现压力，建议结合自身风险承受能力与持仓成本做决策。追高需谨慎，业绩驱动优于主题博弈。</p>
+  </div>
+
+  <div class="footer">
+    Hermes Agent 自动投研 · 数据综合自央广财经、新浪财经、第一财经、雪球、同花顺等公开渠道 · 仅供研究参考
+  </div>
+
+</div>
+</body>
+</html>
