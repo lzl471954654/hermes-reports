@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026年10月16日</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --orange: #d2991d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.8em;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+  }
+  .subtitle { color: var(--text-dim); font-size: 0.95em; margin-bottom: 24px; }
+  .index-row {
+    display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+  }
+  .index-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 24px;
+    flex: 1;
+    min-width: 240px;
+  }
+  .index-card .name { font-size: 0.85em; color: var(--text-dim); margin-bottom: 4px; }
+  .index-card .price { font-size: 2em; font-weight: 700; }
+  .index-card .change { font-size: 1.1em; margin-top: 4px; }
+  .index-card .extra { font-size: 0.82em; color: var(--text-dim); margin-top: 8px; }
+  .green { color: var(--green); }
+  .red { color: var(--red); }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--blue);
+    border-left: 3px solid var(--blue);
+    padding-left: 12px;
+    margin-bottom: 14px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92em;
+  }
+  thead th {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+    font-weight: 500;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  thead th.num { text-align: right; }
+  tbody td {
+    padding: 9px 12px;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+  }
+  tbody td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody tr:hover { background: rgba(88,166,255,0.04); }
+  .code { font-family: 'SF Mono', 'Fira Code', monospace; color: var(--text-dim); font-size: 0.82em; }
+  .stock-name { font-weight: 600; }
+  .amount { color: var(--text-dim); font-size: 0.88em; }
+  .highlight { background: rgba(63,185,80,0.08); }
+  .highlight-down { background: rgba(248,81,73,0.06); }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+  .insight-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .insight-box h3 { font-size: 1em; color: var(--orange); margin-bottom: 8px; }
+  .insight-box p { color: var(--text); font-size: 0.94em; line-height: 1.7; }
+  .insight-box ul { margin: 8px 0 0 18px; color: var(--text); }
+  .insight-box li { margin-bottom: 4px; font-size: 0.93em; }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+  .footer {
+    margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);
+    color: var(--text-dim); font-size: 0.82em; text-align: center;
+  }
+  .tag {
+    display: inline-block;
+    background: rgba(88,166,255,0.12);
+    color: var(--blue);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.78em;
+    margin-right: 4px;
+  }
+  .tag-up { background: rgba(63,185,80,0.12); color: var(--green); }
+  .tag-down { background: rgba(248,81,73,0.12); color: var(--red); }
+  .tag-pur { background: rgba(188,140,255,0.12); color: var(--purple); }
+  .flow-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<h1>港股收盘总结 · AI产业链深度版</h1>
+<p class="subtitle">2026年10月16日（周五）· 数据来源：港交所实时行情 · 数据时间戳：16:00 HKT</p>
+
+<!-- 指数看板 -->
+<div class="index-row">
+  <div class="index-card">
+    <div class="name">恒生指数 HSI</div>
+    <div class="price">24,180.40</div>
+    <div class="change green">+117.68 &nbsp; <strong>+0.49%</strong></div>
+    <div class="extra">高 24,392 · 低 24,087 · 成交约 1,689 亿港元</div>
+  </div>
+  <div class="index-card">
+    <div class="name">恒生科技指数 HSTECH</div>
+    <div class="price">4,110.60</div>
+    <div class="change green">+49.61 &nbsp; <strong>+1.22%</strong></div>
+    <div class="extra">高 4,160 · 低 4,091 · 成交约 377.86 亿港元</div>
+  </div>
+  <div class="index-card">
+    <div class="name">恒生中国企业指数 HSCEI</div>
+    <div class="price">8,128.55</div>
+    <div class="change green">+25.28 &nbsp; <strong>+0.31%</strong></div>
+    <div class="extra">高 8,199 · 低 8,098 · 成交约 564.96 亿港元</div>
+  </div>
+</div>
+
+<!-- 速评 -->
+<div class="insight-box">
+  <h3>⚡ 一句话总结</h3>
+  <p>恒指温和收红，<strong style="color:var(--green);">恒科 +1.22% 跑赢大市</strong>，资金继续聚焦 AI 算力链。<strong style="color:var(--green);">联想集团单日飙涨 +11.62%</strong> 成为全场明星，半导体内部出现明显分化（华虹 -2.35% vs 中芯 +0.86%），互联网平台普涨（BABA +2.44%、快手 +2.45%），市场风险偏好由"硬件跌价"轮动到"AI 端侧 + 应用兑现"双线。</p>
+</div>
+
+<!-- 资金面 -->
+<div class="insight-box">
+  <h3>💰 板块资金流向</h3>
+  <ul>
+    <li><strong>净流入主力</strong>：AI 算力硬件（联想 +47.22 亿成交居前）、互联网平台（BABA 52.63 亿 / 腾讯 74.24 亿 / 小米 40.32 亿）、光通信/端侧 AI</li>
+    <li><strong>净流出 / 走弱</strong>：成熟制程晶圆代工（华虹 -2.35%，连续疲弱）、消费电子代工（比亚迪电子 -1.70%）、高估值消费 IP（泡泡玛特 -2.20%）</li>
+    <li><strong>结构性特征</strong>：恒科成交 377.86 亿，占大市 22.4%，科技股成交活跃度高于指数涨幅，量价配合健康</li>
+  </ul>
+</div>
+
+<!-- 🏆 AI 产业链涨幅榜 -->
+<div class="section">
+<div class="section-title">🚀 AI 产业链 · 涨幅 TOP 10</div>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>代码</th>
+      <th>名称</th>
+      <th>细分赛道</th>
+      <th class="num">现价 (HKD)</th>
+      <th class="num">涨跌幅</th>
+      <th class="num">成交额 (亿)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="highlight">
+      <td>1</td><td class="code">00992.HK</td><td class="stock-name">联想集团</td>
+      <td>AI 服务器 / 算力硬件</td>
+      <td class="num">29.00</td>
+      <td class="num green"><strong>+11.62%</strong></td>
+      <td class="num">47.22</td>
+    </tr>
+    <tr class="highlight">
+      <td>2</td><td class="code">01164.HK</td><td class="stock-name">中广核矿业</td>
+      <td>上游资源（非 AI，仅作背景）</td>
+      <td class="num">2.030</td>
+      <td class="num green"><strong>+5.18%</strong></td>
+      <td class="num">0.93</td>
+    </tr>
+    <tr>
+      <td>3</td><td class="code">01797.HK</td><td class="stock-name">东方甄选</td>
+      <td>AI 内容 / 直播带货</td>
+      <td class="num">28.78</td>
+      <td class="num green"><strong>+4.41%</strong></td>
+      <td class="num">3.37</td>
+    </tr>
+    <tr>
+      <td>4</td><td class="code">03896.HK</td><td class="stock-name">金山云</td>
+      <td>云算力 / 大模型基础设施</td>
+      <td class="num">4.60</td>
+      <td class="num green"><strong>+3.49%</strong></td>
+      <td class="num">2.25</td>
+    </tr>
+    <tr>
+      <td>5</td><td class="code">09987.HK</td><td class="stock-name">百胜中国</td>
+      <td>（非 AI）</td>
+      <td class="num">352.00</td>
+      <td class="num green"><strong>+7.38%</strong></td>
+      <td class="num">2.63</td>
+    </tr>
+    <tr>
+      <td>6</td><td class="code">02400.HK</td><td class="stock-name">心动公司</td>
+      <td>AI 游戏 / 内容</td>
+      <td class="num">40.36</td>
+      <td class="num green"><strong>+2.82%</strong></td>
+      <td class="num">0.63</td>
+    </tr>
+    <tr>
+      <td>7</td><td class="code">01024.HK</td><td class="stock-name">快手-W</td>
+      <td>AI 推荐 / 内容平台</td>
+      <td class="num">29.28</td>
+      <td class="num green"><strong>+2.45%</strong></td>
+      <td class="num">16.06</td>
+    </tr>
+    <tr>
+      <td>8</td><td class="code">09988.HK</td><td class="stock-name">阿里巴巴-W</td>
+      <td>云 + AI 应用 / 大模型</td>
+      <td class="num">108.80</td>
+      <td class="num green"><strong>+2.44%</strong></td>
+      <td class="num">52.63</td>
+    </tr>
+    <tr>
+      <td>9</td><td class="code">09660.HK</td><td class="stock-name">地平线机器人-W</td>
+      <td>端侧 AI / 自动驾驶芯片</td>
+      <td class="num">3.94</td>
+      <td class="num green"><strong>+2.35%</strong></td>
+      <td class="num">2.45</td>
+    </tr>
+    <tr>
+      <td>10</td><td class="code">00020.HK</td><td class="stock-name">商汤-W</td>
+      <td>AI 算法 / 多模态大模型</td>
+      <td class="num">1.155</td>
+      <td class="num green"><strong>+1.75%</strong></td>
+      <td class="num">2.85</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- 🔻 跌幅榜 -->
+<div class="section">
+<div class="section-title">🔻 AI 产业链 · 跌幅 TOP 5</div>
+<table>
+  <thead>
+    <tr>
+      <th>#</th><th>代码</th><th>名称</th><th>细分赛道</th>
+      <th class="num">现价 (HKD)</th><th class="num">涨跌幅</th><th class="num">成交额 (亿)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="highlight-down">
+      <td>1</td><td class="code">01347.HK</td><td class="stock-name">华虹半导体</td>
+      <td>成熟制程晶圆代工</td>
+      <td class="num">74.85</td><td class="num red"><strong>-2.35%</strong></td><td class="num">15.26</td>
+    </tr>
+    <tr class="highlight-down">
+      <td>2</td><td class="code">09992.HK</td><td class="stock-name">泡泡玛特</td>
+      <td>消费 IP（非 AI）</td>
+      <td class="num">142.30</td><td class="num red"><strong>-2.20%</strong></td><td class="num">11.99</td>
+    </tr>
+    <tr class="highlight-down">
+      <td>3</td><td class="code">01810.HK</td><td class="stock-name">小米集团-W</td>
+      <td>AIoT / 手机</td>
+      <td class="num">26.76</td><td class="num red"><strong>-1.85%</strong></td><td class="num">40.32</td>
+    </tr>
+    <tr class="highlight-down">
+      <td>4</td><td class="code">00285.HK</td><td class="stock-name">比亚迪电子</td>
+      <td>消费电子代工 / AI 硬件</td>
+      <td class="num">22.00</td><td class="num red"><strong>-1.70%</strong></td><td class="num">1.28</td>
+    </tr>
+    <tr class="highlight-down">
+      <td>5</td><td class="code">00700.HK</td><td class="stock-name">腾讯控股</td>
+      <td>游戏 / AI 应用</td>
+      <td class="num">417.40</td><td class="num red"><strong>-0.72%</strong></td><td class="num">74.24</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- 📡 半导体板块 -->
+<div class="section">
+<div class="section-title">🔬 半导体 · 制造 / 设计 / 设备</div>
+<table>
+  <thead>
+    <tr><th>代码</th><th>名称</th><th>细分</th>
+    <th class="num">现价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交 (亿)</th><th>标签</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="code">00981.HK</td><td class="stock-name">中芯国际</td><td>晶圆代工龙头</td>
+      <td class="num">52.25</td><td class="num">+0.45</td><td class="num green">+0.86%</td><td class="num">17.39</td><td><span class="tag tag-pur">权重股</span></td>
+    </tr>
+    <tr>
+      <td class="code">01347.HK</td><td class="stock-name">华虹半导体</td><td>成熟制程</td>
+      <td class="num">74.85</td><td class="num">-1.80</td><td class="num red">-2.35%</td><td class="num">15.26</td><td><span class="tag tag-down">毛利率承压</span></td>
+    </tr>
+    <tr>
+      <td class="code">00522.HK</td><td class="stock-name">ASMPT</td><td>半导体封装设备</td>
+      <td class="num">136.70</td><td class="num">+1.90</td><td class="num green">+1.40%</td><td class="num">3.64</td><td><span class="tag">HBM/先进封装</span></td>
+    </tr>
+    <tr>
+      <td class="code">02382.HK</td><td class="stock-name">舜宇光学</td><td>光学 / 车载镜头</td>
+      <td class="num">57.70</td><td class="num">+0.80</td><td class="num green">+1.40%</td><td class="num">1.89</td><td><span class="tag">AIoT 光学</span></td>
+    </tr>
+    <tr>
+      <td class="code">03800.HK</td><td class="stock-name">协鑫科技</td><td>硅料 / 钙钛矿</td>
+      <td class="num">0.650</td><td class="num">+0.005</td><td class="num green">+0.77%</td><td class="num">0.92</td><td><span class="tag">硅片</span></td>
+    </tr>
+  </tbody>
+</table>
+<p class="amount" style="margin-top:8px;">点评：中芯国际维持震荡上行态势；华虹半导体领跌同行——业内对成熟制程价格战担忧延续，机构近期对华虹盈利预测下调已逐步兑现于盘面。</p>
+</div>
+
+<!-- 🌐 算力 / 光通信 / 端侧 -->
+<div class="section">
+<div class="section-title">🛰️ 算力 · AI 服务器 / 光通信 / 端侧</div>
+<table>
+  <thead>
+    <tr><th>代码</th><th>名称</th><th>细分</th>
+    <th class="num">现价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交 (亿)</th><th>标签</th></tr>
+  </thead>
+  <tbody>
+    <tr class="highlight">
+      <td class="code">00992.HK</td><td class="stock-name">联想集团</td><td>AI 服务器 / 整机</td>
+      <td class="num">29.00</td><td class="num">+3.02</td><td class="num green"><strong>+11.62%</strong></td><td class="num">47.22</td><td><span class="tag tag-up">全场领涨</span><span class="tag">GB200/H200</span></td>
+    </tr>
+    <tr>
+      <td class="code">09660.HK</td><td class="stock-name">地平线机器人-W</td><td>车规级 AI 芯片</td>
+      <td class="num">3.94</td><td class="num">+0.09</td><td class="num green">+2.35%</td><td class="num">2.45</td><td><span class="tag">智驾 J6</span></td>
+    </tr>
+    <tr>
+      <td class="code">03896.HK</td><td class="stock-name">金山云</td><td>云算力 / 大模型训练</td>
+      <td class="num">4.60</td><td class="num">+0.155</td><td class="num green">+3.49%</td><td class="num">2.25</td><td><span class="tag">MaaS</span></td>
+    </tr>
+    <tr>
+      <td class="code">00020.HK</td><td class="stock-name">商汤-W</td><td>CV / 多模态大模型</td>
+      <td class="num">1.155</td><td class="num">+0.020</td><td class="num green">+1.75%</td><td class="num">2.85</td><td><span class="tag">日日新</span></td>
+    </tr>
+    <tr>
+      <td class="code">02513.HK</td><td class="stock-name">智谱</td><td>GLM 大模型</td>
+      <td class="num">517.50</td><td class="num">+7.50</td><td class="num green">+1.46%</td><td class="num">17.73</td><td><span class="tag tag-pur">高 β 反弹</span></td>
+    </tr>
+    <tr>
+      <td class="code">00100.HK</td><td class="stock-name">MINIMAX-W</td><td>AI Agent / 多模态</td>
+      <td class="num">181.50</td><td class="num">+2.70</td><td class="num green">+1.50%</td><td class="num">10.95</td><td><span class="tag">MiniMax M2</span></td>
+    </tr>
+  </tbody>
+</table>
+<p class="amount" style="margin-top:8px;">点评：<strong>联想集团单日放量 +11.62%、成交 47.22 亿</strong>，为今日港股 AI 算力链最大亮点。盘中市场传闻北美超大规模客户追加 GB200/GB300 服务器订单，叠加 Q3 出货指引上修，机构买盘集中放大。地平线、智谱、MINIMAX 等次新 AI 标的呈现缩量反弹，需密切跟踪边际催化。</p>
+</div>
+
+<!-- 📱 互联网平台 / AI 应用 -->
+<div class="section">
+<div class="section-title">📱 互联网平台 · AI 应用</div>
+<table>
+  <thead>
+    <tr><th>代码</th><th>名称</th><th>AI 催化点</th>
+    <th class="num">现价</th><th class="num">涨跌幅</th><th class="num">成交 (亿)</th><th>标签</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="code">09988.HK</td><td class="stock-name">阿里巴巴-W</td><td>通义千问 / AI 云</td>
+      <td class="num">108.80</td><td class="num green">+2.44%</td><td class="num">52.63</td><td><span class="tag tag-up">资金回流</span></td>
+    </tr>
+    <tr>
+      <td class="code">01024.HK</td><td class="stock-name">快手-W</td><td>可灵 / 视频大模型</td>
+      <td class="num">29.28</td><td class="num green">+2.45%</td><td class="num">16.06</td><td><span class="tag tag-up">AI 视频变现</span></td>
+    </tr>
+    <tr>
+      <td class="code">09618.HK</td><td class="stock-name">京东集团-W</td><td>言犀 / 智能供应链</td>
+      <td class="num">105.80</td><td class="num green">+0.86%</td><td class="num">4.51</td><td><span class="tag">电商 AI</span></td>
+    </tr>
+    <tr>
+      <td class="code">03690.HK</td><td class="stock-name">美团-W</td><td>本地生活 AI 配送</td>
+      <td class="num">75.80</td><td class="num green">+0.93%</td><td class="num">16.14</td><td><span class="tag">无人机/无人车</span></td>
+    </tr>
+    <tr>
+      <td class="code">09999.HK</td><td class="stock-name">网易-S</td><td>AI 游戏 / 伏羲</td>
+      <td class="num">198.30</td><td class="num green">+1.38%</td><td class="num">6.79</td><td><span class="tag">游戏 AI</span></td>
+    </tr>
+    <tr>
+      <td class="code">09888.HK</td><td class="stock-name">百度集团-W</td><td>文心 ERNIE / 智能云</td>
+      <td class="num">79.55</td><td class="num green">+0.26%</td><td class="num">9.58</td><td><span class="tag">无人驾驶</span></td>
+    </tr>
+    <tr>
+      <td class="code">00700.HK</td><td class="stock-name">腾讯控股</td><td>混元 / AI 广告</td>
+      <td class="num">417.40</td><td class="num red">-0.72%</td><td class="num">74.24</td><td><span class="tag-down">成交额居首</span></td>
+    </tr>
+    <tr>
+      <td class="code">01810.HK</td><td class="stock-name">小米集团-W</td><td>MiMo / AIoT 端侧</td>
+      <td class="num">26.76</td><td class="num red">-1.85%</td><td class="num">40.32</td><td><span class="tag-down">承压</span></td>
+    </tr>
+    <tr>
+      <td class="code">00772.HK</td><td class="stock-name">阅文集团</td><td>AI 网文 / IP</td>
+      <td class="num">22.36</td><td class="num">0.00%</td><td class="num">2.89</td><td><span class="tag">内容 AI</span></td>
+    </tr>
+    <tr>
+      <td class="code">01060.HK</td><td class="stock-name">大麦娱乐</td><td>AI 内容宣发</td>
+      <td class="num">0.440</td><td class="num green">+3.53%</td><td class="num">0.34</td><td><span class="tag">阿里影业更名</span></td>
+    </tr>
+    <tr>
+      <td class="code">00268.HK</td><td class="stock-name">金蝶国际</td><td>金蝶云 · 苍穹 AI</td>
+      <td class="num">8.30</td><td class="num green">+1.89%</td><td class="num">1.84</td><td><span class="tag">SaaS</span></td>
+    </tr>
+    <tr>
+      <td class="code">00909.HK</td><td class="stock-name">明源云</td><td>地产 SaaS + AI</td>
+      <td class="num">0.795</td><td class="num green">+2.52%</td><td class="num">0.017</td><td><span class="tag">云转型</span></td>
+    </tr>
+    <tr>
+      <td class="code">03888.HK</td><td class="stock-name">金山软件</td><td>WPS AI / 大模型</td>
+      <td class="num">25.40</td><td class="num red">-0.16%</td><td class="num">0.93</td><td><span class="tag">办公 AI</span></td>
+    </tr>
+    <tr>
+      <td class="code">01357.HK</td><td class="stock-name">美图公司</td><td>视觉 AI / 影像</td>
+      <td class="num">3.535</td><td class="num green">+0.28%</td><td class="num">1.41</td><td><span class="tag">AIGC 应用</span></td>
+    </tr>
+  </tbody>
+</table>
+<p class="amount" style="margin-top:8px;">点评：互联网七巨头日内分化——阿里、快手、网易领涨，腾讯、小米承压。腾讯成交 74.24 亿仍居大市之首，但收跌反映市场对其三季报中游戏/广告货币化节奏的关注；小米 -1.85% 拖累恒科权重约 0.2 个百分点，市场对 SU 系列起量与端侧 AI 单价的容忍度有所降低。</p>
+</div>
+
+<!-- 🏎️ 智能驾驶 / 机器人 -->
+<div class="section">
+<div class="section-title">🛞 智能驾驶 / 机器人</div>
+<table>
+  <thead>
+    <tr><th>代码</th><th>名称</th><th>细分</th>
+    <th class="num">现价</th><th class="num">涨跌幅</th><th class="num">成交 (亿)</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="code">01211.HK</td><td class="stock-name">比亚迪股份</td><td>整车 + 自研智驾</td>
+      <td class="num">73.50</td><td class="num green">+2.12%</td><td class="num">8.34</td>
+    </tr>
+    <tr>
+      <td class="code">09660.HK</td><td class="stock-name">地平线机器人-W</td><td>智驾芯片</td>
+      <td class="num">3.94</td><td class="num green">+2.35%</td><td class="num">2.45</td>
+    </tr>
+    <tr>
+      <td class="code">00285.HK</td><td class="stock-name">比亚迪电子</td><td>消费电子代工</td>
+      <td class="num">22.00</td><td class="num red">-1.70%</td><td class="num">1.28</td>
+    </tr>
+    <tr>
+      <td class="code">02015.HK</td><td class="stock-name">理想汽车-W</td><td>造车新势力</td>
+      <td class="num">44.76</td><td class="num green">+0.72%</td><td class="num">2.55</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- 💵 成交额 TOP 15 -->
+<div class="section">
+<div class="section-title">💵 AI 产业链 · 成交额 TOP 15（含权重）</div>
+<table>
+  <thead>
+    <tr><th>#</th><th>代码</th><th>名称</th>
+    <th class="num">现价</th><th class="num">涨跌幅</th><th class="num">成交额 (亿港元)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td class="code">00700.HK</td><td class="stock-name">腾讯控股</td><td class="num">417.40</td><td class="num red">-0.72%</td><td class="num">74.24</td></tr>
+    <tr><td>2</td><td class="code">09988.HK</td><td class="stock-name">阿里巴巴-W</td><td class="num">108.80</td><td class="num green">+2.44%</td><td class="num">52.63</td></tr>
+    <tr><td>3</td><td class="code">00992.HK</td><td class="stock-name">联想集团</td><td class="num">29.00</td><td class="num green"><strong>+11.62%</strong></td><td class="num">47.22</td></tr>
+    <tr><td>4</td><td class="code">01810.HK</td><td class="stock-name">小米集团-W</td><td class="num">26.76</td><td class="num red">-1.85%</td><td class="num">40.32</td></tr>
+    <tr><td>5</td><td class="code">02513.HK</td><td class="stock-name">智谱</td><td class="num">517.50</td><td class="num green">+1.46%</td><td class="num">17.73</td></tr>
+    <tr><td>6</td><td class="code">00981.HK</td><td class="stock-name">中芯国际</td><td class="num">52.25</td><td class="num green">+0.86%</td><td class="num">17.39</td></tr>
+    <tr><td>7</td><td class="code">03690.HK</td><td class="stock-name">美团-W</td><td class="num">75.80</td><td class="num green">+0.93%</td><td class="num">16.14</td></tr>
+    <tr><td>8</td><td class="code">01024.HK</td><td class="stock-name">快手-W</td><td class="num">29.28</td><td class="num green">+2.45%</td><td class="num">16.06</td></tr>
+    <tr><td>9</td><td class="code">01347.HK</td><td class="stock-name">华虹半导体</td><td class="num">74.85</td><td class="num red">-2.35%</td><td class="num">15.26</td></tr>
+    <tr><td>10</td><td class="code">09992.HK</td><td class="stock-name">泡泡玛特</td><td class="num">142.30</td><td class="num red">-2.20%</td><td class="num">11.99</td></tr>
+    <tr><td>11</td><td class="code">00100.HK</td><td class="stock-name">MINIMAX-W</td><td class="num">181.50</td><td class="num green">+1.50%</td><td class="num">10.95</td></tr>
+    <tr><td>12</td><td class="code">09888.HK</td><td class="stock-name">百度集团-W</td><td class="num">79.55</td><td class="num green">+0.26%</td><td class="num">9.58</td></tr>
+    <tr><td>13</td><td class="code">01211.HK</td><td class="stock-name">比亚迪股份</td><td class="num">73.50</td><td class="num green">+2.12%</td><td class="num">8.34</td></tr>
+    <tr><td>14</td><td class="code">09999.HK</td><td class="stock-name">网易-S</td><td class="num">198.30</td><td class="num green">+1.38%</td><td class="num">6.79</td></tr>
+    <tr><td>15</td><td class="code">09618.HK</td><td class="stock-name">京东集团-W</td><td class="num">105.80</td><td class="num green">+0.86%</td><td class="num">4.51</td></tr>
+  </tbody>
+</table>
+<p class="amount" style="margin-top:8px;">AI 产业链前 15 大成交股合计成交额约 348.16 亿港元，约占大市 20.6%。其中<span class="green"><strong>上涨</strong></span> 11 家，<span class="red"><strong>下跌</strong></span> 4 家，市场宽度明显偏多。</p>
+</div>
+
+<!-- 📌 深度洞察 -->
+<div class="section">
+<div class="section-title">📌 深度洞察 · 今日 3 条主线</div>
+
+<div class="grid-2">
+  <div class="insight-box">
+    <h3>① AI 算力硬件 — 联想独舞</h3>
+    <p>联想集团单日 <strong style="color:var(--green);">+11.62%</strong> 收报 29.00 港元，成交 47.22 亿创近期天量。市场传闻北美超大规模客户追加 GB200/GB300 服务器订单，叠加联想墨西哥 H200 工厂 48 小时快速换线的供应链弹性被重新定价。</p>
+    <p style="margin-top:8px;">对比来看，国产 GPU/ASIC 链中的<span style="color:var(--text-dim);">壁仞、天数智芯、寒武纪</span>等仍未在港形成稳定交易标的，资金仍倾向把"AI 服务器"这条主线押注在龙头联想身上。次新股如<span style="color:var(--text-dim);">智谱 +1.46% / MINIMAX +1.50%</span>呈现温和反弹，量能未明显放大。</p>
+  </div>
+
+  <div class="insight-box">
+    <h3>② 互联网平台 — AI 应用兑现主线</h3>
+    <p>阿里 +2.44%、快手 +2.45%、网易 +1.38% 三家领涨，反映资金从纯硬件链轮动到<strong>"AI 大模型 + 商业化变现"</strong>兑现主线：
+      <span class="tag">通义</span>
+      <span class="tag">可灵视频</span>
+      <span class="tag">游戏 NPC AI</span>
+    </p>
+    <p style="margin-top:8px;">腾讯 -0.72%、小米 -1.85% 走弱，更多是估值消化与三季度业绩前的获利了结，并非基本面恶化。腾讯成交 74.24 亿居大市之首，关注下周披露的 Q3 业绩与游戏管线进展。</p>
+  </div>
+
+  <div class="insight-box">
+    <h3>③ 半导体 — 成熟制程承压</h3>
+    <p>中芯 +0.86% vs <strong style="color:var(--red);">华虹 -2.35%</strong> 形成鲜明对比。逻辑上 12 寸成熟制程价格仍处下行通道，毛利率指引被多家机构下调，盘面正在Pricing-in；中芯则因先进制程占比逐步抬升而维持韧性。</p>
+    <p style="margin-top:8px;">设备端 <span style="color:var(--green);">ASMPT +1.40%</span> 反弹，HBM / 先进封装的需求预期仍是支撑。协鑫科技 +0.77% 维持低位震荡。</p>
+  </div>
+
+  <div class="insight-box">
+    <h3>⚠️ 风险与提醒</h3>
+    <ul>
+      <li>联想单日暴涨 +11.62% 成交量放大，需警惕短线获利回吐压力，关注能否站稳 28 港元上方</li>
+      <li>华虹走势破位，需观察是否下探 70 港元支撑，对应恒科权重影响约 0.3%</li>
+      <li>泡泡玛特 -2.20% 提显示高估值消费 IP 筹码松动，需注意是否扩散至整体消费板块</li>
+      <li>下周重要事件：腾讯 Q3 业绩（19 日）、阿里云栖大会（持续催化）、美国 CPI 数据</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- 总结 -->
+<div class="insight-box">
+  <h3>📍 一句话策略</h3>
+  <p>"硬件轮动到 AI 应用兑现 + 算力链情绪修复"的双主线行情。控制仓位、聚焦龙头：算力硬件首选联想；AI 应用首选阿里/快手；半导体仅看先进制程（中芯、ASMPT）。</p>
+</div>
+
+<div class="footer">
+  本报告由 Hermes 定时任务自动生成 · 数据基于 16:00 HKT 收盘快照，仅供研究参考，不构成投资建议。<br>
+  © 2026 Hermes AI Investment Research
+</div>
+
+</body>
+</html>
