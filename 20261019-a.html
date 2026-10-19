@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026年10月19日</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --bg-card-hover: #1c2333;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-secondary: #8b949e;
+    --accent-green: #3fb950;
+    --accent-red: #f85149;
+    --accent-blue: #58a6ff;
+    --accent-cyan: #39d2c0;
+    --accent-purple: #bc8cff;
+    --accent-orange: #d2991d;
+    --gold: #e3b341;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .header .date {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .header .subtitle {
+    color: var(--accent-purple);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  .note-banner {
+    background: rgba(88,166,255,0.06);
+    border: 1px solid rgba(88,166,255,0.2);
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .note-banner strong { color: var(--accent-blue); }
+
+  .overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .index-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    transition: all 0.2s;
+  }
+  .index-card:hover { background: var(--bg-card-hover); border-color: var(--accent-blue); }
+  .index-card .name {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .index-card .value {
+    font-size: 32px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .index-card .change {
+    font-size: 14px;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+  .up { color: var(--accent-red); }
+  .down { color: var(--accent-green); }
+  .index-card .meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+  }
+
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-left: 14px;
+    border-left: 3px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+  }
+  .section-title.chain { border-color: var(--accent-purple); color: var(--accent-purple); }
+  .section-title.catalyst { border-color: var(--gold); color: var(--gold); }
+
+  .chain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 16px;
+  }
+  .chain-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s;
+  }
+  .chain-card:hover { background: var(--bg-card-hover); }
+  .chain-card .chip {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .chip-hot { background: rgba(248,81,73,0.15); color: var(--accent-red); }
+  .chip-warm { background: rgba(210,153,29,0.15); color: var(--accent-orange); }
+  .chip-cool { background: rgba(139,148,158,0.15); color: var(--text-secondary); }
+  .chip-bull { background: rgba(63,185,80,0.15); color: var(--accent-green); }
+
+  .chain-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .chain-card .stocks {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+  .chain-card .stocks span.stock-up { color: var(--accent-red); font-weight: 600; }
+  .chain-card .stocks span.stock-down { color: var(--accent-green); font-weight: 600; }
+  .chain-card .note {
+    font-size: 12px;
+    color: var(--text-secondary);
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    line-height: 1.5;
+  }
+  .chain-card .note strong { color: var(--accent-orange); }
+
+  .catalyst-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .catalyst-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .catalyst-item .icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .catalyst-item .body { flex: 1; }
+  .catalyst-item .body .title {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .catalyst-item .body .desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .catalyst-item .body .impact {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 4px;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .impact-high { background: rgba(248,81,73,0.12); color: var(--accent-red); }
+  .impact-mid { background: rgba(210,153,29,0.12); color: var(--accent-orange); }
+  .impact-ongoing { background: rgba(88,166,255,0.12); color: var(--accent-blue); }
+
+  .heatmap-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .heatmap-table th {
+    text-align: left;
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .heatmap-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .heatmap-table tr:hover td { background: rgba(88,166,255,0.04); }
+  .heatmap-table .sector-name { font-weight: 600; }
+  .sentiment-bull { color: var(--accent-red); }
+  .sentiment-bear { color: var(--accent-green); }
+  .sentiment-neutral { color: var(--accent-orange); }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+  .footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 11px;
+    padding: 20px 0;
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(88,166,255,0.08);
+    color: var(--accent-blue);
+    border: 1px solid rgba(88,166,255,0.15);
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>A股盘后总结 · AI产业链深度版</h1>
+  <div class="date">2026年10月19日（周一）· 基于上交易日 (10/16 周五) 收盘</div>
+  <div class="subtitle">光通信/CPO → 存储/HBM → 半导体设备 → PCB/CCL → 先进封装 → MLCC → 上游材料 → AI服务器/液冷</div>
+</div>
+
+<div class="note-banner">
+  📌 <strong>数据说明：</strong>本报告以 2026/10/16（周五）收盘数据为基准。今日（10/19 周一）早盘开盘前发布，可作为本周交易日的产业逻辑与配置参考。个股具体涨跌幅以收盘后行情数据为准。
+</div>
+
+<!-- ===== 指数概览 ===== -->
+<div class="overview">
+  <div class="index-card">
+    <div class="name">上证指数 (10/16 收盘)</div>
+    <div class="value up">3,716.28</div>
+    <div class="change up">▲ +8.91 (+0.24%)</div>
+    <div class="meta">早盘冲高、午后回落收红 | 两市成交温和</div>
+  </div>
+  <div class="index-card">
+    <div class="name">深证成指 (10/16 收盘)</div>
+    <div class="value down">11,802.46</div>
+    <div class="change down">▼ -0.12%</div>
+    <div class="meta">新能源/医药承压，成长分化</div>
+  </div>
+  <div class="index-card">
+    <div class="name">创业板指 (10/16 收盘)</div>
+    <div class="value down">2,772.38</div>
+    <div class="change down">▼ -0.39%</div>
+    <div class="meta">AI算力链分歧加大、缩量整理</div>
+  </div>
+</div>
+
+<!-- ===== 一句话总结 ===== -->
+<div class="section">
+  <div class="section-title">📌 今日核心</div>
+  <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;font-size:15px;line-height:1.7;">
+    <strong style="color:var(--accent-cyan);">沪指微涨、深创回调，AI产业链内部分化加剧</strong>——光通信/CPO高位震荡、半导体设备韧性较强、存储/HBM受HBM2e 与长鑫IPO 预期反复催化。<br>
+    商务部对欧盟反制+日本出口管制升级预期为设备/材料国产替代逻辑续加码，AI服务器/液冷方向仍处业绩兑现窗口。<br>
+    本周关注：① 三季报披露高峰、② 美光/海力士业绩与HBM 价格指引、③ 国内算力大单落地节奏。
+  </div>
+</div>
+
+<!-- ===== AI产业链全景 ===== -->
+<div class="section">
+  <div class="section-title chain">🔗 AI产业链 · 八大赛道全景</div>
+  <div class="chain-grid">
+
+    <!-- 1. 光通信 / CPO -->
+    <div class="chain-card">
+      <span class="chip chip-hot">🔥 主线高位</span>
+      <h3>① 光通信 / CPO</h3>
+      <div class="stocks">
+        中际旭创 · 新易盛 · 天孚通信<br>
+        长飞光纤 · 源杰科技 · 联特科技
+      </div>
+      <div class="note">
+        <strong>核心逻辑：</strong>LightCounting 上修 2026 年全球光模块市场增速至 60%+，1.6T/3.2T 升级周期延续。英伟达 Spectrum-X CPO 交换机已向核心客户出货，硅光+CPO 双线推进。板块前期涨幅显著，「易中天」+长飞合计市值已超 1.3 万亿，波动率上升但产业趋势未变。
+      </div>
+    </div>
+
+    <!-- 2. 存储 / HBM -->
+    <div class="chain-card">
+      <span class="chip chip-hot">🔥 事件密集</span>
+      <h3>② 存储 / HBM</h3>
+      <div class="stocks">
+        兆易创新 · 澜起科技 · 北京君正<br>
+        江波龙 · 佰维存储 · 长鑫产业链
+      </div>
+      <div class="note">
+        <strong>核心催化：</strong>高盛数据：三星/SK海力士 DRAM+NAND 库存降至 2-4 周（正常 4-5 周），远低于历轮下行周期前 10 周+ 水平。壁仞科技 40 亿港元配售折射上游 HBM 涨价对算力芯片公司的成本压力。长鑫 IPO 进入冲刺期，国产 HBM2e 量产传闻持续发酵。
+      </div>
+    </div>
+
+    <!-- 3. 半导体设备 -->
+    <div class="chain-card">
+      <span class="chip chip-warm">⚡ 反制受益</span>
+      <h3>③ 半导体设备</h3>
+      <div class="stocks">
+        北方华创 · 中微公司 · 拓荆科技<br>
+        芯源微 · 盛美上海 · 至纯科技 · 华海清科
+      </div>
+      <div class="note">
+        <strong>核心催化：</strong>商务部就安世半导体问题持续表态，荷兰经济大臣强硬态度未改，中国反制链条延伸至设备/材料/EDA 方向。ASML 2026 全年营收指引 360-400 亿欧元验证全球扩产周期。三季报披露窗口下，订单/存货数据将成关键验证。
+      </div>
+    </div>
+
+    <!-- 4. PCB / CCL -->
+    <div class="chain-card">
+      <span class="chip chip-bull">📈 业绩兑现</span>
+      <h3>④ PCB / CCL</h3>
+      <div class="stocks">
+        沪电股份 · 胜宏科技 · 深南电路<br>
+        生益科技 · 鹏鼎控股 · 南亚新材
+      </div>
+      <div class="note">
+        <strong>核心逻辑：</strong>AI 服务器主板层数从 20 层+ 向 30 层+ 跃迁，单板价值量翻倍。胜宏科技越南/泰国扩产对接英伟达供应链本地化。M6/M7 级别 CCL 已进入英伟达 GB300 NVL72 认证目录。低空经济+卫星互联网 PCB 带来增量故事。
+      </div>
+    </div>
+
+    <!-- 5. MLCC -->
+    <div class="chain-card">
+      <span class="chip chip-cool">📊 跟随修复</span>
+      <h3>⑤ MLCC</h3>
+      <div class="stocks">
+        风华高科 · 三环集团 · 洁美科技<br>
+        国巨（台） · 村田（日）
+      </div>
+      <div class="note">
+        <strong>核心逻辑：</strong>AI 服务器 MLCC 用量较通用服务器增 3-5 倍，1kV 高容/高耐压产品需求向好。日系龙头（村田/TDK）产能继续向车规倾斜，留出消费电子+工业级空间给中国大陆/台湾厂商。村田稼动率回升为板块情绪先行信号。
+      </div>
+    </div>
+
+    <!-- 6. 先进封装 -->
+    <div class="chain-card">
+      <span class="chip chip-warm">⚡ 景气延续</span>
+      <h3>⑥ 先进封装</h3>
+      <div class="stocks">
+        长电科技 · 通富微电 · 华天科技<br>
+        晶方科技 · 甬矽电子 · 深科技
+      </div>
+      <div class="note">
+        <strong>核心逻辑：</strong>台积电 CoWoS 月产能 2026 年底扩至 75-80K wpm，2027 年仍处紧缺状态。国内封装厂承接 Chiplet/2.5D 溢出订单，长电科技 XDFOI™ 系列进入多家国产 AI 芯片客户验证末段。AI 算力+消费电子旺季共振。
+      </div>
+    </div>
+
+    <!-- 7. 上游材料 -->
+    <div class="chain-card">
+      <span class="chip chip-warm">⚡ 国产替代加速</span>
+      <h3>⑦ 上游材料</h3>
+      <div class="stocks">
+        沪硅产业 · 立昂微 · 南大光电<br>
+        雅克科技 · 彤程新材 · 安集科技 · 彤程新材
+      </div>
+      <div class="note">
+        <strong>核心逻辑：</strong>商务部反制+日本出口管制升级预期下，半导体材料国产化率仍低（光刻胶<10%、12 寸硅片<15%）。大基金三期重点投向材料/零部件/EDA。ArF/KrF 光刻胶验证加速，电子级多晶硅、碳化硅衬底同步打开成长空间。
+      </div>
+    </div>
+
+    <!-- 8. AI服务器 / 液冷 -->
+    <div class="chain-card">
+      <span class="chip chip-hot">🔥 主线强化</span>
+      <h3>⑧ AI服务器 / 液冷</h3>
+      <div class="stocks">
+        工业富联 · 浪潮信息 · 中科曙光<br>
+        英维克 · 高澜股份 · 申菱环境 · 紫光股份
+      </div>
+      <div class="note">
+        <strong>核心催化：</strong>蜂助手 76.7 亿元算力大单后，多家上市公司相继披露算力服务器采购计划。英伟达 GB300 NVL72 单柜功耗突破 1400W，冷板式液冷渗透率从 15% 加速向 40%+ 跃迁。蓝思、申菱通过液冷腔体/快接头切入 NV 供应链。国产 ASIC 算力（华为/寒武纪/海光/摩尔线程）需求扩张。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== 赛道温度一览 ===== -->
+<div class="section">
+  <div class="section-title chain">🌡️ AI赛道情绪温度计</div>
+  <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+    <table class="heatmap-table">
+      <thead>
+        <tr>
+          <th>赛道</th>
+          <th>情绪温度</th>
+          <th>周趋势</th>
+          <th>核心驱动</th>
+          <th>关键标的</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sector-name">光通信/CPO</td>
+          <td class="sentiment sentiment-neutral">📊 高位震荡</td>
+          <td>→ 消化获利盘</td>
+          <td>1.6T 量产 + CPO 出货</td>
+          <td>中际旭创、新易盛、天孚</td>
+        </tr>
+        <tr>
+          <td class="sector-name">存储/HBM</td>
+          <td class="sentiment sentiment-bull">🔥 强烈看多</td>
+          <td>↗ 反复催化</td>
+          <td>库存低位 + 长鑫IPO</td>
+          <td>兆易创新、澜起科技</td>
+        </tr>
+        <tr>
+          <td class="sector-name">半导体设备</td>
+          <td class="sentiment sentiment-bull">📈 看多</td>
+          <td>↗ 反制催化</td>
+          <td>商务部表态 + ASML 超预期</td>
+          <td>北方华创、中微公司</td>
+        </tr>
+        <tr>
+          <td class="sector-name">PCB/CCL</td>
+          <td class="sentiment sentiment-bull">📈 看多</td>
+          <td>↗ 业绩兑现</td>
+          <td>AI 服务器 PCB 升级 + 海外扩产</td>
+          <td>沪电股份、胜宏科技</td>
+        </tr>
+        <tr>
+          <td class="sector-name">先进封装</td>
+          <td class="sentiment sentiment-bull">📈 看多</td>
+          <td>↗ 产能紧缺</td>
+          <td>CoWoS 扩产 + Chiplet 溢出</td>
+          <td>长电科技、通富微电</td>
+        </tr>
+        <tr>
+          <td class="sector-name">AI服务器/液冷</td>
+          <td class="sentiment sentiment-bull">🔥 强烈看多</td>
+          <td>↗ 催化密集</td>
+          <td>算力大单频出 + 液冷标配化</td>
+          <td>工业富联、英维克</td>
+        </tr>
+        <tr>
+          <td class="sector-name">上游材料</td>
+          <td class="sentiment sentiment-bull">📈 情绪升温</td>
+          <td>↗ 国产替代</td>
+          <td>反制催化 + 日本管制预期</td>
+          <td>南大光电、安集科技</td>
+        </tr>
+        <tr>
+          <td class="sector-name">MLCC</td>
+          <td class="sentiment sentiment-neutral">📊 温和</td>
+          <td>→ 跟随修复</td>
+          <td>AI 用量提升 + 日系转产车规</td>
+          <td>风华高科、三环集团</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== 核心催化剂 ===== -->
+<div class="section">
+  <div class="section-title catalyst">⚡ 本周核心催化剂</div>
+  <div class="catalyst-list">
+
+    <div class="catalyst-item">
+      <div class="icon">🛡️</div>
+      <div class="body">
+        <div class="title">商务部对欧盟/荷兰反制链条延续</div>
+        <div class="desc">安世半导体事件持续发酵，荷兰经济大臣强硬姿态未改。中国反制已延伸至设备/材料/EDA 方向，半导体设备与上游材料国产替代紧迫性进一步提升，板块情绪获得持续支撑。</div>
+        <span class="impact impact-high">影响：高 | 持续性：中长期</span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="icon">💾</div>
+      <div class="body">
+        <div class="title">HBM 供需失衡 + 长鑫存储 IPO 冲刺</div>
+        <div class="desc">高盛指出三星/SK海力士 DRAM+NAND 库存降至 2-4 周历史低位，HBM 价格上涨对算力芯片公司构成成本压力（壁仞配售 40 亿港元印证）。长鑫 IPO 推进有望成为板块重要催化窗口。</div>
+        <span class="impact impact-high">影响：高 | 持续性：中期</span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="icon">📡</div>
+      <div class="body">
+        <div class="title">光通信：英伟达 CPO 出货 + 1.6T/3.2T 升级</div>
+        <div class="desc">英伟达 Spectrum-X CPO 交换机向核心客户出货，硅光+CPO 双线推进。LightCounting 上修 2026 年全球光模块市场增速预期。9 月 ECOC、CIOE 展会持续为板块提供密集催化窗口。</div>
+        <span class="impact impact-high">影响：高 | 持续性：中长期</span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="icon">💧</div>
+      <div class="body">
+        <div class="title">液冷标配化 + 算力大单频出</div>
+        <div class="desc">蜂助手 76.7 亿算力大单、多家上市公司披露算力服务器采购。GB300 NVL72 单柜功耗破 1400W，冷板式液冷从「选配」变「标配」，渗透率从 15% 向 40%+ 跃迁。国产 ASIC 算力（华为/寒武纪/海光/摩尔线程）需求持续扩张。</div>
+        <span class="impact impact-mid">影响：中 | 持续性：中期</span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="icon">🏭</div>
+      <div class="body">
+        <div class="title">三季报披露高峰 + ASML 营收指引上修</div>
+        <div class="desc">10 月中下旬进入 A 股三季报披露高峰，AI 产业链龙头业绩兑现度将主导市场方向。ASML 2026 全年营收指引上修至 360-400 亿欧元，EUV+DUV 双超预期，验证全球半导体扩产周期远未见顶。</div>
+        <span class="impact impact-mid">影响：中 | 持续性：中长期</span>
+      </div>
+    </div>
+
+    <div class="catalyst-item">
+      <div class="icon">🔌</div>
+      <div class="body">
+        <div class="title">美股映射：英伟达/海力士 三季报窗口</div>
+        <div class="desc">英伟达 GB300 量产爬坡、SK海力士 HBM4 进展成为全球 AI 算力景气度风向标。DeepSeek 新模型降低 75% HBM 占用传闻若被验证，可能引发 HBM 需求结构重估。A 股 AI 算力链与美股映射度高，需关注情绪传导。</div>
+        <span class="impact impact-ongoing">影响：事件驱动 | 时间窗口：10 月下旬</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 风险提示 ===== -->
+<div style="background:rgba(248,81,73,0.06);border:1px solid rgba(248,81,73,0.2);border-radius:10px;padding:16px 20px;margin-bottom:24px;">
+  <div style="font-weight:700;color:var(--accent-red);margin-bottom:6px;">⚠️ 短期风险关注</div>
+  <ul style="font-size:13px;color:var(--text-secondary);padding-left:18px;line-height:1.8;">
+    <li><strong>三季报披露期：</strong>本周进入密集披露窗口，业绩不及预期个股可能放大板块波动，警惕高估值+业绩证伪的双杀。</li>
+    <li><strong>融资余额高位：</strong>A 股融资余额近期持续攀升，CPO/存储赛道筹码高度集中，杠杆资金获利了结压力加大。</li>
+    <li><strong>减持潮未消：</strong>年内半导体板块产业减持公告已超 90 家，板块高位需密切跟踪产业资本动向。</li>
+    <li><strong>CPO 高波动：</strong>前期「易中天」单日振幅普遍超过 10%，高位筹码换手剧烈，日内波动风险显著。</li>
+    <li><strong>海外映射风险：</strong>美股 AI 算力股（英伟达/海力士/美光）若大幅回调，A 股 AI 链大概率跟随，注意美股财报窗口情绪传导。</li>
+    <li><strong>地缘扰动：</strong>中美/中欧科技博弈升温可能引发突发反制或管制升级，节奏不可预测。</li>
+  </ul>
+</div>
+
+<div class="footer">
+  <p>📊 A股盘后总结 · AI产业链深度版 | 2026年10月19日（周一）发布</p>
+  <p style="margin-top:4px;">数据基准：2026/10/16（周五）收盘 · 数据来源：公开市场数据 · 仅供参考，不构成投资建议</p>
+  <div class="tag-row" style="justify-content:center;margin-top:10px;">
+    <span class="tag">CPO</span><span class="tag">光通信</span><span class="tag">HBM</span><span class="tag">半导体设备</span>
+    <span class="tag">PCB</span><span class="tag">先进封装</span><span class="tag">液冷</span><span class="tag">AI服务器</span>
+    <span class="tag">MLCC</span><span class="tag">上游材料</span>
+  </div>
+</div>
+
+</body>
+</html>
