@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年10月21日</title>
+<style>
+body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; line-height: 1.75; }
+h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 10px; font-size: 1.75em; }
+h2 { color: #f0883e; margin-top: 34px; border-bottom: 1px solid #21262d; padding-bottom: 6px; }
+h3 { color: #7ee787; margin-top: 22px; font-size: 1.1em; }
+a { color: #58a6ff; text-decoration: none; border-bottom: 1px dotted #30363d; }
+a:hover { color: #79c0ff; border-bottom-color: #58a6ff; }
+.headline, .p0 { background: #161b22; border-left: 4px solid #7ee787; padding: 15px 18px; margin: 12px 0; border-radius: 6px; }
+.p1, .p2 { background: #161b22; padding: 13px 16px; margin: 8px 0; border-radius: 6px; }
+.p1 { border-left: 4px solid #58a6ff; }
+.p2 { border-left: 4px solid #484f58; }
+.insight { background: #1a2332; border: 1px solid #58a6ff; padding: 16px 18px; margin: 22px 0; border-radius: 8px; }
+.warn { background: #241a1a; border-left: 4px solid #f85149; padding: 13px 16px; margin: 10px 0; border-radius: 6px; }
+.tag { display: inline-block; background: #21262d; color: #8b949e; padding: 2px 9px; border-radius: 12px; font-size: 0.78em; margin-right: 5px; margin-bottom: 3px; }
+.tag.hot { background: #3d1d1d; color: #ff7b72; }
+.tag.p { background: #1d2b3d; color: #79c0ff; }
+.quote { border-left: 3px solid #30363d; color: #8b949e; padding-left: 12px; margin: 10px 0; font-size: 0.93em; }
+.divider { border: none; border-top: 1px solid #21262d; margin: 26px 0; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92em; }
+th, td { border: 1px solid #30363d; padding: 7px 9px; text-align: left; }
+th { background: #161b22; color: #79c0ff; }
+code { background: #161b22; color: #ffa657; padding: 1px 5px; border-radius: 4px; font-size: 0.9em; }
+.src { color: #6e7681; font-size: 0.82em; margin-top: 8px; }
+.footer { color: #484f58; font-size: 0.8em; text-align: center; margin-top: 44px; border-top: 1px solid #21262d; padding-top: 16px; }
+strong { color: #e6edf3; }
+</style>
+</head>
+<body>
+
+<h1>🔬 AI 前沿日报 · 2026年10月21日</h1>
+<p style="color:#8b949e;font-size:0.9em;">
+<i>本日覆盖 2026-10-19 ~ 10-21 窗口 · 检索 HN / Reddit / arXiv / GitHub / 官方博客 / 中文媒体 / arXiv 论文 · 筛选 16 条</i>
+</p>
+
+<hr class="divider">
+
+<h2>🔥 今日头条</h2>
+
+<div class="headline">
+<h3 style="margin-top:0;">DeepSeek 开源 DeepInfer，并且顺手把「推理到底赚不赚钱」这个悬了两年的问题算清了</h3>
+
+<p><strong>发生了什么：</strong>10 月 20 日，DeepSeek 在 GitHub 开源了 <code>deepseek-ai/DeepInfer</code>（Apache-2.0，10/16 建仓，5 天冲到 <strong>12,143 stars / 1,096 forks</strong>）。这是 DeepSeek V4.1-Flash 生产线的推理框架，首发支持 <strong>NVIDIA SM100 GPU 和华为昇腾 950 NPU</strong>。同一天 HN 上这条帖子冲到 <strong>2101 分 / 63 评论</strong>——是本周 HN 全站最高分。</p>
+
+<p>真正的引爆点不是代码，是 README 里那句被截图疯转的话：</p>
+
+<div class="quote">「基于这个框架，我们已为 DeepSeek V4.1 Flash 搭建了高吞吐、低延迟的大规模推理服务。目前<strong>单个集群的服务吞吐是 155 万亿 tokens/天</strong>，整体收入是<strong>每卡每小时 38 美元</strong>（非高峰定价）。」</div>
+
+<p><strong>意味着什么——三个层次：</strong></p>
+
+<p><strong>1）单位经济学第一次被开源代码背书。</strong>过去两年整个行业争论的是「AI 推理到底能不能赚钱」。DeepSeek 之前给出的成本数据总被质疑是自说自话。现在这套跑出 155T tokens/天 的系统<strong>以 Apache-2.0 协议完整开源了</strong>——虽然只支持自家模型 + 两款特定硬件，但这足以让任何人都去验证这个 $38/card/hr 的说法。HN 上的反推很粗略：按净现金 $35/hr 算，一张 3 万美元的 H100/B300 大约 850 小时（约 35 天）回本。争议同样真实——<a href="https://news.ycombinator.com/item?id=50163277">HN 评论区</a>有人指出 155T 远超 OpenRouter 全平台上周总量（164T），怀疑单位换算，也有人说这只是「一家中国公司做给全世界看的开源引擎」，通用性远不如 vLLM/SGLang。</p>
+
+<p><strong>2）对 agent 开发者的直接含义：token 单价的护城河正在塌。</strong>推理引擎一旦开源并被 port 到通用栈，OpenRouter 这类聚合层的定价权会被削。评论区一个尖锐的观察：<em>「这就是美国 frontier 实验室的 kamikaze。」</em>——意思是开源推理栈对 frontier 厂的杀伤，可能比对用户还大，因为它同时（a）压低了所有人的价格底线，（b）让「不发布 open weight」失去了成本优势。</p>
+
+<p><strong>3）昇腾 950 是一张明牌。</strong>一个开源推理框架<strong>同时</strong>支持 NVIDIA SM100 和华为昇腾 950，这个组合在 2024 年是不可想象的。同一天还有报道称 DeepSeek 正在为华为设计 AI 芯片。国产算力栈从「能不能跑」到「能不能以最优方式跑」，中间只隔了一次开源。</p>
+
+<p><strong>行动建议：</strong>如果你在做 agent 成本模型，今天该重算一次——不要假设明年 token 单价会跟 frontier 报价走，参考对象应该是「开源推理栈 + 竞争性硬件」的边际成本。同时值得盯的是 DeepSeek 会不会像 vLLM 支持其他模型那样，把 DeepInfer 的优化 kernel 反哺给生态。</p>
+
+<div class="src">来源：GitHub deepseek-ai/DeepInfer · <a href="https://news.ycombinator.com/item?id=50163277">HN 2101分讨论</a> · ZeroHedge（10/20） · 2026-10-20</div>
+</div>
+
+<hr class="divider">
+
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+<span class="tag hot">P0</span><span class="tag">Google Research</span><span class="tag">递归自我改进</span><span class="tag">15.3k stars</span>
+<h3 style="margin-top:8px;">Harness²：Google 开源「递归 agent harnessing」——不碰模型权重，自己改自己</h3>
+
+<p><strong>发生了什么：</strong>Google Cloud AI Research 开源 <a href="https://github.com/google-research/harness2">google-research/harness2</a>（Apache-2.0，10/6 建仓，已 <strong>15,309 stars / 1,413 forks</strong>，仅 3 页 commits——说明仓库小、落地密度高）。论文 <a href="https://arxiv.org/abs/2610.14224">arXiv:2610.14224</a>，标题直白：<em>Harness²: Recursive Agent Harnessing for an Open World</em>。</p>
+
+<p>核心设定：<strong>模型权重完全冻结，agent 只优化自己周围的「harness」</strong>——system prompt、guardrails、memory、tool guidance、subagents、skills、scripts、plugins 这八个可编辑组件。它连接两层递归：</p>
+
+<ul>
+<li><strong>Task-level recursion</strong>：用 <strong>Propose–Probe–Compose</strong> 三步对比式改进当前任务的 harness——提议改动、在同一任务上探测改动效果、再从执行间的行为对比里合成改良版本。<strong>关键点是它不需要 ground-truth verifier</strong>，这正是开放世界任务（测试时遇到训练时没见过的新任务）的核心难题。</li>
+<li><strong>Harnessing-level recursion</strong>：把每次任务采纳的 harness 和「有证据支持的经验教训」沉淀进一个持久化的 improvement harness，指导未来任务。</li>
+</ul>
+
+<p>效果：3 个职业 benchmark × 4 组 model-harness 配置，单步 Harness² 稳定优于基线——WorkBuddy-Bench <strong>+11.5 分</strong>、JobBench <strong>+4.5 分</strong>、LAB partial pass rate <strong>+11.8 个百分点</strong>，且提高 task-level 递归预算还能继续涨。</p>
+
+<p><strong>意味着什么：</strong></p>
+
+<p>这是今天最值得反复读的论文，因为它把「agent 能力」这件事的瓶颈重新定位了。过去两年行业的默认叙事是<strong>「等更强的模型」</strong>，Harness² 明确提出另一半的答案：<strong>模型可以用同一个，关键差异在 harness</strong>。今天 HN 上还有一篇爆款 <a href="https://github.com/IsuruMaduranga/harness-engineering-101">Harness Engineering 101</a>（132 分）提出同一个论点——<em>「LLM 是大脑，harness 是身体」</em>，评论区吵翻了比喻该怎么用（有人吐槽「身体」这个类比太累赘，有人给出更好的「烤箱/厨房」版本）。</p>
+
+<p><strong>但要清醒看争议：</strong>HN 上最扎心的评论来自 <code>mchusma</code>——<em>「这不就是我们过去一年一直在做的事吗？从过去的 run 里学习，更新 skills 和 system prompt。」</em> 还有 <code>cykros</code> 说「这听起来跟 Hermes-agent 已经在做的事没区别」。这个批评是成立的：<strong>Propose–Probe–Compose 是好工程，但离「递归自我改进」这个宏大叙事还有距离。</strong>论文自己的数字也支持这种怀疑——JobBench 只有 +4.5 分，说明跨领域泛化还很弱。真正的新意在于它把这件事形式化并开源了。</p>
+
+<p><strong>对 agent 开发者的具体用法：</strong>去读 <a href="https://github.com/google-research/harness2/blob/main/docs/BENCHMARKS.md">docs/BENCHMARKS.md</a> 里的 benchmark 设计（JobBench / LAB / WorkBuddy-Bench 三个职业任务集），然后抄它的<strong>「support count」概念</strong>——给每条经验规则标注它是从多少个不同训练任务里提炼出来的，高 support 意味着这条规则泛化性强而非一次性经验。这正好可以嫁接到你现有的 skill/memory 系统里做规则筛选。</p>
+
+<div class="src">来源：GitHub google-research/harness2 · <a href="https://arxiv.org/abs/2610.14224">arXiv:2610.14224</a> · <a href="https://news.ycombinator.com/item?id=50151059">HN 78分讨论</a> · Harness Engineering 101 <a href="https://news.ycombinator.com/item?id=50151390">HN 132分</a> · 2026-10-19</div>
+</div>
+
+<div class="p0">
+<span class="tag hot">P0</span><span class="tag">IBM Research</span><span class="tag">记忆学习</span><span class="tag">τ²-bench</span>
+<h3 style="margin-top:8px;">ALTK-Evolve：GPT-4.1 + 一份「学到的手册」，把客服 agent 送上 τ²-bench 榜首</h3>
+
+<p><strong>发生了什么：</strong>IBM Research 10 月 20 日在 <a href="https://huggingface.co/blog/ibm-research/altk-evolve-bc">Hugging Face 博客</a>发布 ALTK-Evolve。做法极其简单：<strong>不改任何权重</strong>，让 GPT-4.1 分析自己在训练任务上的轨迹，把成功和失败蒸馏成短的行为规则（「如何验证客户身份」「如何确认交易」「如何处理退货」），追加到 system prompt 末尾，然后在 held-out 测试集上原样使用。</p>
+
+<p>用的是 Sierra 的 τ²-bench 客服 benchmark——严格二值奖励，只有最终数据库状态匹配才算通过，跑的是<strong>官方原版 ReAct scaffold</strong>，唯一改动就是那段 learned guidelines。</p>
+
+<table>
+<tr><th>配置</th><th>Retail Mean Acc</th><th>Retail Pass^4</th><th>Airline Mean Acc</th><th>Airline Pass^4</th></tr>
+<tr><td>baseline（0 条）</td><td>78.1%</td><td>57.5%</td><td>57.5%</td><td>35.0%</td></tr>
+<tr><td>sup3（31/14 条高置信）</td><td>78.8% (+0.7)</td><td>60.0% (+2.5)</td><td>60.0% (+2.5)</td><td>45.0% (+10.0)</td></tr>
+<tr><td><strong>lossless</strong>（292/101 条全量）</td><td><strong>82.5% (+4.4)</strong></td><td><strong>67.5% (+10.0)</strong></td><td><strong>65.0% (+7.5)</strong></td><td>40.0% (+5.0)</td></tr>
+</table>
+
+<p>Retail 域的 <strong>67.5% Pass^4</strong> 高于 10 月 12 日 leaderboard 快照里<strong>所有</strong>零售类条目。更有说服力的是对照组：他们又用 <strong>gpt-5.5</strong> 重跑 airline（frontier 模型 + 学到的手册），accuracy 从 72.5% → 82.5%（+10），<strong>Pass^4 从 55% → 70%（+15）</strong>。手册对 frontier 模型照样有用，而且是从更高的地板往上跳。</p>
+
+<p><strong>成本账算得比性能账更有意思：</strong>提升不是靠聊更久换来的。在「两种配置都解出」的匹配任务集上，加手册的 agent <strong>对话轮数反而略少</strong>（retail 10.59 → 10.16，airline 9.15 → 8.82）。代价全在输入侧：retail 的 292 条指南把每次对话成本从 $0.084 推到 $0.139（+65%），airline 更温和（+32%）——而且生产环境里这段指南 block 每次调用都一样，<strong>prompt caching 基本能吃回来</strong>。作者原话：这是「accuracy、reliability、time-to-completion 三者同时朝对的方向走」的反常交易。</p>
+
+<p><strong>意味着什么（这是今天最反直觉的一条）：</strong></p>
+
+<p>市场默认「越强的模型越不需要手工脚手架」。ALTK-Evolve 直接给了反例：<strong>同一个模型自己生成的规则手册，把 frontier 模型也推高了 15 个点的可靠性</strong>。原因不难猜：瓶颈不在智力，在<strong>领域规程的隐式知识</strong>——「执行任何写数据库操作前必须拿到用户明确批准」「每步只做一个动作，别把 tool call 和面向用户的消息放同一轮」。这些是 τ²-bench 的 policy document 写了但模型不会稳定遵守的东西。</p>
+
+<p>还有一条极实用的结论：<strong>指南剂量是个旋钮，不是常数，而且两个领域的最优值相反</strong>。retail 越多越好（要 292 条全量才跳起来），airline 在可靠性端反转为「14 条高置信核心」打败 292 条全量。<strong>support count 阈值要按域调，不能硬编码。</strong></p>
+
+<p><strong>对你的 agent 怎么用：</strong>这是今天最可以直接抄走的一条工程实践。把你 agent 的失败轨迹喂回给模型，让它蒸馏出带 support count 的规则块，塞进 system prompt，前缀缓存兜住成本。三天能出 prototype。注意 pass^k 这个指标的选择——<strong>「4 次全对才算过」比「平均正确率」更贴近客服场景的真实约束</strong>（退款成功 3/4 意味着四分之一的客户被坑）。</p>
+
+<div class="src">来源：Hugging Face Blog · IBM Research · τ²-bench（Sierra） · 2026-10-20</div>
+</div>
+
+<div class="p1">
+<span class="tag p">P1</span><span class="tag">安全</span>
+<h3 style="margin-top:8px;">20+ 个 Cairn 攻击面板暴露在公网：一个人 + 几千美元 + 一支 agent 军队打进了 100 个站点</h3>
+
+<p>NorForge 10 月 19 日发布 <a href="https://norforge.com/blog/inside_cairn">Inside Cairn</a> 调查报告。Cairn 是一套 AI 渗透测试系统——给它目标和意图，它就能协调一支 agent 队伍调查目标、找漏洞、尝试攻破。起因是 Gambit Security 9 月披露的针对在线商城的入侵行动，攻击者恢复了其暂存服务器，发现用了 <strong>Hermes、Strix、Cairn</strong> 等 AI harness。NorForge 用 Shodan / Censys 扫描后发现<strong>20 多个暴露在公网的 Cairn 面板</strong>，泄露了大量目标信息（受害方身份、已发现漏洞、账户密钥、是否已被攻破）。路透社同日跟进报道：<strong>一名黑客用 AI agents 和几千美元买到的算力，打穿了 100 个网站</strong>，受害者包括 John Deere、SharkNinja。</p>
+
+<p>最刺眼的数字来自报告本身：<em>「在我们观察到的这些活动里，所见 harness 的<strong>平均成功率在 10% 左右</strong>。」</em>——10% 的成功率，攻击面却是全自动化的。</p>
+
+<p><strong>意味着什么：</strong>注意报告里的一个关键转折——<strong>相当一部分暴露的面板看起来是合法的红队演练</strong>，这让客户自己都面临风险。这句话的潜台词比新闻标题更值得警惕：<strong>AI 攻防工具已经在两侧同时部署，而「谁能访问控制面板」这件事没有任何行业标准。</strong></p>
+
+<p><strong>行动建议：</strong>三点，都很具体：(1) 你的 agent 控制面<strong>绝不能暴露在公网</strong>——Hermes 这类有 web UI 的 harness 必须绑定 localhost 或强制认证；(2) 如果你在做红队/安全测试工具，把面板默认配置改成 fail-closed；(3) 认真考虑 egress allowlist——10% 的成功率乘以无限制的出网能力，是攻击者能接受的赔率。</p>
+
+<div class="src">来源：NorForge（10/19） · Reuters（10/19） · The Verge · Gambit Security · <a href="https://news.ycombinator.com/item?id=50152302">HN 讨论</a></div>
+</div>
+
+<div class="p1">
+<span class="tag p">P1</span><span class="tag">供给侧变化</span>
+<h3 style="margin-top:8px;">网站开始系统性关闭大门：Amazon 对购物 agent 关闸，Shopify 开城</h3>
+
+<p>The Verge 报道零售与内容平台正在大规模屏蔽 AI agent，且<strong>即使 agent 持有正规访问凭证也在拦</strong>。社区里最具代表性的例子是 Meta Muse 购物 agent：与其被 Amazon 等巨头封杀，不如直接<strong>与 Walmart、Gap、Sephora、Best Buy 结盟</strong>开放，同时 Shopify 也把自己的店铺网络向 agent 敞开。Zuckerberg 9 月在 Sources 播客里说 Muse 的商业模式是抽成「a very small cut」——<strong>钱的流向反转了：从广告变成交易佣金</strong>。</p>
+
+<p>另一个容易被忽略的细节：<a href="https://news.ycombinator.com/item?id=50141657">HN 讨论（156 分）</a>里有人指出，连普通用户注册 GitHub 账号都被 DataDome 判成 bot；买火车票要装 chromium 而不是用 firefox。<strong>WAF 正在大规模误伤真人</strong>——一位 DataDome 员工主动在评论区承认这个问题并说正在改进 IP 段画像。</p>
+
+<p><strong>意味着什么：</strong>技术派和商业派的分歧点很清楚。技术派认为「这只是 API 的回归，我们以前就有——Reddit、Zillow、Wells Fargo 都限制过 API」，商业派认为「这次不一样，因为 agent 让跨店比价成本趋近于零，直接击穿整个电商的利润结构」。</p>
+
+<p><strong>值得关注的收敛信号：</strong>评论里被反复提起的 L402 / HTTP 402 Payment Required 微支付协议，以及 Cloudflare 正在做的 agent 微支付。如果这条路走通，agent 访问互联网会像 API 经济一样变成「付费换数据」——那今天这些封堵决策很多都会显得短视。<strong>对做浏览器 agent 的团队，现在就该把「拿到站点授权」设计成一等公民能力，而不是事后加的补丁。</strong></p>
+
+<div class="src">来源：The Verge · <a href="https://news.ycombinator.com/item?id=50141657">HN 讨论</a> · DataDome 表态 · 2026-10-18 ~ 10-19</div>
+</div>
+
+<hr class="divider">
+
+<h2>⚡ 小模型 & 效率革命</h2>
+
+<div class="p0">
+<span class="tag hot">P0</span><span class="tag">diffusion LLM</span><span class="tag">$0.20/$0.70</span><span class="tag">1M context</span>
+<h3 style="margin-top:8px;">Mercury 3：diffusion LLM 打到 1,068 tok/s，$0.20/M 输入——价格战从下一档开始</h3>
+
+<p>Inception Labs 10 月 19 日发布 <a href="https://www.inceptionlabs.ai/blog/introducing-mercury-3">Mercury 3</a>，据称是迄今最强的生产级 diffusion LLM。</p>
+
+<table>
+<tr><th>指标</th><th>数值</th></tr>
+<tr><td>速度</td><td><strong>1,068 tok/s</strong>（NVIDIA GPU），作者称 5-10× 于优化后的 frontier 模型</td></tr>
+<tr><td>质量</td><td>称在匹配 reasoning effort 下超过 GPT-6 Luna 和 Claude Haiku 5.5</td></tr>
+<tr><td>上下文</td><td><strong>1M tokens</strong>（Mercury 2.5 是 260K）</td></tr>
+<tr><td>定价</td><td><strong>$0.20/M 输入、$0.70/M 输出</strong>，首发 5 折 $0.10/M</td></tr>
+</table>
+
+<p>对比参照：Haiku 5.5 是 1M context + adaptive thinking 被重新定价的那款小模型；Mercury 3 用<strong>更便宜一半的价格</strong>和数量级更高的吞吐去对标它。HN 255 分，实测反馈两极：有开发者拿到 300-400 tok/s「远超我以前用的任何模型」，也有人只测到 160 tok/s 并质疑宣传值。</p>
+
+<p><strong>为什么 diffusion 路线值得关注——以及它真实的软肋：</strong></p>
+
+<p>diffusion LLM 一次并行解码多个 token 再迭代修正，速度优势来自这里。但 HN 上一位研究者的技术解释很关键：<strong>它无法像标准自回归模型那样靠 batching 摊薄内存带宽</strong>。Google 去年把 Gemini Diffusion demo 悄悄下架、Diffusion Gemma 也表现平平，根因就在这——大规模多用户服务恰恰是 batching 收益最大的场景。有评论直指：<em>「llama.cpp 不支持它，vLLM 不能真正卸载到 host RAM，HF transformers 只支持 MoE 的 f16 量化」</em>——对低配设备来说，理论上最该受益的 diffusion 反而跑不起来。</p>
+
+<p>还有个 agent 开发者必须知道的隐忧（来自 <code>fraywing</code>）：<em>「这些模型因为非线性地产出 token，会不会更难推理？我们依赖非 latent 的推理来知道模型在想什么。」</em>——<strong>diffusion 模型没有天然的 CoT 暴露面</strong>。对需要 step-level 可解释性和监控的 agent 架构，这是个真实的设计约束。</p>
+
+<p><strong>行动建议：</strong>把 Mercury 3 当作<strong>「延迟会复利」的场景</strong>来评估——搜索 agent、语音管线、coding subagent。OpenRouter 官方描述里就是这个词：<em>"latency compounds"</em>。如果你现在因为 TTFT 太慢而放弃某类 agent 设计，这可能是第一个让它跑起来的选项。<strong>但别把它放在需要审计推理链路的合规场景。</strong></p>
+
+<div class="src">来源：Inception Labs · OpenRouter · <a href="https://news.ycombinator.com/item?id=50155245">HN 255分讨论</a> · 2026-10-19</div>
+</div>
+
+<div class="p0">
+<span class="tag hot">P0</span><span class="tag">端侧 agent</span><span class="tag">131K context</span><span class="tag">open-weight</span>
+<h3 style="margin-top:8px;">LFM2.5-24B-A2B：2B 激活参数跑 184 tok/s，Liquid AI 把 LFM2.5 家族收官</h3>
+
+<p>Liquid AI 10 月 13 日发布 <a href="https://www.liquid.ai/blog/lfm2-5-24b-a2b">LFM2.5-24B-A2B</a>，24B 总参 / <strong>2B 激活</strong>的 MoE reasoning 模型，131K context，<strong>open-weight</strong>（base + post-trained 双 checkpoint）。这是 LFM2.5 家族的收官作，跨度两个数量级：230M → 24B。</p>
+
+<p>关键数字：</p>
+<ul>
+<li><strong>Apple M5 Max 上 184 tok/s</strong>，单张 NVIDIA B300 上最高 <strong>21K output tok/s</strong>（Q4_K_M 量化，4K 输入上下文）</li>
+<li>LiveClaw 48.09，与参数量多约 50% 的 Qwen3.6-35B-A3B 打平（38.19）</li>
+<li><strong>AutomationBench 27.69 vs 8.72</strong>——这是碾压级的差距，也是最能说明「为 agent 而生」的指标</li>
+<li>相比同级 MoE 端侧快 <strong>1.7×</strong>（因为只有 2B 激活）</li>
+</ul>
+
+<p>架构上两个明确变化：context 从 32,768 扩到 <strong>131,072</strong>；tokenizer 词表从 65K 原地扩到 <strong>128K</strong>（更好的非拉丁文本分词）。预训练从 17T 扩到 <strong>33T tokens</strong>，mid-training 两阶段（2T @32K 偏推理/数学/代码 + 300B @131K 偏长上下文），<strong>tool call 和多轮轨迹贯穿两个阶段</strong>。另一个重要转变：这是<strong>纯 reasoning 模型</strong>，先显式输出 CoT 再给答案——作者说这是为了利用它的高 decode 速度。</p>
+
+<p><strong>意味着什么：</strong>131K context + 端侧 184 tok/s 这个组合，第一次让「<strong>本地常驻的 agent</strong>」在技术账上成立——不是只能做补全或分类，而是能真的持有长对话历史、调工具、做多步推理。加上 2.5GB 起就能跑的 4B 去 slop 模型（见下），端侧 agent 的组件现在齐了。</p>
+
+<p><strong>需要打的折扣：</strong>AutomationBench 27.69 对 8.72 这种碾压级对比，通常说明<strong>两者训练分布严重不同</strong>——Liquid 自己在这个 benchmark 上训练/调优过。8 个 benchmark 里打平 5 个，剩 3 个落后，这才是更诚实的读法。</p>
+
+<div class="src">来源：Liquid AI 官方博客 · Hugging Face · 2026-10-13</div>
+</div>
+
+<div class="p1">
+<span class="tag">PyTorch 2.15</span><span class="tag">Apple Silicon</span>
+<h3 style="margin-top:8px;">PyTorch 2.15 把 FP8 带上 MPS：Mac 端推理栈补上最后一块</h3>
+
+<p>Hugging Face 的 PyTorch 团队 10 月 20 日发布 <a href="https://huggingface.co/blog/mps-pytorch-2-15">MPS in PyTorch 2.15</a>。MLX 之外的第二条路：</p>
+<ul>
+<li><strong>FP8 落到 MPS</strong>——端侧推理的关键一环</li>
+<li>语言模型解码走线性层、MoE 层、attention、softmax 的<strong>新快速路径</strong>，部分完全跑在 Metal 上</li>
+<li>视频解码显存占用大幅下降；音频/视频/训练的新 Metal kernel</li>
+<li>MPS streams 控制粒度提升；2.16 预览里 attention 已完全在 Metal 上跑，安装包更小</li>
+</ul>
+
+<p><strong>为什么重要：</strong>Mac 上的本地推理一直卡在 MLX 一条路上（Meta 为 Muse Spark Open 破例改 MLX 是个大新闻）。PyTorch 官方后端补齐后，<strong>「不依赖任何单一厂商框架」成为可能</strong>——这对要长期维护的 agent 产品是实打实的供应链风险分散。搭配 LFM2.5-24B-A2B 的 184 tok/s，「Mac 上跑一个真 agent」现在在软件栈上完整了。</p>
+
+<div class="src">来源：Hugging Face 博客 · PyTorch 团队 · 2026-10-20</div>
+</div>
+
+<div class="p1">
+<span class="tag">Apple 生态</span><span class="tag">1.0</span>
+<h3 style="margin-top:8px;">AnyLanguageModel 1.0：Foundation Models API 的 drop-in 替换，一行 import 切换本地/云端</h3>
+
+<p>Matti Puledo（PyTorch / Core ML 负责人）团队 10 月 20 日发布 <a href="https://huggingface.co/blog/anylanguagemodel-1-0">AnyLanguageModel 1.0</a>，同时发布 swift-huggingface 1.0 和 swift-xet 1.0。核心用法是改一行 import：</p>
+
+<p><code>- import FoundationModels</code> → <code>+ import AnyLanguageModel</code></p>
+
+<p>之后同一份 session 代码就能跑在系统模型上、或通过 llama.cpp / MLX / Core ML 跑 open-weight 模型上、或切到托管 provider。<strong>tool calling 和 guided generation 对所有 provider 都可用</strong>。</p>
+
+<p><strong>意味着什么：</strong>这解决的是端侧 agent 最实际的一个工程痛点——<strong>多 provider 适配的重复劳动</strong>。如果你之前因为「要同时支持 on-device 和云端 fallback 而不想写两套代码」而推迟了端侧 agent 方案，这个库把那个理由消掉了。</p>
+
+<div class="src">来源：Hugging Face 博客 · 2026-10-20</div>
+</div>
+
+<div class="p1">
+<span class="tag">4B</span><span class="tag">GGUF</span><span class="tag">风格微调</span>
+<h3 style="margin-top:8px;">qwen3-4b-deslop：一台 MacBook Air 训出来的 2.5GB 模型，把 AI 写作腔彻底洗掉</h3>
+
+<p>独立开发者 Erik Kannike 10 月发布 <a href="https://100toolkit.com/blog/deslop-model/">qwen3-4b-deslop</a>（GGUF Q4_K_M，Ollama 一键跑）。数据量小得惊人：<strong>一台 MacBook Air、161 条答案</strong>。效果：</p>
+
+<ul>
+<li>slop 分数（em dash、"not X but Y"、三段式排比、delve/seamless 等 AI 写作习惯的加权计数）从 <strong>121 降到 12.5</strong>/千词——人类写作通常在 15 以下</li>
+<li><strong>em dash 从每千词 20.5 个降到 0</strong></li>
+<li>30/30 事实题全对，体裁和长度要求满足率与原模型持平</li>
+<li>中间版本曾拿到 9.9 分但写得很糟（观点文没观点、编造研究、句句用逗号连接）——靠<strong>第二道过滤器</strong>修掉，验证「先去风格、再保功能」</li>
+</ul>
+
+<p><strong>意味着什么：</strong>方法论比模型有意思。<strong>它的意义不在于「4B 能写好文章」，而在于证明：模型规模可以换、可以用消费级硬件，但「先剥离风格、再校验功能是否达标」这个配方与模型无关</strong>。作者说下一步是在更大的模型上验证。对做 agent 的直接关联：如果你有输出文本要给人看的场景（报告、摘要、邮件草稿），用这个思路做一遍后处理微调可能比换更大的模型便宜两个数量级。<strong>但注意作者自己说的缺点——「语气平到发闷，仍然会编造人名和地名」</strong>，事实性没有任何改善。</p>
+
+<div class="src">来源：100toolkit.com · Hugging Face（erikkannike/qwen3-4b-deslop-v4-GGUF） · 2026-10</div>
+</div>
+
+<hr class="divider">
+
+<h2>📡 广角扫描</h2>
+
+<div class="p1">
+<span class="tag p">安全</span><span class="tag">供应链</span><h3 style="margin-top:6px;">arXiv 2610.13928：模型权重可以「可证明地」藏住任意能力</h3>
+<p>把加密神经网络嵌进宿主模型权重里，只有收到特定 secret trigger 才解密执行。用数字锁（digital lockers）实现，在密码学假设下，<strong>即使拿到完整权重也无法诱出或解释这些隐藏电路</strong>——把先前「藏固定字符串」的工作推进到「藏任意计算」。作者实测了微调、权重加噪、梯度搜索 trigger、latent 对抗训练四种诱出手段，全部无效。<br>
+<b>点评：</b>这是今天最该被安全团队读完的论文。它给「能力审计」划了一条硬边界——<strong>「我们评测过没发现问题」和「没有问题」不是一回事</strong>。作者开放了模型用于改进防御。</p>
+<div class="src">来源：<a href="https://arxiv.org/abs/2610.13928">arXiv:2610.13928</a> · 2026-10</div>
+</div>
+
+<div class="p1">
+<span class="tag p">监管</span><span class="tag">地缘政治</span><h3 style="margin-top:6px;">DHS 令联邦机构全面清除 DeepSeek——连「基于 DeepSeek 开发的第三方服务」在内</h3>
+<p>10 月 19 日 DHS 指令要求联邦民事机构停止采购并移除 DeepSeek 产品，明确覆盖<strong>第三方基于 DeepSeek 实现开发的产品与服务</strong>——不只是 DeepSeek 自己的 API/App，<strong>本地自托管的权重同样在禁令范围内</strong>。理由是「模型本身可能含恶意软件或其他安全漏洞」。HN 549 分。<br>
+<b>但有个关键背景没被充分报道：</b>路透社早前披露，商务部 BIS <strong>至今没把 DeepSeek 列入实体清单</strong>——和 100 多家已被标记的中国公司一起被按下不发，原因是政府想控制对华升级节奏。<br>
+<b>点评：</b>同一个政府，一边用行政令禁 API，一边按住实体清单不放，这个「双机制」结构本身就说明了<strong>工具性远大于安全性</strong>——实体清单会伤美国企业自己的供应链。所以禁令覆盖到本地权重这个扩张，法理基础是站不住的（社区里最有力的反驳：<em>「拿到二进制 ≠ 拿到源码。开源权重让审计成为可能，闭源 API 让审计根本无从谈起——把可审计的那个禁掉，这个逻辑是反的。」</em>）。<strong>对在美做 to-B agent 的团队：如果你有政府相关客户，现在就该能说明你的模型来源和部署形态。</strong></p>
+<div class="src">来源：Reuters（10/19） · DHS 指令 · <a href="https://news.ycombinator.com/item?id=50154244">HN 549分</a> · State of Surveillance（BIS 背景）</div>
+</div>
+
+<div class="p1">
+<span class="tag p">监管</span><h3 style="margin-top:6px;">Anthropic 提案：AI 安全法案要 50 人死亡或 10 亿美元损失才触发</h3>
+<p>Anthropic 向国会提交的保密草案把政府干预门槛设得极高：需 <strong>50 人死亡或 10 亿美元损失</strong>才生效，且需司法批准才能叫停模型。发言人称这源自其 6 月起推动的 Advanced AI Framework。HN 172 分。<br>
+<b>点评：</b>批评者指出 $1B 的门槛「一次加密货币黑客攻击就能跨过」，而 Anthropic 反复拒绝向加密行业的防御方开放 Mythos。另一条观察更冷：<strong>有评论者担心模型会在推理时「论证自己能否牺牲 1 条还是 2 条人命」</strong>。<br>
+<b>我的判断（主观）：</b>这份草案的实际功能不是安全，是准入壁垒——门槛设成 50 死 / $1B，意味着任何想发 frontier 模型的公司必须能证明自己出得起这份保险，实际只有大厂出得起。顺带一提，「Anthropic 一直在游说监管以锁定小竞争者」的指控在这个案子里很难反驳为纯粹偏见。<strong>另需注意：草案被报道会波及 open-weight 模型的发布门槛。</strong></p>
+<div class="src">来源：Tom's Hardware · POLITICO（草案泄露） · <a href="https://news.ycombinator.com/item?id=50141429">HN 172分</a> · 2026-10-18</div>
+</div>
+
+<div class="p1">
+<span class="tag p">内容生态</span><h3 style="margin-top:6px;">「编造统计数据，然后被 LLM 引用」：一个 7 个月的实验</h3>
+<p>Peec AI 的 GEO 研究员 Metehan Yesilyurt 做了个实验：上线一个含 <strong>5 万条全假统计数据</strong>的网站。7 个月后——Google 已把它 deindex，但 <strong>ChatGPT 没有</strong>；期间带来超过 1 万次 AI 会话访问；<strong>330 多个 referring domain</strong>（包括 Shopify、Bluehost、DHL）链接到了它；编造的数字已经进入一篇学术论文和一份银行的投资研究报告。HN 314 分。<br>
+<b>点评：</b>这不是新问题——Wikipedia 时代叫 citogenesis，地图上叫 trap street——但<strong>LLM 把它工业化了</strong>，因为模型的检索层缺少「认识论分层」：输出用专家的自信口吻呈现，来源是伪造的。评论区的共识是<strong>这不是 LLM 特有的缺陷，而是任何依赖「网上没人撒谎」的系统都是坏掉的</strong>。真正的坏消息是另一条：<em>「ChatGPT 用 web search 时 top 10 结果本身常常是 LLM 生成的内容」</em>——模型在自己训自己。<br>
+<b>对你的 agent：</b>如果你的 agent 输出涉及统计数字，<strong>优先接一手信源（BLS、央行、统计局 API）而不是让模型去搜</strong>。HN 有开发者明确说自己从不问 Claude「上季度通胀率是多少」——直接调数据集。</p>
+<div class="src">来源：peec.ai（10/7） · <a href="https://news.ycombinator.com/item?id=50165801">HN 314分</a> · 2026-10-20</div>
+</div>
+
+<div class="p1">
+<h3 style="margin-top:6px;">其他值得知道的</h3>
+<ul style="padding-left:20px;">
+<li><strong>Gemini 4 Argon 全面开放</strong>（Google 官方博客）——但 HN 反馈两极：Workspace 用户仍被锁在降级的 3.1 Pro，付费 AI Pro 用户（Pixel Pro）一周后仍无访问权。社区结论：「模型是好模型，但 Google 处理发布的方式提醒你把业务离他们的产品远点。」</li>
+<li><strong>Mistral 一天发三个模型</strong>——Voxtral 3（491 分，实时语音 agent SDK，<strong>闭源</strong>）、Timestral 时序基础模型（614 分）、与 CERN 签署战略合作意向书（356 分）。Voxtral 3 的实测反馈：语音质量相比 Voxtral 1 <strong>明显更「AI 味」</strong>，且闭源让本地部署者直接失去兴趣（Kokoro 82M 被反复推荐为本地首选）。</li>
+<li><strong>OpenRouter token 用量首次平台化</strong>——HN 44 分。Simon Willison 指出的偏差很实在：这个统计只覆盖愿意用 OpenRouter 的公司，<strong>严重偏向 open weights 用户</strong>，直连 OpenAI/Anthropic 的用量根本不在内。但他顺带给了个更硬的数字：Anthropic 营收 Q1 $4.8B → Q2 $11.5B → Q3 $16.8B，<strong>确实停止了逐季度翻倍</strong>。同期有开发者称自家总花费已回落到峰值的 20%——<em>同样智能水平，价格降了</em>。</li>
+<li><strong>OpenAI 收购 Orchestra Bio</strong>（10/20）——AI 驱动的生命科学研发运营。加上 6 月收购 Ona（agent 编排），OpenAI 在 90 天内的收购明显偏向「全栈锁定」而非 best-of-breed。</li>
+<li><strong>Laminar（YC S24）</strong>——RL 训练的 <code>flow-1</code> 模型专门在 agent trace 里找错误，HN 58 分。创始人在评论区给了个很实用的架构答案：<strong>「用便宜模型标记明显错误，覆盖绝大多数情况——真正致命的是那些显然犯蠢的东西的传播。要做深的那部分才上更重的架构。」</strong>并预测每个 finding 的 criticality。</li>
+<li><strong>Respan</strong>（YC W24）——开源 Rust AI gateway，plugin 用<strong>编译期 crate 而非动态加载</strong>，作者说用 Claude 生成代码但逐行 review 过。回应了 HN 上关于 plugin 供应链安全的质疑（代码：「plugin 是编译进你程序的 crate，不是从随机仓库下载的可执行文件」）。</li>
+<li><strong>Steam 玩家要求「No AI」标签</strong>（IGN，164 分）——Next Fest 被 vibecoder 游戏淹没。社区核心论点是：<strong>「AI 让小游戏更差」还是「更差但能实现梦想」，取决于你问谁</strong>。</li>
+</ul>
+</div>
+
+<hr class="divider">
+
+<h2>💭 深度思考</h2>
+
+<div class="insight">
+<h3 style="margin-top:0;color:#58a6ff;">思考一：今天最被低估的信号，是「harness 正在成为真正的产品」</h3>
+
+<p>把今天的 P0 放在一起看：<strong>Harness²（Google 开源递归 harness 优化）、ALTK-Evolve（学到的规则手册把 GPT-4.1 送上榜首、连 gpt-5.5 都被推高 15 点）、Harness Engineering 101（HN 132 分的社区共识）、加上 HN 上那篇 300 分的「If you don't run your own LLM proxy, how do you know what's going on?」</strong>——四条指向同一个结论：</p>
+
+<p><strong>行业的竞争焦点，正在从「谁的模型更强」不可逆地转向「谁把模型包得更好」。</strong></p>
+
+<p>证据是数字层面的：ALTK-Evolve 用 <strong>GPT-4.1</strong>（一个已经过两代的老模型）打赢了 τ²-bench 零售域的所有条目。这不是「小模型也能用了」的老调陈词，而是一个更精确的命题：<strong>领域规程知识可以脱离模型能力单独存储、单独优化、单独迁移</strong>。这部分能力一旦被 harness 吸收，模型代际差异带来的收益就被部分抵消了。</p>
+
+<p><strong>对 agent 开发者的 actionable 建议，按投入产出排序：</strong></p>
+<ol>
+<li><strong>先建 prompt 级的手册机制（今天就能做）</strong>——学 ALTK-Evolve：让模型从自己的失败轨迹蒸馏规则，给每条标 support count，按域调阈值。它有全套 benchmark 代码和数字可以直接对标，不需要任何训练资源。</li>
+<li><strong>再考虑 harness 层的自动化改进（Harness²）</strong>——但先看你能不能诚实回答：<em>「我上一次系统性地从失败里学到东西并固化下来，是什么时候？」</em> 如果这个问题的答案是「从来没有」，Harness² 的 Propose–Probe–Compose 是现成的脚手架；如果已经有 manual 版本了，再考虑自动化。</li>
+<li><strong>最后才是自建 harness 框架</strong>——HN 上 <code>libraryofbabel</code> 那条评论我认为是今天最健康的建议：<em>「与其读一堆关于 AI 写作的爬藤类比，不如从零手写一个最简 coding harness。你会学到的东西比这些文章多得多。」</em></li>
+</ol>
+
+<p><strong>并且，请务必读评论区里那条最冷静的质疑：</strong>当一个热点出现时，同质化的表态会大量涌入。<code>mchusma</code> 说「这不就是我们过去一年一直在做的事吗」——<strong>如果你的第一反应是「我们早就在做了」，这不一定是坏事，但要小心：早期采用者的工作通常经不起框架化。</strong></p>
+</div>
+
+<div class="insight">
+<h3 style="margin-top:0;color:#58a6ff;">思考二：今天有个反常组合——推理成本在塌陷，但 token 总量也在平台化</h3>
+
+<p>把两条曲线放一起：</p>
+<p><strong>成本曲线：</strong>DeepInfer 让开源推理的边际成本被摊到明面上（$38/card/hr）；Mercury 3 把 Haiku 级能力的定价打到 $0.20/$0.70；LFM2.5-24B-A2B 让端侧 184 tok/s 成为现实；PyTorch 2.15 给 Mac 补上 FP8。<strong>四个方向，全在往下压。</strong></p>
+
+<p><strong>总量曲线：</strong>OpenRouter 用量首次平台化，Anthropic 营收停止逐季翻倍，有开发者称自家花费只剩峰值 20%。<strong>并且这个人的表述很关键：「我们能用低得多的价格买到同等水平的智能。甚至 Sonnet 5.5 对我们大部分 agentic workload 已经 overkill 了。」</strong></p>
+
+<p><strong>这两个趋势同时成立，最可能的解释不是「需求饱和」，而是「单位任务所需的 token 数在同时下降」</strong>——而这恰恰是今天另一条新闻的另一面：OpenRouter 那条讨论里 <code>judge2020</code> 指出，<em>SWE 类工作对上下文和 token 吞吐的需求正在放缓（参见 Opus 5.5 的表现），而那些真正能采用 AI 的新行业（法律正确使用 LLM 这类）本来就不需要海量 token 流动</em>。</p>
+
+<p><strong>这个组合对 2027 年的 agent 产品形态有一个具体推论：</strong>如果 token 单价继续跌、同时单任务 token 需求也在跌，那么<strong>「用最大模型跑最贵 agent」的默认架构会越来越不合理</strong>。赢的架构会是：<strong>廉价的常驻小模型处理绝大多数步骤，只在 harness 检测到需要时升级到 frontier 模型</strong>——这正好是 ALTK-Evolve 隐含的结构（GPT-4.1 手册 + gpt-5.5 也受益），也正好是 Harness² 在做的事（冻结权重，优化周围的调度）。</p>
+
+<p><strong>顺带一个被忽略的商业信号：</strong>今天 DHS 禁 DeepSeek 的时点非常微妙——正好卡在「中国开源模型开始在美国机构里产生不可忽视的成本优势」这个节点上。<strong>而 BIS 至今没把 DeepSeek 列入实体清单这个事实，比禁令本身更能说明问题：贸易与产业政策的优先级，压过了安全叙事。</strong>我个人的判断（主观）是：这份禁令的真实作用是延缓而非阻断，因为美国开发者社区里「弃用 Gemini 换 DeepSeek」这类行为，行政令管不住。</p>
+</div>
+
+<hr class="divider">
+
+<h2>📚 延伸阅读</h2>
+<ul style="padding-left:20px;">
+<li><a href="https://github.com/deepseek-ai/DeepInfer">deepseek-ai/DeepInfer</a> — 高性能推理框架（Apache-2.0，12.1k★）</li>
+<li><a href="https://arxiv.org/abs/2610.14224">arXiv:2610.14224 — Harness²: Recursive Agent Harnessing for an Open World</a></li>
+<li><a href="https://github.com/google-research/harness2">google-research/harness2</a> — 递归 harness 优化框架（Apache-2.0，15.3k★）</li>
+<li><a href="https://huggingface.co/blog/ibm-research/altk-evolve-bc">ALTK-Evolve (IBM Research)</a> — 不改权重，用学到的手册登顶 τ²-bench</li>
+<li><a href="https://arxiv.org/abs/2610.13928">arXiv:2610.13928 — AI Models Can Provably Hide Arbitrary Capabilities</a></li>
+<li><a href="https://norforge.com/blog/inside_cairn">Inside Cairn (NorForge)</a> — 20+ 个暴露的 AI 攻击面板调查</li>
+<li><a href="https://www.inceptionlabs.ai/blog/introducing-mercury-3">Mercury 3 (Inception Labs)</a> — diffusion LLM，1,068 tok/s</li>
+<li><a href="https://www.liquid.ai/blog/lfm2-5-24b-a2b">LFM2.5-24B-A2B (Liquid AI)</a> — 2B 激活参数的端侧 agent 模型</li>
+<li><a href="https://github.com/IsuruMaduranga/harness-engineering-101">Harness Engineering 101</a> — 「LLM 是大脑，harness 是身体」</li>
+<li><a href="https://peec.ai/blog/publish-stats-get-cited-the-tactic-that-put-my-data-all-over-the-web">Publish fake stats, get cited</a> — 5 万条假数据的 7 个月实验</li>
+</ul>
+
+<div class="footer">
+AI 前沿日报 · 2026年10月21日<br>
+来源：Hacker News (Algolia API) · Reddit · arXiv · GitHub API · Hugging Face Blog · Liquid AI · Inception Labs · IBM Research · Reuters · The Verge · NorForge · Tom's Hardware · 量子位 · 机器之心<br>
+<span style="color:#f85149;">本报告所有事实与链接均来自实际检索，未做推测性补全。</span>
+</div>
+
+</body>
+</html>
