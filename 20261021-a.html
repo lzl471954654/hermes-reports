@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股盘后总结 · AI产业链深度版 | 2026-10-21</title>
+<style>
+  :root{
+    --bg:#0a0e17; --bg2:#111725; --bg3:#161d2e; --line:#232c42;
+    --txt:#e6ecf7; --txt2:#98a4bd; --txt3:#5f6b85;
+    --up:#ff4d4f; --down:#12d18e; --flat:#8b96ad;
+    --acc:#4a9eff; --acc2:#00d4c7; --warn:#ffb020; --pur:#a970ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.7; padding:24px 16px 60px;
+  }
+  .wrap{max-width:960px;margin:0 auto}
+  header{
+    background:linear-gradient(135deg,#0f1a2e 0%,#131a2e 50%,#1a1430 100%);
+    border:1px solid var(--line); border-radius:14px; padding:26px 28px; margin-bottom:18px;
+    position:relative; overflow:hidden;
+  }
+  header::after{content:"";position:absolute;top:-60px;right:-60px;width:220px;height:220px;
+    background:radial-gradient(circle,rgba(74,158,255,.18),transparent 70%);}
+  h1{font-size:24px;font-weight:700;letter-spacing:.5px;margin-bottom:6px}
+  .sub{color:var(--txt2);font-size:13px}
+  .tag{display:inline-block;background:rgba(74,158,255,.13);color:var(--acc);
+    border:1px solid rgba(74,158,255,.3);padding:2px 9px;border-radius:5px;font-size:12px;margin-right:6px}
+
+  h2{font-size:17px;font-weight:700;margin:26px 0 12px;padding-left:11px;
+     border-left:3px solid var(--acc);color:#fff}
+  h3{font-size:14px;font-weight:600;color:var(--acc2);margin:16px 0 8px}
+
+  .card{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .grid{display:grid;gap:12px}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:720px){.g4,.g3,.g2{grid-template-columns:repeat(2,1fr)}}
+
+  .idx{background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:13px 14px}
+  .idx .nm{font-size:12px;color:var(--txt2);margin-bottom:5px}
+  .idx .vl{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+  .idx .ch{font-size:12.5px;font-variant-numeric:tabular-nums;margin-top:2px}
+  .up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--flat)}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{background:var(--bg3);color:var(--txt2);font-weight:600;text-align:left;
+     padding:9px 10px;border-bottom:1px solid var(--line);font-size:12px;white-space:nowrap}
+  td{padding:8px 10px;border-bottom:1px solid rgba(35,44,66,.55);font-variant-numeric:tabular-nums}
+  tbody tr:hover{background:rgba(74,158,255,.05)}
+  td.nm{font-weight:600}
+  .num{text-align:right}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  .kpi{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed rgba(35,44,66,.8);font-size:13px}
+  .kpi:last-child{border-bottom:none}
+  .kpi .k{color:var(--txt2)} .kpi .v{font-variant-numeric:tabular-nums;font-weight:600}
+
+  .bar{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-top:5px;display:flex}
+  .bar i{display:block;height:100%}
+
+  .note{background:rgba(74,158,255,.06);border-left:3px solid var(--acc);
+    padding:11px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:13.5px;color:#c9d6ee}
+  .warnbox{background:rgba(255,176,32,.07);border-left:3px solid var(--warn);
+    padding:11px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:13.5px;color:#f0dcb8}
+  .redbox{background:rgba(255,77,79,.07);border-left:3px solid var(--up);
+    padding:11px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:13.5px;color:#f5c9ca}
+  .grnbox{background:rgba(18,209,142,.07);border-left:3px solid var(--down);
+    padding:11px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:13.5px;color:#b6ecd8}
+
+  .pill{display:inline-block;font-size:11.5px;padding:1.5px 7px;border-radius:4px;margin-right:4px}
+  .p-up{background:rgba(255,77,79,.15);color:#ff8b8c}
+  .p-dn{background:rgba(18,209,142,.15);color:#5fe0b3}
+  .p-in{background:rgba(74,158,255,.15);color:#7cbcff}
+  .p-out{background:rgba(255,176,32,.15);color:#ffc75c}
+
+  .lead{font-size:15px;line-height:1.85}
+  .lead b{color:#fff}
+  footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
+    color:var(--txt3);font-size:12px;text-align:center}
+  .mini{font-size:11.5px;color:var(--txt3);margin-top:8px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>A股盘后总结 · AI产业链深度版</h1>
+  <div class="sub">2026年10月21日（周三）收盘 · 数据来源：交易所行情 / 东方财富</div>
+  <div style="margin-top:12px">
+    <span class="tag">沪指 3713.03 ▼0.60%</span>
+    <span class="tag">创业板指 2694.71 ▼1.62%</span>
+    <span class="tag">两市成交 1.43万亿</span>
+    <span class="tag">涨跌家数 1981/3364</span>
+  </div>
+</header>
+
+<h2>一、今日核心结论</h2>
+<div class="card lead">
+  <p>今天是一次典型的<b>「高低切换 + 内部分化」</b>交易日，指数层面普跌、结构层面却在剧烈换血。</p>
+  <p style="margin-top:10px"><b>① 大盘权重被杀，小盘微盘抗跌。</b>沪深300跌0.97%、上证50跌0.68%，而中证1000逆势涨0.20%、国证2000涨0.17%、科创50微涨0.06%。指数的绿是权重股贡献的，不是系统性风险。</p>
+  <p style="margin-top:10px"><b>② AI产业链并非全链条走强，而是「一根链条上下劈开」。</b>光通信/CPO端吸金（主力净流入24.85亿），PCB、先进封装、半导体设备端资金反而净流出。上游材料（上海新阳+4.93%、德明利+6.50%）强，中游代工封装（通富微电-0.91%、长电-0.03%）弱，下游设备（北方华创-0.97%、拓荆-2.38%）最弱。</p>
+  <p style="margin-top:10px"><b>③ 锂电崩塌是今日最大单一事件。</b>宁德时代暴跌12.03%、主力净流出13.13亿，整个电池板块净流出52.13亿，是全市场最大资金黑洞。资金从锂电流向通信设备+传媒+农业养殖，本质是「AI+低位补涨」两条腿走路。</p>
+  <p style="margin-top:10px"><b>④ 量能持续萎缩。</b>两市1.43万亿，环比昨日缩量约270亿。沪市缩量572亿而深市放量305亿——缩量的沪指（权重小盘化）与放量的深市（题材活跃）分化，说明存量博弈加剧。</p>
+</div>
+
+<h2>二、指数总览</h2>
+<div class="grid g4">
+  <div class="idx"><div class="nm">上证指数</div><div class="vl">3713.03</div><div class="ch down">▼ 22.34 &nbsp;▼0.60%</div><div class="bar"><i style="width:47%;background:var(--down)"></i></div><div class="mini">成交 6427.5亿</div></div>
+  <div class="idx"><div class="nm">深证成指</div><div class="vl">11704.35</div><div class="ch down">▼ 96.94 &nbsp;▼0.82%</div><div class="bar"><i style="width:51%;background:var(--down)"></i></div><div class="mini">成交 7866.0亿</div></div>
+  <div class="idx"><div class="nm">创业板指</div><div class="vl">2694.71</div><div class="ch down">▼ 44.49 &nbsp;▼1.62%</div><div class="bar"><i style="width:58%;background:var(--down)"></i></div><div class="mini">成交 3998.5亿</div></div>
+  <div class="idx"><div class="nm">科创50</div><div class="vl">1343.28</div><div class="ch up">▲ 0.86 &nbsp;▲0.06%</div><div class="bar"><i style="width:52%;background:var(--up)"></i></div><div class="mini">成交 626.3亿</div></div>
+</div>
+
+<div class="grid g3" style="margin-top:12px">
+  <div class="idx"><div class="nm">沪深300</div><div class="vl" style="font-size:19px">4111.93</div><div class="ch down">▼0.97%</div></div>
+  <div class="idx"><div class="nm">中证500</div><div class="vl" style="font-size:19px">6840.56</div><div class="ch down">▼0.01%</div></div>
+  <div class="idx"><div class="nm">中证1000</div><div class="vl" style="font-size:19px">6780.26</div><div class="ch up">▲0.20%</div></div>
+</div>
+
+<h3>市场宽度</h3>
+<div class="card">
+  <div class="kpi"><span class="k">上涨 / 下跌 / 平盘</span><span class="v"><span class="up">1981</span> / <span class="down">3364</span> / <span class="flat">224</span></span></div>
+  <div class="kpi"><span class="k">涨停 / 跌停</span><span class="v"><span class="up">59</span> / <span class="down">10</span></span></div>
+  <div class="kpi"><span class="k">涨幅超 5% / 跌幅超 5%</span><span class="v"><span class="up">165</span> / <span class="down">94</span></span></div>
+  <div class="kpi"><span class="k">全市场主力资金净额</span><span class="v up">+19.6亿（基本平衡）</span></div>
+  <div class="kpi"><span class="k">两市总成交额</span><span class="v">1.4293万亿（环比 −270亿）</span></div>
+  <div class="mini">注：涨跌家数统计口径为沪深京主板+创业板+科创板约5925只个股；主力资金为大单口径估算值，仅作方向参考。</div>
+</div>
+
+<h3>上证指数近8个交易日</h3>
+<div class="card scroll">
+<table>
+<thead><tr><th>日期</th><th class="num">开盘</th><th class="num">收盘</th><th class="num">最高</th><th class="num">最低</th><th class="num">涨跌幅</th><th class="num">成交额</th></tr></thead>
+<tbody>
+<tr><td>10-13</td><td class="num">3760.80</td><td class="num">3800.86</td><td class="num">3822.11</td><td class="num">3741.53</td><td class="num up">+0.88%</td><td class="num">7793亿</td></tr>
+<tr><td>10-14</td><td class="num">3790.63</td><td class="num">3767.23</td><td class="num">3811.81</td><td class="num">3761.96</td><td class="num down">−0.88%</td><td class="num">6625亿</td></tr>
+<tr><td>10-15</td><td class="num">3710.70</td><td class="num">3707.48</td><td class="num">3724.56</td><td class="num">3674.82</td><td class="num down">−1.59%</td><td class="num">7744亿</td></tr>
+<tr><td>10-16</td><td class="num">3723.80</td><td class="num">3716.28</td><td class="num">3750.77</td><td class="num">3681.28</td><td class="num up">+0.24%</td><td class="num">7325亿</td></tr>
+<tr><td>10-19</td><td class="num">3694.12</td><td class="num">3730.92</td><td class="num">3743.80</td><td class="num">3692.29</td><td class="num up">+0.39%</td><td class="num">6870亿</td></tr>
+<tr><td>10-20</td><td class="num">3718.44</td><td class="num">3735.37</td><td class="num">3740.07</td><td class="num">3702.44</td><td class="num up">+0.12%</td><td class="num">7000亿</td></tr>
+<tr style="background:rgba(255,77,79,.07)"><td><b>10-21</b></td><td class="num">3740.57</td><td class="num"><b>3713.03</b></td><td class="num">3743.08</td><td class="num">3703.12</td><td class="num down"><b>−0.60%</b></td><td class="num"><b>6428亿</b></td></tr>
+</tbody></table>
+<div class="mini">沪指自10/13高点3800.86回落至今，已连续7个交易日在3700–3750区间震荡，箱体下沿反复试探。今日振幅仅1.07%，为近期地量。</div>
+</div>
+
+<h2>三、AI产业链全景：强弱排序</h2>
+<div class="card scroll">
+<table>
+<thead><tr><th>细分方向</th><th class="num">板块涨跌</th><th class="num">主力净额</th><th class="num">涨/跌家数</th><th>宽度</th><th>强度评级</th></tr></thead>
+<tbody>
+<tr><td class="nm">光纤概念</td><td class="num up">+1.17%</td><td class="num up">+28.37亿</td><td class="num">50/29</td><td><div class="bar"><i style="width:63%;background:var(--up)"></i></div></td><td><span class="pill p-up">强</span></td></tr>
+<tr><td class="nm">CPO 概念</td><td class="num up">+1.31%</td><td class="num up">+24.85亿</td><td class="num">60/36</td><td><div class="bar"><i style="width:63%;background:var(--up)"></i></div></td><td><span class="pill p-up">强</span></td></tr>
+<tr><td class="nm">英伟达概念</td><td class="num up">+1.17%</td><td class="num up">+14.96亿</td><td class="num">46/21</td><td><div class="bar"><i style="width:69%;background:var(--up)"></i></div></td><td><span class="pill p-up">强</span></td></tr>
+<tr><td class="nm">光通信模块</td><td class="num up">+1.01%</td><td class="num up">+23.64亿</td><td class="num">71/47</td><td><div class="bar"><i style="width:60%;background:var(--up)"></i></div></td><td><span class="pill p-up">强</span></td></tr>
+<tr><td class="nm">算力概念</td><td class="num up">+1.19%</td><td class="num up">+15.52亿</td><td class="num">163/81</td><td><div class="bar"><i style="width:67%;background:var(--up)"></i></div></td><td><span class="pill p-up">强</span></td></tr>
+<tr><td class="nm">AI 眼镜</td><td class="num up">+1.05%</td><td class="num up">+18.02亿</td><td class="num">85/52</td><td><div class="bar"><i style="width:62%;background:var(--up)"></i></div></td><td><span class="pill p-up">偏强</span></td></tr>
+<tr><td class="nm">数据中心</td><td class="num up">+0.40%</td><td class="num up">+9.19亿</td><td class="num">184/148</td><td><div class="bar"><i style="width:55%;background:var(--up)"></i></div></td><td><span class="pill p-in">中性偏强</span></td></tr>
+<tr><td class="nm">国产芯片</td><td class="num up">+0.39%</td><td class="num up">+27.62亿</td><td class="num">204/223</td><td><div class="bar"><i style="width:48%;background:var(--flat)"></i></div></td><td><span class="pill p-in">中性</span></td></tr>
+<tr><td class="nm">被动元件</td><td class="num up">+0.56%</td><td class="num up">+3.32亿</td><td class="num">18/12</td><td><div class="bar"><i style="width:60%;background:var(--up)"></i></div></td><td><span class="pill p-in">中性偏强</span></td></tr>
+<tr><td class="nm">MLCC</td><td class="num up">+0.15%</td><td class="num up">+2.67亿</td><td class="num">22/17</td><td><div class="bar"><i style="width:56%;background:var(--up)"></i></div></td><td><span class="pill p-in">中性</span></td></tr>
+<tr><td class="nm">存储芯片</td><td class="num up">+0.11%</td><td class="num up">+19.12亿</td><td class="num">60/77</td><td><div class="bar"><i style="width:44%;background:var(--flat)"></i></div></td><td><span class="pill p-out">资金进但个股跌</span></td></tr>
+<tr><td class="nm">液冷服务器</td><td class="num up">+0.12%</td><td class="num up">+2.19亿</td><td class="num">99/92</td><td><div class="bar"><i style="width:52%;background:var(--flat)"></i></div></td><td><span class="pill p-out">分化</span></td></tr>
+<tr><td class="nm">先进封装</td><td class="num down">−0.04%</td><td class="num up">+1.74亿</td><td class="num">32/55</td><td><div class="bar"><i style="width:37%;background:var(--down)"></i></div></td><td><span class="pill p-out">偏弱</span></td></tr>
+<tr><td class="nm">PCB</td><td class="num down">−0.30%</td><td class="num up">+20.38亿</td><td class="num">77/124</td><td><div class="bar"><i style="width:38%;background:var(--down)"></i></div></td><td><span class="pill p-out">主力流入但普跌</span></td></tr>
+<tr><td class="nm">半导体设备</td><td class="num down">−0.74%</td><td class="num down">−13.93亿</td><td class="num">6/19</td><td><div class="bar"><i style="width:24%;background:var(--down)"></i></div></td><td><span class="pill p-dn">最弱</span></td></tr>
+</tbody></table>
+<div class="mini">关键读数：半导体设备是AI链唯一「板块跌+主力净流出+个股跌多涨少」三重共振的方向；PCB与存储芯片出现「主力资金净流入但板块指数收跌」的背离，通常意味着资金在板块内部向少数标的集中、拉黑大部分个股，属于结构性行情而非普涨行情。</div>
+</div>
+
+<h2>四、光通信 / CPO 链条</h2>
+<div class="card scroll">
+<table>
+<thead><tr><th>标的</th><th class="num">涨跌幅</th><th class="num">换手率</th><th class="num">主力净额</th><th>定位</th></tr></thead>
+<tbody>
+<tr><td class="nm">致尚科技</td><td class="num up">+17.12%</td><td class="num">15.60%</td><td class="num up">+1.67亿</td><td>精密连接/光模块结构件</td></tr>
+<tr><td class="nm">天洋新材</td><td class="num up">+10.03%</td><td class="num">16.15%</td><td class="num up">+2.35亿</td><td>光学膜/胶带</td></tr>
+<tr><td class="nm">光库科技</td><td class="num up">+9.44%</td><td class="num">6.11%</td><td class="num up">+4.62亿</td><td>光纤器件（薄膜铌酸锂）</td></tr>
+<tr><td class="nm">通宇通讯</td><td class="num up">+10.01%</td><td class="num">14.23%</td><td class="num up">+3.48亿</td><td>天线/射频</td></tr>
+<tr><td class="nm">富信科技</td><td class="num up">+7.61%</td><td class="num">11.77%</td><td class="num up">+0.77亿</td><td>温控/热管理</td></tr>
+<tr><td class="nm">剑桥科技</td><td class="num up">+6.52%</td><td class="num">8.09%</td><td class="num up">+2.76亿</td><td>光模块</td></tr>
+<tr><td class="nm">长芯博创</td><td class="num up">+6.02%</td><td class="num">4.57%</td><td class="num up">+1.17亿</td><td>光芯片/光器件</td></tr>
+<tr><td class="nm">天孚通信</td><td class="num up">+5.10%</td><td class="num">3.05%</td><td class="num up">+7.54亿</td><td>光器件平台</td></tr>
+<tr><td class="nm">东田微</td><td class="num up">+7.22%</td><td class="num">8.65%</td><td class="num up">+1.17亿</td><td>光学元件</td></tr>
+<tr><td class="nm">太辰光</td><td class="num up">+3.21%</td><td class="num">8.69%</td><td class="num up">+0.13亿</td><td>光连接</td></tr>
+<tr><td class="nm">腾景科技</td><td class="num up">+2.85%</td><td class="num">2.67%</td><td class="num up">+0.62亿</td><td>光学元件</td></tr>
+<tr><td class="nm">仕佳光子</td><td class="num up">+1.97%</td><td class="num">9.58%</td><td class="num up">+0.03亿</td><td>光芯片/PLC</td></tr>
+<tr><td class="nm">长光华芯</td><td class="num up">+2.06%</td><td class="num">4.10%</td><td class="num up">+0.64亿</td><td>半导体激光芯片</td></tr>
+<tr><td class="nm">光迅科技</td><td class="num up">+1.22%</td><td class="num">3.02%</td><td class="num up">+0.93亿</td><td>光电子器件</td></tr>
+<tr><td class="nm">源杰科技</td><td class="num up">+1.06%</td><td class="num">2.97%</td><td class="num up">+0.29亿</td><td>光芯片</td></tr>
+<tr style="background:rgba(18,209,142,.06)"><td class="nm">中际旭创</td><td class="num down">−0.17%</td><td class="num">2.27%</td><td class="num down">−2.04亿</td><td>光模块龙头</td></tr>
+<tr style="background:rgba(18,209,142,.06)"><td class="nm">联特科技</td><td class="num down">−1.36%</td><td class="num">7.73%</td><td class="num down">−0.02亿</td><td>光模块</td></tr>
+<tr style="background:rgba(18,209,142,.06)"><td class="nm">新易盛</td><td class="num down">−1.36%</td><td class="num">3.42%</td><td class="num down">−8.06亿</td><td>光模块龙头</td></tr>
+</tbody></table>
+<div class="note"><b>本日最值得注意的信号：</b>光模块板块内部出现了<b>「中游制造杀跌、上游器件大涨」的剪刀差</b>。天孚通信（光器件）+5.10%、长芯博创（光芯片）+6.02%、光库科技（薄膜铌酸锂）+9.44%，而新易盛净流出8.06亿、中际旭创净流出2.04亿。这说明资金在AI光通信链条上正在做<b>从「整机模块」向「上游元器件/材料」的切换</b>——整机环节的业绩兑现预期已被充分定价，而上游器件的产能弹性与国产替代空间还未被充分反映。</div>
+</div>
+
+<h2>五、存储 / HBM 链条</h2>
+<div class="card scroll">
+<table>
+<thead><tr><th>标的</th><th class="num">涨跌幅</th><th class="num">换手率</th><th class="num">主力净额</th><th>定位</th></tr></thead>
+<tbody>
+<tr><td class="nm">协创数据</td><td class="num up">+6.86%</td><td class="num">4.82%</td><td class="num down">−1.15亿</td><td>存储分销/云服务</td></tr>
+<tr><td class="nm">德明利</td><td class="num up">+6.50%</td><td class="num">10.00%</td><td class="num up">+4.36亿</td><td>主控+模组</td></tr>
+<tr><td class="nm">澜起科技</td><td class="num up">+5.36%</td><td class="num">2.79%</td><td class="num up">+4.94亿</td><td>内存接口/DDR5</td></tr>
+<tr><td class="nm">上海新阳</td><td class="num up">+4.93%</td><td class="num">2.74%</td><td class="num up">+0.58亿</td><td>光刻胶+湿电子化学品</td></tr>
+<tr><td class="nm">佰维存储</td><td class="num up">+3.32%</td><td class="num">4.25%</td><td class="num up">+3.48亿</td><td>存储封测模组</td></tr>
+<tr><td class="nm">敏芯股份</td><td class="num up">+20.00%</td><td class="num">—</td><td class="num up">+0.70亿</td><td>MEMS/传感器</td></tr>
+<tr><td class="nm">兆易创新</td><td class="num up">+1.98%</td><td class="num">4.07%</td><td class="num up">+7.97亿</td><td>NOR/MCU 存储</td></tr>
+<tr><td class="nm">江波龙</td><td class="num up">+1.62%</td><td class="num">4.43%</td><td class="num up">+1.94亿</td><td>嵌入式/SSD</td></tr>
+<tr><td class="nm">北京君正</td><td class="num up">+0.90%</td><td class="num">4.38%</td><td class="num up">+0.88亿</td><td>车规存储</td></tr>
+<tr><td class="nm">中芯国际</td><td class="num down">−1.71%</td><td class="num">1.20%</td><td class="num down">−1.32亿</td><td>晶圆代工</td></tr>
+</tbody></table>
+<div class="grnbox">存储板块今日主力净流入19.12亿，但板块内60家上涨、77家下跌——<b>典型的「资金进、个股不涨」结构</b>。这通常意味着资金高度集中在德明利、澜起、佰维、兆易少数几只中，尾部个股被抛弃。澜起科技（内存接口芯片）单日+5.36%且换手仅2.79%、主力净流入4.94亿，是今日AI存储链中<b>质量最高的一笔资金流向</b>：低换手、大单持续介入、非题材炒作。</div>
+</div>
+
+<h2>六、半导体设备 / 晶圆制造（今日最弱环节）</h2>
+<div class="card scroll">
+<table>
+<thead><tr><th>标的</th><th class="num">涨跌幅</th><th class="num">换手率</th><th class="num">主力净额</th><th>方向</th></tr></thead>
+<tbody>
+<tr><td class="nm">盛美上海</td><td class="num up">+0.85%</td><td class="num">0.50%</td><td class="num down">−0.31亿</td><td>清洗/电镀</td></tr>
+<tr><td class="nm">金海通</td><td class="num up">+1.56%</td><td class="num">3.90%</td><td class="num down">−0.01亿</td><td>分选设备</td></tr>
+<tr><td class="nm">微导纳米</td><td class="num up">+0.38%</td><td class="num">1.60%</td><td class="num up">+0.16亿</td><td>ALD 薄膜</td></tr>
+<tr style="background:rgba(255,77,79,.05)"><td class="nm">长川科技</td><td class="num down">−0.58%</td><td class="num">2.52%</td><td class="num down">−1.85亿</td><td>测试设备</td></tr>
+<tr style="background:rgba(255,77,79,.05)"><td class="nm">华峰测控</td><td class="num down">−0.95%</td><td class="num">1.40%</td><td class="num down">−0.69亿</td><td>测试设备</td></tr>
+<tr style="background:rgba(255,77,79,.05)"><td class="nm">北方华创</td><td class="num down">−0.97%</td><td class="num">0.82%</td><td class="num down">−2.66亿</td><td>刻蚀/薄膜/清洗</td></tr>
+<tr style="background:rgba(255,77,79,.05)"><td class="nm">中科飞测</td><td class="num down">−1.15%</td><td class="num">1.89%</td><td class="num down">−0.71亿</td><td>量检测</td></tr>
+<tr style="background:rgba(255,77,79,.05)"><td class="nm">华海清科</td><td class="num down">−1.59%</td><td class="num">1.52%</td><td class="num down">−0.98亿</td><td>CMP 设备</td></tr>
+<tr style="background:rgba(255,77,79,.05)"><td class="nm">中微公司</td><td class="num down">−1.62%</td><td class="num">1.25%</td><td class="num down">−2.55亿</td><td>刻蚀设备</td></tr>
+<tr style="background:rgba(255,77,79,.05)"><td class="nm">拓荆科技</td><td class="num down">−2.38%</td><td class="num">1.96%</td><td class="num down">−3.44亿</td><td>薄膜沉积</td></tr>
+</tbody></table>
+<div class="redbox"><b>半导体设备是今日AI产业链中最明确被资金抛弃的环节</b>：板块跌0.74%、主力净流出13.93亿、19家下跌仅6家上涨。设备股集体缩量下跌（北方华创换手仅0.82%），是<b>典型的缩量阴跌</b>而非恐慌抛售，说明是机构在温和减仓而非散户割肉。设备板块的逻辑（国产替代+晶圆厂资本开支）未变，但短期估值消化需要时间。</div>
+</div>
+
+<h2>七、PCB / CCL / MLCC 被动元件</h2>
+<div class="card scroll">
+<table>
+<thead><tr><th>标的</th><th class="num">涨跌幅</th><th class="num">换手率</th><th class="num">主力净额</th><th>环节</th></tr></thead>
+<tbody>
+<tr><td class="nm">华瓷股份</td><td class="num up">+10.00%</td><td class="num">10.59%</td><td class="num up">+2.31亿</td><td>MLCC 陶瓷基板（涨停）</td></tr>
+<tr><td class="nm">顺络电子</td><td class="num up">+7.40%</td><td class="num">4.17%</td><td class="num down">−0.22亿</td><td>电感/MLCC</td></tr>
+<tr><td class="nm">嘉立创</td><td class="num up">+7.29%</td><td class="num">10.93%</td><td class="num up">+0.77亿</td><td>PCB 打样</td></tr>
+<tr><td class="nm">天通股份</td><td class="num up">+5.64%</td><td class="num">5.85%</td><td class="num up">+0.51亿</td><td>磁材/封装基板</td></tr>
+<tr><td class="nm">华正新材</td><td class="num up">+5.33%</td><td class="num">9.38%</td><td class="num up">+3.67亿</td><td>覆铜板 CCL</td></tr>
+<tr><td class="nm">三环集团</td><td class="num up">+4.03%</td><td class="num">2.07%</td><td class="num up">+0.58亿</td><td>MLCC/陶瓷</td></tr>
+<tr><td class="nm">红板科技</td><td class="num up">+4.85%</td><td class="num">9.92%</td><td class="num up">+0.37亿</td><td>PCB</td></tr>
+<tr><td class="nm">兴森科技</td><td class="num up">+4.57%</td><td class="num">6.66%</td><td class="num up">+3.91亿</td><td>PCB/IC 载板</td></tr>
+<tr><td class="nm">沪电股份</td><td class="num up">+3.57%</td><td class="num">2.70%</td><td class="num up">+5.57亿</td><td>高多层 PCB（AI 服务器）</td></tr>
+<tr><td class="nm">景旺电子</td><td class="num up">+1.83%</td><td class="num">2.83%</td><td class="num up">+1.13亿</td><td>PCB</td></tr>
+<tr><td class="nm">生益科技</td><td class="num up">+1.50%</td><td class="num">2.49%</td><td class="num up">+3.70亿</td><td>覆铜板 CCL 龙头</td></tr>
+<tr><td class="nm">胜宏科技</td><td class="num up">+1.72%</td><td class="num">2.68%</td><td class="num up">+1.89亿</td><td>高多层 PCB</td></tr>
+<tr><td class="nm">深南电路</td><td class="num up">+1.53%</td><td class="num">1.19%</td><td class="num up">+0.23亿</td><td>PCB/封装基板</td></tr>
+<tr><td class="nm">国瓷材料</td><td class="num up">+1.51%</td><td class="num">5.29%</td><td class="num up">+0.80亿</td><td>MLCC 粉体材料</td></tr>
+<tr><td class="nm">风华高科</td><td class="num up">+1.38%</td><td class="num">4.98%</td><td class="num up">+0.99亿</td><td>MLCC 国产龙头</td></tr>
+<tr><td class="nm">洁美科技</td><td class="num up">+1.61%</td><td class="num">2.08%</td><td class="num flat">+0.00亿</td><td>MLCC 离型膜</td></tr>
+<tr style="background:rgba(18,209,142,.06)"><td class="nm">依顿电子</td><td class="num down">−3.41%</td><td class="num">4.42%</td><td class="num down">−0.18亿</td><td>PCB</td></tr>
+</tbody></table>
+<div class="note"><b>MLCC 是今日AI链中「产业链完整性最好」的环节</b>：粉体材料（国瓷+1.51%）→ 离型膜（洁美+1.61%）→ 元件本体（三环+4.03%、顺络+7.40%、风华+1.38%）→ 基板（华瓷股份涨停）全链条上涨，且没有出现龙头掉队。CCL 环节同样呈现材料（华正+5.33%）好于纯制造（生益仅+1.50%）的结构。这与光模块链条的「中游杀跌」形成鲜明对比。</div>
+</div>
+
+<h2>八、先进封装 / AI服务器 / 液冷</h2>
+<div class="card scroll">
+<table>
+<thead><tr><th>标的</th><th class="num">涨跌幅</th><th class="num">换手率</th><th class="num">主力净额</th><th>环节</th></tr></thead>
+<tbody>
+<tr><td class="nm">博汇股份</td><td class="num up">+15.60%</td><td class="num">14.49%</td><td class="num up">+0.47亿</td><td>液冷/机房</td></tr>
+<tr><td class="nm">雪人集团</td><td class="num up">+10.00%</td><td class="num">12.48%</td><td class="num up">+4.04亿</td><td>制冷/液冷（涨停）</td></tr>
+<tr><td class="nm">润欣科技</td><td class="num up">+7.33%</td><td class="num">6.30%</td><td class="num up">+0.54亿</td><td>存储封测</td></tr>
+<tr><td class="nm">天通股份</td><td class="num up">+5.64%</td><td class="num">5.85%</td><td class="num up">+0.51亿</td><td>封装材料/基板</td></tr>
+<tr><td class="nm">炬光科技</td><td class="num up">+4.86%</td><td class="num">4.34%</td><td class="num up">+0.50亿</td><td>激光光学</td></tr>
+<tr><td class="nm">麦格米特</td><td class="num up">+3.04%</td><td class="num">3.91%</td><td class="num up">+1.70亿</td><td>服务器电源</td></tr>
+<tr><td class="nm">太极实业</td><td class="num up">+2.60%</td><td class="num">—</td><td class="num">—</td><td>封装工程</td></tr>
+<tr><td class="nm">工业富联</td><td class="num up">+1.91%</td><td class="num">0.41%</td><td class="num up">+1.50亿</td><td>AI 服务器制造</td></tr>
+<tr><td class="nm">中科曙光</td><td class="num up">+1.50%</td><td class="num">1.74%</td><td class="num down">−0.83亿</td><td>服务器/算力</td></tr>
+<tr><td class="nm">浪潮信息</td><td class="num up">+1.39%</td><td class="num">2.88%</td><td class="num down">−0.17亿</td><td>AI 服务器</td></tr>
+<tr><td class="nm">英维克</td><td class="num up">+0.69%</td><td class="num">1.68%</td><td class="num up">+0.24亿</td><td>液冷龙头（45.15元）</td></tr>
+<tr><td class="nm">英杰电气</td><td class="num up">+0.41%</td><td class="num">4.34%</td><td class="num up">+0.22亿</td><td>液冷电源</td></tr>
+<tr><td class="nm">欧陆通</td><td class="num up">+0.53%</td><td class="num">2.83%</td><td class="num up">+0.04亿</td><td>服务器电源</td></tr>
+<tr><td class="nm">高澜股份</td><td class="num down">−0.15%</td><td class="num">5.46%</td><td class="num down">−0.26亿</td><td>液冷</td></tr>
+<tr style="background:rgba(18,209,142,.06)"><td class="nm">通富微电</td><td class="num down">−0.91%</td><td class="num">2.81%</td><td class="num down">−1.32亿</td><td>AMD 封测</td></tr>
+<tr style="background:rgba(18,209,142,.06)"><td class="nm">华天科技</td><td class="num down">−0.70%</td><td class="num">3.42%</td><td class="num down">−1.06亿</td><td>封测</td></tr>
+<tr style="background:rgba(18,209,142,.06)"><td class="nm">长电科技</td><td class="num down">−0.03%</td><td class="num">2.07%</td><td class="num down">−0.73亿</td><td>封测龙头</td></tr>
+<tr style="background:rgba(18,209,142,.06)"><td class="nm">晶方科技</td><td class="num down">−0.70%</td><td class="num">2.26%</td><td class="num down">−0.07亿</td><td>先进封装</td></tr>
+</tbody></table>
+<div class="warnbox"><b>先进封装是今日AI链中「基本面强但股价弱」的典型错位</b>：板块内55家下跌、仅32家上涨，长电、华天、通富、晶方四家封测权重集体收跌且主力净流出。但上游封装材料（天通+5.64%）与封测设备（华峰测控−0.95%，跌幅小于板块）相对抗跌。这说明市场当前<b>更愿意为「材料国产替代」定价，而非为「封测产能扩张」定价</b>。这是估值体系的问题，不是景气度的问题。</div>
+</div>
+
+<h2>九、板块轮动全景</h2>
+<h3>涨幅前列（行业板块）</h3>
+<div class="card scroll">
+<table>
+<thead><tr><th>板块</th><th class="num">涨跌幅</th><th class="num">主力净额</th><th>特征</th></tr></thead>
+<tbody>
+<tr><td class="nm">广告媒体</td><td class="num up">+6.85%</td><td class="num down">−0.67亿</td><td>AI 应用/营销，题材属性强</td></tr>
+<tr><td class="nm">其他数字媒体</td><td class="num up">+6.61%</td><td class="num down">−1.79亿</td><td>同上</td></tr>
+<tr><td class="nm">生猪养殖</td><td class="num up">+3.79%</td><td class="num up">+1.88亿</td><td>低位补涨，资金真实流入</td></tr>
+<tr><td class="nm">电视广播</td><td class="num up">+3.26%</td><td class="num up">+0.57亿</td><td>传媒轮动</td></tr>
+<tr><td class="nm">大众出版</td><td class="num up">+3.15%</td><td class="num up">+1.23亿</td><td>出版（粤传媒2连板）</td></tr>
+<tr><td class="nm">养殖业</td><td class="num up">+2.81%</td><td class="num up">+1.88亿</td><td>猪肉周期预期</td></tr>
+<tr><td class="nm">林业</td><td class="num up">+2.41%</td><td class="num up">+5.94亿</td><td>低位补涨</td></tr>
+<tr><td class="nm">其他医疗服务</td><td class="num up">+2.33%</td><td class="num up">+0.30亿</td><td>防御性</td></tr>
+<tr><td class="nm">出版</td><td class="num up">+2.28%</td><td class="num flat">−0.02亿</td><td>传媒主线</td></tr>
+<tr><td class="nm">LED</td><td class="num up">+2.03%</td><td class="num up">+6.53亿</td><td>利亚德+20.04%领涨</td></tr>
+<tr><td class="nm">通信工程及服务</td><td class="num up">+1.86%</td><td class="num up">+2.80亿</td><td>润建股份3连板</td></tr>
+<tr><td class="nm">IT 服务</td><td class="num up">+1.78%</td><td class="num up">+11.43亿</td><td>主力真实流入</td></tr>
+<tr><td class="nm">通信网络设备及器件</td><td class="num up">+1.44%</td><td class="num up">+13.16亿</td><td>主力流入居前</td></tr>
+<tr><td class="nm">光纤概念</td><td class="num up">+1.17%</td><td class="num up">+28.37亿</td><td>今日主力流入冠军</td></tr>
+<tr><td class="nm">电子（申万一级）</td><td class="num up">+0.29%</td><td class="num up">+58.35亿</td><td>全市场最大净流入行业</td></tr>
+</tbody></table>
+</div>
+
+<h3>跌幅前列（行业板块）</h3>
+<div class="card scroll">
+<table>
+<thead><tr><th>板块</th><th class="num">涨跌幅</th><th class="num">主力净额</th><th>特征</th></tr></thead>
+<tbody>
+<tr><td class="nm">电信运营商</td><td class="num down">−4.15%</td><td class="num down">−4.25亿</td><td>高股息资金撤离</td></tr>
+<tr><td class="nm">人力资源服务</td><td class="num down">−4.00%</td><td class="num up">+0.08亿</td><td>题材退潮</td></tr>
+<tr><td class="nm">锂电池</td><td class="num down">−3.75%</td><td class="num down">−27.40亿</td><td>宁德时代拖累</td></tr>
+<tr><td class="nm">电池化学品</td><td class="num down">−3.46%</td><td class="num down">−17.76亿</td><td>电解液/正极集体杀跌</td></tr>
+<tr><td class="nm">电池</td><td class="num down">−3.33%</td><td class="num down">−52.13亿</td><td>全市场最大净流出</td></tr>
+<tr><td class="nm">锂电专用设备</td><td class="num down">−3.33%</td><td class="num down">−6.19亿</td><td>锂电链同步</td></tr>
+<tr><td class="nm">电动乘用车</td><td class="num down">−3.13%</td><td class="num down">−8.15亿</td><td>—</td></tr>
+<tr><td class="nm">视频媒体</td><td class="num down">−3.12%</td><td class="num down">−1.29亿</td><td>传媒内部分化</td></tr>
+<tr><td class="nm">乘用车</td><td class="num down">−2.02%</td><td class="num down">−9.44亿</td><td>—</td></tr>
+<tr><td class="nm">逆变器</td><td class="num down">−2.04%</td><td class="num down">−8.49亿</td><td>光伏链联动</td></tr>
+<tr><td class="nm">半导体设备</td><td class="num down">−0.74%</td><td class="num down">−13.93亿</td><td>AI链最弱环节</td></tr>
+<tr><td class="nm">元件</td><td class="num down">−0.63%</td><td class="num up">+19.68亿</td><td>主力流入但指数收跌</td></tr>
+<tr><td class="nm">计算机设备</td><td class="num down">−0.40%</td><td class="num down">−6.76亿</td><td>—</td></tr>
+<tr><td class="nm">自动化设备</td><td class="num down">−0.55%</td><td class="num down">−0.83亿</td><td>—</td></tr>
+</tbody></table>
+</div>
+
+<h3>概念板块热力（AI相关）</h3>
+<div class="card scroll">
+<table>
+<thead><tr><th>概念</th><th class="num">涨跌幅</th><th class="num">主力净额</th></tr></thead>
+<tbody>
+<tr><td class="nm">AI 语料</td><td class="num up">+2.25%</td><td class="num down">−6.01亿</td></tr>
+<tr><td class="nm">CPO 概念</td><td class="num up">+1.31%</td><td class="num up">+24.85亿</td></tr>
+<tr><td class="nm">算力概念</td><td class="num up">+1.19%</td><td class="num up">+15.52亿</td></tr>
+<tr><td class="nm">光纤概念</td><td class="num up">+1.17%</td><td class="num up">+28.37亿</td></tr>
+<tr><td class="nm">英伟达概念</td><td class="num up">+1.17%</td><td class="num up">+14.96亿</td></tr>
+<tr><td class="nm">AI 眼镜</td><td class="num up">+1.05%</td><td class="num up">+18.02亿</td></tr>
+<tr><td class="nm">光通信模块</td><td class="num up">+1.01%</td><td class="num up">+23.64亿</td></tr>
+<tr><td class="nm">AIGC 概念</td><td class="num up">+0.99%</td><td class="num down">−15.05亿</td></tr>
+<tr><td class="nm">AI 芯片</td><td class="num up">+0.49%</td><td class="num up">+3.48亿</td></tr>
+<tr><td class="nm">数据中心</td><td class="num up">+0.40%</td><td class="num up">+9.19亿</td></tr>
+<tr><td class="nm">国产芯片</td><td class="num up">+0.39%</td><td class="num up">+27.62亿</td></tr>
+<tr><td class="nm">被动元件</td><td class="num up">+0.56%</td><td class="num up">+3.32亿</td></tr>
+<tr><td class="nm">MLCC</td><td class="num up">+0.15%</td><td class="num up">+2.67亿</td></tr>
+<tr><td class="nm">液冷服务器</td><td class="num up">+0.12%</td><td class="num up">+2.19亿</td></tr>
+<tr><td class="nm">存储芯片</td><td class="num up">+0.11%</td><td class="num up">+19.12亿</td></tr>
+<tr><td class="nm">第三代半导体</td><td class="num flat">+0.02%</td><td class="num up">+4.77亿</td></tr>
+<tr><td class="nm">先进封装</td><td class="num down">−0.04%</td><td class="num up">+1.74亿</td></tr>
+<tr><td class="nm">PCB</td><td class="num down">−0.30%</td><td class="num up">+20.38亿</td></tr>
+<tr><td class="nm">半导体概念</td><td class="num flat">−0.02%</td><td class="num up">+28.27亿</td></tr>
+<tr><td class="nm">稀土永磁</td><td class="num down">−0.28%</td><td class="num down">−1.64亿</td></tr>
+</tbody></table>
+<div class="mini">另一个值得玩味的现象：AI语料+2.25%、AIGC+0.99%涨幅领先，但主力分别净流出6.01亿、15.05亿——<b>AI应用端今天是「散户接盘、机构派发」的结构</b>，与硬件端的资金流入方向完全相反。</div>
+</div>
+
+<h2>十、涨停板结构与连板梯队</h2>
+<div class="card">
+  <div class="kpi"><span class="k">涨停池家数（东财口径）</span><span class="v">50 家</span></div>
+  <div class="kpi"><span class="k">连板分布</span><span class="v">首板 34 · 二板 12 · 三板 1 · 四板 3</span></div>
+  <div class="kpi"><span class="k">最高连板</span><span class="v">4 板（海洋王 / 东安动力 / 大业股份）</span></div>
+  <div class="kpi"><span class="k">三板</span><span class="v">润建股份（通信服务，封单 1.46亿）</span></div>
+  <div class="kpi"><span class="k">二板</span><span class="v">日海智能 · 泰尔股份 · 同为股份 · 三峡新材 · 星光股份 · 永达股份 · 粤传媒 · 百洋股份 · 移远通信 · 安记食品 等 12 家</span></div>
+  <div class="mini">连板高度仅 4 板、首板占比 68%，说明<b>题材接力意愿偏弱、市场高度受限</b>。值得注意的是通信设备方向占据二板席位较多（日海智能、移远通信、通宇通讯），与光通信主线共振。</div>
+</div>
+
+<h3>涨幅榜前列（剔除新股）</h3>
+<div class="card scroll">
+<table>
+<thead><tr><th>标的</th><th class="num">涨跌幅</th><th class="num">主力净额</th><th>所属方向</th></tr></thead>
+<tbody>
+<tr><td class="nm">利亚德</td><td class="num up">+20.04%</td><td class="num up">+5.31亿</td><td>LED/虚拟现实（LED板块领涨）</td></tr>
+<tr><td class="nm">莱美药业</td><td class="num up">+20.00%</td><td class="num up">+3.16亿</td><td>创新药</td></tr>
+<tr><td class="nm">敏芯股份</td><td class="num up">+20.00%</td><td class="num up">+0.70亿</td><td>MEMS 半导体</td></tr>
+<tr><td class="nm">兆讯传媒</td><td class="num up">+19.98%</td><td class="num up">+0.28亿</td><td>广告营销</td></tr>
+<tr><td class="nm">致尚科技</td><td class="num up">+17.12%</td><td class="num up">+1.67亿</td><td>CPO/精密件</td></tr>
+<tr><td class="nm">博汇股份</td><td class="num up">+15.60%</td><td class="num up">+0.47亿</td><td>液冷/机房</td></tr>
+<tr><td class="nm">莱特光电</td><td class="num up">+13.32%</td><td class="num up">+0.35亿</td><td>OLED 材料</td></tr>
+<tr><td class="nm">光峰科技</td><td class="num up">+12.77%</td><td class="num up">+0.29亿</td><td>激光显示</td></tr>
+<tr><td class="nm">海天瑞声</td><td class="num up">+11.70%</td><td class="num up">+0.09亿</td><td>AI 语料/训练数据（换手 15.73%）</td></tr>
+<tr><td class="nm">凡拓数创</td><td class="num up">+11.54%</td><td class="num down">−1.26亿</td><td>数字孪生/AI应用</td></tr>
+</tbody></table>
+<div class="mini">注：另有新股 N 文峰上市首日涨 217.03%，未纳入排行。</div>
+</div>
+
+<h3>跌幅榜前列</h3>
+<div class="card scroll">
+<table>
+<thead><tr><th>标的</th><th class="num">涨跌幅</th><th class="num">主力净额</th><th>所属方向</th></tr></thead>
+<tbody>
+<tr><td class="nm">宁德时代</td><td class="num down">−12.03%</td><td class="num down">−13.13亿</td><td>动力电池（今日最大单一失血点）</td></tr>
+<tr><td class="nm">蔚蓝锂芯</td><td class="num down">−9.25%</td><td class="num down">−5.45亿</td><td>锂电池</td></tr>
+<tr><td class="nm">尚太科技</td><td class="num down">−9.84%</td><td class="num down">−0.12亿</td><td>锂电负极</td></tr>
+<tr><td class="nm">天岳先进</td><td class="num down">−9.78%</td><td class="num down">−0.84亿</td><td>SiC 衬底</td></tr>
+<tr><td class="nm">锦龙股份</td><td class="num down">−10.02%</td><td class="num down">−1.31亿</td><td>券商（金融补跌）</td></tr>
+<tr><td class="nm">盐津铺子</td><td class="num down">−10.00%</td><td class="num down">−0.16亿</td><td>食品饮料</td></tr>
+<tr><td class="nm">吉华集团</td><td class="num down">−10.00%</td><td class="num down">−1.45亿</td><td>化工</td></tr>
+<tr><td class="nm">骏亚科技</td><td class="num down">−9.21%</td><td class="num down">−0.48亿</td><td>PCB（今日唯一下跌PCB）</td></tr>
+<tr><td class="nm">开普云</td><td class="num down">−14.54%</td><td class="num down">−0.60亿</td><td>AI 应用/政务</td></tr>
+<tr><td class="nm">上海洗霸</td><td class="num down">−10.00%</td><td class="num down">−0.74亿</td><td>—</td></tr>
+</tbody></table>
+</div>
+
+<h2>十一、产业链逻辑复盘</h2>
+
+<h3>1. 光通信：为什么是「上游赢、中游输」</h3>
+<div class="card">
+  <p style="font-size:13.5px">今日光通信板块最反常识的一点是：中际旭创（−0.17%）、新易盛（−1.36%）这两只市值最大的光模块龙头反而下跌，而上游的光器件（天孚+5.10%、长芯博创+6.02%）、光学膜（天洋新材涨停）、薄膜铌酸锂（光库+9.44%）全线大涨。</p>
+  <p style="font-size:13.5px;margin-top:10px"><b>原因有三：</b></p>
+  <ul style="font-size:13.5px;margin:8px 0 0 18px">
+    <li><b>筹码结构差异</b>——光模块龙头机构持仓高度集中，是「沪深300+创业板指」的双重权重股。今日大盘权重普跌，权重股被系统性减仓的压力天然更大；而上游器件多为中小市值，承接资金的是活跃型资金。</li>
+    <li><b>预期兑现节奏</b>——光模块的业绩已经在过去一年被充分定价，中际旭创、新易盛的股价已经隐含了未来数季的高增长。上游器件的产能弹性与国产化率仍有预期差。</li>
+    <li><b>成本传导逻辑</b>——薄膜铌酸锂（TFLN）、光学膜等上游材料受益于「高速率光模块渗透率提升带来的单模块材料用量上升」，是一个二阶受益逻辑，容易在主升浪后段被资金挖掘。</li>
+  </ul>
+  <div class="note"><b>跟踪要点：</b>光库科技（+9.44%，换手6.11%，主力+4.62亿）是今日这条线里量价配合最扎实的中大市值标的，值得观察其能否带动薄膜铌酸锂材料链的二次发酵。</div>
+</div>
+
+<h3>2. MLCC：为什么它是今天AI链里唯一「全链条无掉队」的环节</h3>
+<div class="card">
+  <p style="font-size:13.5px">MLCC 今日呈现罕见的完整产业链共振：</p>
+  <div class="note" style="margin:10px 0">
+    粉体材料（国瓷材料 +1.51%）→ 离型膜（洁美科技 +1.61%）→ 元件本体（三环集团 +4.03%、风华高科 +1.38%、顺络电子 +7.40%）→ 陶瓷基板（华瓷股份 <b>涨停</b>，封单 6471万）<br>
+    <span class="mini">全链条上涨，且每一环节都有资金净流入，没有出现「龙头涨、跟风跌」的劣化结构。</span>
+  </div>
+  <p style="font-size:13.5px"><b>逻辑支撑：</b>AI服务器对高容MLCC的用量是普通服务器的数倍（单板电容数量与容值要求同步提升），叠加消费电子与汽车电子的库存周期共振。当前国产MLCC在AI服务器领域的验证进度，是这条线最核心的跟踪变量——一旦风华高科、三环集团在AI服务器料号上取得批量订单，整个板块的估值体系会重构。</p>
+  <div class="mini">注意：华瓷股份封单 6471万但换手仅 10.59% 且为主力净流入 2.31亿，是今日MLCC链中资金认可度最高的标的，但连续涨停后需注意短线波动。</div>
+</div>
+
+<h3>3. 半导体设备：为什么跌</h3>
+<div class="card">
+  <p style="font-size:13.5px">半导体设备是今日AI链唯一「板块跌 + 主力净流出 + 6:19涨跌比」的三重弱势方向，北方华创、中微公司、拓荆科技、华海清科四家龙头全部收跌。</p>
+  <p style="font-size:13.5px;margin-top:10px"><b>关键细节：跌是缩量的。</b>北方华创换手仅 0.82%、中微公司 1.25%、华海清科 1.52%——这个换手水平远低于近期活跃度，说明<b>不是散户恐慌抛售，而是机构在低换手状态下有序减仓</b>。这类下跌通常不构成趋势破坏，但需要等待量能重新放大确认底部。</p>
+  <p style="font-size:13.5px;margin-top:10px"><b>基本面未变：</b>国产替代仍是长逻辑，晶圆厂资本开支预期与存储扩产周期都在支撑设备订单。今日的下跌更可能反映「AI硬件行情走到中后段，资金从确定性高的龙头切换到低位补涨方向」的资金面行为，而非景气度拐点。</p>
+</div>
+
+<h3>4. 锂电：宁德时代暴跌12%的市场含义</h3>
+<div class="card">
+  <p style="font-size:13.5px">宁德时代单日跌 12.03%、主力净流出 13.13亿，带动整个电池板块净流出 52.13亿（含电池化学品 −17.76亿、锂电池 −27.40亿），锂电池、电池化学品、锂电专用设备三大板块跌幅均超 3.3%。</p>
+  <p style="font-size:13.5px;margin-top:10px"><b>这是今日市场的资金主战场转换信号，而非单一利空。</b>权重股暴跌通常有两种可能：一是基本面出现实质性变化（本次未见明确行业性利空），二是权重股被系统性调仓换成小盘题材。<b>结合今日中证1000涨0.20%、国证2000涨0.17%、而沪深300跌0.97%的事实，第二种解释的权重更大。</b></p>
+  <div class="warnbox"><b>风险提示：</b>权重股的缩量阴跌往往不是一次性的。若后续沪深300继续走弱而小盘继续走强，说明「以权重股为压舱石」的指数中枢会系统性下移——这对所有跟踪沪深300/创业板指的组合都会造成压力。<b>宁德时代今日换手不高，属于缩量下跌，需观察明日是否放量</b>，放量则意味着调整尚未结束。</div>
+</div>
+
+<h2>十二、明日观察清单</h2>
+<div class="card">
+  <div class="kpi"><span class="k"><b>① 沪指 3700 关口</b></span><span class="v">今日最低 3703.12，箱体下沿岌岌可危</span></div>
+  <div class="kpi"><span class="k"><b>② 宁德时代明日是否放量</b></span><span class="v">缩量阴跌 vs 放量补跌，决定权重调整性质</span></div>
+  <div class="kpi"><span class="k"><b>③ 光模块龙头能否止跌</b></span><span class="v">中际旭创、新易盛若企稳，上游器件行情才有持续性</span></div>
+  <div class="kpi"><span class="k"><b>④ 半导体设备换手率能否回升</b></span><span class="v">北方华创/中微若放量收复失地，说明是洗盘而非减仓</span></div>
+  <div class="kpi"><span class="k"><b>⑤ MLCC 链能否二次发酵</b></span><span class="v">华瓷股份次日封板质量、三环集团量能是关键</span></div>
+  <div class="kpi"><span class="k"><b>⑥ 两市成交额能否重回 1.5万亿</b></span><span class="v">今日 1.43万亿，量能是当前最大的制约</span></div>
+  <div class="kpi"><span class="k"><b>⑦ 传媒/农业低位补涨的持续性</b></span><span class="v">粤传媒2连板，若冲高回落说明补涨逻辑已透支</span></div>
+</div>
+
+<div class="redbox">
+<b>结构总结（一句话）：</b>今天指数的绿是权重股给的，市场的热是题材给的，AI的钱是上游给的。电子行业单日净流入 58.35亿居所有行业之首，其中光纤、CPO、光通信、半导体各环节分别吸金 20-28亿——<b>AI主线的钱没有撤出市场，只是在链条内部重新分配，且正在从「中游制造」向「上游器件/材料」迁移</b>。
+</div>
+
+<footer>
+  数据来源：上交所/深交所行情、东方财富（行情数据截至 2026-10-21 15:15 收盘）<br>
+  本报告基于公开市场数据的客观统计与结构分析，不构成任何投资建议。市场有风险，决策需独立判断。
+</footer>
+
+</div>
+</body>
+</html>
