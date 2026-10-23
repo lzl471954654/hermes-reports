@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港股收盘总结 · AI产业链深度版 | 2026年10月23日（周五）</title>
+<style>
+  :root{
+    --bg:#0d1117; --card:#161b22; --border:#30363d; --text:#c9d1d9; --dim:#8b949e;
+    --green:#3fb950; --red:#f85149; --blue:#58a6ff; --purple:#bc8cff; --orange:#d2991d;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65;padding:24px;max-width:1180px;margin:0 auto}
+  h1{font-size:1.9em;background:linear-gradient(135deg,var(--green),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+  .subtitle{color:var(--dim);font-size:.92em;margin-bottom:22px}
+  .index-row{display:flex;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+  .index-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 22px;flex:1;min-width:220px}
+  .index-card .name{font-size:.82em;color:var(--dim);margin-bottom:4px}
+  .index-card .price{font-size:1.95em;font-weight:700;font-variant-numeric:tabular-nums}
+  .index-card .chg{font-size:1em;margin-top:3px;font-variant-numeric:tabular-nums}
+  .index-card .extra{font-size:.78em;color:var(--dim);margin-top:7px}
+  .green{color:var(--green)} .red{color:var(--red)}
+  .section{margin-bottom:32px}
+  .stitle{font-size:1.18em;font-weight:600;color:var(--blue);border-left:3px solid var(--blue);padding-left:12px;margin-bottom:14px}
+  .stitle.p{color:var(--purple);border-left-color:var(--purple)}
+  .stitle.o{color:var(--orange);border-left-color:var(--orange)}
+  .stitle.g{color:var(--green);border-left-color:var(--green)}
+  table{width:100%;border-collapse:collapse;font-size:.9em}
+  thead th{text-align:left;padding:9px 11px;border-bottom:1px solid var(--border);color:var(--dim);font-weight:500;font-size:.82em;letter-spacing:.4px}
+  thead th.num{text-align:right}
+  tbody td{padding:8px 11px;border-bottom:1px solid rgba(48,54,61,.5)}
+  tbody td.num{text-align:right;font-variant-numeric:tabular-nums}
+  tbody td.range{font-size:.84em;color:var(--dim);font-variant-numeric:tabular-nums}
+  tbody tr:hover{background:rgba(88,166,255,.04)}
+  tbody tr.up td:first-child{box-shadow:inset 3px 0 0 var(--green)}
+  tbody tr.down td:first-child{box-shadow:inset 3px 0 0 var(--red)}
+  .code{font-family:"SF Mono","Fira Code",monospace;color:var(--dim);font-size:.82em}
+  .nm{font-weight:600}
+  .box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:16px}
+  .box.warn{border-left:3px solid var(--orange)}
+  .box.good{border-left:3px solid var(--green)}
+  .box.info{border-left:3px solid var(--blue)}
+  .box.p{border-left:3px solid var(--purple)}
+  .box h4{font-size:.96em;margin-bottom:7px;color:var(--text)}
+  .box p{font-size:.89em;color:var(--dim)}
+  .box p b{color:var(--text)}
+  ul{margin:6px 0 0 18px} li{font-size:.88em;margin-bottom:5px;color:var(--dim)}
+  li b{color:var(--text)}
+  .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:7px;font-size:.87em}
+  .bar-label{width:132px;flex-shrink:0;text-align:right;color:var(--text)}
+  .bar-track{flex:1;background:rgba(48,54,61,.4);border-radius:4px;height:19px;position:relative}
+  .bar-fill{height:100%;border-radius:4px;position:absolute}
+  .bar-val{width:80px;flex-shrink:0;font-variant-numeric:tabular-nums}
+  .divider{border:none;border-top:1px solid var(--border);margin:26px 0}
+  .foot{color:var(--dim);font-size:.8em;text-align:center;margin-top:34px;padding-top:18px;border-top:1px solid var(--border)}
+  a{color:var(--blue)}
+  .tb-title{font-size:.95em;font-weight:600;margin:18px 0 8px;color:var(--purple)}
+  .tb-title span{color:var(--dim);font-weight:400;font-size:.86em}
+  .kpi{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0}
+  .kpi div{flex:1;min-width:150px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:.84em;color:var(--dim)}
+  .kpi b{display:block;font-size:1.35em;color:var(--text);font-variant-numeric:tabular-nums;margin-top:3px}
+</style>
+</head>
+<body>
+
+<h1>港股收盘总结 · AI产业链深度版</h1>
+<div class="subtitle">2026年10月23日（周五） · 港股收盘 · 样本 49 只 AI 产业链及对照个股（行情源：腾讯财经实时行情）</div>
+<div class="index-row"><div class="index-card"><div class="name">恒生指数 <span class="code">HSI</span></div><div class="price">23,093.37</div><div class="chg green">▲ +158.69　<span class="green">+0.69%</span></div><div class="extra">成交 2,498 亿 · 高 23,231.63 · 低 22,803.77<br>年初至今 -9.90% · 52周低 22,518</div></div><div class="index-card"><div class="name">恒生科技指数 <span class="code">HSTECH</span></div><div class="price">3,871.66</div><div class="chg green">▲ +77.73　<span class="green">+2.05%</span></div><div class="extra">高 3,896.93 · 低 <b style="color:var(--green)">3,781.23</b><br>低探 52周低 3,781.15 后 V 型反转 · 年内 -29.81%</div></div><div class="index-card"><div class="name">恒生国企指数 <span class="code">HSCEI</span></div><div class="price">7,756.25</div><div class="chg green">▲ +67.06　<span class="green">+0.87%</span></div><div class="extra">高 7,803.27 · 低 7,660.60<br>年初至今 -12.98%</div></div><div class="index-card">
+    <div class="name">隔夜美股（对照）</div>
+    <div class="price" style="color:var(--red)">纳指 -2.6%</div>
+    <div class="chg red">纳指100 <span class="red">-2.9%</span> · 创 9/17 以来新低</div>
+    <div class="extra">半导体 ETF(SMH) <b class="red">-5.99%</b><br>Meta 财报后资本开支指引受质疑</div>
+  </div></div>
+<div class="box good">
+  <h4>今日一句话：史诗级"背离日" —— 隔夜纳指重挫 2.6%、美股半导体 ETF 暴跌 5.99%，港股却逆势放量收涨，恒科精准试探 52 周低点后 V 型反转</h4>
+  <p>这是近期罕见的<b>跨市场背离</b>：美股因 Meta 财报后市场质疑 AI 资本开支回报而杀跌（纳指100 -2.9%、SMH -5.99%），<b>港股却选择"利空出尽"</b>。恒指涨 <b class="green">+0.69%</b> 报 <b>23,093.37</b>，恒生科技指数涨 <b class="green">+2.05%</b> 报 <b>3,871.66</b>，国企指数涨 <b class="green">+0.87%</b>。全天走势为<b>低开探底 → 逐级回升</b>：恒科盘中最低 <b>3,781.23</b>，距 52 周低点 3,781.15 <b>仅 8 点</b>，随后一路拉高收于 3,871.66，<b>从日内低点反弹近 2.4%</b> —— 这是典型的"假摔 + 教科书级探底回升"形态。</p>
+</div>
+
+<div class="box info">
+  <h4>样本涨跌分布（49 只个股）</h4>
+  <p><b class="green">上涨 39 只</b> · <b class="red">下跌 10 只</b> ｜ 样本合计成交额 <b>861.1 亿港元</b>。AI 产业链 26 只核心标的等权 <b class="green">+2.39%</b>、成交额加权 <b class="green">+2.42%</b>（695 亿），<b>全线跑赢恒指</b>，且 13 只涨幅超 4%。与昨日"48/49 只下跌"的极端普跌形成<b>完美镜像</b>，赚钱效应集中在高 Beta 的 AI 纯度标的。</p>
+</div>
+
+<div class="kpi">
+  <div>全样本最强涨幅<b class="green">智谱 +8.29%</b></div>
+  <div>AI 链最强环节<b class="green">AI芯片/智驾 +5.65%</b></div>
+  <div>AI 链最弱环节<b class="red">算力/IDC -0.45%</b></div>
+  <div>日内最强反转<b class="green">宁德时代 +5.44%</b></div>
+</div>
+<hr class="divider">
+<div class="section">
+  <div class="stitle">一、板块资金流向：从"杀 AI"到"抢 AI"的极速轮动</div>
+  <p style="font-size:.86em;color:var(--dim);margin-bottom:14px">以下为各板块成分股<b style="color:var(--text)">等权平均涨跌幅</b>（按产业链环节归类，成交额为样本合计）。</p><div class="bar-row"><div class="bar-label green">AI芯片/智驾</div><div class="bar-track"><div class="bar-fill" style="left:50%;width:36.1%;background:linear-gradient(90deg,#3fb950,#2ea043)"></div></div><div class="bar-val green">+5.65%</div></div><div class="bar-row"><div class="bar-label green">AI应用/软件</div><div class="bar-track"><div class="bar-fill" style="left:50%;width:25.2%;background:linear-gradient(90deg,#3fb950,#2ea043)"></div></div><div class="bar-val green">+3.94%</div></div><div class="bar-row"><div class="bar-label green">医药生物</div><div class="bar-track"><div class="bar-fill" style="left:50%;width:16.4%;background:linear-gradient(90deg,#3fb950,#2ea043)"></div></div><div class="bar-val green">+2.57%</div></div><div class="bar-row"><div class="bar-label green">光通信/光学</div><div class="bar-track"><div class="bar-fill" style="left:50%;width:11.3%;background:linear-gradient(90deg,#3fb950,#2ea043)"></div></div><div class="bar-val green">+1.76%</div></div><div class="bar-row"><div class="bar-label green">互联网平台</div><div class="bar-track"><div class="bar-fill" style="left:50%;width:8.1%;background:linear-gradient(90deg,#3fb950,#2ea043)"></div></div><div class="bar-val green">+1.27%</div></div><div class="bar-row"><div class="bar-label green">金融/交易所</div><div class="bar-track"><div class="bar-fill" style="left:50%;width:6.3%;background:linear-gradient(90deg,#3fb950,#2ea043)"></div></div><div class="bar-val green">+0.98%</div></div><div class="bar-row"><div class="bar-label green">半导体制造/设备</div><div class="bar-track"><div class="bar-fill" style="left:50%;width:4.9%;background:linear-gradient(90deg,#3fb950,#2ea043)"></div></div><div class="bar-val green">+0.76%</div></div><div class="bar-row"><div class="bar-label green">能源/资源</div><div class="bar-track"><div class="bar-fill" style="left:50%;width:3.6%;background:linear-gradient(90deg,#3fb950,#2ea043)"></div></div><div class="bar-val green">+0.56%</div></div><div class="bar-row"><div class="bar-label red">金融/保险</div><div class="bar-track"><div class="bar-fill" style="right:50%;width:0.9%;background:linear-gradient(270deg,#f85149,#da3633)"></div></div><div class="bar-val red">-0.14%</div></div><div class="bar-row"><div class="bar-label red">算力/IDC/服务器</div><div class="bar-track"><div class="bar-fill" style="right:50%;width:2.9%;background:linear-gradient(270deg,#f85149,#da3633)"></div></div><div class="bar-val red">-0.45%</div></div><div class="bar-row"><div class="bar-label red">金融/银行</div><div class="bar-track"><div class="bar-fill" style="right:50%;width:8.6%;background:linear-gradient(270deg,#f85149,#da3633)"></div></div><div class="bar-val red">-1.34%</div></div>
+  <div class="box good" style="margin-top:18px">
+    <h4>资金流向解读：这是一次"高 Beta 抢反弹"，不是防御性轮动</h4>
+    <ul>
+      <li><b>进攻特征极其明确。</b>AI芯片/智驾 <b class="green">+5.65%</b>（加权 +7.15%，7 只<b>全部上涨</b>）、AI应用/软件 <b class="green">+3.94%</b>、医药生物 +2.57%、光通信 +1.76%。<b>涨幅最大的恰恰是昨天跌得最狠的环节</b> —— 宁德时代昨跌 -7.24% 今涨 +5.44%、长飞昨跌 -11.79% 今涨 +1.36%，是典型的超跌反弹动能排序。</li>
+      <li><b>防御资产被抛弃，说明风险偏好真实回归。</b>农业银行 <b class="red">-1.86%</b>、中银香港 -1.57%、中国银行 -0.58%、中国石油 -0.98%、友邦 -0.14%，<b>昨日的避风港今日集体走弱</b>。资金从"高股息防御"流向"高弹性成长"，这是 risk-on 而非避险。</li>
+      <li><b>唯一收跌的 AI 环节是算力/IDC（-0.45%）。</b>联想集团 -2.25%（成交 32.8 亿）、协鑫科技 -4.00%。值得注意的是联想昨日刚跌 -10.92% 却仍未反弹，说明资金<b>对本轮 AI 硬件"纯卖盘"存疑</b>，反弹优先选择应用层与机器人这类"有叙事也有低位"的标的。</li>
+      <li><b>互联网平台（+1.27%，339.8 亿）贡献主要成交量。</b>占样本成交额 <b>39.5%</b>，腾讯 +0.94%、小米 +3.88%、京东 +1.73%（收于整数位 100 港元）、阿里仅 +0.46%（成交 89.8 亿，仍在 100 港元下方）—— <b>权重股涨得不多，指数涨幅主要由中小市值 AI 标的贡献</b>。</li>
+    </ul>
+  </div>
+</div>
+<hr class="divider">
+<div class="section">
+  <div class="stitle p">二、AI 产业链逐环节深度拆解</div>
+  <div class="tb-title">半导体制造/设备　<span>板块等权 +0.76% · 3涨1跌 · 成交 86.7 亿</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th class="num">总市值(亿)</th><th>日内区间</th><th>状态</th></tr></thead>
+    <tbody>
+<tr class="up"><td class="nm">高伟电子<span class="code"> 01415</span></td><td class="num">21.660</td><td class="num green">+0.500</td><td class="num green"><b>+2.36%</b></td><td class="num">0.65</td><td class="num">186</td><td class="range">20.80 ~ 21.70</td><td style="font-size:.82em;color:var(--green)">板块内成交清淡</td></tr><tr class="up"><td class="nm">华虹半导体<span class="code"> 01347</span></td><td class="num">67.450</td><td class="num green">+0.900</td><td class="num green"><b>+1.35%</b></td><td class="num">25.66</td><td class="num">1,301</td><td class="range">62.30 ~ 68.00</td><td style="font-size:.82em;color:var(--green)">晶圆代工修复，但弱于中芯</td></tr><tr class="up"><td class="nm">中芯国际<span class="code"> 00981</span></td><td class="num">47.060</td><td class="num green">+0.220</td><td class="num green"><b>+0.47%</b></td><td class="num">55.52</td><td class="num">4,029</td><td class="range">44.10 ~ 47.68</td><td style="font-size:.82em;color:var(--green)">成交 55.5 亿居第 5，仅微涨</td></tr><tr class="down"><td class="nm">ASMPT<span class="code"> 00522</span></td><td class="num">121.700</td><td class="num red">-1.400</td><td class="num red"><b>-1.14%</b></td><td class="num">4.87</td><td class="num">510</td><td class="range">115.40 ~ 122.60</td><td style="font-size:.82em;color:var(--dim)">封测设备逆市收跌</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">光通信/光学　<span>板块等权 +1.76% · 2涨1跌 · 成交 31.7 亿</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th class="num">总市值(亿)</th><th>日内区间</th><th>状态</th></tr></thead>
+    <tbody>
+<tr class="up"><td class="nm">舜宇光学科技<span class="code"> 02382</span></td><td class="num">63.150</td><td class="num green">+3.000</td><td class="num green"><b>+4.99%</b></td><td class="num">7.80</td><td class="num">681</td><td class="range">59.05 ~ 63.65</td><td style="font-size:.82em;color:var(--green)">光学龙头 +4.99%，强于海外光模块同业</td></tr><tr class="up"><td class="nm">长飞光纤光缆<span class="code"> 06869</span></td><td class="num">112.200</td><td class="num green">+1.500</td><td class="num green"><b>+1.36%</b></td><td class="num">23.61</td><td class="num">929</td><td class="range">104.50 ~ 113.30</td><td style="font-size:.82em;color:var(--green)">昨跌 11.79% 后技术性反弹</td></tr><tr class="down"><td class="nm">东方通信<span class="code"> 01071</span></td><td class="num">4.145</td><td class="num red">-0.045</td><td class="num red"><b>-1.07%</b></td><td class="num">0.29</td><td class="num">481</td><td class="range">4.09 ~ 4.17</td><td style="font-size:.82em;color:var(--dim)">成交清淡</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">算力/IDC/服务器　<span>板块等权 -0.45% · 3涨2跌 · 成交 38.8 亿</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th class="num">总市值(亿)</th><th>日内区间</th><th>状态</th></tr></thead>
+    <tbody>
+<tr class="up"><td class="nm">电能实业<span class="code"> 01686</span></td><td class="num">5.035</td><td class="num green">+0.105</td><td class="num green"><b>+2.13%</b></td><td class="num">0.11</td><td class="num">119</td><td class="range">4.81 ~ 5.06</td><td style="font-size:.82em;color:var(--green)">成交清淡</td></tr><tr class="up"><td class="nm">金山软件<span class="code"> 03888</span></td><td class="num">24.600</td><td class="num green">+0.340</td><td class="num green"><b>+1.40%</b></td><td class="num">2.66</td><td class="num">338</td><td class="range">23.64 ~ 24.78</td><td style="font-size:.82em;color:var(--green)">软件修复幅度温和</td></tr><tr class="up"><td class="nm">万国数据-SW<span class="code"> 09698</span></td><td class="num">21.940</td><td class="num green">+0.100</td><td class="num green"><b>+0.46%</b></td><td class="num">1.57</td><td class="num">341</td><td class="range">20.88 ~ 22.04</td><td style="font-size:.82em;color:var(--green)">IDC 龙头窄幅整理</td></tr><tr class="down"><td class="nm">联想集团<span class="code"> 00992</span></td><td class="num">22.640</td><td class="num red">-0.520</td><td class="num red"><b>-2.25%</b></td><td class="num">32.83</td><td class="num">2,904</td><td class="range">21.80 ~ 23.04</td><td style="font-size:.82em;color:var(--red)">AI 算力龙头，AI 链唯一收跌环节</td></tr><tr class="down"><td class="nm">协鑫科技<span class="code"> 03800</span></td><td class="num">0.600</td><td class="num red">-0.025</td><td class="num red"><b>-4.00%</b></td><td class="num">1.63</td><td class="num">193</td><td class="range">0.59 ~ 0.62</td><td style="font-size:.82em;color:var(--red)">全样本最大跌幅，昨日唯一收红股</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">AI芯片/智驾　<span>板块等权 +5.65% · 7涨0跌 · 成交 137.0 亿</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th class="num">总市值(亿)</th><th>日内区间</th><th>状态</th></tr></thead>
+    <tbody>
+<tr class="up"><td class="nm">智谱<span class="code"> 02513</span></td><td class="num">499.000</td><td class="num green">+38.200</td><td class="num green"><b>+8.29%</b></td><td class="num">74.25</td><td class="num">2,433</td><td class="range">444.60 ~ 501.00</td><td style="font-size:.82em;color:var(--green)">全样本涨幅第一，成交 74.3 亿居第 2，逼近 500 港元</td></tr><tr class="up"><td class="nm">优必选<span class="code"> 09880</span></td><td class="num">68.200</td><td class="num green">+4.300</td><td class="num green"><b>+6.73%</b></td><td class="num">6.46</td><td class="num">343</td><td class="range">61.90 ~ 69.80</td><td style="font-size:.82em;color:var(--green)">人形机器人概念强势反弹</td></tr><tr class="up"><td class="nm">比亚迪股份<span class="code"> 01211</span></td><td class="num">71.600</td><td class="num green">+4.200</td><td class="num green"><b>+6.23%</b></td><td class="num">36.60</td><td class="num">6,528</td><td class="range">67.25 ~ 72.00</td><td style="font-size:.82em;color:var(--green)">新能源车龙头，市值超 6500 亿</td></tr><tr class="up"><td class="nm">壁仞科技<span class="code"> 06082</span></td><td class="num">23.700</td><td class="num green">+1.160</td><td class="num green"><b>+5.15%</b></td><td class="num">5.40</td><td class="num">647</td><td class="range">21.70 ~ 24.10</td><td style="font-size:.82em;color:var(--green)">国产 GPU 标的反弹，估值修复</td></tr><tr class="up"><td class="nm">小鹏汽车<span class="code"> 09868</span></td><td class="num">37.120</td><td class="num green">+1.800</td><td class="num green"><b>+5.10%</b></td><td class="num">6.89</td><td class="num">711</td><td class="range">35.30 ~ 37.38</td><td style="font-size:.82em;color:var(--green)">智驾概念同步回暖</td></tr><tr class="up"><td class="nm">蔚来<span class="code"> 09866</span></td><td class="num">26.320</td><td class="num green">+1.040</td><td class="num green"><b>+4.11%</b></td><td class="num">1.97</td><td class="num">661</td><td class="range">25.38 ~ 26.56</td><td style="font-size:.82em;color:var(--green)">新能源车普涨</td></tr><tr class="up"><td class="nm">理想汽车<span class="code"> 02015</span></td><td class="num">45.080</td><td class="num green">+1.700</td><td class="num green"><b>+3.92%</b></td><td class="num">5.44</td><td class="num">873</td><td class="range">44.28 ~ 46.04</td><td style="font-size:.82em;color:var(--green)">新能源车普涨</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">AI应用/软件　<span>板块等权 +3.94% · 7涨0跌 · 成交 61.0 亿</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th class="num">总市值(亿)</th><th>日内区间</th><th>状态</th></tr></thead>
+    <tbody>
+<tr class="up"><td class="nm">金蝶国际<span class="code"> 00268</span></td><td class="num">9.230</td><td class="num green">+0.630</td><td class="num green"><b>+7.33%</b></td><td class="num">5.40</td><td class="num">324</td><td class="range">8.61 ~ 9.47</td><td style="font-size:.82em;color:var(--green)">企业软件龙头，全样本涨幅第二</td></tr><tr class="up"><td class="nm">阅文集团<span class="code"> 00772</span></td><td class="num">22.840</td><td class="num green">+1.160</td><td class="num green"><b>+5.35%</b></td><td class="num">2.38</td><td class="num">231</td><td class="range">21.38 ~ 23.08</td><td style="font-size:.82em;color:var(--green)">AI 应用端涨势抢眼</td></tr><tr class="up"><td class="nm">商汤-W<span class="code"> 00020</span></td><td class="num">1.160</td><td class="num green">+0.050</td><td class="num green"><b>+4.50%</b></td><td class="num">6.13</td><td class="num">490</td><td class="range">1.09 ~ 1.17</td><td style="font-size:.82em;color:var(--green)">AI 软件回暖</td></tr><tr class="up"><td class="nm">快手-W<span class="code"> 01024</span></td><td class="num">27.900</td><td class="num green">+1.120</td><td class="num green"><b>+4.18%</b></td><td class="num">13.61</td><td class="num">1,201</td><td class="range">26.74 ~ 28.00</td><td style="font-size:.82em;color:var(--green)">成交 13.6 亿，AI 应用端活跃</td></tr><tr class="up"><td class="nm">哔哩哔哩-W<span class="code"> 09626</span></td><td class="num">106.200</td><td class="num green">+2.700</td><td class="num green"><b>+2.61%</b></td><td class="num">3.67</td><td class="num">446</td><td class="range">103.10 ~ 106.80</td><td style="font-size:.82em;color:var(--green)">中概互联跟涨</td></tr><tr class="up"><td class="nm">泡泡玛特<span class="code"> 09992</span></td><td class="num">131.700</td><td class="num green">+3.200</td><td class="num green"><b>+2.49%</b></td><td class="num">17.59</td><td class="num">1,754</td><td class="range">126.90 ~ 132.90</td><td style="font-size:.82em;color:var(--green)">高估值消费股回暖</td></tr><tr class="up"><td class="nm">百度集团-SW<span class="code"> 09888</span></td><td class="num">75.950</td><td class="num green">+0.850</td><td class="num green"><b>+1.13%</b></td><td class="num">12.21</td><td class="num">2,066</td><td class="range">74.35 ~ 76.45</td><td style="font-size:.82em;color:var(--green)">大模型应用小幅跟涨</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">互联网平台　<span>板块等权 +1.27% · 9涨1跌 · 成交 339.8 亿</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th class="num">总市值(亿)</th><th>日内区间</th><th>状态</th></tr></thead>
+    <tbody>
+<tr class="up"><td class="nm">小米集团-W<span class="code"> 01810</span></td><td class="num">26.800</td><td class="num green">+1.000</td><td class="num green"><b>+3.88%</b></td><td class="num">58.21</td><td class="num">6,913</td><td class="range">25.88 ~ 27.40</td><td style="font-size:.82em;color:var(--green)">成交 58.2 亿居第 4，硬件端修复</td></tr><tr class="up"><td class="nm">携程集团-S<span class="code"> 09961</span></td><td class="num">314.800</td><td class="num green">+8.400</td><td class="num green"><b>+2.74%</b></td><td class="num">7.33</td><td class="num">1,982</td><td class="range">308.80 ~ 316.40</td><td style="font-size:.82em;color:var(--green)">OTA 龙头随市回暖</td></tr><tr class="up"><td class="nm">海尔智家<span class="code"> 06690</span></td><td class="num">19.410</td><td class="num green">+0.400</td><td class="num green"><b>+2.10%</b></td><td class="num">2.26</td><td class="num">1,805</td><td class="range">19.03 ~ 19.52</td><td style="font-size:.82em;color:var(--green)">白电龙头随市反弹</td></tr><tr class="up"><td class="nm">京东集团-SW<span class="code"> 09618</span></td><td class="num">100.000</td><td class="num green">+1.700</td><td class="num green"><b>+1.73%</b></td><td class="num">9.52</td><td class="num">2,688</td><td class="range">99.75 ~ 101.60</td><td style="font-size:.82em;color:var(--green)">电商平台普涨，收于整数位 100 港元</td></tr><tr class="up"><td class="nm">腾讯控股<span class="code"> 00700</span></td><td class="num">386.000</td><td class="num green">+3.600</td><td class="num green"><b>+0.94%</b></td><td class="num">127.30</td><td class="num">35,098</td><td class="range">378.00 ~ 388.80</td><td style="font-size:.82em;color:var(--green)">成交 127.3 亿居全样本第 1</td></tr><tr class="up"><td class="nm">阿里健康<span class="code"> 00241</span></td><td class="num">2.865</td><td class="num green">+0.020</td><td class="num green"><b>+0.70%</b></td><td class="num">1.81</td><td class="num">463</td><td class="range">2.82 ~ 2.90</td><td style="font-size:.82em;color:var(--green)">医药电商成交清淡</td></tr><tr class="up"><td class="nm">网易-S<span class="code"> 09999</span></td><td class="num">183.000</td><td class="num green">+1.200</td><td class="num green"><b>+0.66%</b></td><td class="num">16.91</td><td class="num">5,859</td><td class="range">182.40 ~ 187.70</td><td style="font-size:.82em;color:var(--green)">游戏龙头收复部分失地</td></tr><tr class="up"><td class="nm">美团-W<span class="code"> 03690</span></td><td class="num">71.650</td><td class="num green">+0.350</td><td class="num green"><b>+0.49%</b></td><td class="num">21.90</td><td class="num">4,425</td><td class="range">70.45 ~ 72.65</td><td style="font-size:.82em;color:var(--green)">本地生活平台涨幅温和</td></tr><tr class="up"><td class="nm">阿里巴巴-W<span class="code"> 09988</span></td><td class="num">97.800</td><td class="num green">+0.450</td><td class="num green"><b>+0.46%</b></td><td class="num">89.80</td><td class="num">19,464</td><td class="range">95.30 ~ 98.65</td><td style="font-size:.82em;color:var(--green)">成交 89.8 亿居第 3，仍在 100 港元下方</td></tr><tr class="down"><td class="nm">京东健康<span class="code"> 06618</span></td><td class="num">37.600</td><td class="num red">-0.380</td><td class="num red"><b>-1.00%</b></td><td class="num">4.72</td><td class="num">1,200</td><td class="range">37.24 ~ 39.00</td><td style="font-size:.82em;color:var(--dim)">医药电商为互联网平台唯一收跌</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">医药生物　<span>板块等权 +2.57% · 4涨0跌 · 成交 80.9 亿</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th class="num">总市值(亿)</th><th>日内区间</th><th>状态</th></tr></thead>
+    <tbody>
+<tr class="up"><td class="nm">宁德时代<span class="code"> 03750</span></td><td class="num">356.800</td><td class="num green">+18.400</td><td class="num green"><b>+5.44%</b></td><td class="num">31.85</td><td class="num">16,510</td><td class="range">326.00 ~ 364.80</td><td style="font-size:.82em;color:var(--green)">昨跌 7.24% 后暴力反转，振幅 11.5%</td></tr><tr class="up"><td class="nm">信达生物<span class="code"> 01801</span></td><td class="num">83.200</td><td class="num green">+1.600</td><td class="num green"><b>+1.96%</b></td><td class="num">14.79</td><td class="num">1,453</td><td class="range">79.80 ~ 84.40</td><td style="font-size:.82em;color:var(--green)">创新药同步回暖</td></tr><tr class="up"><td class="nm">百济神州<span class="code"> 06160</span></td><td class="num">228.400</td><td class="num green">+3.800</td><td class="num green"><b>+1.69%</b></td><td class="num">10.40</td><td class="num">3,523</td><td class="range">224.00 ~ 231.20</td><td style="font-size:.82em;color:var(--green)">创新药龙头稳步修复</td></tr><tr class="up"><td class="nm">药明生物<span class="code"> 02269</span></td><td class="num">45.800</td><td class="num green">+0.540</td><td class="num green"><b>+1.19%</b></td><td class="num">23.88</td><td class="num">1,885</td><td class="range">43.02 ~ 46.58</td><td style="font-size:.82em;color:var(--green)">CXO 跟随医药回暖</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">能源/资源　<span>板块等权 +0.56% · 3涨1跌 · 成交 21.8 亿</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th class="num">总市值(亿)</th><th>日内区间</th><th>状态</th></tr></thead>
+    <tbody>
+<tr class="up"><td class="nm">中国神华<span class="code"> 01088</span></td><td class="num">39.620</td><td class="num green">+0.620</td><td class="num green"><b>+1.59%</b></td><td class="num">6.97</td><td class="num">8,593</td><td class="range">38.70 ~ 39.90</td><td style="font-size:.82em;color:var(--green)">高股息煤炭逆市收红</td></tr><tr class="up"><td class="nm">江西铜业<span class="code"> 00358</span></td><td class="num">29.060</td><td class="num green">+0.320</td><td class="num green"><b>+1.11%</b></td><td class="num">3.22</td><td class="num">1,006</td><td class="range">27.36 ~ 29.34</td><td style="font-size:.82em;color:var(--green)">有色金属收红</td></tr><tr class="up"><td class="nm">五矿资源<span class="code"> 01208</span></td><td class="num">7.050</td><td class="num green">+0.035</td><td class="num green"><b>+0.50%</b></td><td class="num">3.65</td><td class="num">906</td><td class="range">6.67 ~ 7.11</td><td style="font-size:.82em;color:var(--green)">铜价回调拖累，涨幅有限</td></tr><tr class="down"><td class="nm">中国石油股份<span class="code"> 00857</span></td><td class="num">9.605</td><td class="num red">-0.095</td><td class="num red"><b>-0.98%</b></td><td class="num">7.99</td><td class="num">17,579</td><td class="range">9.61 ~ 9.81</td><td style="font-size:.82em;color:var(--dim)">高股息能源收跌</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">金融/银行　<span>板块等权 -1.34% · 0涨3跌 · 成交 29.7 亿</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th class="num">总市值(亿)</th><th>日内区间</th><th>状态</th></tr></thead>
+    <tbody>
+<tr class="down"><td class="nm">中国银行<span class="code"> 03988</span></td><td class="num">5.955</td><td class="num red">-0.035</td><td class="num red"><b>-0.58%</b></td><td class="num">16.18</td><td class="num">19,188</td><td class="range">5.88 ~ 6.05</td><td style="font-size:.82em;color:var(--dim)">国有大行承压</td></tr><tr class="down"><td class="nm">中银香港<span class="code"> 02388</span></td><td class="num">48.880</td><td class="num red">-0.780</td><td class="num red"><b>-1.57%</b></td><td class="num">7.18</td><td class="num">5,168</td><td class="range">48.10 ~ 49.68</td><td style="font-size:.82em;color:var(--dim)">银行股回调</td></tr><tr class="down"><td class="nm">农业银行<span class="code"> 01288</span></td><td class="num">6.580</td><td class="num red">-0.125</td><td class="num red"><b>-1.86%</b></td><td class="num">6.30</td><td class="num">23,029</td><td class="range">6.53 ~ 6.78</td><td style="font-size:.82em;color:var(--red)">高股息银行跌幅居前，防御资金松动</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">金融/保险　<span>板块等权 -0.14% · 0涨1跌 · 成交 20.5 亿</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th class="num">总市值(亿)</th><th>日内区间</th><th>状态</th></tr></thead>
+    <tbody>
+<tr class="down"><td class="nm">友邦保险<span class="code"> 01299</span></td><td class="num">71.050</td><td class="num red">-0.100</td><td class="num red"><b>-0.14%</b></td><td class="num">20.47</td><td class="num">7,351</td><td class="range">70.50 ~ 71.65</td><td style="font-size:.82em;color:var(--dim)">保险股逆市小幅收跌</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">金融/交易所　<span>板块等权 +0.98% · 1涨0跌 · 成交 13.3 亿</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th class="num">总市值(亿)</th><th>日内区间</th><th>状态</th></tr></thead>
+    <tbody>
+<tr class="up"><td class="nm">香港交易所<span class="code"> 00388</span></td><td class="num">370.800</td><td class="num green">+3.600</td><td class="num green"><b>+0.98%</b></td><td class="num">13.30</td><td class="num">4,701</td><td class="range">364.60 ~ 372.00</td><td style="font-size:.82em;color:var(--green)">交易所随成交回暖</td></tr>    </tbody>
+  </table>
+</div>
+<hr class="divider">
+<div class="section">
+  <div class="stitle o">三、涨跌幅前列与成交额榜</div>
+  <div class="tb-title">涨幅 TOP 10　<span>全样本最大涨幅 8.29%，AI 应用与机器人概念集中</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th>日内振幅</th><th>所属环节</th></tr></thead>
+    <tbody>
+<tr class="up"><td class="nm">智谱<span class="code"> 02513</span></td><td class="num">499.000</td><td class="num green"><b>+8.29%</b></td><td class="num">74.25</td><td class="range">12.24%</td><td style="font-size:.82em;color:var(--dim)">AI芯片/智驾</td></tr><tr class="up"><td class="nm">金蝶国际<span class="code"> 00268</span></td><td class="num">9.230</td><td class="num green"><b>+7.33%</b></td><td class="num">5.40</td><td class="range">10.12%</td><td style="font-size:.82em;color:var(--dim)">AI应用/软件</td></tr><tr class="up"><td class="nm">优必选<span class="code"> 09880</span></td><td class="num">68.200</td><td class="num green"><b>+6.73%</b></td><td class="num">6.46</td><td class="range">12.36%</td><td style="font-size:.82em;color:var(--dim)">AI芯片/智驾</td></tr><tr class="up"><td class="nm">比亚迪股份<span class="code"> 01211</span></td><td class="num">71.600</td><td class="num green"><b>+6.23%</b></td><td class="num">36.60</td><td class="range">7.05%</td><td style="font-size:.82em;color:var(--dim)">AI芯片/智驾</td></tr><tr class="up"><td class="nm">宁德时代<span class="code"> 03750</span></td><td class="num">356.800</td><td class="num green"><b>+5.44%</b></td><td class="num">31.85</td><td class="range">11.47%</td><td style="font-size:.82em;color:var(--dim)">医药生物</td></tr><tr class="up"><td class="nm">阅文集团<span class="code"> 00772</span></td><td class="num">22.840</td><td class="num green"><b>+5.35%</b></td><td class="num">2.38</td><td class="range">7.84%</td><td style="font-size:.82em;color:var(--dim)">AI应用/软件</td></tr><tr class="up"><td class="nm">壁仞科技<span class="code"> 06082</span></td><td class="num">23.700</td><td class="num green"><b>+5.15%</b></td><td class="num">5.40</td><td class="range">10.65%</td><td style="font-size:.82em;color:var(--dim)">AI芯片/智驾</td></tr><tr class="up"><td class="nm">小鹏汽车<span class="code"> 09868</span></td><td class="num">37.120</td><td class="num green"><b>+5.10%</b></td><td class="num">6.89</td><td class="range">5.89%</td><td style="font-size:.82em;color:var(--dim)">AI芯片/智驾</td></tr><tr class="up"><td class="nm">舜宇光学科技<span class="code"> 02382</span></td><td class="num">63.150</td><td class="num green"><b>+4.99%</b></td><td class="num">7.80</td><td class="range">7.65%</td><td style="font-size:.82em;color:var(--dim)">光通信/光学</td></tr><tr class="up"><td class="nm">商汤-W<span class="code"> 00020</span></td><td class="num">1.160</td><td class="num green"><b>+4.50%</b></td><td class="num">6.13</td><td class="range">7.21%</td><td style="font-size:.82em;color:var(--dim)">AI应用/软件</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">跌幅 TOP 5　<span>跌幅榜几乎全为防御类资产</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th>日内振幅</th><th>所属环节</th></tr></thead>
+    <tbody>
+<tr class="down"><td class="nm">协鑫科技<span class="code"> 03800</span></td><td class="num">0.600</td><td class="num red"><b>-4.00%</b></td><td class="num">1.63</td><td class="range">5.60%</td><td style="font-size:.82em;color:var(--dim)">算力/IDC/服务器</td></tr><tr class="down"><td class="nm">联想集团<span class="code"> 00992</span></td><td class="num">22.640</td><td class="num red"><b>-2.25%</b></td><td class="num">32.83</td><td class="range">5.35%</td><td style="font-size:.82em;color:var(--dim)">算力/IDC/服务器</td></tr><tr class="down"><td class="nm">农业银行<span class="code"> 01288</span></td><td class="num">6.580</td><td class="num red"><b>-1.86%</b></td><td class="num">6.30</td><td class="range">3.73%</td><td style="font-size:.82em;color:var(--dim)">金融/银行</td></tr><tr class="down"><td class="nm">中银香港<span class="code"> 02388</span></td><td class="num">48.880</td><td class="num red"><b>-1.57%</b></td><td class="num">7.18</td><td class="range">3.18%</td><td style="font-size:.82em;color:var(--dim)">金融/银行</td></tr><tr class="down"><td class="nm">ASMPT<span class="code"> 00522</span></td><td class="num">121.700</td><td class="num red"><b>-1.14%</b></td><td class="num">4.87</td><td class="range">5.85%</td><td style="font-size:.82em;color:var(--dim)">半导体制造/设备</td></tr>    </tbody>
+  </table>
+  <div class="tb-title">成交额 TOP 10　<span>合计 556 亿港元</span></div>
+  <table>
+    <thead><tr><th>个股</th><th class="num">收盘价</th><th class="num">涨跌幅</th><th class="num">成交额(亿)</th><th>日内振幅</th><th>所属环节</th></tr></thead>
+    <tbody>
+<tr class="up"><td class="nm">腾讯控股<span class="code"> 00700</span></td><td class="num">386.000</td><td class="num green"><b>+0.94%</b></td><td class="num">127.30</td><td class="range">2.82%</td><td style="font-size:.82em;color:var(--dim)">互联网平台</td></tr><tr class="up"><td class="nm">阿里巴巴-W<span class="code"> 09988</span></td><td class="num">97.800</td><td class="num green"><b>+0.46%</b></td><td class="num">89.80</td><td class="range">3.44%</td><td style="font-size:.82em;color:var(--dim)">互联网平台</td></tr><tr class="up"><td class="nm">智谱<span class="code"> 02513</span></td><td class="num">499.000</td><td class="num green"><b>+8.29%</b></td><td class="num">74.25</td><td class="range">12.24%</td><td style="font-size:.82em;color:var(--dim)">AI芯片/智驾</td></tr><tr class="up"><td class="nm">小米集团-W<span class="code"> 01810</span></td><td class="num">26.800</td><td class="num green"><b>+3.88%</b></td><td class="num">58.21</td><td class="range">5.89%</td><td style="font-size:.82em;color:var(--dim)">互联网平台</td></tr><tr class="up"><td class="nm">中芯国际<span class="code"> 00981</span></td><td class="num">47.060</td><td class="num green"><b>+0.47%</b></td><td class="num">55.52</td><td class="range">7.64%</td><td style="font-size:.82em;color:var(--dim)">半导体制造/设备</td></tr><tr class="up"><td class="nm">比亚迪股份<span class="code"> 01211</span></td><td class="num">71.600</td><td class="num green"><b>+6.23%</b></td><td class="num">36.60</td><td class="range">7.05%</td><td style="font-size:.82em;color:var(--dim)">AI芯片/智驾</td></tr><tr class="down"><td class="nm">联想集团<span class="code"> 00992</span></td><td class="num">22.640</td><td class="num red"><b>-2.25%</b></td><td class="num">32.83</td><td class="range">5.35%</td><td style="font-size:.82em;color:var(--dim)">算力/IDC/服务器</td></tr><tr class="up"><td class="nm">宁德时代<span class="code"> 03750</span></td><td class="num">356.800</td><td class="num green"><b>+5.44%</b></td><td class="num">31.85</td><td class="range">11.47%</td><td style="font-size:.82em;color:var(--dim)">医药生物</td></tr><tr class="up"><td class="nm">华虹半导体<span class="code"> 01347</span></td><td class="num">67.450</td><td class="num green"><b>+1.35%</b></td><td class="num">25.66</td><td class="range">8.56%</td><td style="font-size:.82em;color:var(--dim)">半导体制造/设备</td></tr><tr class="up"><td class="nm">药明生物<span class="code"> 02269</span></td><td class="num">45.800</td><td class="num green"><b>+1.19%</b></td><td class="num">23.88</td><td class="range">7.87%</td><td style="font-size:.82em;color:var(--dim)">医药生物</td></tr>    </tbody>
+  </table>
+</div>
+<hr class="divider">
+<div class="section">
+  <div class="stitle o">四、今日五大异动与驱动因素</div>
+
+  <div class="box good">
+    <h4>① 全球背离：美股崩、港股涨 —— 港股选择"利空出尽"</h4>
+    <p>隔夜美股因 <b>Meta 财报后市场质疑 AI 资本开支回报</b>而重挫：<b>纳指 -2.6%、纳指100 -2.9%</b>（创 9 月 17 日以来最低收盘），VanEck 半导体 ETF <b class="red">SMH -5.99%</b>，芯片、存储、光概念大幅回落。按历史规律，隔夜美股科技股暴跌通常会传导至港股科技 —— <b>但今天完全没有发生</b>。</p>
+    <ul>
+      <li><b>恒科 +2.05% 与纳指100 -2.9% 形成约 5 个百分点的反向剪刀差</b>，这是近月来最大的跨市场背离。</li>
+      <li><b>解读一（利空出尽）：</b>港股 AI 链昨日已先行暴跌（恒科 -5.03%、中金警示 AI 七巨头 capex 增速 90%→36%），<b>提前把悲观预期打满</b>，美股再度确认利空反而给了资金"错杀修复"的入场券。</li>
+      <li><b>解读二（内外资定价权分离）：</b>港股 AI 标的多为<b>内资定价的独立叙事</b>（大模型、机器人、智驾），与美股 AI 资本开支周期的相关性在边际减弱。</li>
+      <li><b>风险提示：</b>背离通常<b>不会持续太久</b>。若美股 AI 杀估值延续，港股迟早补跌；但今日至少说明短期情绪已切换。</li>
+    </ul>
+  </div>
+
+  <div class="box good">
+    <h4>② 恒科精准试探 52 周低点 3,781 后 V 型反转 —— 教科书级"探底回升"</h4>
+    <p>恒生科技指数盘中最低 <b>3,781.23</b>，距 52 周低点 <b>3,781.15</b> <b>仅差 8 点</b>，随后强势拉升，最终收 <b class="green">3,871.66（+2.05%）</b>，<b>自日内低点反弹 90.43 点、幅度 +2.39%</b>。恒指同样呈 V 型：最低 22,803.77 → 收 23,093.37（自低点 +1.27%）。</p>
+    <ul>
+      <li><b>技术含义：</b>3,781 是本轮下跌的重要支撑位，<b>连续两日下探未有效跌破</b>（昨日收 3,793.93，今日低 3,781.23），构成初步的<b>双底雏形</b>。</li>
+      <li><b>资金含义：</b>"跌不破"本身就是最强的做多信号 —— 有人在 3,781 附近主动接货。</li>
+      <li><b>但仍需谨慎：</b>恒科年初至今仍 <b class="red">-29.81%</b>、距 52 周高点 6,198.68 回撤逾 37%，<b>今日涨幅相对年内跌幅而言只是修复了一个零头</b>，尚不构成趋势反转。</li>
+    </ul>
+  </div>
+
+  <div class="box good">
+    <h4>③ 宁德时代戏剧性反转：低开 -3.7% 后暴涨收 +5.44%，日内振幅 11.5%</h4>
+    <p>宁德时代开盘 <b>326.00 港元</b>（较前收 338.40 <b class="red">低开 -3.66%</b>），随后一路拉升，盘中最高 <b>364.80</b>，最终收 <b>356.80（+5.44%）</b>，<b>日内振幅高达 11.47%</b>。昨日该股刚被美银下调目标价（775→630 港元）而暴跌 -7.24%，今日 A/H 股齐升、A 股市值重回 1 万亿，锂电池概念港股集体反弹。</p>
+    <ul>
+      <li><b>技术面意义：</b>"低开高走 + 长下影"是典型的<b>恐慌盘被承接</b>形态，比直接高开反弹更有说服力。</li>
+      <li><b>板块联动：</b>医药生物板块等权 <b class="green">+2.57%</b>（加权 +3.07%），信达生物 +1.96%、药明生物 +1.19%、百济神州 +1.69%，<b>4 只全部上涨</b>。</li>
+      <li><b>注意：</b>宁德时代被归入"医药生物"对照板块，但其驱动是<b>锂电景气度</b>而非医药 —— 今日它实际扮演的是 AI 链之外最强主线。</li>
+    </ul>
+  </div>
+
+  <div class="box good">
+    <h4>④ 智谱暴涨 8.29% 逼近 500 港元：大模型龙头是今日 AI  application's 旗帜</h4>
+    <p>智谱收 <b class="green">499.00 港元（+8.29%）</b>，成交 <b>74.25 亿</b>居全样本第 2，盘中最高 501.00；金蝶国际 <b class="green">+7.33%</b>（企业软件龙头）、阅文集团 +5.35%、商汤-W +4.50%、快手-W +4.18%（成交 13.6 亿）、哔哩哔哩 +2.61%。</p>
+    <ul>
+      <li><b>AI应用/软件板块等权 +3.94%、加权 +3.34%，7 只全部上涨</b>，是今日 AI 链中<b>参与度最彻底</b>的环节（无一收跌）。</li>
+      <li><b>逻辑：</b>在美股"AI capex 回报遭质疑"的当口，资金反而加仓<b>不需要巨额资本开支的 AI 应用端</b> —— 这是一个有意思的叙事切换：<b>从"卖铲人"转向"用铲人"</b>。</li>
+      <li><b>智谱年内已从 1 月上市低位大幅上涨</b>，今日成交 74 亿显示分歧仍大，属于高波动品种。</li>
+    </ul>
+  </div>
+
+  <div class="box info">
+    <h4>⑤ 算力/IDC 是唯一收跌的 AI 环节 —— 反弹资金在主动"跳过"AI 硬件</h4>
+    <p>算力/IDC/服务器板块等权 <b class="red">-0.45%</b>、成交额加权 <b class="red">-1.95%</b>，是 AI 六大环节中<b>唯一收跌</b>的。联想集团 <b class="red">-2.25%</b>（成交 32.83 亿）、协鑫科技 <b class="red">-4.00%</b>（全样本最大跌幅，昨日唯一的收红股）、电能实业 +2.13%、金山软件 +1.40%、万国数据 +0.46%。</p>
+    <ul>
+      <li><b>关键背离：</b>美股 SMH 跌 5.99%、全球半导体杀跌，<b>而港股中芯 +0.47%、华虹 +1.35%、ASMPT -1.14%、高伟电子 +2.36%</b> —— 港股半导体<b>基本没有跟随美股下跌</b>，但也<b>没有参与反弹</b>。</li>
+      <li><b>联想是关键观察对象：</b>昨日暴跌 -10.92%，今日再跌 -2.25%，两日累计 -12.9%。<b>连续两日下跌却在全市场 39 只上涨的背景下发生，说明有资金在借反弹出货</b>，对 AI 硬件的抛压尚未消化完毕。</li>
+      <li><b>含义：</b>本轮反弹的资金性质是<b>"低位应用层 + 超跌反弹"</b>，而非对 AI 硬件基本面的重新定价。硬件端的修复，需要等美股半导体企稳后再看。</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="divider">
+<div class="section">
+  <div class="stitle g">五、总结与展望</div>
+  <div class="box info">
+    <ul>
+      <li><b>指数层面：</b>恒指 23,093.37（+0.69%）、恒科 3,871.66（+2.05%）、国企 7,756.25（+0.87%）。恒科完成 52 周低点试探后的 V 型反转，但<b>年内仍累跌 29.81%</b>，当前位置更接近"超跌修复"而非"趋势反转"。</li>
+      <li><b>今日最大看点是跨市场背离：</b>美股 AI 崩、港股 AI 涨，说明<b>港股 AI 资产已进入内资自主定价阶段</b>，对海外同业的边际依赖下降。但背离不可持续，需警惕后续补跌。</li>
+      <li><b>AI 链内部排序（等权）：</b>AI芯片/智驾 <b class="green">+5.65%</b> &gt; AI应用/软件 <b class="green">+3.94%</b> &gt; 光通信 <b class="green">+1.76%</b> &gt; 互联网平台 <b class="green">+1.27%</b> &gt; 半导体制造 <b class="green">+0.76%</b> &gt; 算力/IDC <b class="red">-0.45%</b>。<b>弹性越大涨得越多</b>（机器人、优必选 +6.73%、比亚迪 +6.23%），说明这是典型的风险偏好驱动而非基本面驱动。</li>
+      <li><b>资金面：</b>防御资产（农行 -1.86%、中石油 -0.98%、友邦 -0.14）被抛弃，说明资金<b>真实地从低 Beta 切向高 Beta</b>，这是比指数涨幅更有意义的信号。南向资金当日净额因港交所结算数据尚未更新，本报告不作具体数值引用。</li>
+      <li><b>短期需盯三个变量：</b>① <b>美股半导体能否止跌</b>（SMH 今日 -5.99%，若继续跌，港股硬件端补跌概率上升）；② <b>恒科 3,781 支撑是否有效</b>（连续两日下探不破，需第三日确认）；③ <b>联想等 AI 硬件股能否止跌</b>（两日累跌 -12.9%，是抛压是否出清的风向标）。</li>
+      <li><b>中期视角：</b>港股科技板块估值分位仍处历史低位（恒科年内 -29.81%），<b>赔率在改善，但胜率催化仍不足</b>。当前结构更适合<b>分批布局宽基（恒生科技 ETF）</b>，而非在反弹第一天追高单押 AI 应用端的高波动标的（智谱、优必选等单日振幅普遍超 8%）。</li>
+    </ul>
+  </div>
+  <div class="box warn" style="font-size:.82em;color:var(--dim)">
+    <p><b>免责声明：</b>本报告基于公开实时行情与新闻数据自动生成，所有内容仅供参考，<b>不构成任何投资建议</b>。股市有风险，据此操作风险自担。</p>
+  </div>
+</div>
+
+<div class="foot">
+  港股收盘总结 · AI产业链深度版 ｜ 2026年10月23日（周五） ｜ 行情数据源：腾讯财经实时行情 ｜ 新闻参考：财联社、每经网、人民财讯、同花顺 ｜ 样本 49 只个股<br>
+  报告生成时间：16:30 HKT
+</div>
+
+</body>
+</html>
