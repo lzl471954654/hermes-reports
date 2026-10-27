@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026年10月27日</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d2e;
+    --border: #2a2d3e;
+    --text: #e1e4ed;
+    --text-secondary: #8b8fa3;
+    --green: #00c853;
+    --red: #ff3d4f;
+    --blue: #448aff;
+    --orange: #ff9100;
+    --gold: #ffd740;
+    --purple: #b388ff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; padding:24px; max-width:960px; margin:0 auto; line-height:1.6; }
+  .header { text-align:center; padding:32px 0 24px; border-bottom:1px solid var(--border); margin-bottom:32px; }
+  .header h1 { font-size:28px; font-weight:700; margin-bottom:8px; }
+  .header .date { color:var(--text-secondary); font-size:15px; }
+  .header .tag { display:inline-block; background:var(--blue); color:#fff; padding:4px 14px; border-radius:20px; font-size:13px; margin-top:12px; }
+
+  .section { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px; margin-bottom:20px; }
+  .section h2 { font-size:20px; font-weight:700; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+  .section h2 .icon { font-size:24px; }
+  .section h2 .note { margin-left:auto; font-size:12px; color:var(--text-secondary); font-weight:400; }
+
+  .index-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+  .index-row:last-child { border-bottom:none; }
+  .index-name { font-weight:600; font-size:15px; }
+  .index-value { text-align:right; }
+  .index-price { font-size:18px; font-weight:700; font-variant-numeric:tabular-nums; }
+  .index-change { font-size:14px; margin-left:8px; font-variant-numeric:tabular-nums; }
+  .up { color:var(--green); }
+  .down { color:var(--red); }
+  .flat { color:var(--text-secondary); }
+
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:680px) { .two-col { grid-template-columns:1fr; } }
+
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th { text-align:left; color:var(--text-secondary); font-weight:500; padding:8px 12px; border-bottom:1px solid var(--border); font-size:13px; }
+  td { padding:9px 12px; border-bottom:1px solid rgba(255,255,255,0.04); font-variant-numeric:tabular-nums; }
+  tr:last-child td { border-bottom:none; }
+  .stock-name { font-weight:600; }
+  .stock-symbol { color:var(--text-secondary); font-size:12px; margin-left:4px; }
+  td.num { text-align:right; }
+  th.num { text-align:right; }
+
+  .news-item { padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+  .news-item:last-child { border-bottom:none; }
+  .news-tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; margin-right:8px; vertical-align:2px; }
+  .tag-bullish { background:rgba(0,200,83,0.15); color:var(--green); }
+  .tag-bearish { background:rgba(255,61,79,0.15); color:var(--red); }
+  .tag-neutral { background:rgba(255,145,0,0.15); color:var(--orange); }
+  .tag-blue { background:rgba(68,138,255,0.15); color:var(--blue); }
+  .news-item p { margin-top:5px; font-size:13.5px; color:#b9c0d0; }
+
+  .mapping-table td:first-child { font-weight:600; white-space:nowrap; }
+  .comment { font-size:13px; color:var(--text-secondary); }
+
+  .highlight { background:rgba(68,138,255,0.08); padding:14px 16px; border-radius:8px; border-left:3px solid var(--blue); margin:16px 0; font-size:14px; }
+  .highlight.warn { background:rgba(255,145,0,0.07); border-left-color:var(--orange); }
+  .highlight.risk { background:rgba(255,61,79,0.07); border-left-color:var(--red); }
+
+  .disclaimer { text-align:center; color:var(--text-secondary); font-size:12px; padding:24px 0; border-top:1px solid var(--border); margin-top:32px; }
+  .badge { display:inline-block; background:var(--gold); color:#000; padding:1px 8px; border-radius:4px; font-size:11px; font-weight:700; margin-left:6px; }
+  .badge.blue { background:var(--blue); color:#fff; }
+  .badge.red { background:var(--red); color:#fff; }
+  .badge.purple { background:var(--purple); color:#12081f; }
+  .cal { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:10px; margin-top:6px; }
+  .cal-i { background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:9px; padding:11px 13px; font-size:13px; }
+  .cal-i b { display:block; color:var(--gold); font-size:12.5px; margin-bottom:3px; }
+  .kv { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:13.5px; }
+  .kv:last-child { border-bottom:none; }
+  .kv span { color:var(--text-secondary); }
+  .kv b { font-variant-numeric:tabular-nums; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 AI产业链美股收盘与A股映射早报</h1>
+  <div class="date">2026年10月27日（周二）| 覆盖 10月26日（周一）美股收盘</div>
+  <div class="tag">AI产业链 · 美股映射 · A股前瞻</div>
+</div>
+
+<!-- ===== 核心结论 ===== -->
+<div class="section">
+  <h2><span class="icon">🎯</span>今日核心结论</h2>
+  <div class="highlight">
+    <strong>🔑 一句话：</strong>美股AI链在10月中旬的科技股抛售后迎来首次像样的修复日——<strong>核心催化剂是 Anthropic 公开递交 IPO 招股书（S-1）</strong>，叠加美光获美银"更乐观"评级的存储供需逻辑、油价回落缓解通胀担忧。SOX 半导体指数 <span class="up">+2.82%</span> 领涨三大指数，光模块链集体爆发（Lumentum <span class="up">+8.19%</span>、Coherent <span class="up">+5.83%</span>、Ciena <span class="up">+4.89%</span>）。
+  </div>
+  <div class="highlight warn">
+    <strong>⚠️ 但这是"修复"不是"反转"：</strong>SOX 收于 11,083，仍较 10月21日高点 11,505 低 <strong>3.7%</strong>；纳指较 10/21 高点仍低 <strong>2.0%</strong>。本周三大雷点密集：<strong>周三</strong>美联储议息 + Alphabet/Microsoft 盘后财报，<strong>周四</strong>Amazon 财报，<strong>11月18日</strong>英伟达 Q3 FY2027。
+  </div>
+  <div class="highlight">
+    <strong>🇨🇳 A股映射（关键错位）：</strong>美股 10/26 反弹，而 A股 10/26 AI 硬件链仍在<strong>加速杀跌</strong>（沪电 <span class="down">-7.62%</span>、深南电路 <span class="down">-5.47%</span>、光迅 <span class="down">-4.74%</span>、兆易创新 <span class="down">-5.33%</span>），创业板指 <span class="down">-1.71%</span>、科创50 <span class="down">-2.23%</span>。这意味着<strong>今日（10/27）A股开盘存在情绪修复窗口</strong>，光模块/PCB/存储是超跌反弹的高弹性方向。但需警惕：美股反弹的"燃料"是 Anthropic IPO 这一情绪事件，而非基本面重估。
+  </div>
+</div>
+
+<!-- ===== 美股三大指数 ===== -->
+<div class="section">
+  <h2><span class="icon">📊</span>美股三大指数收盘 <span class="note">10/26（周一）</span></h2>
+  <div class="index-row">
+    <span class="index-name">纳斯达克综合 IXIC</span>
+    <span class="index-value">
+      <span class="index-price">26,169.38</span>
+      <span class="index-change up">+0.82%</span>
+      <span class="badge blue">AI行情反弹核心</span>
+    </span>
+  </div>
+  <div class="index-row">
+    <span class="index-name">标普500 SPX</span>
+    <span class="index-value">
+      <span class="index-price">7,676.77</span>
+      <span class="index-change up">+0.70%</span>
+    </span>
+  </div>
+  <div class="index-row">
+    <span class="index-name">道琼斯工业 DJI</span>
+    <span class="index-value">
+      <span class="index-price">52,361.58</span>
+      <span class="index-change up">+146.42 点 / +0.28%</span>
+    </span>
+  </div>
+  <div class="index-row">
+    <span class="index-name">费城半导体 SOX</span>
+    <span class="index-value">
+      <span class="index-price">11,083.47</span>
+      <span class="index-change up">+2.82%</span>
+      <span class="badge">明显跑赢大盘</span>
+    </span>
+  </div>
+  <div class="index-row">
+    <span class="index-name">纳斯达克100 NDX</span>
+    <span class="index-value">
+      <span class="index-price">29,273.40</span>
+      <span class="index-change up">+1.09%</span>
+    </span>
+  </div>
+  <div class="index-row">
+    <span class="index-name">VIX 恐慌指数</span>
+    <span class="index-value">
+      <span class="index-price">18.39</span>
+      <span class="index-change up">-5.45%</span>
+      <span class="comment">风险偏好回暖</span>
+    </span>
+  </div>
+
+  <div style="margin-top:16px;">
+    <div class="kv"><span>10/21 高点 → 10/26 收盘（SOX）</span><b class="down">11,505.56 → 11,083.47（-3.67%）</b></div>
+    <div class="kv"><span>10/21 高点 → 10/26 收盘（纳指）</span><b class="down">26,702.86 → 26,169.38（-2.00%）</b></div>
+    <div class="kv"><span>10/21 高点 → 10/26 收盘（标普）</span><b class="down">7,757.17 → 7,676.77（-1.03%）</b></div>
+    <div class="kv"><span>10月21→22日 SOX 单日跌幅</span><b class="down">-6.73%（本轮杀跌起点）</b></div>
+  </div>
+</div>
+
+<!-- ===== AI产业链个股 ===== -->
+<div class="two-col">
+  <div class="section">
+    <h2><span class="icon">🧠</span>AI算力芯片</h2>
+    <table>
+      <tr><th>标的</th><th class="num">收盘</th><th class="num">涨跌幅</th></tr>
+      <tr><td><span class="stock-name">NVIDIA</span><span class="stock-symbol">NVDA</span></td><td class="num">216.00</td><td class="num up">+2.39%</td></tr>
+      <tr><td><span class="stock-name">AMD</span><span class="stock-symbol">AMD</span></td><td class="num">531.28</td><td class="num up">+2.80%</td></tr>
+      <tr><td><span class="stock-name">Broadcom</span><span class="stock-symbol">AVGO</span></td><td class="num">329.17</td><td class="num up">+2.33%</td></tr>
+      <tr><td><span class="stock-name">Micron</span><span class="stock-symbol">MU</span></td><td class="num">903.70</td><td class="num up">+2.98%</td></tr>
+      <tr><td><span class="stock-name">Marvell</span><span class="stock-symbol">MRVL</span></td><td class="num">233.78</td><td class="num up">+2.31%</td></tr>
+      <tr><td><span class="stock-name">ARM</span><span class="stock-symbol">ARM</span></td><td class="num">223.35</td><td class="num up">+6.19% 🔥</td></tr>
+      <tr><td><span class="stock-name">Intel</span><span class="stock-symbol">INTC</span></td><td class="num">90.47</td><td class="num up">+4.04%</td></tr>
+      <tr><td><span class="stock-name">台积电</span><span class="stock-symbol">TSM</span></td><td class="num">424.37</td><td class="num up">+1.40%</td></tr>
+      <tr><td><span class="stock-name">Super Micro</span><span class="stock-symbol">SMCI</span></td><td class="num">32.69</td><td class="num down">-0.76%</td></tr>
+    </table>
+    <div class="comment" style="margin-top:12px;">存储链领涨：美银分析师 Vivek Arya 撰报告称"对存储行业愈发乐观"，管理层会议确认 2027–2028 供给趋紧，维持美光"买入"评级、目标价 <strong>$1,550</strong>。ARM +6.19% 为链条弹性最大品种。</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="icon">☁️</span>AI应用 / 云计算</h2>
+    <table>
+      <tr><th>标的</th><th class="num">收盘</th><th class="num">涨跌幅</th></tr>
+      <tr><td><span class="stock-name">Microsoft</span><span class="stock-symbol">MSFT</span></td><td class="num">532.60</td><td class="num up">+1.54%</td></tr>
+      <tr><td><span class="stock-name">Alphabet</span><span class="stock-symbol">GOOGL</span></td><td class="num">316.80</td><td class="num down">-1.07%</td></tr>
+      <tr><td><span class="stock-name">Amazon</span><span class="stock-symbol">AMZN</span></td><td class="num">249.09</td><td class="num up">+0.44%</td></tr>
+      <tr><td><span class="stock-name">Meta</span><span class="stock-symbol">META</span></td><td class="num">630.56</td><td class="num down">-1.88%</td></tr>
+      <tr><td><span class="stock-name">Apple</span><span class="stock-symbol">AAPL</span></td><td class="num">343.91</td><td class="num down">-1.10%</td></tr>
+      <tr><td><span class="stock-name">Palantir</span><span class="stock-symbol">PLTR</span></td><td class="num">198.84</td><td class="num up">+1.06%</td></tr>
+      <tr><td><span class="stock-name">AppLovin</span><span class="stock-symbol">APP</span></td><td class="num">260.74</td><td class="num up">+0.19%</td></tr>
+      <tr><td><span class="stock-name">Snowflake</span><span class="stock-symbol">SNOW</span></td><td class="num">334.95</td><td class="num up">+2.93%</td></tr>
+      <tr><td><span class="stock-name">Datadog</span><span class="stock-symbol">DDOG</span></td><td class="num">280.24</td><td class="num up">+3.93%</td></tr>
+      <tr><td><span class="stock-name">CrowdStrike</span><span class="stock-symbol">CRWD</span></td><td class="num">261.83</td><td class="num up">+1.65%</td></tr>
+    </table>
+    <div class="comment" style="margin-top:12px;">通信服务板块(XLC)创 <strong>2025年6月以来新低</strong>，Meta/GOOGL/AAPL 收跌，但 AI 基建受益的软件股逆势走强。资金明显"卖应用、买铲子"。</div>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="section">
+    <h2><span class="icon">🔗</span>光模块 / 光器件 <span class="note">今日最强分支</span></h2>
+    <table>
+      <tr><th>标的</th><th class="num">收盘</th><th class="num">涨跌幅</th></tr>
+      <tr><td><span class="stock-name">Lumentum</span><span class="stock-symbol">LITE</span></td><td class="num">818.10</td><td class="num up">+8.19% 🔥</td></tr>
+      <tr><td><span class="stock-name">Coherent</span><span class="stock-symbol">COHR</span></td><td class="num">221.50</td><td class="num up">+5.83% 🔥</td></tr>
+      <tr><td><span class="stock-name">Ciena</span><span class="stock-symbol">CIEN</span></td><td class="num">335.93</td><td class="num up">+4.89%</td></tr>
+      <tr><td><span class="stock-name">Fabrinet</span><span class="stock-symbol">FN</span></td><td class="num">325.24</td><td class="num up">+3.27%</td></tr>
+      <tr><td><span class="stock-name">Corning</span><span class="stock-symbol">GLW</span></td><td class="num">127.74</td><td class="num up">+3.27%</td></tr>
+      <tr><td><span class="stock-name">Arista</span><span class="stock-symbol">ANET</span></td><td class="num">177.24</td><td class="num up">+2.83%</td></tr>
+    </table>
+    <div class="comment" style="margin-top:12px;">这是今日对 A股 <strong>光模块板块最直接的映射信号</strong>。Coherent 1.6T 光模块放量 + 800G 需求扩散，光通信是本轮AI硬件里拥挤度最低、业绩兑现度最高的分支。</div>
+  </div>
+
+  <div class="section">
+    <h2><span class="icon">⚡</span>算力基建 / 电力设备</h2>
+    <table>
+      <tr><th>标的</th><th class="num">收盘</th><th class="num">涨跌幅</th></tr>
+      <tr><td><span class="stock-name">GE Vernova</span><span class="stock-symbol">GEV</span></td><td class="num">855.12</td><td class="num up">+4.92% 🔥</td></tr>
+      <tr><td><span class="stock-name">PWR</span><span class="stock-symbol">PWR</span></td><td class="num">563.93</td><td class="num up">+3.20%</td></tr>
+      <tr><td><span class="stock-name">Eaton</span><span class="stock-symbol">ETN</span></td><td class="num">371.92</td><td class="num up">+1.59%</td></tr>
+      <tr><td><span class="stock-name">Vertiv</span><span class="stock-symbol">VRT</span></td><td class="num">199.78</td><td class="num up">+2.81%</td></tr>
+      <tr><td><span class="stock-name">Dell</span><span class="stock-symbol">DELL</span></td><td class="num">467.09</td><td class="num up">+2.33%</td></tr>
+      <tr><td><span class="stock-name">HPE</span><span class="stock-symbol">HPE</span></td><td class="num">58.72</td><td class="num up">+3.58%</td></tr>
+      <tr><td><span class="stock-name">Cisco</span><span class="stock-symbol">CSCO</span></td><td class="num">110.24</td><td class="num up">+3.51%</td></tr>
+    </table>
+    <div class="comment" style="margin-top:12px;">电力设备（GEV +4.92%）+ 液冷温控 + 服务器全线上涨，反映市场开始为"AI数据中心电力瓶颈"定价，而非单纯为模型能力定价。</div>
+  </div>
+</div>
+
+<!-- ===== 盘后动态 ===== -->
+<div class="section">
+  <h2><span class="icon">🌙</span>盘后重大动态 &amp; 隔夜要闻</h2>
+
+  <div class="news-item">
+    <span class="news-tag tag-bullish">🚀 核心催化</span>
+    <strong>Anthropic 公开递交 S-1，正式冲刺纳斯达克 IPO（代码 "ANT"）</strong>
+    <p>高盛、摩根士丹利主承销。2026 上半年营收 <strong>$162.9 亿</strong>，同比暴增 <strong>1,304%</strong>（去年同期 $11.6 亿）；但同期净亏损 <strong>$807 亿</strong>。净收入留存率（NRR）约 <strong>900%</strong>（上市软件中位数仅 108%）。市场讨论估值区间 <strong>$1.5–2 万亿</strong>，若成立将轻松满足指数快速纳入门槛。</p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-bullish">📈 盘后异动</span>
+    <strong>Celestica (CLS) 盘后暴涨约 16.4% 至 $287</strong>
+    <p>常规盘收跌 5.14% 至 $246.65，盘后强势反转。Q3 调整后 EPS <strong>$3.30</strong>（预期 $2.99），营收同比 <strong>+83%</strong> 至 <strong>$58.3 亿</strong>（预期 $54.4 亿）；上调 2026 营收指引至 <strong>$210 亿</strong>、调整后 EPS 至 <strong>$11.55</strong>；首次给出 2027 年营收 <strong>$400 亿</strong>、调整后 EPS <strong>$21.50</strong> 指引，并称 2028 年客户需求预估"显著高于"2027 收入指引。<strong>对 A股 AI 服务器/ODM/PCB 链是本周最硬的业绩验证。</strong></p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-bullish">💰 资本开支</span>
+    <strong>Meta 计划募资 $950 亿支撑 AI 投资；SpaceX 完成 $400 亿 GPU 债务融资</strong>
+    <p>Meta 巨额融资公告引发市场对"AI capex 融资方式"的讨论；马斯克周日披露 SpaceX 已完成 <strong>$400 亿</strong>可赎回债券融资，用于采购英伟达 GPU，资金预计 2027 Q1–Q2 到账，采用 SPV 结构以维持投资级评级。两大动作共同确认 <strong>AI 资本开支仍未见顶</strong>。</p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-blue">💾 存储链</span>
+    <strong>SK 海力士放弃 Solidigm 美国 IPO，股价跳涨超 4%；美光获美银上调至"更乐观"</strong>
+    <p>SK 海力士以"市场波动与股价走势"为由终止 Solidigm 赴美上市评估，LYNX 指出此举利好美光与闪迪（减少 NAND 新增供给）。美银维持美光"买入"、目标价 $1,550；英伟达 CEO 黄仁勋此前在 GTC Berlin 表示 2029 年前难见存储供给过剩。</p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-neutral">🛢️ 大宗商品</span>
+    <strong>油价回落，缓解通胀担忧</strong>
+    <p>布伦特 <strong>-0.8%</strong> 结算 $115.81/桶，WTI <strong>-1.7%</strong> 收 $101.57/桶。美国战略石油储备(SPR)上周降至 2.826 亿桶，为 <strong>1982 年以来最低</strong>。油价回落叠加 FOMC 前避险需求回落，共同支撑风险资产。</p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-neutral">⚔️ 地缘</span>
+    <strong>中东局势与巴西大选</strong>
+    <p>美伊维持强硬口水战，多国军事将领飞往伊朗试图重启和谈；也门胡塞武装称袭击利雅得机场与油设施，沙特称已拦截导弹与无人机。巴西卢拉以 51.8% 击败博索纳罗赢得第四任期，美股上市的巴西资产（Petrobras 盘前 <strong>-21%</strong>、Itau <strong>-26%</strong>、Ambev <strong>-19%</strong>）重挫。</p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-bearish">⚠️ 看空声音</span>
+    <strong>RBC：标普或再回调 5%–10% 至 7,000–7,400 区间</strong>
+    <p>RBC 美股策略主管 Lori Calvasina 指出标普自 10/22 高点已回落 2%，回调风险仍在，维持 12 个月目标位 8,150，配置上超配金融与医疗、<strong>对科技股持观望态度</strong>。德银亦称 10 月中旬启动的科技抛售"尚未结束"，可能出现"剧烈 V 型反转"。Apollo 首席经济学家 Torsten Slok 直言：AI 在科技公司之外为企业美国创造的财务回报是<strong>"零"</strong>，AI 故事终将在"标普493"而非"七巨头"中被裁决。</p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-blue">🏢 并购</span>
+    <strong>Instacart 盘后涨约 7%，传被 DoorDash 收购</strong>
+    <p>《华尔街日报》援引知情人士称 Instacart 可能本周完成被 DoorDash 收购的交易，DoorDash 股价 <span class="down">-5%</span>。《The Information》上周五曾报道 Instacart 与 DoorDash、Uber 均有过早期出售谈判。</p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-neutral">🌐 其他</span>
+    <strong>Neocloud 分化 / 马斯克"小鱼级死亡"警告</strong>
+    <p>马斯克称 <strong>200 多家</strong> neocloud 公司面临"guppy-level death"，但 CoreWeave 盘中 <span class="up">+4%</span>（较近期高点仍 -60%）、Iren <span class="up">+2.1%</span>，Nebius <span class="up">+2%</span>；10 月以来 neocloud 板块整体已跌超 30%，数据中心信贷风险持续发酵。FTC 同时要求 Anthropic 高管就安全调查出庭作证。</p>
+  </div>
+</div>
+
+<!-- ===== 本周日历 ===== -->
+<div class="section">
+  <h2><span class="icon">📅</span>本周关键日程（风险时点）</h2>
+  <div class="cal">
+    <div class="cal-i"><b>10/27（周二）今日</b>A股开盘承接美股反弹；盘前关注 A股光模块/存储超跌修复力度</div>
+    <div class="cal-i"><b>10/28（周三）</b><strong style="color:var(--gold)">美联储议息决议</strong>（联邦基金期货隐含 90% 概率维持 3.75%–4.00%）<br><strong style="color:var(--gold)">Alphabet + Microsoft 盘后财报</strong></div>
+    <div class="cal-i"><b>10/29（周四）</b><strong style="color:var(--gold)">Amazon 盘后财报</strong>（上季已上调全年 capex 至 $2,200 亿）<br>美国 Q3 GDP 初值</div>
+    <div class="cal-i"><b>10/30（周五）</b>欧洲央行议息决议；日本央行议息决议</div>
+    <div class="cal-i"><b>11/17–18</b><strong style="color:var(--gold)">英伟达 Q3 FY2027 财报</strong>（市场预期 EPS $2.49）</div>
+    <div class="cal-i"><b>进行中</b>美国中期选举后，市场关注美以是否对伊朗动武；SpaceX 纳斯达克 IPO（募资 $857 亿，史上最大）交易中</div>
+  </div>
+</div>
+
+<!-- ===== A股映射 ===== -->
+<div class="section">
+  <h2><span class="icon">🇨🇳</span>A股映射与前瞻（10月27日）</h2>
+
+  <div class="highlight">
+    <strong>📌 总体判断：</strong><strong>"美股反弹在先、A股杀跌在后"——这个错位是今日最重要的交易线索。</strong>10/26 美股 SOX +2.82%、光模块全线大涨，而同日 A股光模块/PCB/存储链继续深跌（沪电 -7.62%、申菱 -5.92%、博创 -5.63%、深南 -5.47%、兆易 -5.33%、源杰 -5.42%），科创50 -2.23%、创业板 -1.71%，仅上证指数 +0.19%、上证50 +0.41%、中证红利 +1.23% 收红，呈现典型的<strong>高低切换、防御占优</strong>格局。今日 A股 AI 硬件链存在<strong>情绪性超跌修复窗口</strong>，其中<strong>光模块（美股映射最直接）+ 存储（美银/海力士逻辑）+ AI服务器/PCB（Celestica 业绩验证）</strong>三条线弹性最高。但需明确：美股这轮反弹的情绪来源是 Anthropic IPO 这一事件性催化，<strong>而非 AI 资本开支回报率的重新定价</strong>——Apollo 与 RBC 的看空声音并未消失，因此建议以"反弹"而非"反转"的仓位思路对待。
+  </div>
+
+  <h3 style="font-size:16px;margin:20px 0 10px;color:var(--text);">A 股 AI 产业链昨日表现（10/26 收盘）</h3>
+  <table class="mapping-table">
+    <tr>
+      <th>方向</th><th class="num">代表个股（10/26 涨跌）</th><th>美股映射逻辑</th>
+    </tr>
+    <tr>
+      <td>🔴 光模块/光器件</td>
+      <td class="num">中际旭创 <span class="down">-2.96%</span>、新易盛 <span class="down">-3.57%</span>、光迅 <span class="down">-4.74%</span>、源杰 <span class="down">-5.42%</span>、太辰光 <span class="down">-5.01%</span>、博创 <span class="down">-5.63%</span></td>
+      <td>LITE +8.19%、COHR +5.83%、CIEN +4.89%、FN +3.27%、GLW +3.27% —— <strong>今日 A股开盘最直接的反弹方向</strong>，1.6T 光模块放量是业绩兑现度最高的分支</td>
+    </tr>
+    <tr>
+      <td>🔴 AI服务器/PCB</td>
+      <td class="num">沪电 <span class="down">-7.62%</span>、深南电路 <span class="down">-5.47%</span>、胜宏 <span class="up">+2.47%</span>、鹏鼎 <span class="down">-4.49%</span>、工业富联 <span class="down">-4.34%</span>、浪潮 <span class="down">-2.29%</span></td>
+      <td><strong>Celestica 盘后 +16.4%</strong>（营收 +83%、2027 指引 $400 亿）是本周最硬的 AI 硬件业绩验证，DELL +2.33%、HPE +3.58%、VRT +2.81% 同步走强</td>
+    </tr>
+    <tr>
+      <td>🟡 存储/半导体</td>
+      <td class="num">兆易创新 <span class="down">-5.33%</span>、江波龙 <span class="down">-4.77%</span>、佰维 <span class="down">-4.78%</span>、中芯国际 <span class="down">-1.28%</span>、海光 <span class="down">-1.54%</span>、<span class="up">寒武纪 +3.84%</span></td>
+      <td>美银上调存储至"更乐观"（目标 $1,550）+ SK海力士弃 Solidigm IPO 减少 NAND 供给 + MU +2.98%，<strong>供给收缩逻辑强化</strong>；寒武纪逆势翻红显示资金已在提前布局国产算力</td>
+    </tr>
+    <tr>
+      <td>🟡 交换机/网络设备</td>
+      <td class="num">锐捷 <span class="down">-3.43%</span>、菲菱科思 <span class="down">-4.78%</span>、星网锐捷 <span class="down">-5.49%</span>、烽火 <span class="down">-4.52%</span>、紫光股份 <span class="down">-2.00%</span></td>
+      <td>ANET +2.83%、CSCO +3.51%、CIEN +4.89% —— AI 集群网络瓶颈环节，跟随光模块同向</td>
+    </tr>
+    <tr>
+      <td>🟡 液冷/电力设备</td>
+      <td class="num">英维克 <span class="down">-3.18%</span>、高澜 <span class="down">-1.58%</span>、申菱环境 <span class="down">-5.92%</span>、麦格米特 <span class="down">-4.02%</span>、科华数据 <span class="down">-2.75%</span></td>
+      <td>GEV +4.92%、ETN +1.59%、VRT +2.81%、PWR +3.20% —— <strong>电力与散热成为AI基建新瓶颈叙事</strong>，A 股对应标的是"数据中心侧"而非"算力侧"，映射确定性中等</td>
+    </tr>
+    <tr>
+      <td>🟢 AI应用/软件</td>
+      <td class="num">科大讯飞 <span class="up">+1.57%</span>、金山办公 <span class="up">+1.45%</span>、万兴科技 <span class="down">-2.29%</span></td>
+      <td>美股通信服务(XLC)创 2025年6月来新低、Meta/GOOGL/AAPL 收跌 —— <strong>中美同步"卖应用"</strong>，但 A股应用已提前抗跌，弹性有限</td>
+    </tr>
+    <tr>
+      <td>🟢 IDC/运营商（防御）</td>
+      <td class="num">润泽科技 <span class="down">-0.16%</span>、数据港 <span class="down">-2.08%</span>、中国移动 <span class="up">+2.18%</span>、中国电信 <span class="up">+1.46%</span></td>
+      <td>昨日 A股红利与运营商是唯一红盘主线，反映市场在美股科技高位时的防御倾向；今日若风险偏好延续修复，防御资金存在边际流出压力</td>
+    </tr>
+  </table>
+
+  <div class="highlight warn">
+    <strong>🎯 今日操作框架（10/27 A股）：</strong>
+    <ul style="margin:8px 0 0 18px; font-size:14px;">
+      <li><strong>高开看兑现</strong>：光模块链昨日跌幅大、美股映射最强，若高开 4%+ 建议兑现部分浮盈，追高性价比下降。</li>
+      <li><strong>低开看承接</strong>：若A股AI硬件继续低开但量能不再放大、跌幅收敛，是二次布局窗口（美股已先行修复，滞后定价终将收敛）。</li>
+      <li><strong>存储链优先级上调</strong>：供给收缩（SK海力士退出Solidigm IPO + 美银调升）是本轮最具"产业逻辑"的分支，优于纯情绪反弹。</li>
+      <li><strong>AI服务器/PCB 依赖 Celestica 溢价</strong>：盘后 +16.4% 的业绩验证可持续性取决于本周三 Alphabet/Microsoft 的 capex 指引，若指引不及预期则该溢价回吐。</li>
+      <li><strong>回避高位应用股</strong>：通信服务创年内新低，AI 应用变现逻辑在英伟达财报前不宜重仓。</li>
+    </ul>
+  </div>
+
+  <div class="highlight risk">
+    <strong>⚠️ 风险提示（务必重视）：</strong>
+    <ul style="margin:8px 0 0 18px; font-size:14px;">
+      <li><strong>本周是"雷区密集周"</strong>：周三 FOMC + Alphabet/Microsoft 财报，周四 Amazon 财报，任一超预期/不及预期都会放大波动。</li>
+      <li><strong>RBC 明确警示标普可能再回调 5%–10%</strong>（至 7,000–7,400），且该行对科技股持观望态度。</li>
+      <li><strong>AI 变现质疑未消</strong>：Apollo 指出 AI 在科技公司外"零财务回报"；neocloud 板块 10 月已跌超 30%，数据中心信贷风险是下一个潜在雷点。</li>
+      <li><strong>油价仍是尾部风险</strong>：WTI 仍在 $101 高位、SPR 创 1982 年来最低，中东若升级，油价与通胀预期将再度压制风险资产。</li>
+      <li><strong>Anthropic IPO 本身有不确定性</strong>：$807 亿半年亏损、90 页风险因素、FTC 调查、五角大楼禁令诉讼仍在进行，若上市进程生变，情绪溢价会快速回吐。</li>
+      <li>A股自身仍处调整结构中：深成指距 20 日高点 -17.1%、创业板指 -24.0%、科创50 -23.0%，趋势尚未修复，勿把单日反弹当趋势反转。</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <h2><span class="icon">🌏</span>其他市场 &amp; 汇率商品（盘后快照）</h2>
+  <table>
+    <tr><th>资产</th><th class="num">最新</th><th class="num">变动</th><th>备注</th></tr>
+    <tr><td>标普500期货 ES</td><td class="num">7,729.5</td><td class="num up">+0.19%</td><td>亚洲盘小幅走高</td></tr>
+    <tr><td>纳指期货 NQ</td><td class="num">29,575</td><td class="num up">+0.47%</td><td>科技情绪延续</td></tr>
+    <tr><td>WTI 原油</td><td class="num">$101.07</td><td class="num down">-0.68%</td><td>通胀压力缓解</td></tr>
+    <tr><td>COMEX 黄金</td><td class="num">$4,026.3</td><td class="num down">-0.30%</td><td>避险需求回落</td></tr>
+    <tr><td>美债10Y</td><td class="num">4.986%</td><td class="num flat">-0.04%</td><td>FOMC 前基本持平</td></tr>
+    <tr><td>美元指数 DXY</td><td class="num">102.02</td><td class="num up">+0.06%</td><td>窄幅波动</td></tr>
+    <tr><td>比特币</td><td class="num">$80,198</td><td class="num up">+0.17%</td><td>周线三连跌后企稳</td></tr>
+    <tr><td>恒生指数（10/26）</td><td class="num">23,211.81</td><td class="num up">+0.51%</td><td>国企指数 +0.57%</td></tr>
+    <tr><td>纳斯达克中国金龙</td><td class="num">—</td><td class="num flat">—</td><td>BABA +0.61%、PDD -1.15%、JD -0.47%、KWEB +0.26%</td></tr>
+  </table>
+</div>
+
+<div class="disclaimer">
+  <p>⚠️ 免责声明：本报告基于公开信息（Yahoo Finance v8 API、腾讯财经行情、CNBC、Bloomberg、Axios 等）整理，仅供研究参考，不构成任何投资建议。市场有风险，投资需谨慎。</p>
+  <p style="margin-top:4px;">数据截止：2026-10-26 美股收盘 / 2026-10-26 A股收盘 / 2026-10-27 08:35 北京时间 | 生成时间：2026-10-27 亚洲盘前</p>
+</div>
+
+</body>
+</html>
