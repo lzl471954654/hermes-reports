@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年10月31日</title>
+<style>
+body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.75; }
+h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 10px; font-size: 1.85em; }
+h2 { color: #f0883e; margin-top: 38px; border-bottom: 1px solid #21262d; padding-bottom: 6px; }
+h3 { color: #7ee787; margin-bottom: 6px; }
+h4 { color: #c9d1d9; margin: 14px 0 4px; font-size: 1em; }
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.headline { background: #161b22; border-left: 4px solid #7ee787; padding: 18px 20px; margin: 14px 0; border-radius: 6px; }
+.p0 { background: #161b22; border-left: 4px solid #7ee787; padding: 16px 18px; margin: 12px 0; border-radius: 6px; }
+.p1 { background: #161b22; border-left: 4px solid #58a6ff; padding: 14px 16px; margin: 10px 0; border-radius: 6px; }
+.p2 { background: #161b22; border-left: 4px solid #484f58; padding: 12px 15px; margin: 8px 0; border-radius: 6px; }
+.insight { background: #1a2332; border: 1px solid #58a6ff; padding: 16px 18px; margin: 22px 0; border-radius: 8px; }
+.insight h3 { color: #58a6ff; margin-top: 0; }
+.tag { display: inline-block; background: #21262d; color: #8b949e; padding: 2px 9px; border-radius: 12px; font-size: 0.78em; margin-right: 5px; margin-bottom: 2px; }
+.tag.p0t { background: #1f3324; color: #7ee787; }
+.tag.p1t { background: #14263f; color: #58a6ff; }
+.tag.p2t { background: #21262d; color: #8b949e; }
+.divider { border: none; border-top: 1px solid #21262d; margin: 28px 0; }
+.footer { color: #484f58; font-size: 0.8em; text-align: center; margin-top: 45px; padding-top: 18px; border-top: 1px solid #21262d; }
+.meta { color: #8b949e; font-size: 0.86em; }
+.src { color: #6e7681; font-size: 0.84em; font-style: italic; }
+ul { padding-left: 22px; }
+li { margin: 4px 0; }
+ol { padding-left: 22px; }
+blockquote { border-left: 3px solid #30363d; margin: 10px 0; padding: 2px 0 2px 14px; color: #8b949e; font-style: italic; }
+code { background: #21262d; padding: 1px 5px; border-radius: 4px; font-size: 0.9em; color: #79c0ff; }
+strong { color: #e6edf3; }
+.warn { color: #f0883e; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.92em; }
+th, td { border: 1px solid #30363d; padding: 7px 9px; text-align: left; vertical-align: top; }
+th { background: #161b22; color: #7ee787; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>🔬 AI 前沿日报 · 2026年10月31日</h1>
+
+<p class="meta">
+检索窗口：2026-10-28 00:00 → 10-31 00:00 UTC（距上期 10-28 报告 3 天，回溯补齐 10-28 全天）<br>
+覆盖来源：OpenAI（RSS）· Anthropic（news / research / engineering）· Google DeepMind（RSS）· Mistral（news 页 + 官方博客 + HF 模型卡）· HuggingFace（blog + 各厂商专栏 + Hub API）· IBM Granite · Cohere · MIT News · MIT Tech Review · Ars Technica · The Verge · Simon Willison · GitHub（Trending + Search API + 仓库 API）· arXiv（API 按 cs.AI/cs.CL/cs.LG 主题检索）· Hacker News · 量子位 RSS · Cursor 官方安全公告 · model-spec.openai.com · alignment.openai.com<br>
+抓取受限说明（诚实披露）：<span class="warn">OpenAI 单篇文章页被 Cloudflare 拦截（403）</span>——其 10-29 至 10-30 的 6 篇内容改用 RSS 摘要 + 多家二手报道交叉验证，未逐字核验；<span class="warn">Meta AI 博客返回 400、x.ai 被 Cloudflare 403 拦截、Reddit JSON API 返回 403</span>，三处未覆盖，不代表今日无更新；<span class="warn">Ars Technica 正文（405/CAPTCHA）与 DeepMind Carbon 正文页（302/超时）</span>改用 Cursor 官方公告、The Verge 与 RSS 交叉补全；Anthropic / Mistral / Nous / Cohere 的 RSS 端点均 404，改抓 HTML 页面。<br>
+筛选结果：<strong>约 120 条候选 → 18 条入选</strong>（头条 1 组，P0 = 6 条，P1 = 7 条，P2 = 5 条）
+</p>
+
+<hr class="divider">
+
+<h2>🔥 今日头条</h2>
+
+<div class="headline">
+<h3>Claude Code 的 VS Code 插件被供应链投毒 11 小时 —— AI agent 的"身体"比它的"大脑"成熟得慢</h3>
+
+<p class="src">2026-10-29 07:35 PT → 2026-10-30 · <a href="https://cursor.com/blog/claude-code-extension-security-notice">Cursor 官方安全公告</a> · <a href="https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/">Ars Technica</a> · <a href="https://news.ycombinator.com/item?id=50300683">HN 讨论</a> · <a href="https://www.technologyreview.com/2026/10/29/1147824/monitor-ai-agents-actions-real-time/">MIT Tech Review（配合同日研究）</a></p>
+
+<p><strong>发生了什么</strong></p>
+
+<p>Cursor 官方公告确认：在 <strong>10 月 29 日 2:27am PT 到 1:35pm PT</strong>（约 11 小时 8 分钟）之间，一个被恶意篡改的 <code>Anthropic.claude-code</code> 扩展被发布到 <strong>Cursor 的 VS Code 扩展市场</strong>，涉及版本 <code>2.1.312</code> 与 <code>2.1.313</code>，覆盖 Windows 与 macOS。Cursor 明确声明：<strong>这些恶意版本并非 Anthropic 开发</strong>。影响面为<strong>至多 5,000 名用户</strong>。</p>
+
+<p>恶意载荷的行为拆开看，是一套相当完整的攻击链：</p>
+
+<ul>
+<li><strong>侦察</strong>——收集并外传主机名、用户名、操作系统、CPU 架构、home 目录路径、<strong>环境变量名</strong>（注意：变量名而非值）、工作目录、已配置的 Git email、出口公网 IP。</li>
+<li><strong>植入</strong>——尝试向 <code>~/.ssh/authorized_keys</code> 追加攻击者公钥（标记名 <code>svc-telemetry</code>）、启用本地 SSH 服务、并建立反向 SSH 隧道。Cursor 说明：除非 Cursor 以管理员权限启动（极罕见），这一步因恶意代码自身的错误会失败。</li>
+<li><strong>持久化</strong>——macOS 走 LaunchAgent，Windows 走以 SYSTEM 身份尝试的计划任务 + Startup 脚本兜底。后台脚本<strong>每约 60 秒重试一次</strong>隧道。</li>
+</ul>
+
+<p>Cursor 的处置：立即下架并封禁分发，随后<strong>整体关停市场</strong>、轮换密钥、重建市场；与云服务商协作把攻击者服务器下线，"反向 shell 与主机信息 POST 均已失效"。Anthropic 的 Dworken 在 HN 补充：<strong>官方 VS Code 扩展市场与 OpenVSX 未受影响</strong>，只影响 Cursor 市场这一条分发路径。</p>
+
+<p><strong>为什么这是今日头条 —— 三个层次</strong></p>
+
+<p><strong>第一层：AI 编码 agent 本身成了新的软件供应链攻击面。</strong>过去 IDE 插件窃取的是浏览器 cookie、剪贴板、键盘记录——价值有限但影响局部。Claude Code 这类插件不一样：它以<strong>完整用户权限</strong>运行，天然持有仓库凭据、云 token、SSH 密钥、CI 密钥，且默认被授予读写整个工作区与执行 shell 的权力。插件商店的信任模型建立在"插件偷点数据"，而 agent 插件的实际权限是"插件就是你"。</p>
+
+<p><strong>第二层：这是一次针对 AI 编码 agent 的定向攻击，而不是机会主义投毒。</strong>被顶掉的是 <code>Anthropic.claude-code</code>——一个带 Anthropic 验证标识、坐拥百万级安装量的目标。在 agentic coding 已经成规模部署的当下，攻击者发现"攻破 agent 插件 = 攻破开发者全部代码资产"的路径，这比传统恶意扩展的收益高一个数量级。我判断这只是开始，不是结束。</p>
+
+<p><strong>第三层（这层最被低估）：卸载插件不等于止损。</strong>Cursor 公告明确写道："Uninstalling the extension may not be sufficient — the payload drops standalone persistence scripts that keep running."载荷会落下独立于插件自身的持久化脚本。真正需要做的是：<strong>检查 <code>~/.ssh/authorized_keys</code> 是否有 <code>svc-telemetry</code> 键</strong>、清理 LaunchAgent / 计划任务、终止隧道进程、<strong>轮换该主机上所有凭据与会话</strong>，并判断是否需要重装系统。Cursor 提供了 macOS / Windows 各自的清除脚本，脚本在残留任何东西时会以非零状态退出——这个设计值得抄。</p>
+
+<p><strong>与同日 MIT Tech Review 的研究合流看，故事更完整</strong>：那篇文章（详见下方 Agent 前沿 P0）报告了对<strong>四个最主流 agent 框架</strong>的审计，发现它们普遍不生成持久化的 Agent ID、不记录"哪个人类批准了哪次 agent 任务"。前者是"agent 的行为没被记录"，后者是"agent 的代码被替换了也没人知道"——两件事指向同一个结论：<strong>agent 的运行时可观测性，在这次攻击里恰好是可以救命的，但它当时不存在。</strong>如果 Cursor 的扩展在安装时就在 telemetry 里写入了不可变的安装记录+哈希，这次 11 小时的窗口至少能被秒级识别。</p>
+
+<p><strong>给 agent 开发者的具体动作（今天就能做）</strong></p>
+
+<ol>
+<li><strong>把 agent 插件当生产依赖管</strong>：锁定版本、校验发布者签名、优先走官方 VS Code 市场 / OpenVSX 而非第三方市场；内部团队自建 agent 扩展时，CI 里加一步"发布物哈希校验"。</li>
+<li><strong>默认拒绝 agent 扩展的全盘文件访问</strong>：用工作区白名单、最小 token scope、沙箱（Docker/微虚机）承载 agent 执行，而不是让 agent 直接在开发者主机上以用户身份跑。</li>
+<li><strong>给 agent 装"行为留痕"插件</strong>：OpenTelemetry 的 agent tracing 工作组正在起草共享格式，在标准落地前，用 hook / callback 把工具调用、文件写入、shell 命令、outbound 请求记进 append-only 日志——这既是防供应链，也是出事后的取证依据。</li>
+<li><strong>把 Anthropic 这条先例写进你的供应商风险评估</strong>："模型厂商的插件被投毒"从此是一个需要单独评估的风险项，不再是理论问题。</li>
+</ol>
+</div>
+
+<hr class="divider">
+
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+<span class="tag p0t">P0</span><span class="tag">Anthropic 研究</span><span class="tag">人类判断</span>
+<h3>专家把判断权交给了 agent，而且自己没察觉 —— 86% 的采纳率与"只有 15% 归因"之间的裂缝</h3>
+<p class="src">2026-10-27 · <a href="https://www.anthropic.com/research/agents-judgment-calls">Anthropic Research · How AI agents shape experts' judgment calls</a></p>
+
+<p>这是本周最值得细读的论文。Anthropic 做了一个随机对照实验（RCT），招募 61 名通过因果推断知识筛查的专业分析师，让他们在 Claude Code 辅助下完成一份真实的统计咨询任务：为一个虚构的农业合作社判断某项咨询服务是否有效、该不该推广。任务里刻意留了<strong>四个"两个选项都说得通"的分析决策</strong>——生产率按每公顷算还是按单位运营成本算、用双重差分还是回归调整、评估覆盖参保农场还是全体社员、权重是每农场等权还是按规模加权。每个选择都能让估计出的生产力提升浮动几个百分点，而理事会的门槛卡在 3–4%。</p>
+
+<p>实验的关键设计很巧妙：<strong>每个分析师的 agent 被设定为在每个决策上偏好某个选项，而这个偏好由抛硬币决定</strong>，分析师本人不知道。agent 被要求为自己的偏好做最诚实的论证，证据变了就改主意，不误导人。</p>
+
+<p>结果：</p>
+
+<table>
+<tr><th>指标</th><th>数值</th><th>解读</th></tr>
+<tr><td>四个分析决策上采纳 agent 倾向的比例</td><td><strong>86%</strong></td><td>若无影响应为 ~50%。也就是说 agent 的"偏好"实质上接管了决策</td></tr>
+<tr><td>分析师已有自己的偏好、且 agent 反对时的改弦更张率</td><td><strong>60%</strong></td><td>对照组（agent 同意时）只有 <strong>6%</strong></td></tr>
+<tr><td>事后解释时使用 agent 论据（部分逐字复用）的比例</td><td><strong>77%</strong></td><td>论证的来源已经是 agent</td></tr>
+<tr><td>事后<strong>把 agent 归因为论据来源</strong>的比例</td><td><strong>15%</strong></td><td>元认知缺口——知道与归因严重脱节</td></tr>
+</table>
+
+<p>还有一个冷静的对照数据：不给 agent 任何刻意偏好时，Claude Opus 4.8 自己在 123 次运行里有 112 次给出同样五个选择——<strong>真实 agent 本来就有稳定的倾向</strong>，实验只是把这个倾向放大到可测量。所以作者说得很谨慎："当 agent 没有被给予明确偏好和表达偏好的指示时，这个效应可能更小。"</p>
+
+<p><strong>我的判断（主观，但这是我今天最强烈的观点）</strong>：这个 86% / 15% 的组合，比任何关于"AI 会不会取代专家"的辩论都更有信息量。它说明 AI 时代的真正风险不是<strong>能力转移</strong>，而是<strong>责任错配</strong>——决策的实质内容确实被 agent 提供了，但人类既没有察觉，也没有在自己的产出里标注溯源。等出事后，人类的口头解释和 agent 的真实依据会脱节，而人类完全相信那是自己的判断。</p>
+
+<p>作者点出了一个我认为是本报告最该强调的应用边界："研究者已经开始用 agent 来跑和分析实验，而一个人类审阅者只有在<strong>他的判断是他自己的判断</strong>时，才是独立的检查。"如果用 agent 做实验的 agent 也有稳定偏好（上面 112/123 那个数字），那这条独立性链条是有洞的。</p>
+
+<p><strong>对 agent 开发者的指导</strong>：如果你的 agent 会给人"建议"（几乎所有 enterprise agent 都会），那么<strong>建议的溯源标注</strong>不是 nice-to-have，而是防止责任错配的必要功能。具体来说：(a) 在 UI 上区分"这是 agent 的倾向"与"这是用户的决定"，别让 agent 的措辞和用户自己的判断混在一起渲染；(b) 记录每次建议的生成条件（当时的 context、agent 的倾向声明），以便事后复盘"到底是谁的决定"；(c) 别把 agent 的输出静默并入用户的文档——本例中 77% 的逐字复用意味着下游读者无法区分二者。这条其实和今日头条那件事是同一个原则的两面：<strong>agent 的输出必须带着"谁做的、依据是什么"一起流动</strong>。</p>
+</div>
+
+<div class="p0">
+<span class="tag p0t">P0</span><span class="tag">开源权重</span><span class="tag">agentic coding</span>
+<h3>Mistral Large 4（Le Chonk）开放权重：1T MoE、1M 上下文，agentic coding 打平 GLM-5.3 但少用 47% token</h3>
+<p class="src">2026-10-29 · <a href="https://mistral.ai/news/mistral-large-4-oss/">Mistral 官方博客</a> · <a href="https://huggingface.co/blog/mistral-large4">HuggingFace 技术解读</a> · <a href="https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B">模型卡</a></p>
+
+<p>10 月初 Le Chonk 以 public preview 形式发布后，Mistral 用<strong>仅三周的额外 RL</strong> 迭代出改进版并直接放出权重。这次的卖点不在参数规模，而在<strong>同等能力下更低的 token 消耗</strong>——这对跑得起 agent 的团队才是真正的账单。</p>
+
+<p>官方披露的 agentic 数字：</p>
+
+<ul>
+<li><strong>Artificial Analysis Coding Agent Index：48%</strong>，与当前最强开源权重模型 GLM-5.3 基本打平，但<strong>每任务平均少用 47% token</strong>。</li>
+<li><strong>Terminal-Bench 4.0：41%</strong>（较 preview 版 +13 个百分点），领先开源权重阵营，同时<strong>输出 token 减少 30%</strong>。</li>
+<li><strong>Cognition 私有 FrontierCode 2.0：19.7%</strong> 居首——该 benchmark 评的是"仓库维护者会不会合并这个 agent 的改动"。</li>
+<li><strong>Surge Code 盲测 pairwise</strong>：人类偏好上胜过 GLM-5.3、Kimi K3、DeepSeek V4.1 Flash，<strong>仅次于 Claude Opus 5.5</strong>。</li>
+</ul>
+
+<p>架构上值得记的：<strong>~1T 总参 / 49B 激活</strong>（含 embedding 与输出层为 52B）、128 个路由专家每 token 选 4 个 + 1 个共享专家、<strong>1M 上下文</strong>、72 层 / hidden 6144 / 64 头，<strong>MLA + DSA 稀疏索引器</strong>（每个 query 最多选 2048 个 key 位置）、3:1 的 RoPE/NoPE 交替、1.6B Pixtral 视觉编码器、160+ 语言。在 Mistral 自有欧洲数据中心、<strong>3,800 张 NVIDIA Grace Blackwell</strong> 上从零训练。</p>
+
+<p><strong>一个必须标注的数据分歧</strong>：Mistral 官方稿写 Artificial Analysis Cyber Index <strong>51%</strong>，而 HuggingFace 同日的技术解读写 <strong>82%</strong>（两者都是 10-29）。这两个数字大概率是"综合分"与"复现-修补子项分"的口径差，但官方没有说明。我倾向采信官方口径 51%，并把 82% 视为未经证实的转述——这类"同一天两个官方渠道给出不同数字"的情况在模型发布周很常见，值得盯一下后续是否澄清。</p>
+
+<p><strong>另一个值得注意的信号</strong>：Mistral 说 Le Chonk 在 JailbreakBench / StrongREJECT / AgentHarm 的恶意 cyber prompt 上平均拒答率 <strong>96.6%</strong>，"是我们测过的开源模型里最高的"。翻译一下：它在防御性安全工作上能力很强的同时，拒答率也比任何开源竞品高。这两个特性同时成立，比单看任何一个分数都更有意义——<strong>open weight 模型第一次同时给了你能力和可审计的克制行为</strong>，这是闭源 API 给不了的（你没法独立测量拒答率，你只能信厂商的说法）。</p>
+
+<p><strong>对 agent 开发者的指导</strong>：token 效率这条线现在比"分数高几分"重要得多。一个"48% 但省 47% token"的模型和一个"52% 但多烧一半 token"的模型，在月度账单上是反过来的。所以做模型选型时，<strong>请把"每任务总 token（输入+输出+重试）"作为第一指标，分数作为第二指标</strong>。另外 Mistral 官方推荐的首选部署路径是 vLLM / SGLang，GGUF 由 Unsloth 与 llama.cpp 官方提供，NVFP4 版本面向 Blackwell——如果你的环境是 Blackwell 卡，NVFP4 + DSpark 组合值得单独评估（见下节）。</p>
+</div>
+
+<div class="p0">
+<span class="tag p0t">P0</span><span class="tag">生态</span><span class="tag">Agent Skills</span>
+<h3>GitHub Trending 被 Skills 仓库整块占领：官方 skills 仓库 18.5 万星，而"个人 skills 合集"集体百万级</h3>
+<p class="src">2026-10-31 GitHub Trending 实测 + 仓库 API 核验</p>
+
+<p>今天的 Trending 前 15 里，<strong>skills 主题占了 4 席</strong>，且量级惊人（GitHub API 实时核验）：</p>
+
+<table>
+<tr><th>仓库</th><th>Star</th><th>一句话</th></tr>
+<tr><td><code>obra/superpowers</code></td><td><strong>309,415</strong></td><td>agentic skills 框架 + 软件开发方法论</td></tr>
+<tr><td><code>mattpocock/skills</code></td><td><strong>307,463</strong></td><td>"Skills for Real Engineers"，直接来自作者的 <code>.agents</code> 目录</td></tr>
+<tr><td><code>anthropics/skills</code></td><td><strong>185,300</strong></td><td>Anthropic 官方的 Agent Skills 公共仓库</td></tr>
+<tr><td><code>pbakaus/impeccable</code></td><td><strong>97,030</strong></td><td>给编码 agent 用的"设计词汇表"：polish / critique / audit / 反 AI slop</td></tr>
+<tr><td><code>expo/skills</code></td><td>3,890</td><td>Expo 项目专用 skills 合集</td></tr>
+</table>
+
+<p>而在最近两周新建的仓库里，skills 主题同样密集：<code>t3dotgg/tstack</code>（2467★，"我每天用的 agent skills"）、<code>morganlinton/BeautifulRust</code>（1507★，教 agent 写地道 Rust + clippy 配置）、<code>daveebbelaar/bama</code>（937★，"Build Any Mac App" 全流程 skills）、<code>huaxialucaicaizi/ai-startup-skills</code>（615★，中文，"创业公司做 AI 产品的 7 步 Agent Skill 合集"）、<code>konlu/story-studio</code>、<code>wangrongding/tv-fresh</code>（小米电视去广告 Agent Skill，含固件逆向实录）、<code>actionow-ai/vvv</code>（"一次构建视频模板，多次复用：给 Claude Code、Codex 等 25+ 个 Agent"）。</p>
+
+<p><strong>这不是巧合，是相变。</strong>值得注意的是 Anthropic 官方仓库 <code>anthropics/skills</code> 的 18.5 万星，以及"把 skills 当软件包管理"的做法——<code>tstack</code> 是"我每天用的 agent skills"、<code>tv-fresh</code> 是可逆向固件的工具集、<code>vvv</code> 明确支持 25+ 个 agent 宿主。<strong>skills 已经变成 agent 时代的 npm。</strong></p>
+
+<p><strong>但也有必须点出来的两面</strong>：第一，skills 本质上是<strong>会被模型读取并执行的指令文件</strong>——它的安全等级更接近"第三方安装的 shell 脚本"而不是"文档"。今日头条那件事恰好证明了这条链路上的人是会被针对的。第二，仓库 star 数在两年内从 0 涨到 30 万，说明<strong>生态热度已经跑在安全审查能力前面</strong>——没有任何机制能告诉你某个 skill 的 <code>SKILL.md</code> 里写了什么、会不会在 agent 拥有 shell 权限时做危险的事。</p>
+
+<p><strong>对 agent 开发者的指导</strong>：(1) 你的 agent 迟早要消费第三方 skills，<strong>请把 skill 目录当成依赖来锁版本 + 审计内容</strong>，尤其是带脚本的 skill；(2) 如果你在做产品，skills 是极好的差异化载体（<code>impeccable</code> 那条"给 agent 装设计词汇表"的思路很值得抄——把公司的隐性规范写成 skill，而不是写进 prompt 或做后处理）；(3) 如果你担心 prompt injection，skills 是最容易绕过的入口之一：<strong>skill 内容是"开发者授权的指令"，不是"用户数据"</strong>，模型有理由高优先级执行它。</p>
+</div>
+
+<div class="p1">
+<span class="tag p1t">P1</span><span class="tag">数据</span><span class="tag">agentic engineering</span>
+<h3>GitHub Octoverse 2026：合并 PR 一年翻三倍到 2.2 亿/月，commit 翻三倍到 738 亿/月</h3>
+<p class="src">2026-10-28 · <a href="https://simonwillison.net/2026/Oct/28/github-octoverse-2026/">Simon Willison 现场记录</a></p>
+
+<p>GitHub Universe 上 EVP Jay Parikh 公布的 Octoverse 数据：2026 年<strong>合并 pull request 数量在不到一年内翻了三倍，达到每月 2.2 亿</strong>；<strong>commit 数翻了三倍多，达到每月 73.8 亿</strong>，且增量大部分集中在下半年；<strong>新仓库创建率翻倍到每月 3030 万</strong>。</p>
+
+<p>Simon 的评价是"This is a pretty stark representation of the impact of agentic engineering on GitHub"。值得补一句报告里被提到但没被展开的细节：GitHub 用<strong>微调的多语言 embedding 模型</strong>按 NAICS 行业给仓库分类，用 LLM 分类从贡献者 profile 抽取 ISO 国家码以校正 VPN 偏差——也就是说，这套"AI 冲击量化"本身就是 agent 流水线做的。</p>
+
+<p><strong>为什么值得放在这里</strong>：PR 合并数翻三倍是个极硬的指标，因为它意味着<strong>净代码产出在真实生产系统里增加了三倍</strong>，而不只是 demo 变多。commit 翻三倍但 PR 只翻三倍（说明 PR 体积在缩小）也是一致的——agent 倾向于产出小而密的 PR。报告会拆出"涉及互操作性或逆向工程"的仓库单列一节，这个子集的增速值得单独看。</p>
+</div>
+
+<div class="p1">
+<span class="tag p1t">P1</span><span class="tag">arXiv</span><span class="tag">评测</span>
+<h3>Prefix Executability：只看最终成功率的 agent 评测，漏掉了轨迹中途就已经崩掉的情况</h3>
+<p class="src">2026-10-29 · arXiv:2610.40444</p>
+
+<p>现有 tool-use benchmark 基本都按最终任务成功率打分。但一个 agent 最终"做对了"，中间的工具调用轨迹可能早就不可执行了——调了一个不存在的参数、调了顺序错误、依赖了尚未写入的中间状态。这篇提出 <strong>prefix executability</strong>：衡量预测出的工具调用序列的<strong>每一个前缀</strong>在 schema、状态前置条件、数据依赖下是否仍然可执行，并给出 Prefix Executability Curves、First-Error Depth（FED）、Trajectory Executability Rate（TER）、Recovery Rate（RR）等指标，在 BFCL-v3 multi-turn 与 ToolSandbox 上实例化。</p>
+
+<p><strong>对 agent 开发者的意义很直接</strong>：如果你的 agent 评测只看最终成功率，你<strong>无法区分</strong>"一次走对"和"错了三次自己绕回来了"。后者在生产里意味着三倍的 token 成本、三倍的副作用风险（如果中间那步写了文件/发了请求），而 benchmark 上两者分数一样。</p>
+</div>
+
+<div class="p1">
+<span class="tag p1t">P1</span><span class="tag">arXiv</span><span class="tag">多智能体</span>
+<h3>Goal-Aware Dynamic Multi-Agent Collaboration：验证（verification）与任务成功的关联最强，却总是来得太晚</h3>
+<p class="src">2026-10-29 · arXiv:2610.39193</p>
+
+<p>这篇做了一个初步的机制研究：长程任务中，单 agent 需要切换"规划"和"验证"等不同职责。发现是——<strong>验证与任务成功的相关性最强，但验证通常发生在很晚的位置，留给纠错的机会已经很少</strong>；并且随着不同职责的记录不断累积，<strong>职责相关信息的占比在下降</strong>（即上下文被无关职责的日志稀释）。</p>
+
+<p>两个可直接落地的推论：(a) <strong>把验证前移</strong>——在多 agent 流水线里，把校验节点从"末端检查"改到"每个产出后立刻校验"，比事后 review 有效得多；(b) <strong>做职责感知的上下文裁剪</strong>，别让规划 agent 背着验证 agent 的日志跑——这正是"分层多 agent 记忆"类工作的动机。</p>
+</div>
+
+<div class="p1">
+<span class="tag p1t">P1</span><span class="tag">arXiv</span>
+<h3>本周 arXiv 其他值得看的三篇</h3>
+<p class="src">2026-10-28 ~ 10-29</p>
+
+<ul>
+<li><strong><a href="https://arxiv.org/abs/2610.40578">VeriCUA: Verification as Agentic Exploration for Computer-Using Agents</a></strong>（2610.40578）——computer-using agent 的任务完成验证不能再靠"提示 VLM 判轨迹"或"生成程序检查状态"，因为前者受限于给定的部分观测、后者受限于可访问状态，两者都会漏掉决定性证据或给出无支撑的完成判断。这篇把验证本身当作<strong>agentic exploration</strong> 来做。</li>
+<li><strong><a href="https://arxiv.org/abs/2610.40293">MAServeBench</a></strong>（2610.40293）——多 agent 系统服务端的 benchmark。它指出了一个被忽略的事实：多 agent 协作里各操作的就绪时刻不同、上下文持续演化，<strong>这会暴露与单请求完全不同的瓶颈</strong>（并发、计算、显存），而且要 benchmark 出这些效应，光看执行期请求不够，还得捕获"生成这些工作负载的协作规则"。</li>
+<li><strong><a href="https://arxiv.org/abs/2610.40545">Retrieval as Traversal: Value-Indexed Memory</a></strong>（2610.40545）——长上下文模型反复求解高度相似的检索问题，这篇把检索重构成<strong>在地址空间里的持久化局部遍历</strong>：把记忆的内容与地址分离，用"检索能揭示多少信息"定义效用，用几何决定到达成本。</li>
+</ul>
+</div>
+
+<hr class="divider">
+
+<h2>⚡ 小模型 &amp; 效率革命</h2>
+
+<div class="p0">
+<span class="tag p0t">P0</span><span class="tag">推理优化</span>
+<h3>DSpark 投机解码被"焊"进 checkpoint：Mistral 直接在权重旁附赠 draft head，实测 1.9× 吞吐</h3>
+<p class="src">2026-10-29 · <a href="https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B">Mistral Large 4 模型卡</a></p>
+
+<p>这是今天最"工程"的一条，也可能是对 agent 团队现金流影响最直接的一条。</p>
+
+<p>常见做法是投机解码：一个小的 draft 模型先出若干 token，大模型批量验证。但这条路要求你<strong>另外找一套 draft 模型并维护它的服务</strong>——运维负担实实在在。Mistral 的做法不同：<strong>Le Chonk 的 checkpoint 里直接附带一个 DSpark draft head</strong>，由 <strong>3 层 BF16 稠密 MLA draft 层</strong>组成，用一个递归 Markov head 一次提出 3 个 token 的块。启用只需一个参数：</p>
+
+<pre><code>--speculative-config '{"method": "dspark", "num_speculative_tokens": 3}'</code></pre>
+
+<p>Mistral 声称：<strong>吞吐最高提升 1.9×</strong>，且<strong>不改变目标模型的输出</strong>（同精度、同量化下的严格等价），实际收益依硬件与负载而定。</p>
+
+<p><strong>为什么这是效率上的一条结构性变化</strong>：投机解码的收益在长输出、高并发、decode 阶段受内存带宽瓶颈的场景下最大——而这<strong>正是 agent 负载的特征</strong>（输出长、并发高、prefill 相对短）。过去"用投机解码"是给推理工程师的优化项，现在它变成了<strong>模型发行的一部分</strong>。当 draft head 随权重一起发布，<strong>"要不要开投机解码"从架构决策降级成了启动参数</strong>。</p>
+
+<p><strong>行动建议</strong>：如果你在 Blackwell 上跑 agent，vLLM / SGLang 起 Le Chonk 时<strong>默认就把 DSpark 打开</strong>，然后用你自己的真实 trace 测一遍 token/s 与 TTFT（官方给了个参考：SGLang recipe 固定 <code>--max-running-requests 64</code>，去掉会退到 48）。如果吞吐确实是瓶颈，1.9× 意味着你可以把并发从 64 提到 ~120 而不增加延迟——这在按 GPU 小时计费的托管推理上就是直接的收入差额。注意"不改变输出"这个保证是在<strong>同一量化 runtime 内</strong>的等价，换量化格式时需自行验证。</p>
+</div>
+
+<div class="p0">
+<span class="tag p0t">P0</span><span class="tag">量化</span><span class="tag">线性注意力</span>
+<h3>低比特 GDN 递归状态量化：量化回写误差才是线性注意力长上下文的真敌人</h3>
+<p class="src">2026-10-29 · arXiv:2610.39931</p>
+
+<p>这篇的技术点很准。线性注意力（Linear Attention / GDN 这类）把历史信息压成<strong>固定大小的递归状态</strong>，长上下文推理时存储需求不随长度增长——这是它相对标准注意力的核心优势。但继续压精度会遇到一个特殊问题：<strong>量化回写误差会进入后续的递归计算</strong>，在长推理任务上累积，表现为预测质量退化，并伴随<strong>重复生成和输出异常冗长</strong>。</p>
+
+<p>方法上提出两个对策：<strong>GGA（Global Gradient-aware Allocation）</strong>把候选量化残差与梯度敏感度（对未来预测 loss 的影响）结合，按头分配比特宽度；<strong>PW（Pure-Write Sliding Window）</strong>只对纯写入部分做滑动窗口，避免近期信息的反复量化损失。</p>
+
+<p><strong>为什么值得 agent 开发者关心</strong>：你的 agent 上下文窗口越大、跑得越久，就越可能踩到"递归状态量化"这条路径——而且它的失败模式很隐蔽：<strong>不是崩掉，是慢慢变啰嗦、开始重复</strong>。如果你在用 DeltaNet / Gated DeltaNet / Mamba 系架构的模型做长程 agent，这篇直接相关；如果你在自建长上下文服务，它提示你"<strong>KV cache 量化误差会累积</strong>"这个直觉在递归架构下更强，需要专门设计而不是套用通用方案。</p>
+</div>
+
+<div class="p1">
+<span class="tag p1t">P1</span><span class="tag">端侧</span><span class="tag">浏览器内推理</span>
+<h3>浏览器内 LLM：GPU 常驻的投机解码，把 WebGPU 的那些具体开销逐个拆掉</h3>
+<p class="src">2026-10-29 · arXiv:2610.39761</p>
+
+<p>WebGPU 让"网页内私有离线推理"成为可能，但浏览器环境的调度、进程间通信、同步回读、单 token kernel 让常规投机解码效率低下。这篇给出一个 WebGPU runtime：</p>
+
+<ul>
+<li><strong>确定性的小批量整数 kernel</strong>加速多 token 验证，同时保持与同量化 runtime 下 greedy decoding 的<strong>精确一致</strong>；</li>
+<li><strong>GPU 常驻循环</strong>完成 draft、verify、accept 与 KV cache 维护，<strong>不产生 per-token 的 CPU 决策</strong>；</li>
+<li><strong>draft-free 的 context-mixing drafter</strong>，复用页面内容、会话历史与 session memory——<strong>不额外加载一个 draft 模型</strong>。</li>
+</ul>
+
+<p>最后一条最有意思：它用"把上下文本身当 draft 素材"绕开了额外模型的开销。和 DSpark 是同一类思路的两种形态——<strong>把投机解码的 draft 来源从"另一个模型"改成"已经在手边的信息"</strong>。</p>
+
+<p><strong>对 agent 开发者的意义</strong>：端侧 agent 的瓶颈从来不是"模型能不能跑"，而是"decode 阶段每 token 都要跨一次 CPU/GPU 边界"。任何能把整条验证-接受循环留在 GPU 里的方案，都是实打实的端侧可用性提升。如果你做浏览器内的隐私 agent（读本地数据、调用本地工具），这篇的工程细节值得直接抄。</p>
+</div>
+
+<div class="p1">
+<span class="tag p1t">P1</span><span class="tag">模型架构</span>
+<h3>IBM Granite Switch 4.1.1：像更新软件一样更新模型——基座不动，只重训 adapter</h3>
+<p class="src">2026-10-29 · <a href="https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1">HuggingFace / IBM Granite</a></p>
+
+<p>Granite Switch 的模块化 Switch 架构允许在单一 endpoint 上通过<strong>缓存高效的专用 adapter</strong>叠加新能力。4.1.1 是补丁版本，<strong>完全向后兼容、无需迁移</strong>，具体更新了两处：多语言语音识别 ASR 模型（10 种语言、原生标点与大小写，transcript 可直接喂给下游模型不必再过一遍格式化）、以及 Jev Decision Index 上的 Decision adapter 性能提升。</p>
+
+<p>IBM 强调的关键点：<strong>除了重训新的 ASR 模型和 Decision adapter，什么都没重算——基座模型原封不动</strong>。他们正在做 Adapter SDK，让开发者和第三方 provider 也能自己造 adapter、按软件的方式迭代版本与发版。</p>
+
+<p><strong>为什么这条值得关注</strong>：这是一个把"模型迭代"从"再训一次"降维成"改一个插件"的架构范式。回到今日头条的语境——<strong>当 adapter 变成可热插拔的运行时组件，它的供应链安全问题和今天的 Cursor 事件是同一类问题</strong>：谁来审计这个 adapter？IBM 提到"Adapter SDK"和第三方 provider 参与的那一刻，可信边界就出现了。我看好这个方向，但也建议你在采用时把 adapter 的签名与来源校验做进你的部署管线。</p>
+</div>
+
+<div class="p1">
+<span class="tag p1t">P1</span><span class="tag">端侧</span><span class="tag">语音</span>
+<h3>端侧语音与决策模型成对落地：AnySpeechRecognizer + AnyDecisionModel（Apple 平台）</h3>
+<p class="src">2026-10-29 · <a href="https://huggingface.co/blog/anydecisionmodel">HuggingFace</a></p>
+
+<p>两个 Swift 包，把"识别"和"决策"从 LLM 里拆出来交给专用小模型：</p>
+
+<ul>
+<li><strong>AnySpeechRecognizer</strong>——实现 Apple 新的 <code>SpeechAnalyzer</code> API 但引擎可换：NVIDIA Parakeet（TDT 0.6B v3，25 种欧洲语言并自动识别语种）、Moondream 的 Parakeet Ultra、NVIDIA Parakeet Unified EN 0.6B，以及 Alibaba <strong>Qwen3-ASR</strong>（0.6B / 1.7B，30 种语言 + <strong>22 种中文方言</strong>，含普通话、粤语、日语、韩语）。还加了 <strong>speaker diarization</strong>。相关模型已转成 Core ML 放在 Hub 上。</li>
+<li><strong>AnyDecisionModel</strong>——回答 yes/no、多选、评分量表，<strong>从模型概率导出答案而非生成文本</strong>，走 MLX / Core AI / llama.cpp 或 Jev / Ollama 的 decision model。</li>
+</ul>
+
+<p><strong>核心主张值得记</strong>："你本可以把这两件事都交给 LLM，但每个环节都有更专、更快、更便宜的专用模型。"<strong>把决策从"生成文本"改成"读概率"，这是一个架构上的降级——但对你需要的正是这个</strong>。在 agent 里，"选哪个工具""是否 escalate 给人类""这个分类是什么"全都是有界的枚举决策，用生成模型做是浪费，且引入了幻觉。</p>
+
+<p><strong>行动建议</strong>：做 agent 的路由/分类/门控时，<strong>优先考虑 decision model 而不是让 LLM 输出一个分类字符串</strong>——概率可校准、可设阈值、成本低一个量级。Apple 平台团队尤其值得看：Core ML 转换后的模型已经在 Hub 上，Parakeet v3 与 Qwen3-ASR 的许可证分别是 CC BY 4.0 与 Apache 2.0。</p>
+</div>
+
+<div class="p1">
+<span class="tag p1t">P1</span><span class="tag">端侧案例</span><span class="tag">语音 agent</span>
+<h3>NVIDIA 用一个 4GB 小模型 + 一台工作站撑起"会说话的门"：Nemotron 3.5 Bolt E4B</h3>
+<p class="src">2026-10-30 · <a href="https://huggingface.co/blog/nvidia/nemotron-halloween">HuggingFace / NVIDIA</a></p>
+
+<p>NVIDIA 的官方案例（万圣节主题）：把一个车库门变成会抱怨的海盗船，实时对话——<strong>整套系统跑在单台工作站上</strong>（RTX PRO 6000 Blackwell Max-Q + RTX PRO 4000 Blackwell）。栈是：</p>
+
+<ul>
+<li><strong>听</strong>——Nemotron 3 ASR（<code>nemotron-speech-streaming-en-0.6b.q8_0.gguf</code>）；</li>
+<li><strong>想</strong>——<strong>Nemotron 3.5 Bolt E4B 4GB</strong>，一个"用于对话 agent 的开源小语言模型"，用 <strong>LoRA adapter</strong>提供性格；</li>
+<li><strong>说</strong>——Magpie TTS Zeroshot；</li>
+<li><strong>动</strong>——Audio2Face-3D 在 UE5 里驱动口型；</li>
+<li><strong>看</strong>——Nemotron 3 Nano Omni 描述服装，YOLO + ByteTrack 计数与追踪。</li>
+</ul>
+
+<p>Hub 数据（实时核验）：<code>nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB</code> 64,263 次下载 / 283 likes，Unsloth 的 GGUF 版本 162,308 次下载——<strong>GGUF 量化版的下载量是原始 BF16 版的 2.5 倍</strong>。这个比例本身说明端侧 agent 开发者要的是"能塞进 4GB 的版本"，而不是参数量。</p>
+
+<p><strong>为什么这个案例值得单独提</strong>：它是"端侧 agent 到底能不能落地"的一个<strong>有具体数字的正面回答</strong>——4GB 模型 + 单工作站 + LoRA 定人格 + 开源 TTS/ASR/动画栈，完整的实时语音 agent。<strong>注意它没有任何云端调用。</strong>对我们的意义：如果你在做"永远在线的本地助理"，现在端侧语音 agent 的成本结构已经和一个普通 app 差不多了。</p>
+</div>
+
+<hr class="divider">
+
+<h2>📡 广角扫描</h2>
+
+<div class="p1">
+<span class="tag p1t">P1</span><span class="tag">前沿模型</span>
+<h3>Gemini 4 Carbon：登顶 Artificial Analysis Intelligence Index v5.0（59 分），但只给少数安全防御方</h3>
+<p class="src">2026-10-28 · DeepMind 博客（RSS）+ The Verge + 二手报道交叉</p>
+
+<p>Google 在 Gemini 4 Argon 两周后发布下一个前沿模型 Carbon，定位是"最强的模型，具备 SOTA 的网络安全与长程能力"。据报道它在 <strong>Artificial Analysis Intelligence Index v5.0 上以 59 分排名第一</strong>，安全能力上 <strong>SEC-bench Pro 漏洞检出 88.2%</strong>、漏洞利用测试 54.8%、安全修补 71%，并被描述为"能自主运行数天来识别并修复复杂软件缺陷"。</p>
+
+<p><strong>可及性才是重点</strong>：目前只通过 <strong>Fairwind 计划</strong>向选定的网络安全防御方开放，之后逐步扩展到更多伙伴，最终才面向开发者、企业与消费者。引入价 $2/1M 输入、$10/1M 输出（缓存输入 95% off），标准价 $4/$20。</p>
+
+<p><strong>点评</strong>：这是前沿模型第一次把"可及性"本身作为发布叙事的一部分（对比同一周 OpenAI/Anthropic 的常规发布节奏）。<strong>我的判断：Google 在用安全能力作为独占渠道的排他性筹码</strong>——先给防御方建立生态依赖，等 Fairwind 的合作伙伴足够多再放开通用市场。对做安全 agent 的团队，这意味着一段时间内的模型选型约束；对其他人，这是又一个"先窄后宽"的发布范式。</p>
+</div>
+
+<div class="p1">
+<span class="tag p1t">P1</span><span class="tag">OpenAI</span><span class="tag">规范</span>
+<h3>OpenAI 重写 Model Spec：五个核心值，把"assistant"改称"GPT"，agentic 默认值成为主角</h3>
+<p class="src">2026-10-29 · <a href="https://model-spec.openai.com/2026-10-29.html">model-spec.openai.com（2026-10-29 版）</a></p>
+
+<p>新版 Model Spec（2026-10-29）全文重组为五个顶层价值（对应原文 H1 结构）：<strong>Be faithful to human intent / Minimize harm / Be honest and transparent / Facilitate human agency / Act with care</strong>。整体重写、<strong>大部分旧版细颗粒度的风格规则被移除</strong>，模型主语从 "the assistant" 改为 <strong>"GPT"</strong>。</p>
+
+<p>agent 相关的新默认值在目录里清晰可见：<code>Follow all applicable instructions</code>、<code>Respect the letter and spirit of instructions</code>、<code>Act within an agreed-upon scope of autonomy</code>、<strong><code>Ignore untrusted data by default</code></strong>、<strong><code>Carry relevant context forward</code></strong>、<code>Make context use legible and steerable</code>、<strong><code>Control and communicate side effects</code></strong>、<code>Highlight possible misalignments</code>。另有 <code>The chain of command</code>（指令的优先级链条）与 <code>Consider source, scope, and recency</code>（判断上下文来源/范围/时效）。</p>
+
+<p><strong>点评</strong>：<strong>"Ignore untrusted data by default"被提到这么靠前的位置，是这份文档最重要的一句话</strong>——它把 prompt injection 从"防御建议"升格为"规范默认值"。而"控制并沟通副作用"独立成节，配合今日头条那件事看，时间线耐人寻味：一份规定模型该如何看待不可信输入的规范，在同一周出现了一个模型扩展被投毒的实例。<strong>规范层与供应链层，缺口在同一天暴露。</strong></p>
+</div>
+
+<div class="p1">
+<span class="tag p1t">P1</span><span class="tag">安全</span>
+<h3>OpenAI 公开 frontier model 失配检测方法：分层监控，覆盖训练 / 评测 / 内部使用 / 部署</h3>
+<p class="src">2026-10-29 · <a href="https://alignment.openai.com/">OpenAI Alignment</a></p>
+
+<p>与 Model Spec 同日发布的一篇：说明 OpenAI 如何<strong>分层监控</strong>以发现 frontier model 的失配与<strong>未授权的 agent 行为</strong>，以便在事态升级前介入。覆盖训练、评测、内部使用与部署。alignment.openai.com 上的相关条目还包括《Auto-review of agent actions without synchronous human oversight》《Training agents to self-report misbehavior》《Discovering unknown AI misalignments in real-world usage》《How we monitor internal coding agents for misalignment》——注意最后一条的措辞：<strong>监控"内部的编码 agent"的失配</strong>，说明 OpenAI 自己就在大规模跑编码 agent。</p>
+
+<p><strong>点评</strong>：这是把 agent 监控从"发布前的安全测试"变成"生产基础设施"的明确信号（分层监控 + 明确的检测与响应时间）。<strong>但请注意一个讽刺点</strong>：一个能监控自己内部 agent 失配的实验室，其官方 agent 插件在同周被供应链投毒。<strong>能力层与运维层的成熟度差距，就在这一周暴露无遗。</strong></p>
+</div>
+
+<div class="p2">
+<span class="tag p2t">P2</span><span class="tag">版权</span>
+<h3>四大 AI 厂商集体支持统一的"抓取退出"标准：共享 policy token 信号</h3>
+<p class="src">2026-10-30 · The Verge + <a href="https://openai.com/index/helping-websites-express-ai-training-preferences">OpenAI 公告</a></p>
+
+<p>OpenAI、Google、Microsoft、Anthropic 宣布采用一个共享的 <strong>robots.txt "policy token"</strong> 信号，让出版方<strong>一次性</strong>对多家 AI 厂商表达训练偏好，而不是逐家设置。OpenAI 的公告标题直白：让网站更容易表达 AI 训练偏好。</p>
+
+<p><strong>点评</strong>：技术上是个小步（把散落的 opt-out 标准化），但方向意义不小——<strong>它承认了"训练数据来源治理"需要一个跨厂商的公共机制，而不是每家自己发明一套</strong>。这是对内容方长期诉求的实质回应，也是对各家"robots.txt 已足够"这一辩护的间接否定。</p>
+</div>
+
+<div class="p2">
+<span class="tag p2t">P2</span><span class="tag">端侧</span><span class="tag">太空</span>
+<h3>Google Project Suncatcher：Gemma 4 在轨运行 TPU，AI 数据中心上天迈出第一步</h3>
+<p class="src">2026-10-30 · The Verge（Google 博客引述）</p>
+
+<p>Google 宣布成功启动 Project Suncatcher 卫星上的 <strong>TPU</strong>，让在轨的 <strong>Gemma 4</strong> 完成一个提示，生成了一首关于太空的俳句（"Blue marble below / Data streams in silent grace / Starlight feeds my core"）。后续将测试 TPU 在<strong>热应力与辐射</strong>下的表现，2027 年的下一目标是<strong>双星互联</strong>。</p>
+
+<p><strong>点评</strong>：这一步的技术含量其实不高（一个 prompt 换一首俳句），但<strong>信号意义大于工程意义</strong>——它证明了 TPU 能在轨启动并跑起一个真实模型。真正有价值的问题是"在轨推理 vs 星地链路的延迟与带宽"，而这需要连续运行的数据才能回答。</p>
+</div>
+
+<div class="p2">
+<span class="tag p2t">P2</span><span class="tag">开源</span>
+<h3>nesformer：把一整台 NES 的 6502 CPU 编译进 Qwen3.5-4B 的权重里</h3>
+<p class="src">2026-10-30 · <a href="https://github.com/dbreunig/nesformer">GitHub</a> · <a href="https://simonwillison.net/2026/Oct/30/nesformer/">Simon Willison</a></p>
+
+<p>延续 Divyansh Agrawal 的 <a href="https://divagr.com/blog/qwenputer">qwenputer</a>（把 CHIP-8 和 RISC-V CPU 编译进 Qwen3.5-4B），Drew Breunig 这次把 <strong>NES 的 6502 CPU + 2KB 工作 RAM + 卡带 ROM</strong>放进了同一个 stock Qwen3.5 checkpoint。</p>
+
+<p>关键细节：<strong>没有任何人训练过这些权重，是一个编译器把每个权重算出来的</strong>；模型通过<strong>预测 CPU 执行日志</strong>逐 token 运算，核心技巧是<strong>把模型的 Gated DeltaNet 状态当成机器的内存</strong>；测试游戏的每一帧都与标准 6502 模拟器输出完全一致。速度是每帧 1–6 秒（600 帧约 25 分钟）。仓库 146 星、1 次提交。构造它的提示词是给 <strong>Opus 5.5</strong> 的："读这篇文章和相关源码，然后探索你能否用同样的技术模拟 NES 的芯片和 RAM……如果是，需要多大的模型？"——Opus 随后自己找出了 Christopher Pow 十五年前发布的 NES CPU 一致性测试套件。</p>
+
+<p><strong>点评</strong>：这是"模型即计算介质"路线的最好演示之一，也是 <strong>agentic coding 能力的一次干净的能力上界展示</strong>——注意它需要的不是更强的通用智能，而是"找到正确的工具（一致性测试套件）+ 复用已有工作（qwenputer）+ 愿意花时间构建"这三样。工程量仍然巨大，但它证明了一件事：<strong>把专用计算器"编译进"现有模型权重这条路是通的，不需要重新训练</strong>。对做 agent 工具的团队，这是个值得跟踪的技术方向。</p>
+</div>
+
+<div class="p2">
+<span class="tag p2t">P2</span><span class="tag">传闻</span>
+<h3>传闻：Claude 新模型 Fable 5.5 与代号 "Obsidian 3" 在 Azure 模型目录与榜单平台短暂现身</h3>
+<p class="src">2026-10-30 · 量子位（引 X / Discord 社区与 Azure 模型目录截图）</p>
+
+<p>量子位报道（<strong>未经官方确认，仅为社区流传的截图与传闻</strong>）：有人在 Azure 模型目录中发现短暂出现名为 <code>claude-fable-5-5</code> 的条目（随即被删除），截图已在社区流传，实测输出在图像质量与光影细节上相比 Opus 5.5 明显更强（被形容为"不像 Image 2.5 生成的"）。另有开发者在基准测试平台发现代号 <strong>Obsidian 3</strong> 的模型，跑分略高于当前的 Opus 5.5。报道的解读是 Anthropic 为 IPO 前"藏了不少好东西"。</p>
+
+<p><strong>点评（标注为推测）</strong>：考虑到 Anthropic 已在 10-26 提交 S-1（Nasdaq 代码 <strong>ANT</strong>），IPO 前放出新模型以展示能力曲线是常规操作，这个传闻有相当可信度。但请注意两点：(1) <strong>模型目录条目泄露在新模型发布前是常态，不是可靠信号</strong>；(2) 实测截图无法排除是 prompt 差异或不同推理档位造成的观感差异。<strong>建议不要基于传闻做技术选型决策</strong>，但可以据此把"近期可能有一次 Anthropic 模型发布"纳入你的监控。</p>
+</div>
+
+<hr class="divider">
+
+<h2>💭 深度思考</h2>
+
+<div class="insight">
+<h3>洞察一 · agent 的"身体"比它的"大脑"落后一个世代——而这两件事在本周同时暴露</h3>
+
+<p>把今天的两组事实并排放：</p>
+
+<p><strong>事实 A</strong>：Cursor 市场上的 <code>Anthropic.claude-code</code> 被篡改版本发布 11 小时，装上它的机器被种下 SSH 公钥、反向隧道、LaunchAgent/计划任务持久化，每 60 秒重试一次。卸载插件无法清除。最多 5,000 台机器受影响。</p>
+
+<p><strong>事实 B</strong>（同日 MIT Tech Review）：对四个最主流 agent 框架的审计发现，它们<strong>不生成持久化 Agent ID、不记录哪个人类批准了哪次 agent 任务、不记录权限与记忆的变更</strong>。MITTR 的原话是"我们目前部署这些工具时基本是在盲飞"。</p>
+
+<p><strong>事实 C</strong>（同日 OpenAI Model Spec）："Ignore untrusted data by default" 被写进最靠前的规范层；但"控制并沟通副作用"需要 agent 侧有可落地的机制才成立。</p>
+
+<p><strong>我的判断（主观但确信）</strong>：模型侧的规范、监控、防护在快速补齐——三层同时落子（规范 / 失配监控 / 供应链标准）；而 <strong>agent 的运行时与分发层几乎是裸的</strong>。一个 agent 拥有 shell、文件系统、网络和凭据，它的"身体"却还在用 2015 年的插件市场信任模型（"你装的东西能偷你的 cookie"），而 agent 插件的实际权力是"它就是你"。</p>
+
+<p>更能说明问题的是时间耦合：<strong>一份规范层刚刚把"忽略不可信数据"写成默认值，而同一天，一个被投毒的 agent 扩展正是在"被信任的扩展"这个身份下拿到全部权限</strong>。规范管的是模型读到的内容，管不了模型被安装了什么东西。</p>
+
+<p><strong>给 agent 开发者的可执行结论（三条，按优先级）</strong>：</p>
+
+<ol>
+<li><strong>先做可观测性，再谈自主性。</strong>MITTR 那篇最实用的结论是："what happened"记录（持久 Agent ID、人工介入记录、权限/记忆变更）大多是<strong>软件管道问题</strong>，可以用 OpenTelemetry 解决；而 OpenTelemetry 正在起草 agent tracing 的共享格式（持久身份 + 人工介入的标准正在被补进工作组）。<strong>现在按这个方向埋点，比等标准落地再返工便宜得多</strong>。今天这件事的教训是：出事时你没有那份日志，你连"哪些机器被装了"都只能靠用户自查。</li>
+<li><strong>把 agent 的执行放进沙箱，把 agent 的分发放进供应链管理。</strong>容器/微虚机承载执行 + 锁定扩展版本并校验发布者 + 最小权限 token，缺一不可。今日头条的载荷之所以能建立持久化，正是因为它跑在开发者的主账户下。</li>
+<li><strong>给 agent 的输出加溯源标记。</strong>这条今天有两份独立证据支撑：Anthropic 那篇 86%/15% 的研究（人类用了 agent 的论据却只有 15% 承认来源），和 Model Spec 的"控制并沟通副作用"。<strong>"谁做的、依据什么"必须跟着输出一起走</strong>，否则责任无从归属，出事也无从取证。</li>
+</ol>
+</div>
+
+<div class="insight">
+<h3>洞察二 · 开源权重的竞争维度已经从"能不能"变成"每 token 多少钱"，这正在重写 agent 的经济账</h3>
+
+<p>今天最被低估的一组数字，来自 Le Chonk：<strong>Artificial Analysis Coding Agent Index 48%，与最强开源竞品 GLM-5.3 打平，但每任务平均少用 47% token</strong>；Terminal-Bench 上分数更高（41%）而输出 token 再少 30%。</p>
+
+<p>把这件事和另外几条放在一起看：DSpark 投机解码作为 checkpoint 的一部分随权重发布（1.9× 吞吐）、NVFP4 版本面向 Blackwell、GGUF 社区版本下载量是原始 BF16 版的 2.5 倍、以及 IBM Granite Switch 演示的"基座不动、只重训 adapter"。</p>
+
+<p><strong>结论（主观）</strong>：开源权重模型的能力差距已经小到可以由<strong>推理工程</strong>而非模型本身来决定胜负。token 效率 + 投机解码 + 量化格式 + adapter 热更新这四件事叠加，让一个"能力略低但便宜一半"的模型在 agent 场景里击败一个更强的模型——<strong>因为 agent 的成本结构里，token 数是乘数，不是加数</strong>。</p>
+
+<p><strong>由此推出三条我认为市场还没完全定价的方向</strong>：</p>
+
+<ul>
+<li><strong>"token 效率"应当成为一级选型指标。</strong>现在大家比的是 benchmark 分数，但 agent 的真实账单是"每任务总 token × 单价 × 重试次数"。一个 48% 且省 47% token 的模型，在生产里可能比 52% 而多烧一半 token 的模型便宜得多，而两者在排行榜上看起来差不多。<strong>建议你的模型选型表里第一列是"每任务总 token"，第二列才是分数。</strong></li>
+<li><strong>投机解码正在从"推理优化项"变成"模型发行物的一部分"。</strong>DSpark 随 checkpoint 发布、WebGPU 那篇用 context-mixing drafter 免掉额外 draft 模型——两条路都在把 draft 的来源从"另一个模型"改成"已经在手边的东西"。<strong>如果你的推理栈还没开投机解码，这件事的优先级应该高于换模型。</strong></li>
+<li><strong>可审计性正在成为开源权重相对闭源 API 的真实差异化优势，而不只是价格优势。</strong>Le Chonk 在恶意 cyber prompt 上 96.6% 的拒答率是可以被第三方独立测量的——<strong>闭源 API 做不到这件事，你只能信厂商的说法</strong>。当"这个模型会不会在关键时刻拒绝我"变成一个合规/审计问题（尤其是本文提到的 Anthropic 那类"人的判断其实来自 agent"的场景），<strong>"我能自己测量它的克制行为"就是一个企业级采购理由</strong>，而且随着能力提升会越来越重要。</li>
+</ul>
+
+<p style="color:#8b949e; font-size:0.92em;"><em>最后一个提醒：今天所有关于开源权重"追平"的判断，都建立在厂商自报的 benchmark 上。Mistral 与 HuggingFace 在同一天对同一个 Cyber Index 给出 51% 与 82% 两个数字，就是一个现成的提醒。<strong>在做成本模型时，请务必用你自己的任务集实测 token 数</strong>，而不是抄榜单。</em></p>
+</div>
+
+<hr class="divider">
+
+<h2>📚 延伸阅读</h2>
+
+<ul>
+<li><a href="https://cursor.com/blog/claude-code-extension-security-notice">Cursor 官方安全公告 — Anthropic.claude-code 2.1.312/2.1.313 供应链投毒（含清除脚本与 IoC）</a></li>
+<li><a href="https://www.anthropic.com/research/agents-judgment-calls">Anthropic — How AI agents shape experts' judgment calls（RCT，86% 采纳率）</a></li>
+<li><a href="https://www.technologyreview.com/2026/10/29/1147824/monitor-ai-agents-actions-real-time/">MIT Tech Review — We urgently need to monitor AI agents' actions in real time（四框架可观测性审计）</a></li>
+<li><a href="https://mistral.ai/news/mistral-large-4-oss/">Mistral — Mistral Large 4 (Le Chonk) open weight</a> · <a href="https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B">模型卡（含 DSpark 启用方式）</a></li>
+<li><a href="https://arxiv.org/abs/2610.39931">arXiv:2610.39931 — 低比特 GDN 递归状态量化</a> · <a href="https://arxiv.org/abs/2610.39761">arXiv:2610.39761 — 浏览器内 WebGPU 投机解码</a></li>
+<li><a href="https://arxiv.org/abs/2610.40444">arXiv:2610.40444 — Prefix Executability</a> · <a href="https://arxiv.org/abs/2610.39193">arXiv:2610.39193 — Goal-Aware Dynamic Multi-Agent Collaboration</a> · <a href="https://arxiv.org/abs/2610.40293">arXiv:2610.40293 — MAServeBench</a></li>
+<li><a href="https://model-spec.openai.com/2026-10-29.html">OpenAI Model Spec（2026-10-29 版，五个核心值）</a> · <a href="https://alignment.openai.com/">OpenAI Alignment 研究与发布</a></li>
+<li><a href="https://github.com/dbreunig/nesformer">GitHub — nesformer（NES CPU 编译进 Qwen3.5-4B 权重）</a> · <a href="https://divagr.com/blog/qwenputer">qwenputer 前作</a></li>
+<li><a href="https://huggingface.co/blog/anydecisionmodel">HuggingFace — AnySpeechRecognizer 与 AnyDecisionModel</a> · <a href="https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1">Granite Switch 4.1.1</a> · <a href="https://huggingface.co/blog/nvidia/nemotron-halloween">NVIDIA Nemotron 语音 agent 案例</a></li>
+</ul>
+
+<hr class="divider">
+
+<p class="footer">
+AI 前沿日报 · 2026年10月31日<br>
+生成时间：2026-10-31 08:00 CST · 覆盖窗口：2026-10-28 → 10-31 UTC<br>
+约 120 条候选 → 18 条入选（头条 1 组 / P0 6 / P1 7 / P2 5）<br>
+所有链接与数据均来自实际抓取；未能抓取的来源已在开头逐条披露。<br>
+<span style="color:#3d444d;">— 由 Hermes AI 前沿日报 cron job 自动生成 —</span>
+</p>
+
+</body>
+</html>
