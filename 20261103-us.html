@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI产业链美股收盘与A股映射早报 | 2026年11月3日</title>
+<style>
+  :root {
+    --bg:#0f1117; --card:#1a1d2e; --border:#2a2d3e; --text:#e1e4ed; --text-secondary:#8b8fa3;
+    --green:#00c853; --red:#ff3d4f; --blue:#448aff; --orange:#ff9100; --gold:#ffd740; --purple:#b388ff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;padding:24px;max-width:980px;margin:0 auto;line-height:1.65}
+  .header{text-align:center;padding:32px 0 24px;border-bottom:1px solid var(--border);margin-bottom:32px}
+  .header h1{font-size:28px;font-weight:700;margin-bottom:8px}
+  .header .date{color:var(--text-secondary);font-size:15px}
+  .header .tag{display:inline-block;background:var(--orange);color:#000;padding:4px 14px;border-radius:20px;font-size:13px;margin-top:12px;font-weight:600}
+  .section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px}
+  .section h2{font-size:20px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .section h2 .icon{font-size:24px}
+  .section h2 .note{margin-left:auto;font-size:12px;color:var(--text-secondary);font-weight:400}
+  h3{font-size:16px;margin:20px 0 10px;color:var(--text)}
+  .index-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);gap:12px}
+  .index-row:last-child{border-bottom:none}
+  .index-name{font-weight:600;font-size:15px}
+  .index-value{text-align:right;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .index-price{font-size:18px;font-weight:700;font-variant-numeric:tabular-nums}
+  .index-change{font-size:14px;font-variant-numeric:tabular-nums}
+  .up{color:var(--green)} .down{color:var(--red)} .flat{color:var(--text-secondary)}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:700px){.two-col{grid-template-columns:1fr}}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;color:var(--text-secondary);font-weight:500;padding:8px 10px;border-bottom:1px solid var(--border);font-size:13px}
+  td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.04);font-variant-numeric:tabular-nums}
+  tr:last-child td{border-bottom:none}
+  .stock-name{font-weight:600} .stock-symbol{color:var(--text-secondary);font-size:12px;margin-left:4px}
+  td.num,th.num{text-align:right}
+  .news-item{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+  .news-item:last-child{border-bottom:none}
+  .news-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-right:8px;vertical-align:2px}
+  .tag-bullish{background:rgba(0,200,83,.15);color:var(--green)}
+  .tag-bearish{background:rgba(255,61,79,.15);color:var(--red)}
+  .tag-neutral{background:rgba(255,145,0,.15);color:var(--orange)}
+  .tag-blue{background:rgba(68,138,255,.15);color:var(--blue)}
+  .news-item p{margin-top:5px;font-size:13.5px;color:#b9c0d0}
+  .comment{font-size:13px;color:var(--text-secondary);margin-top:10px}
+  .highlight{background:rgba(68,138,255,.08);padding:14px 16px;border-radius:8px;border-left:3px solid var(--blue);margin:14px 0;font-size:14px}
+  .highlight.warn{background:rgba(255,145,0,.07);border-left-color:var(--orange)}
+  .highlight.risk{background:rgba(255,61,79,.07);border-left-color:var(--red)}
+  .highlight.good{background:rgba(0,200,83,.07);border-left-color:var(--green)}
+  .highlight ul{margin:8px 0 0 18px}
+  .disclaimer{text-align:center;color:var(--text-secondary);font-size:12px;padding:24px 0;border-top:1px solid var(--border);margin-top:32px}
+  .badge{display:inline-block;background:var(--gold);color:#000;padding:1px 8px;border-radius:4px;font-size:11px;font-weight:700}
+  .badge.blue{background:var(--blue);color:#fff} .badge.red{background:var(--red);color:#fff}
+  .badge.purple{background:var(--purple);color:#12081f} .badge.green{background:var(--green);color:#04220f}
+  .kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13.5px;gap:12px}
+  .kv:last-child{border-bottom:none} .kv span{color:var(--text-secondary)} .kv b{font-variant-numeric:tabular-nums;text-align:right}
+  .cal{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:6px}
+  .cal-i{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:9px;padding:11px 13px;font-size:13px}
+  .cal-i b{display:block;color:var(--gold);font-size:12.5px;margin-bottom:3px}
+  .upbar{height:6px;background:rgba(255,255,255,.06);border-radius:3px;position:relative;margin-top:5px;overflow:hidden}
+  .upbar span{position:absolute;top:0;bottom:0;border-radius:3px}
+  .ah{background:rgba(68,138,255,.1)}
+  .flash{color:var(--gold);font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 AI产业链美股收盘与A股映射早报</h1>
+  <div class="date">2026年11月3日（周二）| 覆盖 11月2日（周一）美股收盘 + 盘后 + 隔夜亚太</div>
+  <div class="tag">光互联千亿并购 · 标普纪录高位翻绿 · A股算力链冲高回落</div>
+</div>
+
+<!-- ===== 核心结论 ===== -->
+<div class="section">
+  <h2><span class="icon">🎯</span>今日核心结论</h2>
+
+  <div class="highlight risk">
+    <strong>🔑 一句话：</strong>周一美股是一场<strong>"高位翻绿 + 光互联崩塌"</strong>的双重打击——纳指盘中一度涨 <span class="up">+1.4%</span> 却收跌 <span class="down">-1.07%</span>（1月2日以来最大日内反转），标普更创下<strong>历史新高 7,662</strong> 后收跌 <span class="down">-0.51%</span>；费城半导体 <span class="down">-3.37%</span>。导火索是<strong>Marvell 以 1,150 亿美元全股票收购 Lumentum</strong>——两股双双崩盘（MRVL <span class="down">-12.72%</span>、LITE <span class="down">-18.59%</span>），把"AI光互联资产该值多少钱"的定价难题直接甩给市场。
+  </div>
+
+  <div class="highlight warn">
+    <strong>⚠️ 今日A股最关键的一点（时点错位）：</strong>A股周一（11/2）其实是<strong>涨的</strong>——沪指 <span class="up">+1.08%</span>、创业板 <span class="up">+1.87%</span>、科创50 <span class="up">+3.11%</span>，但<strong>算力硬件在尾盘已经大幅跳水</strong>：中际旭创午间还 <span class="up">+3.95%</span>，收盘变成 <span class="down">-0.54%</span>；新易盛午间 <span class="up">+2.05%</span> → 收盘 <span class="down">-2.31%</span>；天孚 <span class="down">-4.22%</span>。这波"冲高回落"发生在<strong>美股周一夜盘崩盘之前</strong>，属于自身获利了结；<strong>美股MRVL/LITE/CIEN/ORCL/INTC的杀跌尚未被任何一笔A股交易定价</strong>。今早亚太已在补跌：韩国KOSPI <span class="down">-2.61%</span>、台湾加权 <span class="down">-1.24%</span>、富时A50期指 <span class="down">-0.52%</span>。
+  </div>
+
+  <div class="highlight good">
+    <strong>🟢 但有一条被忽略的强主线（今日真正的alpha）：</strong>苹果财报里最重磅的不是营收，是<strong>内存</strong>——CEO Ternus 直言内存价格因AI建设"前所未有"（unprecedented），苹果为抢内存把采购承诺从6月季度到9月季度<strong>追加 330 亿美元</strong>，并预告12月季度 Mac/iPad <strong>因内存供应受限</strong>。这是<strong>存储超级周期的最硬背书</strong>，直接映射A股存储链（兆易创新 <span class="up">+3.05%</span> 主力净流入 <span class="up">+9.41亿</span>、澜起 <span class="up">+3.97%</span>、安集科技 <span class="up">+16.87%</span>）；反过来<strong>苹果大中华区收入不及预期（175.4亿 vs 预期187.5亿）+ iPhone 供应受限</strong>，压制A股果链（立讯 <span class="down">-0.72%</span>、蓝思 <span class="down">-0.47%</span>）。
+  </div>
+
+  <div class="highlight">
+    <strong>🇨🇳 A股映射三条线（今日排序）：</strong>
+    <ul style="margin:8px 0 0 18px">
+      <li><strong>最受益：存储/HBM + 半导体材料</strong>（苹果内存背书 + 韩国存储链杀跌反向错杀）→ 兆易创新、澜起科技、江波龙、佰维存储、德明利、安集科技、鼎龙股份</li>
+      <li><strong>最承压：光模块/CPO + 服务器/PCB</strong>（MRVL-LITE 1150亿并购重定价 + CIEN <span class="down">-11.34%</span> + CRDO <span class="down">-7.27%</span>，A股CPO周一尾盘已先跌一波）→ 中际旭创、新易盛、天孚通信、光库科技、胜宏科技、生益科技</li>
+      <li><strong>最独立：AI应用/传媒 + 券商金融科技</strong>（Anthropic 9个月营收 <span class="up">+1200%</span>、Palantir上调全年指引 + 央行证监会11/2会议 + 11/3第三次SFISF招标）→ 芒果超媒、掌阅科技、东方财富 <span class="up">+6.31%</span>、同花顺 <span class="up">+8.82%</span>、中信证券 <span class="up">+5.19%</span></li>
+    </ul>
+  </div>
+
+  <div class="highlight warn">
+    <strong>🔻 月度视角必须看清：</strong>纳指10月累计 <span class="down">-5.30%</span>、SOX 10月 <span class="down">-15.36%</span>（11月再跌2天，累计 <span class="down">-18.21%</span>），SOX距6月高点 <span class="down">-29.43%</span>。但道指10月 <span class="up">+1.70%</span>、11月再 <span class="up">+0.41%</span>，S&P仅 <span class="down">-1.44%</span>——<strong>这是"AI单腿崩塌 + 其余板块接棒"，不是全面熊市</strong>。周一XLY <span class="up">+2.41%</span>、XLF <span class="up">+1.86%</span>、XLP <span class="up">+1.58%</span>、XLI <span class="up">+1.38%</span>，而老经济个股（Sherwin-Williams <span class="up">+6%</span>、Home Depot <span class="up">+3.6%</span>）直接点火道指。中概独立走强：KWEB <span class="up">+2.68%</span>、BABA <span class="up">+3.53%</span>、PDD <span class="up">+3.91%</span>、TME <span class="up">+5.95%</span>。
+  </div>
+</div>
+
+<!-- ===== 美股指数 ===== -->
+<div class="section">
+  <h2><span class="icon">📊</span>美股指数收盘 <span class="note">11/2（周一）</span></h2>
+
+  <div class="index-row">
+    <span class="index-name">道琼斯 DJI</span>
+    <span class="index-value"><span class="index-price">51,983.98</span><span class="index-change up">+0.41%</span><span class="index-change flat">+213.67点</span><span class="badge green">全场最强</span></span>
+  </div>
+  <div class="index-row">
+    <span class="index-name">标普500 SPX</span>
+    <span class="index-value"><span class="index-price">7,541.40</span><span class="index-change down">-0.51%</span><span class="badge red">盘中7,662创历史新高</span></span>
+  </div>
+  <div class="index-row">
+    <span class="index-name">纳斯达克综合 IXIC</span>
+    <span class="index-value"><span class="index-price">25,164.36</span><span class="index-change down">-1.07%</span><span class="badge red">1/2以来最大日内反转</span></span>
+  </div>
+  <div class="index-row">
+    <span class="index-name">纳斯达克100 NDX</span>
+    <span class="index-value"><span class="index-price">27,989.82</span><span class="index-change down">-1.39%</span><span class="badge blue">距10/6高点-10.36%</span></span>
+  </div>
+  <div class="index-row">
+    <span class="index-name">费城半导体 SOX <span class="badge red">再跌3.37%</span></span>
+    <span class="index-value"><span class="index-price">10,328.33</span><span class="index-change down">-3.37%</span></span>
+  </div>
+  <div class="index-row">
+    <span class="index-name">罗素2000 RUT</span>
+    <span class="index-value"><span class="index-price">2,805.88</span><span class="index-change down">-0.21%</span><span class="badge blue">小盘抗跌</span></span>
+  </div>
+  <div class="index-row">
+    <span class="index-name">VIX 恐慌指数</span>
+    <span class="index-value"><span class="index-price">21.15</span><span class="index-change up">+8.91%</span><span class="badge">重回20上方</span></span>
+  </div>
+
+  <div style="margin-top:18px">
+    <h3>📅 10月月度表现 &amp; 当前回撤</h3>
+    <div class="kv"><span>纳斯达克（10月 vs 9/30）</span><b class="down">-5.30% · 2025年3月以来最差月份</b></div>
+    <div class="kv"><span>标普500（10月）</span><b class="down">-0.93%（11月再跌1.44%累计）</b></div>
+    <div class="kv"><span>道琼斯（10月）</span><b class="up">+1.70% · 11月再 +0.41%</b></div>
+    <div class="kv"><span>费城半导体（10月）</span><b class="down">-15.36%（11月累计 -18.21%）</b></div>
+    <div class="kv"><span>纳指距10/6高点</span><b class="down">-8.82%</b></div>
+    <div class="kv"><span>SOX距6/22历史高点</span><b class="down">-29.43%</b></div>
+    <div class="kv"><span>NVDA距10/6高点（239.24 → 202.06）</span><b class="down">-15.54%</b></div>
+    <div class="kv"><span>10年期美债收益率</span><b>4.894%（-3.5bp）· 油价崩盘压通胀预期</b></div>
+    <div class="kv"><span>布伦特原油</span><b class="down">-7.63% → 104.77美元</b></div>
+    <div class="kv"><span>WTI原油</span><b class="down">-7.36% → 96.46美元</b></div>
+    <div class="kv"><span>比特币</span><b class="down">-1.29% → 77,019（币安63亿美元被盗）</b></div>
+  </div>
+</div>
+
+<!-- ===== AI产业链 ===== -->
+<div class="section">
+  <h2><span class="icon">🧠</span>AI产业链全景 <span class="note">11/2 收盘</span></h2>
+
+  <h3>① 光互联 / 网络（今日最大灾区 · 映射A股最直接）</h3>
+  <table>
+    <tr><th>标的</th><th class="num">收盘</th><th class="num">日涨跌</th><th class="num">5日</th><th class="num">20日</th><th>备注</th></tr>
+    <tr><td><span class="stock-name">Lumentum</span><span class="stock-symbol">LITE</span></td><td class="num">684.40</td><td class="num down">-18.59%</td><td class="num down">-16.34%</td><td class="num down">-37.31%</td><td>被MRVL收购，全股票固定换股</td></tr>
+    <tr><td><span class="stock-name">Marvell</span><span class="stock-symbol">MRVL</span></td><td class="num">171.41</td><td class="num down">-12.72%</td><td class="num down">-26.68%</td><td class="num down">-36.81%</td><td>1150亿收购案，摊薄担忧</td></tr>
+    <tr><td><span class="stock-name">Ciena</span><span class="stock-symbol">CIEN</span></td><td class="num">284.34</td><td class="num down">-11.34%</td><td class="num down">-15.36%</td><td class="num down">-27.03%</td><td>光网络同行，估值锚被拉低</td></tr>
+    <tr><td><span class="stock-name">Credo</span><span class="stock-symbol">CRDO</span></td><td class="num">140.02</td><td class="num down">-7.27%</td><td class="num down">-7.36%</td><td class="num down">-34.10%</td><td>高速互联</td></tr>
+    <tr><td><span class="stock-name">天孚通信</span><span class="stock-symbol">CLS</span></td><td class="num">249.22</td><td class="num down">-6.14%</td><td class="num up">+1.04%</td><td class="num down">-34.88%</td><td>A股天孚同名，勿混淆</td></tr>
+    <tr><td><span class="stock-name">Coherent</span><span class="stock-symbol">COHR</span></td><td class="num">199.95</td><td class="num down">-4.93%</td><td class="num down">-9.73%</td><td class="num down">-40.07%</td><td>光器件</td></tr>
+    <tr><td><span class="stock-name">Fabrinet</span><span class="stock-symbol">FN</span></td><td class="num">314.70</td><td class="num down">-3.85%</td><td class="num down">-3.24%</td><td class="num down">-30.66%</td><td>光代工</td></tr>
+    <tr><td><span class="stock-name">Arista</span><span class="stock-symbol">ANET</span></td><td class="num">164.14</td><td class="num down">-2.80%</td><td class="num down">-7.39%</td><td class="num down">-20.67%</td><td>交换机</td></tr>
+    <tr><td><span class="stock-name">康宁</span><span class="stock-symbol">GLW</span></td><td class="num">123.20</td><td class="num down">-0.09%</td><td class="num down">-3.55%</td><td class="num down">-22.70%</td><td>光纤，跌幅最小</td></tr>
+  </table>
+
+  <h3>② 半导体算力（ARM/INTC/AMD 领跌）</h3>
+  <table>
+    <tr><th>标的</th><th class="num">收盘</th><th class="num">日涨跌</th><th class="num">5日</th><th class="num">20日</th><th>备注</th></tr>
+    <tr><td><span class="stock-name">英特尔</span><span class="stock-symbol">INTC</span></td><td class="num">59.97</td><td class="num down">-8.80%</td><td class="num down">-33.71%</td><td class="num down">-48.39%</td><td>崩盘第二周，5日再跌1/3</td></tr>
+    <tr><td><span class="stock-name">AMD</span><span class="stock-symbol">AMD</span></td><td class="num">466.84</td><td class="num down">-7.52%</td><td class="num down">-12.13%</td><td class="num down">-26.10%</td><td><b class="flash">今晚盘后财报（关键）</b></td></tr>
+    <tr><td><span class="stock-name">希捷</span><span class="stock-symbol">STX</span></td><td class="num">593.76</td><td class="num down">-7.88%</td><td class="num down">-7.83%</td><td class="num down">-33.07%</td><td>存储</td></tr>
+    <tr><td><span class="stock-name">西部数据</span><span class="stock-symbol">WDC</span></td><td class="num">338.59</td><td class="num down">-7.52%</td><td class="num down">-4.93%</td><td class="num down">-23.33%</td><td>存储</td></tr>
+    <tr><td><span class="stock-name">ARM</span><span class="stock-symbol">ARM</span></td><td class="num">196.79</td><td class="num down">-4.46%</td><td class="num down">-11.89%</td><td class="num down">-35.03%</td><td>IP授权</td></tr>
+    <tr><td><span class="stock-name">德州仪器</span><span class="stock-symbol">TER</span></td><td class="num">261.01</td><td class="num down">-4.87%</td><td class="num down">-15.53%</td><td class="num down">-41.28%</td><td>模拟</td></tr>
+    <tr><td><span class="stock-name">拉姆达研究</span><span class="stock-symbol">LRCX</span></td><td class="num">227.56</td><td class="num down">-4.83%</td><td class="num down">-4.19%</td><td class="num down">-34.19%</td><td>设备</td></tr>
+    <tr><td><span class="stock-name">应用材料</span><span class="stock-symbol">AMAT</span></td><td class="num">374.53</td><td class="num down">-3.99%</td><td class="num down">-3.37%</td><td class="num down">-30.93%</td><td>设备</td></tr>
+    <tr><td><span class="stock-name">科林</span><span class="stock-symbol">KLAC</span></td><td class="num">153.11</td><td class="num down">-3.04%</td><td class="num up">+2.61%</td><td class="num down">-25.98%</td><td>5日仍正收益</td></tr>
+    <tr><td><span class="stock-name">阿斯麦</span><span class="stock-symbol">ASML</span></td><td class="num">1,526.14</td><td class="num down">-2.54%</td><td class="num down">-4.07%</td><td class="num down">-17.94%</td><td>光刻</td></tr>
+    <tr><td><span class="stock-name">美光</span><span class="stock-symbol">MU</span></td><td class="num">833.59</td><td class="num down">-5.78%</td><td class="num down">-7.76%</td><td class="num down">-21.65%</td><td><b class="flash">但苹果内存背书（反向信号）</b></td></tr>
+    <tr><td><span class="stock-name">台积电</span><span class="stock-symbol">TSM</span></td><td class="num">398.63</td><td class="num down">-1.85%</td><td class="num down">-6.07%</td><td class="num down">-17.94%</td><td>代工，跌幅收敛</td></tr>
+    <tr><td><span class="stock-name">博通</span><span class="stock-symbol">AVGO</span></td><td class="num">322.23</td><td class="num down">-1.18%</td><td class="num down">-2.11%</td><td class="num down">-11.11%</td><td>定制ASIC</td></tr>
+    <tr><td><span class="stock-name">英伟达</span><span class="stock-symbol">NVDA</span></td><td class="num">202.06</td><td class="num down">-1.26%</td><td class="num down">-6.45%</td><td class="num down">-15.42%</td><td>跌幅远小于SOX</td></tr>
+  </table>
+
+  <div class="two-col" style="margin-top:20px">
+    <div>
+      <h3>③ 服务器 / 存储 / 电力（AI刚需）</h3>
+      <table>
+        <tr><th>标的</th><th class="num">收盘</th><th class="num">日涨跌</th></tr>
+        <tr><td><span class="stock-name">超微电脑</span><span class="stock-symbol">SMCI</span></td><td class="num">30.44</td><td class="num down">-7.62%</td></tr>
+        <tr><td><span class="stock-name">戴尔</span><span class="stock-symbol">DELL</span></td><td class="num">392.78</td><td class="num down">-7.43%</td></tr>
+        <tr><td><span class="stock-name">惠普</span><span class="stock-symbol">HPE</span></td><td class="num">51.19</td><td class="num down">-7.08%</td></tr>
+        <tr><td><span class="stock-name">慧与</span><span class="stock-symbol">SIMO</span></td><td class="num">187.90</td><td class="num down">-9.94%</td></tr>
+        <tr><td><span class="stock-name">Vertiv</span><span class="stock-symbol">VRT</span></td><td class="num">224.24</td><td class="num down">-3.55%</td></tr>
+        <tr><td><span class="stock-name">伊顿</span><span class="stock-symbol">ETN</span></td><td class="num">366.07</td><td class="num down">-1.05%</td></tr>
+        <tr><td><span class="stock-name">GE Vernova</span><span class="stock-symbol">GEV</span></td><td class="num">862.25</td><td class="num up">+0.51%</td></tr>
+        <tr><td><span class="stock-name">PWR</span><span class="stock-symbol">PWR</span></td><td class="num">621.18</td><td class="num up">+0.07%</td></tr>
+        <tr><td><span class="stock-name">NextEra</span><span class="stock-symbol">NEE</span></td><td class="num">85.03</td><td class="num up">+1.58%</td></tr>
+        <tr><td><span class="stock-name">Constellation</span><span class="stock-symbol">CEG</span></td><td class="num">257.25</td><td class="num down">-1.96%</td></tr>
+      </table>
+      <div class="comment">VRT 5日 <span class="up">+12.24%</span>、PWR 5日 <span class="up">+10.15%</span>、NEE 20日 <span class="up">+11.47%</span>——<strong>AI电力/散热仍是资金避风港</strong>，逻辑已从"AI弹性"切换为"AI刚需"。</div>
+    </div>
+    <div>
+      <h3>④ 云 / 软件 / 新经济（"AI应用"独立于"AI硬件"）</h3>
+      <table>
+        <tr><th>标的</th><th class="num">收盘</th><th class="num">日涨跌</th><th>备注</th></tr>
+        <tr><td><span class="stock-name">甲骨文</span><span class="stock-symbol">ORCL</span></td><td class="num">119.22</td><td class="num down">-8.76%</td><td>发100亿股+100亿债</td></tr>
+        <tr><td><span class="stock-name">Datadog</span><span class="stock-symbol">DDOG</span></td><td class="num">216.10</td><td class="num down">-8.15%</td><td>—</td></tr>
+        <tr><td><span class="stock-name">Nebius</span><span class="stock-symbol">NBIS</span></td><td class="num">141.39</td><td class="num down">-8.27%</td><td>AI云</td></tr>
+        <tr><td><span class="stock-name">Snowflake</span><span class="stock-symbol">SNOW</span></td><td class="num">290.68</td><td class="num down">-5.03%</td><td>—</td></tr>
+        <tr><td><span class="stock-name">Palantir</span><span class="stock-symbol">PLTR</span></td><td class="num">178.34</td><td class="num down">-3.13%</td><td>盘后再跌2.13%</td></tr>
+        <tr><td><span class="stock-name">微软</span><span class="stock-symbol">MSFT</span></td><td class="num">507.12</td><td class="num down">-2.83%</td><td>—</td></tr>
+        <tr><td><span class="stock-name">谷歌</span><span class="stock-symbol">GOOGL</span></td><td class="num">278.99</td><td class="num down">-0.30%</td><td>20日 -19.48%</td></tr>
+        <tr><td><span class="stock-name">亚马逊</span><span class="stock-symbol">AMZN</span></td><td class="num">245.63</td><td class="num up">+2.20%</td><td><b class="flash">大型科技唯一上涨</b></td></tr>
+        <tr><td><span class="stock-name">ServiceNow</span><span class="stock-symbol">NOW</span></td><td class="num">106.01</td><td class="num up">+0.85%</td><td>5日 -32.98%</td></tr>
+        <tr><td><span class="stock-name">AppLovin</span><span class="stock-symbol">APP</span></td><td class="num">228.85</td><td class="num up">+0.15%</td><td>—</td></tr>
+        <tr><td><span class="stock-name">苹果</span><span class="stock-symbol">AAPL</span></td><td class="num">338.32</td><td class="num down">-1.83%</td><td>盘后 <span class="down">-2.39%</span></td></tr>
+      </table>
+      <div class="comment">谷歌20日 <span class="down">-19.48%</span>、META 20日 <span class="down">-18.22%</span> 领跌——<strong>市场惩罚的仍是"capex加码+FCF转负"</strong>，而亚马逊逆势上涨，说明资金开始区分"卖铲人"与"挖煤人"。</div>
+    </div>
+  </div>
+
+  <h3>⑤ 板块轮动：谁在涨？（老经济接棒 AI）</h3>
+  <table>
+    <tr><th>板块ETF</th><th class="num">日涨跌</th><th class="num">20日</th><th>解读</th></tr>
+    <tr><td><span class="stock-name">可选消费</span><span class="stock-symbol">XLY</span></td><td class="num up">+2.41%</td><td class="num up">+7.01%</td><td>Home Depot +3.6% 直接点火</td></tr>
+    <tr><td><span class="stock-name">金融</span><span class="stock-symbol">XLF</span></td><td class="num up">+1.86%</td><td class="num up">+6.83%</td><td>—</td></tr>
+    <tr><td><span class="stock-name">必需消费</span><span class="stock-symbol">XLP</span></td><td class="num up">+1.58%</td><td class="num up">+12.08%</td><td>防御</td></tr>
+    <tr><td><span class="stock-name">工业</span><span class="stock-symbol">XLI</span></td><td class="num up">+1.38%</td><td class="num down">-0.23%</td><td>波音 +2%</td></tr>
+    <tr><td><span class="stock-name">公用事业</span><span class="stock-symbol">XLU</span></td><td class="num up">+0.55%</td><td class="num up">+9.26%</td><td>AI电力叙事</td></tr>
+    <tr><td><span class="stock-name">医疗</span><span class="stock-symbol">XLV</span></td><td class="num down">-0.15%</td><td class="num up">+10.29%</td><td>防御</td></tr>
+    <tr><td><span class="stock-name">中概互联</span><span class="stock-symbol">KWEB</span></td><td class="num up">+2.68%</td><td class="num down">-4.93%</td><td>独立定价，显著强于美股科技</td></tr>
+    <tr><td><span class="stock-name">能源</span><span class="stock-symbol">XLE</span></td><td class="num down">-3.96%</td><td class="num up">+5.99%</td><td>油价崩7.6%</td></tr>
+    <tr><td><span class="stock-name">科技</span><span class="stock-symbol">XLK</span></td><td class="num down">-2.95%</td><td class="num down">-13.29%</td><td>—</td></tr>
+    <tr><td><span class="stock-name">黄金</span><span class="stock-symbol">GLD</span></td><td class="num up">+1.65%</td><td class="num down">-4.72%</td><td>避险 + 油价崩引发的通胀回落</td></tr>
+  </table>
+</div>
+
+<!-- ===== 盘后 ===== -->
+<div class="section">
+  <h2><span class="icon">🌙</span>盘后重大动态</h2>
+
+  <div class="news-item">
+    <span class="news-tag tag-bearish">💥 今日最大事件</span>
+    <strong>Marvell 以 1,150 亿美元全股票收购 Lumentum，两股双双崩盘</strong>
+    <p>固定换股比例 <strong>4.500 股 MRVL 换 1 股 LITE</strong>，隐含 LITE 每股 <strong>1,132 美元</strong>，较10月28日（传闻前）溢价 <strong>23.9%</strong>；合并后 TAM 预计扩至 <strong>5,500 亿美元</strong>，年化成本协同超 <strong>10 亿美元</strong>，并预计在交割后第一年增厚 MRVL 的 non-GAAP EPS。Lumentum CEO Hurlston 称是"enormous"机会，Marvell CEO Murphy 称"需求在爆炸"。<br>
+    但市场用脚投票：<strong>MRVL -12.72%、LITE -18.59%</strong>。原因有二——① 全股票换股+4.5倍比例造成巨大摊薄，且<strong>固定换股意味着LITE的价值完全绑定MRVL股价</strong>，MRVL跌则LITE同步跌（4.5×171.41≈771美元，而LITE收684.40，隐含价差约11%，市场在给交易破裂/继续下跌打折）；② 市场开始质疑"MRVL是否在AI光互联估值高点接盘"。<br>
+    <b class="flash">A股映射：中长期是光互联行业整合的强信号（利好国内光模块龙头的稀缺资产溢价），短期是整个CPO/光器件板块的估值锚下移利空。</b></p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-neutral">💵 融资叙事</span>
+    <strong>甲骨文 -8.76%：同时发行 100 亿美元股票 + 100 亿美元投资级债券，为AI建设输血</strong>
+    <p>Bloomberg 报道，Oracle 当日下午同时提交 100 亿股票与 100 亿美元投资级债的发行文件。卖方态度分裂：<strong>Stephens 上调至"增持"、目标价 213 美元（较周五收盘隐含约 63% 空间）</strong>，理由是首个季度在11国38个项目交付约 850MW 算力；而市场担忧的是<strong>AI资本开支的融资可得性（capital availability）</strong>——当四大云厂同时需要外部融资时，估值锚就变成了"AI capex能不能被现金流覆盖"。</p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-blue">🍎 盘后重磅</span>
+    <strong>苹果 Q4 财报：营收 1,144.8 亿超预期，但大中华区不及预期；CEO点名内存"前所未有"</strong>
+    <p>EPS <strong>2.10 美元</strong>（预期2.00），营收 <strong>1,144.8 亿美元</strong>（预期1,134.6亿）；iPhone 575.8亿（预期564.8亿）、Mac 107.9亿（预期96.9亿，Mac 大幅超预期）。但<strong>大中华区收入 175.4 亿美元，低于预期 187.5 亿</strong>。新任 CEO <strong>John Ternus</strong>（9月1日接替库克）首次主持财报电话会，称<strong>内存价格因AI建设"前所未有"（unprecedented）</strong>，苹果为保供应<strong>将内存采购承诺从6月季度到9月季度追加 330 亿美元</strong>，并明确预告<strong>12月季度 Mac 与 iPad 将因内存供应受限</strong>；iPhone/iPhone Duo 供应也受先进制程产能限制。CFO 称服务业务 315.7 亿基本符合预期。<br>
+    盘后 AAPL 跌约 <span class="down">2.4%</span>。<br>
+    <b class="flash">A股映射：存储/HBM 链最强正向（兆易、澜起、江波龙、佰维、德明利、香农芯创 + 半导体材料安集/鼎龙/沪硅）；果链/PCB 链负面（立讯、蓝思、鹏鼎、东山精密）；消费电子整体需求端走弱。</b></p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-bullish">🚀 应用端验证</span>
+    <strong>Anthropic 更新 S-1：前9个月营收 332.4 亿美元，同比暴增约 1,200%</strong>
+    <p>AI 初创独角兽 Anthropic 在修订版招股书中披露，<strong>截至9月30日的九个月营收 332.4 亿美元，同比增长约 1,200%</strong>；上半年营收 163 亿、净亏损 <strong>807 亿美元</strong>，拟以代码 <strong>ANT</strong> 在纳斯达克上市，估值传闻高达 2 万亿美元。这与 Palantir Q3 营收近乎翻倍、上调全年至 81.54 亿美元（同比 +82%）形成共振——<strong>"AI应用/软件"与"AI硬件/资本开支"正在走两条完全不同的定价曲线</strong>。</p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-neutral">🛢️ 宏观</span>
+    <strong>油价暴跌 7.6%：美伊和谈预期升温；10Y收益率降至 4.894%</strong>
+    <p>布伦特 <span class="down">-7.63%</span> 收 104.77 美元、WTI <span class="down">-7.36%</span> 收 96.46 美元。触发点是<strong>伊朗-卡塔尔谈判连续第三天推进</strong>，叠加鲁比奥周末表态特朗普"尚未决定"是否打击伊朗、伊朗外长称若美方"展示善意"则协议可能达成。油价崩 → 通胀预期回落 → 10年期美债收益率降至 <strong>4.894%</strong>（-3.5bp），理论上<strong>利好成长股估值，但也直接打掉了能源股（XLE -3.96%）和此前受益于地缘溢价的防御逻辑</strong>。美国10月ISM制造业扩张但通胀压力仍存。</p>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-neutral">🗳️ 本周风险日历</span>
+    <strong>今日（11/3）美国中期选举；周五10月非农；AMD今晚盘后财报</strong>
+    <p>民主党预计拿下众议院，参议院归属未定；<strong>11月3日（北京时间）还将启动第三次 SFISF 互换便利操作招标，参与范围扩大、互换费率有望下行</strong>（A股增量流动性）。美股财报密集期：AMD、超微电脑、Block 今晚盘后；高通、AppLovin、Arm 周三盘后；Moderna 周五盘前。<br>
+    其他：比特币跌破 77,000，因<strong>币安遭遇 63 亿美元黑客攻击</strong>（调查称为史上最大加密货币黑客事件）；E*Trade 交易主管 Chris Larkin 表示"长期看涨叙事仍完好，但短期动能被油价、AI支出、通胀与地缘反复打断"。</p>
+  </div>
+</div>
+
+<!-- ===== 盘后交易 + 隔夜 ===== -->
+<div class="section">
+  <h2><span class="icon">🌏</span>盘后交易 &amp; 隔夜亚太</h2>
+
+  <h3>🌙 盘后涨跌（相对周一收盘，11/2 收盘后至发稿）</h3>
+  <table>
+    <tr><th>标的</th><th class="num">盘后价</th><th class="num">盘后涨跌</th><th>解读</th></tr>
+    <tr><td><span class="stock-name">Nebius</span><span class="stock-symbol">NBIS</span></td><td class="num">144.14</td><td class="num up">+1.95%</td><td>AI云反弹</td></tr>
+    <tr><td><span class="stock-name">超微电脑</span><span class="stock-symbol">SMCI</span></td><td class="num">31.00</td><td class="num up">+1.84%</td><td>—</td></tr>
+    <tr><td><span class="stock-name">Marvell</span><span class="stock-symbol">MRVL</span></td><td class="num">174.20</td><td class="num up">+1.63%</td><td>并购案首日企稳信号</td></tr>
+    <tr><td><span class="stock-name">AMD</span><span class="stock-symbol">AMD</span></td><td class="num">473.90</td><td class="num up">+1.51%</td><td>财报前抢跑</td></tr>
+    <tr><td><span class="stock-name">科林</span><span class="stock-symbol">KLAC</span></td><td class="num">155.30</td><td class="num up">+1.43%</td><td>设备链</td></tr>
+    <tr><td><span class="stock-name">美光</span><span class="stock-symbol">MU</span></td><td class="num">843.82</td><td class="num up">+1.23%</td><td>苹果内存背书</td></tr>
+    <tr><td><span class="stock-name">Coherent</span><span class="stock-symbol">COHR</span></td><td class="num">202.40</td><td class="num up">+1.23%</td><td>光器件</td></tr>
+    <tr><td><span class="stock-name">Credo</span><span class="stock-symbol">CRDO</span></td><td class="num">141.67</td><td class="num up">+1.18%</td><td>—</td></tr>
+    <tr><td><span class="stock-name">Ciena</span><span class="stock-symbol">CIEN</span></td><td class="num">287.50</td><td class="num up">+1.11%</td><td>—</td></tr>
+    <tr><td><span class="stock-name">英特尔</span><span class="stock-symbol">INTC</span></td><td class="num">60.63</td><td class="num up">+1.10%</td><td>超跌反弹</td></tr>
+    <tr><td><span class="stock-name">英伟达</span><span class="stock-symbol">NVDA</span></td><td class="num">204.22</td><td class="num up">+1.07%</td><td>—</td></tr>
+    <tr><td><span class="stock-name">ARM</span><span class="stock-symbol">ARM</span></td><td class="num">198.84</td><td class="num up">+1.04%</td><td>—</td></tr>
+    <tr><td><span class="stock-name">应用材料</span><span class="stock-symbol">AMAT</span></td><td class="num">379.04</td><td class="num up">+1.20%</td><td>—</td></tr>
+    <tr><td><span class="stock-name">甲骨文</span><span class="stock-symbol">ORCL</span></td><td class="num">119.99</td><td class="num up">+0.65%</td><td>融资利空消化</td></tr>
+    <tr><td><span class="stock-name">苹果</span><span class="stock-symbol">AAPL</span></td><td class="num">330.25</td><td class="num down">-2.39%</td><td><b class="flash">大中华区miss + 内存成本</b></td></tr>
+    <tr><td><span class="stock-name">Palantir</span><span class="stock-symbol">PLTR</span></td><td class="num">174.54</td><td class="num down">-2.13%</td><td>财报好但股价不买账</td></tr>
+  </table>
+  <div class="comment">盘后整体<strong>温和修复</strong>：AI硬件全线小幅反弹 0.2%~2.0%（NVDA +1.07%、AMD +1.51%、MU +1.23%、COHR +1.23%），但<strong>唯一持续下跌的是苹果（-2.4%）与Palantir（-2.1%）</strong>——"业绩好但股价不认"的模式已经扩散到应用端。</div>
+
+  <h3>🌏 隔夜亚太 &amp; 期货（发稿时实时）</h3>
+  <table>
+    <tr><th>市场/工具</th><th class="num">最新</th><th class="num">涨跌</th><th>状态</th></tr>
+    <tr><td><span class="stock-name">纳斯达克100期货</span><span class="stock-symbol">NQ</span></td><td class="num">28,187</td><td class="num up">+0.21%</td><td>小幅修复</td></tr>
+    <tr><td><span class="stock-name">标普500期货</span><span class="stock-symbol">ES</span></td><td class="num">7,583</td><td class="num up">+0.11%</td><td>—</td></tr>
+    <tr><td><span class="stock-name">富时中国A50期货</span></td><td class="num">12,796</td><td class="num down">-0.52%</td><td><b class="flash">A股开盘指引偏弱</b></td></tr>
+    <tr><td><span class="stock-name">韩国KOSPI</span></td><td class="num">5,705</td><td class="num down">-2.61%</td><td>今晨开盘5,715，存储双雄承压</td></tr>
+    <tr><td><span class="stock-name">台湾加权</span></td><td class="num">44,363</td><td class="num down">-1.24%</td><td>今晨开盘44,481</td></tr>
+    <tr><td><span class="stock-name">日经225</span></td><td class="num">63,082</td><td class="num down">-0.33%</td><td>11/2收盘；今日刚开盘数据待更新</td></tr>
+    <tr><td><span class="stock-name">恒生指数</span></td><td class="num">23,393</td><td class="num up">+0.42%</td><td>11/2收盘，今晨刚开盘</td></tr>
+    <tr><td><span class="stock-name">纽约原油</span></td><td class="num">96.48</td><td class="num flat">-0.24%</td><td>油价企稳于暴跌后水平</td></tr>
+    <tr><td><span class="stock-name">伦敦金现货</span></td><td class="num">3,958</td><td class="num up">+0.29%</td><td>—</td></tr>
+  </table>
+  <div class="comment">隔夜信号偏<strong>结构性利空</strong>：美股期货微涨（+0.1~0.2%），但<strong>KOSPI -2.61%、台湾 -1.24%、A50期指 -0.52%</strong>——<strong>亚太存储/代工链的杀跌明显比美股期货更重</strong>，这正是今日A股半导体/存储最需要留意的情绪传导源。</div>
+</div>
+
+<!-- ===== A股映射 ===== -->
+<div class="section">
+  <h2><span class="icon">🇨🇳</span>A股映射：周一复盘 &amp; 今日操作线索</h2>
+
+  <h3>📋 A股周一（11/2）收盘复盘</h3>
+  <table>
+    <tr><th>指数</th><th class="num">收盘</th><th class="num">日涨跌</th><th class="num">5日</th><th class="num">20日</th><th class="num">成交额</th></tr>
+    <tr><td><span class="stock-name">上证指数</span></td><td class="num">3,638.03</td><td class="num up">+1.08%</td><td class="num down">-0.28%</td><td class="num down">-5.02%</td><td class="num">8,475亿</td></tr>
+    <tr><td><span class="stock-name">深证成指</span></td><td class="num">11,010.68</td><td class="num up">+1.63%</td><td class="num down">-2.09%</td><td class="num down">-14.66%</td><td class="num">9,362亿</td></tr>
+    <tr><td><span class="stock-name">创业板指</span></td><td class="num">2,458.70</td><td class="num up">+1.87%</td><td class="num down">-3.51%</td><td class="num down">-21.76%</td><td class="num">4,668亿</td></tr>
+    <tr><td><span class="stock-name">科创50</span></td><td class="num">1,196.94</td><td class="num up">+3.11%</td><td class="num down">-4.42%</td><td class="num down">-23.73%</td><td class="num">813亿</td></tr>
+    <tr><td><span class="stock-name">沪深300</span></td><td class="num">4,016.92</td><td class="num up">+0.79%</td><td class="num down">-0.81%</td><td class="num down">-7.46%</td><td class="num">5,288亿</td></tr>
+    <tr><td><span class="stock-name">上证50</span></td><td class="num">2,762.54</td><td class="num up">+0.75%</td><td class="num up">+0.57%</td><td class="num down">-1.69%</td><td class="num">1,590亿</td></tr>
+    <tr><td><span class="stock-name">中证500</span></td><td class="num">6,420.23</td><td class="num up">+2.46%</td><td class="num down">-1.40%</td><td class="num down">-13.70%</td><td class="num">3,158亿</td></tr>
+    <tr><td><span class="stock-name">中证1000</span></td><td class="num">6,329.34</td><td class="num up">+2.73%</td><td class="num down">-1.52%</td><td class="num down">-13.60%</td><td class="num">3,555亿</td></tr>
+  </table>
+  <div class="comment">两市成交约 <strong>1.78 万亿</strong>，<strong>4,681 涨 / 818 跌 / 74 平</strong>（涨跌比 5.7:1），涨停 <strong>125 家</strong>、最高 6 连板（青岛食品）。<strong>主线是传媒/AI应用 + 券商金融科技</strong>：视频媒体板块 <span class="up">+20.0%</span>、传媒 <span class="up">+8.49%</span>、游戏 <span class="up">+9.06%</span>；东方财富 <span class="up">+6.31%</span>、同花顺 <span class="up">+8.82%</span>、中信证券 <span class="up">+5.19%</span>。催化是<strong>11月2日上午央行、金融监管总局、证监会会议研究推动支持资本市场工具使用</strong>，以及<strong>11月3日将启动第三次 SFISF 操作招标（参与范围扩大）</strong>。</div>
+
+  <h3>🧬 AI产业链分方向（周一收盘 · 等权均值）</h3>
+  <table>
+    <tr><th>方向</th><th class="num">等权均值</th><th class="num">上涨家数</th><th class="num">成交额</th><th>领涨 / 领跌</th><th>今日美股映射</th></tr>
+    <tr><td><span class="stock-name">上游材料</span></td><td class="num up">+6.46%</td><td class="num">9/9</td><td class="num">116亿</td><td>安集 <span class="up">+16.87%</span> / 彤程 <span class="up">+3.82%</span></td><td class="up">🟢 苹果内存背书 + 韩国杀跌错杀</td></tr>
+    <tr><td><span class="stock-name">半导体设备</span></td><td class="num up">+3.72%</td><td class="num">11/12</td><td class="num">279亿</td><td>华海清科 <span class="up">+6.39%</span> / 长川 <span class="down">-0.11%</span></td><td class="up">🟢 自主可控叙事</td></tr>
+    <tr><td><span class="stock-name">先进封装</span></td><td class="num up">+3.32%</td><td class="num">8/9</td><td class="num">120亿</td><td>甬矽 <span class="up">+6.84%</span> / 华天 <span class="down">-0.67%</span></td><td class="flat">🟡</td></tr>
+    <tr><td><span class="stock-name">AI服务器/液冷</span></td><td class="num up">+1.90%</td><td class="num">12/15</td><td class="num">347亿</td><td>申菱 <span class="up">+9.30%</span> / 寒武纪 <span class="down">-2.16%</span></td><td class="down">🔴 SMCI/DELL/HPE崩</td></tr>
+    <tr><td><span class="stock-name">存储/HBM</span></td><td class="num up">+1.34%</td><td class="num">8/11</td><td class="num">468亿</td><td>澜起 <span class="up">+3.97%</span> / 聚辰 <span class="down">-0.93%</span></td><td class="up">🟢 苹果330亿追加采购背书</td></tr>
+    <tr><td><span class="stock-name">果链/消费电子</span></td><td class="num up">+1.33%</td><td class="num">5/8</td><td class="num">110亿</td><td>传音 <span class="up">+4.24%</span> / 顺络 <span class="down">-1.19%</span></td><td class="down">🔴 苹果大中华区miss + 盘后-2.4%</td></tr>
+    <tr><td><span class="stock-name">MLCC/被动元件</span></td><td class="num up">+0.78%</td><td class="num">5/7</td><td class="num">119亿</td><td>台基 <span class="up">+3.36%</span> / 三环 <span class="down">-4.35%</span></td><td class="flat">🟡</td></tr>
+    <tr><td><span class="stock-name">光通信/CPO</span></td><td class="num up">+0.73%</td><td class="num">10/21</td><td class="num">831亿</td><td>长飞 <span class="up">+8.15%</span> / 光库 <span class="down">-5.50%</span></td><td class="down">🔴 MRVL/LITE/CIEN/CRDO全崩</td></tr>
+    <tr><td><span class="stock-name">PCB/CCL</span></td><td class="num down">-1.22%</td><td class="num">3/13</td><td class="num">526亿</td><td>东山精密 <span class="up">+7.13%</span> / 生益 <span class="down">-5.66%</span></td><td class="down">🔴 果链需求担忧</td></tr>
+  </table>
+
+  <div class="highlight warn">
+    <strong>⚡ 必须点破的细节：周一CPO链是"冲高回落"，不是"抗跌"。</strong>
+    以中际旭创为例：<strong>午间 574.87（+3.95%）→ 收盘 550.00（-0.54%）</strong>，尾盘回吐约 4.5 个百分点；新易盛午间 +2.05% → 收盘 -2.31%；天孚午间 -0.90% → 收盘 -4.22%。<strong>资金在美股崩盘之前就已在减仓算力硬件</strong>，所以今天美股LITE -18.59%的冲击属于"二次补跌"，不是首次定价。
+  </div>
+
+  <h3>🎯 今日（11/3）A股映射表</h3>
+  <table class="mapping-table">
+    <tr><th>方向</th><th>代表标的</th><th>美股依据</th><th>今日倾向</th><th>逻辑</th></tr>
+    <tr>
+      <td><span class="stock-name">存储/HBM</span></td>
+      <td>兆易创新、澜起科技、江波龙、佰维存储、德明利、香农芯创</td>
+      <td>苹果内存"前所未有"+采购承诺追加330亿（MU盘后+1.23%）</td>
+      <td><b class="flash">⭐ 首选</b></td>
+      <td>需求端最硬的背书 + 韩国存储链今晨杀跌形成错杀；且存储是涨价链条中确定性最高的一环</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">半导体材料/设备</span></td>
+      <td>安集科技、鼎龙股份、沪硅产业、江丰电子、北方华创、中微公司、华海清科</td>
+      <td>AMAT/LRCX/KLAC跌但国产替代叙事独立</td>
+      <td><b class="flash">⭐ 首选</b></td>
+      <td>周一已是全场最强（+6.46%/+3.72%），且与美股算力资本开支的负相关度最低</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">AI电力/液冷</span></td>
+      <td>英维克、润泽科技、申菱环境、依米康、铂科新材</td>
+      <td>VRT 5日+12.24%、PWR 5日+10.15%、NEE 20日+11.47%</td>
+      <td><span style="color:var(--green)">偏多</span></td>
+      <td>AI刚需属性最强，是"AI杀跌"行情里资金反复抱团的方向</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">光模块/CPO</span></td>
+      <td>中际旭创、新易盛、天孚通信、光库科技、德科立、仕佳光子</td>
+      <td>LITE -18.59%、MRVL -12.72%、CIEN -11.34%、CRDO -7.27%、COHR -4.93%</td>
+      <td><b style="color:var(--red)">偏空（但超跌反弹可期）</b></td>
+      <td>1150亿并购把"AI光互联资产的定价权"重新洗牌，短期估值锚下移；LITE盘后+0.5%、CRDO盘后+1.18%提示抛压部分释放</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">服务器/PCB</span></td>
+      <td>工业富联、浪潮信息、中科曙光、胜宏科技、生益科技、鹏鼎控股</td>
+      <td>SMCI -7.62%、DELL -7.43%、HPE -7.08%、AMZN -2.30%（20日）</td>
+      <td><b style="color:var(--red)">偏空</b></td>
+      <td>云厂capex融资叙事受质疑 + 苹果果链需求担忧双重压制</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">果链/消费电子</span></td>
+      <td>立讯精密、蓝思科技、歌尔股份、欧菲光、传音控股</td>
+      <td>苹果大中华区175.4亿 vs 预期187.5亿，盘后-2.4%</td>
+      <td><b style="color:var(--red)">偏空</b></td>
+      <td>China收入miss + iPhone/Mac供应受限；但注意歌尔、欧菲光、传音周一已逆势走强，属结构性而非全面利空</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">AI应用/传媒</span></td>
+      <td>芒果超媒、掌阅科技、视觉中国、上海电影、大晟文化、捷成股份</td>
+      <td>Anthropic 9月营收+1200%、PLTR上调指引、11/2涨停潮</td>
+      <td><b class="flash">⭐ 独立主线</b></td>
+      <td>与AI硬件周期基本无关，是当前A股"AI"叙事中资金最愿意待的地方，但已连板拥挤，需防高位分歧</td>
+    </tr>
+    <tr>
+      <td><span class="stock-name">券商/金融科技</span></td>
+      <td>东方财富、同花顺、中信证券</td>
+      <td>SFISF第三次招标+证监会/央行会议</td>
+      <td><b class="flash">⭐ 政策驱动</b></td>
+      <td>政策面最直接受益，且中概（KWEB +2.68%）与人民币资产独立走强形成合力</td>
+    </tr>
+  </table>
+
+  <div class="highlight risk">
+    <strong>🔻 风险清单（今日必须盯的）：</strong>
+    <ul style="margin:8px 0 0 18px">
+      <li><strong>今晚 AMD 盘后财报</strong>（11/3）——直接决定周二/周三全球算力链情绪，是本轮最硬的变量</li>
+      <li><strong>美国中期选举今日投票</strong> + 周五10月非农——"AI支出叙事 vs 利率路径"的双重摇摆</li>
+      <li><strong>VIX 回到 21.15（+8.91%）</strong>，已站上20；纳指单日"1月2日以来最大日内反转"意味着多空双方都在盘中大幅换手</li>
+      <li><strong>油价-7.6%</strong> 虽利好通胀，但若美伊和谈反复（特朗普"尚未决定"是否打击伊朗），能源/地缘溢价可能急速回摆</li>
+      <li><strong>SOX距6月高点-29.43%、纳指距10/6高点-8.82%</strong>——趋势尚未走稳，抄底需控制单一方向暴露</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== 日历 ===== -->
+<div class="section">
+  <h2><span class="icon">📅</span>本周关键日历</h2>
+  <div class="cal">
+    <div class="cal-i"><b>11/3（周二）· 今日</b>美国中期选举投票；AMD / 超微电脑 / Block 盘后财报；<span style="color:var(--gold)">央行启动第三次 SFISF 操作招标</span></div>
+    <div class="cal-i"><b>11/4（周三）</b>Circle / Hut 8 / Riot 盘前；高通 / AppLovin / Arm 盘后财报</div>
+    <div class="cal-i"><b>11/5（周四）</b>美国初请失业金；博通(Broadcom)财报窗口临近</div>
+    <div class="cal-i"><b>11/6（周五）</b><span style="color:var(--red)">美国10月非农就业报告</span>——本轮最大宏观变量；Moderna 盘前</div>
+    <div class="cal-i"><b>11/9+（下周）</b>10月CPI/PPI；英伟达三季度财报（AI链最大单点风险）</div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  数据来源：Yahoo Finance / 腾讯财经 / 新浪财经 / 东方财富 / CNBC / Bloomberg / Marvell 官方新闻稿 · 采集时间 2026-11-03 09:00（北京）<br>
+  本报告为公开信息整理与结构化分析，不构成任何投资建议。市场有风险，决策需独立判断。
+</div>
+
+</body>
+</html>
