@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 前沿日报 — 2026年11月13日</title>
+<style>
+  body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; max-width: 820px; margin: 0 auto; padding: 20px; line-height: 1.75; font-size: 15px; }
+  h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 10px; font-size: 1.75em; }
+  h2 { color: #f0883e; margin-top: 36px; border-left: 4px solid #f0883e; padding-left: 10px; }
+  h3 { color: #7ee787; margin-bottom: 6px; }
+  h4 { color: #79c0ff; margin: 12px 0 4px; font-size: 0.98em; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .headline, .p0 { background: #161b22; border-left: 4px solid #7ee787; padding: 15px 18px; margin: 14px 0; border-radius: 6px; }
+  .p1, .p2 { background: #161b22; padding: 13px 16px; margin: 10px 0; border-radius: 6px; }
+  .p1 { border-left: 4px solid #58a6ff; }
+  .p2 { border-left: 4px solid #484f58; }
+  .insight { background: #1a2332; border: 1px solid #58a6ff; padding: 16px 18px; margin: 22px 0; border-radius: 8px; }
+  .insight h3 { color: #58a6ff; }
+  .insight .kicker { color: #79c0ff; }
+  .tag { display: inline-block; background: #21262d; color: #8b949e; padding: 2px 9px; border-radius: 12px; font-size: 0.78em; margin-right: 5px; margin-bottom: 4px; }
+  .tag.p { background: #1f3d2b; color: #7ee787; }
+  .tag.s { background: #1c2b3d; color: #79c0ff; }
+  .tag.e { background: #3d2b1f; color: #ffa657; }
+  .tag.w { background: #3d1f2b; color: #ff7b72; }
+  .divider { border: none; border-top: 1px solid #21262d; margin: 28px 0; }
+  .footer { color: #484f58; font-size: 0.8em; text-align: center; margin-top: 44px; }
+  .meta { color: #8b949e; font-size: 0.85em; margin: -6px 0 14px; }
+  .why { color: #adbac7; border-left: 3px solid #30363d; padding-left: 12px; margin: 10px 0 0; }
+  .why b, strong { color: #e6edf3; }
+  .kicker { color: #8b949e; font-size: 0.85em; letter-spacing: 0.5px; text-transform: uppercase; }
+  .stat { display: inline-block; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 8px 12px; margin: 4px 6px 4px 0; font-size: 0.85em; color: #8b949e; }
+  .stat b { color: #7ee787; font-size: 1.15em; }
+  ul { padding-left: 22px; }
+  li { margin: 5px 0; }
+  code { background: #21262d; color: #ffa657; padding: 1px 5px; border-radius: 4px; font-size: 0.9em; }
+  .hl { color: #f0883e; font-weight: 600; }
+  .src { color: #6e7681; font-size: 0.85em; }
+  .box { background: #12161d; border: 1px dashed #30363d; border-radius: 6px; padding: 10px 14px; margin: 10px 0; font-size: 0.92em; color: #adbac7; }
+</style>
+</head>
+<body>
+
+<h1>🔥 AI 前沿日报 · 2026 年 11 月 13 日</h1>
+<div class="meta">周五 · 覆盖 11/10–11/12（北京时间）· 18 个可用博客/RSS 源 + arXiv API（14 组查询）+ Hacker News + GitHub Trending ×5 + GitHub Repo Search + 60+ 一手页面深读</div>
+
+<div class="stat"><b>93</b> arXiv 论文</div>
+<div class="stat"><b>36</b> HN 帖子</div>
+<div class="stat"><b>67</b> Trending 仓库</div>
+<div class="stat"><b>150</b> Repo Search</div>
+<div class="stat"><b>60+</b> 页面深读</div>
+<div class="stat"><b>21</b> 条精选</div>
+
+<h2>🔥 今日头条</h2>
+
+<div class="headline">
+  <span class="tag w">P0 · 行业格局</span><span class="tag e">Nvidia</span><span class="tag s">出口管制</span>
+  <h3>黄仁勋辞职，Nvidia 进入"CFO 守门"时代——但真正的系统性风险，在同一天被另一篇论文坐实了</h3>
+
+  <p>11 月 12 日，Nvidia 董事会正式公告：<b>黄仁勋辞去总裁、CEO 职务及董事身份，立即生效</b>。CFO Colette Kress 兼任临时 CEO 并继续掌管财务，Harvey C. Jones 出任公司史上首位独立董事长，董事会正启动永久 CEO 的内外部搜寻。这条消息在 Hacker News 上以 <b>2774 分 / 2639 评论</b>成为当日讨论量第一，远超第二名（1026 分）。</p>
+
+  <p>触发点是路透社报道黄仁勋与一名被美方情报界指认为中国间谍的女性存在婚外情，另有第二条婚外情曝光。Democrat 参议员已就此致函展开调查，Reuters 同步报道另有第三方指控。更有意思的连锁反应是：量子位援引报道称<b>马斯克已准备好聘请黄仁勋</b>——从 GPU 供应方到潜在 AI 实验室，这条人事线的走向本身就是一种定价。</p>
+
+  <div class="why">
+    <p><b>但真正值得 agent 开发者停下来的是这件事：</b>就在同一天（11 月 12 日），Unemployment Labs 发布了一篇取证报告，<b>用模型权重本身</b>证明 DeepSeek-V4-Flash / V4-Pro、Kimi K3、MiniMax 与蚂蚁集团的六个模型（均 2026 年 4 月后发布）在训练时使用了受出口管制的 NVIDIA Blackwell 硬件——DeepSeek-V4-Flash 对应 B200/B300，V4-Pro 对应 GB200/GB300，且对 V4-Flash 与 Kimi K3 在<b>物理 Blackwell 芯片</b>上完成了确认；而这些公司更早的模型（DeepSeek-V3、Kimi K2）指纹一致地指向旧一代 Hopper。这不是泄露或内部人爆料，是可复现的数值取证。</p>
+    <p>把两件事放在一起看：<b>Nvidia 换了 CEO，而"先进算力出口管制已经失效"第一次有了技术层面的公开证据。</b>黄仁勋任内的护城河叙事是"AI 算力受制于我"，而这条证据直接侵蚀的是这个叙事的地基。财报上 Nvidia 仍会卖得很好，但"卡脖子"这件事的可信度已经变了——Kress 守门期间要面对的，是监管者拿着权重指纹来问"你们的出口管制到底有没有用"。</p>
+    <p><b>对 agent 开发者的直接影响：</b>算力供给的不确定性会沿着价格和合规两条路径传导。如果后续有更多实证坐实中国前沿模型的 Blackwell 来源，管制措施只会更严——这意味着（a）开源权重模型的部署门槛会继续上升（这恰好解释了今天另一条主线：端侧、小模型、量化为什么同时升温）；（b）选模型时，"哪家在训练管制清单上"会成为一个新的架构约束变量，就像今天有人不得不考虑数据中心电力来源一样。</p>
+    <p class="src">我的判断（主观）：这一天的关键词不是"八卦"或"权力更迭"，而是<b>供应链叙事的可信度第一次被模型权重本身挑战</b>。任何做 agent 基础设施的人，都该把"算力地缘政治"从宏观背景降级为具体的采购与合规变量来处理。</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<h2>🤖 Agent 前沿</h2>
+
+<div class="p0">
+  <span class="tag p">P0 · 架构范式</span><span class="tag s">Google</span><span class="tag s">HuggingFace</span><span class="tag e">决策模型</span>
+  <h3>决策模型（Decision Model）从"小众 API 怪癖"升格为独立模型品类：Google 亲自下场，$0.10/M、150ms、最多 1000 问</h3>
+
+  <p>11 月 11 日 Google 发布 <b>Gemini Decisions API</b> 与新模型 <code>gemini-decision-1</code>。它不是生成模型，而是<b>打分模型</b>：一次前向传播同时对最多 <b>1000 个</b> yes/no、choice（2–255 选项）、score（有序评分）问题给出概率与置信度，不做逐 token 解码。支持 text / image / audio / video / PDF 原生多模态，单次输入上限 256K token。</p>
+
+  <p>关键数字：<b>端到端 150–250ms</b>（纯模型计算中位数 50–100ms），<b>$0.10 / 1M 输入 token，输出 token 计费为零</b>。在共享 benchmark 上比 Gemini 3.5 Flash-Lite（走 Interactions API）<b>便宜近 5 倍</b>。Google 内部 Gemini Notebook 已把它当实时路由层用，宣称延迟最多降低 40%。</p>
+
+  <p>这不是孤立事件。Hugging Face 在 11 月 10 日发了官方长文 <a href="https://huggingface.co/blog/decision">《Decision Models in Hugging Face》</a>，把 <code>State + Questions + Allowed Answers → Decisions + Probabilities</code> 定义成独立接口范式，并指出社区已从 TypeSafe 的 "Jev"（System One 模型）自然收敛到 "decision model" 这个中性术语；文中还给出 Transformers / llama.cpp 两条部署路径和训练方法。Simon Willison 当天记录：<b>"Google 加入 Jev 和 OpenAI 的决策模型行列"</b>，三种问题类型完全一致，连 yes/no 的术语 "Noul" 都是同一个。</p>
+
+  <p>开源侧同步在补位：OpenJev（开放权重，84.0% 对 Jev 的 85.4%）、上海 AI Lab 的 Intern-Decision 0.8B/2B/4B（不生成自由文本）、Perplexity pplx-decider v1.2（Apache-2.0，Decision Index 174 分，厂商模型里最高）、Decido（Gemma 4 26B-A4B 的 8-bit GGUF LoRA，笔记本 CPU 可跑），Ollama 0.35 也已加入 Jev 风格的本地 decision API。</p>
+
+  <div class="why">
+    <p><b>这意味着什么（我认为这是今天对 agent 架构影响最大的一条）：</b>过去两年 agent 系统里，"判断"环节是被严重浪费的。我们让一个能生成几千 token 的模型去回答"这个工单该转哪个部门""这段代码有没有注入风险""这轮对话要不要升级给人工"——每次都是完整的自回归解码、完整的输出计费、完整的 JSON 解析失败风险。决策模型把这一层单独剥离出来：<b>不写字，只给概率</b>，150ms、$0.10/M、置信度可以拿来路由到 fallback 或人工复核。</p>
+    <p><b>对 agent 开发者的具体动作：</b>（1）把 agent 里的分类/路由/评分环节全部盘一遍，凡是用大模型 + JSON prompt 实现的，换成 decision model 或本地小模型——这是最直接的降本点；（2）决策模型的概率输出比"模型说 A"更有用，你可以用它做<b>阈值策略</b>（>0.8 自动执行，0.3–0.8 转人工，<0.3 兜底），这正好补上 agent 最缺的一环——可判定的升级逻辑；（3）它把 "System One / System Two" 的架构分层落到了工程上：决策层便宜快、执行层贵而深，中间用概率阈值耦合。Google 自己的 Orchestrator（见下条）就是这套分层的一个具体实现。</p>
+    <p class="src">一个值得警惕的点（主观）：决策模型在多跳推理上会明显退化——有基准测试显示用 ProofWriter 三千六百道多跳题测下来，决策模型和 LLM 分类器在需要链式推断时会一起崩。所以它不是"更小的 LLM"，是<b>换了个问题子集</b>。别拿它做推理。</p>
+  </div>
+</div>
+
+<div class="p0">
+  <span class="tag p">P0 · 范式突破</span><span class="tag s">AWS</span><span class="tag e">Agent 写生产代码</span>
+  <h3>AWS Emulator：200+ 个 AWS 服务的本地模拟器，100% 由自主 agent 编写，人类没写也没 review 過一行代码</h3>
+
+  <p>11 月 11 日 AWS 发布 <b>AWS Emulator</b>——一个用 Rust 写的本地 AWS API 模拟器，覆盖 <b>438 个 AWS API 模型 / 200+ 服务</b>，以 <b>CC0</b> 许可开源在 <a href="https://github.com/aws/aws-emulator">github.com/aws/aws-emulator</a>。你把 AWS CLI / SDK 的 endpoint 指到本机 127.0.0.1:9297 就能在无 AWS 账号的情况下开发和测试。支持 server mode、Docker、以及 Rust 测试的 embedded mode（每个测试一个隔离实例，无需 endpoint 证书）。</p>
+
+  <p>真正的新闻是它怎么来的。AWS 团队博客的原话是：<b>"我们的团队没有写过、也没有 review 过这里的任何代码。"</b>起源是 Anthropic 早前展示 agent 能自主构建 C 编译器的结果。AWS 给了 agent 两样东西——<b>spec</b>（AWS API Models）和<b>reference implementation</b>（真实 AWS 云）——然后在周末让 Kiro 跑出了第一个 SQS 实现。</p>
+
+  <p>最终形态是<b>三支 agent 团队的流水线</b>：</p>
+  <ul>
+    <li><b>测试队</b>：从公开 API Model 设计保真度测试，每个测试先在真实 AWS 上跑通再提交，目前数万条，持续增长；</li>
+    <li><b>找茬队</b>：重放保真度测试找分歧，先用"给 SQS 写个第一版"这类 issue 引导冷启动，再对失败测试按根因聚类提 issue；</li>
+    <li><b>修复队</b>：一个 issue 一个 agent，定位根因、改代码、然后过<b>合并门禁</b>——门禁里有独立的 agent 审编码规范、审安全、验保真度不回归，不过就退回返工。</li>
+  </ul>
+  <p>官方说每天修复数千个 issue，数百个 agent 并发写同一个仓库。GitHub 上连"已修复"和"待修复"的 issue 目录都公开了。还有个细节很说明问题：早期版本 agent 自己写了个 Python 解释器来支持 AWS Lambda，后来被要求复用现有库——原话是"这在不需要涂色书的人看来或许显而易见"。</p>
+
+  <div class="why">
+    <p><b>这意味着什么：</b>这是"agent 写的代码进生产"第一次以<b>规模化、可下载、CC0</b> 的形态出现在世界上。它证明的不是"AI 能写代码"（那已经不算新闻），而是<b>当 spec 足够形式化、reference implementation 足够完备时，agent 可以独立完成一个有真实用户、有真实 API 兼容要求的工程项目</b>。AWS 有史以来第一次把整个 AWS API 面当作可执行 spec 来使用。</p>
+    <p><b>对 agent 开发者的具体动作：</b>（1）AWS Emulator 是你做 agent 测试基础设施的最佳样板——你的 agent 需要一个"确定性、可离线、可反复重放"的环境，而不是每次调真云。（2）<b>三支 agent 团队的分工（测 / 找 / 修）是可以直接抄的架构</b>：写代码的 agent 和验收代码的 agent 必须分开，否则就是自己给自己打分。（3）今天你就可以用 agent 把你自己项目里那些"没有测试、每次跑都烧真钱"的外部依赖变成本地可回放的 fixture——这正是 agent 时代测试基础设施的形态。</p>
+    <p class="src">一个诚实的保留（主观）：保真度分（fidelity score）由 AWS 自己定义和公布，且"用于构建和测试、不用于生产、不用于安全测试"——CC0 免责也很彻底。它证明了"agent 能造基础设施"，但没证明"agent 能造可信的生产系统"。</p>
+  </div>
+</div>
+
+<div class="p0">
+  <span class="tag p">P0 · 模型发布</span><span class="tag s">Google</span><span class="tag e">动态编排</span>
+  <h3>Gemini 4 Hydrogen 发布 + Orchestrator 上线：用"动态双向模型编排"替代静态模型路由</h3>
+
+  <p>11 月 12 日 Google DeepMind 发布 <b>Gemini 4 Hydrogen</b>，定位"为可靠 agentic workflow 和日常任务而生"的快模型。<b>定价在整个 100 万 token 上下文窗口内完全平价：$1.50 / 1M 输入，$7.50 / 1M 输出</b>（对比 Artificial Analysis 的中位价 $2.00 / $10.00）。</p>
+
+  <p>但发布本身不是重点，重点是同日的 <b>Google Antigravity</b> 推出 <b>Orchestrator</b> 模型下拉选项。Google 官方博客里那段话值得完整引用，因为它是今天对 agent 工程最有指导意义的一段：</p>
+
+  <div class="box">
+    "业界常见做法是用一个静态『模型路由器』，从你的第一个 prompt 猜任务难度，然后把整个任务路由到够用的最便宜模型。可惜，随着 agent 变得长时间运行、在不同阶段需要不同复杂度时，这种做法开始失效——复杂度往往是在任务演进过程中才被发现的。"
+  </div>
+
+  <p>Orchestrator 的做法是<b>动态、双向</b>的：Carbon（前沿推理）先以只读方式探索依赖、消除歧义、产出带明确重规划触发器的具体计划；然后 Hydrogen 接手写代码、改依赖、跑测试；<b>一旦遇到阻力就把控制权交回 Carbon</b>去检查状态、修复计划、恢复执行。实测数据：在 Terminal-Bench 4.1 上，Orchestrator 达到接近 Carbon 的任务成功率，同时<b>平均少消耗 24% 配额、快 19%</b>。</p>
+
+  <p>背景是 Google 上周刚发布 Gemini 4 Carbon 与 <code>/swarm</code>（多 worktree 并行 agent 团队），据其博客称"短短几天内已有数万次 swarm 被启动"。</p>
+
+  <div class="why">
+    <p><b>这意味着什么：</b>"模型路由"正在从"入口处的一次性分类"变成"<b>贯穿执行轨迹的持续调度</b>"。这是 agent 架构的实质性变化——它意味着你的 agent 运行时需要一个真正的编排层，而不是一个开头调用 <code>route()</code> 的 if-else。而且注意它和上一条是同一个故事的两面：<b>Gemini Decision 1 是决策层（要不要换模型、该由谁做），Orchestrator 是调度层（换给谁、什么时候换回来）</b>。</p>
+    <p><b>对 agent 开发者的具体动作：</b>（1）如果你今天用静态 router，别急着删——但要开始记录"每个阶段实际用的是什么模型"，因为没有这份数据你永远不知道静态路由在哪里失效。（2）"重规划触发器"是个可以直接抄的设计：让廉价模型在明确条件下（测试失败、依赖解析出错、需要改设计）把控制权交回强模型，而不是让强模型全程盯着。（3）24% 配额节省是量化的——对你的 agent 做同样的 A/B，这是能写进成本报告里的数字。</p>
+  </div>
+</div>
+
+<div class="p0">
+  <span class="tag p">P0 · 生态标准</span><span class="tag s">Agent Skills</span><span class="tag e">标准之争</span>
+  <h3>Agent Skills 已经吃下 GitHub 周榜：Anthropic、Google、Cloudflare、Chrome 官方全部下场</h3>
+
+  <p>本周 GitHub Trending 周榜里，skills 类仓库成建制占位：<b><code>anthropics/skills</code>（193,693★）、<code>mattpocock/skills</code>（323,000★）、<code>addyosmani/agent-skills</code>（116,657★）、<code>cloudflare/security-audit-skill</code>（71,200★）、<code>google/skills</code>（24,062★）、<code>vercel-labs/agent-browser</code>（50,323★）、<code>vercel-labs/agent-desktop</code>（22,701★）、<code>NVIDIA/auto-ontology</code>（12,232★）</b>。日榜里还有 <code>GoogleChrome/modern-web-guidance-src</code>（739 stars today）、<code>openai/codex-security</code>（643 stars today）、<code>meta/astryx</code>（1,830 stars today）。</p>
+
+  <p>这不是巧合。Anthropic 10 月 22 日把 <b>Agent Skills 捐给 Agentic AI Foundation</b>，官方说法是"自 2025 年 12 月发布标准以来，ChatGPT、Cursor、GitHub Copilot、VS Code 等 <b>70 多个 agent 平台</b>已经集成"。Google 随即开了 <code>google/skills</code>（Cloud IAM、GKE、AlloyDB、Agent Gateway 多 agent 安全等），Cloudflare 开了 <code>security-audit-skill</code>，Chrome / Edge / Firefox / MDN 联合维护 <code>modern-web-guidance</code>——后者解决的是一个很具体的问题：<b>模型训练数据里全是 legacy 前端写法</b>，导致 coding agent 倾向生成臃肿 JavaScript 而不用原生 web 平台能力。</p>
+
+  <p>Cloudflare 那个 skill 的结构值得看：六阶段结构化审计——侦察（架构、信任边界、输入面、覆盖账本）→ 覆盖驱动狩猎（分配隔离 hunter、记录检查、用覆盖 critic 找盲区）→ 候选验证（<b>每个候选交给全新的 verifier 去尝试证伪</b>）→ 结构化输出 → 独立记录验证 → 目标中立报告。这是 Cloudflare 漏洞发现 harness 的单仓库起点。</p>
+
+  <div class="why">
+    <p><b>这意味着什么：</b>Agent Skills 已经从"Claude Code 的一个功能"变成了<b>跨厂商的能力打包与分发格式</b>。Anthropic 捐给基金会这一步是关键——它把一个可能被做成"Claude 专属插件"的东西，变成了像 MCP 一样的中立层。而各家的跟进方式也很有意思：<b>Cloudflare 给的是方法论 skill，Chrome 给的是知识 skill（浏览器兼容性数据），Google 给的是产品操作 skill</b>。三类内容共用一个格式，这是标准真正成熟的标志。</p>
+    <p><b>对 agent 开发者的具体动作：</b>（1）如果你在造 agent 工具链，<b>skills 兼容性现在应该进你的 roadmap</b>——<code>npx skills add google/skills</code> 就能装，格式是开放的，晚了就接不上了；（2）"每个候选交给一个全新的 verifier 去证伪"这个模式，可以直接用在你自己的 agent 输出审核上（生成者与验证者必须是不同实例，最好不同模型）；（3）skills 是分发<b>专业知识</b>的载体，而 MCP 是分发<b>工具能力</b>的载体——这两个协议是互补的，你的架构里两个都要有。</p>
+  </div>
+</div>
+
+<div class="p1">
+  <span class="tag s">P1 · Agent 运行时</span><span class="tag e">自托管</span>
+  <h3>Agent 运行时三件套：OpenBot 1.0（治理外壳）/ Pomerado（网站→MCP）/ AgentRun（自我进化 + 成本优化）</h3>
+
+  <p>今天 GitHub 上同时冒出来三个不同方向但互补的 agent 运行时，值得并排看：</p>
+
+  <ul>
+    <li><b>CopilotKit <a href="https://github.com/CopilotKit/OpenBot">OpenBot 1.0</a></b>（11.6k★，MIT）：每个 AI 同事<b>拥有自己的一台电脑</b>——浏览器、文件、工具；<b>每个动作执行前先被决定、执行后被记录</b>；支持接入任何 AG-UI agent，自托管、桌面端 App（Apple silicon / Windows）、K8s 部署、Web/iOS/Android/Slack/Teams。核心是"<b>动作先审批再执行</b>"这个模型——agent 要发邮件时先停下等你点头，你能随时接管。</li>
+    <li><b>Pomerado</b>（YC F26，MIT）：把任意网站变成 MCP 集成，<b>只需自然语言描述任务，不需要 HAR 文件或录制</b>；生成的是<b>确定性集成</b>而非 computer use，所以<b>比 computer use 更快更可靠</b>；能穿透登录态与双因素认证；产物是标准 MCP stdio server，Claude Code / Codex / Cursor / VS Code / Gemini CLI 都能挂。代价是构建阶段需要 OpenAI API key（但你的 agent 可以跑任意模型）。</li>
+    <li><b>AgentRun</b>：加在 Claude Code / Codex / OpenCode / pi 之上的开源层，提供<b>自我改进、持久化执行、控制平面</b>。它给的数字很具体：Greptile 3 月起按每次 review 收 $1，他们的 agent 上量后账单从 $180/月涨到 $6,451，于是自己训了个便宜模型做 reviewer，<b>每次 review 18 美分</b>，在 30 个没见过的 PR 上抓到真实 bug 的数量是 Greptile 的 1.6 倍。另一个案例：merchant 分类从 Opus 学会后交给便宜模型执行，$0.89 → $0.12。</li>
+  </ul>
+
+  <div class="why">
+    <p><b>对 agent 开发者的具体动作：</b>这三个分别补 agent 栈的三个洞——<b>OpenBot 补"治理与审批"，Pomerado 补"把没有 API 的世界接进来"，AgentRun 补"别再重复付学费"</b>。其中 Pomerado 的思路最值得研究：它的定位是"确定性集成"而非"更聪明的 computer use"，这与今天的主线（决策模型、Orchestrator）完全一致——<b>不要让模型在每一步都重新决定，而是把决策固化下来</b>。如果你现在用 computer use 点网页，试试这条路的成本对比。</p>
+  </div>
+</div>
+
+<div class="p1">
+  <span class="tag s">P1 · arXiv 前沿</span><span class="tag e">记忆治理</span><span class="tag e">工作流编译</span>
+  <h3>arXiv 今日两簇信号：agent 记忆的"该不该记"，以及把 SOP 编译成无 planner 的工作流</h3>
+
+  <p>今天 arXiv 上 <code>cs.AI / cs.CL / cs.LG</code> 共产出 93 篇相关论文，两个簇格外密集：</p>
+
+  <ul>
+    <li><b>记忆治理三连</b>：<b>《When Should Agents Remember? Falsification-Gated Self-Evolution》</b>指出当前自我改进把 episode 里的教训<b>直接写进记忆</b>，导致"局部成功"被当成"可复用的安全知识"——论文提出用证伪门控来决定一次行为更新<b>是否被允许进入持久状态</b>；<b>《Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation》</b>点破了一个反直觉现象：<b>agent 有了记忆反而会变差</b>（memory-induced degradation），因为教训只从轨迹推断、没有被独立验证，agent 会盲目执行一条错误教训；<b>《Coding Agent Memory Post-Training II》</b>则把"写什么、读什么、何时写何时读"当作 policy 来做 on-policy 蒸馏。</li>
+    <li><b>《ReTrace: Distilling Tool-Using Agents into Planner-Free Workflows》</b>——最实用的一篇。问题定义得很准：<b>业务流程每次都跑同一个 SOP，LLM agent 每次都调 LLM 来选下一步</b>，规模和延迟都吃不消。解法是把 SOP 和几次 agent 运行日志蒸馏成一个可复用的工作流，<b>由代码而不是 LLM 来决定下一步走哪</b>。这正好是 AgentRun 那个"18 美分一次 review"的学术版。</li>
+    <li>另有 <b>Continual-ARC</b>（用终身流式任务测技能习得，而非一次性单任务）、<b>ARE-bench</b>（在真实研究者会话与工作区里测 agent 的研究能力，批评现有 benchmark 太"干净"）、<b>EngineAgent</b>（把端侧推理引擎的接入变成 agent 任务，因为转换/算子/硬件后端的跨层依赖太难人工处理）、<b>Program-Aided Patchable Skill Evolution</b>（skill 用程序而非自然语言表示以便可修补演化）。</li>
+  </ul>
+
+  <div class="why">
+    <p><b>对 agent 开发者的具体动作：</b>这三条串起来就是一条完整的工程路线——<b>ReTrace（把流程编译成确定性代码）→ 证伪门控（决定哪些经验有资格进记忆）→ Evidence-Linked（给每条记忆挂上证据链）</b>。如果你正在做"agent 越用越聪明"的产品，这三篇几乎把你的 roadmap 写好了。更重要的元信号是：<b>学术界和工业界在同一周独立收敛到同一个结论——agent 的下一阶段竞争力在"记忆与流程的状态管理"，不在"再调一次 prompt"</b>。</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<h2>⚡ 小模型 &amp; 效率革命</h2>
+
+<div class="p0">
+  <span class="tag p">P0 · 量化</span><span class="tag s">华为诺亚</span><span class="tag e">W4A4</span>
+  <h3>华为开源 MACaQ：模型无关的 SOTA 量化，122B 参数模型 64 分钟量化完，只需 32.5GB 显存</h3>
+
+  <p><a href="https://github.com/huawei-csl/MACaQ">MACaQ</a>（Model-Agnostic Quantization）由华为诺亚方舟实验室开源，定位是<b>超越纯文本的模型无关量化</b>：</p>
+
+  <ul>
+    <li><b>速度</b>：量化一个 <b>122B</b> 参数模型只需 <b>64 分钟</b>，设备内存占用 <b>32.5GB</b>；达到 MR-GPTQ 和 DuQuant++ 更好的 perplexity，或用 <b>11× 更少的量化时间</b>匹配它们在 Llama-3-8B 上的最好成绩。</li>
+    <li><b>覆盖面</b>：llama.cpp（2/3/4-bit GGUF）、vLLM（W4A4 或 weight-only）、Diffusers（图像/视频/音频生成模型 W4A4）、PyTorch（语音生成 W4A4）、以及 Ascend 后端。已给出 Qwen3-4B / Qwen3.8-27B / Qwen3-30B-A3B / Qwen3-Coder-30B-A3B / Qwen3.6-35B-A3B / Qwen3-Next-80B-A3B / OLMoE-1B-7B / FLUX.2-klein-4B / Wan2.2-TI2V-5B 等 recipe。</li>
+    <li><b>MACaQ-R</b>：反向路线——直接 refine 已有的 GGUF 权重码，同时保持 llama.cpp 原生格式和 block scales 兼容，产出物用标准 llama.cpp 就能跑。</li>
+  </ul>
+
+  <div class="why">
+    <p><b>这意味着什么：</b>量化这件事在过去两年已经从"个人玩家的 hack"变成了<b>有正式论文 + 完整多后端工程栈的基础设施</b>。真正的新意在"model-agnostic"和"W4A4 落到扩散/音频/语音生成"——过去量化基本只服务 LLM 文本，现在连视频扩散模型都能 W4A4。对做多模态 agent 的团队，这是实打实的部署成本下降。</p>
+    <p><b>对 agent 开发者的具体动作：</b>端侧 agent 或私有化部署，<b>优先试 MACaQ-R</b>——它不需要重跑量化流程（几分钟而不是一小时），直接 refine 你已有的 GGUF，且保持 llama.cpp 兼容，迁移成本几乎为零。昇腾用户可以直接走 Ascend 后端这条路。</p>
+  </div>
+</div>
+
+<div class="p0">
+  <span class="tag p">P0 · 端侧 Agent</span><span class="tag s">Tether AI Research</span><span class="tag e">0.8B</span>
+  <h3>BotPsy 0.8B：sub-billion 参数的端侧 agentic 模型，在工具调用榜单上打赢所有 ≤1.2B 的对手</h3>
+
+  <p>Tether AI Research 发布 <b>BotPsy</b>，一个 <b>0.8B</b> 参数、基于 Qwen3.5-0.8B 的 function calling / agentic 模型，专为端侧个人助理设计，覆盖 web 搜索与研究、旅行与生活、电商与金融、商务与客服、设备与车辆控制、文件与文档、日历、邮件与消息等域。官方称其在 tool-use 与 agentic 基准上<b>超过所有测试过的 ≤1.2B 模型</b>，包括 2.5 倍大的 Qwen3.5-2B-Think（仅在 Claw-Eval 上被后者反超）。已提供 safetensors 与 bf16 / Q8 / Q4 的 GGUF。</p>
+
+  <p>训练是四阶段三类型反馈，官方特别强调<b>工具使用训练没有损伤通用知识</b>——并诚实指出"知识量仍主要随参数量增长"。作者也写明：小模型仍会犯错，不适合高风险场景。</p>
+
+  <div class="why">
+    <p><b>这意味着什么：</b>agent 的<b>每一步工具选择</b>正在下沉到可以在手机上跑。这是"本地 agent"从概念变成可交付产品的信号——因为端侧 agent 的成本结构里，决策层（调哪个工具、填哪个参数）才是调用频次最高的部分，而这正是 0.8B 能干的事。</p>
+    <p><b>对 agent 开发者的具体动作：</b>如果你在做端侧/隐私优先的 agent，试试这个分层——<b>0.8B 负责工具选择与参数填充，2B–4B 负责需要推理的子任务，7B+ 负责最终输出</b>。BotPsy 本身就是这个架构的第一层。注意它暴露的 GGUF（Q8/Q4）意味着配合 MACaQ 这类工具可以进一步压。</p>
+  </div>
+</div>
+
+<div class="p0">
+  <span class="tag p">P0 · 结构化上下文</span><span class="tag s">IBM Granite</span><span class="tag e">Prompt Injection</span>
+  <h3>LLMON：给 3B / 8B 小模型装上"LLM 原生标记语言"，间接 prompt injection 攻击成功率降到近乎为零</h3>
+
+  <p>IBM Granite 团队发布 <b>LLMON</b>（LLM Object Notation，读作 "lemon"）——一种显式把结构与语义传给模型的标记语言，并同时放出两个实验预览模型：<code>granite-4.1-3b-LLMON-preview</code> 与 <code>granite-4.1-8b-LLMON-preview</code>。</p>
+
+  <p>出发点是一个很具体的观察：<b>LLM 上下文里塞满了各种异质组件——system prompt、历史对话、作用于检索文档的指令、工具返回、约束输出的要求、推理链——但它们要么是隐式的，要么被塞进 JSON 这种"不是为 LLM 消化而设计"的格式</b>。这正是小模型脆弱、易意外失败的原因，也是 prompt injection 的可利用面。</p>
+
+  <p>LLMON 的做法：用有意义的标签包裹语义连贯的组件，标签本身用保留的特殊 token 分隔；嵌套结构对因果 LLM 无歧义；<b>每个指令有唯一 ID，可以从上下文任意位置指向，并与它该作用的数据载荷绑定</b>——类似编程语言里函数调用传参的方式。官方声称：因为指令/数据显式分离，<b>藏在用户数据里的间接 prompt injection 基本会被忽略，部分 benchmark 上攻击成功率降到接近零</b>，而通用能力相对 Granite 4.1 Instruct 基本保持。配套还有把现有 JSON 无损转成 LLMON 的转换器，以及原生支持 LLMON 的 Mellea（自动把 LLM 调用 LLMON 化）。</p>
+
+  <div class="why">
+    <p><b>这意味着什么（这条被我低估了，看完想把它排到更前面）：</b>安全圈正在从"靠模型自觉识别注入"转向"从上下文格式上让注入在结构上不成立"。<b>ID → 数据绑定</b>这个机制，本质是把 prompt injection 从"语义攻击"降维成"格式不匹配"——模型没有理由把一段被显式标注为 data 的内容当成 instruction。</p>
+    <p><b>对 agent 开发者的具体动作：</b>如果你在做 agent 且处理外部内容（RAG 文档、网页、用户上传、工具返回），<b>你今天最大的安全杠杆可能不是换模型，而是换上下文格式</b>。哪怕你不训模型，也可以先把"指令 / 数据 / 工具输出 / 输出约束"用显式标签 + ID 绑定的方式组织好——先在 prompt 层面手搓一个简化版 LLMON 试试，攻击成功率可能立刻下降一个量级。</p>
+  </div>
+</div>
+
+<div class="p1">
+  <span class="tag s">P1 · 极限端侧</span><span class="tag e">1-bit</span>
+  <h3>smolmaxxing：1GB 内存的 iPad Air 2013 和小米电视盒子上跑 16B MoE，1-bit 内核 24–26 tok/s</h3>
+
+  <p>一个把"极限端侧"做成可复现工程的仓库，全部数字都是在自己设备上实测的：</p>
+  <ul>
+    <li><b>小米电视盒子 S（3 代）</b>：Amlogic S7D，4× Cortex-A55，1.9GB RAM（约 1GB 可用），Android 14 无 root → 日常模型 Qwen3.5-2B @ 7.7 tok/s；<b>1-bit 的 Bonsai-1.7B @ 24–26 tok/s</b>；最大模型 Ling-mini-2.0（16B）@ 5.1 tok/s。</li>
+    <li><b>iPad Air (2013)</b>：Apple A7 双核，1GB RAM（约 700MB 可用），iOS 12.5.7 越狱 → Ling-mini-2.0 (16B) @ 2.6–4.5 tok/s。</li>
+    <li>关键技巧：<b>只把部分模型留在内存，其余从 flash 按需流式读取</b>，因此 8B 和 16B 的 MoE 模型能在约 1GB RAM 上跑起来；1-bit 内核只需基础 NEON 指令。</li>
+  </ul>
+
+  <div class="why">
+    <p><b>对 agent 开发者的具体动作：</b>这条的意义不在"电视盒子能跑 16B"这个炫技数字，而在于<b>flash 流式加载 + 极低位宽</b>这两件事可以叠加在任何"内存远小于模型"的设备上——路由器、树莓派、老旧工控机。如果你在做边缘 agent，这套技术路线值得完整读一遍 README 的方案文档（作者说明还会加手机、SBC、路由器）。</p>
+  </div>
+</div>
+
+<div class="p1">
+  <span class="tag s">P1 · 效率快讯</span><span class="tag e">语音 / 音频 / 图像</span>
+  <h3>三个小体量快讯：29M 流式语音识别、74M 流式音频 codec、10 秒 4K 生图</h3>
+
+  <ul>
+    <li><b>Earlybird（arXiv 2611.14421）</b>：<b>29M 参数</b>的预测式流式语音识别器，4-bit 下仅 <b>16.8MB</b>。它从"音频在随机点被切断（包括单词中间）"中学习，因此在说话人还没说完时就能开始输出词——官方说法是传统流式识别要晚 90–400ms 才出词，而语音 agent 里每一毫秒都决定了 agent 能不能提前开始搜索或规划回复。</li>
+    <li><b>Liquid AI LiquidCodec</b>：<b>74M 参数</b>的流式音频 codec，把 24kHz 语音编码成离散 token 再解码回音频，被 LFM3-Audio-2B 与 LFM3-Omni-2B 使用（自研音频编码器 + codec 整体替换了 LFM2.5 的方案）。</li>
+    <li><b>MiniMax H3-Image 开源</b>（11 月 10 日放权重）：10 秒生成 <b>4096×4096（16MP）</b>图像，速度约为市面主流的 <b>5 倍</b>；支持文生图、图像参考与图像编辑。量子位标题里的"一张两毛"是更直观的成本表达。</li>
+  </ul>
+
+  <div class="why">
+    <p><b>对 agent 开发者的具体动作：</b><b>Earlybird 是这三条里最值得立刻关注的</b>——如果你的 agent 有语音入口，"延迟"就是产品体验本身，而 90–400ms 的提前量足以改变对话节奏设计（可以在用户说到一半时就开始检索）。29M / 16.8MB 意味着它可以常驻在设备上，不需要联网。</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<h2>📡 广角扫描</h2>
+
+<div class="p1">
+  <span class="tag w">P1 · 资本</span><span class="tag s">Anthropic</span>
+  <h3>Anthropic IPO 路演启动：$70–78 定价区间，最多募资 644 亿美元，估值最高 $1.4 万亿</h3>
+  <p>11 月 10 日 Anthropic, PBC 正式启动路演。S-1/A No. 2 招股书封面给出的 IPO 定价区间是 <b>$70.00–$78.00</b>，发行 <b>8.25 亿股</b> Class A，最多募资 <b>644 亿美元</b>；路透社独家报道称最新招股书草案显示 Anthropic 寻求的估值最高达 <b>$1.4 万亿</b>，略低于部分投资人的预期——这将成为"史上最大 AI 上市"的一次压力测试。量子位的报道标题是"估值已缩水 6000 亿美元"。Hacker News 上 793 分 / 785 评论，是当日讨论量第二的技术类话题。</p>
+  <p class="src">一个有意思的对照：同一天，Nous Research 宣布融资 <b>9000 万美元</b>并继续强调"开源"路线；Mistral 近两周无重大发布（10 月 28 日之后静默）；Cohere 则宣布由 Jaya Baloo（Juniper 前 CISO、AISLE 联创）出任首位 CISO，走"主权 AI"定位。<b>四家公司的路线在同一周清晰分叉：上市、融资、开源、主权安全。</b></p>
+</div>
+
+<div class="p1">
+  <span class="tag w">P1 · 合规</span><span class="tag e">Agent 落地阻力</span>
+  <h3>美联航禁止 AI agent 代订机票：agent 撞上第一堵真实的机构性墙</h3>
+  <p>11 月 11 日美联航宣布禁止第三方个人 AI assistant 代为预订机票，理由有二：一是<b>凭据共享风险</b>——"把账户凭据交给第三方 AI assistant 可能暴露敏感信息，这些工具的操作可能导致非预期购买、账户变更或里程被挪用"；二是<b>联邦法规</b>——例如行李是否含违禁品要求旅客本人现场确认。航司同时表示将通过平台与旅行社/聚合渠道双重限制执行，并更新预订与出票政策。CBS News 特别点名了 Meta 的 <b>Muse</b> 和 OpenAI 的 <b>dots</b> 这两个 always-on 个人 agent。</p>
+  <div class="why"><b>为什么重要：</b>这是"消费级 agent"第一次遭遇<b>不是技术不行、而是机构方直接说不</b>。它的杀伤力在于：agent 时代最值钱的场景是"跨机构代办事务"（订票、比价、下单、报销），而这类场景的瓶颈从来不是模型能力，而是<b>授权与责任边界</b>。谁替用户承担这笔交易的法律责任，目前没有答案。可预期的连锁反应是：agent 厂商会转向"人能确认的代办"（人在回路里点最后一下），而不是"全自动代办"。</div>
+</div>
+
+<div class="p1">
+  <span class="tag w">P1 · 取证</span><span class="tag e">出口管制</span>
+  <h3>权重指纹取证：中国前沿模型确证使用受管制 Blackwell 硬件</h3>
+  <p>详见今日头条部分的技术细节。核心结论：<b>DeepSeek-V4-Flash / V4-Pro（2026 年 4 月）、Kimi K3、MiniMax 与蚂蚁集团的共计六个 4 月后模型</b>，其初始权重数值模式匹配 Blackwell 硬件配置，其中 DeepSeek-V4-Flash 与 Kimi K3 已在<b>物理 Blackwell 芯片</b>上完成确认；同一批公司的更早模型（DeepSeek-V3 用 H800、Kimi K2 用 H800）一致地匹配上一代 Hopper。研究方明确声明：证据支持"Blackwell 也参与了训练"这一推论，但<b>不证明芯片所在地、获取途径，也不等于认定违反出口管制</b>；AMD 定制硬件是唯一已识别的替代方案，对 V4-Flash 已被排除，对另外五个"极不可能"。</p>
+  <p class="src">技术上的看点：这个方法完全基于公开权重——恢复模型的初始值，再搜索能复现这些初始值的硬件配置与初始化配置。对做推理优化的团队也有参考价值：<b>权重的数值指纹会泄露训练硬件</b>，这一点在合规审查和模型溯源上都是新的攻击面。</p>
+</div>
+
+<div class="p1">
+  <span class="tag w">P1 · 安全</span><span class="tag s">Anthropic</span>
+  <h3>Anthropic「玻璃翼计划」七个月成绩单被质疑：37966 条候选漏洞，公开修复仅 217 条</h3>
+  <p>据智脑时代与量子位报道，Anthropic 发起的 AI 漏洞挖掘计划 Project Glasswing 七个月内由 Claude 累计挖掘 <b>37,966 条候选漏洞</b>，但公开修复仅 <b>217 条</b>，<b>修复率不足 1%</b>。量子位的评论是"只管挖不管埋"。</p>
+  <p class="src">这和今天另一条消息形成有意思的反差：<b>OpenAI 开源了 Codex Security CLI 与 TypeScript SDK</b>（<code>openai/codex-security</code>，日榜 +643 star），明确包含"生成补丁"与"验证已有修复"环节；<b>Cloudflare 的 security-audit-skill</b> 六阶段流程里也把"候选验证"独立成一个由新鲜 verifier 证伪的阶段。<b>行业正在同时往两个方向走：让 AI 挖更多洞，以及让 AI 把洞补上。</b>目前的短板在补的那一侧。</p>
+</div>
+
+<div class="p1">
+  <span class="tag w">P1 · 工具链</span>
+  <h3>代码安全 agent 工具链三件套 + Meta 的 agent-ready 设计系统</h3>
+  <ul>
+    <li><b>OpenAI Codex Security</b>（<code>openai/codex-security</code>，12.4k★）：CLI + TypeScript SDK + GitHub Action，可扫仓库/指定路径/Git 变更，深度扫描会重跑标准扫描并去重；<b>生成补丁、验证已有修复</b>、起草 SECURITY.md 策略与威胁模型、按你自己的 rubric 评估严重性、从 source 与 git history 推荐 owner；支持 Linear / Jira / GitHub 工单流转，导出 SARIF / JSON / CSV。安全面在向"完整漏洞生命周期"扩张。</li>
+    <li><b>Cloudflare security-audit-skill</b>（71.2k★）：六阶段结构化审计 + 独立验证 + 目标中立报告，是 Cloudflare 漏洞发现 harness 的起点。</li>
+    <li><b>NVIDIA auto-ontology</b>（12.2k★，Apache-2.0）：给 agent 建<b>语义/本体层</b>——"数据在哪、什么含义、该不该用、怎么用、从哪来、什么相似"，跨系统对齐指标定义，把生成的查询对照认证定义校验并返回<b>溯源</b>；通过 MCP / CLI / API 暴露给任意 agent harness；能把认证修正与使用反馈回写进本体。<b>官方一句话说得很好："一个更快返回但数字错误的营收指标，一文不值。"</b></li>
+    <li><b>Meta Astryx</b>（26.5k★，日榜 +1,830）：Meta 内部用了八年的设计系统开源，150+ 无障碍组件，React 19 + StyleX，<b>open internals</b>（swizzle 可 eject 组件源码自己拥有）、无样式锁定（Tailwind / CSS Modules / 原生 CSS 都能覆盖）、theme 只需覆写 CSS custom property 而不用 fork 或包裹。明确以"人和 agent 用同一套工具链"为设计目标。</li>
+  </ul>
+</div>
+
+<div class="p1">
+  <span class="tag w">P1 · 其他</span>
+  <h3>检索链路、其他平台与杂项</h3>
+  <ul>
+    <li><b>Cohere Embed 5 / Rerank 5 上 OpenRouter</b>（统一计费、无需额外 SDK）；Rerank 5 主打 passage 级精度的企业文档检索。</li>
+    <li><b>Google 搜索升级</b>，宣称对最复杂的问题给出更好的答案；<b>MiniMax M3.1 Flash 与 H3 Image / Highspeed 上线 Vercel AI Gateway</b>；<b>Gemini 4 Hydrogen 与 Gemini Decision 1 也已上架 AI Gateway</b>（Decisions API 拿来做路由层时，这条路径最省事）。</li>
+    <li><b>OpenAI 侧</b>近两天全是商业案例与政策：Amplitude 用 OpenAI 把产品改进周期压到 1–2 天、Gondola 收入翻倍、Holiday Extras 重构客服、Gilbert + Tobin 用 AI 重做律所业务、ChatGPT Plus 面向退伍军人、GSA 政府 40% 折扣（Anthropic 侧）、"ChatGPT Enterprise 上架 AWS Marketplace"。另有一篇值得注意的政策文：<b>OpenAI 发布《支持 AI 与儿童安全的研究》</b>（Children First Declaration）。</li>
+    <li><b>其它信号</b>：TechCrunch 报道 Muse 已能代打给美国商家（付费）、Nebius 计划 400 亿美元支出试水 neocloud 模式、IBM 发布 Quantum Nighthawk r3（520 可编程量子比特、支持 1 万次量子操作）；DeepSeek AlphaGenome 2（细胞类型特异性变异效应）、MIT Lincoln Lab 三项技术获 2026 R&D 100 奖。</li>
+    <li><b>Reddit 全线被数据中心 IP 封禁</b>（r/LocalLLaMA、r/MachineLearning、r/singularity、r/ClaudeAI、r/OpenAI 均返回 Blocked），本次未取到 Reddit 社区数据，特此说明，未以其他来源冒充。</li>
+  </ul>
+</div>
+
+<hr class="divider">
+
+<h2>💭 深度思考</h2>
+
+<div class="insight">
+  <span class="kicker">洞察一 · 本日主线</span>
+  <h3>今天所有 P0 条目都在讲同一件事：agent 的架构正在从"调模型"变成"分层调度"</h3>
+
+  <p>把今天看似无关的几件事摆在一起：</p>
+  <ul>
+    <li><b>Gemini Decision 1</b> —— 一个不写字、只给概率的<b>决策层</b>；</li>
+    <li><b>Orchestrator</b> —— 一个在执行轨迹中持续做<b>双向模型调度</b>的编排层；</li>
+    <li><b>ReTrace / AgentRun</b> —— 把决策从运行时<b>固化到代码或记忆</b>里；</li>
+    <li><b>Pomerado</b> —— 把 agent 的<b>动作</b>从"每次重新推理"变成"确定性集成"；</li>
+    <li><b>LLMON</b> —— 把上下文里的<b>指令与数据</b>在格式层就分开；</li>
+    <li><b>AWS Emulator</b> —— 把 agent 的<b>运行环境</b>变成可离线重放的确定性系统；</li>
+    <li><b>证伪门控 / Evidence-Linked Memory</b> —— 把 agent 的<b>经验写入</b>变成有证据准入的流程。</li>
+  </ul>
+
+  <p><b>共同点是：把决策从"生成式的一次性调用"里拿出来，搬到有明确接口、可验证、可缓存、可审计的位置。</b>这跟 2024–2025 年"agent = LLM + 工具调用 + prompt 编排"的范式是<b>路线级</b>的区别。上一代 agent 的每一次运行都在重新推理；这一代 agent 的目标是<b>尽可能少推理</b>——判断交给便宜的决策模型甚至代码，执行才交给强模型，路径交给编译过的工作流，经验交给有准入门禁的记忆。</p>
+
+  <p><b>给 agent 开发者的可执行建议（按投入产出比排序）：</b></p>
+  <ol>
+    <li><b>先把所有"判断型"调用从主模型里剥出来</b>。你现在的 agent 里有多少次 LLM 调用其实只是在回答"是/否"、"选哪个"、"打几分"？把它们换成 decision model 或本地小模型，通常能拿到 5 倍以上的成本下降和 10 倍以上的延迟下降。<b>这是本周投入产出比最高的一步，今天就能做。</b></li>
+    <li><b>给 agent 加一个"流程编译"层</b>。读 ReTrace：同一个 SOP 跑第二次时，让代码决定下一步，让 LLM 只处理异常分支。哪怕你只做一条主流程，收益就已经很大。</li>
+    <li><b>把静态路由改成带"交还触发器"的动态路由</b>。抄 Orchestrator 的模式：廉价模型负责执行，明确的失败条件（测试挂了、依赖解析不了、设计要改）触发把控制权交回强模型。这比一开始就上最贵的模型更省，也比纯静态路由更准。</li>
+    <li><b>给 agent 的记忆加一道准入门禁 + 证据链</b>。参考今天两篇记忆论文：一条从轨迹里学到的教训，在被写进持久记忆之前，应该有一个独立实例尝试证伪它；每条记忆应当能指回它的来源 episode。</li>
+    <li><b>把上下文格式当成安全工程来做</b>。不管你训不训模型，先用显式标签 + ID 绑定把"指令 / 数据 / 工具输出 / 输出约束"分开。这是投入最小、对抗性收益最大的一步。</li>
+  </ol>
+  <p class="src">我的判断（主观）：<b>2027 年的 agent 框架竞争，胜负手不在"接了多少模型"或"支持多少 provider"，而在"你的架构里有多少决策被固化下来了"。</b>模型能力是租来的，决策固化能力是自己的。</p>
+</div>
+
+<div class="insight">
+  <span class="kicker">洞察二 · 被低估的方向</span>
+  <h3>被市场低估的不是模型，是"护栏"本身：spec、测试与合并门禁正在成为 agent 时代的核心竞争力</h3>
+
+  <p>AWS Emulator 的故事里，最关键的三个角色不是写代码的 agent，而是：<b>AWS API Models（spec）、真实 AWS 云（reference implementation）、合并门禁（agent 组成的评审 + 校验流水线）</b>。作者的原话是"我们之所以能做到，是因为我们设的护栏给了 agent 独立工作的空间，也给了我们相信它们不会越界的信任"。</p>
+
+  <p>同一天，Cloudflare 的 security-audit-skill 把"给每个候选漏洞配一个全新的 verifier 去尝试证伪"写进流程；AWS Emulator 的门禁里有 agent 审规范、审安全、验保真度不回归；Apple 的 Foundation Models framework 上 HN；agent 记忆的两篇论文在讲"什么有资格被写进记忆"。<b>方向完全一致：可信度不来自产出者，而来自一个独立的、可重复执行的验证机制。</b></p>
+
+  <p><b>被低估的结论：</b>"护栏"过去被当成产品功能（安全审核 UI、权限弹窗、评测分数），实际上它是<b>工程基础设施</b>，而且很可能是 agent 时代最稀缺、也最难被后来者复制的东西。因为模型能力可以买、可以换模型、可以换 provider，但"如何把一个 agent 产出的东西验证到可以下生产"是组织性的、流程性的、试错成本极高的。</p>
+
+  <p><b>具体建议：</b>如果你的团队正在做 agent 产品，现在就值得单独建一个"验证层"小组/子系统，职责是：(1) 用形式化 spec（不只是自然语言需求）描述 agent 的产出契约；(2) 建可离线、可重放的环境（AWS Emulator 是最好的模板）；(3) 保证<b>生成者与验证者用不同实例、最好不同模型</b>；(4) 所有"agent 的产出进入生产"都必须过一道机器可执行的 gate。这套东西建起来很难，但一旦建好，它就是你相对其他 agent 团队最真实的护城河——<b>因为它是复利资产，每次运行都在变强</b>。</p>
+  <p class="src">一个反向的提醒（主观）：同一天 Anthropic 玻璃翼计划"挖了 37966 条只修了 217 条"的数字，说明"挖"的能力已经远超"补"的能力。<b>整个行业当前最稀缺的不是发现问题的能力，而是验证与修复的能力。</b>这个缺口会持续至少到 2027 年。</p>
+</div>
+
+<hr class="divider">
+
+<h2>📚 延伸阅读</h2>
+<ul>
+  <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/">Gemini Decisions API: Fast, calibrated multimodal decisions</a> — 今日必读</li>
+  <li><a href="https://huggingface.co/blog/decision">Decision Models in Hugging Face</a> — 决策模型范式的官方梳理，含 Transformers / llama.cpp 部署与训练路径</li>
+  <li><a href="https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/">Gemini 4 Hydrogen and Orchestrator</a> — 动态双向模型编排的设计说明</li>
+  <li><a href="https://www.aboutamazon.com/news/aws/how-autonomous-ai-agents-built-aws-emulator">AWS Emulator: a local emulator built 100% by autonomous AI agents</a> — 三支 agent 团队的完整设计</li>
+  <li><a href="https://github.com/aws/aws-emulator">github.com/aws/aws-emulator</a> — CC0 开源，含保真度分数与"什么还没修好"目录</li>
+  <li><a href="https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite">LLMON: An LLM-Native Markup Language</a> — 上下文格式即安全边界</li>
+  <li><a href="https://huggingface.co/blog/qvac/botpsy">BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic LM</a> — 0.8B 端侧 agentic</li>
+  <li><a href="https://github.com/huawei-csl/MACaQ">github.com/huawei-csl/MACaQ</a> — 模型无关量化，含 MACaQ-R 与多后端 recipe</li>
+  <li><a href="https://arxiv.org/abs/2611.14492">ReTrace: Distilling Tool-Using Agents into Planner-Free Workflows</a> — arXiv 2611.14492</li>
+  <li><a href="https://arxiv.org/abs/2611.14326">When Should Agents Remember? Falsification-Gated Self-Evolution</a> — arXiv 2611.14326</li>
+  <li><a href="https://arxiv.org/abs/2611.14320">Don't Just Trust Your Memory: Evidence-Linked Memory</a> — arXiv 2611.14320</li>
+  <li><a href="https://arxiv.org/abs/2611.14421">Earlybird: Predictive Streaming Speech Recognition in 29M Parameters</a> — arXiv 2611.14421</li>
+  <li><a href="https://unemploymentlabs.com/checkpoint-forensics">Top Chinese Frontier AI Models Carry the Fingerprint of Export-Controlled Blackwell GPUs</a> — 权重取证报告原文</li>
+  <li><a href="https://github.com/mattpocock/skills">mattpocock/skills</a> · <a href="https://github.com/google/skills">google/skills</a> · <a href="https://github.com/cloudflare/security-audit-skill">cloudflare/security-audit-skill</a> — Agent Skills 生态实况</li>
+  <li><a href="https://github.com/CopilotKit/OpenBot">CopilotKit/OpenBot</a> · <a href="https://github.com/Parcha-ai/agentrun">Parcha-ai/agentrun</a> · <a href="https://github.com/pomerado/pomerado">pomerado/pomerado</a> — 今日三个 agent 运行时</li>
+</ul>
+
+<hr class="divider">
+
+<div class="footer">
+AI 前沿日报 · 2026 年 11 月 13 日<br>
+数据来源：OpenAI News/RSS · Anthropic News/Research/Engineering · Hugging Face Blog · MiniMax · Cohere · Nous Research · BAIR · Simon Willison · 量子位 · MIT News · TechCrunch · MIT Tech Review · arXiv API (14 组查询) · Hacker News Algolia · GitHub Trending ×5 · GitHub Repository Search · Vercel / Together / Microsoft Research · 一手页面深读 60+<br>
+生成：Hermes Agent · <a href="https://reports.dns-cloudflare.com/daily/ai/2026-11-13.html">https://reports.dns-cloudflare.com/daily/ai/2026-11-13.html</a>
+</div>
+
+</body>
+</html>
